@@ -1,0 +1,821 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
+		6E5381E21D1EA73E00B5B638 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6E5381E11D1EA73E00B5B638 /* .gitignore */; };
+		6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */; };
+		6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B11D1AC307002DA3AB /* HomeLiveView.m */; };
+		6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B71D1ACBD9002DA3AB /* FollowViewController.m */; };
+		6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8BB1D1AE014002DA3AB /* ScrollTabBarController.m */; };
+		6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */; };
+		6E71ECD21D1C1BCA00F4B917 /* ESAPIConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECCA1D1C1BCA00F4B917 /* ESAPIConfigManager.m */; };
+		6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECCC1D1C1BCA00F4B917 /* ESRequest.m */; };
+		6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECCE1D1C1BCA00F4B917 /* ESRequestCache.m */; };
+		6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECD01D1C1BCA00F4B917 /* ESRequestHandler.m */; };
+		6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */; };
+		6E71ECE11D1C203D00F4B917 /* HomeChannelEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECE01D1C203D00F4B917 /* HomeChannelEntity.m */; };
+		6E71ECE51D1C20E700F4B917 /* HomeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECE41D1C20E700F4B917 /* HomeRequest.m */; };
+		6EB691EC1D12422C000FA482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EB1D12422C000FA482 /* main.m */; };
+		6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EE1D12422C000FA482 /* AppDelegate.m */; };
+		6EB691F71D12422C000FA482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB691F61D12422C000FA482 /* Assets.xcassets */; };
+		6EB691FA1D12422C000FA482 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB691F81D12422C000FA482 /* LaunchScreen.storyboard */; };
+		6EB692051D12422C000FA482 /* bilibili_fakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB692041D12422C000FA482 /* bilibili_fakeTests.m */; };
+		6EB692101D12422C000FA482 /* bilibili_fakeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */; };
+		DA3D797F646D6DB42B17C181 /* libPods-bilibili fake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6950300069105C49A120668 /* libPods-bilibili fake.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6EB692011D12422C000FA482 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EB691DF1D12422B000FA482 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EB691E61D12422B000FA482;
+			remoteInfo = "bilibili fake";
+		};
+		6EB6920C1D12422C000FA482 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EB691DF1D12422B000FA482 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EB691E61D12422B000FA482;
+			remoteInfo = "bilibili fake";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		156DBEF93F982036B656BD23 /* Pods-bilibili fake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.release.xcconfig"; sourceTree = "<group>"; };
+		3C69B59448321E0DB6611131 /* Pods-bilibili fake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.debug.xcconfig"; sourceTree = "<group>"; };
+		6E1535E81D1A96A20053A846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		6E1535E91D1A96A20053A846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		6E66C8AD1D1AB1E9002DA3AB /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
+		6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
+		6E66C8B01D1AC307002DA3AB /* HomeLiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeLiveView.h; sourceTree = "<group>"; };
+		6E66C8B11D1AC307002DA3AB /* HomeLiveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeLiveView.m; sourceTree = "<group>"; };
+		6E66C8B61D1ACBD9002DA3AB /* FollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowViewController.h; sourceTree = "<group>"; };
+		6E66C8B71D1ACBD9002DA3AB /* FollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowViewController.m; sourceTree = "<group>"; };
+		6E66C8BA1D1AE014002DA3AB /* ScrollTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTabBarController.h; sourceTree = "<group>"; };
+		6E66C8BB1D1AE014002DA3AB /* ScrollTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTabBarController.m; sourceTree = "<group>"; };
+		6E66C8C01D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerAnimatedTransitioning.h; sourceTree = "<group>"; };
+		6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarControllerAnimatedTransitioning.m; sourceTree = "<group>"; };
+		6E71ECC91D1C1BCA00F4B917 /* ESAPIConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESAPIConfigManager.h; sourceTree = "<group>"; };
+		6E71ECCA1D1C1BCA00F4B917 /* ESAPIConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESAPIConfigManager.m; sourceTree = "<group>"; };
+		6E71ECCB1D1C1BCA00F4B917 /* ESRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRequest.h; sourceTree = "<group>"; };
+		6E71ECCC1D1C1BCA00F4B917 /* ESRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRequest.m; sourceTree = "<group>"; };
+		6E71ECCD1D1C1BCA00F4B917 /* ESRequestCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRequestCache.h; sourceTree = "<group>"; };
+		6E71ECCE1D1C1BCA00F4B917 /* ESRequestCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRequestCache.m; sourceTree = "<group>"; };
+		6E71ECCF1D1C1BCA00F4B917 /* ESRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRequestHandler.h; sourceTree = "<group>"; };
+		6E71ECD01D1C1BCA00F4B917 /* ESRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRequestHandler.m; sourceTree = "<group>"; };
+		6E71ECD71D1C1DEA00F4B917 /* HomeChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelView.h; sourceTree = "<group>"; };
+		6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelView.m; sourceTree = "<group>"; };
+		6E71ECDD1D1C1E5500F4B917 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		6E71ECDF1D1C203D00F4B917 /* HomeChannelEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelEntity.h; sourceTree = "<group>"; };
+		6E71ECE01D1C203D00F4B917 /* HomeChannelEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelEntity.m; sourceTree = "<group>"; };
+		6E71ECE31D1C20E700F4B917 /* HomeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRequest.h; sourceTree = "<group>"; };
+		6E71ECE41D1C20E700F4B917 /* HomeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRequest.m; sourceTree = "<group>"; };
+		6EB691E71D12422B000FA482 /* bilibili fake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bilibili fake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EB691EB1D12422C000FA482 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6EB691ED1D12422C000FA482 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6EB691EE1D12422C000FA482 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6EB691F61D12422C000FA482 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6EB691F91D12422C000FA482 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6EB691FB1D12422C000FA482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EB692001D12422C000FA482 /* bilibili fakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bilibili fakeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EB692041D12422C000FA482 /* bilibili_fakeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bilibili_fakeTests.m; sourceTree = "<group>"; };
+		6EB692061D12422C000FA482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EB6920B1D12422C000FA482 /* bilibili fakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bilibili fakeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bilibili_fakeUITests.m; sourceTree = "<group>"; };
+		6EB692111D12422C000FA482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6950300069105C49A120668 /* libPods-bilibili fake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bilibili fake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6EB691E41D12422B000FA482 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA3D797F646D6DB42B17C181 /* libPods-bilibili fake.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB691FD1D12422C000FA482 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB692081D12422C000FA482 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61804A539A0DB3F5CC95CAB2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C69B59448321E0DB6611131 /* Pods-bilibili fake.debug.xcconfig */,
+				156DBEF93F982036B656BD23 /* Pods-bilibili fake.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6E1535DE1D1A87FA0053A846 /* Librarys */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Librarys;
+			sourceTree = "<group>";
+		};
+		6E1535E01D1A94A40053A846 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				6E71ECDD1D1C1E5500F4B917 /* Macro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		6E1535E11D1A94A40053A846 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		6E1535E21D1A95940053A846 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6E71ECC81D1C1BCA00F4B917 /* ESRequest */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		6E1535E31D1A96950053A846 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6E71ECE21D1C20CD00F4B917 /* Request */,
+				6E71ECDE1D1C1F2D00F4B917 /* Entity */,
+				6E1535E61D1A96950053A846 /* Model */,
+				6E1535E41D1A96950053A846 /* Cell */,
+				6E1535E51D1A96950053A846 /* Controller */,
+				6E1535E71D1A96950053A846 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6E1535E41D1A96950053A846 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6E1535E51D1A96950053A846 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E1535E81D1A96A20053A846 /* HomeViewController.h */,
+				6E1535E91D1A96A20053A846 /* HomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E1535E61D1A96950053A846 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E1535E71D1A96950053A846 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E66C8AD1D1AB1E9002DA3AB /* HomeHeaderView.h */,
+				6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */,
+				6E66C8B01D1AC307002DA3AB /* HomeLiveView.h */,
+				6E66C8B11D1AC307002DA3AB /* HomeLiveView.m */,
+				6E71ECD71D1C1DEA00F4B917 /* HomeChannelView.h */,
+				6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E66C8B31D1ACBC5002DA3AB /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+				6E66C8B41D1ACBC5002DA3AB /* Controller */,
+				6E66C8B51D1ACBC5002DA3AB /* View */,
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
+		6E66C8B41D1ACBC5002DA3AB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E66C8B61D1ACBD9002DA3AB /* FollowViewController.h */,
+				6E66C8B71D1ACBD9002DA3AB /* FollowViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E66C8B51D1ACBC5002DA3AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E66C8B91D1ADFDB002DA3AB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6E66C8BA1D1AE014002DA3AB /* ScrollTabBarController.h */,
+				6E66C8BB1D1AE014002DA3AB /* ScrollTabBarController.m */,
+				6E66C8C01D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.h */,
+				6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		6E71ECC81D1C1BCA00F4B917 /* ESRequest */ = {
+			isa = PBXGroup;
+			children = (
+				6E71ECC91D1C1BCA00F4B917 /* ESAPIConfigManager.h */,
+				6E71ECCA1D1C1BCA00F4B917 /* ESAPIConfigManager.m */,
+				6E71ECCB1D1C1BCA00F4B917 /* ESRequest.h */,
+				6E71ECCC1D1C1BCA00F4B917 /* ESRequest.m */,
+				6E71ECCD1D1C1BCA00F4B917 /* ESRequestCache.h */,
+				6E71ECCE1D1C1BCA00F4B917 /* ESRequestCache.m */,
+				6E71ECCF1D1C1BCA00F4B917 /* ESRequestHandler.h */,
+				6E71ECD01D1C1BCA00F4B917 /* ESRequestHandler.m */,
+			);
+			path = ESRequest;
+			sourceTree = "<group>";
+		};
+		6E71ECDE1D1C1F2D00F4B917 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				6E71ECDF1D1C203D00F4B917 /* HomeChannelEntity.h */,
+				6E71ECE01D1C203D00F4B917 /* HomeChannelEntity.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		6E71ECE21D1C20CD00F4B917 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				6E71ECE31D1C20E700F4B917 /* HomeRequest.h */,
+				6E71ECE41D1C20E700F4B917 /* HomeRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		6E9FB08B1D1289FB0032C1DB /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				6E1535E21D1A95940053A846 /* Common */,
+				6E1535E01D1A94A40053A846 /* Macro */,
+				6E1535E11D1A94A40053A846 /* Category */,
+				6E9FB08C1D1289FB0032C1DB /* Modules */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		6E9FB08C1D1289FB0032C1DB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				6E66C8B91D1ADFDB002DA3AB /* Main */,
+				6E1535E31D1A96950053A846 /* Home */,
+				6E66C8B31D1ACBC5002DA3AB /* Follow */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		6EB691DE1D12422B000FA482 = {
+			isa = PBXGroup;
+			children = (
+				6E5381E11D1EA73E00B5B638 /* .gitignore */,
+				6EB691E91D12422C000FA482 /* bilibili fake */,
+				6EB692031D12422C000FA482 /* bilibili fakeTests */,
+				6EB6920E1D12422C000FA482 /* bilibili fakeUITests */,
+				6EB691E81D12422B000FA482 /* Products */,
+				61804A539A0DB3F5CC95CAB2 /* Pods */,
+				FFE768318CD34A3D986CBA50 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6EB691E81D12422B000FA482 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EB691E71D12422B000FA482 /* bilibili fake.app */,
+				6EB692001D12422C000FA482 /* bilibili fakeTests.xctest */,
+				6EB6920B1D12422C000FA482 /* bilibili fakeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6EB691E91D12422C000FA482 /* bilibili fake */ = {
+			isa = PBXGroup;
+			children = (
+				6E9FB08B1D1289FB0032C1DB /* Class */,
+				6EB6921D1D12435E000FA482 /* Resources */,
+				6E1535DE1D1A87FA0053A846 /* Librarys */,
+				6EB691ED1D12422C000FA482 /* AppDelegate.h */,
+				6EB691EE1D12422C000FA482 /* AppDelegate.m */,
+				6EB691F61D12422C000FA482 /* Assets.xcassets */,
+				6EB691F81D12422C000FA482 /* LaunchScreen.storyboard */,
+				6EB691FB1D12422C000FA482 /* Info.plist */,
+				6EB691EA1D12422C000FA482 /* Supporting Files */,
+			);
+			path = "bilibili fake";
+			sourceTree = "<group>";
+		};
+		6EB691EA1D12422C000FA482 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6EB691EB1D12422C000FA482 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6EB692031D12422C000FA482 /* bilibili fakeTests */ = {
+			isa = PBXGroup;
+			children = (
+				6EB692041D12422C000FA482 /* bilibili_fakeTests.m */,
+				6EB692061D12422C000FA482 /* Info.plist */,
+			);
+			path = "bilibili fakeTests";
+			sourceTree = "<group>";
+		};
+		6EB6920E1D12422C000FA482 /* bilibili fakeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */,
+				6EB692111D12422C000FA482 /* Info.plist */,
+			);
+			path = "bilibili fakeUITests";
+			sourceTree = "<group>";
+		};
+		6EB6921D1D12435E000FA482 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FFE768318CD34A3D986CBA50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6950300069105C49A120668 /* libPods-bilibili fake.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6EB691E61D12422B000FA482 /* bilibili fake */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EB692141D12422C000FA482 /* Build configuration list for PBXNativeTarget "bilibili fake" */;
+			buildPhases = (
+				F088A19578E4548E8CFA06C9 /* Check Pods Manifest.lock */,
+				6EB691E31D12422B000FA482 /* Sources */,
+				6EB691E41D12422B000FA482 /* Frameworks */,
+				6EB691E51D12422B000FA482 /* Resources */,
+				AFB2216CB88E7F13AB8CF84C /* Embed Pods Frameworks */,
+				9B1940E661C5B40151E66C84 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "bilibili fake";
+			productName = "bilibili fake";
+			productReference = 6EB691E71D12422B000FA482 /* bilibili fake.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6EB691FF1D12422C000FA482 /* bilibili fakeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EB692171D12422C000FA482 /* Build configuration list for PBXNativeTarget "bilibili fakeTests" */;
+			buildPhases = (
+				6EB691FC1D12422C000FA482 /* Sources */,
+				6EB691FD1D12422C000FA482 /* Frameworks */,
+				6EB691FE1D12422C000FA482 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EB692021D12422C000FA482 /* PBXTargetDependency */,
+			);
+			name = "bilibili fakeTests";
+			productName = "bilibili fakeTests";
+			productReference = 6EB692001D12422C000FA482 /* bilibili fakeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6EB6920A1D12422C000FA482 /* bilibili fakeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EB6921A1D12422C000FA482 /* Build configuration list for PBXNativeTarget "bilibili fakeUITests" */;
+			buildPhases = (
+				6EB692071D12422C000FA482 /* Sources */,
+				6EB692081D12422C000FA482 /* Frameworks */,
+				6EB692091D12422C000FA482 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EB6920D1D12422C000FA482 /* PBXTargetDependency */,
+			);
+			name = "bilibili fakeUITests";
+			productName = "bilibili fakeUITests";
+			productReference = 6EB6920B1D12422C000FA482 /* bilibili fakeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6EB691DF1D12422B000FA482 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "云之彼端";
+				TargetAttributes = {
+					6EB691E61D12422B000FA482 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					6EB691FF1D12422C000FA482 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 6EB691E61D12422B000FA482;
+					};
+					6EB6920A1D12422C000FA482 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 6EB691E61D12422B000FA482;
+					};
+				};
+			};
+			buildConfigurationList = 6EB691E21D12422B000FA482 /* Build configuration list for PBXProject "bilibili fake" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6EB691DE1D12422B000FA482;
+			productRefGroup = 6EB691E81D12422B000FA482 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6EB691E61D12422B000FA482 /* bilibili fake */,
+				6EB691FF1D12422C000FA482 /* bilibili fakeTests */,
+				6EB6920A1D12422C000FA482 /* bilibili fakeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6EB691E51D12422B000FA482 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EB691FA1D12422C000FA482 /* LaunchScreen.storyboard in Resources */,
+				6E5381E21D1EA73E00B5B638 /* .gitignore in Resources */,
+				6EB691F71D12422C000FA482 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB691FE1D12422C000FA482 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB692091D12422C000FA482 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9B1940E661C5B40151E66C84 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFB2216CB88E7F13AB8CF84C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F088A19578E4548E8CFA06C9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6EB691E31D12422B000FA482 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */,
+				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
+				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
+				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
+				6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */,
+				6E71ECE51D1C20E700F4B917 /* HomeRequest.m in Sources */,
+				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
+				6EB691EC1D12422C000FA482 /* main.m in Sources */,
+				6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */,
+				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
+				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
+				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
+				6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */,
+				6E71ECD21D1C1BCA00F4B917 /* ESAPIConfigManager.m in Sources */,
+				6E71ECE11D1C203D00F4B917 /* HomeChannelEntity.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB691FC1D12422C000FA482 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EB692051D12422C000FA482 /* bilibili_fakeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB692071D12422C000FA482 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EB692101D12422C000FA482 /* bilibili_fakeUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6EB692021D12422C000FA482 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6EB691E61D12422B000FA482 /* bilibili fake */;
+			targetProxy = 6EB692011D12422C000FA482 /* PBXContainerItemProxy */;
+		};
+		6EB6920D1D12422C000FA482 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6EB691E61D12422B000FA482 /* bilibili fake */;
+			targetProxy = 6EB6920C1D12422C000FA482 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6EB691F81D12422C000FA482 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EB691F91D12422C000FA482 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6EB692121D12422C000FA482 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6EB692131D12422C000FA482 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6EB692151D12422C000FA482 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C69B59448321E0DB6611131 /* Pods-bilibili fake.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "bilibili fake/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cezr.bilibili-fake";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6EB692161D12422C000FA482 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 156DBEF93F982036B656BD23 /* Pods-bilibili fake.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "bilibili fake/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cezr.bilibili-fake";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6EB692181D12422C000FA482 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "bilibili fakeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cezr.bilibili-fakeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bilibili fake.app/bilibili fake";
+			};
+			name = Debug;
+		};
+		6EB692191D12422C000FA482 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "bilibili fakeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cezr.bilibili-fakeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bilibili fake.app/bilibili fake";
+			};
+			name = Release;
+		};
+		6EB6921B1D12422C000FA482 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "bilibili fakeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cezr.bilibili-fakeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "bilibili fake";
+			};
+			name = Debug;
+		};
+		6EB6921C1D12422C000FA482 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "bilibili fakeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cezr.bilibili-fakeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "bilibili fake";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6EB691E21D12422B000FA482 /* Build configuration list for PBXProject "bilibili fake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EB692121D12422C000FA482 /* Debug */,
+				6EB692131D12422C000FA482 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EB692141D12422C000FA482 /* Build configuration list for PBXNativeTarget "bilibili fake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EB692151D12422C000FA482 /* Debug */,
+				6EB692161D12422C000FA482 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EB692171D12422C000FA482 /* Build configuration list for PBXNativeTarget "bilibili fakeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EB692181D12422C000FA482 /* Debug */,
+				6EB692191D12422C000FA482 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EB6921A1D12422C000FA482 /* Build configuration list for PBXNativeTarget "bilibili fakeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EB6921B1D12422C000FA482 /* Debug */,
+				6EB6921C1D12422C000FA482 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6EB691DF1D12422B000FA482 /* Project object */;
+}
