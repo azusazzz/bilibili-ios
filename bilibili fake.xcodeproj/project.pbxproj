@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28654E1EE3D57B762F51318D /* libPods-bilibili fake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FBED2B3B0E07D181EDEF25 /* libPods-bilibili fake.a */; };
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
 		6E5381E21D1EA73E00B5B638 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6E5381E11D1EA73E00B5B638 /* .gitignore */; };
 		6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */; };
@@ -27,7 +28,7 @@
 		6EB691FA1D12422C000FA482 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB691F81D12422C000FA482 /* LaunchScreen.storyboard */; };
 		6EB692051D12422C000FA482 /* bilibili_fakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB692041D12422C000FA482 /* bilibili_fakeTests.m */; };
 		6EB692101D12422C000FA482 /* bilibili_fakeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */; };
-		DA3D797F646D6DB42B17C181 /* libPods-bilibili fake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6950300069105C49A120668 /* libPods-bilibili fake.a */; };
+		FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC825ED71D1FE80100698652 /* CXHStartViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		156DBEF93F982036B656BD23 /* Pods-bilibili fake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.release.xcconfig"; sourceTree = "<group>"; };
-		3C69B59448321E0DB6611131 /* Pods-bilibili fake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.debug.xcconfig"; sourceTree = "<group>"; };
+		05FBED2B3B0E07D181EDEF25 /* libPods-bilibili fake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bilibili fake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E1535E81D1A96A20053A846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		6E1535E91D1A96A20053A846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -91,7 +91,10 @@
 		6EB6920B1D12422C000FA482 /* bilibili fakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bilibili fakeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bilibili_fakeUITests.m; sourceTree = "<group>"; };
 		6EB692111D12422C000FA482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6950300069105C49A120668 /* libPods-bilibili fake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bilibili fake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		87CBD7FA73C8B4C7328210D1 /* Pods-bilibili fake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.release.xcconfig"; sourceTree = "<group>"; };
+		DC80DD2F7545DB64F8A77A8C /* Pods-bilibili fake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.debug.xcconfig"; sourceTree = "<group>"; };
+		FC825ED61D1FE80100698652 /* CXHStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXHStartViewController.h; sourceTree = "<group>"; };
+		FC825ED71D1FE80100698652 /* CXHStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXHStartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA3D797F646D6DB42B17C181 /* libPods-bilibili fake.a in Frameworks */,
+				28654E1EE3D57B762F51318D /* libPods-bilibili fake.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,11 +123,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		61804A539A0DB3F5CC95CAB2 /* Pods */ = {
+		5B72CE1F4A4C69D2D408CDF5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3C69B59448321E0DB6611131 /* Pods-bilibili fake.debug.xcconfig */,
-				156DBEF93F982036B656BD23 /* Pods-bilibili fake.release.xcconfig */,
+				DC80DD2F7545DB64F8A77A8C /* Pods-bilibili fake.debug.xcconfig */,
+				87CBD7FA73C8B4C7328210D1 /* Pods-bilibili fake.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 		6E9FB08C1D1289FB0032C1DB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FC825ED51D1FE80100698652 /* start */,
 				6E66C8B91D1ADFDB002DA3AB /* Main */,
 				6E1535E31D1A96950053A846 /* Home */,
 				6E66C8B31D1ACBC5002DA3AB /* Follow */,
@@ -306,8 +310,8 @@
 				6EB692031D12422C000FA482 /* bilibili fakeTests */,
 				6EB6920E1D12422C000FA482 /* bilibili fakeUITests */,
 				6EB691E81D12422B000FA482 /* Products */,
-				61804A539A0DB3F5CC95CAB2 /* Pods */,
-				FFE768318CD34A3D986CBA50 /* Frameworks */,
+				5B72CE1F4A4C69D2D408CDF5 /* Pods */,
+				DE7BAA81D2F59C11E1312360 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -370,12 +374,21 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		FFE768318CD34A3D986CBA50 /* Frameworks */ = {
+		DE7BAA81D2F59C11E1312360 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B6950300069105C49A120668 /* libPods-bilibili fake.a */,
+				05FBED2B3B0E07D181EDEF25 /* libPods-bilibili fake.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC825ED51D1FE80100698652 /* start */ = {
+			isa = PBXGroup;
+			children = (
+				FC825ED61D1FE80100698652 /* CXHStartViewController.h */,
+				FC825ED71D1FE80100698652 /* CXHStartViewController.m */,
+			);
+			path = start;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,12 +398,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6EB692141D12422C000FA482 /* Build configuration list for PBXNativeTarget "bilibili fake" */;
 			buildPhases = (
-				F088A19578E4548E8CFA06C9 /* Check Pods Manifest.lock */,
+				44D07269A92B46C33B7C6CCD /* [CP] Check Pods Manifest.lock */,
 				6EB691E31D12422B000FA482 /* Sources */,
 				6EB691E41D12422B000FA482 /* Frameworks */,
 				6EB691E51D12422B000FA482 /* Resources */,
-				AFB2216CB88E7F13AB8CF84C /* Embed Pods Frameworks */,
-				9B1940E661C5B40151E66C84 /* Copy Pods Resources */,
+				7D950342D049612630DE22F3 /* [CP] Embed Pods Frameworks */,
+				48BAEE8D19CBD5BA635C2FB4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -507,14 +520,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9B1940E661C5B40151E66C84 /* Copy Pods Resources */ = {
+		44D07269A92B46C33B7C6CCD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		48BAEE8D19CBD5BA635C2FB4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,34 +550,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AFB2216CB88E7F13AB8CF84C /* Embed Pods Frameworks */ = {
+		7D950342D049612630DE22F3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F088A19578E4548E8CFA06C9 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -562,6 +575,7 @@
 				6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
 				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
+				FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
 				6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */,
 				6E71ECE51D1C20E700F4B917 /* HomeRequest.m in Sources */,
@@ -706,7 +720,7 @@
 		};
 		6EB692151D12422C000FA482 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C69B59448321E0DB6611131 /* Pods-bilibili fake.debug.xcconfig */;
+			baseConfigurationReference = DC80DD2F7545DB64F8A77A8C /* Pods-bilibili fake.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
@@ -719,7 +733,7 @@
 		};
 		6EB692161D12422C000FA482 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 156DBEF93F982036B656BD23 /* Pods-bilibili fake.release.xcconfig */;
+			baseConfigurationReference = 87CBD7FA73C8B4C7328210D1 /* Pods-bilibili fake.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
