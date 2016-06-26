@@ -198,7 +198,7 @@
     if (activity_URL) {
         UITouch *touch = [touches anyObject];
         CGPoint point = [touch  locationInView:self.view];
-        NSLog(@"%f,%f",point.x,point.y);
+        //NSLog(@"%f,%f",point.x,point.y);
         float h = self.view.frame.size.height;
         float w = self.view.frame.size.width;
         if (point.y > h*0.7&&point.y<h*0.9&&point.x > w*0.3&&point.x < w*0.7) {
@@ -251,7 +251,7 @@
 -(NSMutableArray*)get_startView_data{
     NSData *data = [[NSData alloc] initWithContentsOfFile:startView_data_path];
     NSDictionary* startView_data_dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    NSLog(@"%@",startView_data_dic);
+    //NSLog(@"%@",startView_data_dic);
     startView_data_dic = [startView_data_dic objectForKey:@"data"];
     //获取当前的时间戳
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
