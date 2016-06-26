@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-//还差跳转按钮和下面的点击事件。
+
 @interface CXHStartViewController : UIViewController<UIGestureRecognizerDelegate>
+
++(void)show;
 
 @end

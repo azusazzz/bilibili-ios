@@ -21,13 +21,10 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    self.window.rootViewController = [[ScrollTabBarController alloc] init];
+    self.window.rootViewController = [[ScrollTabBarController alloc] init];
     [self.window makeKeyAndVisible];
+    [CXHStartViewController show];
     
-    
-    UINavigationController* nai = [[UINavigationController alloc] initWithRootViewController:[[ScrollTabBarController alloc] init]];
-    [nai pushViewController:[[CXHStartViewController alloc] init] animated:NO];
-    self.window.rootViewController = nai;
     return YES;
 }
 

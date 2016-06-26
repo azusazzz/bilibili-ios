@@ -19,12 +19,24 @@
     NSTimer *MouseTimer;//计时器
     UIButton* skip_btn;//跳过按钮
     NSInteger skip_time;//跳过的时间
+    UIViewController* _oldVC;
 }
 
++(void)show{
+    [UIApplication sharedApplication].keyWindow.rootViewController = [[CXHStartViewController alloc] initWithOldVC:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
+
+-(id)initWithOldVC:(UIViewController*)oldVC{
+    self = [super init];
+    if (self) {
+        _oldVC = oldVC;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.hidden = YES;
+    //self.navigationController.navigationBar.hidden = YES;
     NSDictionary* startView_data_dic = nil;
     NSURL *image_URL = nil;//仅在不使用默认视图时有值
     activity_URL = nil;
@@ -181,16 +193,17 @@
 -(void)removeVC{
     //移除定时器
     [MouseTimer setFireDate:[NSDate distantFuture]];
-    [UIView animateWithDuration:0.5 animations:^{
-        self.view.alpha = 0;
-    } completion:^(BOOL finished) {
-        self.navigationController.navigationBar.hidden = NO;//显示导航栏
-        [self.navigationController popViewControllerAnimated:NO];
-        if (Jump) {
-            //先把调用接口留好
-            NSLog(@"请跳转至%@",activity_URL);
-        }
-    }];
+//    [UIView animateWithDuration:0.5 animations:^{
+//        self.view.alpha = 0;
+//    } completion:^(BOOL finished) {
+//        self.navigationController.navigationBar.hidden = NO;//显示导航栏
+//        [self.navigationController popViewControllerAnimated:NO];
+    [UIApplication sharedApplication].keyWindow.rootViewController = _oldVC;
+    if (Jump) {
+        //先把调用接口留好
+        NSLog(@"请跳转至%@",activity_URL);
+    }
+//    }];
 
 }
 //点击松开事件
