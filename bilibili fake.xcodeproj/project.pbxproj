@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28654E1EE3D57B762F51318D /* libPods-bilibili fake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FBED2B3B0E07D181EDEF25 /* libPods-bilibili fake.a */; };
+		3FE08BCE6BE41769B68DE171 /* libPods-bilibili fake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34458F0FC1C06D9BB1E1DD41 /* libPods-bilibili fake.a */; };
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
 		6E5381E21D1EA73E00B5B638 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6E5381E11D1EA73E00B5B638 /* .gitignore */; };
 		6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */; };
@@ -49,7 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05FBED2B3B0E07D181EDEF25 /* libPods-bilibili fake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bilibili fake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34458F0FC1C06D9BB1E1DD41 /* libPods-bilibili fake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bilibili fake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		347E9ABD6043B4120F2F66F3 /* Pods-bilibili fake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.release.xcconfig"; sourceTree = "<group>"; };
+		42648276A87203E5EC230551 /* Pods-bilibili fake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.debug.xcconfig"; sourceTree = "<group>"; };
 		6E1535E81D1A96A20053A846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		6E1535E91D1A96A20053A846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -91,8 +93,6 @@
 		6EB6920B1D12422C000FA482 /* bilibili fakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bilibili fakeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bilibili_fakeUITests.m; sourceTree = "<group>"; };
 		6EB692111D12422C000FA482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		87CBD7FA73C8B4C7328210D1 /* Pods-bilibili fake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.release.xcconfig"; sourceTree = "<group>"; };
-		DC80DD2F7545DB64F8A77A8C /* Pods-bilibili fake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.debug.xcconfig"; sourceTree = "<group>"; };
 		FC825ED61D1FE80100698652 /* CXHStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXHStartViewController.h; sourceTree = "<group>"; };
 		FC825ED71D1FE80100698652 /* CXHStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXHStartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28654E1EE3D57B762F51318D /* libPods-bilibili fake.a in Frameworks */,
+				3FE08BCE6BE41769B68DE171 /* libPods-bilibili fake.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,15 +123,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5B72CE1F4A4C69D2D408CDF5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DC80DD2F7545DB64F8A77A8C /* Pods-bilibili fake.debug.xcconfig */,
-				87CBD7FA73C8B4C7328210D1 /* Pods-bilibili fake.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		6E1535DE1D1A87FA0053A846 /* Librarys */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,8 +301,8 @@
 				6EB692031D12422C000FA482 /* bilibili fakeTests */,
 				6EB6920E1D12422C000FA482 /* bilibili fakeUITests */,
 				6EB691E81D12422B000FA482 /* Products */,
-				5B72CE1F4A4C69D2D408CDF5 /* Pods */,
-				DE7BAA81D2F59C11E1312360 /* Frameworks */,
+				AB3308E98D57F6527050A623 /* Pods */,
+				A0CB8EDA16F545D100EAF6D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -374,12 +365,21 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		DE7BAA81D2F59C11E1312360 /* Frameworks */ = {
+		A0CB8EDA16F545D100EAF6D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				05FBED2B3B0E07D181EDEF25 /* libPods-bilibili fake.a */,
+				34458F0FC1C06D9BB1E1DD41 /* libPods-bilibili fake.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB3308E98D57F6527050A623 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42648276A87203E5EC230551 /* Pods-bilibili fake.debug.xcconfig */,
+				347E9ABD6043B4120F2F66F3 /* Pods-bilibili fake.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		FC825ED51D1FE80100698652 /* start */ = {
@@ -720,7 +720,7 @@
 		};
 		6EB692151D12422C000FA482 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC80DD2F7545DB64F8A77A8C /* Pods-bilibili fake.debug.xcconfig */;
+			baseConfigurationReference = 42648276A87203E5EC230551 /* Pods-bilibili fake.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
@@ -733,7 +733,7 @@
 		};
 		6EB692161D12422C000FA482 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87CBD7FA73C8B4C7328210D1 /* Pods-bilibili fake.release.xcconfig */;
+			baseConfigurationReference = 347E9ABD6043B4120F2F66F3 /* Pods-bilibili fake.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
