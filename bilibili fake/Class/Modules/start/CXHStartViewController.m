@@ -70,20 +70,20 @@
                 if ([manager diskImageExistsForURL:image_URL] == NO) {
                     image_URL = nil;
                 }
-                //判断是否是广告
-                if ([[dic objectForKey:@"type"] integerValue] == 1) {
-                    //判断广告是否播放过
-                    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-                    NSString* key = [NSString stringWithFormat:@"advertisementId:%@",[dic objectForKey:@"id"]];
-                    NSInteger ii =[[defaults objectForKey:key] integerValue];
-                    if (ii) {
-                        //不为空说明播放过
-                        image_URL = nil;
-                    }else{
-                        [defaults setObject:@1 forKey:key];
-                        [defaults synchronize];
-                    }
-                }
+                //判断是否是广告(猜错了这个不是判断广告的)
+//                if ([[dic objectForKey:@"type"] integerValue] == 1) {
+//                    //判断广告是否播放过
+//                    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+//                    NSString* key = [NSString stringWithFormat:@"advertisementId:%@",[dic objectForKey:@"id"]];
+//                    NSInteger ii =[[defaults objectForKey:key] integerValue];
+//                    if (ii) {
+//                        //不为空说明播放过
+//                        image_URL = nil;
+//                    }else{
+//                        [defaults setObject:@1 forKey:key];
+//                        [defaults synchronize];
+//                    }
+//                }
             }
         }
     }
