@@ -241,6 +241,7 @@
                                       {
                                           if (!error)
                                           {
+                                             // NSLog(@"%@",data);
                                               //保存数据
                                               NSLog(@"写入启动图数据:%@",startView_data_path);
                                               [data writeToFile:startView_data_path atomically:YES];

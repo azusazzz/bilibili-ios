@@ -11,7 +11,7 @@
 // ViewController
 #import "HomeViewController.h"
 #import "FollowViewController.h"
-
+#import "FindViewController.h"
 #import "TabBarControllerAnimatedTransitioning.h"
 
 @interface ScrollTabBarController ()
@@ -36,6 +36,7 @@
     self.viewControllers = @[
                              [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]],
                              [[UINavigationController alloc] initWithRootViewController:[[FollowViewController alloc] init]],
+                             [[UINavigationController alloc] initWithRootViewController:[[FindViewController alloc] init]],
                              ];
     
     self.delegate = self;

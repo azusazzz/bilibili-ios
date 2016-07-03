@@ -28,7 +28,15 @@
 		6EB691FA1D12422C000FA482 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB691F81D12422C000FA482 /* LaunchScreen.storyboard */; };
 		6EB692051D12422C000FA482 /* bilibili_fakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB692041D12422C000FA482 /* bilibili_fakeTests.m */; };
 		6EB692101D12422C000FA482 /* bilibili_fakeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */; };
+		FC4D35ED1D27D2D3000C3F01 /* FindViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35EC1D27D2D3000C3F01 /* FindViewCell.m */; };
+		FC4D35F31D27F62A000C3F01 /* FindViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F21D27F62A000C3F01 /* FindViewData.m */; };
+		FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F61D28378D000C3F01 /* FindViewController.m */; };
+		FC4D35F91D28378D000C3F01 /* FindViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC4D35F71D28378D000C3F01 /* FindViewController.plist */; };
+		FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D36001D283F47000C3F01 /* GameCentreVC.m */; };
 		FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC825ED71D1FE80100698652 /* CXHStartViewController.m */; };
+		FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4C7191D28492C0006CA0E /* GameCenterCell.m */; };
+		FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */; };
+		FCEDE07D1D291C430032569A /* SearchAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEDE07C1D291C430032569A /* SearchAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,8 +101,22 @@
 		6EB6920B1D12422C000FA482 /* bilibili fakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bilibili fakeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bilibili_fakeUITests.m; sourceTree = "<group>"; };
 		6EB692111D12422C000FA482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC4D35EB1D27D2D3000C3F01 /* FindViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewCell.h; sourceTree = "<group>"; };
+		FC4D35EC1D27D2D3000C3F01 /* FindViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewCell.m; sourceTree = "<group>"; };
+		FC4D35F11D27F62A000C3F01 /* FindViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewData.h; sourceTree = "<group>"; };
+		FC4D35F21D27F62A000C3F01 /* FindViewData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewData.m; sourceTree = "<group>"; };
+		FC4D35F51D28378D000C3F01 /* FindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
+		FC4D35F61D28378D000C3F01 /* FindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
+		FC4D35F71D28378D000C3F01 /* FindViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FindViewController.plist; sourceTree = "<group>"; };
+		FC4D35FF1D283F47000C3F01 /* GameCentreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCentreVC.h; path = "bilibili fake/Class/Modules/find/Controller/GameCentreVC/GameCentreVC.h"; sourceTree = SOURCE_ROOT; };
+		FC4D36001D283F47000C3F01 /* GameCentreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCentreVC.m; path = "bilibili fake/Class/Modules/find/Controller/GameCentreVC/GameCentreVC.m"; sourceTree = SOURCE_ROOT; };
 		FC825ED61D1FE80100698652 /* CXHStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXHStartViewController.h; sourceTree = "<group>"; };
 		FC825ED71D1FE80100698652 /* CXHStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXHStartViewController.m; sourceTree = "<group>"; };
+		FCA4C7181D28492C0006CA0E /* GameCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterCell.h; sourceTree = "<group>"; };
+		FCA4C7191D28492C0006CA0E /* GameCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterCell.m; sourceTree = "<group>"; };
+		FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "游戏中心假数据.json"; sourceTree = "<group>"; };
+		FCEDE07B1D291C430032569A /* SearchAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAlertView.h; sourceTree = "<group>"; };
+		FCEDE07C1D291C430032569A /* SearchAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +307,7 @@
 		6E9FB08C1D1289FB0032C1DB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FCD80DBE1D22B870009CDEC3 /* find */,
 				FC825ED51D1FE80100698652 /* start */,
 				6E66C8B91D1ADFDB002DA3AB /* Main */,
 				6E1535E31D1A96950053A846 /* Home */,
@@ -361,6 +384,7 @@
 		6EB6921D1D12435E000FA482 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -382,6 +406,48 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FC4D35EA1D27D27C000C3F01 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FC4D35EB1D27D2D3000C3F01 /* FindViewCell.h */,
+				FC4D35EC1D27D2D3000C3F01 /* FindViewCell.m */,
+				FCA4C7181D28492C0006CA0E /* GameCenterCell.h */,
+				FCA4C7191D28492C0006CA0E /* GameCenterCell.m */,
+			);
+			name = Cell;
+			path = find/Cell;
+			sourceTree = "<group>";
+		};
+		FC4D35F01D27F5FC000C3F01 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FC4D35F11D27F62A000C3F01 /* FindViewData.h */,
+				FC4D35F21D27F62A000C3F01 /* FindViewData.m */,
+			);
+			name = Data;
+			path = find/Data;
+			sourceTree = "<group>";
+		};
+		FC4D35F41D28378D000C3F01 /* FindViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FC4D35F51D28378D000C3F01 /* FindViewController.h */,
+				FC4D35F61D28378D000C3F01 /* FindViewController.m */,
+				FC4D35F71D28378D000C3F01 /* FindViewController.plist */,
+			);
+			path = FindViewController;
+			sourceTree = "<group>";
+		};
+		FC4D35FB1D283EB5000C3F01 /* GameCentreVC */ = {
+			isa = PBXGroup;
+			children = (
+				FC4D35FF1D283F47000C3F01 /* GameCentreVC.h */,
+				FC4D36001D283F47000C3F01 /* GameCentreVC.m */,
+			);
+			name = GameCentreVC;
+			path = GameCentreViewController;
+			sourceTree = "<group>";
+		};
 		FC825ED51D1FE80100698652 /* start */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +455,45 @@
 				FC825ED71D1FE80100698652 /* CXHStartViewController.m */,
 			);
 			path = start;
+			sourceTree = "<group>";
+		};
+		FCD80DBE1D22B870009CDEC3 /* find */ = {
+			isa = PBXGroup;
+			children = (
+				FCEDE0751D2919900032569A /* View */,
+				FC4D35F01D27F5FC000C3F01 /* Data */,
+				FC4D35EA1D27D27C000C3F01 /* Cell */,
+				FCD80DC31D22BF70009CDEC3 /* Controller */,
+			);
+			name = find;
+			sourceTree = "<group>";
+		};
+		FCD80DC31D22BF70009CDEC3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC4D35FB1D283EB5000C3F01 /* GameCentreVC */,
+				FC4D35F41D28378D000C3F01 /* FindViewController */,
+			);
+			name = Controller;
+			path = find/Controller;
+			sourceTree = "<group>";
+		};
+		FCEDE0751D2919900032569A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCEDE07A1D291C430032569A /* SearchAlertView */,
+			);
+			name = View;
+			path = find/View;
+			sourceTree = "<group>";
+		};
+		FCEDE07A1D291C430032569A /* SearchAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				FCEDE07B1D291C430032569A /* SearchAlertView.h */,
+				FCEDE07C1D291C430032569A /* SearchAlertView.m */,
+			);
+			path = SearchAlertView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,6 +566,7 @@
 				TargetAttributes = {
 					6EB691E61D12422B000FA482 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeamName = "JieCheng Gao";
 					};
 					6EB691FF1D12422C000FA482 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -497,8 +603,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */,
 				6EB691FA1D12422C000FA482 /* LaunchScreen.storyboard in Resources */,
 				6E5381E21D1EA73E00B5B638 /* .gitignore in Resources */,
+				FC4D35F91D28378D000C3F01 /* FindViewController.plist in Resources */,
 				6EB691F71D12422C000FA482 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,18 +680,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */,
 				6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
 				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
 				FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */,
+				FC4D35ED1D27D2D3000C3F01 /* FindViewCell.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
 				6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */,
 				6E71ECE51D1C20E700F4B917 /* HomeRequest.m in Sources */,
+				FCEDE07D1D291C430032569A /* SearchAlertView.m in Sources */,
 				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
+				FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */,
 				6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
+				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
+				FC4D35F31D27F62A000C3F01 /* FindViewData.m in Sources */,
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
 				6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */,
 				6E71ECD21D1C1BCA00F4B917 /* ESAPIConfigManager.m in Sources */,
@@ -723,6 +837,8 @@
 			baseConfigurationReference = 42648276A87203E5EC230551 /* Pods-bilibili fake.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -736,6 +852,8 @@
 			baseConfigurationReference = 347E9ABD6043B4120F2F66F3 /* Pods-bilibili fake.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
