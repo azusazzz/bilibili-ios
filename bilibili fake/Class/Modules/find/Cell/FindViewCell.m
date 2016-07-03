@@ -8,6 +8,7 @@
 
 #import "FindViewCell.h"
 #import <Masonry.h>
+#import "Macro.h"
 
 @implementation FindViewCell{
     UIImageView* icon_imageView;
@@ -28,6 +29,8 @@
     
     title_Label = [UILabel new];
     [self addSubview:title_Label];
+    title_Label.textColor = ColorRGB(23, 23, 23);
+    title_Label.font = [UIFont systemFontOfSize:14];
     title_Label.textColor = [UIColor blackColor];
     [title_Label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self);

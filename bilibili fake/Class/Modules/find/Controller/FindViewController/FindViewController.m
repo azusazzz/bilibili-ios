@@ -191,6 +191,7 @@ typedef enum : NSUInteger {
     [contentView addSubview:tagListView];
     tagListView.tagCornerRadius = 5.0f;
     tagListView.tagTextColor = ColorRGB(27, 27, 27);
+
     [tagListView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(label1.mas_bottom).offset(10);
         make.left.mas_equalTo(contentView.mas_left).offset(0);
