@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeChannelEntity.h"
 
 /**
  *  分区
  */
 @interface HomeChannelView : UIView
+
+
 
 @end

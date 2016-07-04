@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FE08BCE6BE41769B68DE171 /* libPods-bilibili fake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34458F0FC1C06D9BB1E1DD41 /* libPods-bilibili fake.a */; };
+		4F8A1D54C95AA39D29D4CBD4 /* libPods-bilibili fake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A480E357E111053D1C8F64 /* libPods-bilibili fake.a */; };
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
 		6E5381E21D1EA73E00B5B638 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6E5381E11D1EA73E00B5B638 /* .gitignore */; };
 		6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */; };
@@ -21,7 +21,9 @@
 		6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECD01D1C1BCA00F4B917 /* ESRequestHandler.m */; };
 		6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */; };
 		6E71ECE11D1C203D00F4B917 /* HomeChannelEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECE01D1C203D00F4B917 /* HomeChannelEntity.m */; };
-		6E71ECE51D1C20E700F4B917 /* HomeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECE41D1C20E700F4B917 /* HomeRequest.m */; };
+		6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */; };
+		6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C17D1D2A948B00C259E8 /* HomeChannelModel.m */; };
+		6E76C1811D2A98B100C259E8 /* HomeChannelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C1801D2A98B100C259E8 /* HomeChannelCollectionViewCell.m */; };
 		6EB691EC1D12422C000FA482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EB1D12422C000FA482 /* main.m */; };
 		6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EE1D12422C000FA482 /* AppDelegate.m */; };
 		6EB691F71D12422C000FA482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB691F61D12422C000FA482 /* Assets.xcassets */; };
@@ -57,9 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		34458F0FC1C06D9BB1E1DD41 /* libPods-bilibili fake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bilibili fake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		347E9ABD6043B4120F2F66F3 /* Pods-bilibili fake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.release.xcconfig"; sourceTree = "<group>"; };
-		42648276A87203E5EC230551 /* Pods-bilibili fake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.debug.xcconfig"; sourceTree = "<group>"; };
+		34A480E357E111053D1C8F64 /* libPods-bilibili fake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bilibili fake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F2BF61021EE340EDD15E9D7 /* Pods-bilibili fake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.debug.xcconfig"; sourceTree = "<group>"; };
 		6E1535E81D1A96A20053A846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		6E1535E91D1A96A20053A846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -86,8 +87,13 @@
 		6E71ECDD1D1C1E5500F4B917 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		6E71ECDF1D1C203D00F4B917 /* HomeChannelEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelEntity.h; sourceTree = "<group>"; };
 		6E71ECE01D1C203D00F4B917 /* HomeChannelEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelEntity.m; sourceTree = "<group>"; };
-		6E71ECE31D1C20E700F4B917 /* HomeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRequest.h; sourceTree = "<group>"; };
-		6E71ECE41D1C20E700F4B917 /* HomeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRequest.m; sourceTree = "<group>"; };
+		6E76C1771D2A736A00C259E8 /* HomeChannelRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelRequest.h; sourceTree = "<group>"; };
+		6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelRequest.m; sourceTree = "<group>"; };
+		6E76C17A1D2A768D00C259E8 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
+		6E76C17C1D2A948B00C259E8 /* HomeChannelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeChannelModel.h; path = "bilibili fake/Class/Common/HomeChannelModel.h"; sourceTree = SOURCE_ROOT; };
+		6E76C17D1D2A948B00C259E8 /* HomeChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeChannelModel.m; path = "bilibili fake/Class/Common/HomeChannelModel.m"; sourceTree = SOURCE_ROOT; };
+		6E76C17F1D2A98B100C259E8 /* HomeChannelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeChannelCollectionViewCell.h; path = "bilibili fake/Class/Common/HomeChannelCollectionViewCell.h"; sourceTree = SOURCE_ROOT; };
+		6E76C1801D2A98B100C259E8 /* HomeChannelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeChannelCollectionViewCell.m; path = "bilibili fake/Class/Common/HomeChannelCollectionViewCell.m"; sourceTree = SOURCE_ROOT; };
 		6EB691E71D12422B000FA482 /* bilibili fake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bilibili fake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB691EB1D12422C000FA482 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6EB691ED1D12422C000FA482 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		6EB6920B1D12422C000FA482 /* bilibili fakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bilibili fakeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bilibili_fakeUITests.m; sourceTree = "<group>"; };
 		6EB692111D12422C000FA482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A799A4DD17AEAA2C2D0960A /* Pods-bilibili fake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.release.xcconfig"; sourceTree = "<group>"; };
 		FC4D35EB1D27D2D3000C3F01 /* FindViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewCell.h; sourceTree = "<group>"; };
 		FC4D35EC1D27D2D3000C3F01 /* FindViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewCell.m; sourceTree = "<group>"; };
 		FC4D35F11D27F62A000C3F01 /* FindViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewData.h; sourceTree = "<group>"; };
@@ -124,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FE08BCE6BE41769B68DE171 /* libPods-bilibili fake.a in Frameworks */,
+				4F8A1D54C95AA39D29D4CBD4 /* libPods-bilibili fake.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +152,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4797BAF3C91DC6AFA4374A82 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F2BF61021EE340EDD15E9D7 /* Pods-bilibili fake.debug.xcconfig */,
+				8A799A4DD17AEAA2C2D0960A /* Pods-bilibili fake.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6E1535DE1D1A87FA0053A846 /* Librarys */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +186,7 @@
 		6E1535E21D1A95940053A846 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6E76C17B1D2A7FA000C259E8 /* API */,
 				6E71ECC81D1C1BCA00F4B917 /* ESRequest */,
 			);
 			path = Common;
@@ -191,6 +208,8 @@
 		6E1535E41D1A96950053A846 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				6E76C17F1D2A98B100C259E8 /* HomeChannelCollectionViewCell.h */,
+				6E76C1801D2A98B100C259E8 /* HomeChannelCollectionViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -207,6 +226,8 @@
 		6E1535E61D1A96950053A846 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E76C17C1D2A948B00C259E8 /* HomeChannelModel.h */,
+				6E76C17D1D2A948B00C259E8 /* HomeChannelModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,10 +308,17 @@
 		6E71ECE21D1C20CD00F4B917 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				6E71ECE31D1C20E700F4B917 /* HomeRequest.h */,
-				6E71ECE41D1C20E700F4B917 /* HomeRequest.m */,
+				6E76C1771D2A736A00C259E8 /* HomeChannelRequest.h */,
+				6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		6E76C17B1D2A7FA000C259E8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		6E9FB08B1D1289FB0032C1DB /* Class */ = {
@@ -324,8 +352,8 @@
 				6EB692031D12422C000FA482 /* bilibili fakeTests */,
 				6EB6920E1D12422C000FA482 /* bilibili fakeUITests */,
 				6EB691E81D12422B000FA482 /* Products */,
-				AB3308E98D57F6527050A623 /* Pods */,
-				A0CB8EDA16F545D100EAF6D1 /* Frameworks */,
+				4797BAF3C91DC6AFA4374A82 /* Pods */,
+				863C2DCAD6600A955EF6BE81 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -347,6 +375,7 @@
 				6E1535DE1D1A87FA0053A846 /* Librarys */,
 				6EB691ED1D12422C000FA482 /* AppDelegate.h */,
 				6EB691EE1D12422C000FA482 /* AppDelegate.m */,
+				6E76C17A1D2A768D00C259E8 /* PrefixHeader.h */,
 				6EB691F61D12422C000FA482 /* Assets.xcassets */,
 				6EB691F81D12422C000FA482 /* LaunchScreen.storyboard */,
 				6EB691FB1D12422C000FA482 /* Info.plist */,
@@ -389,21 +418,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		A0CB8EDA16F545D100EAF6D1 /* Frameworks */ = {
+		863C2DCAD6600A955EF6BE81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				34458F0FC1C06D9BB1E1DD41 /* libPods-bilibili fake.a */,
+				34A480E357E111053D1C8F64 /* libPods-bilibili fake.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		AB3308E98D57F6527050A623 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				42648276A87203E5EC230551 /* Pods-bilibili fake.debug.xcconfig */,
-				347E9ABD6043B4120F2F66F3 /* Pods-bilibili fake.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		FC4D35EA1D27D27C000C3F01 /* Cell */ = {
@@ -688,12 +708,14 @@
 				FC4D35ED1D27D2D3000C3F01 /* FindViewCell.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
 				6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */,
-				6E71ECE51D1C20E700F4B917 /* HomeRequest.m in Sources */,
+				6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */,
 				FCEDE07D1D291C430032569A /* SearchAlertView.m in Sources */,
 				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
 				FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */,
 				6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */,
+				6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */,
+				6E76C1811D2A98B100C259E8 /* HomeChannelCollectionViewCell.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
@@ -834,11 +856,12 @@
 		};
 		6EB692151D12422C000FA482 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42648276A87203E5EC230551 /* Pods-bilibili fake.debug.xcconfig */;
+			baseConfigurationReference = 5F2BF61021EE340EDD15E9D7 /* Pods-bilibili fake.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "bilibili fake/PrefixHeader.h";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -849,11 +872,12 @@
 		};
 		6EB692161D12422C000FA482 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 347E9ABD6043B4120F2F66F3 /* Pods-bilibili fake.release.xcconfig */;
+			baseConfigurationReference = 8A799A4DD17AEAA2C2D0960A /* Pods-bilibili fake.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "bilibili fake/PrefixHeader.h";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -64,7 +64,7 @@
     CGFloat translationAbs = translationX > 0 ? translationX : - translationX;
     CGFloat progress = translationAbs / self.view.frame.size.width;
     
-    NSLog(@"%lf", progress);
+//    NSLog(@"%lf", progress);
     
     switch (panGesture.state) {
         case UIGestureRecognizerStateBegan:

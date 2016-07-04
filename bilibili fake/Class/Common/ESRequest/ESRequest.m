@@ -25,8 +25,14 @@
 }
 
 + (instancetype)RequestWithAPIType:(APIType)type parameters:(id)parameters delegate:(id<ESRequestDelegate>)delegate; {
-    ESRequest *request = [[ESRequest alloc] initWithAPIType:type];
+    ESRequest *request = [[self alloc] initWithAPIType:type];
     request.parameters = parameters;
+    request.delegate = delegate;
+    return request;
+}
+
++ (instancetype)requestWithDelegate:(id<ESRequestDelegate>)delegate; {
+    ESRequest *request = [[self alloc] init];
     request.delegate = delegate;
     return request;
 }
@@ -78,7 +84,7 @@
 #pragma mark Private-Cache
 
 - (BOOL)readCache; {
-    NSAssert([self.URLString length], @"Error: 请求URL不能为空");
+//    NSAssert([self.URLString length], @"Error: 请求URL不能为空");
     if (![self willReadCache]) {
         return NO;
     }

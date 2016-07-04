@@ -110,6 +110,12 @@ typedef NS_ENUM(NSInteger, ESRequestModel) {
 + (instancetype)RequestWithAPIType:(APIType)type parameters:(id)parameters delegate:(id<ESRequestDelegate>)delegate;
 
 
+
++ (instancetype)requestWithDelegate:(id<ESRequestDelegate>)delegate;
+
+
+
+
 #pragma mark 启动/停止
 
 /**

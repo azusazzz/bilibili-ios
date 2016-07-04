@@ -8,6 +8,15 @@
 
 #import "HomeChannelEntity.h"
 
+
 @implementation HomeChannelEntity
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName; {
+    return @{@"name": @"typename"};
+}
+
++ (NSArray *)mj_ignoredPropertyNames; {
+    return @[@"iconName"];
+}
 
 @end

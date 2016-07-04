@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) NSNumber *tid;
 
-@property (strong, nonatomic) NSString *typename;
+@property (strong, nonatomic) NSString *name;
+
+@property (strong, nonatomic) NSString *iconName;
 
 @end

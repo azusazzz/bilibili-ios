@@ -8,11 +8,12 @@
 
 #import "HomeLiveView.h"
 
+
 @implementation HomeLiveView
 
 - (instancetype)init; {
     if (self = [super init]) {
-        self.backgroundColor = [UIColor blueColor];
+        self.backgroundColor = ColorWhite(200);
     }
     return self;
 }

@@ -7,15 +7,17 @@
 //
 
 #import "HomeViewController.h"
-#import <Masonry.h>
+
 
 
 // SubModules
 #import "HomeHeaderView.h"
 #import "HomeLiveView.h"
-
+#import "HomeChannelView.h"
 
 #import "ScrollTabBarController.h"
+
+
 
 @interface HomeViewController ()
 <UIGestureRecognizerDelegate>
@@ -25,11 +27,15 @@
     UIScrollView *_scrollView;
     
     HomeLiveView *_liveView;
-    UIView *_classificationView;
-    
+    HomeChannelView *_channelView;
 }
 
 @end
+
+typedef NS_ENUM(APIType, HomeAPIType) {
+    HomeAPIChannel,
+};
+
 
 @implementation HomeViewController
 
@@ -45,6 +51,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     [self loadSubviews];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated; {
@@ -59,13 +66,8 @@
 
 
 - (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
-    CGFloat translationX = [panGestureRecognizer translationInView:_scrollView].x;
-    
-    NSLog(@"%lf", translationX);
-    
     ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;
     [tabbar handlePanGesture:panGestureRecognizer];
-    
 }
 
 
@@ -83,7 +85,6 @@
     if (translationX >= 0) {
         return NO;
     }
-    NSLog(@"%lf", translationX);
     return YES;
 }
 
@@ -104,27 +105,28 @@
     }];
     
     
-    // SubModules
+    
     
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.backgroundColor = [UIColor grayColor];
     _scrollView.pagingEnabled = YES;
     _scrollView.bounces = NO;
+    _scrollView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:_scrollView];
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     panGestureRecognizer.delegate = self;
     [_scrollView addGestureRecognizer:panGestureRecognizer];
     
     
+    // SubModules
     
     // 直播
     _liveView = [[HomeLiveView alloc] init];
     [_scrollView addSubview:_liveView];
     
     // 分区
-    _classificationView = [[UIView alloc] init];
-    _classificationView.backgroundColor = [UIColor orangeColor];
-    [_scrollView addSubview:_classificationView];
+    _channelView = [[HomeChannelView alloc] init];
+    [_scrollView addSubview:_channelView];
     
     
     
@@ -143,7 +145,7 @@
         make.width.equalTo(_scrollView);
         make.height.equalTo(_scrollView);
     }];
-    [_classificationView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_channelView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_liveView.mas_right);
         make.centerY.equalTo(_scrollView);
         make.width.equalTo(_scrollView);
@@ -151,7 +153,7 @@
     }];
     
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(_classificationView.mas_right);
+        make.right.equalTo(_channelView.mas_right);
     }];
     
 }
