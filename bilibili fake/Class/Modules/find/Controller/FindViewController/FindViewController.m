@@ -152,6 +152,7 @@ typedef enum : NSUInteger {
     [HeadView addSubview:cancel_btn];
     cancel_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         contentviewMode = View1;
+        search_tf.text = @"";
         [self contentViewMode_updata];
         [search_tf resignFirstResponder];
         [UIView animateWithDuration:0.2 animations:^{
