@@ -1,0 +1,31 @@
+
+
+
+
+#### 首页
+
+`直播`
+http://live.bilibili.com/mobile/home?actionKey=appkey&appkey=27eb53fc9058f8c3&build=2310&device=phone&platform=ios&scale=3&sign=ee8feee672ee037e2994adb9faa2f77e&ts=1466676873  直播
+
+`推荐`
+http://app.bilibili.com/x/banner/old?screen=@2x.phone   推荐 banner
+http://app.bilibili.com/x/show/old?platform=ios&device=phone&build=2310&access_key=  推荐 
+http://bangumi.bilibili.com/api/get_season_by_tag?actionKey=appkey&appkey=27eb53fc9058f8c3&build=2310&device=phone&indexType=0&page=1&pagesize=4&platform=ios&sign=500cb8598bc53d2775dcf32daf5c9249&tag_id=109&ts=1466677926   推荐-番剧推荐
+
+`番剧`
+http://app.bilibili.com/x/region/show/old?tid=13&plat=1&platform=ios&device=phone&build=2310&channel=  番剧  banner
+http://app.bilibili.com/x/region/show/old?tid=13&plat=1&platform=ios&device=phone&build=2310&channel=   番剧  头部轮播图、推荐
+http://bangumi.bilibili.com/api/app_index_page?actionKey=appkey&appkey=27eb53fc9058f8c3&build=2310&device=phone&platform=ios&sign=55c99772ca87ed4720201d2f0429d9c2&ts=1466676873  番剧 分类推荐
+
+`分区`
+http://app.bilibili.com/x/region/list/old?build=2310&platform=ios&device=phone    分区 
+
+
+
+
+
+
+
+#### 其它
+
+http://app.bilibili.com/x/splash/old?platformType=1&width=1242&height=2148  五张大图 引导页？？？
