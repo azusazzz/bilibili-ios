@@ -29,6 +29,7 @@
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.font = [UIFont systemFontOfSize:14];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.textColor = ColorWhite(200);
         [self addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(_imageView.mas_bottom).offset = 10;

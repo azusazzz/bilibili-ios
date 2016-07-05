@@ -18,11 +18,6 @@
 
 @implementation HomeHeaderView
 
-- (instancetype)initWithTitles:(NSArray<NSString *> *)titles; {
-    if (self = [super init]) {
-        self.backgroundColor = [UIColor grayColor];
-    }
-    return self;
-}
+
 
 @end

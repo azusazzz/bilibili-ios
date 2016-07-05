@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TabBar.h"
 
-@interface HomeHeaderView : UIView
+@interface HomeHeaderView : TabBar
 
 @end

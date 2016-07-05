@@ -18,4 +18,8 @@
 #define ColorWhite(white)                   ColorWhiteAlpha(white, 1.0)
 
 
+
+#define Font(size) [UIFont systemFontOfSize:size]
+
+
 #endif /* Macro_h */

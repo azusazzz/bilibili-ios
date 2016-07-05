@@ -16,5 +16,7 @@
 #import "Macro.h"
 #import "ESRequest.h"
 
+#import "UIView+Frame.h"
+
 
 #endif /* PrefixHeader_h */

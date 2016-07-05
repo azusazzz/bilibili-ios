@@ -11,7 +11,9 @@
 
 
 // SubModules
+
 #import "HomeHeaderView.h"
+
 #import "HomeLiveView.h"
 #import "HomeChannelView.h"
 
@@ -20,7 +22,7 @@
 
 
 @interface HomeViewController ()
-<UIGestureRecognizerDelegate>
+<UIGestureRecognizerDelegate, UIScrollViewDelegate>
 {
     HomeHeaderView *_headerView;
     
@@ -71,6 +73,11 @@ typedef NS_ENUM(APIType, HomeAPIType) {
 }
 
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView; {
+    _headerView.contentOffset = scrollView.contentOffset.x / scrollView.contentSize.width;
+}
+
 #pragma mark - View
 
 
@@ -95,7 +102,7 @@ typedef NS_ENUM(APIType, HomeAPIType) {
     [self.view addSubview:UIView.new];
     
     // Header
-    _headerView = [[HomeHeaderView alloc] init];
+    _headerView = [[HomeHeaderView alloc] initWithTitles:@[@"直播", @"分区"]];
     [self.view addSubview:_headerView];
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
@@ -108,6 +115,7 @@ typedef NS_ENUM(APIType, HomeAPIType) {
     
     
     _scrollView = [[UIScrollView alloc] init];
+    _scrollView.delegate = self;
     _scrollView.backgroundColor = [UIColor grayColor];
     _scrollView.pagingEnabled = YES;
     _scrollView.bounces = NO;
