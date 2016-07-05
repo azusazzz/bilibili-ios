@@ -15,6 +15,7 @@
 #import "HomeHeaderView.h"
 
 #import "HomeLiveView.h"
+#import "HomeAnimationView.h"
 #import "HomeChannelView.h"
 
 #import "ScrollTabBarController.h"
