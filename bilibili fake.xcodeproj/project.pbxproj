@@ -33,8 +33,7 @@
 		6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4A61D2BCE4400D1BC9E /* TabBar.m */; };
 		6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AA1D2BD6D800D1BC9E /* UIView+Frame.m */; };
 		6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AD1D2BDE9400D1BC9E /* HomeAnimationView.m */; };
-		6EFFD4B01D2BDEBA00D1BC9E /* 接口整理.md in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AF1D2BDEBA00D1BC9E /* 接口整理.md */; };
-		6EFFD4B21D2BE02200D1BC9E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4B11D2BE02200D1BC9E /* README.md */; };
+		6EFFD4B01D2BDEBA00D1BC9E /* 接口整理.markdown in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AF1D2BDEBA00D1BC9E /* 接口整理.markdown */; };
 		FC4D35ED1D27D2D3000C3F01 /* FindViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35EC1D27D2D3000C3F01 /* FindViewCell.m */; };
 		FC4D35F31D27F62A000C3F01 /* FindViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F21D27F62A000C3F01 /* FindViewData.m */; };
 		FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F61D28378D000C3F01 /* FindViewController.m */; };
@@ -118,8 +117,7 @@
 		6EFFD4AA1D2BD6D800D1BC9E /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		6EFFD4AC1D2BDE9400D1BC9E /* HomeAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAnimationView.h; sourceTree = "<group>"; };
 		6EFFD4AD1D2BDE9400D1BC9E /* HomeAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAnimationView.m; sourceTree = "<group>"; };
-		6EFFD4AF1D2BDEBA00D1BC9E /* 接口整理.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "接口整理.md"; sourceTree = "<group>"; };
-		6EFFD4B11D2BE02200D1BC9E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6EFFD4AF1D2BDEBA00D1BC9E /* 接口整理.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "接口整理.markdown"; sourceTree = "<group>"; };
 		8A799A4DD17AEAA2C2D0960A /* Pods-bilibili fake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.release.xcconfig"; sourceTree = "<group>"; };
 		FC4D35EB1D27D2D3000C3F01 /* FindViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewCell.h; sourceTree = "<group>"; };
 		FC4D35EC1D27D2D3000C3F01 /* FindViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewCell.m; sourceTree = "<group>"; };
@@ -364,8 +362,7 @@
 		6EB691DE1D12422B000FA482 = {
 			isa = PBXGroup;
 			children = (
-				6EFFD4B11D2BE02200D1BC9E /* README.md */,
-				6EFFD4AF1D2BDEBA00D1BC9E /* 接口整理.md */,
+				6EFFD4AF1D2BDEBA00D1BC9E /* 接口整理.markdown */,
 				6E5381E11D1EA73E00B5B638 /* .gitignore */,
 				6EB691E91D12422C000FA482 /* bilibili fake */,
 				6EB692031D12422C000FA482 /* bilibili fakeTests */,
@@ -749,7 +746,7 @@
 				6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */,
 				6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
-				6EFFD4B01D2BDEBA00D1BC9E /* 接口整理.md in Sources */,
+				6EFFD4B01D2BDEBA00D1BC9E /* 接口整理.markdown in Sources */,
 				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
 				FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */,
 				FC4D35ED1D27D2D3000C3F01 /* FindViewCell.m in Sources */,
@@ -758,7 +755,6 @@
 				6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */,
 				FCEDE07D1D291C430032569A /* SearchAlertView.m in Sources */,
 				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
-				6EFFD4B21D2BE02200D1BC9E /* README.md in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
 				FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */,
 				6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */,
