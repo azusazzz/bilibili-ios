@@ -233,6 +233,7 @@
     CGFloat scale_screen = [UIScreen mainScreen].scale;
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://app.bilibili.com/x/splash?build=3390&channel=appstore&height=%0.0f&plat=1&width=%0.0f",height*scale_screen,width*scale_screen]]];
+    NSLog(@"%@",request.URL.absoluteString);
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;//忽略本地缓存数据
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request

@@ -43,6 +43,9 @@
 		FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC825ED71D1FE80100698652 /* CXHStartViewController.m */; };
 		FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4C7191D28492C0006CA0E /* GameCenterCell.m */; };
 		FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */; };
+		FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4621D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m */; };
+		FCB6C4681D2BE880008A3137 /* JCTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4641D2BE880008A3137 /* JCTagCell.m */; };
+		FCB6C4691D2BE880008A3137 /* JCTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4661D2BE880008A3137 /* JCTagListView.m */; };
 		FCEDE07D1D291C430032569A /* SearchAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEDE07C1D291C430032569A /* SearchAlertView.m */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +138,12 @@
 		FCA4C7181D28492C0006CA0E /* GameCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterCell.h; sourceTree = "<group>"; };
 		FCA4C7191D28492C0006CA0E /* GameCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterCell.m; sourceTree = "<group>"; };
 		FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "游戏中心假数据.json"; sourceTree = "<group>"; };
+		FCB6C4611D2BE880008A3137 /* JCCollectionViewTagFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCollectionViewTagFlowLayout.h; sourceTree = "<group>"; };
+		FCB6C4621D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCollectionViewTagFlowLayout.m; sourceTree = "<group>"; };
+		FCB6C4631D2BE880008A3137 /* JCTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagCell.h; sourceTree = "<group>"; };
+		FCB6C4641D2BE880008A3137 /* JCTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagCell.m; sourceTree = "<group>"; };
+		FCB6C4651D2BE880008A3137 /* JCTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagListView.h; sourceTree = "<group>"; };
+		FCB6C4661D2BE880008A3137 /* JCTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagListView.m; sourceTree = "<group>"; };
 		FCEDE07B1D291C430032569A /* SearchAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAlertView.h; sourceTree = "<group>"; };
 		FCEDE07C1D291C430032569A /* SearchAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +209,7 @@
 		6E1535E21D1A95940053A846 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FCB6C4601D2BE880008A3137 /* JCTagListView */,
 				6EFFD4A31D2BCDFB00D1BC9E /* Views */,
 				6E76C17B1D2A7FA000C259E8 /* API */,
 				6E71ECC81D1C1BCA00F4B917 /* ESRequest */,
@@ -522,6 +532,19 @@
 			path = start;
 			sourceTree = "<group>";
 		};
+		FCB6C4601D2BE880008A3137 /* JCTagListView */ = {
+			isa = PBXGroup;
+			children = (
+				FCB6C4611D2BE880008A3137 /* JCCollectionViewTagFlowLayout.h */,
+				FCB6C4621D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m */,
+				FCB6C4631D2BE880008A3137 /* JCTagCell.h */,
+				FCB6C4641D2BE880008A3137 /* JCTagCell.m */,
+				FCB6C4651D2BE880008A3137 /* JCTagListView.h */,
+				FCB6C4661D2BE880008A3137 /* JCTagListView.m */,
+			);
+			path = JCTagListView;
+			sourceTree = "<group>";
+		};
 		FCD80DBE1D22B870009CDEC3 /* find */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,13 +779,16 @@
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
 				6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */,
 				6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */,
+				FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */,
 				FCEDE07D1D291C430032569A /* SearchAlertView.m in Sources */,
 				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
 				6EFFD4B61D2BE5BE00D1BC9E /* README.md in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
 				FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */,
 				6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */,
+				FCB6C4681D2BE880008A3137 /* JCTagCell.m in Sources */,
 				6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */,
+				FCB6C4691D2BE880008A3137 /* JCTagListView.m in Sources */,
 				6E76C1811D2A98B100C259E8 /* HomeChannelCollectionViewCell.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
@@ -911,12 +937,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "bilibili fake/PrefixHeader.h";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cezr.bilibili-fake";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -927,12 +955,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "bilibili fake/PrefixHeader.h";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cezr.bilibili-fake";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

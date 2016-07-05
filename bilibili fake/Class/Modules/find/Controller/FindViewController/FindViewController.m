@@ -10,7 +10,7 @@
 #import "Masonry.h"
 #import <ReactiveCocoa.h>
 #import "Macro.h"
-#import <JCTagListView.h>
+#import "JCTagListView.h"
 #import "FindViewCell.h"
 #import "FindViewData.h"
 #import "GameCentreVC.h"
