@@ -63,3 +63,5 @@ fastlane/screenshots
 iOSInjectionProject/
 
 Podfile.lock
+
+bilibili fake.xcworkspace/contents.xcworkspacedata
