@@ -68,7 +68,6 @@
 }
 
 +(void)addSearchRecords:(NSString*)str{
-    if (!str.length) return;
     NSMutableDictionary* dic = [[NSMutableDictionary alloc] initWithContentsOfFile:[FindViewData getSearchRecordsPath]];
     NSMutableArray* outArr = [dic objectForKey:@"data"];
     

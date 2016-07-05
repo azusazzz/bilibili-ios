@@ -16,6 +16,8 @@ target 'bilibili fake' do
 
     pod 'ReactiveCocoa'
 
+    pod 'JCTagListView'
+
 end
 
 

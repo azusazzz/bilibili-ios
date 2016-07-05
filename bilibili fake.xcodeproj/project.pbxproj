@@ -40,10 +40,6 @@
 		FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F61D28378D000C3F01 /* FindViewController.m */; };
 		FC4D35F91D28378D000C3F01 /* FindViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC4D35F71D28378D000C3F01 /* FindViewController.plist */; };
 		FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D36001D283F47000C3F01 /* GameCentreVC.m */; };
-		FC58D0D31D2AA1870059A8C0 /* JCCollectionViewTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FC58D0CE1D2AA1870059A8C0 /* JCCollectionViewTagFlowLayout.m */; };
-		FC58D0D41D2AA1870059A8C0 /* JCTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC58D0D01D2AA1870059A8C0 /* JCTagCell.m */; };
-		FC58D0D51D2AA1870059A8C0 /* JCTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC58D0D21D2AA1870059A8C0 /* JCTagListView.m */; };
-		FC58D0D91D2AA8B40059A8C0 /* SearchContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC58D0D81D2AA8B40059A8C0 /* SearchContentView.m */; };
 		FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC825ED71D1FE80100698652 /* CXHStartViewController.m */; };
 		FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4C7191D28492C0006CA0E /* GameCenterCell.m */; };
 		FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */; };
@@ -134,14 +130,6 @@
 		FC4D35F71D28378D000C3F01 /* FindViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FindViewController.plist; sourceTree = "<group>"; };
 		FC4D35FF1D283F47000C3F01 /* GameCentreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCentreVC.h; path = "bilibili fake/Class/Modules/find/Controller/GameCentreVC/GameCentreVC.h"; sourceTree = SOURCE_ROOT; };
 		FC4D36001D283F47000C3F01 /* GameCentreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCentreVC.m; path = "bilibili fake/Class/Modules/find/Controller/GameCentreVC/GameCentreVC.m"; sourceTree = SOURCE_ROOT; };
-		FC58D0CD1D2AA1870059A8C0 /* JCCollectionViewTagFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCollectionViewTagFlowLayout.h; sourceTree = "<group>"; };
-		FC58D0CE1D2AA1870059A8C0 /* JCCollectionViewTagFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCollectionViewTagFlowLayout.m; sourceTree = "<group>"; };
-		FC58D0CF1D2AA1870059A8C0 /* JCTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagCell.h; sourceTree = "<group>"; };
-		FC58D0D01D2AA1870059A8C0 /* JCTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagCell.m; sourceTree = "<group>"; };
-		FC58D0D11D2AA1870059A8C0 /* JCTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagListView.h; sourceTree = "<group>"; };
-		FC58D0D21D2AA1870059A8C0 /* JCTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagListView.m; sourceTree = "<group>"; };
-		FC58D0D71D2AA8B40059A8C0 /* SearchContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchContentView.h; sourceTree = "<group>"; };
-		FC58D0D81D2AA8B40059A8C0 /* SearchContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchContentView.m; sourceTree = "<group>"; };
 		FC825ED61D1FE80100698652 /* CXHStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXHStartViewController.h; sourceTree = "<group>"; };
 		FC825ED71D1FE80100698652 /* CXHStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXHStartViewController.m; sourceTree = "<group>"; };
 		FCA4C7181D28492C0006CA0E /* GameCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterCell.h; sourceTree = "<group>"; };
@@ -212,13 +200,8 @@
 		6E1535E21D1A95940053A846 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< Updated upstream
 				6EFFD4A31D2BCDFB00D1BC9E /* Views */,
 				6E76C17B1D2A7FA000C259E8 /* API */,
-=======
-				FC58D0DA1D2AAE880059A8C0 /* RowButtons */,
-				FC58D0CC1D2AA1870059A8C0 /* JCTagListView */,
->>>>>>> Stashed changes
 				6E71ECC81D1C1BCA00F4B917 /* ESRequest */,
 			);
 			path = Common;
@@ -530,35 +513,6 @@
 			path = GameCentreViewController;
 			sourceTree = "<group>";
 		};
-		FC58D0CC1D2AA1870059A8C0 /* JCTagListView */ = {
-			isa = PBXGroup;
-			children = (
-				FC58D0CD1D2AA1870059A8C0 /* JCCollectionViewTagFlowLayout.h */,
-				FC58D0CE1D2AA1870059A8C0 /* JCCollectionViewTagFlowLayout.m */,
-				FC58D0CF1D2AA1870059A8C0 /* JCTagCell.h */,
-				FC58D0D01D2AA1870059A8C0 /* JCTagCell.m */,
-				FC58D0D11D2AA1870059A8C0 /* JCTagListView.h */,
-				FC58D0D21D2AA1870059A8C0 /* JCTagListView.m */,
-			);
-			path = JCTagListView;
-			sourceTree = "<group>";
-		};
-		FC58D0D61D2AA8930059A8C0 /* SearchContentView */ = {
-			isa = PBXGroup;
-			children = (
-				FC58D0D71D2AA8B40059A8C0 /* SearchContentView.h */,
-				FC58D0D81D2AA8B40059A8C0 /* SearchContentView.m */,
-			);
-			path = SearchContentView;
-			sourceTree = "<group>";
-		};
-		FC58D0DA1D2AAE880059A8C0 /* RowButtons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RowButtons;
-			sourceTree = "<group>";
-		};
 		FC825ED51D1FE80100698652 /* start */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,7 +546,6 @@
 		FCEDE0751D2919900032569A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FC58D0D61D2AA8930059A8C0 /* SearchContentView */,
 				FCEDE07A1D291C430032569A /* SearchAlertView */,
 			);
 			name = View;
@@ -796,20 +749,14 @@
 				6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */,
 				6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
-<<<<<<< Updated upstream
 				6EFFD4B01D2BDEBA00D1BC9E /* 接口整理.md in Sources */,
-=======
-				FC58D0D31D2AA1870059A8C0 /* JCCollectionViewTagFlowLayout.m in Sources */,
->>>>>>> Stashed changes
 				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
 				FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */,
-				FC58D0D91D2AA8B40059A8C0 /* SearchContentView.m in Sources */,
 				FC4D35ED1D27D2D3000C3F01 /* FindViewCell.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
 				6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */,
 				6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */,
 				FCEDE07D1D291C430032569A /* SearchAlertView.m in Sources */,
-				FC58D0D51D2AA1870059A8C0 /* JCTagListView.m in Sources */,
 				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
 				6EFFD4B21D2BE02200D1BC9E /* README.md in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
@@ -827,7 +774,6 @@
 				6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */,
 				6E71ECD21D1C1BCA00F4B917 /* ESAPIConfigManager.m in Sources */,
 				6E71ECE11D1C203D00F4B917 /* HomeChannelEntity.m in Sources */,
-				FC58D0D41D2AA1870059A8C0 /* JCTagCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
