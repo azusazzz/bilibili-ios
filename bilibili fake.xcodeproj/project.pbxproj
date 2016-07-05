@@ -199,8 +199,8 @@
 				6E71ECDE1D1C1F2D00F4B917 /* Entity */,
 				6E1535E61D1A96950053A846 /* Model */,
 				6E1535E41D1A96950053A846 /* Cell */,
-				6E1535E51D1A96950053A846 /* Controller */,
 				6E1535E71D1A96950053A846 /* View */,
+				6E1535E51D1A96950053A846 /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";

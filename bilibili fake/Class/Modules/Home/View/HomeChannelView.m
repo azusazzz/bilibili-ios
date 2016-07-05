@@ -33,14 +33,8 @@
         self.backgroundColor = ColorWhite(240);
         
         [[HomeChannelRequest requestWithDelegate:self] start];
-        
     }
     return self;
-}
-
-- (void)layoutSubviews; {
-//    _flowLayout.itemSize = CGSizeMake(self.bounds.size.width / 3, self.bounds.size.width / 3);
-    [super layoutSubviews];
 }
 
 #pragma mark - ESRequestDelegate
@@ -71,8 +65,6 @@
     [cell setChannelEntity:_model.entitys[indexPath.row]];
 }
 
-//- collectionview
-
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath; {
     return CGSizeMake(collectionView.bounds.size.width / 3, collectionView.bounds.size.width / 3);
@@ -89,8 +81,6 @@
 - (void)loadSubviews; {
     _flowLayout = [[UICollectionViewFlowLayout alloc] init];
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-//    _flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
-//    _flowLayout.itemSize = CGSizeMake(100, 100);
     
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_flowLayout];
     _collectionView.delegate = self;
