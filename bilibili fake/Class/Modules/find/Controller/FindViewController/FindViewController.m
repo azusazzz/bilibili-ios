@@ -10,7 +10,6 @@
 #import "Masonry.h"
 #import <ReactiveCocoa.h>
 #import "Macro.h"
-#import <JCTagListView.h>
 #import "FindViewCell.h"
 #import "FindViewData.h"
 #import "GameCentreVC.h"
@@ -115,6 +114,7 @@ typedef enum : NSUInteger {
     search_left_imageview.contentMode = UIViewContentModeScaleAspectFit;
     search_left_imageview.frame = CGRectMake(0, 0, 30, 20);
     search_tf.leftView = search_left_imageview;
+    search_tf.delegate = self;
     search_tf.leftViewMode = UITextFieldViewModeAlways;
     search_tf.backgroundColor = [UIColor whiteColor];
     [search_tf.layer setCornerRadius:4.0];
@@ -140,7 +140,7 @@ typedef enum : NSUInteger {
             [self contentViewMode_updata];
             [searchAlertView setKeyword:x];
         }
-        
+
         NSLog(@"%@",x);
     }];
     
@@ -155,6 +155,7 @@ typedef enum : NSUInteger {
         [self contentViewMode_updata];
         [search_tf resignFirstResponder];
         [UIView animateWithDuration:0.2 animations:^{
+            search_tf.text = @"";
             [self HeadViewMode1];
             [HeadView layoutIfNeeded];
             [cancel_btn layoutIfNeeded];
@@ -309,7 +310,7 @@ typedef enum : NSUInteger {
             }];
         }
     }else if(contentviewMode == View3){
-    
+        
     
     }
 }
@@ -397,7 +398,12 @@ typedef enum : NSUInteger {
     }];
 
 }
-
+#pragma UITextFileDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [FindViewData addSearchRecords:textField.text];
+    return YES;
+}
 
 #pragma UITableViewDelegate
 
