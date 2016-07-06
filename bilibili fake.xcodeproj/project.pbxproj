@@ -24,6 +24,7 @@
 		6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */; };
 		6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C17D1D2A948B00C259E8 /* HomeChannelModel.m */; };
 		6E76C1811D2A98B100C259E8 /* HomeChannelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C1801D2A98B100C259E8 /* HomeChannelCollectionViewCell.m */; };
+		6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */; };
 		6EB691EC1D12422C000FA482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EB1D12422C000FA482 /* main.m */; };
 		6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EE1D12422C000FA482 /* AppDelegate.m */; };
 		6EB691F71D12422C000FA482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB691F61D12422C000FA482 /* Assets.xcassets */; };
@@ -103,6 +104,8 @@
 		6E76C17D1D2A948B00C259E8 /* HomeChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeChannelModel.m; path = "bilibili fake/Class/Common/HomeChannelModel.m"; sourceTree = SOURCE_ROOT; };
 		6E76C17F1D2A98B100C259E8 /* HomeChannelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeChannelCollectionViewCell.h; path = "bilibili fake/Class/Common/HomeChannelCollectionViewCell.h"; sourceTree = SOURCE_ROOT; };
 		6E76C1801D2A98B100C259E8 /* HomeChannelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeChannelCollectionViewCell.m; path = "bilibili fake/Class/Common/HomeChannelCollectionViewCell.m"; sourceTree = SOURCE_ROOT; };
+		6EB4C1801D2CF59600AEB6EF /* HomeAnimationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAnimationRequest.h; sourceTree = "<group>"; };
+		6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAnimationRequest.m; sourceTree = "<group>"; };
 		6EB691E71D12422B000FA482 /* bilibili fake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bilibili fake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB691EB1D12422C000FA482 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6EB691ED1D12422C000FA482 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 			children = (
 				6E76C1771D2A736A00C259E8 /* HomeChannelRequest.h */,
 				6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */,
+				6EB4C1801D2CF59600AEB6EF /* HomeAnimationRequest.h */,
+				6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -782,6 +787,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */,
+				6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */,
 				6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */,
 				6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,

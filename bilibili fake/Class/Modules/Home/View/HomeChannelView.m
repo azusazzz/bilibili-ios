@@ -18,10 +18,13 @@
 <ESRequestDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 {
+    
     HomeChannelModel *_model;
     
     UICollectionViewFlowLayout *_flowLayout;
+    
     UICollectionView *_collectionView;
+    
 }
 
 @end
