@@ -16,6 +16,7 @@
 #import "GameCentreVC.h"
 #import "SearchAlertView.h"
 #import "SearchResultView.h"
+#import "ReadRQCodeVC.h"
 
 #define FinViewCell_Height 50
 @interface FindViewController ()
@@ -108,6 +109,9 @@ typedef enum : NSUInteger {
     
     QRcode_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         NSLog(@"调用二维码界面");
+        ReadRQ_CodeVC* gamevc = [[ReadRQ_CodeVC alloc] init] ;
+        
+        [self.navigationController pushViewController:gamevc animated:YES];
         return [RACSignal empty];
     }];
     

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface ReadRQ_CodeVC : UIViewController
-
+static const char *kScanQRCodeQueueName = "ScanQRCodeQueue";
+@interface ReadRQ_CodeVC : UIViewController<AVCaptureMetadataOutputObjectsDelegate>
+@property (nonatomic) AVCaptureSession *captureSession;
+@property (nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+@property (nonatomic) BOOL lastResult;
 @end

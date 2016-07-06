@@ -685,6 +685,7 @@
 				TargetAttributes = {
 					6EB691E61D12422B000FA482 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = QHEB22MVD3;
 						DevelopmentTeamName = "JieCheng Gao";
 					};
 					6EB691FF1D12422C000FA482 = {
