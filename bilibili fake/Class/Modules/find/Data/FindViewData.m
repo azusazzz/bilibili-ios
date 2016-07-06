@@ -79,7 +79,7 @@
         if([str isEqualToString:outArr[i]])[outArr removeObjectAtIndex:i];
     }
     
-    [outArr addObject:str];
+    [outArr insertObject:str atIndex:0];
     [FindViewData setSearchRecords:outArr];
 }
 @end

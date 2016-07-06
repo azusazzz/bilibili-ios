@@ -15,6 +15,7 @@
 #import "FindViewData.h"
 #import "GameCentreVC.h"
 #import "SearchAlertView.h"
+#import "SearchResultView.h"
 
 #define FinViewCell_Height 50
 @interface FindViewController ()
@@ -51,6 +52,7 @@ typedef enum : NSUInteger {
                 UIImageView *btnbg_imageView;
                 UITableView* tabelView;
             SearchAlertView* searchAlertView;
+            SearchResultView* searchResultView;
 }
 - (instancetype)init; {
     if (self = [super init]) {
@@ -118,10 +120,12 @@ typedef enum : NSUInteger {
     search_tf.leftViewMode = UITextFieldViewModeAlways;
     search_tf.backgroundColor = [UIColor whiteColor];
     [search_tf.layer setCornerRadius:4.0];
+    search_tf.delegate = self;
     search_tf.returnKeyType = UIReturnKeySearch;
     [search_tf setFont:[UIFont systemFontOfSize:15]];
     search_tf.clearButtonMode = UITextFieldViewModeAlways;//右方的小叉
-    UIColor *color = [UIColor colorWithRed:179/255.0 green:179/255.0 blue:179/255.0 alpha:1]; //设置字体颜色
+    search_tf.textColor = [UIColor grayColor];
+    UIColor *color = [UIColor colorWithRed:179/255.0 green:179/255.0 blue:179/255.0 alpha:1]; //设置默认字体颜色
     search_tf.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"搜索视频、番剧、up主或AV号"
                                                                       attributes:@{NSForegroundColorAttributeName: color}];
     [HeadView addSubview:search_tf];
@@ -212,7 +216,11 @@ typedef enum : NSUInteger {
     }];
     
     [tagListView setCompletionBlockWithSelected:^(NSInteger index) {
-        NSLog(@"%@", blockSelf->keywordArr[index]);
+        //NSLog(@"%@", blockSelf->keywordArr[index]);
+        //创建通知
+        NSNotification *notification =[NSNotification notificationWithName:@"searchAction" object:nil userInfo:@{@"keywork":blockSelf->keywordArr[index]}];
+        //通过通知中心发送通知
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
     }];
 
     //展开收起按钮
@@ -276,6 +284,28 @@ typedef enum : NSUInteger {
         make.bottom.equalTo(contentView.mas_bottom);
     }];
     
+    //注册搜索通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchAction:) name:@"searchAction" object:nil];
+    
+}
+
+-(void)searchAction:(NSNotification *)notification{
+    if(contentviewMode==View1){
+        [UIView animateWithDuration:0.2 animations:^{
+            [self HeadViewMode2];
+            [HeadView layoutIfNeeded];
+            [cancel_btn layoutIfNeeded];
+        }];
+    }
+    //判断是不是av号
+    //跳转到view3
+    NSString* keywork = [notification.userInfo objectForKey:@"keywork"];
+    search_tf.text = keywork;
+    contentviewMode = View3;
+    if (keywork.length || searchResultView  == nil) {
+        searchResultView = [[SearchResultView alloc] initWithKeywork:keywork];
+    }
+    [self contentViewMode_updata];
 }
 
 
@@ -298,9 +328,14 @@ typedef enum : NSUInteger {
     if (contentviewMode == View1) {
         [searchAlertView removeFromSuperview];
         searchAlertView = nil;
+        [searchResultView removeFromSuperview];
+        //searchResultView = nil;
         main_scrollview.scrollEnabled = YES;
     }else if(contentviewMode == View2){
         if (searchAlertView == nil) {
+            [searchResultView removeFromSuperview];
+            searchResultView = nil;
+            
             searchAlertView = [[SearchAlertView alloc] init];
             [self.view addSubview:searchAlertView];
             [searchAlertView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -310,8 +345,15 @@ typedef enum : NSUInteger {
             }];
         }
     }else if(contentviewMode == View3){
-    
-    
+        [search_tf resignFirstResponder];
+        [searchAlertView removeFromSuperview];
+        searchAlertView = nil;
+        [self.view addSubview:searchResultView];
+        [searchResultView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(self.view );
+            make.top.equalTo(HeadView.mas_bottom);
+            make.bottom.equalTo(self.view.mas_bottom).offset(-48);
+        }];
     }
 }
 
@@ -399,6 +441,15 @@ typedef enum : NSUInteger {
 
 }
 
+#pragma UITextFileDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    //创建通知
+    NSNotification *notification =[NSNotification notificationWithName:@"searchAction" object:nil userInfo:@{@"keywork":search_tf.text}];
+    //通过通知中心发送通知
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    return YES;
+}
 
 #pragma UITableViewDelegate
 

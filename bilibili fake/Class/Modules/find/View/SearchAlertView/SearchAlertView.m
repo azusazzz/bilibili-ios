@@ -20,7 +20,7 @@
 }
 -(id)init{
     self = [super init];
-    [FindViewData addSearchRecords:@"1"];//调试
+    //[FindViewData addSearchRecords:@"1"];//调试
     if (self) {
         keyword = @"";
         SearchRecords = [FindViewData getSearchRecords];
@@ -101,9 +101,9 @@
     keyword = str;
     [self UpdataView];
     if(Keywork_task)[Keywork_task cancel];//先取消上一个任务
-    
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[@"http://api.bilibili.com/suggest?actionKey=appkey&appkey=27eb53fc9058f8c3&term=" stringByAppendingString:keyword]]];
+    NSString* urlstr = [@"http://api.bilibili.com/suggest?actionKey=appkey&appkey=27eb53fc9058f8c3&term=" stringByAppendingString:keyword];
+    urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;//忽略本地缓存数据
     NSURLSession *session = [NSURLSession sharedSession];
     Keywork_task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
@@ -140,14 +140,21 @@
 #pragma UITableViewDelegate
 //点击
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+   
     if(keyword.length == 0){
         if (indexPath.row == SearchRecords.count) {
             keyword = @"";
             [FindViewData clearSearchRecords];
             [self UpdataView];
             [_tableView reloadData];
+            return;
         }
     }
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //创建通知
+    NSNotification *notification =[NSNotification notificationWithName:@"searchAction" object:nil userInfo:@{@"keywork":cell.textLabel.text}];
+    //通过通知中心发送通知
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 //cell高
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
