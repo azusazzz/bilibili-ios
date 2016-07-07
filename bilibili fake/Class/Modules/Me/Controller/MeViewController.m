@@ -14,6 +14,13 @@
 
 @implementation MeViewController
 
+- (instancetype)init; {
+    if (self = [super init]) {
+        self.title = @"首页";
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

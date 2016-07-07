@@ -90,7 +90,7 @@
             CGFloat speed = translationAbs / (CACurrentMediaTime() - beganTime);
             
             self.interactionController.completionSpeed = 0.99;
-            if (progress > 0.5 || speed > 1000) {
+            if (progress > 0.5 || speed > 800) {
                 [self.interactionController finishInteractiveTransition];
             }
             else {

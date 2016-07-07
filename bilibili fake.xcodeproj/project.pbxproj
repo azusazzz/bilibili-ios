@@ -223,7 +223,6 @@
 			children = (
 				FCB6C4601D2BE880008A3137 /* JCTagListView */,
 				6EFFD4A31D2BCDFB00D1BC9E /* Views */,
-				6E76C17B1D2A7FA000C259E8 /* API */,
 				6E71ECC81D1C1BCA00F4B917 /* ESRequest */,
 			);
 			path = Common;
@@ -386,13 +385,6 @@
 				6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */,
 			);
 			path = Request;
-			sourceTree = "<group>";
-		};
-		6E76C17B1D2A7FA000C259E8 /* API */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		6E9FB08B1D1289FB0032C1DB /* Class */ = {
