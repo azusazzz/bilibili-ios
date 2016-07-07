@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F8A1D54C95AA39D29D4CBD4 /* libPods-bilibili fake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A480E357E111053D1C8F64 /* libPods-bilibili fake.a */; };
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
+		6E5DEF3C1D2E07ED009944D1 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DEF3B1D2E07ED009944D1 /* MeViewController.m */; };
 		6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */; };
 		6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B11D1AC307002DA3AB /* HomeLiveView.m */; };
 		6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B71D1ACBD9002DA3AB /* FollowViewController.m */; };
@@ -72,6 +73,8 @@
 		6E1535E81D1A96A20053A846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		6E1535E91D1A96A20053A846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		6E5DEF3A1D2E07ED009944D1 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		6E5DEF3B1D2E07ED009944D1 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		6E66C8AD1D1AB1E9002DA3AB /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
 		6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
 		6E66C8B01D1AC307002DA3AB /* HomeLiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeLiveView.h; sourceTree = "<group>"; };
@@ -278,6 +281,39 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6E5DEF361D2E07D2009944D1 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				6E5DEF371D2E07D2009944D1 /* Cell */,
+				6E5DEF381D2E07D2009944D1 /* Controller */,
+				6E5DEF391D2E07D2009944D1 /* View */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		6E5DEF371D2E07D2009944D1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6E5DEF381D2E07D2009944D1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E5DEF3A1D2E07ED009944D1 /* MeViewController.h */,
+				6E5DEF3B1D2E07ED009944D1 /* MeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E5DEF391D2E07D2009944D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6E66C8B31D1ACBC5002DA3AB /* Follow */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,11 +406,12 @@
 		6E9FB08C1D1289FB0032C1DB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				FCD80DBE1D22B870009CDEC3 /* find */,
 				FC825ED51D1FE80100698652 /* start */,
 				6E66C8B91D1ADFDB002DA3AB /* Main */,
 				6E1535E31D1A96950053A846 /* Home */,
 				6E66C8B31D1ACBC5002DA3AB /* Follow */,
+				FCD80DBE1D22B870009CDEC3 /* find */,
+				6E5DEF361D2E07D2009944D1 /* Me */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -811,6 +848,7 @@
 				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
 				FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */,
+				6E5DEF3C1D2E07ED009944D1 /* MeViewController.m in Sources */,
 				6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */,
 				FCB6C4681D2BE880008A3137 /* JCTagCell.m in Sources */,
 				FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */,

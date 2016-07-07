@@ -12,6 +12,8 @@
 #import "HomeViewController.h"
 #import "FollowViewController.h"
 #import "FindViewController.h"
+#import "MeViewController.h"
+
 #import "TabBarControllerAnimatedTransitioning.h"
 
 @interface ScrollTabBarController ()
@@ -37,6 +39,7 @@
                              [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]],
                              [[UINavigationController alloc] initWithRootViewController:[[FollowViewController alloc] init]],
                              [[UINavigationController alloc] initWithRootViewController:[[FindViewController alloc] init]],
+                             [[UINavigationController alloc] initWithRootViewController:[[MeViewController alloc] init]],
                              ];
     
     self.delegate = self;
@@ -64,22 +67,8 @@
     CGFloat translationAbs = translationX > 0 ? translationX : - translationX;
     CGFloat progress = translationAbs / self.view.frame.size.width;
     
-//    NSLog(@"%lf", progress);
-    
     static NSTimeInterval beganTime;
     
-    
-    
-//    void (^GestureEnd)(void) = ^() {
-//        self.interactionController.completionSpeed = 0.99;
-//        if (progress > 0.5) {
-//            [self.interactionController finishInteractiveTransition];
-//        }
-//        else {
-//            [self.interactionController cancelInteractiveTransition];
-//        }
-//        _interactive = NO;
-//    };
     
     switch (panGesture.state) {
         case UIGestureRecognizerStateBegan:
@@ -96,23 +85,9 @@
             [self.interactionController updateInteractiveTransition:progress];
             break;
         case UIGestureRecognizerStateCancelled:
-        {
-//            self.interactionController.completionSpeed = 0.99;
-//            if (progress > 0.5) {
-//                [self.interactionController finishInteractiveTransition];
-//            }
-//            else {
-//                [self.interactionController cancelInteractiveTransition];
-//            }
-//            _interactive = NO;
-//            break;
-        }
         case UIGestureRecognizerStateEnded:
         {
-            
             CGFloat speed = translationAbs / (CACurrentMediaTime() - beganTime);
-            
-            NSLog(@"speed : %lf", speed);
             
             self.interactionController.completionSpeed = 0.99;
             if (progress > 0.5 || speed > 1000) {

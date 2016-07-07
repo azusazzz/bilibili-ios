@@ -17,6 +17,7 @@
 #import "SearchAlertView.h"
 #import "SearchResultView.h"
 #import "ReadRQCodeVC.h"
+#import "ScrollTabBarController.h"
 
 #define FinViewCell_Height 50
 @interface FindViewController ()
@@ -69,6 +70,10 @@ typedef enum : NSUInteger {
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [self.view addGestureRecognizer:panGestureRecognizer];
+    
     
     contentviewMode = View1;
     tagListViewMode = search_closeMore;
@@ -291,6 +296,15 @@ typedef enum : NSUInteger {
     //注册搜索通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchAction:) name:@"searchAction" object:nil];
     
+}
+
+
+
+#pragma mark - GestureRecognizer
+
+- (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
+    ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;
+    [tabbar handlePanGesture:panGestureRecognizer];
 }
 
 -(void)searchAction:(NSNotification *)notification{

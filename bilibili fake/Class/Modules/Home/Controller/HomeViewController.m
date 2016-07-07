@@ -116,8 +116,6 @@ typedef NS_ENUM(APIType, HomeAPIType) {
     }];
     
     
-    
-    
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.delegate = self;
     _scrollView.backgroundColor = [UIColor grayColor];

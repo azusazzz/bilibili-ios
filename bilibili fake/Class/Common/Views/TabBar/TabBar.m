@@ -21,7 +21,6 @@
 
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles; {
     if (self = [super init]) {
-//        UITableViewStyle
         _items = [NSMutableArray arrayWithCapacity:titles.count];
         
         [titles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -42,12 +41,22 @@
     return self;
 }
 
+- (NSInteger)currentIndex; {
+    return _index;
+}
+
 - (void)setContentOffset:(CGFloat)contentOffset; {
     _bottomLineView.x = self.width * contentOffset;
 }
 
+- (void)setTitle:(NSString *)title forIndex:(NSInteger)index; {
+    [_items[index] setTitle:title forState:UIControlStateNormal];
+}
+
+
+
 - (void)selectedItem:(UIButton *)itemButton; {
-    
+    [self.delegate tabBar:self didSelectIndex:itemButton.tag];
 }
 
 - (void)layoutSubviews; {

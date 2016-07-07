@@ -12,6 +12,16 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
     TabBarStyleScroll
 };
 
+@class TabBar;
+
+@protocol TabBarDelegate <NSObject>
+
+@optional
+- (void)tabBar:(TabBar *)tabBar didSelectIndex:(NSInteger)index;
+
+@end
+
+
 @interface TabBar : UIView
 
 @property (assign, nonatomic, readonly) NSInteger currentIndex;
@@ -23,6 +33,12 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
  */
 @property (assign, nonatomic) CGFloat contentOffset;
 
+@property (weak, nonatomic) id<TabBarDelegate> delegate;
+
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles;
+
+- (void)setTitle:(NSString *)title forIndex:(NSInteger)index;
+
+
 
 @end
