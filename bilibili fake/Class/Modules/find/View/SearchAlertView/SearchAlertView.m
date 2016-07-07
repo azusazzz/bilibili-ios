@@ -265,7 +265,7 @@
         cell.textLabel.textColor = ColorRGB(50, 50, 50);
     }
 
-
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.font = [UIFont systemFontOfSize:16];
     cell.backgroundColor = self.backgroundColor;
     

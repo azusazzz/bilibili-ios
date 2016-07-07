@@ -44,6 +44,7 @@
 		FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC825ED71D1FE80100698652 /* CXHStartViewController.m */; };
 		FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4C7191D28492C0006CA0E /* GameCenterCell.m */; };
 		FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */; };
+		FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */; };
 		FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4621D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m */; };
 		FCB6C4681D2BE880008A3137 /* JCTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4641D2BE880008A3137 /* JCTagCell.m */; };
 		FCB6C4691D2BE880008A3137 /* JCTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4661D2BE880008A3137 /* JCTagListView.m */; };
@@ -147,6 +148,8 @@
 		FCA4C7181D28492C0006CA0E /* GameCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterCell.h; sourceTree = "<group>"; };
 		FCA4C7191D28492C0006CA0E /* GameCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterCell.m; sourceTree = "<group>"; };
 		FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "游戏中心假数据.json"; sourceTree = "<group>"; };
+		FCAA18EB1D2DEDD90046CBA4 /* RowBotton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowBotton.h; path = RowBotton/RowBotton.h; sourceTree = "<group>"; };
+		FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowBotton.m; path = RowBotton/RowBotton.m; sourceTree = "<group>"; };
 		FCB6C4611D2BE880008A3137 /* JCCollectionViewTagFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCollectionViewTagFlowLayout.h; sourceTree = "<group>"; };
 		FCB6C4621D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCollectionViewTagFlowLayout.m; sourceTree = "<group>"; };
 		FCB6C4631D2BE880008A3137 /* JCTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagCell.h; sourceTree = "<group>"; };
@@ -495,6 +498,7 @@
 		6EFFD4A31D2BCDFB00D1BC9E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FCAA18EA1D2DED910046CBA4 /* rowBtn */,
 				6EFFD4A41D2BCE0B00D1BC9E /* TabBar */,
 			);
 			path = Views;
@@ -593,6 +597,15 @@
 				FC825ED71D1FE80100698652 /* CXHStartViewController.m */,
 			);
 			path = start;
+			sourceTree = "<group>";
+		};
+		FCAA18EA1D2DED910046CBA4 /* rowBtn */ = {
+			isa = PBXGroup;
+			children = (
+				FCAA18EB1D2DEDD90046CBA4 /* RowBotton.h */,
+				FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */,
+			);
+			name = rowBtn;
 			sourceTree = "<group>";
 		};
 		FCB6C4601D2BE880008A3137 /* JCTagListView */ = {
@@ -859,6 +872,7 @@
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
 				6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */,
 				FC5B5D011D2D3DBC00778008 /* SearchResultView.m in Sources */,
+				FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
 				FC4D35F31D27F62A000C3F01 /* FindViewData.m in Sources */,
 				6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */,

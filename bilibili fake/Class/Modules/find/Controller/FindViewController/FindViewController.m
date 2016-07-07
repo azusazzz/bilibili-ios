@@ -68,6 +68,7 @@ typedef enum : NSUInteger {
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -79,39 +80,24 @@ typedef enum : NSUInteger {
     tagListViewMode = search_closeMore;
     FindViewTableViewData = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FindViewController" ofType:@"plist"]] objectForKey:@"FindViewTableViewData"];
     keywordArr = [[NSArray alloc] init];
-//最底层视图
-    main_scrollview = UIScrollView.new;
-    [self.view addSubview:main_scrollview];
-    //main_scrollview.frame = self.view.frame;
-    [main_scrollview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-    }];
     
-    main_view = [[UIView alloc] init];
-    //main_view.backgroundColor = [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
-    [main_scrollview addSubview:main_view];
-    [main_view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(main_scrollview);
-        make.width.mas_equalTo(main_scrollview);
-    }];
-  
-
-//头视图
-    HeadView = UIView.new;
-    [main_view addSubview:HeadView];
-    [HeadView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@44);
-        make.width.equalTo(main_view);
-        make.left.top.mas_equalTo(0);
-    }];
+    [self loadSubviews];
+    [self loadActions];
     
+    //注册搜索通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchAction:) name:@"searchAction" object:nil];
+    
+}
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - ActionDealt
+-(void)loadActions{
     //二维码按钮
-    QRcode_btn = [[UIButton alloc] init];
-    QRcode_btn.backgroundColor = [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
-    [QRcode_btn setImage:[UIImage imageNamed:@"search_qr"] forState:UIControlStateNormal];
-    [HeadView addSubview:QRcode_btn];
-    
     QRcode_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         NSLog(@"调用二维码界面");
         ReadRQ_CodeVC* gamevc = [[ReadRQ_CodeVC alloc] init] ;
@@ -120,26 +106,8 @@ typedef enum : NSUInteger {
         return [RACSignal empty];
     }];
     
+    
     //搜索输入栏
-    search_tf = UITextField.new;
-    search_left_imageview =  [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"find_search_tf_left_btn"]];
-    search_left_imageview.contentMode = UIViewContentModeScaleAspectFit;
-    search_left_imageview.frame = CGRectMake(0, 0, 30, 20);
-    search_tf.leftView = search_left_imageview;
-    search_tf.leftViewMode = UITextFieldViewModeAlways;
-    search_tf.backgroundColor = [UIColor whiteColor];
-    [search_tf.layer setCornerRadius:4.0];
-    search_tf.delegate = self;
-    search_tf.returnKeyType = UIReturnKeySearch;
-    [search_tf setFont:[UIFont systemFontOfSize:15]];
-    search_tf.clearButtonMode = UITextFieldViewModeAlways;//右方的小叉
-    search_tf.textColor = [UIColor grayColor];
-    UIColor *color = [UIColor colorWithRed:179/255.0 green:179/255.0 blue:179/255.0 alpha:1]; //设置默认字体颜色
-    search_tf.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"搜索视频、番剧、up主或AV号"
-                                                                      attributes:@{NSForegroundColorAttributeName: color}];
-    [HeadView addSubview:search_tf];
-    
-    
     [search_tf.rac_textSignal subscribeNext:^(id x) {
         if([search_tf isFirstResponder]){
             if(contentviewMode==View1){
@@ -157,12 +125,8 @@ typedef enum : NSUInteger {
         NSLog(@"%@",x);
     }];
     
+    
     //取消按钮
-    cancel_btn = UIButton.new;
-    [cancel_btn setTitle:@"取消" forState:UIControlStateNormal];
-    [cancel_btn.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [cancel_btn setTitleColor:ColorRGB(230, 140, 150) forState:UIControlStateNormal];
-    [HeadView addSubview:cancel_btn];
     cancel_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         contentviewMode = View1;
         search_tf.text = @"";
@@ -176,86 +140,14 @@ typedef enum : NSUInteger {
         return [RACSignal empty];
     }];
     
-    [self HeadViewMode1];
-    
-//底部内容视图
-    contentView = UIView.new;
-    [main_view addSubview:contentView];
-    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(HeadView.mas_bottom);
-        make.width.equalTo(main_view);
-        //make.height.equalTo(@600);
-    }];
-    
-    //大家都在搜
-    label1 = UILabel.new;
-    label1.text = @"大家都在搜";
-    label1.textColor = ColorRGB(180, 180, 180);
-    label1.font = [UIFont systemFontOfSize:12];
-    [contentView addSubview:label1];
-    [label1 mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(HeadView.mas_bottom).offset(10);
-        make.left.mas_equalTo(contentView.mas_left).offset(10);
-        make.right.mas_equalTo(contentView.mas_right).offset(-10);
-        make.height.equalTo(@10);
-    }];
-    
-    //标签视图
-    tagListView = JCTagListView.new;
-    [contentView addSubview:tagListView];
-    tagListView.tagCornerRadius = 5.0f;
-    tagListView.tagTextColor = ColorRGB(27, 27, 27);
-
-    [tagListView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(label1.mas_bottom).offset(10);
-        make.left.mas_equalTo(contentView.mas_left).offset(0);
-        make.right.mas_equalTo(contentView.mas_right).offset(-0);
-        make.height.equalTo(@80);
-    }];
+     //标签视图
     __block FindViewController *blockSelf = self;
-    [FindViewData getKeyword:^(NSArray *keyword_arr) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //回调或者说是通知主线程刷新，
-            [tagListView.tags addObjectsFromArray:keyword_arr];
-            [[tagListView collectionView] reloadData];
-        });
-
-        keywordArr = [[NSArray alloc] initWithArray:keyword_arr];
-       
-    }];
-    
     [tagListView setCompletionBlockWithSelected:^(NSInteger index) {
-        //NSLog(@"%@", blockSelf->keywordArr[index]);
-        //创建通知
         NSNotification *notification =[NSNotification notificationWithName:@"searchAction" object:nil userInfo:@{@"keywork":blockSelf->keywordArr[index]}];
-        //通过通知中心发送通知
         [[NSNotificationCenter defaultCenter] postNotification:notification];
     }];
-
-    //展开收起按钮
-    btnbg_imageView =  [UIImageView new];
-    btnbg_imageView.image = [UIImage imageNamed:@"search_moreLine"];
-    [contentView addSubview:btnbg_imageView];
     
-    tagList_btn = [[UIButton alloc] init];
-    tagList_btn.titleLabel.font = [UIFont systemFontOfSize:13];
-    [tagList_btn setTitleColor:ColorRGB(144, 144, 144) forState:UIControlStateNormal];
-    [tagList_btn setTitle:@" 查看更多" forState:UIControlStateNormal];
-    [tagList_btn setImage:[UIImage imageNamed:@"search_closeMore"] forState:UIControlStateNormal];
-    
-    [contentView addSubview:tagList_btn];
-    [btnbg_imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(tagList_btn.mas_centerY);
-        make.left.mas_equalTo(contentView.mas_left).offset(10);
-        make.right.mas_equalTo(contentView.mas_right).offset(-10);
-        make.height.equalTo(@1);
-    }];
-    [tagList_btn mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(tagListView.mas_bottom).offset(10);
-        make.left.mas_equalTo(contentView.mas_left).offset(10);
-        make.right.mas_equalTo(contentView.mas_right).offset(-10);
-        make.height.equalTo(@40);
-    }];
+     //展开收起按钮
     tagList_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         if (tagListViewMode == search_closeMore) {
             tagListViewMode = search_openMore;
@@ -273,40 +165,12 @@ typedef enum : NSUInteger {
         
         return [RACSignal empty];
     }];
-
-    //列表
-    tabelView = [UITableView new];
-    tabelView.delegate = self;
-    tabelView.dataSource = self;
-    [contentView addSubview:tabelView];
-    tabelView.scrollEnabled = NO;
-    [tabelView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(tagList_btn.mas_bottom).offset(0);
-            make.left.right.equalTo(contentView);
-        make.height.equalTo(@([self getTableViewHeight]-1));
-    }];
     
-    [contentView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(tabelView.mas_bottom);
-    }];
-    [main_view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(contentView.mas_bottom);
-    }];
-    
-    //注册搜索通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchAction:) name:@"searchAction" object:nil];
     
 }
 
 
-
-#pragma mark - GestureRecognizer
-
-- (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
-    ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;
-    [tabbar handlePanGesture:panGestureRecognizer];
-}
-
+//跳转到搜索界面通知
 -(void)searchAction:(NSNotification *)notification{
     if(contentviewMode==View1){
         [UIView animateWithDuration:0.2 animations:^{
@@ -328,20 +192,38 @@ typedef enum : NSUInteger {
 
 
 
--(NSInteger)getTableViewHeight{
-    NSInteger height = 0;
-    for (int i = 0; i < FindViewTableViewData.count; i++) {
-        height+=10;
-        NSArray* arr = FindViewTableViewData[i];
-        height+=(arr.count*FinViewCell_Height);
-    }
-    return height;
+
+//标签视图关闭时
+-(void)TagListView_close{
+    [tagList_btn setTitle:@" 查看更多" forState:UIControlStateNormal];
+    [tagList_btn setImage:[UIImage imageNamed:@"search_openMore"] forState:UIControlStateNormal];
+    [tagListView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(label1.mas_bottom).offset(10);
+        make.left.mas_equalTo(contentView.mas_left).offset(10);
+        make.right.mas_equalTo(contentView.mas_right).offset(-10);
+        make.height.equalTo(@80);
+    }];
+    
+}
+//标签视图展开时
+-(void)TagListView_open{
+    [tagList_btn setTitle:@" 收起" forState:UIControlStateNormal];
+    [tagList_btn setImage:[UIImage imageNamed:@"search_closeMore"] forState:UIControlStateNormal];
+    [tagListView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(label1.mas_bottom).offset(10);
+        make.left.mas_equalTo(contentView.mas_left).offset(10);
+        make.right.mas_equalTo(contentView.mas_right).offset(-10);
+        make.height.equalTo(@200);
+    }];
+    
 }
 
 
 
 
 
+
+//内容界面更新替换
 -(void)contentViewMode_updata{
     if (contentviewMode == View1) {
         [searchAlertView removeFromSuperview];
@@ -374,6 +256,9 @@ typedef enum : NSUInteger {
         }];
     }
 }
+
+
+
 
 
 //view1时的headView
@@ -433,30 +318,15 @@ typedef enum : NSUInteger {
     }];
 }
 
-//标签视图关闭时
--(void)TagListView_close{
-    [tagList_btn setTitle:@" 查看更多" forState:UIControlStateNormal];
-    [tagList_btn setImage:[UIImage imageNamed:@"search_openMore"] forState:UIControlStateNormal];
-    [tagListView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(label1.mas_bottom).offset(10);
-        make.left.mas_equalTo(contentView.mas_left).offset(10);
-        make.right.mas_equalTo(contentView.mas_right).offset(-10);
-        make.height.equalTo(@80);
-    }];
 
-}
 
-//标签视图展开时
--(void)TagListView_open{
-    [tagList_btn setTitle:@" 收起" forState:UIControlStateNormal];
-    [tagList_btn setImage:[UIImage imageNamed:@"search_closeMore"] forState:UIControlStateNormal];
-    [tagListView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(label1.mas_bottom).offset(10);
-        make.left.mas_equalTo(contentView.mas_left).offset(10);
-        make.right.mas_equalTo(contentView.mas_right).offset(-10);
-        make.height.equalTo(@200);
-    }];
 
+
+#pragma mark - GestureRecognizer
+
+- (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
+    ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;
+    [tabbar handlePanGesture:panGestureRecognizer];
 }
 
 #pragma UITextFileDelegate
@@ -513,8 +383,188 @@ typedef enum : NSUInteger {
     return cell;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark Subviews
+- (void)loadSubviews {
+
+
+    //最底层视图
+    main_scrollview = UIScrollView.new;
+    [self.view addSubview:main_scrollview];
+    
+     main_view = [[UIView alloc] init];
+    [main_scrollview addSubview:main_view];
+
+    
+    //头视图
+    HeadView = UIView.new;
+    [main_view addSubview:HeadView];
+
+    
+    
+    //二维码按钮
+    QRcode_btn = [[UIButton alloc] init];
+    QRcode_btn.backgroundColor = [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
+    [QRcode_btn setImage:[UIImage imageNamed:@"search_qr"] forState:UIControlStateNormal];
+    [HeadView addSubview:QRcode_btn];
+    
+
+    
+    //搜索输入栏
+    search_tf = UITextField.new;
+    search_left_imageview =  [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"find_search_tf_left_btn"]];
+    search_left_imageview.contentMode = UIViewContentModeScaleAspectFit;
+    search_left_imageview.frame = CGRectMake(0, 0, 30, 20);
+    search_tf.leftView = search_left_imageview;
+    search_tf.leftViewMode = UITextFieldViewModeAlways;
+    search_tf.backgroundColor = [UIColor whiteColor];
+    [search_tf.layer setCornerRadius:4.0];
+    search_tf.delegate = self;
+    search_tf.returnKeyType = UIReturnKeySearch;
+    [search_tf setFont:[UIFont systemFontOfSize:15]];
+    search_tf.clearButtonMode = UITextFieldViewModeAlways;//右方的小叉
+    search_tf.textColor = [UIColor grayColor];
+    UIColor *color = [UIColor colorWithRed:179/255.0 green:179/255.0 blue:179/255.0 alpha:1]; //设置默认字体颜色
+    search_tf.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"搜索视频、番剧、up主或AV号"
+                                                                      attributes:@{NSForegroundColorAttributeName: color}];
+    [HeadView addSubview:search_tf];
+    
+    
+
+    
+    //取消按钮
+    cancel_btn = UIButton.new;
+    [cancel_btn setTitle:@"取消" forState:UIControlStateNormal];
+    [cancel_btn.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [cancel_btn setTitleColor:ColorRGB(230, 140, 150) forState:UIControlStateNormal];
+    [HeadView addSubview:cancel_btn];
+
+    
+    //底部内容视图
+    contentView = UIView.new;
+    [main_view addSubview:contentView];
+
+    //大家都在搜
+    label1 = UILabel.new;
+    label1.text = @"大家都在搜";
+    label1.textColor = ColorRGB(180, 180, 180);
+    label1.font = [UIFont systemFontOfSize:12];
+    [contentView addSubview:label1];
+
+    
+    //标签视图
+    tagListView = JCTagListView.new;
+    [contentView addSubview:tagListView];
+    tagListView.tagCornerRadius = 5.0f;
+    tagListView.tagTextColor = ColorRGB(27, 27, 27);
+    
+    __block FindViewController *blockSelf = self;
+    [FindViewData getKeyword:^(NSArray *keyword_arr) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //回调或者说是通知主线程刷新，
+            [tagListView.tags addObjectsFromArray:keyword_arr];
+            [[tagListView collectionView] reloadData];
+        });
+        
+        keywordArr = [[NSArray alloc] initWithArray:keyword_arr];
+        
+    }];
+    
+
+    
+    //展开收起按钮
+    btnbg_imageView =  [UIImageView new];
+    btnbg_imageView.image = [UIImage imageNamed:@"search_moreLine"];
+    [contentView addSubview:btnbg_imageView];
+    
+    tagList_btn = [[UIButton alloc] init];
+    tagList_btn.titleLabel.font = [UIFont systemFontOfSize:13];
+    [tagList_btn setTitleColor:ColorRGB(144, 144, 144) forState:UIControlStateNormal];
+    [tagList_btn setTitle:@" 查看更多" forState:UIControlStateNormal];
+    [tagList_btn setImage:[UIImage imageNamed:@"search_closeMore"] forState:UIControlStateNormal];
+    [contentView addSubview:tagList_btn];
+
+
+    
+    //列表
+    tabelView = [UITableView new];
+    tabelView.delegate = self;
+    tabelView.dataSource = self;
+    [contentView addSubview:tabelView];
+    tabelView.scrollEnabled = NO;
+
+    
+    
+    
+    // Layout
+    [main_scrollview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
+    
+    [main_view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(main_scrollview);
+        make.width.mas_equalTo(main_scrollview);
+    }];
+    
+    [HeadView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@44);
+        make.width.equalTo(main_view);
+        make.left.top.mas_equalTo(0);
+    }];
+    
+    [self HeadViewMode1];
+    
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(HeadView.mas_bottom);
+        make.width.equalTo(main_view);
+    }];
+    
+    [label1 mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(HeadView.mas_bottom).offset(10);
+        make.left.mas_equalTo(contentView.mas_left).offset(10);
+        make.right.mas_equalTo(contentView.mas_right).offset(-10);
+        make.height.equalTo(@10);
+    }];
+    
+    [tagListView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(label1.mas_bottom).offset(10);
+        make.left.mas_equalTo(contentView.mas_left).offset(0);
+        make.right.mas_equalTo(contentView.mas_right).offset(-0);
+        make.height.equalTo(@80);
+    }];
+    
+    [btnbg_imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(tagList_btn.mas_centerY);
+        make.left.mas_equalTo(contentView.mas_left).offset(10);
+        make.right.mas_equalTo(contentView.mas_right).offset(-10);
+        make.height.equalTo(@1);
+    }];
+    
+    [tagList_btn mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(tagListView.mas_bottom).offset(10);
+        make.left.mas_equalTo(contentView.mas_left).offset(10);
+        make.right.mas_equalTo(contentView.mas_right).offset(-10);
+        make.height.equalTo(@40);
+    }];
+    
+    [tabelView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(tagList_btn.mas_bottom).offset(0);
+        make.left.right.equalTo(contentView);
+        NSInteger height = 0;
+        for (int i = 0; i < FindViewTableViewData.count; i++) {
+            height+=10;
+            NSArray* arr = FindViewTableViewData[i];
+            height+=(arr.count*FinViewCell_Height);
+        }
+        make.height.equalTo(@(height-1));
+    }];
+    
+    [contentView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(tabelView.mas_bottom);
+    }];
+    
+    [main_view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(contentView.mas_bottom);
+    }];
 }
 @end
