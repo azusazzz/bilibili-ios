@@ -7,7 +7,7 @@
 //
 
 #import "SearchResultView.h"
-#import "TabBar.h"
+#import "RowBotton.h"
 #import "FindViewData.h"
 @implementation SearchResultView
 
@@ -21,11 +21,14 @@
 -(id)initWithKeywork:(NSString*)keywork{
     
     NSLog(@"%@",keywork);
-    [FindViewData addSearchRecords:keywork];
+    [FindViewData addSearchRecords:keywork];//
     self = [super init];
     if (self) {
         self.backgroundColor =  [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
-        TabBar* tabBar = [[TabBar alloc] initWithTitles:@[@"综合",@"番剧",@"专题",@"UP主"]];
+        NSMutableArray* titles = [[NSMutableArray alloc] initWithArray:@[@"综合",@"番剧",@"专题",@"UP主",@"综合",@"番剧",@"专题",@"UP主",@"番剧",@"专题",@"UP主",@"综合",@"番剧"]];
+        RowBotton* tabBar = [[RowBotton alloc] initWithTitles:titles Block:^(NSInteger btnTag) {
+            NSLog(@"%lu",btnTag);
+        }];
         [self addSubview:tabBar];
         [tabBar mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.equalTo(self);

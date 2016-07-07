@@ -325,8 +325,10 @@ typedef enum : NSUInteger {
 #pragma mark - GestureRecognizer
 
 - (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
-    ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;
-    [tabbar handlePanGesture:panGestureRecognizer];
+    if (contentviewMode == View1) {
+        ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;
+        [tabbar handlePanGesture:panGestureRecognizer];
+    }
 }
 
 #pragma UITextFileDelegate

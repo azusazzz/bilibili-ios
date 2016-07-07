@@ -54,6 +54,14 @@
 
     
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark-ActionDealt
+
 //获取游戏数据
 -(void)getGameData{
     NSString* path = [[NSBundle mainBundle] pathForResource:@"游戏中心假数据" ofType:@"json"];
@@ -62,24 +70,26 @@
     [self.tableView reloadData];
 }
 
-
+//返回
 -(void)goBackAction{
-    // 在这里增加返回按钮的自定义动作
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
+//点击
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary* dic = GameData_Arr[indexPath.row];
+     NSLog(@"请跳转到:%@",[dic objectForKey:@"download_link"]);
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return GameData_Arr.count;

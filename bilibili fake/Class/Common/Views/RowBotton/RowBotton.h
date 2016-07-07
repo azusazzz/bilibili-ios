@@ -13,11 +13,10 @@ typedef NS_ENUM(NSInteger, RowBottonStyle) {
 
 @interface RowBotton : UIView
 
-@property(nonatomic,assign)UIScrollView* scr;
 
-- (instancetype)initWithTitles:(NSArray<NSString *> *)titles  Block:(void(^)(NSInteger btnTag))block;
+- (instancetype)initWithTitles:(NSMutableArray<NSString *> *)titles  Block:(void(^)(NSInteger btnTag))block;
 
-- (void)setTitles:(NSArray<NSString *> *)titles;
+- (void)setTitles:(NSMutableArray<NSString *> *)titles;
 
 - (void)setFont:(UIFont*)font;
 

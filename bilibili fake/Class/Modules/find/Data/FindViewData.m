@@ -33,6 +33,8 @@
 
 
 
+
+
 +(NSString*)getSearchRecordsPath{
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -82,4 +84,6 @@
     [outArr insertObject:str atIndex:0];
     [FindViewData setSearchRecords:outArr];
 }
+
+
 @end

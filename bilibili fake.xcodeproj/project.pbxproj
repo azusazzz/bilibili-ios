@@ -635,9 +635,9 @@
 		FCD80DC31D22BF70009CDEC3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FC4D35F41D28378D000C3F01 /* FindViewController */,
 				FC0745501D2CB762000DFBA6 /* ReadRQCodeVC */,
 				FC4D35FB1D283EB5000C3F01 /* GameCentreVC */,
-				FC4D35F41D28378D000C3F01 /* FindViewController */,
 			);
 			name = Controller;
 			path = find/Controller;
