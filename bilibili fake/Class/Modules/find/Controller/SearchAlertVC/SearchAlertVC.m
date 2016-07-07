@@ -10,7 +10,7 @@
 #import "FindViewData.h"
 #import <ReactiveCocoa.h>
 #import "SearchResultVC.h"
-
+#import <Foundation/Foundation.h>
 
 @interface SearchAlertVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
@@ -53,7 +53,11 @@
 - (void)viewDidLoad {
    [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [search_tf becomeFirstResponder];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [search_tf becomeFirstResponder];
+    });
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

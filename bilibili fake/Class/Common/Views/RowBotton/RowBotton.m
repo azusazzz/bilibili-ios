@@ -54,8 +54,78 @@ typedef void(^BLOCK)(NSInteger btnTag);
     return self;
 }
 
+//根据标题重新设置按钮数组
+- (void)setTitles:(NSMutableArray<NSString *> *)titles{
+    if(_items){
+        for (UIButton* btn in _items) {
+            [btn removeFromSuperview];
+        }
+        [_items removeAllObjects];
+    }
+    
+    
+    _titles = titles;
+    _items = [[NSMutableArray alloc] init];
+    for (int i = 0; i < _titles.count; i++)
+    {
+        UIButton* btn = [[UIButton alloc] init];
+        [btn setTitle:_titles[i] forState:UIControlStateNormal];
+        [btn.titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [btn setTitleColor:ColorRGB(100, 100, 100) forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = i;
+        [_mainscr addSubview:btn];
+        [_items addObject:btn];
+    }
+    
+}
 
 
+//按钮点击事件处理
+-(void)btnAction:(id)sender{
+    UIButton* botton = sender;
+    _block(botton.tag);
+    [self setSelectedBotton:botton.tag];
+}
+-(void)setSelectedBotton:(NSInteger)tag{
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        
+        
+        if (_style == RowBottonDefaultStyle) {
+            
+            UIButton* botton = _items[Selectedtag];
+            [botton setTitleColor:ColorRGB(100, 100, 100) forState:UIControlStateNormal];
+            
+            Selectedtag = tag;
+            botton = _items[Selectedtag];
+            [botton setTitleColor:SelectedbgView.backgroundColor forState:UIControlStateNormal];
+            SelectedbgView.frame = CGRectMake(botton.frame.origin.x, self.frame.size.height - 2, botton.frame.size.width, 2);
+            
+        }else if(_style == RowBottonStyle2){
+            
+            UIColor * color = ColorRGB(100, 100, 100);
+            UIButton* botton = _items[Selectedtag];
+            [botton setTitleColor:color forState:UIControlStateNormal];
+            botton.layer.borderColor = (__bridge CGColorRef _Nullable)(color);
+            
+            Selectedtag = tag;
+            botton = _items[Selectedtag];
+            botton.userInteractionEnabled = YES;
+            [botton.layer setCornerRadius:3.0];
+            botton.layer.borderWidth = 1.0f;
+            color = ColorRGB(220, 130, 150);
+            botton.layer.borderColor =color.CGColor;
+            [botton setTitleColor:color forState:UIControlStateNormal];
+        }
+        
+        
+    }];
+}
+
+
+
+//大小改变时重新计算坐标
 - (void )layoutSubviews{
     _mainscr.frame = self.bounds;
     
@@ -102,76 +172,11 @@ typedef void(^BLOCK)(NSInteger btnTag);
 
 
 
-- (void)setTitles:(NSMutableArray<NSString *> *)titles{
-    if(_items){
-        for (UIButton* btn in _items) {
-            [btn removeFromSuperview];
-        }
-         [_items removeAllObjects];
-    }
-   
-    
-    _titles = titles;
-    _items = [[NSMutableArray alloc] init];
-    for (int i = 0; i < _titles.count; i++)
-    {
-        UIButton* btn = [[UIButton alloc] init];
-        [btn setTitle:_titles[i] forState:UIControlStateNormal];
-        [btn.titleLabel setFont:[UIFont systemFontOfSize:14]];
-        [btn setTitleColor:ColorRGB(100, 100, 100) forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-        btn.tag = i;
-        [_mainscr addSubview:btn];
-        [_items addObject:btn];
-    }
-    
-}
 
 
--(void)btnAction:(id)sender{
-    UIButton* botton = sender;
-    _block(botton.tag);
-    [self setSelectedBotton:botton.tag];
-}
 
 
--(void)setSelectedBotton:(NSInteger)tag{
-    
-    [UIView animateWithDuration:0.2 animations:^{
-
-        
-        if (_style == RowBottonDefaultStyle) {
-            
-            UIButton* botton = _items[Selectedtag];
-            [botton setTitleColor:ColorRGB(100, 100, 100) forState:UIControlStateNormal];
-            
-            Selectedtag = tag;
-            botton = _items[Selectedtag];
-            [botton setTitleColor:SelectedbgView.backgroundColor forState:UIControlStateNormal];
-            SelectedbgView.frame = CGRectMake(botton.frame.origin.x, self.frame.size.height - 2, botton.frame.size.width, 2);
-            
-        }else if(_style == RowBottonStyle2){
-            
-            UIColor * color = ColorRGB(100, 100, 100);
-            UIButton* botton = _items[Selectedtag];
-            [botton setTitleColor:color forState:UIControlStateNormal];
-            botton.layer.borderColor = (__bridge CGColorRef _Nullable)(color);
-            
-            Selectedtag = tag;
-            botton = _items[Selectedtag];
-            botton.userInteractionEnabled = YES;
-            [botton.layer setCornerRadius:3.0];
-            botton.layer.borderWidth = 1.0f;
-            color = ColorRGB(220, 130, 150);
-            botton.layer.borderColor =color.CGColor;
-            [botton setTitleColor:color forState:UIControlStateNormal];
-        }
-       
-
-    }];
-}
-
-
+//返回总长最小需要多宽
 -(CGFloat)getRowMinWidth{
     CGFloat minWidth  = 0;
     for (int i = 0; i < _titles.count; i++) {
@@ -180,7 +185,7 @@ typedef void(^BLOCK)(NSInteger btnTag);
     return minWidth;
 }
 
-
+//返回最小需要多宽
 -(CGFloat)widthWithFont:(UIFont*)font String:(NSString*)str{
     NSDictionary *attrs = @{NSFontAttributeName : font};
     CGRect rect = [str boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil];
