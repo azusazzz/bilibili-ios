@@ -8,18 +8,20 @@
 
 #import <UIKit/UIKit.h>
 typedef NS_ENUM(NSInteger, RowBottonStyle) {
-    RowBottonDefaultStyle
+    RowBottonDefaultStyle,//下面有红线的
+    RowBottonStyle2//选中有红色边框的
 };
 
 @interface RowBotton : UIView
 
-
 - (instancetype)initWithTitles:(NSMutableArray<NSString *> *)titles  Block:(void(^)(NSInteger btnTag))block;
+
+- (instancetype)initWithTitles:(NSMutableArray<NSString *> *)titles Style:(RowBottonStyle)style  Block:(void(^)(NSInteger btnTag))block;
 
 - (void)setTitles:(NSMutableArray<NSString *> *)titles;
 
-- (void)setFont:(UIFont*)font;
+//- (void)setFont:(UIFont*)font;
 
-- (void)setStyle:(RowBottonStyle)style;
+//- (void)setStyle:(RowBottonStyle)style;
 
 @end

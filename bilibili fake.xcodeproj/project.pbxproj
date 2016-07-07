@@ -40,7 +40,8 @@
 		FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F61D28378D000C3F01 /* FindViewController.m */; };
 		FC4D35F91D28378D000C3F01 /* FindViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC4D35F71D28378D000C3F01 /* FindViewController.plist */; };
 		FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D36001D283F47000C3F01 /* GameCentreVC.m */; };
-		FC5B5D011D2D3DBC00778008 /* SearchResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5B5D001D2D3DBC00778008 /* SearchResultView.m */; };
+		FC792C221D2E9B7600762831 /* SearchResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC792C211D2E9B7600762831 /* SearchResultVC.m */; };
+		FC792C2B1D2E9C8600762831 /* SearchAlertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC792C2A1D2E9C8600762831 /* SearchAlertVC.m */; };
 		FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC825ED71D1FE80100698652 /* CXHStartViewController.m */; };
 		FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4C7191D28492C0006CA0E /* GameCenterCell.m */; };
 		FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */; };
@@ -48,7 +49,6 @@
 		FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4621D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m */; };
 		FCB6C4681D2BE880008A3137 /* JCTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4641D2BE880008A3137 /* JCTagCell.m */; };
 		FCB6C4691D2BE880008A3137 /* JCTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4661D2BE880008A3137 /* JCTagListView.m */; };
-		FCEDE07D1D291C430032569A /* SearchAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEDE07C1D291C430032569A /* SearchAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,8 +141,10 @@
 		FC4D35F71D28378D000C3F01 /* FindViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FindViewController.plist; sourceTree = "<group>"; };
 		FC4D35FF1D283F47000C3F01 /* GameCentreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCentreVC.h; path = "bilibili fake/Class/Modules/find/Controller/GameCentreVC/GameCentreVC.h"; sourceTree = SOURCE_ROOT; };
 		FC4D36001D283F47000C3F01 /* GameCentreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCentreVC.m; path = "bilibili fake/Class/Modules/find/Controller/GameCentreVC/GameCentreVC.m"; sourceTree = SOURCE_ROOT; };
-		FC5B5CFF1D2D3DBC00778008 /* SearchResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultView.h; path = SearchResultView/SearchResultView.h; sourceTree = "<group>"; };
-		FC5B5D001D2D3DBC00778008 /* SearchResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultView.m; path = SearchResultView/SearchResultView.m; sourceTree = "<group>"; };
+		FC792C201D2E9B7600762831 /* SearchResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultVC.h; path = SearchResultVC/SearchResultVC.h; sourceTree = "<group>"; };
+		FC792C211D2E9B7600762831 /* SearchResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultVC.m; path = SearchResultVC/SearchResultVC.m; sourceTree = "<group>"; };
+		FC792C291D2E9C8600762831 /* SearchAlertVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchAlertVC.h; path = SearchAlertVC/SearchAlertVC.h; sourceTree = "<group>"; };
+		FC792C2A1D2E9C8600762831 /* SearchAlertVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchAlertVC.m; path = SearchAlertVC/SearchAlertVC.m; sourceTree = "<group>"; };
 		FC825ED61D1FE80100698652 /* CXHStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXHStartViewController.h; sourceTree = "<group>"; };
 		FC825ED71D1FE80100698652 /* CXHStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXHStartViewController.m; sourceTree = "<group>"; };
 		FCA4C7181D28492C0006CA0E /* GameCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterCell.h; sourceTree = "<group>"; };
@@ -156,8 +158,6 @@
 		FCB6C4641D2BE880008A3137 /* JCTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagCell.m; sourceTree = "<group>"; };
 		FCB6C4651D2BE880008A3137 /* JCTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagListView.h; sourceTree = "<group>"; };
 		FCB6C4661D2BE880008A3137 /* JCTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagListView.m; sourceTree = "<group>"; };
-		FCEDE07B1D291C430032569A /* SearchAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAlertView.h; sourceTree = "<group>"; };
-		FCEDE07C1D291C430032569A /* SearchAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -573,13 +573,22 @@
 			path = GameCentreViewController;
 			sourceTree = "<group>";
 		};
-		FC5B5D021D2D3DC800778008 /* SearchResultView */ = {
+		FC792C1F1D2E9B5300762831 /* SearchResultVC */ = {
 			isa = PBXGroup;
 			children = (
-				FC5B5CFF1D2D3DBC00778008 /* SearchResultView.h */,
-				FC5B5D001D2D3DBC00778008 /* SearchResultView.m */,
+				FC792C201D2E9B7600762831 /* SearchResultVC.h */,
+				FC792C211D2E9B7600762831 /* SearchResultVC.m */,
 			);
-			name = SearchResultView;
+			name = SearchResultVC;
+			sourceTree = "<group>";
+		};
+		FC792C281D2E9C6300762831 /* SearchAlertVC */ = {
+			isa = PBXGroup;
+			children = (
+				FC792C291D2E9C8600762831 /* SearchAlertVC.h */,
+				FC792C2A1D2E9C8600762831 /* SearchAlertVC.m */,
+			);
+			name = SearchAlertVC;
 			sourceTree = "<group>";
 		};
 		FC825ED51D1FE80100698652 /* start */ = {
@@ -627,6 +636,8 @@
 		FCD80DC31D22BF70009CDEC3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FC792C281D2E9C6300762831 /* SearchAlertVC */,
+				FC792C1F1D2E9B5300762831 /* SearchResultVC */,
 				FC4D35F41D28378D000C3F01 /* FindViewController */,
 				FC0745501D2CB762000DFBA6 /* ReadRQCodeVC */,
 				FC4D35FB1D283EB5000C3F01 /* GameCentreVC */,
@@ -638,20 +649,9 @@
 		FCEDE0751D2919900032569A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FCEDE07A1D291C430032569A /* SearchAlertView */,
-				FC5B5D021D2D3DC800778008 /* SearchResultView */,
 			);
 			name = View;
 			path = find/View;
-			sourceTree = "<group>";
-		};
-		FCEDE07A1D291C430032569A /* SearchAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				FCEDE07B1D291C430032569A /* SearchAlertView.h */,
-				FCEDE07C1D291C430032569A /* SearchAlertView.m */,
-			);
-			path = SearchAlertView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -848,12 +848,13 @@
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
 				6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */,
 				6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */,
+				FC792C2B1D2E9C8600762831 /* SearchAlertVC.m in Sources */,
 				FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */,
-				FCEDE07D1D291C430032569A /* SearchAlertView.m in Sources */,
 				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
 				FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */,
 				6E5DEF3C1D2E07ED009944D1 /* MeViewController.m in Sources */,
+				FC792C221D2E9B7600762831 /* SearchResultVC.m in Sources */,
 				6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */,
 				FCB6C4681D2BE880008A3137 /* JCTagCell.m in Sources */,
 				FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */,
@@ -863,7 +864,6 @@
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
 				6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */,
-				FC5B5D011D2D3DBC00778008 /* SearchResultView.m in Sources */,
 				FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
 				FC4D35F31D27F62A000C3F01 /* FindViewData.m in Sources */,

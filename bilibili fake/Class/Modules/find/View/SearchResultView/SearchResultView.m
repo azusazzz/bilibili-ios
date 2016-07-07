@@ -26,7 +26,7 @@
     if (self) {
         self.backgroundColor =  [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
         NSMutableArray* titles = [[NSMutableArray alloc] initWithArray:@[@"综合",@"番剧",@"专题",@"UP主",@"综合",@"番剧",@"专题",@"UP主",@"番剧",@"专题",@"UP主",@"综合",@"番剧"]];
-        RowBotton* tabBar = [[RowBotton alloc] initWithTitles:titles Block:^(NSInteger btnTag) {
+        RowBotton* tabBar = [[RowBotton alloc] initWithTitles:titles Style:RowBottonStyle2 Block:^(NSInteger btnTag) {
             NSLog(@"%lu",btnTag);
         }];
         [self addSubview:tabBar];
