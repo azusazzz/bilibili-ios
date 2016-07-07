@@ -7,6 +7,7 @@
 //
 
 #import "FollowViewController.h"
+#import "ScrollTabBarController.h"
 
 @interface FollowViewController ()
 
@@ -25,12 +26,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [self.view addGestureRecognizer:panGestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
+    ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;
+    [tabbar handlePanGesture:panGestureRecognizer];
+}
+
 
 
 @end

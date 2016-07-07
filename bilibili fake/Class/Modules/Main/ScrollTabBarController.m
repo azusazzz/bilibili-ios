@@ -66,8 +66,24 @@
     
 //    NSLog(@"%lf", progress);
     
+    static NSTimeInterval beganTime;
+    
+    
+    
+//    void (^GestureEnd)(void) = ^() {
+//        self.interactionController.completionSpeed = 0.99;
+//        if (progress > 0.5) {
+//            [self.interactionController finishInteractiveTransition];
+//        }
+//        else {
+//            [self.interactionController cancelInteractiveTransition];
+//        }
+//        _interactive = NO;
+//    };
+    
     switch (panGesture.state) {
         case UIGestureRecognizerStateBegan:
+            beganTime = CACurrentMediaTime();
             _interactive = YES;
             if (translationX < 0) {
                 self.selectedIndex += 1;
@@ -81,20 +97,25 @@
             break;
         case UIGestureRecognizerStateCancelled:
         {
-            self.interactionController.completionSpeed = 0.99;
-            if (progress > 0.5) {
-                [self.interactionController finishInteractiveTransition];
-            }
-            else {
-                [self.interactionController cancelInteractiveTransition];
-            }
-            _interactive = NO;
-            break;
+//            self.interactionController.completionSpeed = 0.99;
+//            if (progress > 0.5) {
+//                [self.interactionController finishInteractiveTransition];
+//            }
+//            else {
+//                [self.interactionController cancelInteractiveTransition];
+//            }
+//            _interactive = NO;
+//            break;
         }
         case UIGestureRecognizerStateEnded:
         {
+            
+            CGFloat speed = translationAbs / (CACurrentMediaTime() - beganTime);
+            
+            NSLog(@"speed : %lf", speed);
+            
             self.interactionController.completionSpeed = 0.99;
-            if (progress > 0.5) {
+            if (progress > 0.5 || speed > 1000) {
                 [self.interactionController finishInteractiveTransition];
             }
             else {

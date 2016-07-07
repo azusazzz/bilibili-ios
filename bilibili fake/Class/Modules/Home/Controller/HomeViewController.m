@@ -30,6 +30,7 @@
     UIScrollView *_scrollView;
     
     HomeLiveView *_liveView;
+    HomeAnimationView *_animationView;
     HomeChannelView *_channelView;
 }
 
@@ -86,11 +87,13 @@ typedef NS_ENUM(APIType, HomeAPIType) {
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer; {
     if (_scrollView.contentOffset.x + _scrollView.frame.size.width < _scrollView.contentSize.width) {
+        NSLog(@"111");
         return NO;
     }
     UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)gestureRecognizer;
     CGFloat translationX = [panGestureRecognizer translationInView:_scrollView].x;
     if (translationX >= 0) {
+        NSLog(@"222");
         return NO;
     }
     return YES;
@@ -103,7 +106,7 @@ typedef NS_ENUM(APIType, HomeAPIType) {
     [self.view addSubview:UIView.new];
     
     // Header
-    _headerView = [[HomeHeaderView alloc] initWithTitles:@[@"直播", @"分区"]];
+    _headerView = [[HomeHeaderView alloc] initWithTitles:@[@"直播", @"番剧", @"分区"]];
     [self.view addSubview:_headerView];
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
@@ -133,6 +136,9 @@ typedef NS_ENUM(APIType, HomeAPIType) {
     _liveView = [[HomeLiveView alloc] init];
     [_scrollView addSubview:_liveView];
     
+    _animationView = [[HomeAnimationView alloc] init];
+    [_scrollView addSubview:_animationView];
+    
     // 分区
     _channelView = [[HomeChannelView alloc] init];
     [_scrollView addSubview:_channelView];
@@ -154,8 +160,14 @@ typedef NS_ENUM(APIType, HomeAPIType) {
         make.width.equalTo(_scrollView);
         make.height.equalTo(_scrollView);
     }];
-    [_channelView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_animationView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_liveView.mas_right);
+        make.centerY.equalTo(_scrollView);
+        make.width.equalTo(_scrollView);
+        make.height.equalTo(_scrollView);
+    }];
+    [_channelView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_animationView.mas_right);
         make.centerY.equalTo(_scrollView);
         make.width.equalTo(_scrollView);
         make.height.equalTo(_scrollView);
