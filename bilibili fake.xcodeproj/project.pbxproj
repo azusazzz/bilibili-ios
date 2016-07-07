@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4F8A1D54C95AA39D29D4CBD4 /* libPods-bilibili fake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A480E357E111053D1C8F64 /* libPods-bilibili fake.a */; };
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
-		6E5381E21D1EA73E00B5B638 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6E5381E11D1EA73E00B5B638 /* .gitignore */; };
 		6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */; };
 		6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B11D1AC307002DA3AB /* HomeLiveView.m */; };
 		6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B71D1ACBD9002DA3AB /* FollowViewController.m */; };
@@ -34,8 +33,6 @@
 		6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4A61D2BCE4400D1BC9E /* TabBar.m */; };
 		6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AA1D2BD6D800D1BC9E /* UIView+Frame.m */; };
 		6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AD1D2BDE9400D1BC9E /* HomeAnimationView.m */; };
-		6EFFD4B01D2BDEBA00D1BC9E /* 接口整理.md in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AF1D2BDEBA00D1BC9E /* 接口整理.md */; };
-		6EFFD4B61D2BE5BE00D1BC9E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4B51D2BE5BE00D1BC9E /* README.md */; };
 		FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0745521D2CB7B9000DFBA6 /* ReadRQCodeVC.m */; };
 		FC4D35ED1D27D2D3000C3F01 /* FindViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35EC1D27D2D3000C3F01 /* FindViewCell.m */; };
 		FC4D35F31D27F62A000C3F01 /* FindViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F21D27F62A000C3F01 /* FindViewData.m */; };
@@ -685,7 +682,6 @@
 				TargetAttributes = {
 					6EB691E61D12422B000FA482 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = QHEB22MVD3;
 						DevelopmentTeamName = "JieCheng Gao";
 					};
 					6EB691FF1D12422C000FA482 = {
@@ -725,7 +721,6 @@
 			files = (
 				FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */,
 				6EB691FA1D12422C000FA482 /* LaunchScreen.storyboard in Resources */,
-				6E5381E21D1EA73E00B5B638 /* .gitignore in Resources */,
 				FC4D35F91D28378D000C3F01 /* FindViewController.plist in Resources */,
 				6EB691F71D12422C000FA482 /* Assets.xcassets in Resources */,
 			);
@@ -805,7 +800,6 @@
 				6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */,
 				6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
-				6EFFD4B01D2BDEBA00D1BC9E /* 接口整理.md in Sources */,
 				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
 				FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */,
 				FC4D35ED1D27D2D3000C3F01 /* FindViewCell.m in Sources */,
@@ -815,7 +809,6 @@
 				FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */,
 				FCEDE07D1D291C430032569A /* SearchAlertView.m in Sources */,
 				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
-				6EFFD4B61D2BE5BE00D1BC9E /* README.md in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
 				FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */,
 				6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */,
