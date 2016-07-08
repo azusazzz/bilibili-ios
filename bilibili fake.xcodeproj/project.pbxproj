@@ -49,6 +49,11 @@
 		FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4621D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m */; };
 		FCB6C4681D2BE880008A3137 /* JCTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4641D2BE880008A3137 /* JCTagCell.m */; };
 		FCB6C4691D2BE880008A3137 /* JCTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4661D2BE880008A3137 /* JCTagListView.m */; };
+		FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFA05411D2FAFE0004A1742 /* GLIRViewController.m */; };
+		FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFA05431D2FAFE0004A1742 /* RippleModel.m */; };
+		FCFA05481D2FAFE0004A1742 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FCFA05441D2FAFE0004A1742 /* Shader.fsh */; };
+		FCFA05491D2FAFE0004A1742 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FCFA05451D2FAFE0004A1742 /* Shader.vsh */; };
+		FCFA054B1D2FB01A004A1742 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCFA054A1D2FB01A004A1742 /* bg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +163,13 @@
 		FCB6C4641D2BE880008A3137 /* JCTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagCell.m; sourceTree = "<group>"; };
 		FCB6C4651D2BE880008A3137 /* JCTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagListView.h; sourceTree = "<group>"; };
 		FCB6C4661D2BE880008A3137 /* JCTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagListView.m; sourceTree = "<group>"; };
+		FCFA05401D2FAFE0004A1742 /* GLIRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLIRViewController.h; sourceTree = "<group>"; };
+		FCFA05411D2FAFE0004A1742 /* GLIRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLIRViewController.m; sourceTree = "<group>"; };
+		FCFA05421D2FAFE0004A1742 /* RippleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleModel.h; sourceTree = "<group>"; };
+		FCFA05431D2FAFE0004A1742 /* RippleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleModel.m; sourceTree = "<group>"; };
+		FCFA05441D2FAFE0004A1742 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		FCFA05451D2FAFE0004A1742 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		FCFA054A1D2FB01A004A1742 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +210,7 @@
 		6E1535DE1D1A87FA0053A846 /* Librarys */ = {
 			isa = PBXGroup;
 			children = (
+				FCFA053F1D2FAFE0004A1742 /* RippleTableViewController */,
 			);
 			path = Librarys;
 			sourceTree = "<group>";
@@ -482,6 +495,7 @@
 		6EB6921D1D12435E000FA482 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FCFA054A1D2FB01A004A1742 /* bg.jpg */,
 				FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */,
 			);
 			path = Resources;
@@ -654,6 +668,19 @@
 			path = find/View;
 			sourceTree = "<group>";
 		};
+		FCFA053F1D2FAFE0004A1742 /* RippleTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FCFA05401D2FAFE0004A1742 /* GLIRViewController.h */,
+				FCFA05411D2FAFE0004A1742 /* GLIRViewController.m */,
+				FCFA05421D2FAFE0004A1742 /* RippleModel.h */,
+				FCFA05431D2FAFE0004A1742 /* RippleModel.m */,
+				FCFA05441D2FAFE0004A1742 /* Shader.fsh */,
+				FCFA05451D2FAFE0004A1742 /* Shader.vsh */,
+			);
+			path = RippleTableViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -763,8 +790,11 @@
 			files = (
 				FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */,
 				6EB691FA1D12422C000FA482 /* LaunchScreen.storyboard in Resources */,
+				FCFA05491D2FAFE0004A1742 /* Shader.vsh in Resources */,
 				FC4D35F91D28378D000C3F01 /* FindViewController.plist in Resources */,
+				FCFA054B1D2FB01A004A1742 /* bg.jpg in Resources */,
 				6EB691F71D12422C000FA482 /* Assets.xcassets in Resources */,
+				FCFA05481D2FAFE0004A1742 /* Shader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,6 +871,7 @@
 				6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */,
 				6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */,
 				6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */,
+				FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
 				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
 				FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */,
@@ -860,6 +891,7 @@
 				FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */,
 				6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */,
 				FCB6C4691D2BE880008A3137 /* JCTagListView.m in Sources */,
+				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,
 				6E76C1811D2A98B100C259E8 /* HomeChannelCollectionViewCell.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,

@@ -13,6 +13,9 @@ typedef NS_ENUM(NSInteger, RowBottonStyle) {
 };
 
 @interface RowBotton : UIView
+
+
+@property(nonatomic,assign)  NSInteger Selectedtag;
 /**
  *  初始化
  *
@@ -42,6 +45,17 @@ typedef NS_ENUM(NSInteger, RowBottonStyle) {
  */
 - (void)setTitles:(NSMutableArray<NSString *> *)titles;
 
+/**
+ *  设置选中返回
+ *
+ *  @param block block
+ */
+- (void)setSelecteBlock:(void(^)(NSInteger btnTag))block;
+
+/**
+ *  设置间距
+ */
+- (void)setSpacing:(NSInteger)spacing;
 //- (void)setFont:(UIFont*)font;
 
 //- (void)setStyle:(RowBottonStyle)style;

@@ -329,7 +329,7 @@
     cancel_btn = UIButton.new;
     [cancel_btn setTitle:@"取消" forState:UIControlStateNormal];
     [cancel_btn.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [cancel_btn setTitleColor:ColorRGB(230, 140, 150) forState:UIControlStateNormal];
+    [cancel_btn setTitleColor:ColorRGB(252, 142, 175) forState:UIControlStateNormal];
     [HeadView addSubview:cancel_btn];
 
     
