@@ -53,11 +53,13 @@
 - (void)viewDidLoad {
    [super viewDidLoad];
     // Do any additional setup after loading the view.
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [search_tf becomeFirstResponder];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 200), dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [search_tf becomeFirstResponder];
+            [self setKeyword:search_tf.text];
+        });
     });
-    
-    
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,8 +68,15 @@
     
 }
 
-
 #pragma mark - ActionDealt
+-(void)setSearch_tf_text:(NSString*)Keywork{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [search_tf setText:Keywork];
+        [self setKeyword:keyword];
+    });
+}
+
+
 -(void)loadActions{
     cancel_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         [self.navigationController popToRootViewControllerAnimated:NO];

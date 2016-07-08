@@ -10,4 +10,6 @@
 
 @interface SearchAlertVC : UIViewController
 
+-(void)setSearch_tf_text:(NSString*)keywork;
+
 @end

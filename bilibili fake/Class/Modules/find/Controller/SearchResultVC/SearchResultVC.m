@@ -31,6 +31,8 @@
     RowBotton* screen_rowbtn1;
     RowBotton* screen_rowbtn2;
 }
+
+
 -(id)initWithKeywork:(NSString*)keywork{
     
     NSLog(@"%@",keywork);
@@ -109,8 +111,12 @@
 #pragma UITextFiledDelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
-    [search_tf resignFirstResponder];
-    [self.navigationController pushViewController:[[SearchAlertVC alloc] init] animated:NO];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [search_tf resignFirstResponder];
+    });
+    SearchAlertVC* savc = [[SearchAlertVC alloc] init];
+    [savc setSearch_tf_text:search_tf.text];
+    [self.navigationController pushViewController:savc animated:NO];
 }
 
 
