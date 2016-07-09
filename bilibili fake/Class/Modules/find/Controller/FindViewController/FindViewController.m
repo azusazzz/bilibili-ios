@@ -165,7 +165,7 @@ typedef enum : NSUInteger {
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     [search_tf resignFirstResponder];
     [self.navigationController pushViewController:[[SearchResultVC alloc] initWithKeywork:@""] animated:NO];
-    [self.navigationController pushViewController:[[SearchAlertVC alloc] init] animated:NO];
+    [self.navigationController pushViewController:[[SearchAlertVC alloc] initWithKeywork:@""] animated:NO];
 }
 
 

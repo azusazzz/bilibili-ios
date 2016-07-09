@@ -30,22 +30,25 @@
     UIView* screen_view;
     RowBotton* screen_rowbtn1;
     RowBotton* screen_rowbtn2;
+    
+    NSURLSessionDataTask* Search_task;//搜索任务
 }
 
 
--(id)initWithKeywork:(NSString*)keywork{
+-(instancetype)initWithKeywork:(NSString*)keywork{
     
     NSLog(@"%@",keywork);
     [FindViewData addSearchRecords:keywork];
     self = [super init];
     if (self) {
-        _keywork = keywork;
         //self.view.backgroundColor = ColorRGBA(0, 0, 0, 0);
         isScreen = NO;
-       
+        _keywork = keywork;
         
         [self loadSubviews];
         [self loadActions];
+        //[rowbtn setTitles:[[NSMutableArray alloc] initWithArray:@[@"全部",@"番剧",@"动画",@"音乐",@"舞蹈",@"游戏",@"科技",@"生活",@"鬼畜"]]];
+        [self Search];
     }
     return self;
 }
@@ -54,7 +57,6 @@
 }
 
 - (void)viewDidLoad {
-     self.rippleImageName = @"bg.jpg";
     [super viewDidLoad];
      dispatch_async(dispatch_get_main_queue(), ^{
          [search_tf setText:_keywork];
@@ -70,28 +72,30 @@
 
 
 #pragma mark - ActionDealt
--(void)setKeywork:(NSString*)keywork{
-    NSLog(@"%@",keywork);
-    [FindViewData addSearchRecords:keywork];
-    [search_tf setText:keywork];
-}
-
 
 -(void)loadActions{
+    //取消按钮
     cancel_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         [self.navigationController popToRootViewControllerAnimated:NO];
         return [RACSignal empty];
     }];
     
+    //分区按钮
+    __block SearchResultVC *blockSelf = self;
+    [rowbtn setSelecteBlock:^(NSInteger btnTag) {
+        //隐藏筛选视图
+        if (btnTag&&isScreen) {
+            [blockSelf screen_view_hide];
+        }
+        
+    }];
+    
+    //筛选按钮
     screen_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        //筛选视图隐藏和显示
         if (rowbtn.Selectedtag == 0){
             if (isScreen) {
-                screen_btn.tintColor = ColorRGB(100, 100, 100);
-                [screen_view mas_remakeConstraints:^(MASConstraintMaker *make) {
-                    make.top.mas_equalTo(rowbtn.mas_bottom);
-                    make.left.right.mas_equalTo(self.view);
-                    make.height.equalTo(@0);
-                }];
+                [self screen_view_hide];
             }else{
                 screen_btn.tintColor = ColorRGB(252, 142, 175);
                 [screen_view mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -99,23 +103,92 @@
                     make.left.right.mas_equalTo(self.view);
                     make.height.equalTo(@70);
                 }];
+                isScreen = (!isScreen);
             }
-            isScreen = (!isScreen);
         }
-
         return [RACSignal empty];
     }];
+    
+    //注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setKeywork:) name:@"setSearchKeywork" object:nil];
+}
+
+//设置关键字
+-(void)setKeywork:(NSNotification*)notification{
+    NSString* keywork = [notification.userInfo objectForKey:@"keywork"];
+    NSLog(@"%@",keywork);
+    [FindViewData addSearchRecords:keywork];
+    [search_tf setText:keywork];
+    _keywork = keywork;
+    [self Search];
+}
+
+
+//筛选View隐藏
+-(void)screen_view_hide{
+    screen_btn.tintColor = ColorRGB(100, 100, 100);
+    [screen_view mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(rowbtn.mas_bottom);
+        make.left.right.mas_equalTo(self.view);
+        make.height.equalTo(@0);
+    }];
+    isScreen = (!isScreen);
+}
+
+//请求搜索结果
+-(void)Search{
+    if (_keywork.length == 0) return;
+    if(Search_task)[Search_task cancel];//先取消上一个任务
+    
+    NSString* urlstr = [NSString stringWithFormat:@"http://api.bilibili.com/search?actionKey=appkey&appkey=27eb53fc9058f8c3&keyword=%@&main_ver=v3&search_type=all",_keywork];
+    NSLog(@"%@",urlstr);
+    urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;//忽略本地缓存数据
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    Search_task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        if (!error) {
+            
+            NSDictionary* rawData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            if ([[rawData objectForKey:@"code"] integerValue] == -3) {
+                [self Search];
+                return;
+            }
+
+            //页面信息
+            NSDictionary* pageinfo = [rawData objectForKey:@"pageinfo"];
+            [self setPageinfo:pageinfo];
+        }
+    }];
+    [Search_task resume];
+}
+
+//设置页面数据
+-(void)setPageinfo:(NSDictionary*)pageinfo{
+    if (!pageinfo) return;
+    
+    NSLog(@"%@",pageinfo);
+    
+    NSMutableArray* arr= [[NSMutableArray alloc] initWithObjects:@"综合", nil];
+    NSArray* title_arr = @[@"番剧",@"专题",@"UP主"];
+    NSArray* key_arr = @[@"bangumi",@"topic",@"upuser"];
+    for (int i = 0; i < title_arr.count; i++) {
+        NSInteger count = [[[pageinfo objectForKey:key_arr[i]] objectForKey:@"total"] integerValue];
+        [arr addObject:[NSString stringWithFormat:@"%@(%lu)",title_arr[i],count]];
+    }
+    NSLog(@"%@",arr);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [rowbtn setTitles:arr];
+    });
 }
 
 
 #pragma UITextFiledDelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [search_tf resignFirstResponder];
-    });
-    SearchAlertVC* savc = [[SearchAlertVC alloc] init];
-    [savc setSearch_tf_text:search_tf.text];
+    [search_tf resignFirstResponder];
+    SearchAlertVC* savc = [[SearchAlertVC alloc] initWithKeywork:search_tf.text];
     [self.navigationController pushViewController:savc animated:NO];
 }
 

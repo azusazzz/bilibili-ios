@@ -89,16 +89,18 @@ typedef void(^BLOCK)(NSInteger btnTag);
         [_mainscr addSubview:btn];
         [_items addObject:btn];
     }
-    
+    _Selectedtag = -1;
+    [self layoutSubviews];
 }
 
 
 //按钮点击事件处理
 -(void)btnAction:(id)sender{
     UIButton* botton = sender;
+    [self setSelectedBotton:botton.tag];
     if(_block)
     _block(botton.tag);
-    [self setSelectedBotton:botton.tag];
+    
 }
 -(void)setSelectedBotton:(NSInteger)tag{
     CGFloat time = 0.2;
@@ -152,23 +154,23 @@ typedef void(^BLOCK)(NSInteger btnTag);
     CGFloat mainWidth = self.frame.size.width;
     CGFloat mainHeight = self.frame.size.height;
     CGFloat minWidth = [self getRowMinWidth];
-    
     if (self.frame.size.width >= minWidth) {
+       
+            _mainscr.scrollEnabled = NO;
+            _mainscr.contentSize = self.frame.size;
+            
+            CGFloat Surplusf = (mainWidth - minWidth)/_items.count;
         
-        _mainscr.scrollEnabled = NO;
-        _mainscr.contentSize = self.frame.size;
-        
-        CGFloat Surplusf = (mainWidth - minWidth)/_items.count;
-        CGFloat Potomac = 0;
-        
-        for (int i = 0; i < _items.count; i++) {
-            UIButton* btn = _items[i];
-            CGFloat w = [self widthWithFont:_font String:btn.titleLabel.text];
-            btn.frame = CGRectMake(Potomac+_spacing, 4, w+Surplusf, mainHeight-8);
-            Potomac+=(w+Surplusf+_spacing);
-        }
-        
-        
+            CGFloat Potomac = 0;
+            for (int i = 0; i < _items.count; i++) {
+                
+                UIButton* btn = _items[i];
+                CGFloat w = [self widthWithFont:_font String:btn.titleLabel.text];
+                btn.frame = CGRectMake(Potomac+_spacing, 4, w+Surplusf, mainHeight-8);
+                Potomac+=(w+Surplusf+_spacing);
+                
+            }
+       
     }else{
         
         
@@ -184,6 +186,7 @@ typedef void(^BLOCK)(NSInteger btnTag);
         }
     
     }
+    _Selectedtag = -1;
     [self setSelectedBotton:_Selectedtag];
 }
 

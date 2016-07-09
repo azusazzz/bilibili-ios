@@ -7,13 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GLIRViewController.h"
 
-@interface SearchResultVC : GLIRViewController{
-    GLKView* view;
-}
+@interface SearchResultVC : UIViewController
 
--(id)initWithKeywork:(NSString*)keywork;
+-(instancetype)initWithKeywork:(NSString*)keywork;
 
 -(void)setKeywork:(NSString*)keywork;
 

@@ -30,15 +30,16 @@
     
 }
 
--(id)init{
+-(instancetype)initWithKeywork:(NSString*)keywork{
     self = [super init];
     //[FindViewData addSearchRecords:@"1"];//调试
     if (self) {
-        keyword = @"";
+
         SearchRecords = [FindViewData getSearchRecords];
         self.view.backgroundColor = ColorRGB(244, 244, 242);
         
         [self loadSubviews];
+        search_tf.text = keywork;
         [self loadActions];
         
     }
@@ -47,18 +48,20 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
-    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 200), dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [search_tf becomeFirstResponder];
+        [search_tf becomeFirstResponder];
+        [self setKeyword:search_tf.text];
+    });
+//    });
 }
 
 - (void)viewDidLoad {
    [super viewDidLoad];
     // Do any additional setup after loading the view.
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 200), dispatch_get_main_queue(), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [search_tf becomeFirstResponder];
-            [self setKeyword:search_tf.text];
-        });
-    });
+
+    
    
 }
 
@@ -69,12 +72,6 @@
 }
 
 #pragma mark - ActionDealt
--(void)setSearch_tf_text:(NSString*)Keywork{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [search_tf setText:Keywork];
-        [self setKeyword:keyword];
-    });
-}
 
 
 -(void)loadActions{
@@ -82,13 +79,9 @@
         [self.navigationController popToRootViewControllerAnimated:NO];
         return [RACSignal empty];
     }];
-    //搜索输入栏
-
-    [search_tf.rac_textSignal subscribeNext:^(id x) {
-        if([search_tf isFirstResponder]){
-            [self setKeyword:x];
-        }
-    }];
+    [search_tf addTarget:self
+                   action:@selector(textFieldDidChange:)
+         forControlEvents:UIControlEventEditingChanged]; // 监听事件
 }
 
 -(void)UpdataView{
@@ -159,6 +152,23 @@
     }
     return NO;
 }
+#pragma UITextFiledDelegate
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+
+    //通过通知中心发送通知
+    NSNotification *notification =[NSNotification notificationWithName:@"setSearchKeywork" object:nil userInfo:@{@"keywork":textField.text}];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    
+    [self.navigationController popViewControllerAnimated:NO];
+    
+    return YES;
+}
+
+- (void) textFieldDidChange:(UITextField*) sender {
+    //NSLog(@"%@",sender.text);
+    [self setKeyword:sender.text];
+}
 
 #pragma UITableViewDelegate
 //点击
@@ -174,8 +184,12 @@
         }
     }
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    SearchResultVC* srvc =  self.navigationController.viewControllers[1];
-    [srvc setKeywork:cell.textLabel.text];
+    search_tf.text = cell.textLabel.text;
+    NSLog(@"search_tf:%@",search_tf.text);
+    //通过通知中心发送通知
+    NSNotification *notification =[NSNotification notificationWithName:@"setSearchKeywork" object:nil userInfo:@{@"keywork":cell.textLabel.text}];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    
     [self.navigationController popViewControllerAnimated:NO];
 }
 //cell高
