@@ -20,8 +20,18 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
-        
+    
     }
     return self;
+}
+-(void)loadActions{
+
+}
+
+
+
+-(void)loadSubviews{
+
+
 }
 @end

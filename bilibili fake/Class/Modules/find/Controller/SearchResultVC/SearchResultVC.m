@@ -32,6 +32,7 @@
     RowBotton* screen_rowbtn2;
     
     NSURLSessionDataTask* Search_task;//搜索任务
+    
 }
 
 
@@ -39,6 +40,7 @@
     
     NSLog(@"%@",keywork);
     [FindViewData addSearchRecords:keywork];
+    
     self = [super init];
     if (self) {
         //self.view.backgroundColor = ColorRGBA(0, 0, 0, 0);
@@ -112,18 +114,6 @@
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setKeywork:) name:@"setSearchKeywork" object:nil];
 }
-
-//设置关键字
--(void)setKeywork:(NSNotification*)notification{
-    NSString* keywork = [notification.userInfo objectForKey:@"keywork"];
-    NSLog(@"%@",keywork);
-    [FindViewData addSearchRecords:keywork];
-    [search_tf setText:keywork];
-    _keywork = keywork;
-    [self Search];
-}
-
-
 //筛选View隐藏
 -(void)screen_view_hide{
     screen_btn.tintColor = ColorRGB(100, 100, 100);
@@ -135,17 +125,37 @@
     isScreen = (!isScreen);
 }
 
-//请求搜索结果
+
+//设置关键字
+-(void)setKeywork:(NSNotification*)notification{
+    NSString* keywork = [notification.userInfo objectForKey:@"keywork"];
+    NSLog(@"%@",keywork);
+    if ([keywork isEqualToString:_keywork])  return;
+    if (keywork.length == 0) return;
+    
+    [FindViewData addSearchRecords:keywork];
+    [search_tf setText:keywork];
+    _keywork = keywork;
+    [self Search];
+}
+
+
+
+
+//请求搜索结果 设置tableview数据
 -(void)Search{
     if (_keywork.length == 0) return;
     if(Search_task)[Search_task cancel];//先取消上一个任务
+    //只要不换页第二排按钮为零就一直搜索类型一直写video 或者 all？
+    
+    //按照排序方式来建立几个数组。然后请求所有种类视频的数据，根据筛选在数组种建立第二层数组。
+    
+    
     
     NSString* urlstr = [NSString stringWithFormat:@"http://api.bilibili.com/search?actionKey=appkey&appkey=27eb53fc9058f8c3&keyword=%@&main_ver=v3&search_type=all",_keywork];
     NSLog(@"%@",urlstr);
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
-    request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;//忽略本地缓存数据
-    
     NSURLSession *session = [NSURLSession sharedSession];
     Search_task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
         if (!error) {
