@@ -17,7 +17,7 @@
 #import "ReadRQCodeVC.h"
 #import "ScrollTabBarController.h"
 #import "SearchResultVC.h"
-#import "SearchAlertVC.h"
+#import "SearchPromptsVC.h"
 
 
 #define FinViewCell_Height 50
@@ -165,7 +165,7 @@ typedef enum : NSUInteger {
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     [search_tf resignFirstResponder];
     [self.navigationController pushViewController:[[SearchResultVC alloc] initWithKeywork:@""] animated:NO];
-    [self.navigationController pushViewController:[[SearchAlertVC alloc] initWithKeywork:@""] animated:NO];
+    [self.navigationController pushViewController:[[SearchPromptsVC alloc] initWithKeywork:@""] animated:NO];
 }
 
 

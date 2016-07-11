@@ -36,17 +36,20 @@
 		6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AD1D2BDE9400D1BC9E /* HomeAnimationView.m */; };
 		FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0745521D2CB7B9000DFBA6 /* ReadRQCodeVC.m */; };
 		FC345C741D31597C00BAE32B /* SearchResultAllView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC345C731D31597C00BAE32B /* SearchResultAllView.m */; };
-		FC4D35ED1D27D2D3000C3F01 /* FindViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35EC1D27D2D3000C3F01 /* FindViewCell.m */; };
-		FC4D35F31D27F62A000C3F01 /* FindViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F21D27F62A000C3F01 /* FindViewData.m */; };
 		FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F61D28378D000C3F01 /* FindViewController.m */; };
 		FC4D35F91D28378D000C3F01 /* FindViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC4D35F71D28378D000C3F01 /* FindViewController.plist */; };
 		FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D36001D283F47000C3F01 /* GameCentreVC.m */; };
 		FC792C221D2E9B7600762831 /* SearchResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC792C211D2E9B7600762831 /* SearchResultVC.m */; };
-		FC792C2B1D2E9C8600762831 /* SearchAlertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC792C2A1D2E9C8600762831 /* SearchAlertVC.m */; };
 		FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC825ED71D1FE80100698652 /* CXHStartViewController.m */; };
-		FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4C7191D28492C0006CA0E /* GameCenterCell.m */; };
 		FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */; };
 		FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */; };
+		FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9A21D333886000215B3 /* FindViewData.m */; };
+		FCB5C9A71D333886000215B3 /* SearchResultData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9A51D333886000215B3 /* SearchResultData.m */; };
+		FCB5C9AE1D333D33000215B3 /* SearchPromptsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9AD1D333D33000215B3 /* SearchPromptsVC.m */; };
+		FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9B01D333D6F000215B3 /* SearchPromptsData.m */; };
+		FCB5C9CC1D33AF41000215B3 /* BangumiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9C51D33AF41000215B3 /* BangumiCell.m */; };
+		FCB5C9CD1D33AF41000215B3 /* FindViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9C81D33AF41000215B3 /* FindViewCell.m */; };
+		FCB5C9CE1D33AF41000215B3 /* GameCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9CB1D33AF41000215B3 /* GameCenterCell.m */; };
 		FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4621D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m */; };
 		FCB6C4681D2BE880008A3137 /* JCTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4641D2BE880008A3137 /* JCTagCell.m */; };
 		FCB6C4691D2BE880008A3137 /* JCTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4661D2BE880008A3137 /* JCTagListView.m */; };
@@ -140,10 +143,6 @@
 		FC0745521D2CB7B9000DFBA6 /* ReadRQCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ReadRQ\U0010CodeVC.m"; path = "ReadRQ\U0010Code/ReadRQ\U0010CodeVC.m"; sourceTree = "<group>"; };
 		FC345C721D31597C00BAE32B /* SearchResultAllView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultAllView.h; sourceTree = "<group>"; };
 		FC345C731D31597C00BAE32B /* SearchResultAllView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultAllView.m; sourceTree = "<group>"; };
-		FC4D35EB1D27D2D3000C3F01 /* FindViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewCell.h; sourceTree = "<group>"; };
-		FC4D35EC1D27D2D3000C3F01 /* FindViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewCell.m; sourceTree = "<group>"; };
-		FC4D35F11D27F62A000C3F01 /* FindViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewData.h; sourceTree = "<group>"; };
-		FC4D35F21D27F62A000C3F01 /* FindViewData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewData.m; sourceTree = "<group>"; };
 		FC4D35F51D28378D000C3F01 /* FindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
 		FC4D35F61D28378D000C3F01 /* FindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
 		FC4D35F71D28378D000C3F01 /* FindViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FindViewController.plist; sourceTree = "<group>"; };
@@ -151,15 +150,25 @@
 		FC4D36001D283F47000C3F01 /* GameCentreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCentreVC.m; path = "bilibili fake/Class/Modules/find/Controller/GameCentreVC/GameCentreVC.m"; sourceTree = SOURCE_ROOT; };
 		FC792C201D2E9B7600762831 /* SearchResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultVC.h; path = SearchResultVC/SearchResultVC.h; sourceTree = "<group>"; };
 		FC792C211D2E9B7600762831 /* SearchResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultVC.m; path = SearchResultVC/SearchResultVC.m; sourceTree = "<group>"; };
-		FC792C291D2E9C8600762831 /* SearchAlertVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchAlertVC.h; path = SearchAlertVC/SearchAlertVC.h; sourceTree = "<group>"; };
-		FC792C2A1D2E9C8600762831 /* SearchAlertVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchAlertVC.m; path = SearchAlertVC/SearchAlertVC.m; sourceTree = "<group>"; };
 		FC825ED61D1FE80100698652 /* CXHStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXHStartViewController.h; sourceTree = "<group>"; };
 		FC825ED71D1FE80100698652 /* CXHStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXHStartViewController.m; sourceTree = "<group>"; };
-		FCA4C7181D28492C0006CA0E /* GameCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterCell.h; sourceTree = "<group>"; };
-		FCA4C7191D28492C0006CA0E /* GameCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterCell.m; sourceTree = "<group>"; };
 		FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "游戏中心假数据.json"; sourceTree = "<group>"; };
 		FCAA18EB1D2DEDD90046CBA4 /* RowBotton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowBotton.h; path = RowBotton/RowBotton.h; sourceTree = "<group>"; };
 		FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowBotton.m; path = RowBotton/RowBotton.m; sourceTree = "<group>"; };
+		FCB5C9A11D333886000215B3 /* FindViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewData.h; sourceTree = "<group>"; };
+		FCB5C9A21D333886000215B3 /* FindViewData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewData.m; sourceTree = "<group>"; };
+		FCB5C9A41D333886000215B3 /* SearchResultData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultData.h; sourceTree = "<group>"; };
+		FCB5C9A51D333886000215B3 /* SearchResultData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultData.m; sourceTree = "<group>"; };
+		FCB5C9AC1D333D33000215B3 /* SearchPromptsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchPromptsVC.h; path = SearchPromptsVC/SearchPromptsVC.h; sourceTree = "<group>"; };
+		FCB5C9AD1D333D33000215B3 /* SearchPromptsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchPromptsVC.m; path = SearchPromptsVC/SearchPromptsVC.m; sourceTree = "<group>"; };
+		FCB5C9AF1D333D6F000215B3 /* SearchPromptsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchPromptsData.h; path = SearchPromptsData/SearchPromptsData.h; sourceTree = "<group>"; };
+		FCB5C9B01D333D6F000215B3 /* SearchPromptsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchPromptsData.m; path = SearchPromptsData/SearchPromptsData.m; sourceTree = "<group>"; };
+		FCB5C9C41D33AF41000215B3 /* BangumiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiCell.h; sourceTree = "<group>"; };
+		FCB5C9C51D33AF41000215B3 /* BangumiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiCell.m; sourceTree = "<group>"; };
+		FCB5C9C71D33AF41000215B3 /* FindViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewCell.h; sourceTree = "<group>"; };
+		FCB5C9C81D33AF41000215B3 /* FindViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewCell.m; sourceTree = "<group>"; };
+		FCB5C9CA1D33AF41000215B3 /* GameCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterCell.h; sourceTree = "<group>"; };
+		FCB5C9CB1D33AF41000215B3 /* GameCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterCell.m; sourceTree = "<group>"; };
 		FCB6C4611D2BE880008A3137 /* JCCollectionViewTagFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCollectionViewTagFlowLayout.h; sourceTree = "<group>"; };
 		FCB6C4621D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCollectionViewTagFlowLayout.m; sourceTree = "<group>"; };
 		FCB6C4631D2BE880008A3137 /* JCTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagCell.h; sourceTree = "<group>"; };
@@ -560,10 +569,9 @@
 		FC4D35EA1D27D27C000C3F01 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				FC4D35EB1D27D2D3000C3F01 /* FindViewCell.h */,
-				FC4D35EC1D27D2D3000C3F01 /* FindViewCell.m */,
-				FCA4C7181D28492C0006CA0E /* GameCenterCell.h */,
-				FCA4C7191D28492C0006CA0E /* GameCenterCell.m */,
+				FCB5C9C31D33AF41000215B3 /* BangumiCell */,
+				FCB5C9C61D33AF41000215B3 /* FindViewCell */,
+				FCB5C9C91D33AF41000215B3 /* GameCenterCell */,
 			);
 			name = Cell;
 			path = find/Cell;
@@ -572,8 +580,9 @@
 		FC4D35F01D27F5FC000C3F01 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				FC4D35F11D27F62A000C3F01 /* FindViewData.h */,
-				FC4D35F21D27F62A000C3F01 /* FindViewData.m */,
+				FCB5C9A81D3338AE000215B3 /* SearchPromptsData */,
+				FCB5C9A01D333886000215B3 /* FindViewData */,
+				FCB5C9A31D333886000215B3 /* SearchResultData */,
 			);
 			name = Data;
 			path = find/Data;
@@ -608,13 +617,13 @@
 			name = SearchResultVC;
 			sourceTree = "<group>";
 		};
-		FC792C281D2E9C6300762831 /* SearchAlertVC */ = {
+		FC792C281D2E9C6300762831 /* SearchPromptsVC */ = {
 			isa = PBXGroup;
 			children = (
-				FC792C291D2E9C8600762831 /* SearchAlertVC.h */,
-				FC792C2A1D2E9C8600762831 /* SearchAlertVC.m */,
+				FCB5C9AC1D333D33000215B3 /* SearchPromptsVC.h */,
+				FCB5C9AD1D333D33000215B3 /* SearchPromptsVC.m */,
 			);
-			name = SearchAlertVC;
+			name = SearchPromptsVC;
 			sourceTree = "<group>";
 		};
 		FC825ED51D1FE80100698652 /* start */ = {
@@ -633,6 +642,60 @@
 				FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */,
 			);
 			name = rowBtn;
+			sourceTree = "<group>";
+		};
+		FCB5C9A01D333886000215B3 /* FindViewData */ = {
+			isa = PBXGroup;
+			children = (
+				FCB5C9A11D333886000215B3 /* FindViewData.h */,
+				FCB5C9A21D333886000215B3 /* FindViewData.m */,
+			);
+			path = FindViewData;
+			sourceTree = "<group>";
+		};
+		FCB5C9A31D333886000215B3 /* SearchResultData */ = {
+			isa = PBXGroup;
+			children = (
+				FCB5C9A41D333886000215B3 /* SearchResultData.h */,
+				FCB5C9A51D333886000215B3 /* SearchResultData.m */,
+			);
+			path = SearchResultData;
+			sourceTree = "<group>";
+		};
+		FCB5C9A81D3338AE000215B3 /* SearchPromptsData */ = {
+			isa = PBXGroup;
+			children = (
+				FCB5C9AF1D333D6F000215B3 /* SearchPromptsData.h */,
+				FCB5C9B01D333D6F000215B3 /* SearchPromptsData.m */,
+			);
+			name = SearchPromptsData;
+			sourceTree = "<group>";
+		};
+		FCB5C9C31D33AF41000215B3 /* BangumiCell */ = {
+			isa = PBXGroup;
+			children = (
+				FCB5C9C41D33AF41000215B3 /* BangumiCell.h */,
+				FCB5C9C51D33AF41000215B3 /* BangumiCell.m */,
+			);
+			path = BangumiCell;
+			sourceTree = "<group>";
+		};
+		FCB5C9C61D33AF41000215B3 /* FindViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FCB5C9C71D33AF41000215B3 /* FindViewCell.h */,
+				FCB5C9C81D33AF41000215B3 /* FindViewCell.m */,
+			);
+			path = FindViewCell;
+			sourceTree = "<group>";
+		};
+		FCB5C9C91D33AF41000215B3 /* GameCenterCell */ = {
+			isa = PBXGroup;
+			children = (
+				FCB5C9CA1D33AF41000215B3 /* GameCenterCell.h */,
+				FCB5C9CB1D33AF41000215B3 /* GameCenterCell.m */,
+			);
+			path = GameCenterCell;
 			sourceTree = "<group>";
 		};
 		FCB6C4601D2BE880008A3137 /* JCTagListView */ = {
@@ -662,7 +725,7 @@
 		FCD80DC31D22BF70009CDEC3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FC792C281D2E9C6300762831 /* SearchAlertVC */,
+				FC792C281D2E9C6300762831 /* SearchPromptsVC */,
 				FC792C1F1D2E9B5300762831 /* SearchResultVC */,
 				FC4D35F41D28378D000C3F01 /* FindViewController */,
 				FC0745501D2CB762000DFBA6 /* ReadRQCodeVC */,
@@ -764,7 +827,6 @@
 				TargetAttributes = {
 					6EB691E61D12422B000FA482 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = QHEB22MVD3;
 						DevelopmentTeamName = "JieCheng Gao";
 					};
 					6EB691FF1D12422C000FA482 = {
@@ -886,18 +948,19 @@
 				6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */,
 				6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */,
 				FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */,
+				FCB5C9CD1D33AF41000215B3 /* FindViewCell.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
 				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
+				FCB5C9CE1D33AF41000215B3 /* GameCenterCell.m in Sources */,
 				FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */,
-				FC4D35ED1D27D2D3000C3F01 /* FindViewCell.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
+				FCB5C9CC1D33AF41000215B3 /* BangumiCell.m in Sources */,
 				6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */,
+				FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */,
 				6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */,
-				FC792C2B1D2E9C8600762831 /* SearchAlertVC.m in Sources */,
 				FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */,
 				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
-				FCA4C71A1D28492C0006CA0E /* GameCenterCell.m in Sources */,
 				FC345C741D31597C00BAE32B /* SearchResultAllView.m in Sources */,
 				6E5DEF3C1D2E07ED009944D1 /* MeViewController.m in Sources */,
 				FC792C221D2E9B7600762831 /* SearchResultVC.m in Sources */,
@@ -913,8 +976,10 @@
 				6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */,
 				FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
-				FC4D35F31D27F62A000C3F01 /* FindViewData.m in Sources */,
+				FCB5C9AE1D333D33000215B3 /* SearchPromptsVC.m in Sources */,
 				6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */,
+				FCB5C9A71D333886000215B3 /* SearchResultData.m in Sources */,
+				FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */,
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
 				6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */,
 				6E71ECD21D1C1BCA00F4B917 /* ESAPIConfigManager.m in Sources */,

@@ -56,6 +56,13 @@ typedef NS_ENUM(NSInteger, RowBottonStyle) {
  *  设置间距
  */
 - (void)setSpacing:(NSInteger)spacing;
+
+/**
+ *  设置选择的按钮
+ *
+ *  @param tag tag
+ */
+-(void)setSelectedBotton:(NSInteger)tag;
 //- (void)setFont:(UIFont*)font;
 
 //- (void)setStyle:(RowBottonStyle)style;

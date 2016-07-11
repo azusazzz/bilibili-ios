@@ -102,6 +102,9 @@ typedef void(^BLOCK)(NSInteger btnTag);
     _block(botton.tag);
     
 }
+
+
+
 -(void)setSelectedBotton:(NSInteger)tag{
     CGFloat time = 0.2;
     if (_Selectedtag == -1) {
@@ -186,7 +189,7 @@ typedef void(^BLOCK)(NSInteger btnTag);
         }
     
     }
-    _Selectedtag = -1;
+   // _Selectedtag = -1;
     [self setSelectedBotton:_Selectedtag];
 }
 

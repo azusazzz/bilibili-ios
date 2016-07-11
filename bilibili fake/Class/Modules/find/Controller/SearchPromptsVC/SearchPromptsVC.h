@@ -1,5 +1,5 @@
 //
-//  SearchAlertVC.h
+//  SearchPromptsVC.h
 //  bilibili fake
 //
 //  Created by C on 16/7/7.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchAlertVC : UIViewController
+@interface SearchPromptsVC : UIViewController
 
 -(instancetype)initWithKeywork:(NSString*)keywork;
 

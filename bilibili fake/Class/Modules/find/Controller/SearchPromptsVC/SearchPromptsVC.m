@@ -1,31 +1,31 @@
 //
-//  SearchAlertVC.m
+//  SearchPromptsVC.m
 //  bilibili fake
 //
 //  Created by C on 16/7/7.
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "SearchAlertVC.h"
-#import "FindViewData.h"
+#import "SearchPromptsVC.h"
+#import "SearchPromptsData.h"
 #import <ReactiveCocoa.h>
 #import "SearchResultVC.h"
 #import <Foundation/Foundation.h>
 
-@interface SearchAlertVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+@interface SearchPromptsVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
 @end
 
 
-@implementation SearchAlertVC{
+@implementation SearchPromptsVC{
     NSMutableArray*  SearchRecords;
-    NSString* keyword;//搜索内容
+    NSString* keywork;//搜索内容
     UITextField* search_tf;
     UIButton* cancel_btn;
     
     UITableView* _tableView;
-    NSURLSessionDataTask* Keywork_task;//关键字搜索任务
-    NSMutableArray* keyworkAlertList_dic;
+    //NSURLSessionDataTask* Keywork_task;//关键字搜索任务
+    NSMutableArray* SearchPrompts_arr;
     
     
 }
@@ -35,7 +35,7 @@
     //[FindViewData addSearchRecords:@"1"];//调试
     if (self) {
 
-        SearchRecords = [FindViewData getSearchRecords];
+        SearchRecords = [SearchPromptsData getSearchRecords];
         self.view.backgroundColor = ColorRGB(244, 244, 242);
         
         [self loadSubviews];
@@ -52,7 +52,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [search_tf becomeFirstResponder];
         [search_tf becomeFirstResponder];
-        [self setKeyword:search_tf.text];
+        [self setkeywork:search_tf.text];
     });
 //    });
 }
@@ -85,7 +85,7 @@
 }
 
 -(void)UpdataView{
-    if (keyword.length) {
+    if (keywork.length) {
         _tableView.alpha = 1;
         dispatch_async(dispatch_get_main_queue(), ^{
             [_tableView reloadData];
@@ -93,7 +93,7 @@
         
     }else{
         
-        SearchRecords = [FindViewData getSearchRecords];
+        SearchRecords = [SearchPromptsData getSearchRecords];
         if (SearchRecords.count == 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_tableView reloadData];
@@ -109,24 +109,17 @@
     }
 }
 
--(void)setKeyword:(NSString*)str{
-    if ([keyword isEqualToString:str])return;
+-(void)setkeywork:(NSString*)str{
+    if ([keywork isEqualToString:str])return;
     
-    keyword = str;
+    keywork = str;
     [self UpdataView];
-    if(Keywork_task)[Keywork_task cancel];//先取消上一个任务
-    NSString* urlstr = [@"http://api.bilibili.com/suggest?actionKey=appkey&appkey=27eb53fc9058f8c3&term=" stringByAppendingString:keyword];
-    urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
-    request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;//忽略本地缓存数据
-    NSURLSession *session = [NSURLSession sharedSession];
-    Keywork_task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
-        if (!error) {
-            keyworkAlertList_dic =  [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            [self UpdataView];
-        }
+    
+    [SearchPromptsData getSearchPrompts:keywork Block:^(NSMutableArray *Prompts) {
+        SearchPrompts_arr = Prompts;
+        [self UpdataView];
     }];
-    [Keywork_task resume];
+
     
 }
 
@@ -167,17 +160,17 @@
 
 - (void) textFieldDidChange:(UITextField*) sender {
     //NSLog(@"%@",sender.text);
-    [self setKeyword:sender.text];
+    [self setkeywork:sender.text];
 }
 
 #pragma UITableViewDelegate
 //点击
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if(keyword.length == 0){
+    if(keywork.length == 0){
         if (indexPath.row == SearchRecords.count) {
-            keyword = @"";
-            [FindViewData clearSearchRecords];
+            keywork = @"";
+            [SearchPromptsData clearSearchRecords];
             [self UpdataView];
             [_tableView reloadData];
             return;
@@ -208,17 +201,17 @@
 }
 //列数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if(keyword.length == 0){//显示搜索记录
+    if(keywork.length == 0){//显示搜索记录
         if (SearchRecords.count == 0)return 0;
         
         return SearchRecords.count+1;
         
     }else{//显示关键字提示
         
-        if ([self isPureInt:keyword]||[self isAVID:keyword]) {
-            return keyworkAlertList_dic.count+1;
+        if ([self isPureInt:keywork]||[self isAVID:keywork]) {
+            return SearchPrompts_arr.count+1;
         }
-        return keyworkAlertList_dic.count;
+        return SearchPrompts_arr.count;
         
     }
     return 0;
@@ -229,7 +222,7 @@
     UITableViewCell *cell;
     static NSString *identifier;
     UIColor *color = ColorRGB(100, 100, 100);
-    if (keyword.length==0) {
+    if (keywork.length==0) {
         
         //搜索记录
         if (indexPath.row == SearchRecords.count) {
@@ -257,7 +250,7 @@
         
         //关键字提示
         BOOL isAVID = NO;
-        if ([self isPureInt:keyword]||[self isAVID:keyword]) isAVID = YES;
+        if ([self isPureInt:keywork]||[self isAVID:keywork]) isAVID = YES;
         
         identifier = @"keyworkCell";
         if (indexPath.row == 0||isAVID){
@@ -273,10 +266,10 @@
         
         if (isAVID ) {
             if (indexPath.row == 0){
-                if ([self isPureInt:keyword]) {
-                    cell.textLabel.text = [@"av" stringByAppendingString:keyword];
+                if ([self isPureInt:keywork]) {
+                    cell.textLabel.text = [@"av" stringByAppendingString:keywork];
                 }else{
-                    cell.textLabel.text = [@"av" stringByAppendingString:[keyword substringFromIndex:2]];
+                    cell.textLabel.text = [@"av" stringByAppendingString:[keywork substringFromIndex:2]];
                 }
                 UILabel* label = [UILabel new];
                 label.text = @"进入";
@@ -289,12 +282,12 @@
                     make.right.mas_equalTo(cell.mas_right).offset(0);
                 }];
             }else{
-                NSDictionary* dic = [keyworkAlertList_dic valueForKey:[NSString stringWithFormat:@"%lu",indexPath.row-1]];
+                NSDictionary* dic = [SearchPrompts_arr valueForKey:[NSString stringWithFormat:@"%lu",indexPath.row-1]];
                 cell.textLabel.text = [dic objectForKey:@"name"];
             }
             
         }else{
-            NSDictionary* dic = [keyworkAlertList_dic valueForKey:[NSString stringWithFormat:@"%lu",indexPath.row]];
+            NSDictionary* dic = [SearchPrompts_arr valueForKey:[NSString stringWithFormat:@"%lu",indexPath.row]];
             cell.textLabel.text = [dic objectForKey:@"name"];
         }
         

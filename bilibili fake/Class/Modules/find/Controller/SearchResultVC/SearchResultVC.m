@@ -8,11 +8,12 @@
 
 #import "SearchResultVC.h"
 #import "RowBotton.h"
-#import "FindViewData.h"
+#import "SearchResultData.h"
 #import <ReactiveCocoa.h>
-#import "SearchAlertVC.h"
+#import "SearchPromptsVC.h"
 #import "RowBotton.h"
 #import "Macro.h"
+
 
 @interface SearchResultVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
@@ -21,7 +22,7 @@
 @implementation SearchResultVC{
     UITextField* search_tf;
     UIButton* cancel_btn;
-    NSString* _keywork;
+    NSString* _keyword;
     
     RowBotton* rowbtn;
     UIButton* screen_btn;
@@ -31,26 +32,27 @@
     RowBotton* screen_rowbtn1;
     RowBotton* screen_rowbtn2;
     
-    NSURLSessionDataTask* Search_task;//搜索任务
-    
+    SearchResultData* _searchResultData;
 }
 
 
 -(instancetype)initWithKeywork:(NSString*)keywork{
     
     NSLog(@"%@",keywork);
-    [FindViewData addSearchRecords:keywork];
-    
+    [SearchResultData addSearchRecords:keywork];
+   
     self = [super init];
     if (self) {
         //self.view.backgroundColor = ColorRGBA(0, 0, 0, 0);
         isScreen = NO;
-        _keywork = keywork;
+        _keyword = keywork;
+        _searchResultData = [[SearchResultData alloc] initWithKeyword:_keyword];
         
         [self loadSubviews];
         [self loadActions];
         //[rowbtn setTitles:[[NSMutableArray alloc] initWithArray:@[@"全部",@"番剧",@"动画",@"音乐",@"舞蹈",@"游戏",@"科技",@"生活",@"鬼畜"]]];
-        [self Search];
+        
+        [self SearchAndUPdata];
     }
     return self;
 }
@@ -61,8 +63,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      dispatch_async(dispatch_get_main_queue(), ^{
-         [search_tf setText:_keywork];
+         [search_tf setText:_keyword];
      });
+    
+
     // Do any additional setup after loading the view.
 }
 
@@ -74,6 +78,26 @@
 
 
 #pragma mark - ActionDealt
+//设置关键字
+-(void)setKeywork:(NSNotification*)notification{    
+    [rowbtn setSelectedBotton:1];
+    [rowbtn setSelectedBotton:1];
+    
+    NSString* keyword = [notification.userInfo objectForKey:@"keywork"];
+    NSLog(@"%@",keyword);
+    //if ([keyword isEqualToString:_keyword])  return;
+    if (keyword.length == 0) return;
+    
+    
+    [search_tf setText:keyword];
+    _keyword = keyword;
+    
+    [SearchResultData addSearchRecords:keyword];
+    [_searchResultData setKeyword:keyword];
+    
+    [self SearchAndUPdata];
+}
+
 
 -(void)loadActions{
     //取消按钮
@@ -125,66 +149,45 @@
     isScreen = (!isScreen);
 }
 
-
-//设置关键字
--(void)setKeywork:(NSNotification*)notification{
-    NSString* keywork = [notification.userInfo objectForKey:@"keywork"];
-    NSLog(@"%@",keywork);
-    if ([keywork isEqualToString:_keywork])  return;
-    if (keywork.length == 0) return;
-    
-    [FindViewData addSearchRecords:keywork];
-    [search_tf setText:keywork];
-    _keywork = keywork;
-    [self Search];
-}
-
-
-
-
 //请求搜索结果 设置tableview数据
--(void)Search{
-    if (_keywork.length == 0) return;
-    if(Search_task)[Search_task cancel];//先取消上一个任务
-    //只要不换页第二排按钮为零就一直搜索类型一直写video 或者 all？
-    
-    //按照排序方式来建立几个数组。然后请求所有种类视频的数据，根据筛选在数组种建立第二层数组。
+-(void)SearchAndUPdata{
+    if (_keyword.length == 0) return;
     
     
-    
-    NSString* urlstr = [NSString stringWithFormat:@"http://api.bilibili.com/search?actionKey=appkey&appkey=27eb53fc9058f8c3&keyword=%@&main_ver=v3&search_type=all",_keywork];
-    NSLog(@"%@",urlstr);
-    urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
-    NSURLSession *session = [NSURLSession sharedSession];
-    Search_task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
-        if (!error) {
-            
-            NSDictionary* rawData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            if ([[rawData objectForKey:@"code"] integerValue] == -3) {
-                [self Search];
-                return;
-            }
-
-            //页面信息
-            NSDictionary* pageinfo = [rawData objectForKey:@"pageinfo"];
-            [self setPageinfo:pageinfo];
+    if (rowbtn.Selectedtag) {
+        NSString* typeName = @"";
+        switch (rowbtn.Selectedtag) {
+            case 1: typeName = @"bangumi"; break;//@"番剧"
+            case 2: typeName = @"topic"; break;//@"专题"
+            case 3: typeName = @"upuser"; break;//@"UP主"
+            default:
+                break;
         }
-    }];
-    [Search_task resume];
+        [_searchResultData getNonVideoSearchResultData_arr:typeName Success:^(NSMutableArray *SearchResultData_arr) {
+            NSLog(@"%lu",SearchResultData_arr.count);
+        } Error:^(NSError *error) {
+            NSLog(@"code:%lu.%@",[error code],[error localizedDescription]);
+        }];
+        
+    }else{
+    
+    
+    }
 }
+
+
 
 //设置页面数据
--(void)setPageinfo:(NSDictionary*)pageinfo{
-    if (!pageinfo) return;
+-(void)setPageinfo:(NSDictionary*)top_tlist{
+    if (!top_tlist) return;
     
-    NSLog(@"%@",pageinfo);
+    NSLog(@"%@",top_tlist);
     
     NSMutableArray* arr= [[NSMutableArray alloc] initWithObjects:@"综合", nil];
     NSArray* title_arr = @[@"番剧",@"专题",@"UP主"];
     NSArray* key_arr = @[@"bangumi",@"topic",@"upuser"];
     for (int i = 0; i < title_arr.count; i++) {
-        NSInteger count = [[[pageinfo objectForKey:key_arr[i]] objectForKey:@"total"] integerValue];
+        NSInteger count = [[top_tlist objectForKey:key_arr[i]] integerValue];
         [arr addObject:[NSString stringWithFormat:@"%@(%lu)",title_arr[i],count]];
     }
     NSLog(@"%@",arr);
@@ -198,7 +201,7 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     [search_tf resignFirstResponder];
-    SearchAlertVC* savc = [[SearchAlertVC alloc] initWithKeywork:search_tf.text];
+    SearchPromptsVC* savc = [[SearchPromptsVC alloc] initWithKeywork:search_tf.text];
     [self.navigationController pushViewController:savc animated:NO];
 }
 
@@ -267,6 +270,11 @@
     screen_rowbtn2 = [[RowBotton alloc] initWithTitles:[[NSMutableArray alloc] initWithArray:@[@"综合",@"点击",@"弹幕",@"评论",@"日期",@"收藏"]] Style:RowBottonStyle2 Block:nil];
     [screen_rowbtn2 setSpacing:5];
     [screen_view addSubview:screen_rowbtn2];
+    
+    
+    
+    
+    
     // Layout
     
     [HeadView mas_makeConstraints:^(MASConstraintMaker *make) {
