@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4F8A1D54C95AA39D29D4CBD4 /* libPods-bilibili fake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A480E357E111053D1C8F64 /* libPods-bilibili fake.a */; };
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
+		6E1A04521D33CC43003D83EE /* HomeChannelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1A044E1D33CC43003D83EE /* HomeChannelCollectionViewCell.m */; };
+		6E1A04531D33CC43003D83EE /* HomeChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1A04511D33CC43003D83EE /* HomeChannelModel.m */; };
+		6E1A04561D33CC5D003D83EE /* HomeAnimationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1A04551D33CC5D003D83EE /* HomeAnimationModel.m */; };
 		6E5DEF3C1D2E07ED009944D1 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DEF3B1D2E07ED009944D1 /* MeViewController.m */; };
 		6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */; };
 		6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B11D1AC307002DA3AB /* HomeLiveView.m */; };
@@ -22,8 +25,6 @@
 		6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */; };
 		6E71ECE11D1C203D00F4B917 /* HomeChannelEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECE01D1C203D00F4B917 /* HomeChannelEntity.m */; };
 		6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */; };
-		6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C17D1D2A948B00C259E8 /* HomeChannelModel.m */; };
-		6E76C1811D2A98B100C259E8 /* HomeChannelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C1801D2A98B100C259E8 /* HomeChannelCollectionViewCell.m */; };
 		6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */; };
 		6EB691EC1D12422C000FA482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EB1D12422C000FA482 /* main.m */; };
 		6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EE1D12422C000FA482 /* AppDelegate.m */; };
@@ -82,6 +83,12 @@
 		5F2BF61021EE340EDD15E9D7 /* Pods-bilibili fake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.debug.xcconfig"; sourceTree = "<group>"; };
 		6E1535E81D1A96A20053A846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		6E1535E91D1A96A20053A846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		6E1A044D1D33CC43003D83EE /* HomeChannelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelCollectionViewCell.h; sourceTree = "<group>"; };
+		6E1A044E1D33CC43003D83EE /* HomeChannelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelCollectionViewCell.m; sourceTree = "<group>"; };
+		6E1A04501D33CC43003D83EE /* HomeChannelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelModel.h; sourceTree = "<group>"; };
+		6E1A04511D33CC43003D83EE /* HomeChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelModel.m; sourceTree = "<group>"; };
+		6E1A04541D33CC5D003D83EE /* HomeAnimationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAnimationModel.h; sourceTree = "<group>"; };
+		6E1A04551D33CC5D003D83EE /* HomeAnimationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAnimationModel.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6E5DEF3A1D2E07ED009944D1 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		6E5DEF3B1D2E07ED009944D1 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
@@ -111,10 +118,6 @@
 		6E76C1771D2A736A00C259E8 /* HomeChannelRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelRequest.h; sourceTree = "<group>"; };
 		6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelRequest.m; sourceTree = "<group>"; };
 		6E76C17A1D2A768D00C259E8 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
-		6E76C17C1D2A948B00C259E8 /* HomeChannelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeChannelModel.h; path = "bilibili fake/Class/Common/HomeChannelModel.h"; sourceTree = SOURCE_ROOT; };
-		6E76C17D1D2A948B00C259E8 /* HomeChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeChannelModel.m; path = "bilibili fake/Class/Common/HomeChannelModel.m"; sourceTree = SOURCE_ROOT; };
-		6E76C17F1D2A98B100C259E8 /* HomeChannelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeChannelCollectionViewCell.h; path = "bilibili fake/Class/Common/HomeChannelCollectionViewCell.h"; sourceTree = SOURCE_ROOT; };
-		6E76C1801D2A98B100C259E8 /* HomeChannelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeChannelCollectionViewCell.m; path = "bilibili fake/Class/Common/HomeChannelCollectionViewCell.m"; sourceTree = SOURCE_ROOT; };
 		6EB4C1801D2CF59600AEB6EF /* HomeAnimationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAnimationRequest.h; sourceTree = "<group>"; };
 		6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAnimationRequest.m; sourceTree = "<group>"; };
 		6EB691E71D12422B000FA482 /* bilibili fake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bilibili fake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,21 +261,12 @@
 			children = (
 				6E71ECE21D1C20CD00F4B917 /* Request */,
 				6E71ECDE1D1C1F2D00F4B917 /* Entity */,
-				6E1535E61D1A96950053A846 /* Model */,
-				6E1535E41D1A96950053A846 /* Cell */,
+				6E1A044F1D33CC43003D83EE /* Model */,
+				6E1A044C1D33CC43003D83EE /* Cell */,
 				6E1535E71D1A96950053A846 /* View */,
 				6E1535E51D1A96950053A846 /* Controller */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		6E1535E41D1A96950053A846 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				6E76C17F1D2A98B100C259E8 /* HomeChannelCollectionViewCell.h */,
-				6E76C1801D2A98B100C259E8 /* HomeChannelCollectionViewCell.m */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		6E1535E51D1A96950053A846 /* Controller */ = {
@@ -282,15 +276,6 @@
 				6E1535E91D1A96A20053A846 /* HomeViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		6E1535E61D1A96950053A846 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				6E76C17C1D2A948B00C259E8 /* HomeChannelModel.h */,
-				6E76C17D1D2A948B00C259E8 /* HomeChannelModel.m */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		6E1535E71D1A96950053A846 /* View */ = {
@@ -306,6 +291,26 @@
 				6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6E1A044C1D33CC43003D83EE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6E1A044D1D33CC43003D83EE /* HomeChannelCollectionViewCell.h */,
+				6E1A044E1D33CC43003D83EE /* HomeChannelCollectionViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6E1A044F1D33CC43003D83EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6E1A04501D33CC43003D83EE /* HomeChannelModel.h */,
+				6E1A04511D33CC43003D83EE /* HomeChannelModel.m */,
+				6E1A04541D33CC5D003D83EE /* HomeAnimationModel.h */,
+				6E1A04551D33CC5D003D83EE /* HomeAnimationModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		6E5DEF361D2E07D2009944D1 /* Me */ = {
@@ -954,10 +959,11 @@
 				FCB5C9CE1D33AF41000215B3 /* GameCenterCell.m in Sources */,
 				FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
+				6E1A04561D33CC5D003D83EE /* HomeAnimationModel.m in Sources */,
+				6E1A04521D33CC43003D83EE /* HomeChannelCollectionViewCell.m in Sources */,
 				FCB5C9CC1D33AF41000215B3 /* BangumiCell.m in Sources */,
 				6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */,
 				FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */,
-				6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */,
 				FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */,
 				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
@@ -970,8 +976,8 @@
 				6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */,
 				FCB6C4691D2BE880008A3137 /* JCTagListView.m in Sources */,
 				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,
-				6E76C1811D2A98B100C259E8 /* HomeChannelCollectionViewCell.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
+				6E1A04531D33CC43003D83EE /* HomeChannelModel.m in Sources */,
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
 				6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */,
 				FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */,
