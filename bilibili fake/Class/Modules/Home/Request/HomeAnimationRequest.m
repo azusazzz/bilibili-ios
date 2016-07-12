@@ -10,16 +10,6 @@
 
 @implementation HomeAnimationRequest
 
-- (NSString *)URLString; {
-    return @"http://bangumi.bilibili.com/api/app_index_page";
-}
 
-- (HTTPMethod)method; {
-    return HTTPMethodGet;
-}
-
-- (NSTimeInterval)cacheTimeoutInterval; {
-    return 60 * 30;
-}
 
 @end
