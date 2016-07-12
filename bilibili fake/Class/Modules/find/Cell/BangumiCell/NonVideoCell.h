@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BangumiCell : UITableViewCell
-
+@interface NonVideoCell : UITableViewCell
+-(void)setData:(NSMutableDictionary*)data_dic;
 @end

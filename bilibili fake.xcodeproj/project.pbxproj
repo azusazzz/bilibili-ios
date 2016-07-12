@@ -47,7 +47,7 @@
 		FCB5C9A71D333886000215B3 /* SearchResultData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9A51D333886000215B3 /* SearchResultData.m */; };
 		FCB5C9AE1D333D33000215B3 /* SearchPromptsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9AD1D333D33000215B3 /* SearchPromptsVC.m */; };
 		FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9B01D333D6F000215B3 /* SearchPromptsData.m */; };
-		FCB5C9CC1D33AF41000215B3 /* BangumiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9C51D33AF41000215B3 /* BangumiCell.m */; };
+		FCB5C9CC1D33AF41000215B3 /* NonVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9C51D33AF41000215B3 /* NonVideoCell.m */; };
 		FCB5C9CD1D33AF41000215B3 /* FindViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9C81D33AF41000215B3 /* FindViewCell.m */; };
 		FCB5C9CE1D33AF41000215B3 /* GameCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9CB1D33AF41000215B3 /* GameCenterCell.m */; };
 		FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6C4621D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m */; };
@@ -163,8 +163,8 @@
 		FCB5C9AD1D333D33000215B3 /* SearchPromptsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchPromptsVC.m; path = SearchPromptsVC/SearchPromptsVC.m; sourceTree = "<group>"; };
 		FCB5C9AF1D333D6F000215B3 /* SearchPromptsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchPromptsData.h; path = SearchPromptsData/SearchPromptsData.h; sourceTree = "<group>"; };
 		FCB5C9B01D333D6F000215B3 /* SearchPromptsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchPromptsData.m; path = SearchPromptsData/SearchPromptsData.m; sourceTree = "<group>"; };
-		FCB5C9C41D33AF41000215B3 /* BangumiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiCell.h; sourceTree = "<group>"; };
-		FCB5C9C51D33AF41000215B3 /* BangumiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiCell.m; sourceTree = "<group>"; };
+		FCB5C9C41D33AF41000215B3 /* NonVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NonVideoCell.h; sourceTree = "<group>"; };
+		FCB5C9C51D33AF41000215B3 /* NonVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NonVideoCell.m; sourceTree = "<group>"; };
 		FCB5C9C71D33AF41000215B3 /* FindViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewCell.h; sourceTree = "<group>"; };
 		FCB5C9C81D33AF41000215B3 /* FindViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewCell.m; sourceTree = "<group>"; };
 		FCB5C9CA1D33AF41000215B3 /* GameCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterCell.h; sourceTree = "<group>"; };
@@ -674,8 +674,8 @@
 		FCB5C9C31D33AF41000215B3 /* BangumiCell */ = {
 			isa = PBXGroup;
 			children = (
-				FCB5C9C41D33AF41000215B3 /* BangumiCell.h */,
-				FCB5C9C51D33AF41000215B3 /* BangumiCell.m */,
+				FCB5C9C41D33AF41000215B3 /* NonVideoCell.h */,
+				FCB5C9C51D33AF41000215B3 /* NonVideoCell.m */,
 			);
 			path = BangumiCell;
 			sourceTree = "<group>";
@@ -954,7 +954,7 @@
 				FCB5C9CE1D33AF41000215B3 /* GameCenterCell.m in Sources */,
 				FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
-				FCB5C9CC1D33AF41000215B3 /* BangumiCell.m in Sources */,
+				FCB5C9CC1D33AF41000215B3 /* NonVideoCell.m in Sources */,
 				6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */,
 				FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */,
 				6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */,

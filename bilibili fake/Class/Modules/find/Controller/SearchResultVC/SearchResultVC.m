@@ -13,9 +13,9 @@
 #import "SearchPromptsVC.h"
 #import "RowBotton.h"
 #import "Macro.h"
+#import "NonVideoCell.h"
 
-
-@interface SearchResultVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+@interface SearchResultVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIScrollViewDelegate>
 
 @end
 
@@ -32,7 +32,12 @@
     RowBotton* screen_rowbtn1;
     RowBotton* screen_rowbtn2;
     
+    UITableView* _tableView;
     SearchResultData* _searchResultData;
+    
+    NSMutableArray* _tableViewData_bangumi_arr;
+    NSMutableArray* _tableViewData_arr;
+    
 }
 
 
@@ -46,12 +51,20 @@
         //self.view.backgroundColor = ColorRGBA(0, 0, 0, 0);
         isScreen = NO;
         _keyword = keywork;
+        
         _searchResultData = [[SearchResultData alloc] initWithKeyword:_keyword];
+    
+        _tableViewData_arr = [[NSMutableArray alloc] init];
+        _tableViewData_bangumi_arr = [[NSMutableArray alloc] init];
         
         [self loadSubviews];
         [self loadActions];
-        //[rowbtn setTitles:[[NSMutableArray alloc] initWithArray:@[@"全部",@"番剧",@"动画",@"音乐",@"舞蹈",@"游戏",@"科技",@"生活",@"鬼畜"]]];
         
+        [_searchResultData getPageinfo:^(NSMutableDictionary *pageinfo_dic) {
+            [self setPageinfo:pageinfo_dic];
+        }];
+
+       
         [self SearchAndUPdata];
     }
     return self;
@@ -66,7 +79,7 @@
          [search_tf setText:_keyword];
      });
     
-
+    
     // Do any additional setup after loading the view.
 }
 
@@ -92,8 +105,12 @@
     [search_tf setText:keyword];
     _keyword = keyword;
     
+    
     [SearchResultData addSearchRecords:keyword];
     [_searchResultData setKeyword:keyword];
+    [_searchResultData getPageinfo:^(NSMutableDictionary *pageinfo_dic) {
+        [self setPageinfo:pageinfo_dic];
+    }];
     
     [self SearchAndUPdata];
 }
@@ -112,6 +129,11 @@
         //隐藏筛选视图
         if (btnTag&&isScreen) {
             [blockSelf screen_view_hide];
+            
+        }
+        
+        if (btnTag) {
+           [blockSelf SearchAndUPdata];
         }
         
     }];
@@ -153,18 +175,28 @@
 -(void)SearchAndUPdata{
     if (_keyword.length == 0) return;
     
+    _tableViewData_arr = [[NSMutableArray alloc] init];
+    _tableViewData_bangumi_arr = [[NSMutableArray alloc] init];
+    [_tableView reloadData];
     
     if (rowbtn.Selectedtag) {
+        //设置番剧，专题，up数据
         NSString* typeName = @"";
         switch (rowbtn.Selectedtag) {
             case 1: typeName = @"bangumi"; break;//@"番剧"
-            case 2: typeName = @"topic"; break;//@"专题"
+            case 2: typeName = @"special"; break;//@"专题"
             case 3: typeName = @"upuser"; break;//@"UP主"
             default:
                 break;
         }
+        
+        
         [_searchResultData getNonVideoSearchResultData_arr:typeName Success:^(NSMutableArray *SearchResultData_arr) {
             NSLog(@"%lu",SearchResultData_arr.count);
+            _tableViewData_arr = SearchResultData_arr;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableView reloadData];
+            });
         } Error:^(NSError *error) {
             NSLog(@"code:%lu.%@",[error code],[error localizedDescription]);
         }];
@@ -185,7 +217,7 @@
     
     NSMutableArray* arr= [[NSMutableArray alloc] initWithObjects:@"综合", nil];
     NSArray* title_arr = @[@"番剧",@"专题",@"UP主"];
-    NSArray* key_arr = @[@"bangumi",@"topic",@"upuser"];
+    NSArray* key_arr = @[@"bangumi",@"special",@"upuser"];
     for (int i = 0; i < title_arr.count; i++) {
         NSInteger count = [[top_tlist objectForKey:key_arr[i]] integerValue];
         [arr addObject:[NSString stringWithFormat:@"%@(%lu)",title_arr[i],count]];
@@ -204,6 +236,86 @@
     SearchPromptsVC* savc = [[SearchPromptsVC alloc] initWithKeywork:search_tf.text];
     [self.navigationController pushViewController:savc animated:NO];
 }
+#pragma UIScrollViewDelegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView.contentOffset.y == scrollView.contentSize.height - scrollView.frame.size.height) {
+        NSLog(@"滑到底部加载更多");
+        
+        if (rowbtn.Selectedtag) {
+            //设置番剧，专题，up数据
+            NSString* typeName = @"";
+            switch (rowbtn.Selectedtag) {
+                case 1: typeName = @"bangumi"; break;//@"番剧"
+                case 2: typeName = @"special"; break;//@"专题"
+                case 3: typeName = @"upuser"; break;//@"UP主"
+                default:
+                    break;
+            }
+            
+            
+            [_searchResultData getMoreNonVideoSearchResultData_arr:typeName Success:^(NSMutableArray *SearchResultData_arr) {
+                NSLog(@"%lu",SearchResultData_arr.count);
+                _tableViewData_arr = SearchResultData_arr;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_tableView reloadData];
+                });
+            }];
+            
+        }else{
+            
+            
+        }
+    }
+}
+#pragma UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 10.0;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    if (_tableViewData_bangumi_arr.count) {
+        return 2;
+    }
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (_tableViewData_bangumi_arr.count&&section == 0) {
+        return _tableViewData_bangumi_arr.count;
+    }
+    return _tableViewData_arr.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSMutableDictionary* data_dic = NULL;
+    if (_tableViewData_bangumi_arr.count&&indexPath.section == 0) {
+        data_dic = _tableViewData_bangumi_arr[indexPath.row];
+    }else{
+        data_dic = _tableViewData_arr[indexPath.row];
+    }
+    
+    if (rowbtn.Selectedtag) {
+        NonVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NonVideoCell"];
+        if (!cell) {
+            cell = [[NonVideoCell alloc] init];
+            [cell setData:data_dic];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        return cell;
+    }
+   
+ 
+    
+    
+    return nil;
+}
+
 
 
 #pragma mark Subviews
@@ -271,9 +383,13 @@
     [screen_rowbtn2 setSpacing:5];
     [screen_view addSubview:screen_rowbtn2];
     
+    //列表
+    _tableView = [UITableView new];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:_tableView];
     
-    
-    
+    //
     
     // Layout
     
@@ -338,6 +454,12 @@
         make.height.mas_equalTo(screen_view).multipliedBy(0.5);
     }];
     
+    
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(screen_view.mas_bottom);
+        make.right.left.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(-48);
+    }];
 }
 
 @end

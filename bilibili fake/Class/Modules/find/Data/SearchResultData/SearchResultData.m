@@ -95,8 +95,26 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
 -(void)getPageinfo:(void(^)(NSMutableDictionary* pageinfo_dic))successBlock{
     if (_keyword.length == 0) return;
     pageinfo_dic = nil;
+    //请求数据
+    NSString* urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=%@&page=1&pagesize=1",Search_URL,_keyword,@"video"];
+    NSLog(@"%@",urlstr);
+    urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
+    NSURLSession *session = [NSURLSession sharedSession];
     
-    getPageinfo_successBlock = successBlock;
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        if (!error) {
+            NSDictionary* rawData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            if ([[rawData objectForKey:@"code"] integerValue] == -3) {
+                //bilibili总是喜欢出这个bug
+                [self getPageinfo:successBlock];
+            }else if([[rawData objectForKey:@"code"] integerValue] == 0){
+                successBlock([rawData objectForKey:@"top_tlist"]);
+            }
+                
+        }
+    }] resume];
+    //getPageinfo_successBlock = successBlock;
 }
 
 
@@ -111,11 +129,11 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
 -(void)getNonVideoSearchResultData_arr:(NSString* )search_type Success:(void(^)(NSMutableArray* SearchResultData_arr))successBlock Error:(void(^)(NSError* error))errorBlock{
      if (_keyword.length == 0) return;
     
-    
+    //查看是否本地已经有请求过的数据了
     NSMutableArray* outARR;
     if([search_type isEqualToString:@"bangumi"] ){
        outARR = bangumiSearchResultData_arr ;
-    }else if([search_type isEqualToString:@"topic"] ){
+    }else if([search_type isEqualToString:@"special"] ){
        outARR = specialSearchResultData_arr;
     }else if([search_type isEqualToString:@"upuser"] ){
        outARR =   upuserSearchResultData_arr;
@@ -123,9 +141,10 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
     
     if (outARR.count > 0) {
         successBlock(outARR);
+        return;
     }
     
-    
+    //请求数据
     NSString* urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=%@&page=1&pagesize=30",Search_URL,_keyword,search_type];
     NSLog(@"%@",urlstr);
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -139,21 +158,14 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
             if ([[rawData objectForKey:@"code"] integerValue] == -3) {
                 //bilibili总是喜欢出这个bug
                 [self getNonVideoSearchResultData_arr:search_type Success:successBlock Error:errorBlock];
-            }else{
-                
-                
-                if(pageinfo_dic == NULL){
-                    pageinfo_dic = [rawData objectForKey:@"top_tlist"];
-                   if(getPageinfo_successBlock) getPageinfo_successBlock(pageinfo_dic);
-                
-                }
+            }else if([[rawData objectForKey:@"code"] integerValue] == 0){
                 
                 //赋值数组
                 NSMutableArray* SearchResultData_arr = [rawData objectForKey:@"result"];
                 
                 if([search_type isEqualToString:@"bangumi"] ){
                      bangumiSearchResultData_arr =  SearchResultData_arr;
-                }else if([search_type isEqualToString:@"topic"] ){
+                }else if([search_type isEqualToString:@"special"] ){
                     specialSearchResultData_arr =  SearchResultData_arr;
                 }else if([search_type isEqualToString:@"upuser"] ){
                     upuserSearchResultData_arr =  SearchResultData_arr;
@@ -167,7 +179,15 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
 }
 
 
-
+/**
+ *  获取更多的up主,番剧,信息
+ *
+ *  @param search_type  搜索类型
+ *  @param successBlock 成功回调（回调所有的结果）
+ */
+-(void)getMoreNonVideoSearchResultData_arr:(NSString* )search_type Success:(void(^)(NSMutableArray* UpuserSearchResultData_arr))successBlock{
+    
+}
 
 
 //--------------------------------------------------------------

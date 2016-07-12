@@ -89,7 +89,10 @@ typedef void(^BLOCK)(NSInteger btnTag);
         [_mainscr addSubview:btn];
         [_items addObject:btn];
     }
-    _Selectedtag = -1;
+   // _Selectedtag = -1;
+    if (_Selectedtag+1 > titles.count) {
+        _Selectedtag = -1;
+    }
     [self layoutSubviews];
 }
 
