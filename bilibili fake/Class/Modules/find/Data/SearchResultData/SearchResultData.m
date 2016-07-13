@@ -31,7 +31,7 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
     /**
      * tid映射表
      */
-    NSMutableDictionary* tidList_dic;
+    NSMutableArray* tidList_arr;
     
     
     /**
@@ -97,7 +97,7 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
     _keyword = keyword;
     //重新初始化所有数据
     pageinfo_dic = nil;
-    tidList_dic = [[NSMutableDictionary alloc] init];
+    tidList_arr = [[NSMutableArray alloc] init];
     
     videoSearchResultData_dic = [[NSMutableDictionary alloc] init];
 //    for (NSString* str1 in @[@"totalrank",@"click",@"dm",@"scores",@"pubdate",@"stow"]) {
@@ -133,6 +133,7 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
                 [self getPageinfo:successBlock];
             }else if([[rawData objectForKey:@"code"] integerValue] == 0){
                 pageinfo_dic = [rawData objectForKey:@"top_tlist"];
+                tidList_arr = [rawData objectForKey:@"sub_tlist"];
                 successBlock(pageinfo_dic);
             }
                 
@@ -276,9 +277,17 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
     NSString* tid_value_str = [tidsDIC objectForKey:name];
     //要获取的排序字典
     NSMutableDictionary* order_dic = [videoSearchResultData_dic objectForKey:order_value_str];
+    if (order_dic == nil){
+        order_dic= [[NSMutableDictionary alloc]init];
+        [videoSearchResultData_dic setObject:order_dic forKey:order_value_str];
+    }
     //对应tid的数组
     NSMutableArray* tid_arr = [order_dic objectForKey:tid_value_str];
-
+    if(tid_arr == nil){
+        tid_arr = [[NSMutableArray alloc] init];
+        [order_dic setObject:tid_arr forKey:tid_value_str];
+    }
+    
     if (tid_arr.count>0) {
         //如果是综合
         if ([tid_value_str integerValue] == 0) {
@@ -327,6 +336,7 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
                
                 NSMutableDictionary* order_dic = [videoSearchResultData_dic objectForKey:order_value_str];
                 [order_dic setObject:SearchResultData_arr forKey:tid_value_str];
+                [videoSearchResultData_dic setObject:order_dic forKey:order_value_str];
                 //如果是首页综合把番剧分隔开
 
                 successBlock(SearchResultData_arr,homeBangumiSearchResultData_arr);
@@ -338,7 +348,95 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
         }
     }]resume];
 }
+/**
+ *  获取视频搜索结果
+ *
+ *  @param order        排序方式
+ *  @param name         tid对应的名字
+ *  @param successBlock 成功回调
+ */
+-(void)getMoreVideoSearchResultData_arr:(NSString* )order Tid_name:(NSString*)name Success:(void(^)(NSMutableArray* SearchResultData_arr))successBlock{
 
+    if (_keyword.length == 0) return;
+    NSString* order_value_str = [orderDIC objectForKey:order];
+    NSString* tid_value_str = [tidsDIC objectForKey:name];
+    
+    NSMutableDictionary* order_dic = [videoSearchResultData_dic objectForKey:order_value_str];//要获取的排序字典
+    NSMutableArray* tid_arr = [order_dic objectForKey:tid_value_str]; //对应tid的数组
+    //看看是否已经娶到最大值
+   
+        NSInteger maxCount = 0;
+    if ([tid_value_str integerValue] == 0) {
+        maxCount = [[pageinfo_dic objectForKey:@"video"] integerValue];
+    }else{
+        for(NSDictionary* dic in tidList_arr) {
+            NSInteger tid = [[dic objectForKey:@"tid"] integerValue];
+            if (tid  == [tid_value_str integerValue]) {
+                maxCount = [[dic objectForKey:@"count"] integerValue];
+                break;
+            }
+        }
+    }
+    
+    if(tid_arr.count >= maxCount){
+        successBlock(tid_arr);return;
+    }
+    
+
+    
+    
+    
+    
+    //请求数据
+    NSString* urlstr = @"";
+    if ([tid_value_str integerValue] == 0) {
+        urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=all&page=%0.0f&pagesize=30&order=%@",Search_URL,_keyword,tid_arr.count/30.0+1,order_value_str];
+    }else{
+        urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=video&page=%0.0f&pagesize=30&order=%@&tids=%@",Search_URL,_keyword,tid_arr.count/30.0+1,order_value_str,tid_value_str];
+    }
+    
+    
+    
+    NSLog(@"%@",urlstr);
+    urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        if (!error) {
+            
+            NSDictionary* rawData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            if ([[rawData objectForKey:@"code"] integerValue] == -3) {
+                //bilibili总是喜欢出这个bug
+                [self getMoreVideoSearchResultData_arr:order Tid_name:name Success:successBlock];
+                
+            }else if([[rawData objectForKey:@"code"] integerValue] == 0){
+                
+                //赋值数组
+                NSMutableArray* SearchResultData_arr;
+                if ([tid_value_str integerValue] == 0) {
+                    //homeBangumiSearchResultData_arr = [[rawData objectForKey:@"result"] objectForKey:@"bangumi"];
+                    SearchResultData_arr = [[rawData objectForKey:@"result"] objectForKey:@"video"];
+                }else{
+                    SearchResultData_arr = [rawData objectForKey:@"result"];
+                }
+                
+                NSMutableDictionary* order_dic = [videoSearchResultData_dic objectForKey:order_value_str];//要获取的排序字典
+                NSMutableArray* tid_arr = [order_dic objectForKey:tid_value_str]; //对应tid的数组
+                [tid_arr addObjectsFromArray:SearchResultData_arr];
+                
+                [order_dic setObject:tid_arr forKey:tid_value_str];
+                //如果是首页综合把番剧分隔开
+                
+                successBlock(tid_arr);
+                
+                
+            }
+        }else{
+           
+        }
+    }]resume];
+}
 //--------------------------------------------------------------
 #pragma SearchRecords
 //--------------------------------------------------------------

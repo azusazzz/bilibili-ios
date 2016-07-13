@@ -284,7 +284,13 @@
         }else{
             //设置视频
             
-            
+            [_searchResultData getMoreVideoSearchResultData_arr:[screen_rowbtn2 getSelected_button].titleLabel.text Tid_name:[screen_rowbtn1 getSelected_button].titleLabel.text Success:^(NSMutableArray *SearchResultData_arr) {
+                NSLog(@"%lu",SearchResultData_arr.count);
+                _tableViewData_arr = SearchResultData_arr;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_tableView reloadData];
+                });
+            }];
             
             
             

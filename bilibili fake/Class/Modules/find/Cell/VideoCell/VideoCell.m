@@ -85,16 +85,16 @@
     //作者
     [_author mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_cover.mas_right).offset(15);
-        make.top.equalTo(_title.mas_top).offset(10);
+        make.top.equalTo(_title.mas_bottom).offset(10);
         make.height.equalTo(@15);
-        make.bottom.equalTo(self).equalTo(@(-10));
+        make.bottom.equalTo(self.mas_bottom).equalTo(@(-10));
     }];
     //播放量
     [_play_count mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_author.mas_centerY);
         make.size.equalTo(_author);
         make.left.equalTo(_author.mas_right).offset(5);
-        make.right.equalTo(self).offset(10);
+        make.right.equalTo(self.mas_right).offset(-10);
     }];
 }
 @end
