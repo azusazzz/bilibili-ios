@@ -61,7 +61,7 @@
  *  @param successBlock 成功回调
  *  @param errorBlock   失败回调
  */
--(void)getVideoSearchResultData_arr:(NSString* )order Tid_name:(NSString*)name Success:(void(^)(NSMutableArray* UpuserSearchResultData_arr))successBlock Error:(void(^)(NSError* error))errorBlock;
+-(void)getVideoSearchResultData_arr:(NSString* )order Tid_name:(NSString*)name Success:(void(^)(NSMutableArray* SearchResultData_arr, NSMutableArray* bangumiSearchResultData_arr))successBlock Error:(void(^)(NSError* error))errorBlock;
 /**
  *  获取视频搜索结果
  *
@@ -69,6 +69,6 @@
  *  @param name         tid对应的名字
  *  @param successBlock 成功回调
  */
--(void)getMoreVideoSearchResultData_arr:(NSString* )order Tid_name:(NSString*)name Success:(void(^)(NSMutableArray* UpuserSearchResultData_arr))successBlock;
+-(void)getMoreVideoSearchResultData_arr:(NSString* )order Tid_name:(NSString*)name Success:(void(^)(NSMutableArray* SearchResultData_arr))successBlock;
 
 @end

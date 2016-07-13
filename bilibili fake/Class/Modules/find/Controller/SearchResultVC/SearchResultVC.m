@@ -14,6 +14,8 @@
 #import "RowBotton.h"
 #import "Macro.h"
 #import "NonVideoCell.h"
+#import "VideoCell.h"
+#import <Masonry.h>
 
 @interface SearchResultVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIScrollViewDelegate>
 
@@ -93,8 +95,8 @@
 #pragma mark - ActionDealt
 //设置关键字
 -(void)setKeywork:(NSNotification*)notification{    
-    [rowbtn setSelectedBotton:1];
-    [rowbtn setSelectedBotton:1];
+//    [rowbtn setSelectedBotton:1];
+//    [rowbtn setSelectedBotton:1];
     
     NSString* keyword = [notification.userInfo objectForKey:@"keywork"];
     NSLog(@"%@",keyword);
@@ -129,45 +131,53 @@
         //隐藏筛选视图
         if (btnTag&&isScreen) {
             [blockSelf screen_view_hide];
-            
         }
         
-        if (btnTag) {
-           [blockSelf SearchAndUPdata];
-        }
+        [blockSelf SearchAndUPdata];
+        
         
     }];
     
-    //筛选按钮
+    //筛选开关按钮
     screen_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         //筛选视图隐藏和显示
         if (rowbtn.Selectedtag == 0){
             if (isScreen) {
                 [self screen_view_hide];
             }else{
+
                 screen_btn.tintColor = ColorRGB(252, 142, 175);
                 [screen_view mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.top.mas_equalTo(rowbtn.mas_bottom);
                     make.left.right.mas_equalTo(self.view);
                     make.height.equalTo(@70);
                 }];
+
                 isScreen = (!isScreen);
             }
         }
         return [RACSignal empty];
     }];
     
+    [screen_rowbtn1 setSelecteBlock:^(NSInteger btnTag) {
+        [blockSelf SearchAndUPdata];
+    }];
+    [screen_rowbtn2 setSelecteBlock:^(NSInteger btnTag) {
+        [blockSelf SearchAndUPdata];
+    }];
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setKeywork:) name:@"setSearchKeywork" object:nil];
 }
 //筛选View隐藏
 -(void)screen_view_hide{
     screen_btn.tintColor = ColorRGB(100, 100, 100);
+
     [screen_view mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(rowbtn.mas_bottom);
         make.left.right.mas_equalTo(self.view);
         make.height.equalTo(@0);
     }];
+
     isScreen = (!isScreen);
 }
 
@@ -192,7 +202,7 @@
         
         
         [_searchResultData getNonVideoSearchResultData_arr:typeName Success:^(NSMutableArray *SearchResultData_arr) {
-            NSLog(@"%lu",SearchResultData_arr.count);
+//            NSLog(@"%lu",SearchResultData_arr.count);
             _tableViewData_arr = SearchResultData_arr;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_tableView reloadData];
@@ -202,8 +212,18 @@
         }];
         
     }else{
-    
-    
+        
+        [_searchResultData getVideoSearchResultData_arr:[screen_rowbtn2 getSelected_button].titleLabel.text Tid_name:[screen_rowbtn1 getSelected_button].titleLabel.text Success:^(NSMutableArray *SearchResultData_arr, NSMutableArray* bangumiSearchResultData_arr) {
+            NSLog(@"%lu",SearchResultData_arr.count);
+            _tableViewData_arr = SearchResultData_arr;
+            _tableViewData_bangumi_arr = bangumiSearchResultData_arr;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableView reloadData];
+            });
+        } Error:^(NSError *error) {
+             NSLog(@"code:%lu.%@",[error code],[error localizedDescription]);
+        }];
+        
     }
 }
 
@@ -213,7 +233,7 @@
 -(void)setPageinfo:(NSDictionary*)top_tlist{
     if (!top_tlist) return;
     
-    NSLog(@"%@",top_tlist);
+//    NSLog(@"%@",top_tlist);
     
     NSMutableArray* arr= [[NSMutableArray alloc] initWithObjects:@"综合", nil];
     NSArray* title_arr = @[@"番剧",@"专题",@"UP主"];
@@ -222,7 +242,7 @@
         NSInteger count = [[top_tlist objectForKey:key_arr[i]] integerValue];
         [arr addObject:[NSString stringWithFormat:@"%@(%lu)",title_arr[i],count]];
     }
-    NSLog(@"%@",arr);
+//    NSLog(@"%@",arr);
     dispatch_async(dispatch_get_main_queue(), ^{
         [rowbtn setTitles:arr];
     });
@@ -238,8 +258,8 @@
 }
 #pragma UIScrollViewDelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.y == scrollView.contentSize.height - scrollView.frame.size.height) {
-        NSLog(@"滑到底部加载更多");
+    if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - scrollView.frame.size.height) {
+        NSLog(@"快滑到底部加载更多");
         
         if (rowbtn.Selectedtag) {
             //设置番剧，专题，up数据
@@ -262,6 +282,10 @@
             }];
             
         }else{
+            //设置视频
+            
+            
+            
             
             
         }
@@ -281,39 +305,51 @@
     return 10.0;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if (_tableViewData_bangumi_arr.count) {
+    if (rowbtn.Selectedtag == 0 && _tableViewData_bangumi_arr.count && screen_rowbtn1.Selectedtag == 0 && screen_rowbtn2.Selectedtag == 0){
         return 2;
     }
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (_tableViewData_bangumi_arr.count&&section == 0) {
+    if (rowbtn.Selectedtag == 0 && _tableViewData_bangumi_arr.count && screen_rowbtn1.Selectedtag == 0 && screen_rowbtn2.Selectedtag == 0 &&section == 0){
         return _tableViewData_bangumi_arr.count;
     }
     return _tableViewData_arr.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSMutableDictionary* data_dic = NULL;
-    if (_tableViewData_bangumi_arr.count&&indexPath.section == 0) {
-        data_dic = _tableViewData_bangumi_arr[indexPath.row];
-    }else{
-        data_dic = _tableViewData_arr[indexPath.row];
-    }
-    
-    if (rowbtn.Selectedtag) {
-        NonVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NonVideoCell"];
+    if (rowbtn.Selectedtag == 0){
+        if(_tableViewData_bangumi_arr.count &&indexPath.section == 0 && screen_rowbtn1.Selectedtag == 0 && screen_rowbtn2.Selectedtag == 0) {
+            NonVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NonVideoCell"];
+            if (!cell) {
+                cell = [[NonVideoCell alloc] init];
+                [cell setData:_tableViewData_bangumi_arr[indexPath.row]];
+                //cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            return cell;
+        }
+        
+        VideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoCell"];
         if (!cell) {
-            cell = [[NonVideoCell alloc] init];
-            [cell setData:data_dic];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell = [[VideoCell alloc] initWithData:_tableViewData_arr[indexPath.row]];
+            //cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         return cell;
     }
+    
+
+    NonVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NonVideoCell"];
+    if (!cell) {
+            cell = [[NonVideoCell alloc] init];
+            [cell setData:_tableViewData_arr[indexPath.row]];
+            //cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return cell;
    
- 
     
     
-    return nil;
+    
+    
+
 }
 
 
@@ -458,7 +494,7 @@
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(screen_view.mas_bottom);
         make.right.left.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(-48);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-48);
     }];
 }
 

@@ -58,7 +58,9 @@ typedef void(^BLOCK)(NSInteger btnTag);
 - (void)setSelecteBlock:(void(^)(NSInteger btnTag))block{
     _block = block;
 }
-
+-(UIButton*)getSelected_button{
+    return _items[_Selectedtag];
+}
 /**
  *  设置间距
  */

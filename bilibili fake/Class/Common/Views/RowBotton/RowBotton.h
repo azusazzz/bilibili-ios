@@ -16,6 +16,11 @@ typedef NS_ENUM(NSInteger, RowBottonStyle) {
 
 
 @property(nonatomic,assign)  NSInteger Selectedtag;
+//返回选择按钮的指针
+-(UIButton*)getSelected_button;
+
+
+
 /**
  *  初始化
  *
