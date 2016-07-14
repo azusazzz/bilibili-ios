@@ -50,7 +50,7 @@ typedef void(^BLOCK)(NSInteger btnTag);
             [_mainscr addSubview:SelectedbgView];
             
         }
-       // [self setSelectedBotton:_Selectedtag];
+//        [self setSelectedBotton:_Selectedtag];
     }
     return self;
 }
@@ -91,7 +91,7 @@ typedef void(^BLOCK)(NSInteger btnTag);
         [_mainscr addSubview:btn];
         [_items addObject:btn];
     }
-   // _Selectedtag = -1;
+    _Selectedtag = -1;
     if (_Selectedtag+1 > titles.count) {
         _Selectedtag = -1;
     }
@@ -194,7 +194,7 @@ typedef void(^BLOCK)(NSInteger btnTag);
         }
     
     }
-   // _Selectedtag = -1;
+    _Selectedtag = -1;
     [self setSelectedBotton:_Selectedtag];
 }
 

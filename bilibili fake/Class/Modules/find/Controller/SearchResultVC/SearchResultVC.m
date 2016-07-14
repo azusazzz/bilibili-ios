@@ -17,8 +17,14 @@
 #import "VideoCell.h"
 #import <Masonry.h>
 
-@interface SearchResultVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIScrollViewDelegate>
+typedef NS_ENUM(NSUInteger, RefreshState) {
+    RefreshStateNormal,//正常
+    RefreshStatePulling,//释放即可刷新
+    RefreshStateLoading,//加载中
+};
 
+@interface SearchResultVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIScrollViewDelegate>
+@property(nonatomic,assign)RefreshState tableViewRefreshState;
 @end
 
 @implementation SearchResultVC{
@@ -29,12 +35,17 @@
     RowBotton* rowbtn;
     UIButton* screen_btn;
     BOOL isScreen;
-    
+   
     UIView* screen_view;
     RowBotton* screen_rowbtn1;
     RowBotton* screen_rowbtn2;
     
     UITableView* _tableView;
+    UIImageView* _tableViewRefresh_animation;
+    UIImageView* _tableViewRefresh_imageview;
+    UILabel* _tableViewRefresh_label;
+    
+
     SearchResultData* _searchResultData;
     
     NSMutableArray* _tableViewData_bangumi_arr;
@@ -53,6 +64,7 @@
         //self.view.backgroundColor = ColorRGBA(0, 0, 0, 0);
         isScreen = NO;
         _keyword = keywork;
+       
         
         _searchResultData = [[SearchResultData alloc] initWithKeyword:_keyword];
     
@@ -62,6 +74,7 @@
         [self loadSubviews];
         [self loadActions];
         
+         _tableViewRefreshState = RefreshStateNormal;
         [_searchResultData getPageinfo:^(NSMutableDictionary *pageinfo_dic) {
             [self setPageinfo:pageinfo_dic];
         }];
@@ -183,6 +196,10 @@
 
 //请求搜索结果 设置tableview数据
 -(void)SearchAndUPdata{
+    [self SearchAndUPdata:nil];
+}
+
+-(void)SearchAndUPdata:(void(^)())completeBlock{
     if (_keyword.length == 0) return;
     
     _tableViewData_arr = [[NSMutableArray alloc] init];
@@ -206,9 +223,13 @@
             _tableViewData_arr = SearchResultData_arr;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_tableView reloadData];
+                if(completeBlock)completeBlock();
             });
         } Error:^(NSError *error) {
             NSLog(@"code:%lu.%@",[error code],[error localizedDescription]);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(completeBlock)completeBlock();
+            });
         }];
         
     }else{
@@ -219,9 +240,13 @@
             _tableViewData_bangumi_arr = bangumiSearchResultData_arr;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_tableView reloadData];
+                 if(completeBlock)completeBlock();
             });
         } Error:^(NSError *error) {
-             NSLog(@"code:%lu.%@",[error code],[error localizedDescription]);
+            NSLog(@"code:%lu.%@",[error code],[error localizedDescription]);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(completeBlock)completeBlock();
+            });
         }];
         
     }
@@ -229,7 +254,7 @@
 
 
 
-//设置页面数据
+//设置页眉数据
 -(void)setPageinfo:(NSDictionary*)top_tlist{
     if (!top_tlist) return;
     
@@ -258,6 +283,7 @@
 }
 #pragma UIScrollViewDelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //底部加载更多
     if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - scrollView.frame.size.height) {
         NSLog(@"快滑到底部加载更多");
         
@@ -296,7 +322,60 @@
             
         }
     }
+    //下拉顶部刷新
+    else if(scrollView.contentOffset.y < -120){
+        if(_tableViewRefreshState == RefreshStateNormal){//小于临界值（在触发点以下），如果状态是正常就转为下拉刷新，如果正在刷新或者已经是下拉刷新则不变
+            [self settableViewRefreshState:RefreshStatePulling];
+        }
+    }else{//大于临界值（在触发点以上，包括触发点）
+        if(scrollView.isDragging){//手指没有离开屏幕
+            if(_tableViewRefreshState == RefreshStatePulling){//原来是下拉的话变成正常，原来是刷新或者正常的话不变
+                [self settableViewRefreshState:RefreshStateNormal];
+            }
+        }else{//手指离开屏幕
+            if(_tableViewRefreshState == RefreshStatePulling){//原来是下拉的话变成加载中，原来是加载中或者正常的话不变
+                _tableView.contentInset = UIEdgeInsetsMake(120, 0, 0, 0);//改变contentInset的值就可以取消回弹效果停留在当前位置了 关于contentIinset的介绍，可以查看我的上一篇文章
+                 [self settableViewRefreshState:RefreshStateLoading];
+            }
+        }
+    
+    }
 }
+
+- (void)settableViewRefreshState:(RefreshState)refreshState{
+    _tableViewRefreshState = refreshState;
+    __block SearchResultVC *blockSelf = self;
+    switch (refreshState) {
+        case RefreshStateNormal:
+            _tableViewRefresh_label.text = @"再拉，再拉就刷新给你看";
+            [UIView animateWithDuration:0.2 animations:^{
+                blockSelf->_tableViewRefresh_imageview.transform = CGAffineTransformRotate(blockSelf->_tableViewRefresh_imageview.transform, M_PI);
+            }];
+            break;
+        case RefreshStateLoading:
+            _tableViewRefresh_label.text = @"正在刷新...";
+            [_tableViewRefresh_animation startAnimating];
+            
+            [self SearchAndUPdata:^{
+                [blockSelf settableViewRefreshState:RefreshStateNormal];
+                [blockSelf->_tableViewRefresh_animation stopAnimating];
+                [UIView animateWithDuration:0.2 animations:^{
+                    blockSelf->_tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+                } completion:nil];
+            }];
+           
+            break;
+        case RefreshStatePulling:
+            _tableViewRefresh_label.text = @"够了啦，松开人家嘛";
+            [UIView animateWithDuration:0.2 animations:^{
+               blockSelf->_tableViewRefresh_imageview.transform = CGAffineTransformRotate(blockSelf->_tableViewRefresh_imageview.transform, M_PI);
+            }];
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -305,6 +384,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (rowbtn.Selectedtag == 0){
+        if(_tableViewData_bangumi_arr.count &&indexPath.section == 0 && screen_rowbtn1.Selectedtag == 0 && screen_rowbtn2.Selectedtag == 0){
+           return 100;
+        }
+        return 80;
+    }
     return 100;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -350,12 +435,6 @@
             //cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
-   
-    
-    
-    
-    
-
 }
 
 
@@ -429,10 +508,35 @@
     _tableView = [UITableView new];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
     
-    //
+    //下拉刷新显示界面
+    _tableViewRefresh_imageview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search_openMore"]];
+    [_tableView addSubview:_tableViewRefresh_imageview];
     
+    _tableViewRefresh_animation = [UIImageView new];
+    _tableViewRefresh_animation.image = [UIImage imageNamed:@"common_pay_loading_1"];
+    _tableViewRefresh_animation.animationDuration = 2.0;//设置动画总时间
+    _tableViewRefresh_animation.animationRepeatCount= -1; //设置重复次数，0表示不重复
+    _tableViewRefresh_animation.animationImages=[NSArray arrayWithObjects:
+                      [UIImage imageNamed:@"common_pay_loading_1"],
+                      [UIImage imageNamed:@"common_pay_loading_2"],
+                      [UIImage imageNamed:@"common_pay_loading_3"],
+                      [UIImage imageNamed:@"common_pay_loading_4"],
+                      [UIImage imageNamed:@"common_pay_loading_5"],
+                      [UIImage imageNamed:@"common_pay_loading_6"],
+                      [UIImage imageNamed:@"common_pay_loading_7"],
+                      [UIImage imageNamed:@"common_pay_loading_8"],nil];
+    [_tableView addSubview:_tableViewRefresh_animation];
+    
+    
+    _tableViewRefresh_label = [[UILabel alloc] init];
+    _tableViewRefresh_label.text = @"再拉，再拉就刷新给你看";
+    _tableViewRefresh_label.font = [UIFont systemFontOfSize:15];
+    _tableViewRefresh_label.textColor = ColorRGB(0, 0, 0);
+    _tableViewRefresh_label.textAlignment = NSTextAlignmentCenter;
+    [_tableView addSubview:_tableViewRefresh_label];
     // Layout
     
     [HeadView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -501,6 +605,23 @@
         make.top.equalTo(screen_view.mas_bottom);
         make.right.left.equalTo(self.view);
         make.bottom.equalTo(self.view.mas_bottom).offset(-48);
+    }];
+    
+    [_tableViewRefresh_label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(180, 30));
+        make.centerX.equalTo(_tableView.mas_centerX).offset(15);
+        make.left.equalTo(_tableViewRefresh_imageview.mas_right);
+        make.bottom.equalTo(_tableView.mas_top).equalTo(@(-20));
+    }];
+    [_tableViewRefresh_imageview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(30, 30));
+        make.bottom.equalTo(_tableView.mas_top).equalTo(@(-20));
+    }];
+    
+    [_tableViewRefresh_animation mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(200, 60));
+        make.centerX.equalTo(_tableView.mas_centerX);
+        make.bottom.equalTo(_tableViewRefresh_label.mas_top).equalTo(@(-10));
     }];
 }
 

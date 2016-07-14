@@ -103,16 +103,16 @@ typedef enum : NSUInteger {
     tagList_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         if (tagListViewMode == search_closeMore) {
             tagListViewMode = search_openMore;
-            [UIView animateWithDuration:0.2 animations:^{
+//            [UIView animateWithDuration:0.1 animations:^{
                 [self TagListView_open];
                 [tagListView layoutIfNeeded];
-            }];
+//            }];
         }else{
             tagListViewMode = search_closeMore;
-            [UIView animateWithDuration:0.2 animations:^{
+//            [UIView animateWithDuration:0.1 animations:^{
                 [self TagListView_close];
                 [tagListView layoutIfNeeded];
-            }];
+//            }];
         }
         
         return [RACSignal empty];

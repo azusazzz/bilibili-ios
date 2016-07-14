@@ -119,7 +119,7 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
     if (_keyword.length == 0) return;
     pageinfo_dic = nil;
     //请求数据
-    NSString* urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=%@&page=1&pagesize=1",Search_URL,_keyword,@"video"];
+    NSString* urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=%@&page=1&pagesize=1",Search_URL,_keyword,@"all"];
     NSLog(@"%@",urlstr);
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
