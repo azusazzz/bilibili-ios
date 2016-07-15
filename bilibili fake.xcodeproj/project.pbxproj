@@ -22,8 +22,6 @@
 		6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */; };
 		6E71ECE11D1C203D00F4B917 /* HomeChannelEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECE01D1C203D00F4B917 /* HomeChannelEntity.m */; };
 		6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */; };
-		6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C17D1D2A948B00C259E8 /* HomeChannelModel.m */; };
-		6E76C1811D2A98B100C259E8 /* HomeChannelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C1801D2A98B100C259E8 /* HomeChannelCollectionViewCell.m */; };
 		6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */; };
 		6EB691EC1D12422C000FA482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EB1D12422C000FA482 /* main.m */; };
 		6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EE1D12422C000FA482 /* AppDelegate.m */; };
@@ -31,6 +29,9 @@
 		6EB691FA1D12422C000FA482 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB691F81D12422C000FA482 /* LaunchScreen.storyboard */; };
 		6EB692051D12422C000FA482 /* bilibili_fakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB692041D12422C000FA482 /* bilibili_fakeTests.m */; };
 		6EB692101D12422C000FA482 /* bilibili_fakeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */; };
+		6ED65D541D38B67800D264F8 /* HomeChannelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED65D501D38B67800D264F8 /* HomeChannelCollectionViewCell.m */; };
+		6ED65D551D38B67800D264F8 /* HomeChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED65D531D38B67800D264F8 /* HomeChannelModel.m */; };
+		6ED65D581D38B68400D264F8 /* HomeAnimationCategorieCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED65D571D38B68400D264F8 /* HomeAnimationCategorieCollectionViewCell.m */; };
 		6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4A61D2BCE4400D1BC9E /* TabBar.m */; };
 		6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AA1D2BD6D800D1BC9E /* UIView+Frame.m */; };
 		6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AD1D2BDE9400D1BC9E /* HomeAnimationView.m */; };
@@ -113,10 +114,6 @@
 		6E76C1771D2A736A00C259E8 /* HomeChannelRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelRequest.h; sourceTree = "<group>"; };
 		6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelRequest.m; sourceTree = "<group>"; };
 		6E76C17A1D2A768D00C259E8 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
-		6E76C17C1D2A948B00C259E8 /* HomeChannelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeChannelModel.h; path = "bilibili fake/Class/Common/HomeChannelModel.h"; sourceTree = SOURCE_ROOT; };
-		6E76C17D1D2A948B00C259E8 /* HomeChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeChannelModel.m; path = "bilibili fake/Class/Common/HomeChannelModel.m"; sourceTree = SOURCE_ROOT; };
-		6E76C17F1D2A98B100C259E8 /* HomeChannelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeChannelCollectionViewCell.h; path = "bilibili fake/Class/Common/HomeChannelCollectionViewCell.h"; sourceTree = SOURCE_ROOT; };
-		6E76C1801D2A98B100C259E8 /* HomeChannelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeChannelCollectionViewCell.m; path = "bilibili fake/Class/Common/HomeChannelCollectionViewCell.m"; sourceTree = SOURCE_ROOT; };
 		6EB4C1801D2CF59600AEB6EF /* HomeAnimationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAnimationRequest.h; sourceTree = "<group>"; };
 		6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAnimationRequest.m; sourceTree = "<group>"; };
 		6EB691E71D12422B000FA482 /* bilibili fake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bilibili fake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +129,12 @@
 		6EB6920B1D12422C000FA482 /* bilibili fakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bilibili fakeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bilibili_fakeUITests.m; sourceTree = "<group>"; };
 		6EB692111D12422C000FA482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ED65D4F1D38B67800D264F8 /* HomeChannelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelCollectionViewCell.h; sourceTree = "<group>"; };
+		6ED65D501D38B67800D264F8 /* HomeChannelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelCollectionViewCell.m; sourceTree = "<group>"; };
+		6ED65D521D38B67800D264F8 /* HomeChannelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelModel.h; sourceTree = "<group>"; };
+		6ED65D531D38B67800D264F8 /* HomeChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelModel.m; sourceTree = "<group>"; };
+		6ED65D561D38B68400D264F8 /* HomeAnimationCategorieCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAnimationCategorieCollectionViewCell.h; sourceTree = "<group>"; };
+		6ED65D571D38B68400D264F8 /* HomeAnimationCategorieCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAnimationCategorieCollectionViewCell.m; sourceTree = "<group>"; };
 		6EFFD4A51D2BCE4400D1BC9E /* TabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBar.h; sourceTree = "<group>"; };
 		6EFFD4A61D2BCE4400D1BC9E /* TabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBar.m; sourceTree = "<group>"; };
 		6EFFD4A91D2BD6D800D1BC9E /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
@@ -263,23 +266,14 @@
 		6E1535E31D1A96950053A846 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				6ED65D4E1D38B67800D264F8 /* Cell */,
+				6ED65D511D38B67800D264F8 /* Model */,
 				6E71ECE21D1C20CD00F4B917 /* Request */,
 				6E71ECDE1D1C1F2D00F4B917 /* Entity */,
-				6E1535E61D1A96950053A846 /* Model */,
-				6E1535E41D1A96950053A846 /* Cell */,
 				6E1535E71D1A96950053A846 /* View */,
 				6E1535E51D1A96950053A846 /* Controller */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		6E1535E41D1A96950053A846 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				6E76C17F1D2A98B100C259E8 /* HomeChannelCollectionViewCell.h */,
-				6E76C1801D2A98B100C259E8 /* HomeChannelCollectionViewCell.m */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		6E1535E51D1A96950053A846 /* Controller */ = {
@@ -289,15 +283,6 @@
 				6E1535E91D1A96A20053A846 /* HomeViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		6E1535E61D1A96950053A846 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				6E76C17C1D2A948B00C259E8 /* HomeChannelModel.h */,
-				6E76C17D1D2A948B00C259E8 /* HomeChannelModel.m */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		6E1535E71D1A96950053A846 /* View */ = {
@@ -518,6 +503,26 @@
 				FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		6ED65D4E1D38B67800D264F8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6ED65D4F1D38B67800D264F8 /* HomeChannelCollectionViewCell.h */,
+				6ED65D501D38B67800D264F8 /* HomeChannelCollectionViewCell.m */,
+				6ED65D561D38B68400D264F8 /* HomeAnimationCategorieCollectionViewCell.h */,
+				6ED65D571D38B68400D264F8 /* HomeAnimationCategorieCollectionViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6ED65D511D38B67800D264F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6ED65D521D38B67800D264F8 /* HomeChannelModel.h */,
+				6ED65D531D38B67800D264F8 /* HomeChannelModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		6EFFD4A31D2BCDFB00D1BC9E /* Views */ = {
@@ -986,20 +991,20 @@
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
 				6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */,
 				FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */,
-				6E76C17E1D2A948B00C259E8 /* HomeChannelModel.m in Sources */,
 				FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */,
 				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
 				FC345C741D31597C00BAE32B /* SearchResultAllView.m in Sources */,
+				6ED65D581D38B68400D264F8 /* HomeAnimationCategorieCollectionViewCell.m in Sources */,
 				6E5DEF3C1D2E07ED009944D1 /* MeViewController.m in Sources */,
 				FC792C221D2E9B7600762831 /* SearchResultVC.m in Sources */,
 				6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */,
 				FCB6C4681D2BE880008A3137 /* JCTagCell.m in Sources */,
 				FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */,
 				6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */,
+				6ED65D551D38B67800D264F8 /* HomeChannelModel.m in Sources */,
 				FCB6C4691D2BE880008A3137 /* JCTagListView.m in Sources */,
 				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,
-				6E76C1811D2A98B100C259E8 /* HomeChannelCollectionViewCell.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
 				6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */,
@@ -1007,6 +1012,7 @@
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
 				FCB5C9AE1D333D33000215B3 /* SearchPromptsVC.m in Sources */,
 				6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */,
+				6ED65D541D38B67800D264F8 /* HomeChannelCollectionViewCell.m in Sources */,
 				FCB5C9A71D333886000215B3 /* SearchResultData.m in Sources */,
 				FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */,
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,

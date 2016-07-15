@@ -7,6 +7,12 @@
 //
 
 #import "HomeAnimationView.h"
+#import "HomeAnimationRequest.h"
+
+@interface HomeAnimationView ()
+<ESRequestDelegate>
+
+@end
 
 @implementation HomeAnimationView
 
@@ -18,7 +24,18 @@
     
     self.backgroundColor = [UIColor whiteColor];
     
+    [[HomeAnimationRequest requestWithDelegate:self] start];
+    
     return self;
+}
+
+
+#pragma mark - ESRequestDelegate
+
+- (void)requestCompletion:(ESRequest *)request; {
+    
+    NSLog(@"\n%@", request.responseObject[@"result"][@"categories"]);
+    
 }
 
 
