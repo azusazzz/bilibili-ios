@@ -9,11 +9,14 @@
 #import "HomeAnimationCategoryCollectionViewCell.h"
 
 @interface HomeAnimationCategoryCollectionViewCell ()
+<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     UILabel *_leftTitleLabel;
     UILabel *_rightTitleLabel;
     UIImageView *_leftImageView;
     UIImageView *_rightImageView;
+    
+    UICollectionView *_collectionView;
 }
 @end
 
@@ -40,31 +43,43 @@
         _rightImageView.image = [UIImage imageNamed:@"home_icon_defult"];
         [self addSubview:_rightImageView];
         
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:flowLayout];
+//        [_collectionView registerClass:[HomeAnimationCategoryCollectionViewCell class] forCellWithReuseIdentifier:ReuseIdentifier];
+        _collectionView.backgroundColor = ColorWhite(240);
+        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
+        [self addSubview:_collectionView];
+        
+        
         [_leftImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.offset = 10;
-            make.top.offset = 10;
+            make.left.offset = 15;
+            make.top.offset = 15;
             make.width.offset = 20;
             make.height.offset = 20;
         }];
         [_leftTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_leftImageView.mas_right).offset = 5;
-            make.top.offset = 10;
+            make.top.offset = 15;
             make.height.offset = 20;
             make.width.offset = 100;
         }];
         [_rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.offset = -10;
-            make.top.offset = 10;
+            make.right.offset = -15;
+            make.top.offset = 15;
             make.width.offset = 20;
             make.height.offset = 20;
         }];
         [_rightTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(_rightImageView.mas_left).offset = -5;
-            make.top.offset = 10;
+            make.top.offset = 15;
             make.height.offset = 20;
             make.width.offset = 100;
         }];
-        
+        [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self);
+        }];
     }
     return self;
 }
