@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) HomeAnimationCategoryEntity *categoryEntity;
 
++ (CGSize)size;
+
 @end

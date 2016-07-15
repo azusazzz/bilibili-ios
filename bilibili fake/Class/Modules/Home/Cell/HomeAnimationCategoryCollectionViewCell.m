@@ -7,6 +7,9 @@
 //
 
 #import "HomeAnimationCategoryCollectionViewCell.h"
+#import "HomeAnimationCategoryItemCollectionViewCell.h"
+
+#define CategoryItemIdentifier @"CategoryItemIdentifier"
 
 @interface HomeAnimationCategoryCollectionViewCell ()
 <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -22,6 +25,10 @@
 
 @implementation HomeAnimationCategoryCollectionViewCell
 
++ (CGSize)size; {
+    return CGSizeMake(SSize.width, 15+20+15 + [HomeAnimationCategoryItemCollectionViewCell size].height);
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame; {
     if (self = [super initWithFrame:frame]) {
@@ -29,6 +36,7 @@
         
         _leftTitleLabel = [[UILabel alloc] init];
         _leftTitleLabel.font = Font(14);
+        _leftTitleLabel.textColor = ColorWhite(34);
         [self addSubview:_leftTitleLabel];
         _leftImageView = [[UIImageView alloc] init];
         _leftImageView.image = [UIImage imageNamed:@"home_icon_defult"];
@@ -44,12 +52,18 @@
         [self addSubview:_rightImageView];
         
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        flowLayout.itemSize = [HomeAnimationCategoryItemCollectionViewCell size];
+        flowLayout.minimumLineSpacing = 15;
+        flowLayout.minimumInteritemSpacing = 15;
+        flowLayout.sectionInset = UIEdgeInsetsMake(0, 15, 0, 15);
+        
         _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:flowLayout];
-//        [_collectionView registerClass:[HomeAnimationCategoryCollectionViewCell class] forCellWithReuseIdentifier:ReuseIdentifier];
-        _collectionView.backgroundColor = ColorWhite(240);
+        [_collectionView registerClass:[HomeAnimationCategoryItemCollectionViewCell class] forCellWithReuseIdentifier:CategoryItemIdentifier];
+        _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
+        _collectionView.showsHorizontalScrollIndicator = NO;
         [self addSubview:_collectionView];
         
         
@@ -78,7 +92,10 @@
             make.width.offset = 100;
         }];
         [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
+            make.left.offset = 0;
+            make.right.offset = 0;
+            make.top.equalTo(_leftImageView.mas_bottom).offset = 15;
+            make.bottom.offset = 0;
         }];
     }
     return self;
@@ -89,6 +106,39 @@
     
     _leftTitleLabel.text = _categoryEntity.tag_name;
 }
+
+
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView; {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section; {
+    return _categoryEntity.list.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath; {
+    return [collectionView dequeueReusableCellWithReuseIdentifier:CategoryItemIdentifier forIndexPath:indexPath];
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(HomeAnimationCategoryItemCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath; {
+    cell.categoryItemEntity = _categoryEntity.list[indexPath.row];
+}
+
+//#pragma mark - UICollectionViewDelegateFlowLayout
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath; {
+//    return [HomeAnimationCategoryItemCollectionViewCell size];
+//}
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section; {
+//    return 15;
+//}
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section; {
+//    return 0;
+//}
 
 
 @end

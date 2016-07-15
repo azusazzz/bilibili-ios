@@ -56,6 +56,8 @@ typedef NS_ENUM(APIType, HomeAPIType) {
     self.view.backgroundColor = [UIColor whiteColor];
     [self loadSubviews];
     
+//    self addChildViewController:<#(nonnull UIViewController *)#>
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated; {

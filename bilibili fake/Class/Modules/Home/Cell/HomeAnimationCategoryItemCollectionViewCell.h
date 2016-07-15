@@ -11,5 +11,8 @@
 
 @interface HomeAnimationCategoryItemCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) HomeAnimationCategoryItemEntity *categoryItemEntity;
+
++ (CGSize)size;
 
 @end
