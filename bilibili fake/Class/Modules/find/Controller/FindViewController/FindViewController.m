@@ -96,7 +96,7 @@ typedef enum : NSUInteger {
      //标签视图
     __block FindViewController *blockSelf = self;
     [tagListView setCompletionBlockWithSelected:^(NSInteger index) {
-        [blockSelf.navigationController pushViewController:[[SearchResultVC alloc] initWithKeywork:blockSelf->keywordArr[index]] animated:NO];
+        [blockSelf.navigationController pushViewController:[[SearchResultVC alloc] initWithkeyword: blockSelf->keywordArr[index]] animated:NO];
     }];
     
      //展开收起按钮
@@ -164,8 +164,8 @@ typedef enum : NSUInteger {
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     [search_tf resignFirstResponder];
-    [self.navigationController pushViewController:[[SearchResultVC alloc] initWithKeywork:@""] animated:NO];
-    [self.navigationController pushViewController:[[SearchPromptsVC alloc] initWithKeywork:@""] animated:NO];
+    [self.navigationController pushViewController:[[SearchResultVC alloc] initWithkeyword:@""] animated:NO];
+    [self.navigationController pushViewController:[[SearchPromptsVC alloc] initWithKeyword:@""] animated:NO];
 }
 
 

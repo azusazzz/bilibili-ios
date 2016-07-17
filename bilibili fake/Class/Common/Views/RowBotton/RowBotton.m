@@ -107,16 +107,23 @@ typedef void(^BLOCK)(NSInteger btnTag);
     _block(botton.tag);
     
 }
-
-
-
 -(void)setSelectedBotton:(NSInteger)tag{
+    [self setSelectedBotton:tag animation:YES];
+}
+
+
+-(void)setSelectedBotton:(NSInteger)tag animation:(BOOL)animation{
     CGFloat time = 0.2;
     if (_Selectedtag == -1) {
         time = 0.0;
         _Selectedtag = 0;
         tag = 0;
     }
+    
+    if (animation == NO) {
+        time = 0.0;
+    }
+    
     [UIView animateWithDuration:time animations:^{
         
         
@@ -194,8 +201,8 @@ typedef void(^BLOCK)(NSInteger btnTag);
         }
     
     }
-    _Selectedtag = -1;
-    [self setSelectedBotton:_Selectedtag];
+    //_Selectedtag = -1;
+    [self setSelectedBotton:_Selectedtag animation:NO];
 }
 
 

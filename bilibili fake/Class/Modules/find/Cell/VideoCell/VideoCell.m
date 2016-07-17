@@ -13,8 +13,8 @@
 #import <UIImageView+WebCache.h>
 
 @implementation VideoCell{
-    NSMutableDictionary* _data_dic;
-
+    NSMutableDictionary* _data_dic;//数据主体
+    NSString* _order;//筛选条件
     
     UIImageView* _cover;//封面
     
@@ -22,15 +22,19 @@
     UILabel* _author;//作者
     UILabel* _play_count;//播放量
 }
--(instancetype)initWithData:(NSMutableDictionary*)dic{
+-(instancetype)initWithData:(NSMutableDictionary*)dic order:(NSString*)order{
     self = [super init];
     if (self) {
         _data_dic = dic;
+        _order = order;
         [self loadSubViews];
     }
     //self.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     return self;
 }
+
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -42,13 +46,69 @@
     _title.text =convertedString;
     [_title textLeftTopAlign];
     _author.text = [NSString stringWithFormat:@"UP主：%@",[_data_dic objectForKey:@"author"]];
-    NSInteger playCount = [[_data_dic objectForKey:@"play"] integerValue];
-    if(playCount>1000){
-        _play_count.text = [NSString stringWithFormat:@"播放：%0.2f万",playCount/10000.0];
-    }else{
-        _play_count.text = [NSString stringWithFormat:@"播放：%lu",playCount];
+    
+    //设置排序数量
+    NSString* unitCountKey = @"play";
+    NSString* unitName = @"播放";
+    
+    //普通处理
+    if ([_order isEqualToString:@"弹幕"]) {
+        unitCountKey = @"video_review";
+        unitName = @"弹幕";
+    } else if([_order isEqualToString:@"评论"]){
+        unitCountKey = @"review";
+        unitName = @"评论";
+    } else if([_order isEqualToString:@"收藏"]){
+        unitCountKey = @"favorites";
+        unitName = @"收藏";
     }
+    
+    NSInteger playCount = [[_data_dic objectForKey:unitCountKey] integerValue];
+    if(playCount>9999){
+        _play_count.text = [NSString stringWithFormat:@"%@：%0.2f万",unitName,playCount/10000.0];
+    }else{
+        _play_count.text = [NSString stringWithFormat:@"%@：%lu",unitName,playCount];
+    }
+    //时间
+    if([_order isEqualToString:@"日期"]){
+        NSString *dateStr = [self getDateStr:[[_data_dic objectForKey:@"senddate"] integerValue]];
+         _play_count.text = [NSString stringWithFormat:@"日期：%@",dateStr];
+    }
+    
+    
 
+}
+#pragma 根据时间计算是长时间以前的
+-(NSString*)getDateStr:(NSInteger)date{
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval now_time=[dat timeIntervalSince1970];
+    
+    NSInteger difference = now_time - date;
+    NSString* str1 = @"";
+    NSString* str2 = @"前";
+    
+    if (difference < 0) {
+        str2 = @"以后";
+        difference = -difference;
+    }
+    
+    if(difference < 60){
+        str1 = [NSString stringWithFormat:@"%lu秒",difference];
+    } else if(difference>=60&&difference<3600){
+        str1 = [NSString stringWithFormat:@"%lu分",difference/60];
+    } else if(difference>=3600&&difference<86400){
+        str1 = [NSString stringWithFormat:@"%lu时",difference/3600];
+    } else if(difference>=86400&&difference<2592000){
+        str1 = [NSString stringWithFormat:@"%lu天",difference/86400];
+    } else if(difference>=2592000&&difference<31104000){
+        str1 = [NSString stringWithFormat:@"%lu天",difference/86400];
+        //str1 = [NSString stringWithFormat:@"%lu月",difference/2592000];
+    } else if(difference>=31104000){
+        str1 = [NSString stringWithFormat:@"%lu年",difference/31104000];
+    }
+    
+    
+    return [str1 stringByAppendingString:str2];
 }
 #pragma loadsubViews
 -(void)loadSubViews{

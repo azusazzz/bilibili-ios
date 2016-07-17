@@ -29,7 +29,7 @@
 
 
 //获取页眉信息
--(void)getPageinfo:(void(^)(NSMutableDictionary* pageinfo_dic))successBlock;
+-(void)getPageinfo:(void(^)(NSInteger bangumiCount,NSInteger specialCount,NSInteger upuserCount))successBlock;
 
 
 /**

@@ -7,13 +7,13 @@
 //
 
 #import "SearchResultData.h"
-typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
+//typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
 
 
 #define Search_URL @"http://api.bilibili.com/search?actionKey=appkey&appkey=27eb53fc9058f8c3&main_ver=v3"
 @interface SearchResultData (){
     
-    GetPageinfoSuccessBlock getPageinfo_successBlock;
+    //GetPageinfoSuccessBlock getPageinfo_successBlock;
     
 
     /**
@@ -22,7 +22,7 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
     NSString *_keyword;
     NSMutableDictionary* orderDIC;//筛选映射表
     NSMutableDictionary* tidsDIC;//tid映射表
-    
+    NSMutableDictionary* nowPageCount;//当前防止重复请求页数
     
     /**
      *  页面（眉头）信息
@@ -47,14 +47,17 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
      *  番剧 搜索结果
      */
     NSMutableArray* bangumiSearchResultData_arr;
+    NSInteger bangumiMAXCount;//最大值
     /**
      *  专题 搜索结果
      */
     NSMutableArray* specialSearchResultData_arr;
+    NSInteger specialMAXCount;//最大值
     /**
      *  up主 搜索结果
      */
     NSMutableArray* upuserSearchResultData_arr;
+    NSInteger upuserMAXCount;//最大值
     
 }
 
@@ -109,13 +112,14 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
     specialSearchResultData_arr = [[NSMutableArray alloc] init];
     upuserSearchResultData_arr = [[NSMutableArray alloc] init];
     homeBangumiSearchResultData_arr = [[NSMutableArray alloc] init];
+    nowPageCount = [[NSMutableDictionary alloc] init];
 }
 
 
 
 
 //获取页眉信息
--(void)getPageinfo:(void(^)(NSMutableDictionary* pageinfo_dic))successBlock{
+-(void)getPageinfo:(void(^)(NSInteger bangumiCount,NSInteger specialCount,NSInteger upuserCount))successBlock{
     if (_keyword.length == 0) return;
     pageinfo_dic = nil;
     //请求数据
@@ -134,7 +138,16 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
             }else if([[rawData objectForKey:@"code"] integerValue] == 0){
                 pageinfo_dic = [rawData objectForKey:@"top_tlist"];
                 tidList_arr = [rawData objectForKey:@"sub_tlist"];
-                successBlock(pageinfo_dic);
+                
+                
+                bangumiMAXCount = [[pageinfo_dic objectForKey:@"bangumi"] integerValue];
+                            
+                specialMAXCount = [[pageinfo_dic objectForKey:@"special"] integerValue];
+                specialMAXCount += [[pageinfo_dic objectForKey:@"tvplay"] integerValue];//专题包括电视剧
+               
+                upuserMAXCount = [[pageinfo_dic objectForKey:@"upuser"] integerValue];
+    
+                successBlock(bangumiMAXCount,specialMAXCount,upuserMAXCount);
             }
                 
         }
@@ -153,21 +166,17 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
  */
 -(void)getNonVideoSearchResultData_arr:(NSString* )search_type Success:(void(^)(NSMutableArray* SearchResultData_arr))successBlock Error:(void(^)(NSError* error))errorBlock{
      if (_keyword.length == 0) return;
+    //查看是否没有结果
     
     //查看是否本地已经有请求过的数据了
-    NSMutableArray* outARR;
     if([search_type isEqualToString:@"bangumi"] ){
-       outARR = bangumiSearchResultData_arr ;
+        if(bangumiSearchResultData_arr.count||bangumiMAXCount==0)return;
     }else if([search_type isEqualToString:@"special"] ){
-       outARR = specialSearchResultData_arr;
+       if(specialSearchResultData_arr.count||specialMAXCount==0)return;
     }else if([search_type isEqualToString:@"upuser"] ){
-       outARR =   upuserSearchResultData_arr;
+        if(upuserSearchResultData_arr.count||upuserMAXCount==0)return;
     }
     
-    if (outARR.count > 0) {
-        successBlock(outARR);
-        return;
-    }
     
     //请求数据
     NSString* urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=%@&page=1&pagesize=30",Search_URL,_keyword,search_type];
@@ -216,15 +225,22 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
     //查看是否本地已经有请求过的数据了
     NSMutableArray* outARR;
     if([search_type isEqualToString:@"bangumi"] ){
+       if(bangumiSearchResultData_arr.count>=bangumiMAXCount)return;
         outARR = bangumiSearchResultData_arr;
     }else if([search_type isEqualToString:@"special"] ){
+       if(specialSearchResultData_arr.count>=specialMAXCount)return;
         outARR = specialSearchResultData_arr;
     }else if([search_type isEqualToString:@"upuser"] ){
-        outARR =   upuserSearchResultData_arr;
+       if(upuserSearchResultData_arr.count>=upuserMAXCount)return;
+        outARR = upuserSearchResultData_arr;
     }
-    NSInteger maxCount= [[pageinfo_dic objectForKey:search_type] integerValue];
-    if (outARR.count>=maxCount) {return;}
-    
+
+    //防止重复请求添加
+    NSString* key_str = search_type;
+    NSInteger Pagecount = [[nowPageCount objectForKey:key_str] integerValue];
+    NSInteger count = outARR.count/30+1;
+    if (Pagecount >= count) return;
+    [nowPageCount setObject:@(count) forKey:key_str];
     
     
     
@@ -241,6 +257,7 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
             NSDictionary* rawData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             if ([[rawData objectForKey:@"code"] integerValue] == -3) {
                 //bilibili总是喜欢出这个bug
+                [nowPageCount setObject:@(count-1) forKey:key_str];
                 [self getMoreNonVideoSearchResultData_arr:search_type Success:successBlock];
             }else if([[rawData objectForKey:@"code"] integerValue] == 0){
                 
@@ -297,7 +314,6 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
         }
         return;
     }
-    
     
     
     //请求数据
@@ -382,17 +398,20 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
         successBlock(tid_arr);return;
     }
     
-
-    
-    
+    //防止重复请求添加
+    NSString* key_str = [order stringByAppendingString:name];
+    NSInteger Pagecount = [[nowPageCount objectForKey:key_str] integerValue];
+    NSInteger count = tid_arr.count/30+1;
+    if (Pagecount >= count) return;
+    [nowPageCount setObject:@(count) forKey:key_str];
     
     
     //请求数据
     NSString* urlstr = @"";
     if ([tid_value_str integerValue] == 0) {
-        urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=all&page=%0.0f&pagesize=30&order=%@",Search_URL,_keyword,tid_arr.count/30.0+1,order_value_str];
+        urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=all&page=%lu&pagesize=30&order=%@",Search_URL,_keyword,count,order_value_str];
     }else{
-        urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=video&page=%0.0f&pagesize=30&order=%@&tids=%@",Search_URL,_keyword,tid_arr.count/30.0+1,order_value_str,tid_value_str];
+        urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=video&page=%lu&pagesize=30&order=%@&tids=%@",Search_URL,_keyword,count,order_value_str,tid_value_str];
     }
     
     
@@ -408,8 +427,9 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
             NSDictionary* rawData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             if ([[rawData objectForKey:@"code"] integerValue] == -3) {
                 //bilibili总是喜欢出这个bug
+                [nowPageCount setObject:@(count-1) forKey:key_str];
                 [self getMoreVideoSearchResultData_arr:order Tid_name:name Success:successBlock];
-                
+               
             }else if([[rawData objectForKey:@"code"] integerValue] == 0){
                 
                 //赋值数组
@@ -433,7 +453,7 @@ typedef void(^GetPageinfoSuccessBlock)(NSMutableDictionary* pageinfo_dic);
                 
             }
         }else{
-           
+           [nowPageCount setObject:@(count-1) forKey:key_str];
         }
     }]resume];
 }

@@ -10,8 +10,6 @@
 
 @interface SearchResultVC : UIViewController
 
--(instancetype)initWithKeywork:(NSString*)keywork;
-
--(void)setKeywork:(NSString*)keywork;
+-(instancetype)initWithkeyword:(NSString*)keyword;
 
 @end

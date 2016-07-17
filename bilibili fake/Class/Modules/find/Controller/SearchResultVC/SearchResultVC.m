@@ -22,6 +22,14 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
     RefreshStatePulling,//释放即可刷新
     RefreshStateLoading,//加载中
 };
+//当前页面的坐标（因为网络请求是异步的）
+struct tablePoint{
+    NSInteger X;
+    NSInteger x1;
+    NSInteger x2;
+} ;
+
+
 
 @interface SearchResultVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIScrollViewDelegate>
 @property(nonatomic,assign)RefreshState tableViewRefreshState;
@@ -54,16 +62,16 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
 }
 
 
--(instancetype)initWithKeywork:(NSString*)keywork{
+-(instancetype)initWithkeyword:(NSString*)keyword{
     
-    NSLog(@"%@",keywork);
-    [SearchResultData addSearchRecords:keywork];
+    NSLog(@"关键字：%@",keyword);
+    [SearchResultData addSearchRecords:keyword];
    
     self = [super init];
     if (self) {
         //self.view.backgroundColor = ColorRGBA(0, 0, 0, 0);
         isScreen = NO;
-        _keyword = keywork;
+        _keyword = keyword;
        
         
         _searchResultData = [[SearchResultData alloc] initWithKeyword:_keyword];
@@ -75,8 +83,14 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
         [self loadActions];
         
          _tableViewRefreshState = RefreshStateNormal;
-        [_searchResultData getPageinfo:^(NSMutableDictionary *pageinfo_dic) {
-            [self setPageinfo:pageinfo_dic];
+        [_searchResultData getPageinfo:^(NSInteger bangumiCount, NSInteger specialCount, NSInteger upuserCount) {
+            NSMutableArray* arr= [[NSMutableArray alloc] initWithObjects:@"综合", nil];
+            [arr addObject:[NSString stringWithFormat:@"番剧(%lu)",bangumiCount]];
+            [arr addObject:[NSString stringWithFormat:@"专题(%lu)",specialCount]];
+            [arr addObject:[NSString stringWithFormat:@"UP主(%lu)",upuserCount]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [rowbtn setTitles:arr];
+            });
         }];
 
        
@@ -107,12 +121,12 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
 
 #pragma mark - ActionDealt
 //设置关键字
--(void)setKeywork:(NSNotification*)notification{    
+-(void)setSearchKeyword:(NSNotification*)notification{
 //    [rowbtn setSelectedBotton:1];
 //    [rowbtn setSelectedBotton:1];
     
-    NSString* keyword = [notification.userInfo objectForKey:@"keywork"];
-    NSLog(@"%@",keyword);
+    NSString* keyword = [notification.userInfo objectForKey:@"keyword"];
+    NSLog(@"关键字：%@",keyword);
     //if ([keyword isEqualToString:_keyword])  return;
     if (keyword.length == 0) return;
     
@@ -123,8 +137,14 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
     
     [SearchResultData addSearchRecords:keyword];
     [_searchResultData setKeyword:keyword];
-    [_searchResultData getPageinfo:^(NSMutableDictionary *pageinfo_dic) {
-        [self setPageinfo:pageinfo_dic];
+    [_searchResultData getPageinfo:^(NSInteger bangumiCount, NSInteger specialCount, NSInteger upuserCount) {
+        NSMutableArray* arr= [[NSMutableArray alloc] initWithObjects:@"综合", nil];
+        [arr addObject:[NSString stringWithFormat:@"番剧(%lu)",bangumiCount]];
+        [arr addObject:[NSString stringWithFormat:@"专题(%lu)",specialCount]];
+        [arr addObject:[NSString stringWithFormat:@"UP主(%lu)",upuserCount]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [rowbtn setTitles:arr];
+        });
     }];
     
     [self SearchAndUPdata];
@@ -179,7 +199,7 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
         [blockSelf SearchAndUPdata];
     }];
     //注册通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setKeywork:) name:@"setSearchKeywork" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setSearchKeyword:) name:@"setSearchKeyword" object:nil];
 }
 //筛选View隐藏
 -(void)screen_view_hide{
@@ -206,6 +226,12 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
     _tableViewData_bangumi_arr = [[NSMutableArray alloc] init];
     [_tableView reloadData];
     
+    //防止请求成功的时候用户已经改变筛选项了
+    struct tablePoint oldTablePoint;
+    oldTablePoint.X = rowbtn.Selectedtag;
+    oldTablePoint.x1 = screen_rowbtn1.Selectedtag;
+    oldTablePoint.x2 = screen_rowbtn2.Selectedtag;
+    
     if (rowbtn.Selectedtag) {
         //设置番剧，专题，up数据
         NSString* typeName = @"";
@@ -222,13 +248,17 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
 //            NSLog(@"%lu",SearchResultData_arr.count);
             _tableViewData_arr = SearchResultData_arr;
             dispatch_async(dispatch_get_main_queue(), ^{
-                [_tableView reloadData];
-                if(completeBlock)completeBlock();
+                if(oldTablePoint.X==rowbtn.Selectedtag||oldTablePoint.x1==screen_rowbtn1.Selectedtag||oldTablePoint.x2==screen_rowbtn2.Selectedtag){
+                    [_tableView reloadData];
+                    if(completeBlock)completeBlock();
+                }
             });
         } Error:^(NSError *error) {
             NSLog(@"code:%lu.%@",[error code],[error localizedDescription]);
             dispatch_async(dispatch_get_main_queue(), ^{
-                if(completeBlock)completeBlock();
+                if(oldTablePoint.X==rowbtn.Selectedtag||oldTablePoint.x1==screen_rowbtn1.Selectedtag||oldTablePoint.x2==screen_rowbtn2.Selectedtag){
+                    if(completeBlock)completeBlock();
+                }
             });
         }];
         
@@ -239,13 +269,17 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
             _tableViewData_arr = SearchResultData_arr;
             _tableViewData_bangumi_arr = bangumiSearchResultData_arr;
             dispatch_async(dispatch_get_main_queue(), ^{
-                [_tableView reloadData];
-                 if(completeBlock)completeBlock();
+                if(oldTablePoint.X==rowbtn.Selectedtag||oldTablePoint.x1==screen_rowbtn1.Selectedtag||oldTablePoint.x2==screen_rowbtn2.Selectedtag){
+                    [_tableView reloadData];
+                    if(completeBlock)completeBlock();
+                }
             });
         } Error:^(NSError *error) {
             NSLog(@"code:%lu.%@",[error code],[error localizedDescription]);
             dispatch_async(dispatch_get_main_queue(), ^{
-                if(completeBlock)completeBlock();
+                if(oldTablePoint.X==rowbtn.Selectedtag||oldTablePoint.x1==screen_rowbtn1.Selectedtag||oldTablePoint.x2==screen_rowbtn2.Selectedtag){
+                    if(completeBlock)completeBlock();
+                }
             });
         }];
         
@@ -254,38 +288,28 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
 
 
 
-//设置页眉数据
--(void)setPageinfo:(NSDictionary*)top_tlist{
-    if (!top_tlist) return;
-    
-//    NSLog(@"%@",top_tlist);
-    
-    NSMutableArray* arr= [[NSMutableArray alloc] initWithObjects:@"综合", nil];
-    NSArray* title_arr = @[@"番剧",@"专题",@"UP主"];
-    NSArray* key_arr = @[@"bangumi",@"special",@"upuser"];
-    for (int i = 0; i < title_arr.count; i++) {
-        NSInteger count = [[top_tlist objectForKey:key_arr[i]] integerValue];
-        [arr addObject:[NSString stringWithFormat:@"%@(%lu)",title_arr[i],count]];
-    }
-//    NSLog(@"%@",arr);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [rowbtn setTitles:arr];
-    });
-}
 
 
 #pragma UITextFiledDelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     [search_tf resignFirstResponder];
-    SearchPromptsVC* savc = [[SearchPromptsVC alloc] initWithKeywork:search_tf.text];
+    SearchPromptsVC* savc = [[SearchPromptsVC alloc] initWithKeyword:search_tf.text];
     [self.navigationController pushViewController:savc animated:NO];
 }
 #pragma UIScrollViewDelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     //底部加载更多
+    
     if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - scrollView.frame.size.height) {
         NSLog(@"快滑到底部加载更多");
+      
+        //防止请求成功刷新界面的时候用户已经改变筛选项了
+        struct tablePoint oldTablePoint;
+        oldTablePoint.X = rowbtn.Selectedtag;
+        oldTablePoint.x1 = screen_rowbtn1.Selectedtag;
+        oldTablePoint.x2 = screen_rowbtn2.Selectedtag;
+        
         
         if (rowbtn.Selectedtag) {
             //设置番剧，专题，up数据
@@ -321,6 +345,8 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
             
             
         }
+        
+        
     }
     //下拉顶部刷新
     else if(scrollView.contentOffset.y < -120){
@@ -409,30 +435,31 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (rowbtn.Selectedtag == 0){
+        //前三个番剧
         if(_tableViewData_bangumi_arr.count &&indexPath.section == 0 && screen_rowbtn1.Selectedtag == 0 && screen_rowbtn2.Selectedtag == 0) {
             NonVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NonVideoCell"];
             if (!cell) {
                 cell = [[NonVideoCell alloc] init];
                 [cell setData:_tableViewData_bangumi_arr[indexPath.row]];
-                //cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             return cell;
         }
-        
+        //普通视频
         VideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoCell"];
         if (!cell) {
-            cell = [[VideoCell alloc] initWithData:_tableViewData_arr[indexPath.row]];
-            //cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell = [[VideoCell alloc] initWithData:_tableViewData_arr[indexPath.row] order:[screen_rowbtn2 getSelected_button].titleLabel.text];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         return cell;
     }
     
-
+    //番剧，专题，upuser
     NonVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NonVideoCell"];
     if (!cell) {
             cell = [[NonVideoCell alloc] init];
             [cell setData:_tableViewData_arr[indexPath.row]];
-            //cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
 }
@@ -467,6 +494,9 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
     search_tf.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"搜索视频、番剧、up主或AV号"
                                                                       attributes:@{NSForegroundColorAttributeName: color}];
     [HeadView addSubview:search_tf];
+
+
+    
     
     //取消按钮
     cancel_btn = UIButton.new;
@@ -474,8 +504,8 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
     [cancel_btn.titleLabel setFont:[UIFont systemFontOfSize:15]];
     [cancel_btn setTitleColor:ColorRGB(252, 142, 175) forState:UIControlStateNormal];
     [HeadView addSubview:cancel_btn];
-
     
+
     UIView* rowbtn_bgView = [UIView new];
     rowbtn_bgView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:rowbtn_bgView];
@@ -489,6 +519,10 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
     screen_btn.tintColor = ColorRGB(100, 100, 100);
     [screen_btn setImage:[UIImage imageNamed:@"search_filter"] forState:UIControlStateNormal];
     [self.view addSubview:screen_btn];
+    //中间的那条分隔线
+    UIView* screen_btn_SplitLine = [UIView new];
+    screen_btn_SplitLine.backgroundColor = ColorRGB(100, 100, 100);
+    [screen_btn addSubview:screen_btn_SplitLine];
     
     
     //筛选界面
@@ -559,6 +593,7 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
         make.width.equalTo(@44);
         make.right.mas_equalTo(HeadView.mas_right).offset(-5);
     }];
+
     
     [rowbtn_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(HeadView.mas_bottom);
@@ -582,7 +617,12 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
         make.right.mas_equalTo(self.view.mas_right).offset(-5);
         make.height.mas_equalTo(rowbtn.mas_height);
     }];
-
+    [screen_btn_SplitLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(screen_btn.mas_left);
+        make.centerY.mas_equalTo(screen_btn.mas_centerY);
+        make.width.equalTo(@(0.5));
+        make.height.mas_equalTo(screen_btn.mas_height).offset(-20);
+    }];
     [screen_view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(rowbtn.mas_bottom);
         make.left.right.mas_equalTo(self.view);

@@ -19,18 +19,18 @@
 
 @implementation SearchPromptsVC{
     NSMutableArray*  SearchRecords;
-    NSString* keywork;//搜索内容
+    NSString* keyword;//搜索内容
     UITextField* search_tf;
     UIButton* cancel_btn;
     
     UITableView* _tableView;
-    //NSURLSessionDataTask* Keywork_task;//关键字搜索任务
+    //NSURLSessionDataTask* keyword_task;//关键字搜索任务
     NSMutableArray* SearchPrompts_arr;
     
     
 }
 
--(instancetype)initWithKeywork:(NSString*)keywork{
+-(instancetype)initWithKeyword:(NSString*)str{
     self = [super init];
     //[FindViewData addSearchRecords:@"1"];//调试
     if (self) {
@@ -39,7 +39,7 @@
         self.view.backgroundColor = ColorRGB(244, 244, 242);
         
         [self loadSubviews];
-        search_tf.text = keywork;
+        search_tf.text = str;
         [self loadActions];
         
     }
@@ -52,7 +52,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [search_tf becomeFirstResponder];
         [search_tf becomeFirstResponder];
-        [self setkeywork:search_tf.text];
+        [self setkeyword:search_tf.text];
     });
 //    });
 }
@@ -85,7 +85,7 @@
 }
 
 -(void)UpdataView{
-    if (keywork.length) {
+    if (keyword.length) {
         _tableView.alpha = 1;
         dispatch_async(dispatch_get_main_queue(), ^{
             [_tableView reloadData];
@@ -109,13 +109,13 @@
     }
 }
 
--(void)setkeywork:(NSString*)str{
-    if ([keywork isEqualToString:str])return;
+-(void)setkeyword:(NSString*)str{
+    if ([keyword isEqualToString:str])return;
     
-    keywork = str;
+    keyword = str;
     [self UpdataView];
     
-    [SearchPromptsData getSearchPrompts:keywork Block:^(NSMutableArray *Prompts) {
+    [SearchPromptsData getSearchPrompts:keyword Block:^(NSMutableArray *Prompts) {
         SearchPrompts_arr = Prompts;
         [self UpdataView];
     }];
@@ -150,7 +150,7 @@
     
 
     //通过通知中心发送通知
-    NSNotification *notification =[NSNotification notificationWithName:@"setSearchKeywork" object:nil userInfo:@{@"keywork":textField.text}];
+    NSNotification *notification =[NSNotification notificationWithName:@"setSearchKeyword" object:nil userInfo:@{@"keyword":textField.text}];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
     
     [self.navigationController popViewControllerAnimated:NO];
@@ -160,16 +160,16 @@
 
 - (void) textFieldDidChange:(UITextField*) sender {
     //NSLog(@"%@",sender.text);
-    [self setkeywork:sender.text];
+    [self setkeyword:sender.text];
 }
 
 #pragma UITableViewDelegate
 //点击
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if(keywork.length == 0){
+    if(keyword.length == 0){
         if (indexPath.row == SearchRecords.count) {
-            keywork = @"";
+            keyword = @"";
             [SearchPromptsData clearSearchRecords];
             [self UpdataView];
             [_tableView reloadData];
@@ -180,7 +180,7 @@
     search_tf.text = cell.textLabel.text;
     NSLog(@"search_tf:%@",search_tf.text);
     //通过通知中心发送通知
-    NSNotification *notification =[NSNotification notificationWithName:@"setSearchKeywork" object:nil userInfo:@{@"keywork":cell.textLabel.text}];
+    NSNotification *notification =[NSNotification notificationWithName:@"setSearchKeyword" object:nil userInfo:@{@"keyword":cell.textLabel.text}];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
     
     [self.navigationController popViewControllerAnimated:NO];
@@ -201,14 +201,14 @@
 }
 //列数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if(keywork.length == 0){//显示搜索记录
+    if(keyword.length == 0){//显示搜索记录
         if (SearchRecords.count == 0)return 0;
         
         return SearchRecords.count+1;
         
     }else{//显示关键字提示
         
-        if ([self isPureInt:keywork]||[self isAVID:keywork]) {
+        if ([self isPureInt:keyword]||[self isAVID:keyword]) {
             return SearchPrompts_arr.count+1;
         }
         return SearchPrompts_arr.count;
@@ -222,7 +222,7 @@
     UITableViewCell *cell;
     static NSString *identifier;
     UIColor *color = ColorRGB(100, 100, 100);
-    if (keywork.length==0) {
+    if (keyword.length==0) {
         
         //搜索记录
         if (indexPath.row == SearchRecords.count) {
@@ -250,11 +250,11 @@
         
         //关键字提示
         BOOL isAVID = NO;
-        if ([self isPureInt:keywork]||[self isAVID:keywork]) isAVID = YES;
+        if ([self isPureInt:keyword]||[self isAVID:keyword]) isAVID = YES;
         
-        identifier = @"keyworkCell";
+        identifier = @"keywordCell";
         if (indexPath.row == 0||isAVID){
-            identifier = @"keyworkCell_first";
+            identifier = @"keywordCell_first";
         }
         
         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -266,10 +266,10 @@
         
         if (isAVID ) {
             if (indexPath.row == 0){
-                if ([self isPureInt:keywork]) {
-                    cell.textLabel.text = [@"av" stringByAppendingString:keywork];
+                if ([self isPureInt:keyword]) {
+                    cell.textLabel.text = [@"av" stringByAppendingString:keyword];
                 }else{
-                    cell.textLabel.text = [@"av" stringByAppendingString:[keywork substringFromIndex:2]];
+                    cell.textLabel.text = [@"av" stringByAppendingString:[keyword substringFromIndex:2]];
                 }
                 UILabel* label = [UILabel new];
                 label.text = @"进入";

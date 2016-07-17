@@ -10,6 +10,6 @@
 
 @interface VideoCell : UITableViewCell
 
--(instancetype)initWithData:(NSMutableDictionary*)dic;
+-(instancetype)initWithData:(NSMutableDictionary*)dic order:(NSString*)order;
 
 @end

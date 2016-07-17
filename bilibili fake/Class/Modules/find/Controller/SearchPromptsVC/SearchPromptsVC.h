@@ -10,6 +10,6 @@
 
 @interface SearchPromptsVC : UIViewController
 
--(instancetype)initWithKeywork:(NSString*)keywork;
+-(instancetype)initWithKeyword:(NSString*)str;
 
 @end
