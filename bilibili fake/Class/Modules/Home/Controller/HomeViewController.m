@@ -74,6 +74,7 @@ typedef NS_ENUM(APIType, HomeAPIType) {
 - (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
     ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;
     [tabbar handlePanGesture:panGestureRecognizer];
+    NSLog(@"Home:%lf", [panGestureRecognizer locationInView:_scrollView].x);
 }
 
 
