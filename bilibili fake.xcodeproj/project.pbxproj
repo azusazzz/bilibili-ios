@@ -22,6 +22,9 @@
 		6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */; };
 		6E71ECE11D1C203D00F4B917 /* HomeChannelEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECE01D1C203D00F4B917 /* HomeChannelEntity.m */; };
 		6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */; };
+		6E89DA391D3CFF7F0055C9F2 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E89DA381D3CFF7F0055C9F2 /* VideoViewController.m */; };
+		6E89DA3D1D3D00950055C9F2 /* IJKMediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */; };
+		6E89DA3E1D3D00950055C9F2 /* IJKMediaPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */; };
 		6EB691EC1D12422C000FA482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EB1D12422C000FA482 /* main.m */; };
 		6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EE1D12422C000FA482 /* AppDelegate.m */; };
@@ -83,6 +86,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6E89DA3F1D3D00950055C9F2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6E89DA3E1D3D00950055C9F2 /* IJKMediaPlayer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		34A480E357E111053D1C8F64 /* libPods-bilibili fake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bilibili fake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2BF61021EE340EDD15E9D7 /* Pods-bilibili fake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +134,9 @@
 		6E76C1771D2A736A00C259E8 /* HomeChannelRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelRequest.h; sourceTree = "<group>"; };
 		6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelRequest.m; sourceTree = "<group>"; };
 		6E76C17A1D2A768D00C259E8 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
+		6E89DA371D3CFF7F0055C9F2 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		6E89DA381D3CFF7F0055C9F2 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaPlayer.framework; sourceTree = "<group>"; };
 		6EB4C1801D2CF59600AEB6EF /* HomeAnimationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAnimationRequest.h; sourceTree = "<group>"; };
 		6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAnimationRequest.m; sourceTree = "<group>"; };
 		6EB691E71D12422B000FA482 /* bilibili fake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bilibili fake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F8A1D54C95AA39D29D4CBD4 /* libPods-bilibili fake.a in Frameworks */,
+				6E89DA3D1D3D00950055C9F2 /* IJKMediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +261,7 @@
 		6E1535DE1D1A87FA0053A846 /* Librarys */ = {
 			isa = PBXGroup;
 			children = (
+				6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */,
 				FCFA053F1D2FAFE0004A1742 /* RippleTableViewController */,
 			);
 			path = Librarys;
@@ -415,6 +437,63 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		6E89DA311D3CFF480055C9F2 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				6E89DA3A1D3D00330055C9F2 /* Player */,
+				6E89DA321D3CFF480055C9F2 /* Controller */,
+				6E89DA331D3CFF480055C9F2 /* Entity */,
+				6E89DA341D3CFF480055C9F2 /* Model */,
+				6E89DA351D3CFF480055C9F2 /* Request */,
+				6E89DA361D3CFF480055C9F2 /* View */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		6E89DA321D3CFF480055C9F2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E89DA371D3CFF7F0055C9F2 /* VideoViewController.h */,
+				6E89DA381D3CFF7F0055C9F2 /* VideoViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E89DA331D3CFF480055C9F2 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		6E89DA341D3CFF480055C9F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E89DA351D3CFF480055C9F2 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		6E89DA361D3CFF480055C9F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E89DA3A1D3D00330055C9F2 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		6E9FB08B1D1289FB0032C1DB /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +514,7 @@
 				6E66C8B31D1ACBC5002DA3AB /* Follow */,
 				FCD80DBE1D22B870009CDEC3 /* find */,
 				6E5DEF361D2E07D2009944D1 /* Me */,
+				6E89DA311D3CFF480055C9F2 /* Video */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -817,6 +897,7 @@
 				6EB691E51D12422B000FA482 /* Resources */,
 				7D950342D049612630DE22F3 /* [CP] Embed Pods Frameworks */,
 				48BAEE8D19CBD5BA635C2FB4 /* [CP] Copy Pods Resources */,
+				6E89DA3F1D3D00950055C9F2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1028,6 +1109,7 @@
 				FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
 				6ED65D5B1D38B71900D264F8 /* HomeAnimationCategoryEntity.m in Sources */,
+				6E89DA391D3CFF7F0055C9F2 /* VideoViewController.m in Sources */,
 				FCB5C9AE1D333D33000215B3 /* SearchPromptsVC.m in Sources */,
 				6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */,
 				6ED65D541D38B67800D264F8 /* HomeChannelCollectionViewCell.m in Sources */,
@@ -1175,6 +1257,11 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/bilibili",
+					fake/Librarys,
+				);
 				GCC_PREFIX_HEADER = "bilibili fake/PrefixHeader.h";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1193,6 +1280,11 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/bilibili",
+					fake/Librarys,
+				);
 				GCC_PREFIX_HEADER = "bilibili fake/PrefixHeader.h";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

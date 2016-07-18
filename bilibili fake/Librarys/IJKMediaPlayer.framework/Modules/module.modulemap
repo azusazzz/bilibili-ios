@@ -1,0 +1,6 @@
+framework module IJKMediaPlayer {
+  umbrella header "IJKMediaPlayer.h"
+
+  export *
+  module * { export * }
+}

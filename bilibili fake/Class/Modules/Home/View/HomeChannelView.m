@@ -15,7 +15,7 @@
 #define ReuseIdentifier @"ChannelCell"
 
 @interface HomeChannelView ()
-<ESRequestDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 {
     
@@ -35,21 +35,14 @@
     if (self = [super init]) {
         self.backgroundColor = ColorWhite(240);
         
-        [[HomeChannelRequest requestWithDelegate:self] start];
+        _model = [[HomeChannelModel alloc] init];
+        [_model getChannelDataWithSuccess:^{
+            [self loadSubviews];
+        } failure:^(NSString *errorMsg) {
+            NSLog(@"%@", errorMsg);
+        }];
     }
     return self;
-}
-
-#pragma mark - ESRequestDelegate
-
-- (void)requestCompletion:(ESRequest *)request; {
-    if (!request.responseObject) {
-        
-    }
-    
-    _model = [[HomeChannelModel alloc] initWithJSONObject:request.responseObject];
-    
-    [self loadSubviews];
 }
 
 

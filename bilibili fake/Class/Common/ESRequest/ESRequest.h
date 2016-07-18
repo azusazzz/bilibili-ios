@@ -113,6 +113,8 @@ typedef NS_ENUM(NSInteger, ESRequestModel) {
 
 + (instancetype)requestWithDelegate:(id<ESRequestDelegate>)delegate;
 
++ (instancetype)requestWithCompletionBlock:(void (^)(ESRequest * request))completionBlock;
+
 
 
 

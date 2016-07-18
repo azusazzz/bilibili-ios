@@ -37,6 +37,12 @@
     return request;
 }
 
++ (instancetype)requestWithCompletionBlock:(void (^)(ESRequest *))completionBlock; {
+    ESRequest *request = [[self alloc] init];
+    request.completionBlock = completionBlock;
+    return request;
+}
+
 
 #pragma mark start / stop
 

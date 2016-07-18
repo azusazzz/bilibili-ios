@@ -13,6 +13,6 @@
 
 @property (strong, nonatomic) NSArray<HomeChannelEntity *> *entitys;
 
-- (instancetype)initWithJSONObject:(id)JSONObject;
+- (void)getChannelDataWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 @end
