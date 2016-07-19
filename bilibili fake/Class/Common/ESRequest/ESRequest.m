@@ -12,25 +12,6 @@
 
 @implementation ESRequest
 
-- (instancetype)initWithAPIType:(APIType)type; {
-    if (self = [super init]) {
-        ESAPIConfig * config = [[ESAPIConfigManager sharedInstance] APIConfigForType:type];
-        NSAssert(config, ([NSString stringWithFormat:@"找不到API类型为%ld的配置", type]));
-        _type = type;
-        _URLString = [config URLString];
-        _method = [config method];
-        _cacheTimeoutInterval = [config cacheTimeoutInterval];
-    }
-    return self;
-}
-
-+ (instancetype)RequestWithAPIType:(APIType)type parameters:(id)parameters delegate:(id<ESRequestDelegate>)delegate; {
-    ESRequest *request = [[self alloc] initWithAPIType:type];
-    request.parameters = parameters;
-    request.delegate = delegate;
-    return request;
-}
-
 + (instancetype)requestWithDelegate:(id<ESRequestDelegate>)delegate; {
     ESRequest *request = [[self alloc] init];
     request.delegate = delegate;
@@ -228,6 +209,10 @@
 
 - (void)dynamicURLStringWithCallback:(void (^)(NSString *, id))callback;
 {
+    if ([self.URLString rangeOfString:@"??"].length <= 0) {
+        return;
+    }
+    
     if (![self.parameters isKindOfClass:[NSDictionary class]]) {
         callback? callback(self.URLString, self.parameters) : NULL;
         return;
@@ -302,25 +287,24 @@
     }
     self.completionBlock? self.completionBlock(self) : NULL;
     if (!_error) {
+        self.successCompletionBlock? self.successCompletionBlock(self) : NULL;
         [self successCompletion];
     }
     else {
+        _responseMsg = [self.error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        self.failureCompletionBlock? self.failureCompletionBlock(self) : NULL;
         [self failureCompletion];
     }
 }
 
 - (void)successCompletion; {
-    self.successCompletionBlock? self.successCompletionBlock(self) : NULL;
+    
 }
 
 - (void)failureCompletion; {
-    _responseMsg = [self.error.userInfo objectForKey:NSLocalizedDescriptionKey];
     
-    if ([[self.error.userInfo objectForKey:NSLocalizedDescriptionKey] isEqualToString:@"The request timed out."]) {
-        _responseMsg = @"请求超时";
-    }
     
-    self.failureCompletionBlock? self.failureCompletionBlock(self) : NULL;
+    
 }
 
 - (BOOL)willStoreCache; {

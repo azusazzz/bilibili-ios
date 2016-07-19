@@ -18,8 +18,12 @@ FOUNDATION_EXPORT const unsigned char ESRequestVersionString[];
 
 #import "ESRequestHandler.h"
 #import "ESRequestCache.h"
-#import "ESAPIConfigManager.h"
 
+
+typedef NS_ENUM(NSInteger, HTTPMethod) {
+    HTTPMethodGet,
+    HTTPMethodPost,
+};
 
 typedef NS_ENUM(NSInteger, ESRequestModel) {
     /**
@@ -53,7 +57,7 @@ typedef NS_ENUM(NSInteger, ESRequestModel) {
 
 #pragma mark Config
 
-@property (assign, nonatomic, readonly) APIType type;
+//@property (assign, nonatomic, readonly) APIType type;
 
 @property (strong, nonatomic, readonly) NSString *URLString;
 
@@ -104,12 +108,6 @@ typedef NS_ENUM(NSInteger, ESRequestModel) {
 
 
 #pragma mark 初始化
-
-- (instancetype)initWithAPIType:(APIType)type;
-
-+ (instancetype)RequestWithAPIType:(APIType)type parameters:(id)parameters delegate:(id<ESRequestDelegate>)delegate;
-
-
 
 + (instancetype)requestWithDelegate:(id<ESRequestDelegate>)delegate;
 

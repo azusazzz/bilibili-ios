@@ -44,7 +44,7 @@
 
 - (NSString *)cachedPathForRequest:(ESRequest *)request;
 {
-    return [NSString stringWithFormat:@"%@/%ld/%@", _diskPath, request.type, request.identifier];
+    return [NSString stringWithFormat:@"%@/%@/%@", _diskPath, request.URLString, request.identifier];
 }
 
 - (void)storeCachedJSONObjectForRequest:(ESRequest *)request;
@@ -69,10 +69,10 @@
     [self removeCachedDataForPath:[self cachedPathForRequest:request]];
 }
 
-- (void)removeCachedJSONObjectForAPIType:(APIType)type;
-{
-    [self removeCachedDataForPath:[NSString stringWithFormat:@"%@/%ld", _diskPath, type]];
-}
+//- (void)removeCachedJSONObjectForAPIType:(APIType)type;
+//{
+//    [self removeCachedDataForPath:[NSString stringWithFormat:@"%@/%ld", _diskPath, type]];
+//}
 
 #pragma mark 缓存-Path
 

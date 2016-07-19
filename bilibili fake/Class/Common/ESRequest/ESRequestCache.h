@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ESAPIConfigManager.h"
 
 @class ESRequest;
 
@@ -69,12 +68,12 @@
  */
 - (void)removeCachedJSONObjectForRequest:(ESRequest *)request;
 
-/**
- *  移除网络请求的缓存数据
- *
- *  @param type APIType
- */
-- (void)removeCachedJSONObjectForAPIType:(APIType)type;
+///**
+// *  移除网络请求的缓存数据
+// *
+// *  @param type APIType
+// */
+//- (void)removeCachedJSONObjectForAPIType:(APIType)type;
 
 #pragma mark 缓存-路径
 

@@ -7,7 +7,6 @@
 //
 
 #import "ESRequestHandler.h"
-#import "ESAPIConfigManager.h"
 #import "ESRequest.h"
 #import <AFNetworking.h>
 
@@ -53,7 +52,7 @@
         
         self.requestTimeoutInterval = 20;
         
-        
+        _baseURLString = @"";
     }
     return self;
 }
@@ -120,7 +119,7 @@
     }];
     
     if ([URLString rangeOfString:@"http"].length == 0) {
-        URLString = [[ESAPIConfigManager sharedInstance].baseURLString stringByAppendingPathComponent:URLString];
+        URLString = [_baseURLString stringByAppendingPathComponent:URLString];
     }
     
     if (request.method == HTTPMethodGet) {

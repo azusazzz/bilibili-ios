@@ -15,7 +15,6 @@
 		6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B71D1ACBD9002DA3AB /* FollowViewController.m */; };
 		6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8BB1D1AE014002DA3AB /* ScrollTabBarController.m */; };
 		6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */; };
-		6E71ECD21D1C1BCA00F4B917 /* ESAPIConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECCA1D1C1BCA00F4B917 /* ESAPIConfigManager.m */; };
 		6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECCC1D1C1BCA00F4B917 /* ESRequest.m */; };
 		6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECCE1D1C1BCA00F4B917 /* ESRequestCache.m */; };
 		6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECD01D1C1BCA00F4B917 /* ESRequestHandler.m */; };
@@ -25,6 +24,7 @@
 		6E89DA391D3CFF7F0055C9F2 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E89DA381D3CFF7F0055C9F2 /* VideoViewController.m */; };
 		6E89DA3D1D3D00950055C9F2 /* IJKMediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */; };
 		6E89DA3E1D3D00950055C9F2 /* IJKMediaPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E89DA411D3D06730055C9F2 /* Modules.md in Sources */ = {isa = PBXBuildFile; fileRef = 6E89DA401D3D06730055C9F2 /* Modules.md */; };
 		6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */; };
 		6EB691EC1D12422C000FA482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EB1D12422C000FA482 /* main.m */; };
 		6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EE1D12422C000FA482 /* AppDelegate.m */; };
@@ -118,8 +118,6 @@
 		6E66C8BB1D1AE014002DA3AB /* ScrollTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTabBarController.m; sourceTree = "<group>"; };
 		6E66C8C01D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerAnimatedTransitioning.h; sourceTree = "<group>"; };
 		6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarControllerAnimatedTransitioning.m; sourceTree = "<group>"; };
-		6E71ECC91D1C1BCA00F4B917 /* ESAPIConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESAPIConfigManager.h; sourceTree = "<group>"; };
-		6E71ECCA1D1C1BCA00F4B917 /* ESAPIConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESAPIConfigManager.m; sourceTree = "<group>"; };
 		6E71ECCB1D1C1BCA00F4B917 /* ESRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRequest.h; sourceTree = "<group>"; };
 		6E71ECCC1D1C1BCA00F4B917 /* ESRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRequest.m; sourceTree = "<group>"; };
 		6E71ECCD1D1C1BCA00F4B917 /* ESRequestCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRequestCache.h; sourceTree = "<group>"; };
@@ -137,6 +135,7 @@
 		6E89DA371D3CFF7F0055C9F2 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		6E89DA381D3CFF7F0055C9F2 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaPlayer.framework; sourceTree = "<group>"; };
+		6E89DA401D3D06730055C9F2 /* Modules.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Modules.md; sourceTree = "<group>"; };
 		6EB4C1801D2CF59600AEB6EF /* HomeAnimationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAnimationRequest.h; sourceTree = "<group>"; };
 		6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAnimationRequest.m; sourceTree = "<group>"; };
 		6EB691E71D12422B000FA482 /* bilibili fake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bilibili fake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -403,8 +402,6 @@
 		6E71ECC81D1C1BCA00F4B917 /* ESRequest */ = {
 			isa = PBXGroup;
 			children = (
-				6E71ECC91D1C1BCA00F4B917 /* ESAPIConfigManager.h */,
-				6E71ECCA1D1C1BCA00F4B917 /* ESAPIConfigManager.m */,
 				6E71ECCB1D1C1BCA00F4B917 /* ESRequest.h */,
 				6E71ECCC1D1C1BCA00F4B917 /* ESRequest.m */,
 				6E71ECCD1D1C1BCA00F4B917 /* ESRequestCache.h */,
@@ -508,6 +505,7 @@
 		6E9FB08C1D1289FB0032C1DB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				6E89DA401D3D06730055C9F2 /* Modules.md */,
 				FC825ED51D1FE80100698652 /* start */,
 				6E66C8B91D1ADFDB002DA3AB /* Main */,
 				6E1535E31D1A96950053A846 /* Home */,
@@ -1102,6 +1100,7 @@
 				6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */,
 				6ED65D551D38B67800D264F8 /* HomeChannelModel.m in Sources */,
 				FCB6C4691D2BE880008A3137 /* JCTagListView.m in Sources */,
+				6E89DA411D3D06730055C9F2 /* Modules.md in Sources */,
 				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
@@ -1117,7 +1116,6 @@
 				FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */,
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
 				6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */,
-				6E71ECD21D1C1BCA00F4B917 /* ESAPIConfigManager.m in Sources */,
 				6E71ECE11D1C203D00F4B917 /* HomeChannelEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

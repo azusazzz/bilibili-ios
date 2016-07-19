@@ -11,8 +11,15 @@
 
 @interface HomeChannelModel : NSObject
 
+
 @property (strong, nonatomic) NSArray<HomeChannelEntity *> *entitys;
 
+/**
+ *  获取分区页面的数据
+ *
+ *  @param success 成功回调
+ *  @param failure 失败回调
+ */
 - (void)getChannelDataWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 @end

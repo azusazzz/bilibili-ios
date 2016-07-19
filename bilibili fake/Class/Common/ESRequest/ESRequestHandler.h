@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, NetworkReachabilityStatus) {
  */
 @property (assign, nonatomic) NSTimeInterval requestTimeoutInterval;
 
-
+@property (strong, nonatomic) NSString *baseURLString;
 
 
 

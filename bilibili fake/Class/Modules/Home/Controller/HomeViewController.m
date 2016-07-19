@@ -36,9 +36,6 @@
 
 @end
 
-typedef NS_ENUM(APIType, HomeAPIType) {
-    HomeAPIChannel,
-};
 
 
 @implementation HomeViewController
