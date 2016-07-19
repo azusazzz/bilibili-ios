@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VideoOwnerInfoEntity.h"
+#import "VideoStatInfoEntity.h"
+#import "VideoPageInfoEntity.h"
 
-@class VideoOwnerInfoEntity;
-@class VideoStatInfoEntity;
-@class VideoPageInfoEntity;
 
 /**
  *  视频信息
@@ -52,72 +52,9 @@
 /**
  *  视频相关
  */
-@property (strong, nonatomic) NSArray *relates;
-
-@end
-
-/**
- *  Up主信息
- */
-@interface VideoOwnerInfoEntity : NSObject
-
-@property (assign, nonatomic) NSInteger mid;
-
-@property (strong, nonatomic) NSString *name;
-
-@property (strong, nonatomic) NSString *face;
+@property (strong, nonatomic) NSArray<VideoInfoEntity *> *relates;
 
 @end
 
 
-/**
- *  视频统计信息
- */
-@interface VideoStatInfoEntity : NSObject
-
-/**
- *  播放
- */
-@property (assign, nonatomic) NSInteger view;
-
-/**
- *  弹幕
- */
-@property (assign, nonatomic) NSInteger danmaku;
-
-/**
- *  评论
- */
-@property (assign, nonatomic) NSInteger reply;
-
-/**
- *  喜欢
- */
-@property (assign, nonatomic) NSInteger favorite;
-
-/**
- *  硬币
- */
-@property (assign, nonatomic) NSInteger coin;
-
-/**
- *  分享
- */
-@property (assign, nonatomic) NSInteger share;
-
-@end
-
-
-/**
- *  视频分集信息
- */
-@interface VideoPageInfoEntity : NSObject
-
-@property (assign, nonatomic) NSInteger cid;
-
-@property (assign, nonatomic) NSInteger page;
-
-
-
-@end
 

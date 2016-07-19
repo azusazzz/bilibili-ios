@@ -16,6 +16,9 @@
 		6E18E1991D3E340C003D35C1 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E1981D3E340C003D35C1 /* VideoModel.m */; };
 		6E18E19C1D3E388D003D35C1 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E19B1D3E388D003D35C1 /* BaseRequest.m */; };
 		6E18E19F1D3E4757003D35C1 /* VideoInfoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E19E1D3E4757003D35C1 /* VideoInfoEntity.m */; };
+		6E18E1A21D3E4E11003D35C1 /* VideoOwnerInfoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E1A11D3E4E11003D35C1 /* VideoOwnerInfoEntity.m */; };
+		6E18E1A51D3E4E3E003D35C1 /* VideoStatInfoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E1A41D3E4E3E003D35C1 /* VideoStatInfoEntity.m */; };
+		6E18E1A81D3E4E70003D35C1 /* VideoPageInfoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E1A71D3E4E70003D35C1 /* VideoPageInfoEntity.m */; };
 		6E5DEF3C1D2E07ED009944D1 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DEF3B1D2E07ED009944D1 /* MeViewController.m */; };
 		6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */; };
 		6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B11D1AC307002DA3AB /* HomeLiveView.m */; };
@@ -123,6 +126,12 @@
 		6E18E19B1D3E388D003D35C1 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
 		6E18E19D1D3E4757003D35C1 /* VideoInfoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoEntity.h; sourceTree = "<group>"; };
 		6E18E19E1D3E4757003D35C1 /* VideoInfoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoEntity.m; sourceTree = "<group>"; };
+		6E18E1A01D3E4E11003D35C1 /* VideoOwnerInfoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoOwnerInfoEntity.h; sourceTree = "<group>"; };
+		6E18E1A11D3E4E11003D35C1 /* VideoOwnerInfoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoOwnerInfoEntity.m; sourceTree = "<group>"; };
+		6E18E1A31D3E4E3E003D35C1 /* VideoStatInfoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStatInfoEntity.h; sourceTree = "<group>"; };
+		6E18E1A41D3E4E3E003D35C1 /* VideoStatInfoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoStatInfoEntity.m; sourceTree = "<group>"; };
+		6E18E1A61D3E4E70003D35C1 /* VideoPageInfoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPageInfoEntity.h; sourceTree = "<group>"; };
+		6E18E1A71D3E4E70003D35C1 /* VideoPageInfoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPageInfoEntity.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6E5DEF3A1D2E07ED009944D1 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		6E5DEF3B1D2E07ED009944D1 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
@@ -477,6 +486,12 @@
 			children = (
 				6E18E19D1D3E4757003D35C1 /* VideoInfoEntity.h */,
 				6E18E19E1D3E4757003D35C1 /* VideoInfoEntity.m */,
+				6E18E1A01D3E4E11003D35C1 /* VideoOwnerInfoEntity.h */,
+				6E18E1A11D3E4E11003D35C1 /* VideoOwnerInfoEntity.m */,
+				6E18E1A31D3E4E3E003D35C1 /* VideoStatInfoEntity.h */,
+				6E18E1A41D3E4E3E003D35C1 /* VideoStatInfoEntity.m */,
+				6E18E1A61D3E4E70003D35C1 /* VideoPageInfoEntity.h */,
+				6E18E1A71D3E4E70003D35C1 /* VideoPageInfoEntity.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1118,6 +1133,7 @@
 				6ED65D641D38D55D00D264F8 /* HomeAnimationCategoryItemCollectionViewCell.m in Sources */,
 				FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */,
 				FCB5C9CD1D33AF41000215B3 /* FindViewCell.m in Sources */,
+				6E18E1A21D3E4E11003D35C1 /* VideoOwnerInfoEntity.m in Sources */,
 				FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
 				6E026FEA1D3E29460038C2A0 /* RequestCache.m in Sources */,
@@ -1149,6 +1165,7 @@
 				6ED65D5B1D38B71900D264F8 /* HomeAnimationCategoryEntity.m in Sources */,
 				6E18E19C1D3E388D003D35C1 /* BaseRequest.m in Sources */,
 				6E89DA391D3CFF7F0055C9F2 /* VideoViewController.m in Sources */,
+				6E18E1A81D3E4E70003D35C1 /* VideoPageInfoEntity.m in Sources */,
 				FCB5C9AE1D333D33000215B3 /* SearchPromptsVC.m in Sources */,
 				6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */,
 				6E026FEE1D3E2FBF0038C2A0 /* VideoRequest.m in Sources */,
@@ -1158,6 +1175,7 @@
 				FC66E75F1D3E2D7A00F28B90 /* StartViewController.m in Sources */,
 				FCB5C9A71D333886000215B3 /* SearchResultData.m in Sources */,
 				FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */,
+				6E18E1A51D3E4E3E003D35C1 /* VideoStatInfoEntity.m in Sources */,
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
 				6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */,
 				6E71ECE11D1C203D00F4B917 /* HomeChannelEntity.m in Sources */,

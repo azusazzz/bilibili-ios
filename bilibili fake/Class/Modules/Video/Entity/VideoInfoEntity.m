@@ -10,4 +10,9 @@
 
 @implementation VideoInfoEntity
 
++ (NSDictionary *)mj_objectClassInArray; {
+    return @{@"pages": NSStringFromClass([VideoPageInfoEntity class]), @"relates": NSStringFromClass([VideoInfoEntity class])};
+}
+
 @end
+
