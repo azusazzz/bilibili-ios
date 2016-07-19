@@ -15,6 +15,7 @@
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
 		6E18E1991D3E340C003D35C1 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E1981D3E340C003D35C1 /* VideoModel.m */; };
 		6E18E19C1D3E388D003D35C1 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E19B1D3E388D003D35C1 /* BaseRequest.m */; };
+		6E18E19F1D3E4757003D35C1 /* VideoInfoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E19E1D3E4757003D35C1 /* VideoInfoEntity.m */; };
 		6E5DEF3C1D2E07ED009944D1 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DEF3B1D2E07ED009944D1 /* MeViewController.m */; };
 		6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */; };
 		6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B11D1AC307002DA3AB /* HomeLiveView.m */; };
@@ -120,6 +121,8 @@
 		6E18E1981D3E340C003D35C1 /* VideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
 		6E18E19A1D3E388D003D35C1 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
 		6E18E19B1D3E388D003D35C1 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		6E18E19D1D3E4757003D35C1 /* VideoInfoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoEntity.h; sourceTree = "<group>"; };
+		6E18E19E1D3E4757003D35C1 /* VideoInfoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoEntity.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6E5DEF3A1D2E07ED009944D1 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		6E5DEF3B1D2E07ED009944D1 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
@@ -472,6 +475,8 @@
 		6E89DA331D3CFF480055C9F2 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				6E18E19D1D3E4757003D35C1 /* VideoInfoEntity.h */,
+				6E18E19E1D3E4757003D35C1 /* VideoInfoEntity.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1108,6 +1113,7 @@
 				FC6F48921D363B1A00047EEA /* VideoCell.m in Sources */,
 				6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */,
 				FC6F488B1D363AEB00047EEA /* NonVideoCell.m in Sources */,
+				6E18E19F1D3E4757003D35C1 /* VideoInfoEntity.m in Sources */,
 				6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */,
 				6ED65D641D38D55D00D264F8 /* HomeAnimationCategoryItemCollectionViewCell.m in Sources */,
 				FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */,

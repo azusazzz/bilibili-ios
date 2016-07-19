@@ -15,6 +15,8 @@
     NSInteger _aid;
     
     VideoModel *_model;
+    
+    UIView *_playerView;
 }
 
 @end
