@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "CXHStartViewController.h"
+#import "StartViewController.h"
 #import "ScrollTabBarController.h"
 
 @interface AppDelegate ()
@@ -23,7 +23,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[ScrollTabBarController alloc] init];
     [self.window makeKeyAndVisible];
-    [CXHStartViewController show];
+    [StartViewController show];
     
     return YES;
 }

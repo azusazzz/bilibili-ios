@@ -45,11 +45,12 @@
 		FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F61D28378D000C3F01 /* FindViewController.m */; };
 		FC4D35F91D28378D000C3F01 /* FindViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC4D35F71D28378D000C3F01 /* FindViewController.plist */; };
 		FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D36001D283F47000C3F01 /* GameCentreVC.m */; };
+		FC66E75F1D3E2D7A00F28B90 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC66E75B1D3E2D7A00F28B90 /* StartViewController.m */; };
+		FC66E7601D3E2D7A00F28B90 /* StartVCData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC66E75E1D3E2D7A00F28B90 /* StartVCData.m */; };
 		FC6F488B1D363AEB00047EEA /* NonVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6F488A1D363AEB00047EEA /* NonVideoCell.m */; };
 		FC6F48921D363B1A00047EEA /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6F48911D363B1A00047EEA /* VideoCell.m */; };
 		FC792C221D2E9B7600762831 /* SearchResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC792C211D2E9B7600762831 /* SearchResultVC.m */; };
 		FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */ = {isa = PBXBuildFile; fileRef = FC80C7331D377C6400D30E23 /* UILabel+LeftTopAlign.m */; };
-		FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC825ED71D1FE80100698652 /* CXHStartViewController.m */; };
 		FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */; };
 		FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */; };
 		FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9A21D333886000215B3 /* FindViewData.m */; };
@@ -180,6 +181,10 @@
 		FC4D35F71D28378D000C3F01 /* FindViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FindViewController.plist; sourceTree = "<group>"; };
 		FC4D35FF1D283F47000C3F01 /* GameCentreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCentreVC.h; path = "bilibili fake/Class/Modules/find/Controller/GameCentreVC/GameCentreVC.h"; sourceTree = SOURCE_ROOT; };
 		FC4D36001D283F47000C3F01 /* GameCentreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCentreVC.m; path = "bilibili fake/Class/Modules/find/Controller/GameCentreVC/GameCentreVC.m"; sourceTree = SOURCE_ROOT; };
+		FC66E75A1D3E2D7A00F28B90 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		FC66E75B1D3E2D7A00F28B90 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		FC66E75D1D3E2D7A00F28B90 /* StartVCData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartVCData.h; sourceTree = "<group>"; };
+		FC66E75E1D3E2D7A00F28B90 /* StartVCData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartVCData.m; sourceTree = "<group>"; };
 		FC6F48891D363AEB00047EEA /* NonVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NonVideoCell.h; path = "bilibili fake/Class/Modules/find/Cell/NonVideoCell/NonVideoCell.h"; sourceTree = SOURCE_ROOT; };
 		FC6F488A1D363AEB00047EEA /* NonVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NonVideoCell.m; path = "bilibili fake/Class/Modules/find/Cell/NonVideoCell/NonVideoCell.m"; sourceTree = SOURCE_ROOT; };
 		FC6F48901D363B1A00047EEA /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
@@ -188,8 +193,6 @@
 		FC792C211D2E9B7600762831 /* SearchResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultVC.m; path = SearchResultVC/SearchResultVC.m; sourceTree = "<group>"; };
 		FC80C7321D377C6400D30E23 /* UILabel+LeftTopAlign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+LeftTopAlign.h"; path = "Label/UILabel+LeftTopAlign.h"; sourceTree = "<group>"; };
 		FC80C7331D377C6400D30E23 /* UILabel+LeftTopAlign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+LeftTopAlign.m"; path = "Label/UILabel+LeftTopAlign.m"; sourceTree = "<group>"; };
-		FC825ED61D1FE80100698652 /* CXHStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXHStartViewController.h; sourceTree = "<group>"; };
-		FC825ED71D1FE80100698652 /* CXHStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXHStartViewController.m; sourceTree = "<group>"; };
 		FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "游戏中心假数据.json"; sourceTree = "<group>"; };
 		FCAA18EB1D2DEDD90046CBA4 /* RowBotton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowBotton.h; path = RowBotton/RowBotton.h; sourceTree = "<group>"; };
 		FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowBotton.m; path = RowBotton/RowBotton.m; sourceTree = "<group>"; };
@@ -505,7 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				6E89DA401D3D06730055C9F2 /* Modules.md */,
-				FC825ED51D1FE80100698652 /* start */,
+				FC66E7581D3E2D7A00F28B90 /* start */,
 				6E66C8B91D1ADFDB002DA3AB /* Main */,
 				6E1535E31D1A96950053A846 /* Home */,
 				6E66C8B31D1ACBC5002DA3AB /* Follow */,
@@ -713,6 +716,33 @@
 			path = GameCentreViewController;
 			sourceTree = "<group>";
 		};
+		FC66E7581D3E2D7A00F28B90 /* start */ = {
+			isa = PBXGroup;
+			children = (
+				FC66E7591D3E2D7A00F28B90 /* Controller */,
+				FC66E75C1D3E2D7A00F28B90 /* Data */,
+			);
+			path = start;
+			sourceTree = "<group>";
+		};
+		FC66E7591D3E2D7A00F28B90 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC66E75A1D3E2D7A00F28B90 /* StartViewController.h */,
+				FC66E75B1D3E2D7A00F28B90 /* StartViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FC66E75C1D3E2D7A00F28B90 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FC66E75D1D3E2D7A00F28B90 /* StartVCData.h */,
+				FC66E75E1D3E2D7A00F28B90 /* StartVCData.m */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		FC6F488F1D363B1A00047EEA /* VideoCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,15 +777,6 @@
 				FC80C7331D377C6400D30E23 /* UILabel+LeftTopAlign.m */,
 			);
 			name = Label;
-			sourceTree = "<group>";
-		};
-		FC825ED51D1FE80100698652 /* start */ = {
-			isa = PBXGroup;
-			children = (
-				FC825ED61D1FE80100698652 /* CXHStartViewController.h */,
-				FC825ED71D1FE80100698652 /* CXHStartViewController.m */,
-			);
-			path = start;
 			sourceTree = "<group>";
 		};
 		FCAA18EA1D2DED910046CBA4 /* rowBtn */ = {
@@ -1082,7 +1103,6 @@
 				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
 				FCB5C9CE1D33AF41000215B3 /* GameCenterCell.m in Sources */,
 				6ED65D5E1D38B86E00D264F8 /* HomeAnimationCategoryCollectionViewCell.m in Sources */,
-				FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
 				6E026FE91D3E29460038C2A0 /* Request.m in Sources */,
 				FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */,
@@ -1110,6 +1130,8 @@
 				FCB5C9AE1D333D33000215B3 /* SearchPromptsVC.m in Sources */,
 				6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */,
 				6ED65D541D38B67800D264F8 /* HomeChannelCollectionViewCell.m in Sources */,
+				FC66E7601D3E2D7A00F28B90 /* StartVCData.m in Sources */,
+				FC66E75F1D3E2D7A00F28B90 /* StartViewController.m in Sources */,
 				FCB5C9A71D333886000215B3 /* SearchResultData.m in Sources */,
 				FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */,
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,

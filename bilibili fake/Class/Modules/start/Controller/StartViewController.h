@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CXHStartViewController : UIViewController<UIGestureRecognizerDelegate>
+@interface StartViewController : UIViewController<UIGestureRecognizerDelegate>
 
 +(void)show;
 

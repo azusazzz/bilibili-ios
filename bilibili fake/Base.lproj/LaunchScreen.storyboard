@@ -17,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bilibili_splash_iphone_bg" translatesAutoresizingMaskIntoConstraints="NO" id="gPX-zh-tmh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bilibili_splash_iphone_bg" translatesAutoresizingMaskIntoConstraints="NO" id="gPX-zh-tmh">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="gPX-zh-tmh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="EhM-Ed-4rQ"/>
                             <constraint firstItem="gPX-zh-tmh" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="NvG-bF-De4"/>
