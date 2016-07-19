@@ -13,6 +13,8 @@
 		6E026FEB1D3E29460038C2A0 /* RequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E026FE81D3E29460038C2A0 /* RequestHandler.m */; };
 		6E026FEE1D3E2FBF0038C2A0 /* VideoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E026FED1D3E2FBF0038C2A0 /* VideoRequest.m */; };
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
+		6E18E1991D3E340C003D35C1 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E1981D3E340C003D35C1 /* VideoModel.m */; };
+		6E18E19C1D3E388D003D35C1 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E19B1D3E388D003D35C1 /* BaseRequest.m */; };
 		6E5DEF3C1D2E07ED009944D1 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DEF3B1D2E07ED009944D1 /* MeViewController.m */; };
 		6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */; };
 		6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B11D1AC307002DA3AB /* HomeLiveView.m */; };
@@ -114,6 +116,10 @@
 		6E026FED1D3E2FBF0038C2A0 /* VideoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRequest.m; sourceTree = "<group>"; };
 		6E1535E81D1A96A20053A846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		6E1535E91D1A96A20053A846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		6E18E1971D3E340C003D35C1 /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
+		6E18E1981D3E340C003D35C1 /* VideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
+		6E18E19A1D3E388D003D35C1 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
+		6E18E19B1D3E388D003D35C1 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6E5DEF3A1D2E07ED009944D1 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		6E5DEF3B1D2E07ED009944D1 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
@@ -271,6 +277,8 @@
 				6E026FE61D3E29460038C2A0 /* RequestCache.m */,
 				6E026FE71D3E29460038C2A0 /* RequestHandler.h */,
 				6E026FE81D3E29460038C2A0 /* RequestHandler.m */,
+				6E18E19A1D3E388D003D35C1 /* BaseRequest.h */,
+				6E18E19B1D3E388D003D35C1 /* BaseRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -471,6 +479,8 @@
 		6E89DA341D3CFF480055C9F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E18E1971D3E340C003D35C1 /* VideoModel.h */,
+				6E18E1981D3E340C003D35C1 /* VideoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1131,10 +1141,12 @@
 				FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
 				6ED65D5B1D38B71900D264F8 /* HomeAnimationCategoryEntity.m in Sources */,
+				6E18E19C1D3E388D003D35C1 /* BaseRequest.m in Sources */,
 				6E89DA391D3CFF7F0055C9F2 /* VideoViewController.m in Sources */,
 				FCB5C9AE1D333D33000215B3 /* SearchPromptsVC.m in Sources */,
 				6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */,
 				6E026FEE1D3E2FBF0038C2A0 /* VideoRequest.m in Sources */,
+				6E18E1991D3E340C003D35C1 /* VideoModel.m in Sources */,
 				6ED65D541D38B67800D264F8 /* HomeChannelCollectionViewCell.m in Sources */,
 				FC66E7601D3E2D7A00F28B90 /* StartVCData.m in Sources */,
 				FC66E75F1D3E2D7A00F28B90 /* StartViewController.m in Sources */,

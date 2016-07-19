@@ -14,7 +14,7 @@
 
 
 #import "Macro.h"
-#import "Request.h"
+#import "BaseRequest.h"
 
 #import "UIView+Frame.h"
 

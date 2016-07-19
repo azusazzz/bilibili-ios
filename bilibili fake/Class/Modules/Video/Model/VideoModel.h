@@ -1,0 +1,22 @@
+//
+//  VideoModel.h
+//  bilibili fake
+//
+//  Created by 翟泉 on 2016/7/19.
+//  Copyright © 2016年 云之彼端. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface VideoModel : NSObject
+
+/**
+ *  获取视频信息
+ *
+ *  @param aid     <#aid description#>
+ *  @param success <#success description#>
+ *  @param failure <#failure description#>
+ */
+- (void)getVideoInfoWithAid:(NSInteger)aid success:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
+@end

@@ -21,6 +21,8 @@
 #import "ScrollTabBarController.h"
 
 
+#import "VideoViewController.h"
+
 
 @interface HomeViewController ()
 <UIGestureRecognizerDelegate, UIScrollViewDelegate>
@@ -53,7 +55,12 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self loadSubviews];
     
-//    self addChildViewController:<#(nonnull UIViewController *)#>
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:4708193] animated:YES];
+    });
+    
+    
     
 }
 

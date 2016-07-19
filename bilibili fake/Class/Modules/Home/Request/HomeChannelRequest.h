@@ -6,9 +6,8 @@
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "Request.h"
 #import "HomeChannelEntity.h"
 
-@interface HomeChannelRequest : Request
+@interface HomeChannelRequest : BaseRequest
 
 @end

@@ -8,10 +8,22 @@
 
 #import "VideoRequest.h"
 
+@interface VideoRequest ()
+
+@property (assign, nonatomic) NSInteger aid;
+
+@end
+
 @implementation VideoRequest
 
++ (instancetype)requestWithAid:(NSInteger)aid {
+    VideoRequest *request = [super request];
+    request.aid = aid;
+    return request;
+}
+
 - (NSString *)URLString {
-    return @"http://app.bilibili.com/x/view?actionKey=appkey&aid=%@&appkey=27eb53fc9058f8c3";
+    return @"http://app.bilibili.com/x/view?actionKey=appkey&aid=%%aid%%&appkey=27eb53fc9058f8c3";
 }
 
 - (HTTPMethod)method {
@@ -23,7 +35,7 @@
 }
 
 - (NSObject *)parameters {
-    return @{@"aid": @(1)};
+    return @{@"aid": @(_aid)};
 }
 
 @end

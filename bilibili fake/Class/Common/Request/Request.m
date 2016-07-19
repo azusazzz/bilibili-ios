@@ -32,24 +32,12 @@ NSString * MD5(NSString *str) {
     return [[self alloc] init];
 }
 
-//+ (instancetype)requestWithDelegate:(id<RequestDelegate>)delegate {
-//    Request *request = [[self alloc] init];
-//    request.delegate = delegate;
-//    return request;
-//}
-
-//+ (instancetype)requestWithCompletionBlock:(void (^)(Request *))completionBlock {
-//    Request *request = [[self alloc] init];
-//    request.completionBlock = completionBlock;
-//    return request;
-//}
-
 - (void)startWithDelegate:(id<RequestDelegate>)delegate {
     _delegate = delegate;
     [self start];
 }
 
-- (void)startWithCompletionBlock:(void (^)(Request *))completionBlock {
+- (void)startWithCompletionBlock:(void (^)(__kindof Request *))completionBlock {
     _completionBlock = completionBlock;
     [self start];
 }

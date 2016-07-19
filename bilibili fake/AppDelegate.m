@@ -25,6 +25,8 @@
     [self.window makeKeyAndVisible];
     [StartViewController show];
     
+
+    
     return YES;
 }
 

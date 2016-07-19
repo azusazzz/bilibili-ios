@@ -6,10 +6,10 @@
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "Request.h"
+#import "BaseRequest.h"
 
-@interface VideoRequest : Request
+@interface VideoRequest : BaseRequest
 
-
++ (instancetype)requestWithAid:(NSInteger)aid;
 
 @end
