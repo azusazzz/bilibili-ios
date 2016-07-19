@@ -16,8 +16,9 @@
 @implementation HomeChannelModel
 
 
-- (void)getChannelDataWithSuccess:(void (^)(void))success failure:(void (^)(NSString *))failure; {
-    [[HomeChannelRequest requestWithCompletionBlock:^(Request *request) {
+- (void)getChannelDataWithSuccess:(void (^)(void))success failure:(void (^)(NSString *))failure; {;
+    
+    [[HomeChannelRequest request] startWithCompletionBlock:^(Request *request) {
         if (!request.responseObject) {
             failure ? failure(request.error.description) : NULL;
         }
@@ -25,7 +26,8 @@
             [self loadChannelDataWithJSONObject:request.responseObject];
             success ? success() : NULL;
         }
-    }] resume];
+    }];
+    
 }
 
 - (void)loadChannelDataWithJSONObject:(id)JSONObject; {

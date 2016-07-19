@@ -28,23 +28,37 @@ NSString * MD5(NSString *str) {
 
 @implementation Request
 
-+ (instancetype)requestWithDelegate:(id<RequestDelegate>)delegate {
-    Request *request = [[self alloc] init];
-    request.delegate = delegate;
-    return request;
++ (instancetype)request {
+    return [[self alloc] init];
 }
 
-+ (instancetype)requestWithCompletionBlock:(void (^)(Request *))completionBlock {
-    Request *request = [[self alloc] init];
-    request.completionBlock = completionBlock;
-    return request;
+//+ (instancetype)requestWithDelegate:(id<RequestDelegate>)delegate {
+//    Request *request = [[self alloc] init];
+//    request.delegate = delegate;
+//    return request;
+//}
+
+//+ (instancetype)requestWithCompletionBlock:(void (^)(Request *))completionBlock {
+//    Request *request = [[self alloc] init];
+//    request.completionBlock = completionBlock;
+//    return request;
+//}
+
+- (void)startWithDelegate:(id<RequestDelegate>)delegate {
+    _delegate = delegate;
+    [self start];
 }
 
+- (void)startWithCompletionBlock:(void (^)(Request *))completionBlock {
+    _completionBlock = completionBlock;
+    [self start];
+}
 
-- (void)resume {
+- (void)start {
     _responseObject = NULL;
     
     if ([self readCache]) {
+        [self.delegate requestCompletion:self];
         _completionBlock ? _completionBlock(self) : NULL;
     }
     else {
@@ -54,11 +68,11 @@ NSString * MD5(NSString *str) {
     }
 }
 
-- (void)suspend {
+- (void)pause {
     [self.task suspend];
 }
 
-- (void)cancel {
+- (void)stop {
     _completionBlock = NULL;
     [self.task cancel];
 }
@@ -72,16 +86,17 @@ NSString * MD5(NSString *str) {
 #pragma mark - RequestHandlerDelegate
 
 - (void)requestHandlerResponseObject:(id)responseObject {
-    NSLog(@"网络");
     _responseObject = responseObject;
     
     [self storeCache];
     
+    [self.delegate requestCompletion:self];
     _completionBlock ? _completionBlock(self) : NULL;
 }
 
 - (void)requestHandlerError:(NSError *)error {
     _error = error;
+    [self.delegate requestCompletion:self];
     _completionBlock ? _completionBlock(self) : NULL;
 }
 
@@ -116,7 +131,6 @@ NSString * MD5(NSString *str) {
     id cachedJSONObject = [[RequestCache sharedInstance] cachedJSONObjectForRequest:self isTimeout:&isTimeout];
     if (cachedJSONObject && !isTimeout) {
         _responseObject = cachedJSONObject;
-        NSLog(@"缓存");
         return YES;
     }
     else {
@@ -148,6 +162,7 @@ NSString * MD5(NSString *str) {
 - (void)dynamicURLStringWithCallback:(void (^)(NSString *URLString, id parameters))callback;
 {
     if ([self.URLString rangeOfString:@"%%"].length <= 0) {
+        callback? callback(self.URLString, self.parameters) : NULL;
         return;
     }
     
@@ -158,6 +173,7 @@ NSString * MD5(NSString *str) {
     
     NSDictionary *parameters = (NSDictionary *)self.parameters;
     if ([parameters count] == 0) {
+        callback? callback(self.URLString, self.parameters) : NULL;
         return;
     }
     

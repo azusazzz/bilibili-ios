@@ -61,16 +61,18 @@
 @property (copy, nonatomic) void (^completionBlock)(Request * request);
 
 
-+ (instancetype)requestWithDelegate:(id<RequestDelegate>)delegate;
-
-+ (instancetype)requestWithCompletionBlock:(void (^)(Request *request))completionBlock;
++ (instancetype)request;
 
 
-- (void)resume;
+- (void)startWithDelegate:(id<RequestDelegate>)delegate;
 
-- (void)suspend;
+- (void)startWithCompletionBlock:(void (^)(Request *request))completionBlock;
 
-- (void)cancel;
+- (void)start;
+
+- (void)pause;
+
+- (void)stop;
 
 
 

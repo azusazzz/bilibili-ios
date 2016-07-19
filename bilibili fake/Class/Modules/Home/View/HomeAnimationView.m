@@ -49,7 +49,9 @@ UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFl
     
     _model = [[HomeAnimationModel alloc] init];
     
-    [[HomeAnimationRequest requestWithDelegate:self] resume];
+    
+    [[HomeAnimationRequest request] startWithDelegate:self];
+//    [[HomeAnimationRequest requestWithDelegate:self] start];
     
     return self;
 }
