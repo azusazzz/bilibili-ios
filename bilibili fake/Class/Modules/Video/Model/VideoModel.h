@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VideoInfoEntity.h"
 
 @interface VideoModel : NSObject
+
+@property (strong, nonatomic) VideoInfoEntity *videoInfo;
 
 /**
  *  获取视频信息

@@ -15,7 +15,8 @@
     
     [[VideoRequest requestWithAid:aid] startWithCompletionBlock:^(BaseRequest *request) {
         
-        if (request.responseCode == 0) {
+        if (request.responseCode == 0 && request.responseData) {
+            _videoInfo = [VideoInfoEntity mj_objectWithKeyValues:request.responseData];
             success();
         }
         else {
