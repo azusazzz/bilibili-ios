@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4F8A1D54C95AA39D29D4CBD4 /* libPods-bilibili fake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A480E357E111053D1C8F64 /* libPods-bilibili fake.a */; };
+		6E026FE91D3E29460038C2A0 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E026FE41D3E29460038C2A0 /* Request.m */; };
+		6E026FEA1D3E29460038C2A0 /* RequestCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E026FE61D3E29460038C2A0 /* RequestCache.m */; };
+		6E026FEB1D3E29460038C2A0 /* RequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E026FE81D3E29460038C2A0 /* RequestHandler.m */; };
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
 		6E5DEF3C1D2E07ED009944D1 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DEF3B1D2E07ED009944D1 /* MeViewController.m */; };
 		6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */; };
@@ -15,16 +18,12 @@
 		6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B71D1ACBD9002DA3AB /* FollowViewController.m */; };
 		6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8BB1D1AE014002DA3AB /* ScrollTabBarController.m */; };
 		6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */; };
-		6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECCC1D1C1BCA00F4B917 /* ESRequest.m */; };
-		6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECCE1D1C1BCA00F4B917 /* ESRequestCache.m */; };
-		6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECD01D1C1BCA00F4B917 /* ESRequestHandler.m */; };
 		6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */; };
 		6E71ECE11D1C203D00F4B917 /* HomeChannelEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECE01D1C203D00F4B917 /* HomeChannelEntity.m */; };
 		6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */; };
 		6E89DA391D3CFF7F0055C9F2 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E89DA381D3CFF7F0055C9F2 /* VideoViewController.m */; };
 		6E89DA3D1D3D00950055C9F2 /* IJKMediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */; };
 		6E89DA3E1D3D00950055C9F2 /* IJKMediaPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E89DA411D3D06730055C9F2 /* Modules.md in Sources */ = {isa = PBXBuildFile; fileRef = 6E89DA401D3D06730055C9F2 /* Modules.md */; };
 		6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */; };
 		6EB691EC1D12422C000FA482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EB1D12422C000FA482 /* main.m */; };
 		6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EE1D12422C000FA482 /* AppDelegate.m */; };
@@ -103,6 +102,12 @@
 /* Begin PBXFileReference section */
 		34A480E357E111053D1C8F64 /* libPods-bilibili fake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bilibili fake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2BF61021EE340EDD15E9D7 /* Pods-bilibili fake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.debug.xcconfig"; sourceTree = "<group>"; };
+		6E026FE31D3E29460038C2A0 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		6E026FE41D3E29460038C2A0 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
+		6E026FE51D3E29460038C2A0 /* RequestCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestCache.h; sourceTree = "<group>"; };
+		6E026FE61D3E29460038C2A0 /* RequestCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestCache.m; sourceTree = "<group>"; };
+		6E026FE71D3E29460038C2A0 /* RequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHandler.h; sourceTree = "<group>"; };
+		6E026FE81D3E29460038C2A0 /* RequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestHandler.m; sourceTree = "<group>"; };
 		6E1535E81D1A96A20053A846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		6E1535E91D1A96A20053A846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -118,12 +123,6 @@
 		6E66C8BB1D1AE014002DA3AB /* ScrollTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTabBarController.m; sourceTree = "<group>"; };
 		6E66C8C01D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerAnimatedTransitioning.h; sourceTree = "<group>"; };
 		6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarControllerAnimatedTransitioning.m; sourceTree = "<group>"; };
-		6E71ECCB1D1C1BCA00F4B917 /* ESRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRequest.h; sourceTree = "<group>"; };
-		6E71ECCC1D1C1BCA00F4B917 /* ESRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRequest.m; sourceTree = "<group>"; };
-		6E71ECCD1D1C1BCA00F4B917 /* ESRequestCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRequestCache.h; sourceTree = "<group>"; };
-		6E71ECCE1D1C1BCA00F4B917 /* ESRequestCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRequestCache.m; sourceTree = "<group>"; };
-		6E71ECCF1D1C1BCA00F4B917 /* ESRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRequestHandler.h; sourceTree = "<group>"; };
-		6E71ECD01D1C1BCA00F4B917 /* ESRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRequestHandler.m; sourceTree = "<group>"; };
 		6E71ECD71D1C1DEA00F4B917 /* HomeChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelView.h; sourceTree = "<group>"; };
 		6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelView.m; sourceTree = "<group>"; };
 		6E71ECDD1D1C1E5500F4B917 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
@@ -257,6 +256,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6E026FE21D3E29340038C2A0 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				6E026FE31D3E29460038C2A0 /* Request.h */,
+				6E026FE41D3E29460038C2A0 /* Request.m */,
+				6E026FE51D3E29460038C2A0 /* RequestCache.h */,
+				6E026FE61D3E29460038C2A0 /* RequestCache.m */,
+				6E026FE71D3E29460038C2A0 /* RequestHandler.h */,
+				6E026FE81D3E29460038C2A0 /* RequestHandler.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		6E1535DE1D1A87FA0053A846 /* Librarys */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,9 +298,9 @@
 		6E1535E21D1A95940053A846 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6E026FE21D3E29340038C2A0 /* Request */,
 				FCB6C4601D2BE880008A3137 /* JCTagListView */,
 				6EFFD4A31D2BCDFB00D1BC9E /* Views */,
-				6E71ECC81D1C1BCA00F4B917 /* ESRequest */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -397,19 +409,6 @@
 				6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		6E71ECC81D1C1BCA00F4B917 /* ESRequest */ = {
-			isa = PBXGroup;
-			children = (
-				6E71ECCB1D1C1BCA00F4B917 /* ESRequest.h */,
-				6E71ECCC1D1C1BCA00F4B917 /* ESRequest.m */,
-				6E71ECCD1D1C1BCA00F4B917 /* ESRequestCache.h */,
-				6E71ECCE1D1C1BCA00F4B917 /* ESRequestCache.m */,
-				6E71ECCF1D1C1BCA00F4B917 /* ESRequestHandler.h */,
-				6E71ECD01D1C1BCA00F4B917 /* ESRequestHandler.m */,
-			);
-			path = ESRequest;
 			sourceTree = "<group>";
 		};
 		6E71ECDE1D1C1F2D00F4B917 /* Entity */ = {
@@ -1074,21 +1073,21 @@
 				6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */,
 				FC6F488B1D363AEB00047EEA /* NonVideoCell.m in Sources */,
 				6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */,
-				6E71ECD51D1C1BCA00F4B917 /* ESRequestHandler.m in Sources */,
 				6ED65D641D38D55D00D264F8 /* HomeAnimationCategoryItemCollectionViewCell.m in Sources */,
 				FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */,
 				FCB5C9CD1D33AF41000215B3 /* FindViewCell.m in Sources */,
 				FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
+				6E026FEA1D3E29460038C2A0 /* RequestCache.m in Sources */,
 				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
 				FCB5C9CE1D33AF41000215B3 /* GameCenterCell.m in Sources */,
 				6ED65D5E1D38B86E00D264F8 /* HomeAnimationCategoryCollectionViewCell.m in Sources */,
 				FC825ED81D1FE80100698652 /* CXHStartViewController.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
-				6E71ECD31D1C1BCA00F4B917 /* ESRequest.m in Sources */,
+				6E026FE91D3E29460038C2A0 /* Request.m in Sources */,
 				FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */,
+				6E026FEB1D3E29460038C2A0 /* RequestHandler.m in Sources */,
 				FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */,
-				6E71ECD41D1C1BCA00F4B917 /* ESRequestCache.m in Sources */,
 				6ED65D611D38B9A100D264F8 /* HomeAnimationModel.m in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
 				FC345C741D31597C00BAE32B /* SearchResultAllView.m in Sources */,
@@ -1100,7 +1099,6 @@
 				6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */,
 				6ED65D551D38B67800D264F8 /* HomeChannelModel.m in Sources */,
 				FCB6C4691D2BE880008A3137 /* JCTagListView.m in Sources */,
-				6E89DA411D3D06730055C9F2 /* Modules.md in Sources */,
 				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
@@ -1257,8 +1255,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/bilibili",
-					fake/Librarys,
+					"\"$(SRCROOT)/bilibili fake/Librarys\"",
 				);
 				GCC_PREFIX_HEADER = "bilibili fake/PrefixHeader.h";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
@@ -1280,8 +1277,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/bilibili",
-					fake/Librarys,
+					"\"$(SRCROOT)/bilibili fake/Librarys\"",
 				);
 				GCC_PREFIX_HEADER = "bilibili fake/PrefixHeader.h";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";

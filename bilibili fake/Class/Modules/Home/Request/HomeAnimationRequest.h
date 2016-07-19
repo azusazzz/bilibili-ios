@@ -6,9 +6,9 @@
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "ESRequest.h"
+#import "Request.h"
 
-@interface HomeAnimationRequest : ESRequest
+@interface HomeAnimationRequest : Request
 
 
 

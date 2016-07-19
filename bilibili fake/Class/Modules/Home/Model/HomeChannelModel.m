@@ -17,15 +17,15 @@
 
 
 - (void)getChannelDataWithSuccess:(void (^)(void))success failure:(void (^)(NSString *))failure; {
-    [[HomeChannelRequest requestWithCompletionBlock:^(ESRequest *request) {
+    [[HomeChannelRequest requestWithCompletionBlock:^(Request *request) {
         if (!request.responseObject) {
-            failure ? failure(request.responseMsg) : NULL;
+            failure ? failure(request.error.description) : NULL;
         }
         else {
             [self loadChannelDataWithJSONObject:request.responseObject];
             success ? success() : NULL;
         }
-    }] start];
+    }] resume];
 }
 
 - (void)loadChannelDataWithJSONObject:(id)JSONObject; {

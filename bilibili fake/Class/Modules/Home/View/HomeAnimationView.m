@@ -14,7 +14,7 @@
 #define ReuseIdentifier @"AnimationCategory"
 
 @interface HomeAnimationView ()
-<ESRequestDelegate,
+<RequestDelegate,
 UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 {
@@ -49,7 +49,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFl
     
     _model = [[HomeAnimationModel alloc] init];
     
-    [[HomeAnimationRequest requestWithDelegate:self] start];
+    [[HomeAnimationRequest requestWithDelegate:self] resume];
     
     return self;
 }
@@ -57,7 +57,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFl
 
 #pragma mark - ESRequestDelegate
 
-- (void)requestCompletion:(ESRequest *)request; {
+- (void)requestCompletion:(Request *)request; {
     
     
     [_model setCategoryJSONObject:request.responseObject];
