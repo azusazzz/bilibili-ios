@@ -13,4 +13,6 @@
  */
 @interface VideoCommentView : UICollectionView
 
+@property (weak, nonatomic) id<UIScrollViewDelegate> scrollViewDelegate;
+
 @end

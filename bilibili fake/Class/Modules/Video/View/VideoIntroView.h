@@ -13,4 +13,6 @@
  */
 @interface VideoIntroView : UICollectionView
 
+@property (weak, nonatomic) id<UIScrollViewDelegate> scrollViewDelegate;
+
 @end

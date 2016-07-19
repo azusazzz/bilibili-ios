@@ -21,7 +21,7 @@
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     if (self = [super initWithFrame:CGRectZero collectionViewLayout:flowLayout]) {
-        self.backgroundColor = [UIColor orangeColor];
+        self.backgroundColor = ColorWhite(240);
         [self registerClass:[VideoAndStatInfoCollectionViewCell class] forCellWithReuseIdentifier:@"VideoAndStatInfo"];
         self.delegate = self;
         self.dataSource = self;
@@ -30,7 +30,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
+    [_scrollViewDelegate scrollViewDidScroll:scrollView];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -44,7 +44,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(SSize.width-30, 100);
+    return CGSizeMake(SSize.width, 100);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
@@ -52,7 +52,7 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 5;
+    return 0;
 }
 
 //- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {

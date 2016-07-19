@@ -7,6 +7,7 @@
 //
 
 #import "MeViewController.h"
+#import "ScrollTabBarController.h"
 
 @interface MeViewController ()
 
@@ -26,6 +27,14 @@
     // Do any additional setup after loading the view.
     self.title = @"我的";
     self.view.backgroundColor = [UIColor whiteColor];
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [self.view addGestureRecognizer:panGestureRecognizer];
+}
+
+- (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
+    ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;
+    [tabbar handlePanGesture:panGestureRecognizer];
+    NSLog(@"Follow:%lf", [panGestureRecognizer locationInView:self.view].x);
 }
 
 - (void)didReceiveMemoryWarning {

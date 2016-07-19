@@ -14,13 +14,15 @@
 #import "VideoCommentView.h"
 
 @interface VideoViewController ()
-
+<UIScrollViewDelegate>
 {
     NSInteger _aid;
     
     VideoModel *_model;
     
     VideoHeaderView *_headerView;
+    
+    UIView *_tabBar;
     
     UIScrollView *_backgroundScrollView;
     
@@ -46,32 +48,58 @@
     
     _headerView = [[VideoHeaderView alloc] init];
     [self.view addSubview:_headerView];
-//    [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.offset = 0;
-//        make.right.offset = 0;
-//        make.top.offset = 0;
-//        make.height.equalTo(_headerView.mas_width).multipliedBy(450.0/720.0);
-//    }];
     
+    _tabBar = [[UIView alloc] init];
+    _tabBar.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:_tabBar];
     
     _backgroundScrollView = [[UIScrollView alloc] init];
+    _backgroundScrollView.bounces = NO;
     _backgroundScrollView.pagingEnabled = YES;
     [self.view addSubview:_backgroundScrollView];
     
     _introView = [[VideoIntroView alloc] init];
+    _introView.scrollViewDelegate = self;
     [_backgroundScrollView addSubview:_introView];
     
     _commentView = [[VideoCommentView alloc] init];
+    _commentView.scrollViewDelegate = self;
     [_backgroundScrollView addSubview:_commentView];
     
     
-    
-    _headerView.frame = CGRectMake(0, 0, self.view.width, self.view.width * 450.0/720.0);
-    _backgroundScrollView.frame = CGRectMake(0, _headerView.maxY, self.view.width, self.view.height - _headerView.maxY);
-    _introView.frame = CGRectMake(0, 0, _backgroundScrollView.width, _backgroundScrollView.height);
-    _commentView.frame = CGRectMake(_backgroundScrollView.width, 0, _backgroundScrollView.width, _backgroundScrollView.height);
-    
-    _backgroundScrollView.contentSize = CGSizeMake(_backgroundScrollView.width*2, 0);
+    [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset = 0;
+        make.right.offset = 0;
+        make.top.offset = 0;
+        make.height.equalTo(_headerView.mas_width).multipliedBy(450.0/720.0);
+    }];
+    [_tabBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset = 0;
+        make.right.offset = 0;
+        make.top.equalTo(_headerView.mas_bottom);
+        make.height.offset = 30;
+    }];
+    [_backgroundScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset = 0;
+        make.right.offset = 0;
+        make.top.equalTo(_tabBar.mas_bottom);
+        make.bottom.offset = 0;
+    }];
+    [_introView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset = 0;
+        make.top.offset = 0;
+        make.width.equalTo(_backgroundScrollView);
+        make.height.equalTo(_backgroundScrollView);
+    }];
+    [_commentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_introView.mas_right);
+        make.top.offset = 0;
+        make.width.equalTo(_backgroundScrollView);
+        make.height.equalTo(_backgroundScrollView);
+    }];
+    [_backgroundScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(_commentView);
+    }];
     
     
     _model = [[VideoModel alloc] init];
@@ -84,6 +112,34 @@
     }];
 }
 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat offset = scrollView.contentOffset.y / 2;
+    if (offset < 0) {
+        offset = 0;
+    }
+    if (_headerView.height - offset < 44) {
+        offset = _headerView.height - 44;
+    }
+    
+    static NSInteger lastState = 0;
+    
+    if (_headerView.y > -offset) {
+        lastState = 0;
+        NSLog(@"Up");
+    }
+    else {
+        lastState = 1;
+        NSLog(@"Down");
+    }
+    
+    
+    NSLog(@"%lf", offset);
+    [_headerView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.offset = -offset;
+    }];
+    
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

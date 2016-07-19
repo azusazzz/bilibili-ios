@@ -336,8 +336,8 @@ enum
                                         screenHeight:_screenHeight
                                           meshFactor:_meshFactor
                                          touchRadius:5
-                                        textureWidth:_width
-                                       textureHeight:_height];
+                                        textureWidth:(unsigned int)_width
+                                       textureHeight:(unsigned int)_height];
   [self setupBuffers];
   
   glActiveTexture(GL_TEXTURE0);
@@ -371,7 +371,7 @@ enum
   
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
   
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, _width, _height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (int)_width, (int)_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
   
   free(spriteData);
   

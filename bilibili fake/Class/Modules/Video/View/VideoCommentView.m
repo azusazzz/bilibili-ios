@@ -28,6 +28,9 @@
     return self;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [_scrollViewDelegate scrollViewDidScroll:scrollView];
+}
 
 #pragma mark - UICollectionViewDataSource
 
