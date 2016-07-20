@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VideoInfoEntity.h"
+
 
 /**
  *  简介
@@ -14,5 +16,7 @@
 @interface VideoIntroView : UICollectionView
 
 @property (weak, nonatomic) id<UIScrollViewDelegate> scrollViewDelegate;
+
+@property (strong, nonatomic) VideoInfoEntity *videoInfo;
 
 @end

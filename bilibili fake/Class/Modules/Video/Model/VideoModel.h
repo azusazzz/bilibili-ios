@@ -9,9 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "VideoInfoEntity.h"
 
+//#import "VideoAndStatInfoCellEntity.h"
+//#import "VideoOwnerInfoCellEntity.h"
+
+
+
 @interface VideoModel : NSObject
 
 @property (strong, nonatomic) VideoInfoEntity *videoInfo;
+
+
+@property (strong, nonatomic) NSArray *introDataSource;
+
 
 /**
  *  获取视频信息
@@ -23,7 +32,7 @@
 - (void)getVideoInfoWithAid:(NSInteger)aid success:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 /**
- *  解析出视频链接
+ *  解析出视频链接  
  *
  *  @param completionBlock <#completionBlock description#>
  */

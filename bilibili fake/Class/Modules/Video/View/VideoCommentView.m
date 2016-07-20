@@ -24,6 +24,7 @@
         [self registerClass:[VideoCommentCollectionViewCell class] forCellWithReuseIdentifier:@"VideoComment"];
         self.delegate = self;
         self.dataSource = self;
+        self.alwaysBounceVertical = YES;
     }
     return self;
 }

@@ -16,16 +16,17 @@
 + (BOOL)canInitWithRequest:(NSURLRequest *)request {
     
     if ([request.URL.absoluteString rangeOfString:@"mp4"].length) {
-//        NSLog(@"%@", request.URL.absoluteString);
         
         [NSURLProtocol unregisterClass:[self class]];
         
         UIViewController *controller = UIViewController.currentViewController;
         if ([controller isKindOfClass:[VideoViewController class]]) {
             VideoViewController *video = (VideoViewController *)controller;
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                [video.model webViewVideoURL:request.URL];
-            }];
+            
+            SEL sel = NSSelectorFromString(@"webViewVideoURL:");
+            if ([video.model respondsToSelector:sel]) {
+                [video.model performSelectorOnMainThread:sel withObject:request.URL waitUntilDone:NO];
+            }
             
         }
 //        return YES;

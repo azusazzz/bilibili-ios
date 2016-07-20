@@ -37,6 +37,27 @@
         
         if (request.responseCode == 0 && request.responseData) {
             _videoInfo = [VideoInfoEntity mj_objectWithKeyValues:request.responseData];
+            
+//            NSMutableArray<NSArray *> *introDataSource = [NSMutableArray arrayWithCapacity:3 + _videoInfo.relates.count];
+//            
+//            VideoAndStatInfoCellEntity *videoAndStatEntity = [[VideoAndStatInfoCellEntity alloc] init];
+//            videoAndStatEntity.title = _videoInfo.title;
+//            videoAndStatEntity.view = _videoInfo.stat.view;
+//            videoAndStatEntity.danmaku = _videoInfo.stat.danmaku;
+//            videoAndStatEntity.desc = _videoInfo.desc;
+//            videoAndStatEntity.favorite = _videoInfo.stat.favorite;
+//            videoAndStatEntity.coin = _videoInfo.stat.coin;
+//            videoAndStatEntity.share = _videoInfo.stat.share;
+//            [introDataSource addObject:@[videoAndStatEntity]];
+//            
+//            VideoOwnerInfoCellEntity *ownerEntity = [[VideoOwnerInfoCellEntity alloc] init];
+//            ownerEntity.face = _videoInfo.owner.face;
+//            ownerEntity.name = _videoInfo.owner.name;
+//            ownerEntity.pubdate = _videoInfo.pubdate;
+//            [introDataSource addObject:@[ownerEntity]];
+//            
+//            _introDataSource = [introDataSource copy];
+            
             success();
         }
         else {
@@ -55,7 +76,13 @@
             completionBlock(videoURL);
         }
         else {
-            [self getVideoURLMode2WithAid:_videoInfo.aid completionBlock:^(NSURL *videoURL) {
+            __block NSInteger page;
+            [_videoInfo.pages enumerateObjectsUsingBlock:^(VideoPageInfoEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (obj.cid == cid) {
+                    page = obj.page;
+                }
+            }];
+            [self getVideoURLMode2WithPage:page completionBlock:^(NSURL *videoURL) {
                 completionBlock(videoURL);
             }];
         }
@@ -92,7 +119,7 @@
  *
  *  @param completionBlock <#completionBlock description#>
  */
-- (void)getVideoURLMode2WithAid:(NSInteger)aid completionBlock:(void (^)(NSURL *))completionBlock {
+- (void)getVideoURLMode2WithPage:(NSInteger)page completionBlock:(void (^)(NSURL *videoURL))completionBlock {
     _getVideoURLMode2_CompletionBlock = completionBlock;
     [NSURLProtocol registerClass:[VideoURLProtocol class]];
     
@@ -102,7 +129,7 @@
     });
     [weakself webViewVideoURL:NULL];
     _webView = [[UIWebView alloc] init];
-    NSString *urlString = [NSString stringWithFormat:@"http://www.bilibili.com/mobile/video/av%ld.html", aid];
+    NSString *urlString = [NSString stringWithFormat:@"http://www.bilibili.com/mobile/video/av%ld.html#page=%ld", _videoInfo.aid, page];
     _webView.delegate = self;
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
     
@@ -126,7 +153,7 @@
     _getVideoURLMode1_CompletionBlock ? _getVideoURLMode1_CompletionBlock(response.URL) : NULL;
     _getVideoURLMode1_CompletionBlock = NULL;
     [task cancel];
-    [_session invalidateAndCancel];
+    [_session finishTasksAndInvalidate];
     _session = NULL;
     
 }
@@ -137,8 +164,12 @@
     _getVideoURLMode1_CompletionBlock ? _getVideoURLMode1_CompletionBlock(NULL) : NULL;
     _getVideoURLMode1_CompletionBlock = NULL;
     [dataTask cancel];
-    [_session invalidateAndCancel];
+    [_session finishTasksAndInvalidate];
     _session = NULL;
+}
+
+- (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(nullable NSError *)error {
+    
 }
 
 

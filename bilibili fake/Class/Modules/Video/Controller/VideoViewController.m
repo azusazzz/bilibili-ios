@@ -65,16 +65,18 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     
     [_model getVideoInfoWithAid:_aid success:^{
         [_headerView setupVideoInfo:_model.videoInfo];
+//        _introView.introDataSource = _model.introDataSource;
+        _introView.videoInfo = _model.videoInfo;
     } failure:^(NSString *errorMsg) {
         //
     }];
     
     
-    [_model getVideoURLWithCid:8791454 /*6282404*/ completionBlock:^(NSURL *videoURL) {
-        
-        NSLog(@"%@", videoURL.absoluteString);
-        
-    }];
+//    [_model getVideoURLWithCid:8791454 /*6282404*/ completionBlock:^(NSURL *videoURL) {
+//        
+//        NSLog(@"%@", videoURL.absoluteString);
+//        
+//    }];
     
 }
 
@@ -202,7 +204,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
         make.left.offset = 0;
         make.right.offset = 0;
         make.top.equalTo(_headerView.mas_bottom);
-        make.height.offset = 30;
+        make.height.offset = 40;
     }];
     [_backgroundScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset = 0;
