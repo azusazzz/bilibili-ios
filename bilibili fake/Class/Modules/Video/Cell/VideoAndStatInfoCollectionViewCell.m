@@ -24,6 +24,10 @@
 
 @implementation VideoAndStatInfoCollectionViewCell
 
++ (CGSize)sizeForVideoInfo:(VideoInfoEntity *)videoInfo {
+    return CGSizeMake(SSize.width, 0);
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor whiteColor];
@@ -49,9 +53,15 @@
         [self addSubview:_danmakuCountLabel];
         
         _descLabel = [[UILabel alloc] init];
+        _descLabel.font = Font(12);
+        _descLabel.textColor = ColorWhite(146);
+        [self addSubview:_descLabel];
+        
+        
         
     }
     return self;
 }
+
 
 @end

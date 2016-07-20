@@ -22,4 +22,15 @@
  */
 - (void)getVideoInfoWithAid:(NSInteger)aid success:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
+/**
+ *  解析出视频链接
+ *
+ *  @param completionBlock <#completionBlock description#>
+ */
+- (void)getVideoURLWithCid:(NSInteger)cid completionBlock:(void (^)(NSURL *videoURL))completionBlock;
+
+
+- (void)webViewVideoURL:(NSURL *)videoURL;
+
+
 @end

@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VideoModel.h"
 
 /**
  视频播放页面
  */
 @interface VideoViewController : UIViewController
+
+
+@property (strong, nonatomic, readonly) VideoModel *model;
 
 /**
  *  初始化

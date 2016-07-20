@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VideoInfoEntity.h"
 
 /**
  *  简介-视频信息、统计信息
  */
 @interface VideoAndStatInfoCollectionViewCell : UICollectionViewCell
+
++ (CGSize)sizeForVideoInfo:(VideoInfoEntity *)videoInfo;
 
 @end

@@ -30,8 +30,10 @@
 		6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B71D1ACBD9002DA3AB /* FollowViewController.m */; };
 		6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8BB1D1AE014002DA3AB /* ScrollTabBarController.m */; };
 		6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */; };
+		6E6848F11D3F468F002FB315 /* VideoURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6848F01D3F468F002FB315 /* VideoURLProtocol.m */; };
 		6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */; };
 		6E71ECE11D1C203D00F4B917 /* HomeChannelEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E71ECE01D1C203D00F4B917 /* HomeChannelEntity.m */; };
+		6E76344E1D3F563A002CFA63 /* UIViewController+GetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76344D1D3F563A002CFA63 /* UIViewController+GetViewController.m */; };
 		6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */; };
 		6E89DA391D3CFF7F0055C9F2 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E89DA381D3CFF7F0055C9F2 /* VideoViewController.m */; };
 		6E89DA3D1D3D00950055C9F2 /* IJKMediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */; };
@@ -161,11 +163,15 @@
 		6E66C8BB1D1AE014002DA3AB /* ScrollTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTabBarController.m; sourceTree = "<group>"; };
 		6E66C8C01D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerAnimatedTransitioning.h; sourceTree = "<group>"; };
 		6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarControllerAnimatedTransitioning.m; sourceTree = "<group>"; };
+		6E6848EF1D3F468F002FB315 /* VideoURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoURLProtocol.h; sourceTree = "<group>"; };
+		6E6848F01D3F468F002FB315 /* VideoURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoURLProtocol.m; sourceTree = "<group>"; };
 		6E71ECD71D1C1DEA00F4B917 /* HomeChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelView.h; sourceTree = "<group>"; };
 		6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelView.m; sourceTree = "<group>"; };
 		6E71ECDD1D1C1E5500F4B917 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		6E71ECDF1D1C203D00F4B917 /* HomeChannelEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelEntity.h; sourceTree = "<group>"; };
 		6E71ECE01D1C203D00F4B917 /* HomeChannelEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelEntity.m; sourceTree = "<group>"; };
+		6E76344C1D3F563A002CFA63 /* UIViewController+GetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GetViewController.h"; sourceTree = "<group>"; };
+		6E76344D1D3F563A002CFA63 /* UIViewController+GetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GetViewController.m"; sourceTree = "<group>"; };
 		6E76C1771D2A736A00C259E8 /* HomeChannelRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelRequest.h; sourceTree = "<group>"; };
 		6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelRequest.m; sourceTree = "<group>"; };
 		6E76C17A1D2A768D00C259E8 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
@@ -333,6 +339,7 @@
 		6E1535E11D1A94A40053A846 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				6E76344B1D3F55DC002CFA63 /* UIViewController */,
 				FC80C7301D377C2700D30E23 /* Label */,
 				6EFFD4A81D2BD6C500D1BC9E /* View */,
 			);
@@ -490,6 +497,15 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		6E76344B1D3F55DC002CFA63 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E76344C1D3F563A002CFA63 /* UIViewController+GetViewController.h */,
+				6E76344D1D3F563A002CFA63 /* UIViewController+GetViewController.m */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
 		6E89DA311D3CFF480055C9F2 /* Video */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,6 +549,8 @@
 			children = (
 				6E18E1971D3E340C003D35C1 /* VideoModel.h */,
 				6E18E1981D3E340C003D35C1 /* VideoModel.m */,
+				6E6848EF1D3F468F002FB315 /* VideoURLProtocol.h */,
+				6E6848F01D3F468F002FB315 /* VideoURLProtocol.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1217,6 +1235,7 @@
 				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
+				6E76344E1D3F563A002CFA63 /* UIViewController+GetViewController.m in Sources */,
 				6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */,
 				FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
@@ -1235,6 +1254,7 @@
 				FC66E75F1D3E2D7A00F28B90 /* StartViewController.m in Sources */,
 				FCB5C9A71D333886000215B3 /* SearchResultData.m in Sources */,
 				FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */,
+				6E6848F11D3F468F002FB315 /* VideoURLProtocol.m in Sources */,
 				6E18E1A51D3E4E3E003D35C1 /* VideoStatInfoEntity.m in Sources */,
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
 				6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */,
