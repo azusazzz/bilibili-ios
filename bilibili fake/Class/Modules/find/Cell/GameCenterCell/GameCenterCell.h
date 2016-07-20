@@ -10,6 +10,6 @@
 
 @interface GameCenterCell : UITableViewCell
 
--(id)initWithData:(NSDictionary*)dic;
+-(instancetype)initWithData:(NSDictionary*)dic;
 
 @end

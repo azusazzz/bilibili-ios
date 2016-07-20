@@ -20,6 +20,7 @@
     void (^_getVideoURLMode1_CompletionBlock)(NSURL *videoURL);
     void (^_getVideoURLMode2_CompletionBlock)(NSURL *videoURL);
     UIWebView *_webView;
+    
 }
 
 @end
@@ -71,11 +72,11 @@
 - (void)getVideoURLMode1WithCid:(NSInteger)cid completionBlock:(void (^)(NSURL *videoURL))completionBlock {
     
     
-//    completionBlock(NULL);
+    completionBlock(NULL);
     
     
     _getVideoURLMode1_CompletionBlock = completionBlock;
-    
+
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.bilibilijj.com/Files/DownLoad/%ld.mp4/www.bilibilijj.com.mp4?mp3=true", cid]];
     
     __weak typeof(self) weakself = self;
@@ -99,7 +100,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [weakself webViewVideoURL:NULL];
     });
-    
+    [weakself webViewVideoURL:NULL];
     _webView = [[UIWebView alloc] init];
     NSString *urlString = [NSString stringWithFormat:@"http://www.bilibili.com/mobile/video/av%ld.html", aid];
     _webView.delegate = self;
@@ -127,7 +128,9 @@
     [task cancel];
     [_session invalidateAndCancel];
     _session = NULL;
+    
 }
+
 
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {

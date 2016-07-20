@@ -20,6 +20,13 @@
     }
     return self;
 }
+
+
+- (void)dealloc {
+    NSLog(@"%s", __FUNCTION__);
+}
+
+
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO;
 }

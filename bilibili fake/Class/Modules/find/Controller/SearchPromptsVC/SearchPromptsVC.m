@@ -45,12 +45,15 @@
     }
     return self;
 }
+- (void)dealloc {
+    NSLog(@"%s", __FUNCTION__);
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 200), dispatch_get_main_queue(), ^{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [search_tf becomeFirstResponder];
         [search_tf becomeFirstResponder];
         [self setkeyword:search_tf.text];
     });

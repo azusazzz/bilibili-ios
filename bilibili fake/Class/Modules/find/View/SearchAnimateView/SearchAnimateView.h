@@ -10,4 +10,7 @@
 
 @interface SearchAnimateView : UIView
 
+@property(nonatomic,strong)UIImageView* animateView;
+
+@property(nonatomic,strong)UILabel* label;
 @end

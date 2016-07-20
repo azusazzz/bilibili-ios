@@ -23,7 +23,7 @@
 
 //{"id":34,"title":"ICHU偶像进行曲","summary":"把我变成真正的偶像吧！","download_link":"http://acg.tv/u1fO","cover":"http://i0.hdslb.com/bfs/game/9fa835022acae8250720b8b89b7c5e5a7da59707.jpg","hot":0,"new":0}
 
--(id)initWithData:(NSDictionary*)dic{
+-(instancetype)initWithData:(NSDictionary*)dic{
     self = [super init];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -93,6 +93,11 @@
     }
     return self;
 }
+
+- (void)dealloc {
+    NSLog(@"%s", __FUNCTION__);
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

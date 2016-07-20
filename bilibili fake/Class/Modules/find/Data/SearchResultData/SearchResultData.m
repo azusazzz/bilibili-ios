@@ -95,6 +95,11 @@
     }
     return self;
 }
+
+- (void)dealloc {
+    NSLog(@"%s", __FUNCTION__);
+}
+
 //设置keywork 获取数据前必须要设置关键字
 -(void)setKeyword:(NSString*)keyword{
     _keyword = keyword;
@@ -103,10 +108,6 @@
     tidList_arr = [[NSMutableArray alloc] init];
     
     videoSearchResultData_dic = [[NSMutableDictionary alloc] init];
-//    for (NSString* str1 in @[@"totalrank",@"click",@"dm",@"scores",@"pubdate",@"stow"]) {
-//        NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
-//        [videoSearchResultData_dic setObject:dic forKey:str1];
-//    }
     
     bangumiSearchResultData_arr = [[NSMutableArray alloc] init];
     specialSearchResultData_arr = [[NSMutableArray alloc] init];

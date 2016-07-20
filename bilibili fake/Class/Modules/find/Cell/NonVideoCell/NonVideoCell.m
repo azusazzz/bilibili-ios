@@ -32,6 +32,9 @@
     return self;
 }
 
+- (void)dealloc {
+    NSLog(@"%s", __FUNCTION__);
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

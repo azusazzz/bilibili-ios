@@ -16,6 +16,7 @@
 #import "NonVideoCell.h"
 #import "VideoCell.h"
 #import <Masonry.h>
+#import "SearchAnimateView.h"
 
 typedef NS_ENUM(NSUInteger, RefreshState) {
     RefreshStateNormal,//正常
@@ -98,6 +99,12 @@ struct tablePoint{
     }
     return self;
 }
+
+- (void)dealloc {
+    NSLog(@"%s", __FUNCTION__);
+}
+
+
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
 }
@@ -122,9 +129,7 @@ struct tablePoint{
 #pragma mark - ActionDealt
 //设置关键字
 -(void)setSearchKeyword:(NSNotification*)notification{
-//    [rowbtn setSelectedBotton:1];
-//    [rowbtn setSelectedBotton:1];
-    
+
     NSString* keyword = [notification.userInfo objectForKey:@"keyword"];
     NSLog(@"关键字：%@",keyword);
     //if ([keyword isEqualToString:_keyword])  return;
@@ -578,8 +583,7 @@ struct tablePoint{
     [_tableView addSubview:_tableViewRefresh_label];
     
     
-    UIView *animateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 48)];
-    animateView.backgroundColor = [UIColor redColor];
+    SearchAnimateView *animateView = [[SearchAnimateView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 48)];
     [_tableView addSubview:animateView];
 
     // Layout
