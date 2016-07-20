@@ -20,7 +20,7 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
-    
+        self.backgroundColor = [UIColor redColor];
     }
     return self;
 }

@@ -418,8 +418,13 @@ struct tablePoint{
     }
     return 100;
 }
+//页眉高度(不能为0)
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 10.0;
+}
+//页脚高度(不能为0)
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.1;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (rowbtn.Selectedtag == 0 && _tableViewData_bangumi_arr.count && screen_rowbtn1.Selectedtag == 0 && screen_rowbtn2.Selectedtag == 0){
@@ -539,7 +544,7 @@ struct tablePoint{
     [screen_view addSubview:screen_rowbtn2];
     
     //列表
-    _tableView = [UITableView new];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];//设置页眉没粘性
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -571,6 +576,12 @@ struct tablePoint{
     _tableViewRefresh_label.textColor = ColorRGB(0, 0, 0);
     _tableViewRefresh_label.textAlignment = NSTextAlignmentCenter;
     [_tableView addSubview:_tableViewRefresh_label];
+    
+    
+    UIView *animateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 48)];
+    animateView.backgroundColor = [UIColor redColor];
+    [_tableView addSubview:animateView];
+
     // Layout
     
     [HeadView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -663,6 +674,8 @@ struct tablePoint{
         make.centerX.equalTo(_tableView.mas_centerX);
         make.bottom.equalTo(_tableViewRefresh_label.mas_top).equalTo(@(-10));
     }];
+    
+
 }
 
 @end

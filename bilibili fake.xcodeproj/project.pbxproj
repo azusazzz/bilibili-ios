@@ -54,7 +54,7 @@
 		6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AA1D2BD6D800D1BC9E /* UIView+Frame.m */; };
 		6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AD1D2BDE9400D1BC9E /* HomeAnimationView.m */; };
 		FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0745521D2CB7B9000DFBA6 /* ReadRQCodeVC.m */; };
-		FC345C741D31597C00BAE32B /* SearchResultAllView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC345C731D31597C00BAE32B /* SearchResultAllView.m */; };
+		FC1CBAE01D3F551900D8295C /* SearchAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1CBADF1D3F551900D8295C /* SearchAnimateView.m */; };
 		FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F61D28378D000C3F01 /* FindViewController.m */; };
 		FC4D35F91D28378D000C3F01 /* FindViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC4D35F71D28378D000C3F01 /* FindViewController.plist */; };
 		FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D36001D283F47000C3F01 /* GameCentreVC.m */; };
@@ -213,8 +213,8 @@
 		8A799A4DD17AEAA2C2D0960A /* Pods-bilibili fake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.release.xcconfig"; sourceTree = "<group>"; };
 		FC0745511D2CB7B9000DFBA6 /* ReadRQCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ReadRQ\U0010CodeVC.h"; path = "ReadRQ\U0010Code/ReadRQ\U0010CodeVC.h"; sourceTree = "<group>"; };
 		FC0745521D2CB7B9000DFBA6 /* ReadRQCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ReadRQ\U0010CodeVC.m"; path = "ReadRQ\U0010Code/ReadRQ\U0010CodeVC.m"; sourceTree = "<group>"; };
-		FC345C721D31597C00BAE32B /* SearchResultAllView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultAllView.h; sourceTree = "<group>"; };
-		FC345C731D31597C00BAE32B /* SearchResultAllView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultAllView.m; sourceTree = "<group>"; };
+		FC1CBADE1D3F551900D8295C /* SearchAnimateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAnimateView.h; sourceTree = "<group>"; };
+		FC1CBADF1D3F551900D8295C /* SearchAnimateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAnimateView.m; sourceTree = "<group>"; };
 		FC4D35F51D28378D000C3F01 /* FindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
 		FC4D35F61D28378D000C3F01 /* FindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
 		FC4D35F71D28378D000C3F01 /* FindViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FindViewController.plist; sourceTree = "<group>"; };
@@ -737,13 +737,13 @@
 			name = "ReadRQ\U0010CodeVC";
 			sourceTree = "<group>";
 		};
-		FC345C711D31597C00BAE32B /* SearchResultAllView */ = {
+		FC1CBADD1D3F550200D8295C /* SearchAnimateView */ = {
 			isa = PBXGroup;
 			children = (
-				FC345C721D31597C00BAE32B /* SearchResultAllView.h */,
-				FC345C731D31597C00BAE32B /* SearchResultAllView.m */,
+				FC1CBADE1D3F551900D8295C /* SearchAnimateView.h */,
+				FC1CBADF1D3F551900D8295C /* SearchAnimateView.m */,
 			);
-			path = SearchResultAllView;
+			path = SearchAnimateView;
 			sourceTree = "<group>";
 		};
 		FC4D35EA1D27D27C000C3F01 /* Cell */ = {
@@ -956,7 +956,7 @@
 		FCEDE0751D2919900032569A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FC345C711D31597C00BAE32B /* SearchResultAllView */,
+				FC1CBADD1D3F550200D8295C /* SearchAnimateView */,
 			);
 			name = View;
 			path = find/View;
@@ -1180,6 +1180,7 @@
 			files = (
 				6E18E1B21D3E58E9003D35C1 /* VideoAndStatInfoCollectionViewCell.m in Sources */,
 				FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */,
+				FC1CBAE01D3F551900D8295C /* SearchAnimateView.m in Sources */,
 				FC6F48921D363B1A00047EEA /* VideoCell.m in Sources */,
 				6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */,
 				6E18E1B51D3E5B83003D35C1 /* VideoCommentView.m in Sources */,
@@ -1204,7 +1205,6 @@
 				FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */,
 				6ED65D611D38B9A100D264F8 /* HomeAnimationModel.m in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
-				FC345C741D31597C00BAE32B /* SearchResultAllView.m in Sources */,
 				6EB6B6CE1D3E7A1700CA2746 /* VideoOwnerInfoCollectionViewCell.m in Sources */,
 				6E5DEF3C1D2E07ED009944D1 /* MeViewController.m in Sources */,
 				FC792C221D2E9B7600762831 /* SearchResultVC.m in Sources */,
