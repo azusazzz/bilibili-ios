@@ -7,9 +7,11 @@
 //
 
 #import "GameCentreVC.h"
+#import <ReactiveCocoa.h>
 #import "Macro.h"
 #import "GameCenterCell.h"
-#import <UIImageView+WebCache.h>
+
+
 @interface GameCentreVC ()
 
 @end
@@ -27,8 +29,7 @@
 
 - (void)dealloc {
     GameData_Arr  = nil;
-    [[SDImageCache sharedImageCache] clearDisk];
-    [[SDImageCache sharedImageCache] clearMemory];//可有可无
+    [self.view removeFromSuperview];
     NSLog(@"%s", __FUNCTION__);
 }
 
@@ -50,7 +51,7 @@
     [self.navigationItem setHidesBackButton:YES];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 5, 15, 15);
-    [btn setBackgroundImage:ImageWithName(@"common_back") forState:UIControlStateNormal];
+    [btn setBackgroundImage:[UIImage imageNamed:@"common_back"] forState:UIControlStateNormal];
     [btn addTarget: self action: @selector(goBackAction) forControlEvents: UIControlEventTouchUpInside];
     UIBarButtonItem*back=[[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.leftBarButtonItem=back;

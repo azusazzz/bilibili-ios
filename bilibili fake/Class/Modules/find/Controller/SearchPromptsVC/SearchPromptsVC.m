@@ -45,8 +45,6 @@
     }
     return self;
 }
-
-
 - (void)dealloc {
     NSLog(@"%s", __FUNCTION__);
 }
@@ -80,10 +78,8 @@
 
 
 -(void)loadActions{
-    __weak typeof(self) weakSelf = self;
     cancel_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        [weakSelf.navigationController popToRootViewControllerAnimated:NO];
-        [SearchPromptsData clear];
+        [self.navigationController popToRootViewControllerAnimated:NO];
         return [RACSignal empty];
     }];
     [search_tf addTarget:self
@@ -189,7 +185,7 @@
     //通过通知中心发送通知
     NSNotification *notification =[NSNotification notificationWithName:@"setSearchKeyword" object:nil userInfo:@{@"keyword":cell.textLabel.text}];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
-    [SearchPromptsData clear];
+    
     [self.navigationController popViewControllerAnimated:NO];
 }
 //cell高
@@ -358,7 +354,7 @@
     
     
     UIImageView* bgImageView = [UIImageView new];
-    bgImageView.image = ImageWithName(@"empty_list_no_search_history.jpg");
+    bgImageView.image = [UIImage imageNamed:@"empty_list_no_search_history"];
     [self.view addSubview:bgImageView];
     bgImageView.backgroundColor = ColorRGBA(0, 0, 0,0);
     [bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -29,6 +29,5 @@
  *  @param block   返回提示
  */
 +(void)getSearchPrompts:(NSString*)keywork Block:(void(^)(NSMutableArray* Prompts))block;
-
-+(void)clear;
+                                                   
 @end
