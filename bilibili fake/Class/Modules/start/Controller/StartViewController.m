@@ -38,10 +38,6 @@
     return self;
 }
 
-- (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     Jump = NO;
@@ -92,9 +88,8 @@
 //移除事件
 -(void)removeVC{
     //移除定时器
-    [MouseTimer invalidate];
+    [MouseTimer setFireDate:[NSDate distantFuture]];
     [UIApplication sharedApplication].keyWindow.rootViewController = _oldVC;
-
     if (Jump) {
         //先把调用接口留好
         NSString* param = [_data_dic objectForKey:@"param"];//param ＝ bilibili://events/626 的时候无法获取活动网址
@@ -131,16 +126,15 @@
 -(void)loadDefaultSubviews{
     //默认启动图方式
     self.view.backgroundColor = ColorRGB(246, 246, 246);
-    //[[NSBundle mainBundle] pathForResource:@"bilibili_splash_iphone_bg" ofType:@"png"]
-    UIImageView *bgimageView = UIImageView.new;
     
-    [bgimageView setImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[@"bilibili_splash_iphone_bg" stringByAppendingString:@".png"]]]];
+    UIImageView *bgimageView = UIImageView.new;
+    [bgimageView setImage:[UIImage imageNamed: @"bilibili_splash_iphone_bg"]];
     bgimageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:bgimageView];
 
     UIImageView *imageView =  UIImageView.new;
     imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.image = [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"bilibili_splash_default.png"]];
+    imageView.image = [UIImage imageNamed:@"bilibili_splash_default"];
     imageView.center = self.view.center;
     [self.view addSubview:imageView];
 

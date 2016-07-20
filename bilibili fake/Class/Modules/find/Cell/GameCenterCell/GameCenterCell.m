@@ -98,9 +98,14 @@
     NSLog(@"%s", __FUNCTION__);
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[data_Dic objectForKey:@"cover"]] placeholderImage:NULL];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[data_Dic objectForKey:@"cover"]] placeholderImage:[UIImage imageNamed:@"UMS_url_image"]];
     // Configure the view for the selected state
   
 }

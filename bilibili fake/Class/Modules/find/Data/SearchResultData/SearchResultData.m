@@ -130,13 +130,12 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
     NSURLSession *session = [NSURLSession sharedSession];
     
-    __weak typeof(self) weakSelf = self;
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
         if (!error) {
             NSDictionary* rawData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             if ([[rawData objectForKey:@"code"] integerValue] == -3) {
                 //bilibili总是喜欢出这个bug
-                [weakSelf getPageinfo:successBlock];
+                [self getPageinfo:successBlock];
             }else if([[rawData objectForKey:@"code"] integerValue] == 0){
                 pageinfo_dic = [rawData objectForKey:@"top_tlist"];
                 tidList_arr = [rawData objectForKey:@"sub_tlist"];
@@ -153,7 +152,6 @@
             }
                 
         }
-        [session invalidateAndCancel];
     }] resume];
     //getPageinfo_successBlock = successBlock;
 }
@@ -172,23 +170,14 @@
     //查看是否没有结果
     
     //查看是否本地已经有请求过的数据了
-    BOOL isReturn = NO;
     if([search_type isEqualToString:@"bangumi"] ){
-        if(bangumiSearchResultData_arr.count)successBlock(bangumiSearchResultData_arr);
-        if(bangumiMAXCount==0)isReturn=YES;
+        if(bangumiSearchResultData_arr.count||bangumiMAXCount==0)return;
     }else if([search_type isEqualToString:@"special"] ){
-        if(specialSearchResultData_arr.count)successBlock(specialSearchResultData_arr);
-        if(specialMAXCount==0)isReturn=YES;
-        
+       if(specialSearchResultData_arr.count||specialMAXCount==0)return;
     }else if([search_type isEqualToString:@"upuser"] ){
-        if(upuserSearchResultData_arr.count)successBlock(upuserSearchResultData_arr);
-        if(upuserMAXCount==0)isReturn=YES;
+        if(upuserSearchResultData_arr.count||upuserMAXCount==0)return;
     }
     
-    if (isReturn) {
-        successBlock(nil);
-        return;
-    }
     
     //请求数据
     NSString* urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=%@&page=1&pagesize=30",Search_URL,_keyword,search_type];
@@ -196,15 +185,14 @@
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
     NSURLSession *session = [NSURLSession sharedSession];
-    
-    __weak typeof(self) weakSelf = self;
+   
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
         if (!error) {
             
             NSDictionary* rawData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             if ([[rawData objectForKey:@"code"] integerValue] == -3) {
                 //bilibili总是喜欢出这个bug
-                [weakSelf getNonVideoSearchResultData_arr:search_type Success:successBlock Error:errorBlock];
+                [self getNonVideoSearchResultData_arr:search_type Success:successBlock Error:errorBlock];
             }else if([[rawData objectForKey:@"code"] integerValue] == 0){
                 
                 //赋值数组
@@ -222,7 +210,6 @@
         }else{
             errorBlock(error);
         }
-        [session invalidateAndCancel];
     }]resume];
 }
 
@@ -238,7 +225,6 @@
     
     //查看是否本地已经有请求过的数据了
     NSMutableArray* outARR;
-    
     if([search_type isEqualToString:@"bangumi"] ){
        if(bangumiSearchResultData_arr.count>=bangumiMAXCount)return;
         outARR = bangumiSearchResultData_arr;
@@ -266,7 +252,6 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
     NSURLSession *session = [NSURLSession sharedSession];
     
-    __weak typeof(self) weakSelf = self;
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
         if (!error) {
             
@@ -274,7 +259,7 @@
             if ([[rawData objectForKey:@"code"] integerValue] == -3) {
                 //bilibili总是喜欢出这个bug
                 [nowPageCount setObject:@(count-1) forKey:key_str];
-                [weakSelf getMoreNonVideoSearchResultData_arr:search_type Success:successBlock];
+                [self getMoreNonVideoSearchResultData_arr:search_type Success:successBlock];
             }else if([[rawData objectForKey:@"code"] integerValue] == 0){
                 
                 //赋值数组
@@ -293,7 +278,6 @@
                
             }
         }
-        [session invalidateAndCancel];
     }]resume];
     
 }
@@ -306,10 +290,7 @@
  *  @param errorBlock   失败回调
  */
 -(void)getVideoSearchResultData_arr:(NSString* )order Tid_name:(NSString*)name Success:(void(^)(NSMutableArray* SearchResultData_arr, NSMutableArray* bangumiSearchResultData_arr))successBlock Error:(void(^)(NSError* error))errorBlock{
-    if (_keyword.length == 0) {
-         successBlock(nil,nil);
-        return;
-    }
+     if (_keyword.length == 0) return;
     NSString* order_value_str = [orderDIC objectForKey:order];
     NSString* tid_value_str = [tidsDIC objectForKey:name];
     //要获取的排序字典
@@ -350,14 +331,14 @@
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
     NSURLSession *session = [NSURLSession sharedSession];
-    __weak typeof(self) weakSelf = self;
+    
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
         if (!error) {
             
             NSDictionary* rawData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             if ([[rawData objectForKey:@"code"] integerValue] == -3) {
                 //bilibili总是喜欢出这个bug
-                [weakSelf getVideoSearchResultData_arr:order Tid_name:name Success:successBlock Error:errorBlock];
+                [self getVideoSearchResultData_arr:order Tid_name:name Success:successBlock Error:errorBlock];
                 
             }else if([[rawData objectForKey:@"code"] integerValue] == 0){
                 
@@ -382,7 +363,6 @@
         }else{
             errorBlock(error);
         }
-        [session invalidateAndCancel];
     }]resume];
 }
 /**
@@ -441,7 +421,7 @@
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
     NSURLSession *session = [NSURLSession sharedSession];
-    __weak typeof(self) weakSelf = self;
+    
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
         if (!error) {
             
@@ -449,7 +429,7 @@
             if ([[rawData objectForKey:@"code"] integerValue] == -3) {
                 //bilibili总是喜欢出这个bug
                 [nowPageCount setObject:@(count-1) forKey:key_str];
-                [weakSelf getMoreVideoSearchResultData_arr:order Tid_name:name Success:successBlock];
+                [self getMoreVideoSearchResultData_arr:order Tid_name:name Success:successBlock];
                
             }else if([[rawData objectForKey:@"code"] integerValue] == 0){
                 
@@ -476,7 +456,6 @@
         }else{
            [nowPageCount setObject:@(count-1) forKey:key_str];
         }
-        [session invalidateAndCancel];
     }]resume];
 }
 //--------------------------------------------------------------

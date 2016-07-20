@@ -11,13 +11,11 @@
 
 
 typedef void(^BLOCK)(NSInteger btnTag);
-@interface RowBotton ()
-@property(nonatomic, copy, readonly)BLOCK block;
-@end
+
 @implementation RowBotton{
     NSMutableArray<UIButton *> *_items;
     NSMutableArray<NSString *> *_titles;
-
+    BLOCK _block;
     RowBottonStyle _style;
     
     UIScrollView* _mainscr;
@@ -34,7 +32,7 @@ typedef void(^BLOCK)(NSInteger btnTag);
     self = [super init];
     if (self) {
         _font = [UIFont systemFontOfSize:14];
-        _block = [block copy];
+        _block = block;
         _style = style;
         _spacing = 0;
         self.backgroundColor = [UIColor whiteColor];
@@ -57,13 +55,8 @@ typedef void(^BLOCK)(NSInteger btnTag);
     return self;
 }
 
-- (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
-}
-
-
 - (void)setSelecteBlock:(void(^)(NSInteger btnTag))block{
-   _block = [block copy];
+    _block = block;
 }
 -(UIButton*)getSelected_button{
     return _items[_Selectedtag];
@@ -110,7 +103,8 @@ typedef void(^BLOCK)(NSInteger btnTag);
 -(void)btnAction:(id)sender{
     UIButton* botton = sender;
     [self setSelectedBotton:botton.tag];
-    if(_block) _block(botton.tag);
+    if(_block)
+    _block(botton.tag);
     
 }
 -(void)setSelectedBotton:(NSInteger)tag{

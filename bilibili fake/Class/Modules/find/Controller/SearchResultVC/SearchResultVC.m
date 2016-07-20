@@ -17,7 +17,6 @@
 #import "VideoCell.h"
 #import <Masonry.h>
 #import "SearchAnimateView.h"
-#import <UIImageView+WebCache.h>
 
 typedef NS_ENUM(NSUInteger, RefreshState) {
     RefreshStateNormal,//正常
@@ -54,7 +53,7 @@ struct tablePoint{
     UIImageView* _tableViewRefresh_animation;
     UIImageView* _tableViewRefresh_imageview;
     UILabel* _tableViewRefresh_label;
-    SearchAnimateView* _animateView;
+    
 
     SearchResultData* _searchResultData;
     
@@ -102,8 +101,6 @@ struct tablePoint{
 }
 
 - (void)dealloc {
-    [[SDImageCache sharedImageCache] clearDisk];
-    [[SDImageCache sharedImageCache] clearMemory];
     NSLog(@"%s", __FUNCTION__);
 }
 
@@ -161,59 +158,56 @@ struct tablePoint{
 
 -(void)loadActions{
     //取消按钮
-    __weak typeof(self) weakSelf = self;
     cancel_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        [weakSelf.navigationController popToRootViewControllerAnimated:NO];
-        [[NSNotificationCenter defaultCenter] removeObserver:weakSelf];
+        [self.navigationController popToRootViewControllerAnimated:NO];
         return [RACSignal empty];
     }];
     
     //分区按钮
-    //__block SearchResultVC *BlockSelf = self;
+    __block SearchResultVC *blockSelf = self;
     [rowbtn setSelecteBlock:^(NSInteger btnTag) {
         //隐藏筛选视图
-        if (btnTag)[weakSelf screen_view_hide];
+        if (btnTag&&isScreen) {
+            [blockSelf screen_view_hide];
+        }
         
-        [weakSelf SearchAndUPdata];
+        [blockSelf SearchAndUPdata];
+        
+        
     }];
     
     //筛选开关按钮
-    [screen_btn addTarget:self action:@selector(screen_btn_Action) forControlEvents:UIControlEventTouchUpInside];
+    screen_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        //筛选视图隐藏和显示
+        if (rowbtn.Selectedtag == 0){
+            if (isScreen) {
+                [self screen_view_hide];
+            }else{
+
+                screen_btn.tintColor = ColorRGB(252, 142, 175);
+                [screen_view mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.top.mas_equalTo(rowbtn.mas_bottom);
+                    make.left.right.mas_equalTo(self.view);
+                    make.height.equalTo(@70);
+                }];
+
+                isScreen = (!isScreen);
+            }
+        }
+        return [RACSignal empty];
+    }];
     
     [screen_rowbtn1 setSelecteBlock:^(NSInteger btnTag) {
-        [weakSelf SearchAndUPdata];
+        [blockSelf SearchAndUPdata];
     }];
     [screen_rowbtn2 setSelecteBlock:^(NSInteger btnTag) {
-        [weakSelf SearchAndUPdata];
+        [blockSelf SearchAndUPdata];
     }];
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setSearchKeyword:) name:@"setSearchKeyword" object:nil];
 }
-//筛选按钮
--(void)screen_btn_Action{
-    //筛选视图隐藏和显示
-    if (rowbtn.Selectedtag == 0){
-        if (isScreen) {
-            [self screen_view_hide];
-        }else{
-            
-            screen_btn.tintColor = ColorRGB(252, 142, 175);
-            [screen_view mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.top.mas_equalTo(rowbtn.mas_bottom);
-                make.left.right.mas_equalTo(self.view);
-                make.height.equalTo(@70);
-            }];
-            
-          isScreen = (!isScreen);
-        }
-    }
-
-}
-
 //筛选View隐藏
 -(void)screen_view_hide{
-    if (isScreen == NO) return;
-    
     screen_btn.tintColor = ColorRGB(100, 100, 100);
 
     [screen_view mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -236,8 +230,6 @@ struct tablePoint{
     _tableViewData_arr = [[NSMutableArray alloc] init];
     _tableViewData_bangumi_arr = [[NSMutableArray alloc] init];
     [_tableView reloadData];
-    //播放动画
-    [_animateView inSearch];
     
     //防止请求成功的时候用户已经改变筛选项了
     struct tablePoint oldTablePoint;
@@ -262,11 +254,6 @@ struct tablePoint{
             _tableViewData_arr = SearchResultData_arr;
             dispatch_async(dispatch_get_main_queue(), ^{
                 if(oldTablePoint.X==rowbtn.Selectedtag||oldTablePoint.x1==screen_rowbtn1.Selectedtag||oldTablePoint.x2==screen_rowbtn2.Selectedtag){
-                    if (_tableViewData_arr.count) {
-                        [_animateView hide];
-                    }else{
-                        [_animateView noResult];
-                    }
                     [_tableView reloadData];
                     if(completeBlock)completeBlock();
                 }
@@ -276,7 +263,6 @@ struct tablePoint{
             dispatch_async(dispatch_get_main_queue(), ^{
                 if(oldTablePoint.X==rowbtn.Selectedtag||oldTablePoint.x1==screen_rowbtn1.Selectedtag||oldTablePoint.x2==screen_rowbtn2.Selectedtag){
                     if(completeBlock)completeBlock();
-                    [_animateView eorro:[error code]];
                 }
             });
         }];
@@ -289,11 +275,6 @@ struct tablePoint{
             _tableViewData_bangumi_arr = bangumiSearchResultData_arr;
             dispatch_async(dispatch_get_main_queue(), ^{
                 if(oldTablePoint.X==rowbtn.Selectedtag||oldTablePoint.x1==screen_rowbtn1.Selectedtag||oldTablePoint.x2==screen_rowbtn2.Selectedtag){
-                    if (_tableViewData_arr.count) {
-                        [_animateView hide];
-                    }else{
-                        [_animateView noResult];
-                    }
                     [_tableView reloadData];
                     if(completeBlock)completeBlock();
                 }
@@ -303,7 +284,6 @@ struct tablePoint{
             dispatch_async(dispatch_get_main_queue(), ^{
                 if(oldTablePoint.X==rowbtn.Selectedtag||oldTablePoint.x1==screen_rowbtn1.Selectedtag||oldTablePoint.x2==screen_rowbtn2.Selectedtag){
                     if(completeBlock)completeBlock();
-                    [_animateView eorro:[error code]];
                 }
             });
         }];
@@ -395,31 +375,31 @@ struct tablePoint{
 
 - (void)settableViewRefreshState:(RefreshState)refreshState{
     _tableViewRefreshState = refreshState;
-    __block SearchResultVC *BlockSelf = self;
+    __block SearchResultVC *blockSelf = self;
     switch (refreshState) {
         case RefreshStateNormal:
             _tableViewRefresh_label.text = @"再拉，再拉就刷新给你看";
             [UIView animateWithDuration:0.2 animations:^{
-                BlockSelf->_tableViewRefresh_imageview.transform = CGAffineTransformRotate(BlockSelf->_tableViewRefresh_imageview.transform, M_PI);
+                blockSelf->_tableViewRefresh_imageview.transform = CGAffineTransformRotate(blockSelf->_tableViewRefresh_imageview.transform, M_PI);
             }];
             break;
         case RefreshStateLoading:
-            BlockSelf->_tableViewRefresh_label.text = @"正在刷新...";
-            [BlockSelf->_tableViewRefresh_animation startAnimating];
+            _tableViewRefresh_label.text = @"正在刷新...";
+            [_tableViewRefresh_animation startAnimating];
             
             [self SearchAndUPdata:^{
-                [BlockSelf settableViewRefreshState:RefreshStateNormal];
-                [BlockSelf->_tableViewRefresh_animation stopAnimating];
+                [blockSelf settableViewRefreshState:RefreshStateNormal];
+                [blockSelf->_tableViewRefresh_animation stopAnimating];
                 [UIView animateWithDuration:0.2 animations:^{
-                    BlockSelf->_tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+                    blockSelf->_tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
                 } completion:nil];
             }];
            
             break;
         case RefreshStatePulling:
-            BlockSelf->_tableViewRefresh_label.text = @"够了啦，松开人家嘛";
+            _tableViewRefresh_label.text = @"够了啦，松开人家嘛";
             [UIView animateWithDuration:0.2 animations:^{
-               BlockSelf->_tableViewRefresh_imageview.transform = CGAffineTransformRotate(BlockSelf->_tableViewRefresh_imageview.transform, M_PI);
+               blockSelf->_tableViewRefresh_imageview.transform = CGAffineTransformRotate(blockSelf->_tableViewRefresh_imageview.transform, M_PI);
             }];
             break;
         default:
@@ -580,18 +560,18 @@ struct tablePoint{
     [_tableView addSubview:_tableViewRefresh_imageview];
     
     _tableViewRefresh_animation = [UIImageView new];
-    _tableViewRefresh_animation.image = ImageWithName(@"common_pay_loading_1");
+    _tableViewRefresh_animation.image = [UIImage imageNamed:@"common_pay_loading_1"];
     _tableViewRefresh_animation.animationDuration = 2.0;//设置动画总时间
     _tableViewRefresh_animation.animationRepeatCount= -1; //设置重复次数，0表示不重复
     _tableViewRefresh_animation.animationImages=[NSArray arrayWithObjects:
-                      ImageWithName(@"common_pay_loading_1"),
-                      ImageWithName(@"common_pay_loading_2"),
-                      ImageWithName(@"common_pay_loading_3"),
-                      ImageWithName(@"common_pay_loading_4"),
-                      ImageWithName(@"common_pay_loading_5"),
-                      ImageWithName(@"common_pay_loading_6"),
-                      ImageWithName(@"common_pay_loading_7"),
-                      ImageWithName(@"common_pay_loading_8"),nil];
+                      [UIImage imageNamed:@"common_pay_loading_1"],
+                      [UIImage imageNamed:@"common_pay_loading_2"],
+                      [UIImage imageNamed:@"common_pay_loading_3"],
+                      [UIImage imageNamed:@"common_pay_loading_4"],
+                      [UIImage imageNamed:@"common_pay_loading_5"],
+                      [UIImage imageNamed:@"common_pay_loading_6"],
+                      [UIImage imageNamed:@"common_pay_loading_7"],
+                      [UIImage imageNamed:@"common_pay_loading_8"],nil];
     [_tableView addSubview:_tableViewRefresh_animation];
     
     
@@ -603,8 +583,8 @@ struct tablePoint{
     [_tableView addSubview:_tableViewRefresh_label];
     
     
-    _animateView = [[SearchAnimateView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 48)];
-    [_tableView addSubview:_animateView];
+    SearchAnimateView *animateView = [[SearchAnimateView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 48)];
+    [_tableView addSubview:animateView];
 
     // Layout
     
