@@ -25,4 +25,6 @@
 #define Font(size) [UIFont systemFontOfSize:size]
 
 
+#define ImageWithName(name)  [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[name stringByAppendingString:@".png"]]]
+
 #endif /* Macro_h */
