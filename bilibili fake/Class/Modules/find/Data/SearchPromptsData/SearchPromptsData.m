@@ -64,9 +64,14 @@ NSURLSessionDataTask* SearchPrompts_task;
           NSMutableArray* Prompts = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             block(Prompts);
         }
+        [session invalidateAndCancel];
     }];
+
     [SearchPrompts_task resume];
 
 }
 
++(void)clear{
+    SearchPrompts_task = nil;
+}
 @end

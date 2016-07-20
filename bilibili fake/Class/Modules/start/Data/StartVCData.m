@@ -17,6 +17,9 @@
     return [[[StartVCData alloc] init] getStartViewData];
 }
 
+- (void)dealloc {
+    NSLog(@"%s", __FUNCTION__);
+}
 
 -(NSMutableDictionary*)getStartViewData{
     //检查是否有启动图数据
@@ -95,8 +98,8 @@
             }
 
         }
-
-     
+    
+        //[session invalidateAndCancel];
    }] resume];
 
 }

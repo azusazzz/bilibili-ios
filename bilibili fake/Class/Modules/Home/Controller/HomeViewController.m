@@ -56,9 +56,15 @@
     [self loadSubviews];
     
     
+<<<<<<< Updated upstream
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:1656226] animated:YES];
     });
+=======
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:4708193] animated:YES];
+//    });
+>>>>>>> Stashed changes
     
     
     

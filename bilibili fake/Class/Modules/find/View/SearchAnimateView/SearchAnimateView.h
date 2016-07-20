@@ -13,4 +13,13 @@
 @property(nonatomic,strong)UIImageView* animateView;
 
 @property(nonatomic,strong)UILabel* label;
+
+-(void)inSearch;
+
+-(void)noResult;
+
+-(void)eorro:(NSInteger)code;
+
+-(void)hide;
+
 @end
