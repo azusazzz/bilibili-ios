@@ -9,7 +9,7 @@
 #import "VideoIntroView.h"
 #import <ReactiveCocoa.h>
 
-#import "VideoIntroHeaderView.h"
+
 
 #import "VideoIntroRelateCollectionViewCell.h"
 
@@ -20,7 +20,7 @@
     
 }
 
-@property (strong, nonatomic) VideoIntroHeaderView *headerView;
+
 
 @property (assign, nonatomic) CGFloat headerHeight;
 
@@ -112,6 +112,10 @@
 //- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
 //    return UIEdgeInsetsMake(5, 15, 5, 15);
 //}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    _onClickRelate ? _onClickRelate(indexPath.row) : NULL;
+}
 
 #pragma mark - get / set 
 

@@ -17,4 +17,6 @@
 
 @property (assign, nonatomic) NSInteger page;
 
+@property (strong, nonatomic) NSString *part;
+
 @end

@@ -49,6 +49,9 @@
 
 
 
+
+@property (assign, nonatomic) BOOL isGetVideoURLExecuting;
+
 /**
  *  解析出视频链接  
  *

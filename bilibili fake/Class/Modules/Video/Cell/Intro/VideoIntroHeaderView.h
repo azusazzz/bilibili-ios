@@ -10,6 +10,7 @@
 #import "VideoInfoEntity.h"
 
 #import "VideoAndStatInfoView.h"
+#import "VideoPagesView.h"
 #import "VideoOwnerInfoView.h"
 #import "VideoTagsView.h"
 
@@ -17,6 +18,8 @@
 @interface VideoIntroHeaderView : UIView
 
 @property (strong, nonatomic) VideoAndStatInfoView *videoAndStatView;
+
+@property (strong, nonatomic) VideoPagesView *pagesView;
 
 @property (strong, nonatomic) VideoOwnerInfoView *ownerView;
 

@@ -15,7 +15,6 @@
 {
     
     UIButton *_playButton;
-//    FXBlurView *_blurView;
 }
 
 
@@ -28,12 +27,7 @@
     if (self = [super init]) {
         self.backgroundColor = [UIColor whiteColor];
         
-        _backgroundView = [[SABlurImageView alloc] init];
-        _backgroundView.contentMode = UIViewContentModeScaleAspectFill;
-        [self addSubview:_backgroundView];
-        [_backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
-        }];
+        
         
         
         
@@ -55,12 +49,34 @@
 ////            _playButton.transform = CGAffineTransformMakeTranslation(<#CGFloat tx#>, <#CGFloat ty#>)
 //        }];
         
+        
     }
     return self;
 }
 
+
+
+- (void)playWithURL:(NSURL *)url {
+    
+//    [_player playWithURL:url];
+    
+}
+
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    _onClickPlay ? _onClickPlay() : NULL;
+}
+
 - (void)setupVideoInfo:(VideoInfoEntity *)videoInfo {
-//    [_backgroundView sd_setImageWithURL:[NSURL URLWithString:videoInfo.pic]];
+    
+    [_backgroundView removeFromSuperview];
+    
+    _backgroundView = [[SABlurImageView alloc] init];
+    _backgroundView.contentMode = UIViewContentModeScaleAspectFill;
+    [self insertSubview:_backgroundView belowSubview:_playButton];
+    [_backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
+    }];
     
     __weak typeof(self) weakself = self;
     [_backgroundView sd_setImageWithURL:[NSURL URLWithString:videoInfo.pic] placeholderImage:NULL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {

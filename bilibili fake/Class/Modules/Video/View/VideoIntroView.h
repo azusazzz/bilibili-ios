@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "VideoInfoEntity.h"
-
+#import "VideoIntroHeaderView.h"
 
 /**
  *  简介
@@ -18,5 +18,10 @@
 @property (weak, nonatomic) id<UIScrollViewDelegate> scrollViewDelegate;
 
 @property (strong, nonatomic) VideoInfoEntity *videoInfo;
+
+@property (strong, nonatomic) VideoIntroHeaderView *headerView;
+
+
+@property (strong, nonatomic) void (^onClickRelate)(NSInteger idx);
 
 @end

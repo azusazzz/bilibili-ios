@@ -19,6 +19,9 @@
         _videoAndStatView = [[VideoAndStatInfoView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 0)];
         [self addSubview:_videoAndStatView];
         
+        _pagesView = [[VideoPagesView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 0)];
+        [self addSubview:_pagesView];
+        
         _ownerView = [[VideoOwnerInfoView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 0)];
         [self addSubview:_ownerView];
         
@@ -34,7 +37,8 @@
             if (weakself.ownerView.y == maxY) {
                 return;
             }
-            weakself.ownerView.y = maxY;
+            weakself.pagesView.y = maxY;
+            weakself.ownerView.y = weakself.pagesView.maxY;
             weakself.tagsView.y = weakself.ownerView.maxY;
             weakself.height = weakself.tagsView.maxY;
         }];
@@ -47,7 +51,8 @@
 
 - (void)setupVideoInfo:(VideoInfoEntity *)videoInfo {
     
-    
+//    _pagesView.pages = videoInfo.pages;
+    [_pagesView setupPages:videoInfo.pages];
     [_ownerView setupFace:videoInfo.owner.face name:videoInfo.owner.name pubdate:videoInfo.pubdate];
     [_tagsView setupTags:videoInfo.tags];
     

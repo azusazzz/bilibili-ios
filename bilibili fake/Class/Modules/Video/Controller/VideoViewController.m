@@ -14,28 +14,44 @@
 #import "VideoCommentView.h"
 #import "VideoTabBar.h"
 
+#import "MediaPlayer.h"
+
+
 @interface VideoViewController ()
 <UIScrollViewDelegate, UIGestureRecognizerDelegate,
 UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
 {
-    NSInteger _aid;
+//    NSInteger _aid;
     
-    VideoModel *_model;
+//    VideoModel *_model;
     
-    VideoHeaderView *_headerView;
+//    VideoHeaderView *_headerView;
     
     VideoTabBar *_tabBar;
     
     
     
-    VideoIntroView *_introView;
     VideoCommentView *_commentView;
     
     BOOL _interactive;
     UIPercentDrivenInteractiveTransition *_interactionController;
+    
+    
 }
 
 @property (strong, nonatomic) UIScrollView *backgroundScrollView;
+
+@property (strong, nonatomic) VideoHeaderView *headerView;
+
+@property (strong, nonatomic) VideoIntroView *introView;
+
+
+@property (assign, nonatomic) NSInteger aid;
+
+@property (strong, nonatomic) VideoModel *model;
+
+@property (strong, nonatomic) VideoPageInfoEntity *currentPage;
+
 
 @end
 
@@ -64,15 +80,88 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     _interactionController = [[UIPercentDrivenInteractiveTransition alloc] init];
     
     
+    
+    [self loadData];
+    
+    
+    __weak typeof(self) weakself = self;
+    
+    
+    /**
+     *  点击分集   切换当前分集 并播放
+     *
+     */
+    [_introView.headerView.pagesView setOnClickPageItem:^(NSInteger idx) {
+        weakself.currentPage = weakself.model.videoInfo.pages[idx];
+        [weakself playVideo];
+    }];
+    
+    /**
+     *  点击头部  播放视频
+     */
+    [_headerView setOnClickPlay:^{
+        [weakself playVideo];
+    }];
+    
+    
+    /**
+     *  点击简介-视频相关
+     *
+     */
+    [_introView setOnClickRelate:^(NSInteger idx) {
+        weakself.aid = weakself.model.videoInfo.relates[idx].aid;
+        [weakself loadData];
+        [weakself.introView setContentOffset:CGPointZero animated:YES];
+    }];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.tabBarController.tabBar.hidden = YES;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle; {
+    return UIStatusBarStyleLightContent;
+}
+
+
+/**
+ *  播放视频
+ */
+- (void)playVideo {
+    __weak typeof(self) weakself = self;
+    HUDLoading(@"正在解析视频地址");
+    [self.model getVideoURLWithCid:self.currentPage.cid completionBlock:^(NSURL *videoURL) {
+        HUDLoadingHidden();
+        if (videoURL) {
+            [MediaPlayer playerWithURL:videoURL title:weakself.currentPage.part inViewController:weakself];
+        }
+        else {
+            HUDFailure(@"获取视频地址失败");
+        }
+    }];
+}
+
+
+- (void)loadData {
     _model = [[VideoModel alloc] initWithAid:_aid];
     
     [_model getVideoInfoWithSuccess:^{
         //
+        if (_model.videoInfo.pages.count) {
+            _currentPage = _model.videoInfo.pages[0];
+        }
+        else {
+            HUDFailure(@"视频信息不存在");
+        }
         [_headerView setupVideoInfo:_model.videoInfo];
         _introView.videoInfo = _model.videoInfo;
         [_tabBar setTitle:[NSString stringWithFormat:@"评论(%ld)", _model.videoInfo.stat.reply] forIndex:1];
     } failure:^(NSString *errorMsg) {
         //
+        HUDFailure(@"网络请求出错");
     }];
     
     [_model getVideoCommentWithSuccess:^{
@@ -80,17 +169,13 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
         _commentView.commentList = _model.comment.commentList;
     } failure:^(NSString *errorMsg) {
         //
+        HUDFailure(@"网络请求出错");
     }];
-    
-    
-//    [_model getVideoURLWithCid:8791454 /*6282404*/ completionBlock:^(NSURL *videoURL) {
-//        
-//        NSLog(@"%@", videoURL.absoluteString);
-//        
-//    }];
-    
 }
 
+
+
+#pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == _backgroundScrollView) {
@@ -127,19 +212,8 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    self.tabBarController.tabBar.hidden = YES;
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle; {
-    return UIStatusBarStyleLightContent;
-}
-
 - (void)handlePangesture:(UIPanGestureRecognizer *)panGesture {
     CGFloat translationX = [panGesture translationInView:_backgroundScrollView].x;
-    NSLog(@"%lf", translationX);
     CGFloat progress = translationX / self.view.width;
     switch (panGesture.state) {
         case UIGestureRecognizerStateBegan:

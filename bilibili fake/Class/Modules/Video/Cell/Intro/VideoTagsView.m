@@ -8,7 +8,11 @@
 
 #import "VideoTagsView.h"
 
-
+@interface VideoTagsView ()
+{
+    NSArray<UIButton *> *_tagButtons;
+}
+@end
 
 
 @implementation VideoTagsView
@@ -40,12 +44,17 @@
 
 - (void)setupTags:(NSArray<NSString *> *)tags {
     
+    [_tagButtons enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperview];
+    }];
+    _tagButtons = NULL;
+    
     if (tags.count == 0) {
         self.height = 15+15+15;
         return;
     }
     
-
+    NSMutableArray *tagButtons = [NSMutableArray arrayWithCapacity:tags.count];
     
     CGRect rect = CGRectMake(0, 15+15+15, 0, TagHeight);
     for (int i=0; i<tags.count; i++) {
@@ -76,9 +85,9 @@
         [tagButton addTarget:self action:@selector(onClickTag:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:tagButton];
         
-        
+        [tagButtons addObject:tagButton];
     }
-    
+    _tagButtons = [tagButtons copy];
     
 //    [self mas_updateConstraints:^(MASConstraintMaker *make) {
 //        make.height.offset = rect.origin.y + rect.size.height + 15;

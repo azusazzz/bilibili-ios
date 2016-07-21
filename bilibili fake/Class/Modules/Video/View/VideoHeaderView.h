@@ -8,14 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "VideoInfoEntity.h"
+//#import "MediaPlayer.h"
 //#import <FXBlurView.h>
 
 @interface VideoHeaderView : UIView
 
 @property (strong, nonatomic) SABlurImageView *backgroundView;
 
-//@property (strong, nonatomic) FXBlurView *blurView;
+//@property (strong, nonatomic) MediaPlayer *player;
+
+@property (strong, nonatomic) void (^onClickPlay)(void);
 
 - (void)setupVideoInfo:(VideoInfoEntity *)videoInfo;
+
+- (void)playWithURL:(NSURL *)url;
 
 @end

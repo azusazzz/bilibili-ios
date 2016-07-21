@@ -28,7 +28,6 @@
 #define ImageWithName(name)  [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[name stringByAppendingString:@".png"]]]
 
 
-
 #pragma mark - Defult UI
 
 #define CRed ColorRGB(219,92,92)

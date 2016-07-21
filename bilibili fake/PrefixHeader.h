@@ -20,5 +20,7 @@
 
 #import "bilibili_fake-Swift.h"
 
+#import "Function.h"
+
 
 #endif /* PrefixHeader_h */
