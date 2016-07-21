@@ -169,12 +169,13 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     _headerView = [[VideoHeaderView alloc] init];
     [self.view addSubview:_headerView];
     
-    _tabBar = [[VideoTabBar alloc] init];
+    _tabBar = [[VideoTabBar alloc] initWithTitles:@[@"简介", @"评论"]];
     [self.view addSubview:_tabBar];
     
     _backgroundScrollView = [[UIScrollView alloc] init];
     _backgroundScrollView.bounces = NO;
     _backgroundScrollView.pagingEnabled = YES;
+    _backgroundScrollView.delegate = self;
     [self.view addSubview:_backgroundScrollView];
     
     _introView = [[VideoIntroView alloc] init];

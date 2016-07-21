@@ -51,7 +51,6 @@ UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFl
     
     
     [[HomeAnimationRequest request] startWithDelegate:self];
-//    [[HomeAnimationRequest requestWithDelegate:self] start];
     
     return self;
 }

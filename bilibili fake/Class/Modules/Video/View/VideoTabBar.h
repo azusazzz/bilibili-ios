@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TabBar.h"
 
 @interface VideoTabBar : UIView
+
+@property (assign, nonatomic) CGFloat contentOffset;
+
+- (instancetype)initWithTitles:(NSArray<NSString *> *)titles;
 
 @end

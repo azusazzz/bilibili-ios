@@ -37,6 +37,13 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
 
 @property (weak, nonatomic) id<TabBarDelegate> delegate;
 
+
+@property (copy, nonatomic) void (^onClickItem)(NSInteger index);
+
+
+@property (assign, nonatomic) UIEdgeInsets edgeInsets;
+
+
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles;
 
 - (void)setTitle:(NSString *)title forIndex:(NSInteger)index;

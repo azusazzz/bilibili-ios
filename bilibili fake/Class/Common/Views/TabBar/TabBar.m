@@ -34,6 +34,7 @@
             }
             button.titleLabel.font = Font(14);
             button.tag = idx;
+            [button addTarget:self action:@selector(onClickItem:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
             [_items addObject:button];
         }];
@@ -46,25 +47,31 @@
     return self;
 }
 
+- (void)onClickItem:(UIButton *)button {
+    _onClickItem ? _onClickItem(button.tag) : NULL;
+}
+
 - (NSInteger)currentIndex; {
     return _index;
 }
 
 - (void)setContentOffset:(CGFloat)contentOffset; {
     
-    _bottomLineView.x = self.width * contentOffset;
-    NSInteger index = (NSInteger)(_bottomLineView.x / _itemWidth);
     
     
-    CGFloat bottomOffsetX = _bottomLineView.x - index * _itemWidth;
+    _bottomLineView.x =  _edgeInsets.left + (self.width-_edgeInsets.left-_edgeInsets.right) * contentOffset;
+    NSInteger index = (NSInteger)((_bottomLineView.x-_edgeInsets.left) / self.itemWidth);
+    
+    
+    CGFloat bottomOffsetX = _bottomLineView.x - _edgeInsets.left - index * self.itemWidth;
     if (bottomOffsetX > 0) {
-        CGFloat progress = bottomOffsetX / _itemWidth;
+        CGFloat progress = bottomOffsetX / self.itemWidth;
         [_items[index] setTitleColor:ColorRGB(219 - 19*progress, 92 + 118*progress, 92 + 118*progress) forState:UIControlStateNormal];
         [_items[index+1] setTitleColor:ColorRGB(200+19*progress, 200-118*progress, 200-118*progress) forState:UIControlStateNormal];
         
     }
     else if (bottomOffsetX < 0) {
-        CGFloat progress = 1 - (bottomOffsetX) / _itemWidth;
+        CGFloat progress = 1 - (bottomOffsetX) / self.itemWidth;
         [_items[_index] setTitleColor:ColorRGB(219 - 19*progress, 92 + 118*progress, 92 + 118*progress) forState:UIControlStateNormal];
         [_items[index] setTitleColor:ColorRGB(200+19*progress, 200-118*progress, 200-118*progress) forState:UIControlStateNormal];
     }
@@ -91,14 +98,18 @@
 
 - (void)layoutSubviews; {
     
-    CGFloat itemWidth = _itemWidth;
+    CGFloat itemWidth = (self.bounds.size.width - _edgeInsets.left - _edgeInsets.right) / _items.count;
     [_items enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.frame = CGRectMake(itemWidth * idx, 0, itemWidth, self.bounds.size.height);
+        obj.frame = CGRectMake(_edgeInsets.left + itemWidth * idx, _edgeInsets.top, itemWidth, self.bounds.size.height-_edgeInsets.top-_edgeInsets.bottom);
     }];
     
-    _bottomLineView.frame = CGRectMake(_items[_index].x, self.height-2, _items[_index].width, 2);
+    _bottomLineView.frame = CGRectMake(_items[_index].x, self.height-2 - _edgeInsets.bottom, _items[_index].width, 2);
     
     [super layoutSubviews];
+}
+
+- (CGFloat)itemWidth {
+    return (self.bounds.size.width - _edgeInsets.left - _edgeInsets.right) / _items.count;
 }
 
 @end

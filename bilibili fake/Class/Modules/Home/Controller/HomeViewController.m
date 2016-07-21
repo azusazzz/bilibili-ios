@@ -29,12 +29,14 @@
 {
     HomeHeaderView *_headerView;
     
-    UIScrollView *_scrollView;
+    
     
     HomeLiveView *_liveView;
     HomeAnimationView *_animationView;
     HomeChannelView *_channelView;
 }
+
+@property (strong, nonatomic) UIScrollView *scrollView;
 
 @end
 
@@ -56,11 +58,6 @@
     [self loadSubviews];
     
     
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:5384127] animated:YES];
-    });
-
     
     
     
@@ -81,7 +78,6 @@
 - (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
     ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;
     [tabbar handlePanGesture:panGestureRecognizer];
-    NSLog(@"Home:%lf", [panGestureRecognizer locationInView:_scrollView].x);
 }
 
 
@@ -97,13 +93,11 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer; {
     if (_scrollView.contentOffset.x + _scrollView.frame.size.width < _scrollView.contentSize.width) {
-        NSLog(@"111");
         return NO;
     }
     UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)gestureRecognizer;
     CGFloat translationX = [panGestureRecognizer translationInView:_scrollView].x;
     if (translationX >= 0) {
-        NSLog(@"222");
         return NO;
     }
     return YES;
@@ -117,7 +111,12 @@
     
     // Header
     _headerView = [[HomeHeaderView alloc] initWithTitles:@[@"直播", @"番剧", @"分区"]];
-    _headerView.itemWidth = SSize.width / 3;
+    _headerView.edgeInsets = UIEdgeInsetsMake(0, 40, 0, 40);
+//    _headerView.itemWidth = SSize.width / 3;
+    __weak typeof(self) weakself = self;
+    [_headerView setOnClickItem:^(NSInteger idx) {
+        [weakself.scrollView setContentOffset:CGPointMake(weakself.scrollView.width * idx, 0) animated:YES];
+    }];
     [self.view addSubview:_headerView];
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);

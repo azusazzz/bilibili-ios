@@ -20,7 +20,7 @@
 <UITabBarControllerDelegate>
 {
     BOOL _interactive;
-    
+    NSInteger _lastIndex;
 }
 
 @property (strong, nonatomic) UIPercentDrivenInteractiveTransition *interactionController;
@@ -70,10 +70,16 @@
     static NSTimeInterval beganTime;
     
     
+    
+    
+    
+    NSLog(@"%ld", self.selectedIndex);
+    
     switch (panGesture.state) {
         case UIGestureRecognizerStateBegan:
             beganTime = CACurrentMediaTime();
             _interactive = YES;
+            _lastIndex = self.selectedIndex;
             if (translationX < 0) {
                 self.selectedIndex += 1;
             }
@@ -82,6 +88,12 @@
             }
             break;
         case UIGestureRecognizerStateChanged:
+            if (_lastIndex > self.selectedIndex && translationX < 0) {
+                progress = 0;
+            }
+            else if (_lastIndex < self.selectedIndex && translationX > 0) {
+                progress = 0;
+            }
             [self.interactionController updateInteractiveTransition:progress];
             break;
         case UIGestureRecognizerStateCancelled:
@@ -97,6 +109,7 @@
                 [self.interactionController cancelInteractiveTransition];
             }
             _interactive = NO;
+            _lastIndex = -1;
             break;
         }
         default:
