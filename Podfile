@@ -16,7 +16,7 @@ target 'bilibili fake' do
 
     pod 'ReactiveCocoa'
     
-    pod 'FXBlurView'
+#    pod 'FXBlurView'
 
 end
 

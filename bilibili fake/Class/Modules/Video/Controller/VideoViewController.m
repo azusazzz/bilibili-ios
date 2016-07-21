@@ -99,8 +99,23 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
 //        make.top.offset = -offset;
 //    }];
     
-    CGFloat blurRadius = offset / (_headerView.height / 100 * 2);
-    _headerView.blurView.blurRadius = blurRadius;
+    CGFloat blurRadius = offset / (_headerView.height);
+    NSLog(@"%lf", blurRadius);
+    [_headerView.backgroundView blur:blurRadius * 2];
+//    _headerView.blurView.blurRadius = blurRadius;
+    
+    
+    
+//    
+//    _headerView.backgroundView.image = [_headerView.backgroundView.image blurredImageWithRadius:blurRadius iterations:1 tintColor:[UIColor whiteColor]];
+    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        
+//        UIImage *blurredImage = [_headerView.backgroundView.image blurredImageWithRadius:blurRadius iterations:1 tintColor:[UIColor whiteColor]];
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+//            _headerView.backgroundView.image = blurredImage;
+//        });
+//    });
     
     
     [_tabBar mas_updateConstraints:^(MASConstraintMaker *make) {

@@ -18,5 +18,7 @@
 
 #import "UIView+Frame.h"
 
+#import "bilibili_fake-Swift.h"
+
 
 #endif /* PrefixHeader_h */

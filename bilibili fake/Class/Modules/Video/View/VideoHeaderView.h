@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "VideoInfoEntity.h"
-#import <FXBlurView.h>
+//#import <FXBlurView.h>
 
 @interface VideoHeaderView : UIView
 
-@property (strong, nonatomic) FXBlurView *blurView;
+@property (strong, nonatomic) SABlurImageView *backgroundView;
+
+//@property (strong, nonatomic) FXBlurView *blurView;
 
 - (void)setupVideoInfo:(VideoInfoEntity *)videoInfo;
 

@@ -14,6 +14,9 @@
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
 		6E18E19C1D3E388D003D35C1 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E19B1D3E388D003D35C1 /* BaseRequest.m */; };
 		6E48364E1D407FA6004AD1A4 /* VideoTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E48364D1D407FA6004AD1A4 /* VideoTabBar.m */; };
+		6E4836531D409617004AD1A4 /* CATransition+Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836501D409617004AD1A4 /* CATransition+Closure.swift */; };
+		6E4836541D409617004AD1A4 /* SABlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836511D409617004AD1A4 /* SABlurImageView.swift */; };
+		6E4836551D409617004AD1A4 /* UIImage+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836521D409617004AD1A4 /* UIImage+BlurEffect.swift */; };
 		6E575CA41D40713F007BCD73 /* VideoAndStatInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575C7D1D40713F007BCD73 /* VideoAndStatInfoView.m */; };
 		6E575CA51D40713F007BCD73 /* VideoIntroHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575C7F1D40713F007BCD73 /* VideoIntroHeaderView.m */; };
 		6E575CA61D40713F007BCD73 /* VideoIntroRelateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575C811D40713F007BCD73 /* VideoIntroRelateCollectionViewCell.m */; };
@@ -177,6 +180,9 @@
 		6E18E19B1D3E388D003D35C1 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
 		6E48364C1D407FA6004AD1A4 /* VideoTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTabBar.h; sourceTree = "<group>"; };
 		6E48364D1D407FA6004AD1A4 /* VideoTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTabBar.m; sourceTree = "<group>"; };
+		6E4836501D409617004AD1A4 /* CATransition+Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransition+Closure.swift"; sourceTree = "<group>"; };
+		6E4836511D409617004AD1A4 /* SABlurImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SABlurImageView.swift; sourceTree = "<group>"; };
+		6E4836521D409617004AD1A4 /* UIImage+BlurEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+BlurEffect.swift"; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6E575C7C1D40713F007BCD73 /* VideoAndStatInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoAndStatInfoView.h; sourceTree = "<group>"; };
 		6E575C7D1D40713F007BCD73 /* VideoAndStatInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoAndStatInfoView.m; sourceTree = "<group>"; };
@@ -423,6 +429,7 @@
 		6E1535DE1D1A87FA0053A846 /* Librarys */ = {
 			isa = PBXGroup;
 			children = (
+				6E48364F1D409617004AD1A4 /* SABlurImageView */,
 				6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */,
 				FCFA053F1D2FAFE0004A1742 /* RippleTableViewController */,
 			);
@@ -492,6 +499,16 @@
 				6E71ECD81D1C1DEA00F4B917 /* HomeChannelView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6E48364F1D409617004AD1A4 /* SABlurImageView */ = {
+			isa = PBXGroup;
+			children = (
+				6E4836501D409617004AD1A4 /* CATransition+Closure.swift */,
+				6E4836511D409617004AD1A4 /* SABlurImageView.swift */,
+				6E4836521D409617004AD1A4 /* UIImage+BlurEffect.swift */,
+			);
+			path = SABlurImageView;
 			sourceTree = "<group>";
 		};
 		6E575C791D40713F007BCD73 /* Video */ = {
@@ -1558,11 +1575,13 @@
 				FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
 				6E026FEA1D3E29460038C2A0 /* RequestCache.m in Sources */,
+				6E4836541D409617004AD1A4 /* SABlurImageView.swift in Sources */,
 				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
 				FCB5C9CE1D33AF41000215B3 /* GameCenterCell.m in Sources */,
 				6E575CA61D40713F007BCD73 /* VideoIntroRelateCollectionViewCell.m in Sources */,
 				6ED65D5E1D38B86E00D264F8 /* HomeAnimationCategoryCollectionViewCell.m in Sources */,
 				6E575CAD1D40713F007BCD73 /* VideoPageInfoEntity.m in Sources */,
+				6E4836531D409617004AD1A4 /* CATransition+Closure.swift in Sources */,
 				6E575CB21D40713F007BCD73 /* VideoCommentView.m in Sources */,
 				6E48364E1D407FA6004AD1A4 /* VideoTabBar.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
@@ -1587,6 +1606,7 @@
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
 				6E575CB41D40713F007BCD73 /* VideoIntroView.m in Sources */,
 				6E76344E1D3F563A002CFA63 /* UIViewController+GetViewController.m in Sources */,
+				6E4836551D409617004AD1A4 /* UIImage+BlurEffect.swift in Sources */,
 				6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */,
 				6E575CAF1D40713F007BCD73 /* VideoModel.m in Sources */,
 				6E575CB11D40713F007BCD73 /* VideoRequest.m in Sources */,
