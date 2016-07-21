@@ -138,10 +138,15 @@
     _getVideoURLMode2_CompletionBlock = completionBlock;
     [NSURLProtocol registerClass:[VideoURLProtocol class]];
     
-    __weak typeof(self) weakself = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [weakself webViewVideoURL:NULL];
-    });
+//    __weak typeof(self) weakself = self;
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        
+//        [weakself webViewVideoURL:NULL];
+//    });
+    
+//    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(webViewVideoURL:) object:NULL];
+    [self performSelector:@selector(webViewVideoURL:) withObject:NULL afterDelay:20];
+    
 //    [weakself webViewVideoURL:NULL];
     _webView = [[UIWebView alloc] init];
     NSString *urlString = [NSString stringWithFormat:@"http://www.bilibili.com/mobile/video/av%ld.html#page=%ld", _videoInfo.aid, page];
@@ -152,8 +157,14 @@
 
 - (void)webViewVideoURL:(NSURL *)videoURL {
     
+    /**
+     *  取消定时方法
+     */
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(webViewVideoURL:) object:NULL];
     _webView = NULL;
     if (!videoURL) {
+        [NSURLProtocol unregisterClass:[VideoURLProtocol class]];
+        _getVideoURLMode2_CompletionBlock(NULL);
         _getVideoURLMode2_CompletionBlock = NULL;
         return;
     }

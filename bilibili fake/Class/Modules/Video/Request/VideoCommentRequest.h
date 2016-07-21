@@ -12,4 +12,9 @@
 
 + (instancetype)requestWithAid:(NSInteger)aid;
 
+
+@property (assign, nonatomic) BOOL hasNext;
+
+- (void)nextPage;
+
 @end
