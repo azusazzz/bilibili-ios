@@ -20,7 +20,7 @@
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     if (self = [super initWithFrame:CGRectZero collectionViewLayout:flowLayout]) {
-        self.backgroundColor = [UIColor grayColor];
+        self.backgroundColor = ColorWhite(247);
         [self registerClass:[VideoCommentCollectionViewCell class] forCellWithReuseIdentifier:@"VideoComment"];
         self.delegate = self;
         self.dataSource = self;
@@ -33,25 +33,44 @@
     [_scrollViewDelegate scrollViewDidScroll:scrollView];
 }
 
+- (void)setCommentList:(NSArray<NSArray<VideoCommentItemEntity *> *> *)commentList {
+    _commentList = commentList;
+    [self reloadData];
+}
+
 #pragma mark - UICollectionViewDataSource
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return _commentList.count;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return _commentList[section].count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [collectionView dequeueReusableCellWithReuseIdentifier:@"VideoComment" forIndexPath:indexPath];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(VideoCommentCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setupCommentInfo:_commentList[indexPath.section][indexPath.row]];
+}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(SSize.width-30, 100);
+    return [VideoCommentCollectionViewCell sizeForComment:_commentList[indexPath.section][indexPath.row]];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 15;
+    return 10;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 5;
+    return 0;
 }
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(SSize.width, 10);
+}
+
+
 @end

@@ -78,7 +78,7 @@
         [_picImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.offset = 10;
             make.top.offset = 0;
-            make.bottom.offset = 0;
+            make.bottom.offset = -10;
             make.width.equalTo(_picImageView.mas_height).multipliedBy(120.0/90.0);
         }];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -104,6 +104,17 @@
             make.right.offset = -10;
             make.width.offset = 80;
             make.height.offset = 11;
+        }];
+        
+        
+        UIView *bottomLine = [[UIView alloc] init];
+        bottomLine.backgroundColor = ColorWhite(200);
+        [self addSubview:bottomLine];
+        [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset = 10;
+            make.right.offset = -10;
+            make.bottom.offset = 0;
+            make.height.offset = 0.5;
         }];
         
     }

@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "TabBar.h"
 
-@interface VideoTabBar : UIView
+@interface VideoTabBar : TabBar
 
-@property (assign, nonatomic) CGFloat contentOffset;
+//@property (assign, nonatomic) CGFloat contentOffset;
 
-- (instancetype)initWithTitles:(NSArray<NSString *> *)titles;
+//- (instancetype)initWithTitles:(NSArray<NSString *> *)titles;
 
 @end

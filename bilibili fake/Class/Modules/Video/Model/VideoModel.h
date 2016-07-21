@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "VideoInfoEntity.h"
+#import "VideoCommentEntity.h"
 
 //#import "VideoAndStatInfoCellEntity.h"
 //#import "VideoOwnerInfoCellEntity.h"
@@ -18,8 +20,13 @@
 
 @property (strong, nonatomic) VideoInfoEntity *videoInfo;
 
+@property (strong, nonatomic) VideoCommentEntity *comment;
+
 
 @property (strong, nonatomic) NSArray *introDataSource;
+
+
+- (instancetype)initWithAid:(NSInteger)aid;
 
 
 /**
@@ -29,7 +36,18 @@
  *  @param success <#success description#>
  *  @param failure <#failure description#>
  */
-- (void)getVideoInfoWithAid:(NSInteger)aid success:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+- (void)getVideoInfoWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
+
+/**
+ *  获取评论信息
+ *
+ *  @param success <#success description#>
+ *  @param failure <#failure description#>
+ */
+- (void)getVideoCommentWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
+
 
 /**
  *  解析出视频链接  

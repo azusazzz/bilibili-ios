@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VideoCommentItemEntity.h"
 
 @interface VideoCommentCollectionViewCell : UICollectionViewCell
+
++ (CGSize)sizeForComment:(VideoCommentItemEntity *)comment;
+
+- (void)setupCommentInfo:(VideoCommentItemEntity *)comment;
 
 @end

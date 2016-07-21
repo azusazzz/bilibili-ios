@@ -26,7 +26,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     
     VideoTabBar *_tabBar;
     
-    UIScrollView *_backgroundScrollView;
+    
     
     VideoIntroView *_introView;
     VideoCommentView *_commentView;
@@ -34,6 +34,8 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     BOOL _interactive;
     UIPercentDrivenInteractiveTransition *_interactionController;
 }
+
+@property (strong, nonatomic) UIScrollView *backgroundScrollView;
 
 @end
 
@@ -62,12 +64,20 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     _interactionController = [[UIPercentDrivenInteractiveTransition alloc] init];
     
     
-    _model = [[VideoModel alloc] init];
+    _model = [[VideoModel alloc] initWithAid:_aid];
     
-    [_model getVideoInfoWithAid:_aid success:^{
+    [_model getVideoInfoWithSuccess:^{
+        //
         [_headerView setupVideoInfo:_model.videoInfo];
-//        _introView.introDataSource = _model.introDataSource;
         _introView.videoInfo = _model.videoInfo;
+        [_tabBar setTitle:[NSString stringWithFormat:@"评论(%ld)", _model.videoInfo.stat.reply] forIndex:1];
+    } failure:^(NSString *errorMsg) {
+        //
+    }];
+    
+    [_model getVideoCommentWithSuccess:^{
+        //
+        _commentView.comment = _model.comment;
     } failure:^(NSString *errorMsg) {
         //
     }];
@@ -83,34 +93,38 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat offset = scrollView.contentOffset.y / 2;
-    if (offset < 0) {
-        offset = 0;
+    if (scrollView == _backgroundScrollView) {
+        _tabBar.contentOffset = scrollView.contentOffset.x / scrollView.contentSize.width;
     }
-    if (_headerView.height - offset < 20+44) {
-        offset = _headerView.height - 20-44;
+    else {
+        CGFloat offset = scrollView.contentOffset.y / 2;
+        if (offset < 0) {
+            offset = 0;
+        }
+        if (_headerView.height - offset < 20+44) {
+            offset = _headerView.height - 20-44;
+        }
+        
+        if (-offset != _headerView.transform.ty) {
+            _headerView.transform = CGAffineTransformMakeTranslation(0, -offset);
+        }
+        
+        //    [_headerView mas_updateConstraints:^(MASConstraintMaker *make) {
+        //        make.top.offset = -offset;
+        //    }];
+        
+        
+        if (_headerView.backgroundView.image) {
+            CGFloat blurRadius = offset / (_headerView.height);
+            [_headerView.backgroundView blur:blurRadius + 0.6];
+        }
+        
+        
+        [_tabBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_headerView.mas_bottom).offset = -offset;
+        }];
+        
     }
-    
-    if (-offset != _headerView.transform.ty) {
-        _headerView.transform = CGAffineTransformMakeTranslation(0, -offset);
-    }
-    
-//    [_headerView mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.top.offset = -offset;
-//    }];
-    
-    
-    if (_headerView.backgroundView.image) {
-        CGFloat blurRadius = offset / (_headerView.height);
-        [_headerView.backgroundView blur:blurRadius + 0.6];
-    }
-    
-    
-    [_tabBar mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_headerView.mas_bottom).offset = -offset;
-    }];
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -170,6 +184,11 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     [self.view addSubview:_headerView];
     
     _tabBar = [[VideoTabBar alloc] initWithTitles:@[@"简介", @"评论"]];
+    _tabBar.edgeInsets = UIEdgeInsetsMake(0, (self.view.width-180)/2, 0, (self.view.width-180)/2);
+    __weak typeof(self) weakself = self;
+    [_tabBar setOnClickItem:^(NSInteger idx) {
+        [weakself.backgroundScrollView setContentOffset:CGPointMake(weakself.backgroundScrollView.width * idx, 0) animated:YES];
+    }];
     [self.view addSubview:_tabBar];
     
     _backgroundScrollView = [[UIScrollView alloc] init];

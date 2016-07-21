@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VideoCommentEntity.h"
 
 /**
  *  评论
@@ -14,5 +15,7 @@
 @interface VideoCommentView : UICollectionView
 
 @property (weak, nonatomic) id<UIScrollViewDelegate> scrollViewDelegate;
+
+@property (strong, nonatomic, readonly) NSArray<NSArray<VideoCommentItemEntity *> *> *commentList;
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import "VideoModel.h"
+
 #import "VideoRequest.h"
+#import "VideoCommentRequest.h"
+
 #import <AFNetworking.h>
 #import "VideoURLProtocol.h"
 #import "VideoURLProtocol.h"
@@ -21,19 +24,28 @@
     void (^_getVideoURLMode2_CompletionBlock)(NSURL *videoURL);
     UIWebView *_webView;
     
+    NSInteger _aid;
+    
 }
 
 @end
 
 @implementation VideoModel
 
+- (instancetype)initWithAid:(NSInteger)aid {
+    if (self = [super init]) {
+        _aid = aid;
+    }
+    return self;
+}
+
 - (void)dealloc {
     NSLog(@"%s", __FUNCTION__);
 }
 
-- (void)getVideoInfoWithAid:(NSInteger)aid success:(void (^)(void))success failure:(void (^)(NSString *))failure {
+- (void)getVideoInfoWithSuccess:(void (^)(void))success failure:(void (^)(NSString *))failure {
     
-    [[VideoRequest requestWithAid:aid] startWithCompletionBlock:^(BaseRequest *request) {
+    [[VideoRequest requestWithAid:_aid] startWithCompletionBlock:^(BaseRequest *request) {
         
         if (request.responseCode == 0 && request.responseData) {
             _videoInfo = [VideoInfoEntity mj_objectWithKeyValues:request.responseData];
@@ -62,6 +74,23 @@
         }
         else {
             failure(request.errorMsg);
+        }
+        
+    }];
+    
+}
+
+
+- (void)getVideoCommentWithSuccess:(void (^)(void))success failure:(void (^)(NSString *))failure {
+    
+    [[VideoCommentRequest requestWithAid:_aid] startWithCompletionBlock:^(__kindof Request *request) {
+        
+        if (request.responseObject) {
+            _comment = [VideoCommentEntity mj_objectWithKeyValues:request.responseObject];
+            success();
+        }
+        else {
+            failure(@"Error");
         }
         
     }];

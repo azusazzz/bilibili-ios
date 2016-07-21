@@ -21,6 +21,7 @@
 
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles; {
     if (self = [super init]) {
+        self.backgroundColor = [UIColor whiteColor];
         _items = [NSMutableArray arrayWithCapacity:titles.count];
         
         [titles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

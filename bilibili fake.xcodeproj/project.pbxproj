@@ -17,6 +17,9 @@
 		6E4836531D409617004AD1A4 /* CATransition+Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836501D409617004AD1A4 /* CATransition+Closure.swift */; };
 		6E4836541D409617004AD1A4 /* SABlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836511D409617004AD1A4 /* SABlurImageView.swift */; };
 		6E4836551D409617004AD1A4 /* UIImage+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836521D409617004AD1A4 /* UIImage+BlurEffect.swift */; };
+		6E48365B1D40C12E004AD1A4 /* VideoCommentEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E48365A1D40C12E004AD1A4 /* VideoCommentEntity.m */; };
+		6E48365E1D40C51E004AD1A4 /* VideoCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E48365D1D40C51E004AD1A4 /* VideoCommentRequest.m */; };
+		6E4836611D40CB18004AD1A4 /* VideoCommentItemEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836601D40CB18004AD1A4 /* VideoCommentItemEntity.m */; };
 		6E575CA41D40713F007BCD73 /* VideoAndStatInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575C7D1D40713F007BCD73 /* VideoAndStatInfoView.m */; };
 		6E575CA51D40713F007BCD73 /* VideoIntroHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575C7F1D40713F007BCD73 /* VideoIntroHeaderView.m */; };
 		6E575CA61D40713F007BCD73 /* VideoIntroRelateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575C811D40713F007BCD73 /* VideoIntroRelateCollectionViewCell.m */; };
@@ -183,6 +186,12 @@
 		6E4836501D409617004AD1A4 /* CATransition+Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransition+Closure.swift"; sourceTree = "<group>"; };
 		6E4836511D409617004AD1A4 /* SABlurImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SABlurImageView.swift; sourceTree = "<group>"; };
 		6E4836521D409617004AD1A4 /* UIImage+BlurEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+BlurEffect.swift"; sourceTree = "<group>"; };
+		6E4836591D40C12E004AD1A4 /* VideoCommentEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCommentEntity.h; sourceTree = "<group>"; };
+		6E48365A1D40C12E004AD1A4 /* VideoCommentEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCommentEntity.m; sourceTree = "<group>"; };
+		6E48365C1D40C51E004AD1A4 /* VideoCommentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCommentRequest.h; sourceTree = "<group>"; };
+		6E48365D1D40C51E004AD1A4 /* VideoCommentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCommentRequest.m; sourceTree = "<group>"; };
+		6E48365F1D40CB18004AD1A4 /* VideoCommentItemEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCommentItemEntity.h; sourceTree = "<group>"; };
+		6E4836601D40CB18004AD1A4 /* VideoCommentItemEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCommentItemEntity.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6E575C7C1D40713F007BCD73 /* VideoAndStatInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoAndStatInfoView.h; sourceTree = "<group>"; };
 		6E575C7D1D40713F007BCD73 /* VideoAndStatInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoAndStatInfoView.m; sourceTree = "<group>"; };
@@ -572,6 +581,10 @@
 				6E575C911D40713F007BCD73 /* VideoPageInfoEntity.m */,
 				6E575C921D40713F007BCD73 /* VideoStatInfoEntity.h */,
 				6E575C931D40713F007BCD73 /* VideoStatInfoEntity.m */,
+				6E4836591D40C12E004AD1A4 /* VideoCommentEntity.h */,
+				6E48365A1D40C12E004AD1A4 /* VideoCommentEntity.m */,
+				6E48365F1D40CB18004AD1A4 /* VideoCommentItemEntity.h */,
+				6E4836601D40CB18004AD1A4 /* VideoCommentItemEntity.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -599,6 +612,8 @@
 			children = (
 				6E575C9B1D40713F007BCD73 /* VideoRequest.h */,
 				6E575C9C1D40713F007BCD73 /* VideoRequest.m */,
+				6E48365C1D40C51E004AD1A4 /* VideoCommentRequest.h */,
+				6E48365D1D40C51E004AD1A4 /* VideoCommentRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -606,14 +621,14 @@
 		6E575C9D1D40713F007BCD73 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6E575C9E1D40713F007BCD73 /* VideoCommentView.h */,
-				6E575C9F1D40713F007BCD73 /* VideoCommentView.m */,
 				6E575CA01D40713F007BCD73 /* VideoHeaderView.h */,
 				6E575CA11D40713F007BCD73 /* VideoHeaderView.m */,
-				6E575CA21D40713F007BCD73 /* VideoIntroView.h */,
-				6E575CA31D40713F007BCD73 /* VideoIntroView.m */,
 				6E48364C1D407FA6004AD1A4 /* VideoTabBar.h */,
 				6E48364D1D407FA6004AD1A4 /* VideoTabBar.m */,
+				6E575CA21D40713F007BCD73 /* VideoIntroView.h */,
+				6E575CA31D40713F007BCD73 /* VideoIntroView.m */,
+				6E575C9E1D40713F007BCD73 /* VideoCommentView.h */,
+				6E575C9F1D40713F007BCD73 /* VideoCommentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1580,6 +1595,7 @@
 				FCB5C9CE1D33AF41000215B3 /* GameCenterCell.m in Sources */,
 				6E575CA61D40713F007BCD73 /* VideoIntroRelateCollectionViewCell.m in Sources */,
 				6ED65D5E1D38B86E00D264F8 /* HomeAnimationCategoryCollectionViewCell.m in Sources */,
+				6E48365E1D40C51E004AD1A4 /* VideoCommentRequest.m in Sources */,
 				6E575CAD1D40713F007BCD73 /* VideoPageInfoEntity.m in Sources */,
 				6E4836531D409617004AD1A4 /* CATransition+Closure.swift in Sources */,
 				6E575CB21D40713F007BCD73 /* VideoCommentView.m in Sources */,
@@ -1612,6 +1628,7 @@
 				6E575CB11D40713F007BCD73 /* VideoRequest.m in Sources */,
 				FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
+				6E4836611D40CB18004AD1A4 /* VideoCommentItemEntity.m in Sources */,
 				6E575CA81D40713F007BCD73 /* VideoTagsView.m in Sources */,
 				6ED65D5B1D38B71900D264F8 /* HomeAnimationCategoryEntity.m in Sources */,
 				6E18E19C1D3E388D003D35C1 /* BaseRequest.m in Sources */,
@@ -1622,6 +1639,7 @@
 				6E575CAB1D40713F007BCD73 /* VideoInfoEntity.m in Sources */,
 				FC66E7601D3E2D7A00F28B90 /* StartVCData.m in Sources */,
 				FC66E75F1D3E2D7A00F28B90 /* StartViewController.m in Sources */,
+				6E48365B1D40C12E004AD1A4 /* VideoCommentEntity.m in Sources */,
 				FCB5C9A71D333886000215B3 /* SearchResultData.m in Sources */,
 				6E575CB31D40713F007BCD73 /* VideoHeaderView.m in Sources */,
 				FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */,

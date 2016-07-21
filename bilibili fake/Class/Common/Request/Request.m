@@ -149,7 +149,7 @@ NSString * MD5(NSString *str) {
 
 - (void)dynamicURLStringWithCallback:(void (^)(NSString *URLString, id parameters))callback;
 {
-    if ([self.URLString rangeOfString:@"%%"].length <= 0) {
+    if ([self.URLString rangeOfString:@"##"].length <= 0) {
         callback? callback(self.URLString, self.parameters) : NULL;
         return;
     }
@@ -170,7 +170,7 @@ NSString * MD5(NSString *str) {
     NSInteger start = -1;
     
     while (YES) {
-        range = [self.URLString rangeOfString:@"%%" options:NSCaseInsensitiveSearch range:range];
+        range = [self.URLString rangeOfString:@"##" options:NSCaseInsensitiveSearch range:range];
         if (range.length > 0) {
             if (start == -1) {
                 start = range.location + range.length;
@@ -198,7 +198,7 @@ NSString * MD5(NSString *str) {
     for (NSString *key in parameters.allKeys) {
         for (NSString *name in parameterNames) {
             if ([key isEqualToString:name]) {
-                URLString = [URLString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%%%%%@%%%%", name] withString:[NSString stringWithFormat:@"%@", [parameters objectForKey:key]]];
+                URLString = [URLString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"##%@##", name] withString:[NSString stringWithFormat:@"%@", [parameters objectForKey:key]]];
                 [mutableParameters removeObjectForKey:key];
             }
         }
