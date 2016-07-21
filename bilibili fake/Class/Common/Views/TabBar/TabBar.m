@@ -26,7 +26,12 @@
         [titles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
             [button setTitle:obj forState:UIControlStateNormal];
-            [button setTitleColor:ColorRGB(219, 92, 92) forState:UIControlStateNormal];
+            if (idx == _index) {
+                [button setTitleColor:ColorRGB(219, 92, 92) forState:UIControlStateNormal];
+            }
+            else {
+                [button setTitleColor:ColorWhite(200) forState:UIControlStateNormal];
+            }
             button.titleLabel.font = Font(14);
             button.tag = idx;
             [self addSubview:button];
@@ -46,7 +51,32 @@
 }
 
 - (void)setContentOffset:(CGFloat)contentOffset; {
+    
     _bottomLineView.x = self.width * contentOffset;
+    NSInteger index = (NSInteger)(_bottomLineView.x / _itemWidth);
+    
+    
+    CGFloat bottomOffsetX = _bottomLineView.x - index * _itemWidth;
+    if (bottomOffsetX > 0) {
+        CGFloat progress = bottomOffsetX / _itemWidth;
+        [_items[index] setTitleColor:ColorRGB(219 - 19*progress, 92 + 118*progress, 92 + 118*progress) forState:UIControlStateNormal];
+        [_items[index+1] setTitleColor:ColorRGB(200+19*progress, 200-118*progress, 200-118*progress) forState:UIControlStateNormal];
+        
+    }
+    else if (bottomOffsetX < 0) {
+        CGFloat progress = 1 - (bottomOffsetX) / _itemWidth;
+        [_items[_index] setTitleColor:ColorRGB(219 - 19*progress, 92 + 118*progress, 92 + 118*progress) forState:UIControlStateNormal];
+        [_items[index] setTitleColor:ColorRGB(200+19*progress, 200-118*progress, 200-118*progress) forState:UIControlStateNormal];
+    }
+    else {
+        if (_index != index) {
+            [_items[_index] setTitleColor:ColorWhite(200) forState:UIControlStateNormal];
+            [_items[index] setTitleColor:ColorRGB(219, 92, 92) forState:UIControlStateNormal];
+            _index = index;
+        }
+    }
+    
+    
 }
 
 - (void)setTitle:(NSString *)title forIndex:(NSInteger)index; {
@@ -61,7 +91,7 @@
 
 - (void)layoutSubviews; {
     
-    CGFloat itemWidth = self.bounds.size.width / _items.count;
+    CGFloat itemWidth = _itemWidth;
     [_items enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.frame = CGRectMake(itemWidth * idx, 0, itemWidth, self.bounds.size.height);
     }];

@@ -68,7 +68,7 @@
 
 - (void)viewWillAppear:(BOOL)animated; {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    self.tabBarController.tabBar.hidden = YES;
+    self.tabBarController.tabBar.hidden = NO;
     [super viewWillAppear:animated];
 }
 
@@ -117,6 +117,7 @@
     
     // Header
     _headerView = [[HomeHeaderView alloc] initWithTitles:@[@"直播", @"番剧", @"分区"]];
+    _headerView.itemWidth = SSize.width / 3;
     [self.view addSubview:_headerView];
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);

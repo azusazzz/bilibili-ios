@@ -31,26 +31,10 @@
         _backgroundView = [[SABlurImageView alloc] init];
         _backgroundView.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:_backgroundView];
-//        [_backgroundView configrationForBlurAnimation:100];
         [_backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);
         }];
         
-        
-//        _blurView = [[FXBlurView alloc] init];
-//        _blurView.tintColor = [UIColor whiteColor];
-//        [UIView animateWithDuration:0.2 animations:^{
-//            _blurView.blurRadius = 0;
-//        }];
-//        _blurView.dynamic = NO;
-        
-//        [self addSubview:_blurView];
-//        [_blurView mas_makeConstraints:^(MASConstraintMaker *make) {
-////            make.width.offset = 120;
-////            make.height.offset = 120;
-////            make.center.equalTo(self);
-//            make.edges.equalTo(self);
-//        }];
         
         
         _playButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -65,13 +49,10 @@
         
 //        __weak typeof(self) weakself = self;
 //        [RACObserve(self, transform) subscribeNext:^(id x) {
+////            CGFloat targetX = weakself.width / 2 - 55;
+////            CGFloat targetOffsetX = targetX - _playButton.x;
 //            
-//            
-////            NSLog(@"%@", x);
-//            
-//            
-//            
-//            
+////            _playButton.transform = CGAffineTransformMakeTranslation(<#CGFloat tx#>, <#CGFloat ty#>)
 //        }];
         
     }
@@ -84,6 +65,7 @@
     __weak typeof(self) weakself = self;
     [_backgroundView sd_setImageWithURL:[NSURL URLWithString:videoInfo.pic] placeholderImage:NULL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [weakself.backgroundView configrationForBlurAnimation:100];
+        [weakself.backgroundView blur:0.6];
     }];
 }
 

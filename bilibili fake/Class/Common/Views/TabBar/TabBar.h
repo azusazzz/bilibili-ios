@@ -24,6 +24,8 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
 
 @interface TabBar : UIView
 
+@property (assign, nonatomic) CGFloat itemWidth;
+
 @property (assign, nonatomic, readonly) NSInteger currentIndex;
 
 @property (assign, nonatomic) TabBarStyle style;
