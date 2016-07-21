@@ -374,7 +374,7 @@ struct tablePoint{
         
     }
     //下拉顶部刷新
-    else if(scrollView.contentOffset.y < -120){
+    if(scrollView.contentOffset.y < -120){
         if(_tableViewRefreshState == RefreshStateNormal){//小于临界值（在触发点以下），如果状态是正常就转为下拉刷新，如果正在刷新或者已经是下拉刷新则不变
             [self settableViewRefreshState:RefreshStatePulling];
         }

@@ -10,6 +10,9 @@
 #import "Macro.h"
 #import "GameCenterCell.h"
 #import <UIImageView+WebCache.h>
+#import "GameCentreData.h"
+
+
 @interface GameCentreVC ()
 
 @end
@@ -28,7 +31,7 @@
 - (void)dealloc {
     GameData_Arr  = nil;
     [[SDImageCache sharedImageCache] clearDisk];
-    [[SDImageCache sharedImageCache] clearMemory];//可有可无
+    [[SDImageCache sharedImageCache] clearMemory];
     NSLog(@"%s", __FUNCTION__);
 }
 
@@ -71,10 +74,10 @@
 
 //获取游戏数据
 -(void)getGameData{
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"游戏中心假数据" ofType:@"json"];
-    NSDictionary* dataDic =  [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:NSJSONReadingMutableContainers error:nil];
-    GameData_Arr = [dataDic objectForKey:@"items"];
-    [self.tableView reloadData];
+    [[GameCentreData share] getGamesInfo:^(NSArray *GamesInfo) {
+        GameData_Arr = GamesInfo;
+        [self.tableView reloadData];
+    }];
 }
 
 //返回

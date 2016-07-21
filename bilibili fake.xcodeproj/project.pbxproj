@@ -60,6 +60,9 @@
 		6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AD1D2BDE9400D1BC9E /* HomeAnimationView.m */; };
 		FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0745521D2CB7B9000DFBA6 /* ReadRQCodeVC.m */; };
 		FC1CBAE01D3F551900D8295C /* SearchAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1CBADF1D3F551900D8295C /* SearchAnimateView.m */; };
+		FC4703FC1D4078D8009F0B62 /* VideoRangTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4703FB1D4078D8009F0B62 /* VideoRangTableView.m */; };
+		FC4704001D4078DF009F0B62 /* GameCentreData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4703FF1D4078DF009F0B62 /* GameCentreData.m */; };
+		FC4704041D4078EA009F0B62 /* RankOriginalorAllVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4704031D4078EA009F0B62 /* RankOriginalorAllVC.m */; };
 		FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F61D28378D000C3F01 /* FindViewController.m */; };
 		FC4D35F91D28378D000C3F01 /* FindViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC4D35F71D28378D000C3F01 /* FindViewController.plist */; };
 		FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D36001D283F47000C3F01 /* GameCentreVC.m */; };
@@ -270,6 +273,12 @@
 		FC0745521D2CB7B9000DFBA6 /* ReadRQCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ReadRQ\U0010CodeVC.m"; path = "ReadRQ\U0010Code/ReadRQ\U0010CodeVC.m"; sourceTree = "<group>"; };
 		FC1CBADE1D3F551900D8295C /* SearchAnimateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAnimateView.h; sourceTree = "<group>"; };
 		FC1CBADF1D3F551900D8295C /* SearchAnimateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAnimateView.m; sourceTree = "<group>"; };
+		FC4703FA1D4078D8009F0B62 /* VideoRangTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRangTableView.h; sourceTree = "<group>"; };
+		FC4703FB1D4078D8009F0B62 /* VideoRangTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRangTableView.m; sourceTree = "<group>"; };
+		FC4703FE1D4078DF009F0B62 /* GameCentreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCentreData.h; sourceTree = "<group>"; };
+		FC4703FF1D4078DF009F0B62 /* GameCentreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCentreData.m; sourceTree = "<group>"; };
+		FC4704021D4078EA009F0B62 /* RankOriginalorAllVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankOriginalorAllVC.h; sourceTree = "<group>"; };
+		FC4704031D4078EA009F0B62 /* RankOriginalorAllVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankOriginalorAllVC.m; sourceTree = "<group>"; };
 		FC4D35F51D28378D000C3F01 /* FindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
 		FC4D35F61D28378D000C3F01 /* FindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
 		FC4D35F71D28378D000C3F01 /* FindViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FindViewController.plist; sourceTree = "<group>"; };
@@ -870,6 +879,33 @@
 			path = SearchAnimateView;
 			sourceTree = "<group>";
 		};
+		FC4703F91D4078D8009F0B62 /* VideoRangTableView */ = {
+			isa = PBXGroup;
+			children = (
+				FC4703FA1D4078D8009F0B62 /* VideoRangTableView.h */,
+				FC4703FB1D4078D8009F0B62 /* VideoRangTableView.m */,
+			);
+			path = VideoRangTableView;
+			sourceTree = "<group>";
+		};
+		FC4703FD1D4078DF009F0B62 /* GameCentreData */ = {
+			isa = PBXGroup;
+			children = (
+				FC4703FE1D4078DF009F0B62 /* GameCentreData.h */,
+				FC4703FF1D4078DF009F0B62 /* GameCentreData.m */,
+			);
+			path = GameCentreData;
+			sourceTree = "<group>";
+		};
+		FC4704011D4078EA009F0B62 /* RankOriginalorAllVC */ = {
+			isa = PBXGroup;
+			children = (
+				FC4704021D4078EA009F0B62 /* RankOriginalorAllVC.h */,
+				FC4704031D4078EA009F0B62 /* RankOriginalorAllVC.m */,
+			);
+			path = RankOriginalorAllVC;
+			sourceTree = "<group>";
+		};
 		FC4D35EA1D27D27C000C3F01 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -885,6 +921,7 @@
 		FC4D35F01D27F5FC000C3F01 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				FC4703FD1D4078DF009F0B62 /* GameCentreData */,
 				FCB5C9A81D3338AE000215B3 /* SearchPromptsData */,
 				FCB5C9A01D333886000215B3 /* FindViewData */,
 				FCB5C9A31D333886000215B3 /* SearchResultData */,
@@ -1224,6 +1261,7 @@
 		FCD80DC31D22BF70009CDEC3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FC4704011D4078EA009F0B62 /* RankOriginalorAllVC */,
 				FC792C281D2E9C6300762831 /* SearchPromptsVC */,
 				FC792C1F1D2E9B5300762831 /* SearchResultVC */,
 				FC4D35F41D28378D000C3F01 /* FindViewController */,
@@ -1237,6 +1275,7 @@
 		FCEDE0751D2919900032569A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FC4703F91D4078D8009F0B62 /* VideoRangTableView */,
 				FC1CBADD1D3F550200D8295C /* SearchAnimateView */,
 			);
 			name = View;
@@ -1499,6 +1538,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC4704041D4078EA009F0B62 /* RankOriginalorAllVC.m in Sources */,
 				FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */,
 				FC1CBAE01D3F551900D8295C /* SearchAnimateView.m in Sources */,
 				FC6F48921D363B1A00047EEA /* VideoCell.m in Sources */,
@@ -1507,6 +1547,7 @@
 				FC6F488B1D363AEB00047EEA /* NonVideoCell.m in Sources */,
 				6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */,
 				6ED65D641D38D55D00D264F8 /* HomeAnimationCategoryItemCollectionViewCell.m in Sources */,
+				FC4704001D4078DF009F0B62 /* GameCentreData.m in Sources */,
 				FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */,
 				FCB5C9CD1D33AF41000215B3 /* FindViewCell.m in Sources */,
 				FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */,
@@ -1561,6 +1602,7 @@
 				6E575CA41D40713F007BCD73 /* VideoAndStatInfoView.m in Sources */,
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
 				6E575CB01D40713F007BCD73 /* VideoURLProtocol.m in Sources */,
+				FC4703FC1D4078D8009F0B62 /* VideoRangTableView.m in Sources */,
 				6E575CAE1D40713F007BCD73 /* VideoStatInfoEntity.m in Sources */,
 				6E71ECD91D1C1DEA00F4B917 /* HomeChannelView.m in Sources */,
 				6E71ECE11D1C203D00F4B917 /* HomeChannelEntity.m in Sources */,
