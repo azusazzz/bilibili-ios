@@ -10,4 +10,6 @@
 
 @interface VideoRangTableView : UITableView
 
+-(instancetype)initWithTitle:(NSString*)title;
+
 @end

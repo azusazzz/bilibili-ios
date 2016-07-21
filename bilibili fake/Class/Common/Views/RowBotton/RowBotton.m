@@ -37,7 +37,7 @@ typedef void(^BLOCK)(NSInteger btnTag);
         _block = [block copy];
         _style = style;
         _spacing = 0;
-        self.backgroundColor = [UIColor whiteColor];
+//        self.backgroundColor = [UIColor whiteColor];
         _Selectedtag = -1;
         
         _mainscr = [[UIScrollView alloc] init];
@@ -62,11 +62,19 @@ typedef void(^BLOCK)(NSInteger btnTag);
 }
 
 
-- (void)setSelecteBlock:(void(^)(NSInteger btnTag))block{
-   _block = [block copy];
-}
+
+
+#pragma ----------------------------------
+
 -(UIButton*)getSelected_button{
     return _items[_Selectedtag];
+}
+
+
+#pragma ----------------------------------
+
+- (void)setSelecteBlock:(void(^)(NSInteger btnTag))block{
+    _block = [block copy];
 }
 /**
  *  设置间距
@@ -75,6 +83,14 @@ typedef void(^BLOCK)(NSInteger btnTag);
     _spacing = spacing;
     [self layoutSubviews];
 }
+
+- (void)setFont:(UIFont*)font{
+    _font = font;
+    [self setTitles:_titles];
+    [self layoutSubviews];
+}
+
+
 //根据标题重新设置按钮数组
 - (void)setTitles:(NSMutableArray<NSString *> *)titles{
     if(_items){
@@ -91,7 +107,7 @@ typedef void(^BLOCK)(NSInteger btnTag);
     {
         UIButton* btn = [[UIButton alloc] init];
         [btn setTitle:_titles[i] forState:UIControlStateNormal];
-        [btn.titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [btn.titleLabel setFont:_font];
         [btn setTitleColor:ColorRGB(100, 100, 100) forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = i;
@@ -106,6 +122,11 @@ typedef void(^BLOCK)(NSInteger btnTag);
 }
 
 
+
+
+
+
+#pragma ----------------------------------
 //按钮点击事件处理
 -(void)btnAction:(id)sender{
     UIButton* botton = sender;
@@ -141,7 +162,7 @@ typedef void(^BLOCK)(NSInteger btnTag);
             _Selectedtag = tag;
             botton = _items[_Selectedtag];
             [botton setTitleColor:SelectedbgView.backgroundColor forState:UIControlStateNormal];
-            SelectedbgView.frame = CGRectMake(botton.frame.origin.x+_spacing, self.frame.size.height - 2, botton.frame.size.width, 4);
+            SelectedbgView.frame = CGRectMake(botton.frame.origin.x-_spacing/2, self.frame.size.height - 2, botton.frame.size.width+_spacing, 4);
             
         }else if(_style == RowBottonStyle2){
             
@@ -165,6 +186,7 @@ typedef void(^BLOCK)(NSInteger btnTag);
 }
 
 
+#pragma ----------------------------------
 
 //大小改变时重新计算坐标
 - (void )layoutSubviews{

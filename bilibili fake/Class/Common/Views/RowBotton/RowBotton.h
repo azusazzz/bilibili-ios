@@ -68,7 +68,9 @@ typedef NS_ENUM(NSInteger, RowBottonStyle) {
  *  @param tag tag
  */
 -(void)setSelectedBotton:(NSInteger)tag;
-//- (void)setFont:(UIFont*)font;
+
+
+- (void)setFont:(UIFont*)font;
 
 //- (void)setStyle:(RowBottonStyle)style;
 

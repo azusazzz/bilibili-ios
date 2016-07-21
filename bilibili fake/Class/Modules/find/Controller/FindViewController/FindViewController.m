@@ -18,7 +18,7 @@
 #import "ScrollTabBarController.h"
 #import "SearchResultVC.h"
 #import "SearchPromptsVC.h"
-
+#import "RankOriginalorAllVC.h"
 
 #define FinViewCell_Height 50
 @interface FindViewController ()
@@ -180,9 +180,15 @@ typedef enum : NSUInteger {
     NSString* title = [dic objectForKey:@"title"];
     if ([title isEqualToString:@"游戏中心"]) {
         GameCentreVC* gamevc = [[GameCentreVC alloc] init] ;
-        
-        [self.navigationController pushViewController:gamevc animated:YES];
+        [self.navigationController pushViewController:gamevc animated:NO];
+    }else if([title isEqualToString:@"原创排行榜"]){
+        RankOriginalorAllVC* gamevc = [[RankOriginalorAllVC alloc] initWithType:RankOriginal];
+        [self.navigationController pushViewController:gamevc animated:NO];
+    }else if([title isEqualToString:@"全区排行榜"]){
+        RankOriginalorAllVC* gamevc = [[RankOriginalorAllVC alloc] initWithType:RankAll];
+        [self.navigationController pushViewController:gamevc animated:NO];
     }
+    
 
 }
 
