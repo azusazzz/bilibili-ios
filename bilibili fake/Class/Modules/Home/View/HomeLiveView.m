@@ -38,10 +38,10 @@
         
         
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.offset = 150;
-            make.height.offset = 30;
+            make.width.offset = 200;
+            make.height.offset = 40;
             make.centerX.equalTo(self);
-            make.top.offset = 200;
+            make.top.offset = 150;
         }];
         
         [pushButton mas_makeConstraints:^(MASConstraintMaker *make) {
