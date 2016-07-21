@@ -77,7 +77,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     
     [_model getVideoCommentWithSuccess:^{
         //
-        _commentView.comment = _model.comment;
+        _commentView.commentList = _model.comment.commentList;
     } failure:^(NSString *errorMsg) {
         //
     }];

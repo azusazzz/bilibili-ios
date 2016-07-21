@@ -11,6 +11,8 @@
 
 @interface VideoCommentCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) UIView *topLine;
+
 + (CGSize)sizeForComment:(VideoCommentItemEntity *)comment;
 
 - (void)setupCommentInfo:(VideoCommentItemEntity *)comment;

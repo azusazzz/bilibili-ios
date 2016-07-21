@@ -32,7 +32,7 @@
 
 @property (assign, nonatomic) NSInteger reply_count;
 
-@property (assign, nonatomic) NSInteger face;
+@property (strong, nonatomic) NSString *face;
 
 @property (assign, nonatomic) NSInteger rank;
 

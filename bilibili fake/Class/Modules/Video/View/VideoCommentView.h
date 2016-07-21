@@ -16,6 +16,6 @@
 
 @property (weak, nonatomic) id<UIScrollViewDelegate> scrollViewDelegate;
 
-@property (strong, nonatomic, readonly) NSArray<NSArray<VideoCommentItemEntity *> *> *commentList;
+@property (strong, nonatomic) NSArray<NSArray<VideoCommentItemEntity *> *> *commentList;
 
 @end

@@ -20,6 +20,7 @@
 		6E48365B1D40C12E004AD1A4 /* VideoCommentEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E48365A1D40C12E004AD1A4 /* VideoCommentEntity.m */; };
 		6E48365E1D40C51E004AD1A4 /* VideoCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E48365D1D40C51E004AD1A4 /* VideoCommentRequest.m */; };
 		6E4836611D40CB18004AD1A4 /* VideoCommentItemEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836601D40CB18004AD1A4 /* VideoCommentItemEntity.m */; };
+		6E4836651D40E45A004AD1A4 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836641D40E45A004AD1A4 /* NSString+Size.m */; };
 		6E575CA41D40713F007BCD73 /* VideoAndStatInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575C7D1D40713F007BCD73 /* VideoAndStatInfoView.m */; };
 		6E575CA51D40713F007BCD73 /* VideoIntroHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575C7F1D40713F007BCD73 /* VideoIntroHeaderView.m */; };
 		6E575CA61D40713F007BCD73 /* VideoIntroRelateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575C811D40713F007BCD73 /* VideoIntroRelateCollectionViewCell.m */; };
@@ -192,6 +193,8 @@
 		6E48365D1D40C51E004AD1A4 /* VideoCommentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCommentRequest.m; sourceTree = "<group>"; };
 		6E48365F1D40CB18004AD1A4 /* VideoCommentItemEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCommentItemEntity.h; sourceTree = "<group>"; };
 		6E4836601D40CB18004AD1A4 /* VideoCommentItemEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCommentItemEntity.m; sourceTree = "<group>"; };
+		6E4836631D40E45A004AD1A4 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
+		6E4836641D40E45A004AD1A4 /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6E575C7C1D40713F007BCD73 /* VideoAndStatInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoAndStatInfoView.h; sourceTree = "<group>"; };
 		6E575C7D1D40713F007BCD73 /* VideoAndStatInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoAndStatInfoView.m; sourceTree = "<group>"; };
@@ -456,6 +459,7 @@
 		6E1535E11D1A94A40053A846 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				6E4836621D40E429004AD1A4 /* NSString */,
 				6E76344B1D3F55DC002CFA63 /* UIViewController */,
 				FC80C7301D377C2700D30E23 /* Label */,
 				6EFFD4A81D2BD6C500D1BC9E /* View */,
@@ -518,6 +522,15 @@
 				6E4836521D409617004AD1A4 /* UIImage+BlurEffect.swift */,
 			);
 			path = SABlurImageView;
+			sourceTree = "<group>";
+		};
+		6E4836621D40E429004AD1A4 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				6E4836631D40E45A004AD1A4 /* NSString+Size.h */,
+				6E4836641D40E45A004AD1A4 /* NSString+Size.m */,
+			);
+			path = NSString;
 			sourceTree = "<group>";
 		};
 		6E575C791D40713F007BCD73 /* Video */ = {
@@ -1600,6 +1613,7 @@
 				6E4836531D409617004AD1A4 /* CATransition+Closure.swift in Sources */,
 				6E575CB21D40713F007BCD73 /* VideoCommentView.m in Sources */,
 				6E48364E1D407FA6004AD1A4 /* VideoTabBar.m in Sources */,
+				6E4836651D40E45A004AD1A4 /* NSString+Size.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
 				6E026FE91D3E29460038C2A0 /* Request.m in Sources */,
 				FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */,

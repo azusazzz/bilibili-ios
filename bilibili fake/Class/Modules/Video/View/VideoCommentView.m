@@ -8,6 +8,7 @@
 
 #import "VideoCommentView.h"
 #import "VideoCommentCollectionViewCell.h"
+#import "NSString+Size.h"
 
 @interface VideoCommentView ()
 <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -22,6 +23,7 @@
     if (self = [super initWithFrame:CGRectZero collectionViewLayout:flowLayout]) {
         self.backgroundColor = ColorWhite(247);
         [self registerClass:[VideoCommentCollectionViewCell class] forCellWithReuseIdentifier:@"VideoComment"];
+        [self registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"MoreComment"];
         self.delegate = self;
         self.dataSource = self;
         self.alwaysBounceVertical = YES;
@@ -54,6 +56,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(VideoCommentCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     [cell setupCommentInfo:_commentList[indexPath.section][indexPath.row]];
+    cell.topLine.hidden = indexPath.row == 0;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -61,7 +64,7 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 10;
+    return 0;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
@@ -69,7 +72,49 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(SSize.width, 10);
+    if (section == 1) {
+        return CGSizeMake(SSize.width, 20);
+    }
+    return CGSizeMake(SSize.width, 0);
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section != 1) {
+        return NULL;
+    }
+    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"MoreComment" forIndexPath:indexPath];
+    
+    
+    if (view.tag == 0) {
+        view.backgroundColor = ColorWhite(247);
+        view.tag = 1;
+        
+        UIView *lineView = [[UIView alloc] init];
+        lineView.backgroundColor = ColorWhite(200);
+        [view addSubview:lineView];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        [button setTitle:@"更多热门评论>>" forState:UIControlStateNormal];
+        [button setTitleColor:CRed forState:UIControlStateNormal];
+        button.titleLabel.font = Font(13);
+        button.backgroundColor = ColorWhite(247);
+        [view addSubview:button];
+        
+        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset = 0;
+            make.right.offset = 0;
+            make.centerY.equalTo(view);
+            make.height.offset = 0.5;
+        }];
+        CGFloat buttonWidth = [button.titleLabel.text widthWithFont:Font(13) maxHeight:15] + 10;
+        [button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.offset = buttonWidth;
+            make.height.offset = 15;
+            make.center.equalTo(view);
+        }];
+    }
+    
+    return view;
 }
 
 
