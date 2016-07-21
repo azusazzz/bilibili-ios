@@ -79,6 +79,11 @@
         
     }
     
+    
+//    [self mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.height.offset = rect.origin.y + rect.size.height + 15;
+//    }];
+    
     self.height = rect.origin.y + rect.size.height + 15;
     
 }

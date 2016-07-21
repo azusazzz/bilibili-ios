@@ -37,7 +37,21 @@
     return self;
 }
 
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.showAllDesc = !_showAllDesc;
+}
 
+- (void)setShowAllDesc:(BOOL)showAllDesc {
+    _showAllDesc = showAllDesc;
+    
+    
+    CGFloat descCountHeight = [_descLabel textRectForBounds:CGRectMake(0, 0, SSize.width-20, 9999) limitedToNumberOfLines:_showAllDesc ? 0 : 2].size.height;
+    [_descLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.offset = descCountHeight;
+    }];
+    
+    self.height = 15+15 + 10+10 + 15+descCountHeight + 15;
+}
 
 - (void)setupTitle:(NSString *)title viewCount:(NSInteger)viewCount danmakuCount:(NSInteger)danmakuCount desc:(NSString *)desc favorite:(NSInteger)favoriteCount coin:(NSInteger)coinCount share:(NSInteger)shareCount {
     
@@ -63,21 +77,7 @@
     
 }
 
-//- (void)layoutSubviews {
-//    [super layoutSubviews];
-//    
-//    if (!CGRectEqualToRect(_descLabel.frame, CGRectZero)) {
-//        CGFloat descHeight = [_descLabel textRectForBounds:CGRectMake(0, 0, _descLabel.width, 666) limitedToNumberOfLines:_showAllDesc ? 0 : 2].size.height;
-//        if (descHeight == _descLabel.height) {
-//            return;
-//        }
-//        [_descLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.height.offset = descHeight;
-//        }];
-//        
-//    }
-//    
-//}
+
 
 
 
@@ -147,6 +147,9 @@
         make.top.equalTo(_viewCountLabel.mas_bottom).offset = 15;
         make.height.offset = 40;
     }];
+    
+    
+    
     
     
     UIView *bottomLine = [[UIView alloc] init];

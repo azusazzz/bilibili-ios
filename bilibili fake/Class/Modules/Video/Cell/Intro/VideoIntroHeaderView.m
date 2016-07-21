@@ -7,7 +7,7 @@
 //
 
 #import "VideoIntroHeaderView.h"
-
+#import <ReactiveCocoa.h>
 
 
 @implementation VideoIntroHeaderView
@@ -25,6 +25,21 @@
         _tagsView = [[VideoTagsView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 0)];
         [self addSubview:_tagsView];
         
+        
+        
+        __weak typeof(self) weakself = self;
+        [RACObserve(_videoAndStatView, frame) subscribeNext:^(id x) {
+            CGRect rect = [x CGRectValue];
+            CGFloat maxY = rect.origin.y + rect.size.height;
+            if (weakself.ownerView.y == maxY) {
+                return;
+            }
+            weakself.ownerView.y = maxY;
+            weakself.tagsView.y = weakself.ownerView.maxY;
+            weakself.height = weakself.tagsView.maxY;
+        }];
+        
+        
     }
     return self;
 }
@@ -32,17 +47,12 @@
 
 - (void)setupVideoInfo:(VideoInfoEntity *)videoInfo {
     
-    [_videoAndStatView setupTitle:videoInfo.title viewCount:videoInfo.stat.view danmakuCount:videoInfo.stat.danmaku desc:videoInfo.desc favorite:videoInfo.stat.favorite coin:videoInfo.stat.coin share:videoInfo.stat.share];
     
     [_ownerView setupFace:videoInfo.owner.face name:videoInfo.owner.name pubdate:videoInfo.pubdate];
-    
     [_tagsView setupTags:videoInfo.tags];
     
+    [_videoAndStatView setupTitle:videoInfo.title viewCount:videoInfo.stat.view danmakuCount:videoInfo.stat.danmaku desc:videoInfo.desc favorite:videoInfo.stat.favorite coin:videoInfo.stat.coin share:videoInfo.stat.share];
     
-    _ownerView.y = _videoAndStatView.maxY;
-    _tagsView.y = _ownerView.maxY;
-    
-    self.height = _tagsView.maxY;
     
 }
 

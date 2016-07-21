@@ -7,7 +7,7 @@
 //
 
 #import "VideoIntroView.h"
-
+#import <ReactiveCocoa.h>
 
 #import "VideoIntroHeaderView.h"
 
@@ -21,6 +21,8 @@
 }
 
 @property (strong, nonatomic) VideoIntroHeaderView *headerView;
+
+@property (assign, nonatomic) CGFloat headerHeight;
 
 @end
 
@@ -36,19 +38,28 @@
         self.delegate = self;
         self.dataSource = self;
         self.alwaysBounceVertical = YES;
+        
+        
+        
+        __weak typeof(self) weakself = self;
+        [RACObserve(self.headerView, frame) subscribeNext:^(id x) {
+            CGRect rect = [x CGRectValue];
+            if (weakself.headerHeight == rect.size.height) {
+                return;
+            }
+            weakself.headerHeight = rect.size.height;
+            [self reloadData];
+        }];
+        
+        
+        
     }
     return self;
 }
 
-//- (void)setIntroDataSource:(NSArray *)introDataSource {
-//    _introDataSource = introDataSource;
-//    [self reloadData];
-//}
-
 - (void)setVideoInfo:(VideoInfoEntity *)videoInfo {
     _videoInfo = videoInfo;
     [self.headerView setupVideoInfo:_videoInfo];
-    [self reloadData];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -82,7 +93,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(SSize.width, self.headerView.height);
+    return CGSizeMake(SSize.width, _headerHeight);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -107,6 +118,8 @@
 - (VideoIntroHeaderView *)headerView {
     if (!_headerView) {
         _headerView = [[VideoIntroHeaderView alloc] initWithFrame:CGRectMake(0, 0, SSize.width, 0)];
+//        UICollectionReusableView *view = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header" forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//        [view addSubview:_headerView];
     }
     return _headerView;
 }

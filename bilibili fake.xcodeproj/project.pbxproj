@@ -494,13 +494,13 @@
 		6E575C791D40713F007BCD73 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				6E575C7A1D40713F007BCD73 /* Cell */,
-				6E575C881D40713F007BCD73 /* Controller */,
+				6E575C9A1D40713F007BCD73 /* Request */,
 				6E575C8B1D40713F007BCD73 /* Entity */,
 				6E575C941D40713F007BCD73 /* Model */,
-				6E575C991D40713F007BCD73 /* Player */,
-				6E575C9A1D40713F007BCD73 /* Request */,
+				6E575C7A1D40713F007BCD73 /* Cell */,
 				6E575C9D1D40713F007BCD73 /* View */,
+				6E575C881D40713F007BCD73 /* Controller */,
+				6E575C991D40713F007BCD73 /* Player */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -518,12 +518,12 @@
 		6E575C7B1D40713F007BCD73 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
-				6E575C7C1D40713F007BCD73 /* VideoAndStatInfoView.h */,
-				6E575C7D1D40713F007BCD73 /* VideoAndStatInfoView.m */,
-				6E575C7E1D40713F007BCD73 /* VideoIntroHeaderView.h */,
-				6E575C7F1D40713F007BCD73 /* VideoIntroHeaderView.m */,
 				6E575C801D40713F007BCD73 /* VideoIntroRelateCollectionViewCell.h */,
 				6E575C811D40713F007BCD73 /* VideoIntroRelateCollectionViewCell.m */,
+				6E575C7E1D40713F007BCD73 /* VideoIntroHeaderView.h */,
+				6E575C7F1D40713F007BCD73 /* VideoIntroHeaderView.m */,
+				6E575C7C1D40713F007BCD73 /* VideoAndStatInfoView.h */,
+				6E575C7D1D40713F007BCD73 /* VideoAndStatInfoView.m */,
 				6E575C821D40713F007BCD73 /* VideoOwnerInfoView.h */,
 				6E575C831D40713F007BCD73 /* VideoOwnerInfoView.m */,
 				6E575C841D40713F007BCD73 /* VideoTagsView.h */,
