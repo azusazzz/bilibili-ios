@@ -9,11 +9,17 @@
 #import "VideoHeaderView.h"
 #import <UIImageView+WebCache.h>
 
+#import <ReactiveCocoa.h>
+
 @interface VideoHeaderView ()
 {
     UIImageView *_backgroundView;
     UIButton *_playButton;
+    FXBlurView *_blurView;
 }
+
+
+
 @end
 
 @implementation VideoHeaderView
@@ -29,6 +35,21 @@
             make.edges.equalTo(self);
         }];
         
+        
+        _blurView = [[FXBlurView alloc] init];
+        _blurView.tintColor = [UIColor whiteColor];
+        self.blurView.dynamic = YES;
+        _blurView.blurRadius = 0;
+        
+        [self addSubview:_blurView];
+        [_blurView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.width.offset = 120;
+//            make.height.offset = 120;
+//            make.center.equalTo(self);
+            make.edges.equalTo(self);
+        }];
+        
+        
         _playButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_playButton setImage:[UIImage imageNamed:@"player_play"] forState:UIControlStateNormal];
         [self addSubview:_playButton];
@@ -38,6 +59,18 @@
             make.width.offset = 55;
             make.height.offset = 50;
         }];
+        
+        __weak typeof(self) weakself = self;
+        [RACObserve(self, transform) subscribeNext:^(id x) {
+            
+            
+//            NSLog(@"%@", x);
+            
+            
+            
+            
+        }];
+        
     }
     return self;
 }

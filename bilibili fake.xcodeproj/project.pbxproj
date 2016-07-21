@@ -13,6 +13,7 @@
 		6E026FEB1D3E29460038C2A0 /* RequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E026FE81D3E29460038C2A0 /* RequestHandler.m */; };
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
 		6E18E19C1D3E388D003D35C1 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E19B1D3E388D003D35C1 /* BaseRequest.m */; };
+		6E48364E1D407FA6004AD1A4 /* VideoTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E48364D1D407FA6004AD1A4 /* VideoTabBar.m */; };
 		6E575CA41D40713F007BCD73 /* VideoAndStatInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575C7D1D40713F007BCD73 /* VideoAndStatInfoView.m */; };
 		6E575CA51D40713F007BCD73 /* VideoIntroHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575C7F1D40713F007BCD73 /* VideoIntroHeaderView.m */; };
 		6E575CA61D40713F007BCD73 /* VideoIntroRelateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575C811D40713F007BCD73 /* VideoIntroRelateCollectionViewCell.m */; };
@@ -174,6 +175,8 @@
 		6E1535E91D1A96A20053A846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		6E18E19A1D3E388D003D35C1 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
 		6E18E19B1D3E388D003D35C1 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		6E48364C1D407FA6004AD1A4 /* VideoTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTabBar.h; sourceTree = "<group>"; };
+		6E48364D1D407FA6004AD1A4 /* VideoTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTabBar.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6E575C7C1D40713F007BCD73 /* VideoAndStatInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoAndStatInfoView.h; sourceTree = "<group>"; };
 		6E575C7D1D40713F007BCD73 /* VideoAndStatInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoAndStatInfoView.m; sourceTree = "<group>"; };
@@ -592,6 +595,8 @@
 				6E575CA11D40713F007BCD73 /* VideoHeaderView.m */,
 				6E575CA21D40713F007BCD73 /* VideoIntroView.h */,
 				6E575CA31D40713F007BCD73 /* VideoIntroView.m */,
+				6E48364C1D407FA6004AD1A4 /* VideoTabBar.h */,
+				6E48364D1D407FA6004AD1A4 /* VideoTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1559,6 +1564,7 @@
 				6ED65D5E1D38B86E00D264F8 /* HomeAnimationCategoryCollectionViewCell.m in Sources */,
 				6E575CAD1D40713F007BCD73 /* VideoPageInfoEntity.m in Sources */,
 				6E575CB21D40713F007BCD73 /* VideoCommentView.m in Sources */,
+				6E48364E1D407FA6004AD1A4 /* VideoTabBar.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
 				6E026FE91D3E29460038C2A0 /* Request.m in Sources */,
 				FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */,

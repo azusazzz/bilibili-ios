@@ -12,6 +12,7 @@
 #import "VideoHeaderView.h"
 #import "VideoIntroView.h"
 #import "VideoCommentView.h"
+#import "VideoTabBar.h"
 
 @interface VideoViewController ()
 <UIScrollViewDelegate, UIGestureRecognizerDelegate,
@@ -23,7 +24,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     
     VideoHeaderView *_headerView;
     
-    UIView *_tabBar;
+    VideoTabBar *_tabBar;
     
     UIScrollView *_backgroundScrollView;
     
@@ -86,35 +87,26 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     if (offset < 0) {
         offset = 0;
     }
-    if (_headerView.height - offset < 44) {
-        offset = _headerView.height - 44;
+    if (_headerView.height - offset < 20+44) {
+        offset = _headerView.height - 20-44;
     }
     
-//    static NSInteger lastState = 0;
-//    if (_headerView.y < -offset) {
-//        lastState = 0;
-//        //   ++
-//        NSLog(@"Up");
-//        if (-offset < _headerView.y) {
-//            NSLog(@"Rt");
-//            return;
-//        }
-//    }
-//    else {
-//        lastState = 1;
-//        // ++   --
-//        NSLog(@"Down");
-//        if (-offset > _headerView.y) {
-//            NSLog(@"Rt");
-//            return;
-//        }
-//    }
-//    NSLog(@"%lf", offset);
+    if (-offset != _headerView.transform.ty) {
+        _headerView.transform = CGAffineTransformMakeTranslation(0, -offset);
+    }
+    
+//    [_headerView mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.top.offset = -offset;
+//    }];
+    
+    CGFloat blurRadius = offset / (_headerView.height / 100 * 2);
+    _headerView.blurView.blurRadius = blurRadius;
     
     
-    [_headerView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.offset = -offset;
+    [_tabBar mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_headerView.mas_bottom).offset = -offset;
     }];
+    
     
 }
 
@@ -174,8 +166,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     _headerView = [[VideoHeaderView alloc] init];
     [self.view addSubview:_headerView];
     
-    _tabBar = [[UIView alloc] init];
-    _tabBar.backgroundColor = [UIColor grayColor];
+    _tabBar = [[VideoTabBar alloc] init];
     [self.view addSubview:_tabBar];
     
     _backgroundScrollView = [[UIScrollView alloc] init];
