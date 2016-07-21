@@ -26,7 +26,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = ColorWhite(247);
         
         
         [self initSubviews];
@@ -36,6 +36,8 @@
     }
     return self;
 }
+
+
 
 - (void)setupTitle:(NSString *)title viewCount:(NSInteger)viewCount danmakuCount:(NSInteger)danmakuCount desc:(NSString *)desc favorite:(NSInteger)favoriteCount coin:(NSInteger)coinCount share:(NSInteger)shareCount {
     
@@ -52,7 +54,7 @@
     [_danmakuCountLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.offset = danmakuCountWidth;
     }];
-    CGFloat descCountHeight = [_descLabel textRectForBounds:CGRectMake(0, 0, SSize.width-20, 9999) limitedToNumberOfLines:0].size.height;
+    CGFloat descCountHeight = [_descLabel textRectForBounds:CGRectMake(0, 0, SSize.width-20, 9999) limitedToNumberOfLines:2].size.height;
     [_descLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.offset = descCountHeight;
     }];
@@ -60,6 +62,24 @@
     self.height = 15+15 + 10+10 + 15+descCountHeight + 15;
     
 }
+
+//- (void)layoutSubviews {
+//    [super layoutSubviews];
+//    
+//    if (!CGRectEqualToRect(_descLabel.frame, CGRectZero)) {
+//        CGFloat descHeight = [_descLabel textRectForBounds:CGRectMake(0, 0, _descLabel.width, 666) limitedToNumberOfLines:_showAllDesc ? 0 : 2].size.height;
+//        if (descHeight == _descLabel.height) {
+//            return;
+//        }
+//        [_descLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.height.offset = descHeight;
+//        }];
+//        
+//    }
+//    
+//}
+
+
 
 - (void)initSubviews {
     _titleLabel = [[UILabel alloc] init];

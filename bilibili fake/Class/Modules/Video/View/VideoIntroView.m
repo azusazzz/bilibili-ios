@@ -11,8 +11,7 @@
 
 #import "VideoIntroHeaderView.h"
 
-//#import "VideoAndStatInfoCollectionViewCell.h"
-//#import "VideoOwnerInfoCollectionViewCell.h"
+#import "VideoIntroRelateCollectionViewCell.h"
 
 @interface VideoIntroView ()
 <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -31,9 +30,8 @@
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     if (self = [super initWithFrame:CGRectZero collectionViewLayout:flowLayout]) {
-        self.backgroundColor = ColorWhite(200);
-//        [self registerClass:[VideoAndStatInfoCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([VideoAndStatInfoCellEntity class])];
-//        [self registerClass:[VideoOwnerInfoCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([VideoOwnerInfoCellEntity class])];
+        self.backgroundColor = ColorWhite(247);
+        [self registerClass:[VideoIntroRelateCollectionViewCell class] forCellWithReuseIdentifier:@"relates"];
         [self registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"];
         self.delegate = self;
         self.dataSource = self;
@@ -64,11 +62,11 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
+    return _videoInfo.relates.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [collectionView dequeueReusableCellWithReuseIdentifier:@"" forIndexPath:indexPath];
+    return [collectionView dequeueReusableCellWithReuseIdentifier:@"relates" forIndexPath:indexPath];
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -79,10 +77,8 @@
 }
 
 
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if ([cell respondsToSelector:@selector(setupEntity:)]) {
-//        [cell setupEntity:_introDataSource[indexPath.section][indexPath.row]];
-//    }
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(VideoIntroRelateCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setupVideoInfo:_videoInfo.relates[indexPath.row]];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {

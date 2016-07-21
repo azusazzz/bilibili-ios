@@ -10,6 +10,11 @@
 
 @interface VideoAndStatInfoView : UIView
 
+/**
+ *  Default NO
+ */
+@property (assign, nonatomic) BOOL showAllDesc;
+
 
 /**
  *  <#Description#>
