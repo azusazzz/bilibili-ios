@@ -15,8 +15,16 @@
 }
 
 
++ (NSArray *)mj_ignoredPropertyNames {
+    return @[@"hasNext"];
+}
+
 - (NSArray<NSArray<VideoCommentItemEntity *> *> *)commentList {
     return @[self.hotList, self.list];
+}
+
+- (BOOL)hasNext {
+    return _page < _pages;
 }
 
 @end

@@ -26,6 +26,8 @@
     
     NSInteger _aid;
     
+    
+    VideoCommentRequest *_commentRequest;
 }
 
 @end
@@ -62,17 +64,36 @@
 
 - (void)getVideoCommentWithSuccess:(void (^)(void))success failure:(void (^)(NSString *))failure {
     
-    [[VideoCommentRequest requestWithAid:_aid] startWithCompletionBlock:^(__kindof Request *request) {
-        
-        if (request.responseObject) {
-            _comment = [VideoCommentEntity mj_objectWithKeyValues:request.responseObject];
-            success();
-        }
-        else {
-            failure(@"Error");
-        }
-        
-    }];
+    __weak typeof(self) weakself = self;
+    
+    if (!_commentRequest) {
+        _commentRequest = [[VideoCommentRequest requestWithAid:_aid] startWithCompletionBlock:^(__kindof Request *request) {
+            
+            if (request.responseObject) {
+                weakself.comment = [VideoCommentEntity mj_objectWithKeyValues:request.responseObject];
+                success();
+            }
+            else {
+                failure(@"Error");
+            }
+            
+        }];
+    }
+    else {
+        [_commentRequest nextPageWithCompletionBlock:^(__kindof VideoCommentRequest *request) {
+            if (request.responseObject) {
+                VideoCommentEntity *comment = [VideoCommentEntity mj_objectWithKeyValues:request.responseObject];
+                comment.list = [weakself.comment.list arrayByAddingObjectsFromArray:comment.list];
+                weakself.comment = comment;
+                success();
+            }
+            else {
+                failure(@"Error");
+            }
+        }];
+    }
+    
+    
     
 }
 

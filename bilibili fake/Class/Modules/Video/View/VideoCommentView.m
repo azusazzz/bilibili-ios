@@ -57,6 +57,10 @@
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(VideoCommentCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     [cell setupCommentInfo:_commentList[indexPath.section][indexPath.row]];
     cell.topLine.hidden = indexPath.row == 0;
+    if (_hasNext && indexPath.section == _commentList.count-1 && indexPath.row == _commentList[_commentList.count-1].count-1) {
+        _hasNext = NO;
+        _loadNextPage ? _loadNextPage() : NULL;
+    }
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

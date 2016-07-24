@@ -36,6 +36,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 
 - (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
     ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;

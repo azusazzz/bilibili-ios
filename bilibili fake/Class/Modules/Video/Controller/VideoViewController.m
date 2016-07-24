@@ -31,7 +31,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     
     
     
-    VideoCommentView *_commentView;
+    
     
     BOOL _interactive;
     UIPercentDrivenInteractiveTransition *_interactionController;
@@ -44,6 +44,8 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
 @property (strong, nonatomic) VideoHeaderView *headerView;
 
 @property (strong, nonatomic) VideoIntroView *introView;
+
+@property (strong, nonatomic) VideoCommentView *commentView;
 
 
 @property (assign, nonatomic) NSInteger aid;
@@ -114,6 +116,16 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
         [weakself.introView setContentOffset:CGPointZero animated:YES];
     }];
     
+    [_commentView setLoadNextPage:^{
+        [weakself.model getVideoCommentWithSuccess:^{
+            //
+           weakself.commentView.hasNext = weakself.model.comment.hasNext;
+           weakself.commentView.commentList = weakself.model.comment.commentList;
+        } failure:^(NSString *errorMsg) {
+            //
+            HUDFailure(@"网络请求出错");
+        }];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -164,8 +176,10 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
         HUDFailure(@"网络请求出错");
     }];
     
+    
     [_model getVideoCommentWithSuccess:^{
         //
+        _commentView.hasNext = _model.comment.hasNext;
         _commentView.commentList = _model.comment.commentList;
     } failure:^(NSString *errorMsg) {
         //

@@ -45,9 +45,6 @@
 
 @property (assign, nonatomic) NSInteger tag;
 
-
-@property (strong, nonatomic) NSURLSessionTask *task;
-
 @property (readonly) NSURLSessionTaskState state;
 
 @property (strong, nonatomic, readonly) id responseObject;
@@ -64,11 +61,11 @@
 + (instancetype)request;
 
 
-- (void)startWithDelegate:(id<RequestDelegate>)delegate;
+- (__kindof Request *)startWithDelegate:(id<RequestDelegate>)delegate;
 
-- (void)startWithCompletionBlock:(void (^)(__kindof Request *request))completionBlock;
+- (__kindof Request *)startWithCompletionBlock:(void (^)(__kindof Request *request))completionBlock;
 
-- (void)start;
+- (__kindof Request *)start;
 
 - (void)pause;
 

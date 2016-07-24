@@ -24,6 +24,8 @@ NSString * MD5(NSString *str) {
 
 @interface Request ()
 
+@property (strong, nonatomic) NSURLSessionTask *task;
+
 @end
 
 @implementation Request
@@ -32,28 +34,32 @@ NSString * MD5(NSString *str) {
     return [[self alloc] init];
 }
 
-- (void)startWithDelegate:(id<RequestDelegate>)delegate {
+- (__kindof Request *)startWithDelegate:(id<RequestDelegate>)delegate {
     _delegate = delegate;
-    [self start];
+    return [self start];
 }
 
-- (void)startWithCompletionBlock:(void (^)(__kindof Request *))completionBlock {
+- (__kindof Request *)startWithCompletionBlock:(void (^)(__kindof Request *))completionBlock {
     _completionBlock = completionBlock;
-    [self start];
+    return [self start];
 }
 
-- (void)start {
+- (__kindof Request *)start {
     _responseObject = NULL;
+    _error = NULL;
+    _task = NULL;
     
     if ([self readCache]) {
         [self.delegate requestCompletion:self];
         _completionBlock ? _completionBlock(self) : NULL;
+        _completionBlock = NULL;
     }
     else {
         [self dynamicURLStringWithCallback:^(NSString *URLString, id parameters) {
             _task = [[RequestHandler sharedInstance] sendRequestWithURLString:URLString Method:self.method parameters:parameters delegate:self];
         }];
     }
+    return self;
 }
 
 - (void)pause {
@@ -80,12 +86,14 @@ NSString * MD5(NSString *str) {
     
     [self.delegate requestCompletion:self];
     _completionBlock ? _completionBlock(self) : NULL;
+    _completionBlock = NULL;
 }
 
 - (void)requestHandlerError:(NSError *)error {
     _error = error;
     [self.delegate requestCompletion:self];
     _completionBlock ? _completionBlock(self) : NULL;
+    _completionBlock = NULL;
 }
 
 

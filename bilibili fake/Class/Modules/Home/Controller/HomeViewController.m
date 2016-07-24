@@ -66,6 +66,10 @@
     [super viewWillAppear:animated];
 }
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -108,7 +112,7 @@
     
     // Header
     _headerView = [[HomeHeaderView alloc] initWithTitles:@[@"直播", @"番剧", @"分区"]];
-    _headerView.edgeInsets = UIEdgeInsetsMake(0, 40, 0, 40);
+//    _headerView.edgeInsets = UIEdgeInsetsMake(0, 40, 0, 40);
 //    _headerView.itemWidth = SSize.width / 3;
     __weak typeof(self) weakself = self;
     [_headerView setOnClickItem:^(NSInteger idx) {

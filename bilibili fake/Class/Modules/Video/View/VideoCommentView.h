@@ -18,4 +18,9 @@
 
 @property (strong, nonatomic) NSArray<NSArray<VideoCommentItemEntity *> *> *commentList;
 
+
+@property (assign, nonatomic) BOOL hasNext;
+
+@property (copy, nonatomic) void (^loadNextPage)(void);
+
 @end

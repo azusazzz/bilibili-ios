@@ -16,6 +16,7 @@
 
 @property (assign, nonatomic) NSInteger pagesize;
 
+
 @end
 
 @implementation VideoCommentRequest
@@ -44,5 +45,37 @@
     return @{@"aid": @(_aid), @"page": @(_page), @"pagesize": @(_pagesize)};
 }
 
+//- (NSInteger)index {
+//    if (!self.responseObject) {
+//        return -1;
+//    }
+//    return [self.responseObject[@"page"] integerValue];
+//}
+
+//- (NSInteger)pageCount {
+//    if (!self.responseObject) {
+//        return -1;
+//    }
+//    return [self.responseObject[@"pages"] integerValue];
+//}
+
+//- (NSInteger)total {
+//    return [self.responseObject[@"results"] integerValue];
+//}
+
+//- (BOOL)hasNext {
+//    if (!self.responseObject) {
+//        return NO;
+//    }
+//    return self.index < self.pageCount;
+//}
+
+
+
+- (BOOL)nextPageWithCompletionBlock:(void (^)(__kindof VideoCommentRequest *))completionBlock {
+    _page = [self.responseObject[@"page"] integerValue] + 1;
+    [self startWithCompletionBlock:completionBlock];
+    return YES;
+}
 
 @end

@@ -12,9 +12,6 @@
 
 + (instancetype)requestWithAid:(NSInteger)aid;
 
-
-@property (assign, nonatomic) BOOL hasNext;
-
-- (void)nextPage;
+- (BOOL)nextPageWithCompletionBlock:(void (^)(__kindof VideoCommentRequest *request))completionBlock;
 
 @end
