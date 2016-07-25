@@ -36,8 +36,18 @@
 }
 
 - (void)setCommentList:(NSArray<NSArray<VideoCommentItemEntity *> *> *)commentList {
-    _commentList = commentList;
-    [self reloadData];
+    if (_commentList && commentList.count == 2) {
+        NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:commentList[1].count - _commentList[1].count];
+        for (NSInteger i=_commentList[1].count; i<commentList[1].count; i++) {
+            [indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:1]];
+        }
+        _commentList = [commentList copy];
+        [self insertItemsAtIndexPaths:indexPaths];
+    }
+    else {
+        _commentList = [commentList copy];
+        [self reloadData];
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -55,7 +65,16 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(VideoCommentCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    [cell setupCommentInfo:_commentList[indexPath.section][indexPath.row]];
+    
+    [cell layoutIfNeeded];
+    
+    if (indexPath.section == 0) {
+        [cell setupCommentInfo:_commentList[indexPath.section][indexPath.row] showReply:NO];
+    }
+    else {
+        [cell setupCommentInfo:_commentList[indexPath.section][indexPath.row] showReply:YES];
+    }
+    
     cell.topLine.hidden = indexPath.row == 0;
     if (_hasNext && indexPath.section == _commentList.count-1 && indexPath.row == _commentList[_commentList.count-1].count-1) {
         _hasNext = NO;
@@ -64,7 +83,12 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [VideoCommentCollectionViewCell sizeForComment:_commentList[indexPath.section][indexPath.row]];
+    if (indexPath.section == 0) {
+        return [VideoCommentCollectionViewCell sizeForComment:_commentList[indexPath.section][indexPath.row] showReply:NO];
+    }
+    else {
+        return [VideoCommentCollectionViewCell sizeForComment:_commentList[indexPath.section][indexPath.row] showReply:YES];
+    }
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {

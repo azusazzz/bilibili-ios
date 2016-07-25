@@ -11,8 +11,5 @@
 
 @interface VideoTabBar : TabBar
 
-//@property (assign, nonatomic) CGFloat contentOffset;
-
-//- (instancetype)initWithTitles:(NSArray<NSString *> *)titles;
 
 @end

@@ -26,7 +26,7 @@
 
 @implementation VideoCommentCollectionViewCell
 
-- (void)setupCommentInfo:(VideoCommentItemEntity *)comment {
+- (void)setupCommentInfo:(VideoCommentItemEntity *)comment showReply:(BOOL)showReply {
     [_faceImageView sd_setImageWithURL:[NSURL URLWithString:comment.face]];
     _nicknameLabel.text = comment.nick;
     if ([comment.sex isEqualToString:@"男"]) {
@@ -51,10 +51,19 @@
     }];
 }
 
-+ (CGSize)sizeForComment:(VideoCommentItemEntity *)comment {
++ (CGSize)sizeForComment:(VideoCommentItemEntity *)comment showReply:(BOOL)showReply {
     CGFloat msgHeight = [comment.msg boundingRectWithSize:CGSizeMake(SSize.width-10-30-10-15, 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: Font(13)} context:NULL].size.height;
-    
-    return CGSizeMake(SSize.width, 15+13 + 3+11 + 10+msgHeight+15 +10);
+    CGSize itemSize = CGSizeMake(SSize.width, 15+13 + 3+11 + 10+msgHeight+15 +10);
+//    if (showReply) {
+//        int count = (int)(comment.reply.count > 3 ? 3 : comment.reply.count);
+//        for (int i = 0; i < count; i++) {
+//            CGFloat msgHeight = [comment.reply[i].msg boundingRectWithSize:CGSizeMake(SSize.width-10-30-10-15, 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: Font(13)} context:NULL].size.height;
+//            itemSize.height += 15+13+15+msgHeight+15;
+//        }
+//        
+//    }
+//    NSLog(@"Height %lf", itemSize.height);
+    return itemSize;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {

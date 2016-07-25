@@ -138,6 +138,10 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     return UIStatusBarStyleLightContent;
 }
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 
 /**
  *  播放视频

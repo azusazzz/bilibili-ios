@@ -13,8 +13,8 @@
 
 @property (strong, nonatomic) UIView *topLine;
 
-+ (CGSize)sizeForComment:(VideoCommentItemEntity *)comment;
++ (CGSize)sizeForComment:(VideoCommentItemEntity *)comment showReply:(BOOL)showReply;
 
-- (void)setupCommentInfo:(VideoCommentItemEntity *)comment;
+- (void)setupCommentInfo:(VideoCommentItemEntity *)comment showReply:(BOOL)showReply;
 
 @end
