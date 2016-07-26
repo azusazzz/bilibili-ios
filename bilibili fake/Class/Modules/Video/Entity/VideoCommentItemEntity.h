@@ -44,4 +44,6 @@
 
 @property (strong, nonatomic) NSArray<VideoCommentItemEntity *> *reply;
 
+@property (assign, nonatomic) CGFloat height;
+
 @end

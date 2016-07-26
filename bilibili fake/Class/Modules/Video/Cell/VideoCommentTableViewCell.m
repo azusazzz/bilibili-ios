@@ -127,6 +127,9 @@
     }];
     
     
+    /**
+     *  回复
+     */
     NSInteger commentCount = [comment.reply count];
     commentCount = commentCount > 3 ? 3 : commentCount;
     if (!_replyViews) {
@@ -151,22 +154,21 @@
             [obj setupCommentInfo:comment.reply[idx]];
             top = obj.maxY;
         }];
-        
-        
-        if (comment.reply.count > 3) {
-            if (!_moreCountLabel) {
-                _moreCountLabel = [[UILabel alloc] init];
-                _moreCountLabel.font = Font(12);
-                _moreCountLabel.textColor = ColorWhite(186);
-                _moreCountLabel.textAlignment = NSTextAlignmentRight;
-            }
-            [self.contentView addSubview:_moreCountLabel];
-            _moreCountLabel.frame = CGRectMake(0, top, SSize.width-10, 20);
-            _moreCountLabel.text = [NSString stringWithFormat:@"更多%ld条回复", comment.reply.count-3];
+    }
+    
+    if (comment.reply.count > 3) {
+        if (!_moreCountLabel) {
+            _moreCountLabel = [[UILabel alloc] init];
+            _moreCountLabel.font = Font(12);
+            _moreCountLabel.textColor = ColorWhite(186);
+            _moreCountLabel.textAlignment = NSTextAlignmentRight;
         }
-        else {
-            [_moreCountLabel removeFromSuperview];
-        }
+        [self.contentView addSubview:_moreCountLabel];
+        _moreCountLabel.frame = CGRectMake(0, _replyViews.lastObject.maxY, SSize.width-10, 20);
+        _moreCountLabel.text = [NSString stringWithFormat:@"更多%ld条回复", comment.reply.count-3];
+    }
+    else {
+        [_moreCountLabel removeFromSuperview];
     }
     
     

@@ -59,7 +59,10 @@
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [VideoCommentTableViewCell heightForComment:_commentList[indexPath.section][indexPath.row] showReply:indexPath.section != 0];
+    if (_commentList[indexPath.section][indexPath.row].height == 0) {
+        _commentList[indexPath.section][indexPath.row].height = [VideoCommentTableViewCell heightForComment:_commentList[indexPath.section][indexPath.row] showReply:indexPath.section != 0];
+    }
+    return _commentList[indexPath.section][indexPath.row].height;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 1) {
