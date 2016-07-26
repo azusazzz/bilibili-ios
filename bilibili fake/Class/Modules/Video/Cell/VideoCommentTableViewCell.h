@@ -1,19 +1,19 @@
 //
-//  VideoCommentCollectionViewCell.h
+//  VideoCommentTableViewCell.h
 //  bilibili fake
 //
-//  Created by 翟泉 on 2016/7/19.
+//  Created by 翟泉 on 2016/7/26.
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "VideoCommentItemEntity.h"
 
-@interface VideoCommentCollectionViewCell : UICollectionViewCell
+@interface VideoCommentTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) UIView *topLine;
 
-+ (CGSize)sizeForComment:(VideoCommentItemEntity *)comment showReply:(BOOL)showReply;
++ (CGFloat)heightForComment:(VideoCommentItemEntity *)comment showReply:(BOOL)showReply;
 
 - (void)setupCommentInfo:(VideoCommentItemEntity *)comment showReply:(BOOL)showReply;
 

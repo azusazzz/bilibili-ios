@@ -7,26 +7,24 @@
 //
 
 #import "VideoCommentView.h"
-#import "VideoCommentCollectionViewCell.h"
+#import "VideoCommentTableViewCell.h"
 #import "NSString+Size.h"
 
 @interface VideoCommentView ()
-<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+<UITableViewDelegate, UITableViewDataSource>
 
 @end
 
 @implementation VideoCommentView
 
 - (instancetype)init {
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    if (self = [super initWithFrame:CGRectZero collectionViewLayout:flowLayout]) {
+    if (self = [super initWithFrame:CGRectZero style:UITableViewStyleGrouped]) {
         self.backgroundColor = ColorWhite(247);
-        [self registerClass:[VideoCommentCollectionViewCell class] forCellWithReuseIdentifier:@"VideoComment"];
-        [self registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"MoreComment"];
         self.delegate = self;
         self.dataSource = self;
-        self.alwaysBounceVertical = YES;
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self registerClass:[VideoCommentTableViewCell class] forCellReuseIdentifier:@"VideoComment"];
+        [self registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"Header"];
     }
     return self;
 }
@@ -36,113 +34,76 @@
 }
 
 - (void)setCommentList:(NSArray<NSArray<VideoCommentItemEntity *> *> *)commentList {
-    if (_commentList && commentList.count == 2) {
-        NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:commentList[1].count - _commentList[1].count];
-        for (NSInteger i=_commentList[1].count; i<commentList[1].count; i++) {
-            [indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:1]];
-        }
-        _commentList = [commentList copy];
-        [self insertItemsAtIndexPaths:indexPaths];
-    }
-    else {
-        _commentList = [commentList copy];
-        [self reloadData];
-    }
+    _commentList = [commentList copy];
+    [self reloadData];
 }
 
-#pragma mark - UICollectionViewDataSource
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return _commentList.count;
 }
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _commentList[section].count;
 }
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [collectionView dequeueReusableCellWithReuseIdentifier:@"VideoComment" forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [tableView dequeueReusableCellWithIdentifier:@"VideoComment"];
 }
-
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(VideoCommentCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [cell layoutIfNeeded];
-    
-    if (indexPath.section == 0) {
-        [cell setupCommentInfo:_commentList[indexPath.section][indexPath.row] showReply:NO];
-    }
-    else {
-        [cell setupCommentInfo:_commentList[indexPath.section][indexPath.row] showReply:YES];
-    }
-    
+- (void)tableView:(UITableView *)tableView willDisplayCell:(VideoCommentTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setupCommentInfo:_commentList[indexPath.section][indexPath.row] showReply:indexPath.section != 0];
     cell.topLine.hidden = indexPath.row == 0;
     if (_hasNext && indexPath.section == _commentList.count-1 && indexPath.row == _commentList[_commentList.count-1].count-1) {
         _hasNext = NO;
         _loadNextPage ? _loadNextPage() : NULL;
     }
 }
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return [VideoCommentCollectionViewCell sizeForComment:_commentList[indexPath.section][indexPath.row] showReply:NO];
-    }
-    else {
-        return [VideoCommentCollectionViewCell sizeForComment:_commentList[indexPath.section][indexPath.row] showReply:YES];
-    }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [VideoCommentTableViewCell heightForComment:_commentList[indexPath.section][indexPath.row] showReply:indexPath.section != 0];
 }
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 0;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 0;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 1) {
-        return CGSizeMake(SSize.width, 20);
+        return 60;
     }
-    return CGSizeMake(SSize.width, 0);
+    return 0.1;
 }
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section != 1) {
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
         return NULL;
     }
-    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"MoreComment" forIndexPath:indexPath];
-    
-    
-    if (view.tag == 0) {
-        view.backgroundColor = ColorWhite(247);
-        view.tag = 1;
+    UIView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"Header"];
+    if (headerView.tag == 0) {
+        headerView.backgroundColor = ColorWhite(247);
+        headerView.tag = 1;
         
         UIView *lineView = [[UIView alloc] init];
         lineView.backgroundColor = ColorWhite(200);
-        [view addSubview:lineView];
+        [headerView addSubview:lineView];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         [button setTitle:@"更多热门评论>>" forState:UIControlStateNormal];
         [button setTitleColor:CRed forState:UIControlStateNormal];
         button.titleLabel.font = Font(13);
         button.backgroundColor = ColorWhite(247);
-        [view addSubview:button];
+        [headerView addSubview:button];
         
         [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.offset = 0;
             make.right.offset = 0;
-            make.centerY.equalTo(view);
+            make.centerY.equalTo(headerView);
             make.height.offset = 0.5;
         }];
         CGFloat buttonWidth = [button.titleLabel.text widthWithFont:Font(13) maxHeight:15] + 10;
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.offset = buttonWidth;
-            make.height.offset = 15;
-            make.center.equalTo(view);
+            make.height.offset = 30;
+            make.center.equalTo(headerView);
         }];
     }
-    
-    return view;
+    return headerView;
 }
 
 

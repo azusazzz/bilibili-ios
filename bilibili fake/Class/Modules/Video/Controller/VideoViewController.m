@@ -67,7 +67,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
 }
 
 - (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
+    Log(@"%s", __FUNCTION__);
 }
 
 - (void)viewDidLoad {
@@ -81,6 +81,15 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     
     _interactionController = [[UIPercentDrivenInteractiveTransition alloc] init];
     
+    
+    if (self.navigationController) {
+//        self
+    }
+    else if (self.presentedViewController) {
+//        [self dismissViewControllerAnimated:NO completion:NULL];
+//        [self.presentedViewController.navigationController popToRootViewControllerAnimated:YES];
+    }
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
     
     
     [self loadData];

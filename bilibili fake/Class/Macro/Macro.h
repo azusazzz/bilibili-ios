@@ -13,6 +13,16 @@
 #define SSize   [UIScreen mainScreen].bounds.size
 
 
+
+#ifdef DEBUG
+#define Log(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+#define Log(...)
+#endif
+
+
+
+
 #pragma mark - Color
 
 #define ColorRGBA(r, g, b, a)               [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]

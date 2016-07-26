@@ -12,7 +12,7 @@
 /**
  *  评论
  */
-@interface VideoCommentView : UICollectionView
+@interface VideoCommentView : UITableView
 
 @property (weak, nonatomic) id<UIScrollViewDelegate> scrollViewDelegate;
 
