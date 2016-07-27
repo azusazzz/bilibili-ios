@@ -18,6 +18,8 @@
 #import <Masonry.h>
 #import "SearchAnimateView.h"
 #import <UIImageView+WebCache.h>
+#import "VideoViewController.h"
+
 
 typedef NS_ENUM(NSUInteger, RefreshState) {
     RefreshStateNormal,//正常
@@ -102,14 +104,15 @@ struct tablePoint{
 }
 
 - (void)dealloc {
-    [[SDImageCache sharedImageCache] clearDisk];
-    [[SDImageCache sharedImageCache] clearMemory];
+//    [[SDImageCache sharedImageCache] clearDisk];//清理磁盘中的
+    [[SDImageCache sharedImageCache] clearMemory];//清理内存中的
     NSLog(@"%s", __FUNCTION__);
 }
 
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)viewDidLoad {
@@ -430,7 +433,22 @@ struct tablePoint{
 #pragma UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (rowbtn.Selectedtag == 0){
+        //前三个番剧
+        if(_tableViewData_bangumi_arr.count &&indexPath.section == 0 && screen_rowbtn1.Selectedtag == 0 && screen_rowbtn2.Selectedtag == 0) {
+            NSLog(@"%@",_tableViewData_bangumi_arr[indexPath.row]);
+            return;
+        }
+        //普通视频
+        NSDictionary* data = _tableViewData_arr[indexPath.row];
+        NSLog(@"%@",_tableViewData_arr[indexPath.row]);
+        [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:[[data objectForKey:@"aid"] integerValue]] animated:YES];
+         return;
+    }
     
+    //番剧，专题，upuser
+    NSLog(@"%@",_tableViewData_arr[indexPath.row]);
+    return;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

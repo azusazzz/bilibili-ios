@@ -30,8 +30,8 @@
 
 - (void)dealloc {
     GameData_Arr  = nil;
-    [[SDImageCache sharedImageCache] clearDisk];
-    [[SDImageCache sharedImageCache] clearMemory];
+//    [[SDImageCache sharedImageCache] clearDisk];//清理磁盘中的
+    [[SDImageCache sharedImageCache] clearMemory];//清理内存中的
     NSLog(@"%s", __FUNCTION__);
 }
 

@@ -11,16 +11,19 @@
 #import "Macro.h"
 #import "UILabel+LeftTopAlign.h"
 #import <UIImageView+WebCache.h>
+#import "UIView+CornerRadius.h"
 
 @implementation VideoCell{
     NSMutableDictionary* _data_dic;//数据主体
     NSString* _order;//筛选条件
     
     UIImageView* _cover;//封面
+    UILabel* _ranking;//名次
     
     UILabel*  _title;//标题
     UILabel* _author;//作者
     UILabel* _play_count;//播放量
+    
 }
 -(instancetype)initWithData:(NSMutableDictionary*)dic order:(NSString*)order{
     self = [super init];
@@ -28,6 +31,7 @@
         _data_dic = dic;
         _order = order;
         [self loadSubViews];
+        
     }
     //self.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     return self;
@@ -44,6 +48,23 @@
     //设置封面
      NSString* url_str = [_data_dic objectForKey:@"pic"];
     [_cover sd_setImageWithURL:[NSURL URLWithString:url_str]];
+    
+    //设置排名
+    NSString* ranking = [_data_dic objectForKey:@"ranking"];
+    if (ranking.length) {
+        _ranking.alpha = 0.9;
+        _ranking.text = ranking;
+        switch ([ranking integerValue]) {
+            case 1:_ranking.backgroundColor = ColorRGB(240, 20, 40);break;
+            case 2:_ranking.backgroundColor = ColorRGB(240, 120, 10);break;
+            case 3:_ranking.backgroundColor = ColorRGB(240, 180, 20);break;
+            default:_ranking.backgroundColor = ColorRGB(150, 150, 150);break;
+        }
+    }else{
+        _ranking.alpha = 0;
+    }
+    [_ranking cornerRoundingCorners:UIRectCornerTopLeft|UIRectCornerBottomRight withCornerRadius:6.0];
+    
     //设置标签文字
     NSMutableString *convertedString = [[_data_dic objectForKey:@"title"] mutableCopy];
     _title.text =convertedString;
@@ -78,8 +99,8 @@
          _play_count.text = [NSString stringWithFormat:@"日期：%@",dateStr];
     }
     
+  
     
-
 }
 #pragma 根据时间计算是长时间以前的
 -(NSString*)getDateStr:(NSInteger)date{
@@ -118,8 +139,18 @@
     //封面
     _cover = [UIImageView new];
     [_cover.layer setMasksToBounds:YES];
-    [_cover.layer setCornerRadius:4.0]; //设置矩形四个圆角半径
+    [_cover.layer setCornerRadius:6.0]; //设置矩形四个圆角半径
     [self addSubview:_cover];
+    
+    //名次
+    _ranking = [UILabel new];
+    [_ranking.layer setMasksToBounds:YES];
+    _ranking.font = [UIFont systemFontOfSize:10];
+    _ranking.textAlignment = NSTextAlignmentCenter;
+    _ranking.textColor = [UIColor whiteColor];
+     [_cover addSubview:_ranking];
+   
+   
     
     //标题
     _title = [UILabel new];
@@ -155,6 +186,12 @@
         make.top.equalTo(self.mas_top).offset(10);
         make.bottom.equalTo(self.mas_bottom).offset(-10);
         make.width.equalTo(_cover.mas_height).multipliedBy(1.5);
+    }];
+    
+    //名次
+    [_ranking mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.right.equalTo(_cover).offset(0);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
     }];
     
     //标题
