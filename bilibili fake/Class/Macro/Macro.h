@@ -40,6 +40,7 @@
 
 #pragma mark - Defult UI
 
-#define CRed ColorRGB(219,92,92)
+//#define CRed ColorRGB(219,92,92)
+#define CRed ColorRGB(253,129,164)
 
 #endif /* Macro_h */

@@ -15,8 +15,9 @@
 #import "HomeHeaderView.h"
 
 #import "HomeLiveView.h"
+#import "HomeRecommendView.h"
 #import "HomeAnimationView.h"
-#import "HomeChannelView.h"
+//#import "HomeChannelView.h"
 
 #import "ScrollTabBarController.h"
 
@@ -32,8 +33,9 @@
     
     
     HomeLiveView *_liveView;
+    HomeRecommendView *_recommendView;
     HomeAnimationView *_animationView;
-    HomeChannelView *_channelView;
+//    HomeChannelView *_channelView;
 }
 
 @property (strong, nonatomic) UIScrollView *scrollView;
@@ -47,6 +49,7 @@
 - (instancetype)init; {
     if (self = [super init]) {
         self.title = @"首页";
+//        self.tabBarItem.selectedImage
     }
     return self;
 }
@@ -111,8 +114,10 @@
     [self.view addSubview:UIView.new];
     
     // Header
-    _headerView = [[HomeHeaderView alloc] initWithTitles:@[@"直播", @"番剧", @"分区"]];
-//    _headerView.edgeInsets = UIEdgeInsetsMake(0, 40, 0, 40);
+    _headerView = [[HomeHeaderView alloc] initWithTitles:@[@"直播", @"推荐", @"番剧"]];
+    _headerView.backgroundColor = CRed;
+    _headerView.tintColorRGB = @[@255,@255,@255];
+    _headerView.edgeInsets = UIEdgeInsetsMake(20, (SSize.width-60*3)/2, 4, (SSize.width-60*3)/2);
 //    _headerView.itemWidth = SSize.width / 3;
     __weak typeof(self) weakself = self;
     [_headerView setOnClickItem:^(NSInteger idx) {
@@ -122,14 +127,14 @@
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.top.equalTo(self.view).offset = 20;
-        make.height.equalTo(@44);
+        make.top.equalTo(self.view).offset = 0;
+        make.height.equalTo(@(44+20));
     }];
     
     
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.delegate = self;
-    _scrollView.backgroundColor = [UIColor grayColor];
+    _scrollView.backgroundColor = CRed;
     _scrollView.pagingEnabled = YES;
     _scrollView.bounces = NO;
     _scrollView.showsHorizontalScrollIndicator = NO;
@@ -143,14 +148,25 @@
     
     // 直播
     _liveView = [[HomeLiveView alloc] init];
+    _liveView.layer.cornerRadius = 6;
+    _liveView.layer.masksToBounds = YES;
     [_scrollView addSubview:_liveView];
     
+    // 推荐
+    _recommendView = [[HomeRecommendView alloc] init];
+    _recommendView.layer.cornerRadius = 6;
+    _recommendView.layer.masksToBounds = YES;
+    [_scrollView addSubview:_recommendView];
+    
+    // 番剧
     _animationView = [[HomeAnimationView alloc] init];
+    _animationView.layer.cornerRadius = 6;
+    _animationView.layer.masksToBounds = YES;
     [_scrollView addSubview:_animationView];
     
-    // 分区
-    _channelView = [[HomeChannelView alloc] init];
-    [_scrollView addSubview:_channelView];
+//    // 分区
+//    _channelView = [[HomeChannelView alloc] init];
+//    [_scrollView addSubview:_channelView];
     
     
     
@@ -165,25 +181,31 @@
     
     [_liveView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_scrollView);
-        make.centerY.equalTo(_scrollView);
+        make.top.equalTo(_scrollView);
         make.width.equalTo(_scrollView);
-        make.height.equalTo(_scrollView);
+        make.height.equalTo(_scrollView).offset = 6;
+    }];
+    [_recommendView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_liveView.mas_right);
+        make.top.equalTo(_scrollView);
+        make.width.equalTo(_scrollView);
+        make.height.equalTo(_scrollView).offset = 6;
     }];
     [_animationView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_liveView.mas_right);
-        make.centerY.equalTo(_scrollView);
+        make.left.equalTo(_recommendView.mas_right);
+        make.top.equalTo(_scrollView);
         make.width.equalTo(_scrollView);
-        make.height.equalTo(_scrollView);
+        make.height.equalTo(_scrollView).offset = 6;
     }];
-    [_channelView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_animationView.mas_right);
-        make.centerY.equalTo(_scrollView);
-        make.width.equalTo(_scrollView);
-        make.height.equalTo(_scrollView);
-    }];
+//    [_channelView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(_animationView.mas_right);
+//        make.centerY.equalTo(_scrollView);
+//        make.width.equalTo(_scrollView);
+//        make.height.equalTo(_scrollView);
+//    }];
     
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(_channelView.mas_right);
+        make.right.equalTo(_animationView.mas_right);
     }];
     
 }

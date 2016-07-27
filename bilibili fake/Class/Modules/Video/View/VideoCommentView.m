@@ -55,7 +55,7 @@
     cell.topLine.hidden = indexPath.row == 0;
     if (_hasNext && indexPath.section == _commentList.count-1 && indexPath.row == _commentList[_commentList.count-1].count-1) {
         _hasNext = NO;
-        _loadNextPage ? _loadNextPage() : NULL;
+        _handleLoadNextPage ? _handleLoadNextPage() : NULL;
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

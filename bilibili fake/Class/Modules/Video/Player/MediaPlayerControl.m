@@ -163,29 +163,6 @@ typedef NS_ENUM(NSInteger, PanGestureHandleMode) {
     CGPoint translation = [panGesture translationInView:self];
     CGPoint location = [panGesture locationInView:self];
     
-//    if (translation.x == 0 && translation.y == 0) {
-//        return;
-//    }
-    
-//    if (_panGestureHandleMode == PanGestureHandleModeNone) {
-//        CGFloat absTranslationX = translation.x > 0 ? translation.x : -translation.x;
-//        CGFloat absTranslationY = translation.y > 0 ? translation.y : -translation.y;
-//        
-//        if (absTranslationX > absTranslationY) {
-//            _panGestureHandleMode = PanGestureHandleModePlayProgress;
-//            _tempTime = self.delegatePlayer.currentPlaybackTime;
-//        }
-//        else {
-//            if (location.x > self.bounds.size.width / 2) {
-//                _panGestureHandleMode = PanGestureHandleModeVolume;
-//            }
-//            else {
-//                _panGestureHandleMode = PanGestureHandleModeBrightness;
-//            }
-//        }
-//    }
-    
-    
     switch (panGesture.state) {
         case UIGestureRecognizerStateBegan:
         {
@@ -334,9 +311,12 @@ typedef NS_ENUM(NSInteger, PanGestureHandleMode) {
         make.height.offset = 44;
     }];
     [_backButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.offset = 15;
-        make.width.offset = 25;
-        make.height.offset = 25;
+//        make.left.offset = 15;
+//        make.width.offset = 25;
+//        make.height.offset = 25;
+        make.left.offset = 5;
+        make.width.equalTo(_topView.mas_height);
+        make.height.equalTo(_topView);
         make.centerY.equalTo(_topView);
     }];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

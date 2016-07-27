@@ -10,6 +10,7 @@
 
 // ViewController
 #import "HomeViewController.h"
+#import "RegionViewController.h"
 #import "FollowViewController.h"
 #import "FindViewController.h"
 #import "MeViewController.h"
@@ -37,12 +38,14 @@
     
     self.viewControllers = @[
                              [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]],
+                             [[UINavigationController alloc] initWithRootViewController:[[RegionViewController alloc] init]],
                              [[UINavigationController alloc] initWithRootViewController:[[FollowViewController alloc] init]],
                              [[UINavigationController alloc] initWithRootViewController:[[FindViewController alloc] init]],
                              [[UINavigationController alloc] initWithRootViewController:[[MeViewController alloc] init]],
                              ];
     
     self.delegate = self;
+    self.tabBar.tintColor = CRed;
     
     _interactionController = [[UIPercentDrivenInteractiveTransition alloc] init];
     
@@ -100,9 +103,9 @@
         case UIGestureRecognizerStateEnded:
         {
             CGFloat speed = translationAbs / (CACurrentMediaTime() - beganTime);
-            
+            NSLog(@"speed %lf", speed);
             self.interactionController.completionSpeed = 0.99;
-            if (progress > 0.5 || speed > 800) {
+            if (progress > 0.5 || speed > 600) {
                 [self.interactionController finishInteractiveTransition];
             }
             else {

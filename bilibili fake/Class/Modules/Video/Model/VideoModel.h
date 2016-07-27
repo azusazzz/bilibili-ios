@@ -26,13 +26,15 @@
 @property (strong, nonatomic) NSArray *introDataSource;
 
 
-- (instancetype)initWithAid:(NSInteger)aid;
+@property (assign, nonatomic) NSInteger aid;
+
+
+//- (instancetype)initWithAid:(NSInteger)aid;
 
 
 /**
  *  获取视频信息
  *
- *  @param aid     <#aid description#>
  *  @param success <#success description#>
  *  @param failure <#failure description#>
  */

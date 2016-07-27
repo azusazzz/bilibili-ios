@@ -25,7 +25,7 @@
 - (void)setupCommentInfo:(VideoCommentItemEntity *)comment {
     _nicknameAndDateLabel.text = [NSString stringWithFormat:@"%@  %@", comment.nick, comment.create_at];
     _msgLabel.text = comment.msg;
-    CGFloat msgHeight = [comment.msg boundingRectWithSize:CGSizeMake(SSize.width-10-30-10-15, 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: Font(13)} context:NULL].size.height;
+    CGFloat msgHeight = [comment.msg boundingRectWithSize:CGSizeMake(SSize.width-10-30-10-15, 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: Font(13)} context:NULL].size.height + 2;
     [_msgLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.offset = msgHeight;
     }];
@@ -33,7 +33,7 @@
 }
 
 + (CGFloat)heightForCommentInfo:(VideoCommentItemEntity *)comment width:(CGFloat)width {
-    CGFloat msgHeight = [comment.msg boundingRectWithSize:CGSizeMake(width-15, 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: Font(13)} context:NULL].size.height;
+    CGFloat msgHeight = [comment.msg boundingRectWithSize:CGSizeMake(width-15, 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: Font(13)} context:NULL].size.height + 2;
     return 15+13+15+msgHeight+15;
 }
 
@@ -45,7 +45,7 @@
         [self addSubview:_lineView];
         _nicknameAndDateLabel = [[UILabel alloc] init];
         _nicknameAndDateLabel.font = Font(12);
-        _nicknameAndDateLabel.textColor = ColorWhite(186);
+        _nicknameAndDateLabel.textColor = ColorWhite(146);
         [self addSubview:_nicknameAndDateLabel];
         _msgLabel = [[UILabel alloc] init];
         _msgLabel.font = Font(13);
@@ -203,7 +203,7 @@
         _levelImageView = [[UIImageView alloc] init];
         [self.contentView addSubview:_levelImageView];
         _nicknameLabel = [[UILabel alloc] init];
-        _nicknameLabel.textColor = ColorWhite(186);
+        _nicknameLabel.textColor = ColorWhite(146);
         _nicknameLabel.font = Font(12);
         [self.contentView addSubview:_nicknameLabel];
         _sexImageView = [[UIImageView alloc] init];

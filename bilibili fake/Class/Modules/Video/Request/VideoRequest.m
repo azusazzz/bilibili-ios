@@ -38,4 +38,9 @@
     return @{@"aid": @(_aid)};
 }
 
+
+- (BOOL)willStoreCache {
+    return [[self.responseObject objectForKey:@"code"] integerValue] == 0;
+}
+
 @end

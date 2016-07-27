@@ -40,9 +40,17 @@
             weakself.pagesView.y = maxY;
             weakself.ownerView.y = weakself.pagesView.maxY;
             weakself.tagsView.y = weakself.ownerView.maxY;
-            weakself.height = weakself.tagsView.maxY;
+//            weakself.height = weakself.tagsView.maxY;
         }];
         
+        [RACObserve(_tagsView, frame) subscribeNext:^(id x) {
+            CGRect rect = [x CGRectValue];
+            CGFloat maxY = rect.origin.y + rect.size.height;
+            if (weakself.ownerView.y == maxY) {
+                return;
+            }
+            weakself.height = weakself.tagsView.maxY;
+        }];
         
     }
     return self;

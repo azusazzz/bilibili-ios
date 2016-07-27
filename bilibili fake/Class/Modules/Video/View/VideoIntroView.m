@@ -20,8 +20,6 @@
     
 }
 
-
-
 @property (assign, nonatomic) CGFloat headerHeight;
 
 @end
@@ -60,6 +58,7 @@
 - (void)setVideoInfo:(VideoInfoEntity *)videoInfo {
     _videoInfo = videoInfo;
     [self.headerView setupVideoInfo:_videoInfo];
+    [self reloadData];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -73,7 +72,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _videoInfo.relates.count;
+    return [_videoInfo.relates count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -109,10 +108,6 @@
     return 0;
 }
 
-//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-//    return UIEdgeInsetsMake(5, 15, 5, 15);
-//}
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     _onClickRelate ? _onClickRelate(indexPath.row) : NULL;
 }
@@ -122,8 +117,6 @@
 - (VideoIntroHeaderView *)headerView {
     if (!_headerView) {
         _headerView = [[VideoIntroHeaderView alloc] initWithFrame:CGRectMake(0, 0, SSize.width, 0)];
-//        UICollectionReusableView *view = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header" forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-//        [view addSubview:_headerView];
     }
     return _headerView;
 }

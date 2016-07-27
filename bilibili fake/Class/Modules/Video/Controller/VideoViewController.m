@@ -82,16 +82,6 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     _interactionController = [[UIPercentDrivenInteractiveTransition alloc] init];
     
     
-    if (self.navigationController) {
-//        self
-    }
-    else if (self.presentedViewController) {
-//        [self dismissViewControllerAnimated:NO completion:NULL];
-//        [self.presentedViewController.navigationController popToRootViewControllerAnimated:YES];
-    }
-    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
-    
-    
     [self loadData];
     
     
@@ -114,7 +104,6 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
         [weakself playVideo];
     }];
     
-    
     /**
      *  点击简介-视频相关
      *
@@ -125,11 +114,14 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
         [weakself.introView setContentOffset:CGPointZero animated:YES];
     }];
     
-    [_commentView setLoadNextPage:^{
+    /**
+     *  评论-加载下一页数据
+     */
+    [_commentView setHandleLoadNextPage:^{
         [weakself.model getVideoCommentWithSuccess:^{
             //
-           weakself.commentView.hasNext = weakself.model.comment.hasNext;
-           weakself.commentView.commentList = weakself.model.comment.commentList;
+            weakself.commentView.hasNext = weakself.model.comment.hasNext;
+            weakself.commentView.commentList = weakself.model.comment.commentList;
         } failure:^(NSString *errorMsg) {
             //
             HUDFailure(@"网络请求出错");
@@ -171,7 +163,15 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
 
 
 - (void)loadData {
-    _model = [[VideoModel alloc] initWithAid:_aid];
+    if (!_aid) {
+        HUDFailure(@"aid错误");
+        return;
+    }
+    if (!_model) {
+        _model = [[VideoModel alloc] init];
+    }
+    _model.aid = _aid;
+    
     
     [_model getVideoInfoWithSuccess:^{
         //
@@ -186,7 +186,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
         [_tabBar setTitle:[NSString stringWithFormat:@"评论(%ld)", _model.videoInfo.stat.reply] forIndex:1];
     } failure:^(NSString *errorMsg) {
         //
-        HUDFailure(@"网络请求出错");
+        HUDFailure(@"视频信息-网络请求出错");
     }];
     
     
@@ -196,7 +196,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
         _commentView.commentList = _model.comment.commentList;
     } failure:^(NSString *errorMsg) {
         //
-        HUDFailure(@"网络请求出错");
+        HUDFailure(@"评论-网络请求出错");
     }];
 }
 
@@ -228,7 +228,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
         
         if (_headerView.backgroundView.image) {
             CGFloat blurRadius = offset / (_headerView.height);
-            [_headerView.backgroundView blur:blurRadius + 0.6];
+            [_headerView.backgroundView blur:blurRadius * 3];
         }
         
         

@@ -113,7 +113,7 @@ NSString * MD5(NSString *str) {
 }
 
 - (void)storeCache {
-    if (self.cacheTimeoutInterval <= 0 || !_responseObject) {
+    if (self.cacheTimeoutInterval <= 0 || !_responseObject || ![self willStoreCache]) {
         return;
     }
     [[RequestCache sharedInstance] storeCachedJSONObjectForRequest:self];

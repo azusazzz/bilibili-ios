@@ -24,22 +24,24 @@
     void (^_getVideoURLMode2_CompletionBlock)(NSURL *videoURL);
     UIWebView *_webView;
     
-    NSInteger _aid;
+    
     
     
     VideoCommentRequest *_commentRequest;
 }
 
+
+
 @end
 
 @implementation VideoModel
 
-- (instancetype)initWithAid:(NSInteger)aid {
-    if (self = [super init]) {
-        _aid = aid;
-    }
-    return self;
-}
+//- (instancetype)initWithAid:(NSInteger)aid {
+//    if (self = [super init]) {
+//        _aid = aid;
+//    }
+//    return self;
+//}
 
 - (void)dealloc {
     Log(@"%s", __FUNCTION__);
@@ -66,30 +68,34 @@
     
     __weak typeof(self) weakself = self;
     
-    if (!_commentRequest) {
-        _commentRequest = [[VideoCommentRequest requestWithAid:_aid] startWithCompletionBlock:^(__kindof Request *request) {
-            
-            if (request.responseObject) {
+    void (^handler)(__kindof Request *request) = ^(__kindof Request *request) {
+        if (request.responseObject) {
+            if ([request.responseObject[@"page"] integerValue] == 1) {
                 weakself.comment = [VideoCommentEntity mj_objectWithKeyValues:request.responseObject];
-                success();
             }
             else {
-                failure(@"Error");
+                VideoCommentEntity *comment = [VideoCommentEntity mj_objectWithKeyValues:request.responseObject];
+                comment.list = [weakself.comment.list arrayByAddingObjectsFromArray:comment.list];
+                weakself.comment = comment;
             }
-            
+            weakself.comment.aid = weakself.aid;
+            success();
+        }
+        else {
+            failure(@"Error");
+        }
+    };
+    
+    
+    
+    if (!_commentRequest || self.comment.aid != _aid) {
+        _commentRequest = [[VideoCommentRequest requestWithAid:_aid] startWithCompletionBlock:^(__kindof Request *request) {
+            handler(request);
         }];
     }
     else {
         [_commentRequest nextPageWithCompletionBlock:^(__kindof VideoCommentRequest *request) {
-            if (request.responseObject) {
-                VideoCommentEntity *comment = [VideoCommentEntity mj_objectWithKeyValues:request.responseObject];
-                comment.list = [weakself.comment.list arrayByAddingObjectsFromArray:comment.list];
-                weakself.comment = comment;
-                success();
-            }
-            else {
-                failure(@"Error");
-            }
+            handler(request);
         }];
     }
     

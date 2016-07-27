@@ -12,7 +12,7 @@
 
 @property (assign, nonatomic, readonly) NSInteger responseCode;
 
-@property (strong, nonatomic, readonly) NSDictionary *responseData;
+@property (strong, nonatomic, readonly) id responseData;
 
 @property (strong, nonatomic, readonly) NSString *errorMsg;
 

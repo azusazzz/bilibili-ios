@@ -16,7 +16,25 @@
 
 
 + (NSArray *)mj_ignoredPropertyNames {
-    return @[@"hasNext"];
+    return @[@"hasNext", @"aid"];
+}
+
+- (NSArray<VideoCommentItemEntity *> *)hotList {
+    if (!_hotList) {
+        return @[];
+    }
+    else {
+        return _hotList;
+    }
+}
+
+- (NSArray<VideoCommentItemEntity *> *)list {
+    if (!_list) {
+        return @[];
+    }
+    else {
+        return _list;
+    }
 }
 
 - (NSArray<NSArray<VideoCommentItemEntity *> *> *)commentList {

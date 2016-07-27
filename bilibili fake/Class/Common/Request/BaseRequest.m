@@ -19,10 +19,10 @@
     }
 }
 
-- (NSDictionary *)responseData {
+- (id)responseData {
     if (self.responseObject) {
-        NSDictionary *data = [self.responseObject valueForKey:@"data"];
-        if ([data isKindOfClass:[NSDictionary class]]) {
+        id data = [self.responseObject valueForKey:@"data"];
+        if (data) {
             return data;
         }
         else {
@@ -38,8 +38,11 @@
     if (self.error) {
         return self.error.localizedDescription;
     }
+    else if ([self.responseData objectForKey:@"message"]) {
+        return [self.responseData objectForKey:@"message"];
+    }
     else {
-        return NULL;
+        return @"网络请求出错";
     }
 }
 

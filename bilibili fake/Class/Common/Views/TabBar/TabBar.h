@@ -44,6 +44,9 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
 @property (assign, nonatomic) UIEdgeInsets edgeInsets;
 
 
+@property (strong, nonatomic) NSArray<NSNumber *> *tintColorRGB;
+
+
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles;
 
 - (void)setTitle:(NSString *)title forIndex:(NSInteger)index;

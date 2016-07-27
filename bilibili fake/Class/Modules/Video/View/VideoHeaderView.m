@@ -81,7 +81,12 @@
     __weak typeof(self) weakself = self;
     [_backgroundView sd_setImageWithURL:[NSURL URLWithString:videoInfo.pic] placeholderImage:NULL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [weakself.backgroundView configrationForBlurAnimation:100];
-        [weakself.backgroundView blur:0.6];
+        
+//        [UIView animateWithDuration:1 animations:^{
+//            [weakself.backgroundView blur:0.6];
+//        }];
+        
+//        [weakself.backgroundView performSelector:@selector(blur:) withObject:@(0.6) afterDelay:1];
     }];
 }
 

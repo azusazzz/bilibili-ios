@@ -63,6 +63,19 @@
 		6EB691FA1D12422C000FA482 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB691F81D12422C000FA482 /* LaunchScreen.storyboard */; };
 		6EB692051D12422C000FA482 /* bilibili_fakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB692041D12422C000FA482 /* bilibili_fakeTests.m */; };
 		6EB692101D12422C000FA482 /* bilibili_fakeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */; };
+		6EC43B8C1D48CDF000467810 /* HomeRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC43B8B1D48CDF000467810 /* HomeRecommendModel.m */; };
+		6EC43B8F1D48DB1800467810 /* HomeRecommendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC43B8E1D48DB1800467810 /* HomeRecommendTableViewCell.m */; };
+		6EC43B931D48E45100467810 /* HomeRecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC43B921D48E45100467810 /* HomeRecommendHeaderView.m */; };
+		6EC43B961D48E46E00467810 /* HomeRecommendFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC43B951D48E46E00467810 /* HomeRecommendFooterView.m */; };
+		6EC43B991D48E4BA00467810 /* HomeRecommendBodyItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC43B981D48E4BA00467810 /* HomeRecommendBodyItemTableViewCell.m */; };
+		6EC6A4F61D489FCA0021BE48 /* RegionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A4F51D489FCA0021BE48 /* RegionViewController.m */; };
+		6EC6A4F91D489FE00021BE48 /* RegionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A4F81D489FE00021BE48 /* RegionModel.m */; };
+		6EC6A4FC1D489FF30021BE48 /* RegionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A4FB1D489FF30021BE48 /* RegionRequest.m */; };
+		6EC6A4FF1D48A05E0021BE48 /* RegionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A4FE1D48A05E0021BE48 /* RegionEntity.m */; };
+		6EC6A5021D48ADEE0021BE48 /* RegionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A5011D48ADEE0021BE48 /* RegionCollectionViewCell.m */; };
+		6EC6A5051D48BB290021BE48 /* HomeRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A5041D48BB280021BE48 /* HomeRecommendView.m */; };
+		6EC6A5081D48BCA50021BE48 /* HomeRecommend.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A5071D48BCA50021BE48 /* HomeRecommend.m */; };
+		6EC6A50B1D48C8170021BE48 /* HomeRecommendEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A50A1D48C8170021BE48 /* HomeRecommendEntity.m */; };
 		6ED65D541D38B67800D264F8 /* HomeChannelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED65D501D38B67800D264F8 /* HomeChannelCollectionViewCell.m */; };
 		6ED65D551D38B67800D264F8 /* HomeChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED65D531D38B67800D264F8 /* HomeChannelModel.m */; };
 		6ED65D5B1D38B71900D264F8 /* HomeAnimationCategoryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED65D5A1D38B71900D264F8 /* HomeAnimationCategoryEntity.m */; };
@@ -287,6 +300,32 @@
 		6EB6920B1D12422C000FA482 /* bilibili fakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bilibili fakeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bilibili_fakeUITests.m; sourceTree = "<group>"; };
 		6EB692111D12422C000FA482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EC43B8A1D48CDF000467810 /* HomeRecommendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRecommendModel.h; sourceTree = "<group>"; };
+		6EC43B8B1D48CDF000467810 /* HomeRecommendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendModel.m; sourceTree = "<group>"; };
+		6EC43B8D1D48DB1800467810 /* HomeRecommendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRecommendTableViewCell.h; sourceTree = "<group>"; };
+		6EC43B8E1D48DB1800467810 /* HomeRecommendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendTableViewCell.m; sourceTree = "<group>"; };
+		6EC43B911D48E45100467810 /* HomeRecommendHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRecommendHeaderView.h; sourceTree = "<group>"; };
+		6EC43B921D48E45100467810 /* HomeRecommendHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendHeaderView.m; sourceTree = "<group>"; };
+		6EC43B941D48E46E00467810 /* HomeRecommendFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRecommendFooterView.h; sourceTree = "<group>"; };
+		6EC43B951D48E46E00467810 /* HomeRecommendFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendFooterView.m; sourceTree = "<group>"; };
+		6EC43B971D48E4BA00467810 /* HomeRecommendBodyItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRecommendBodyItemTableViewCell.h; sourceTree = "<group>"; };
+		6EC43B981D48E4BA00467810 /* HomeRecommendBodyItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendBodyItemTableViewCell.m; sourceTree = "<group>"; };
+		6EC6A4F41D489FCA0021BE48 /* RegionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionViewController.h; sourceTree = "<group>"; };
+		6EC6A4F51D489FCA0021BE48 /* RegionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionViewController.m; sourceTree = "<group>"; };
+		6EC6A4F71D489FE00021BE48 /* RegionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionModel.h; sourceTree = "<group>"; };
+		6EC6A4F81D489FE00021BE48 /* RegionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionModel.m; sourceTree = "<group>"; };
+		6EC6A4FA1D489FF30021BE48 /* RegionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionRequest.h; sourceTree = "<group>"; };
+		6EC6A4FB1D489FF30021BE48 /* RegionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionRequest.m; sourceTree = "<group>"; };
+		6EC6A4FD1D48A05E0021BE48 /* RegionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionEntity.h; sourceTree = "<group>"; };
+		6EC6A4FE1D48A05E0021BE48 /* RegionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionEntity.m; sourceTree = "<group>"; };
+		6EC6A5001D48ADEE0021BE48 /* RegionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionCollectionViewCell.h; sourceTree = "<group>"; };
+		6EC6A5011D48ADEE0021BE48 /* RegionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionCollectionViewCell.m; sourceTree = "<group>"; };
+		6EC6A5031D48BB280021BE48 /* HomeRecommendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRecommendView.h; sourceTree = "<group>"; };
+		6EC6A5041D48BB280021BE48 /* HomeRecommendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendView.m; sourceTree = "<group>"; };
+		6EC6A5061D48BCA50021BE48 /* HomeRecommend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRecommend.h; sourceTree = "<group>"; };
+		6EC6A5071D48BCA50021BE48 /* HomeRecommend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRecommend.m; sourceTree = "<group>"; };
+		6EC6A5091D48C8170021BE48 /* HomeRecommendEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRecommendEntity.h; sourceTree = "<group>"; };
+		6EC6A50A1D48C8170021BE48 /* HomeRecommendEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendEntity.m; sourceTree = "<group>"; };
 		6ED65D4F1D38B67800D264F8 /* HomeChannelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelCollectionViewCell.h; sourceTree = "<group>"; };
 		6ED65D501D38B67800D264F8 /* HomeChannelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeChannelCollectionViewCell.m; sourceTree = "<group>"; };
 		6ED65D521D38B67800D264F8 /* HomeChannelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeChannelModel.h; sourceTree = "<group>"; };
@@ -526,6 +565,8 @@
 				6E66C8AE1D1AB1E9002DA3AB /* HomeHeaderView.m */,
 				6E66C8B01D1AC307002DA3AB /* HomeLiveView.h */,
 				6E66C8B11D1AC307002DA3AB /* HomeLiveView.m */,
+				6EC6A5031D48BB280021BE48 /* HomeRecommendView.h */,
+				6EC6A5041D48BB280021BE48 /* HomeRecommendView.m */,
 				6EFFD4AC1D2BDE9400D1BC9E /* HomeAnimationView.h */,
 				6EFFD4AD1D2BDE9400D1BC9E /* HomeAnimationView.m */,
 				6E71ECD71D1C1DEA00F4B917 /* HomeChannelView.h */,
@@ -752,6 +793,8 @@
 				6E71ECE01D1C203D00F4B917 /* HomeChannelEntity.m */,
 				6ED65D591D38B71900D264F8 /* HomeAnimationCategoryEntity.h */,
 				6ED65D5A1D38B71900D264F8 /* HomeAnimationCategoryEntity.m */,
+				6EC6A5091D48C8170021BE48 /* HomeRecommendEntity.h */,
+				6EC6A50A1D48C8170021BE48 /* HomeRecommendEntity.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -761,6 +804,8 @@
 			children = (
 				6E76C1771D2A736A00C259E8 /* HomeChannelRequest.h */,
 				6E76C1781D2A736A00C259E8 /* HomeChannelRequest.m */,
+				6EC6A5061D48BCA50021BE48 /* HomeRecommend.h */,
+				6EC6A5071D48BCA50021BE48 /* HomeRecommend.m */,
 				6EB4C1801D2CF59600AEB6EF /* HomeAnimationRequest.h */,
 				6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */,
 			);
@@ -790,6 +835,7 @@
 		6E9FB08C1D1289FB0032C1DB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				6EC6A4EE1D489FB50021BE48 /* Region */,
 				6E575C791D40713F007BCD73 /* Video */,
 				6E89DA401D3D06730055C9F2 /* Modules.md */,
 				FC66E7581D3E2D7A00F28B90 /* start */,
@@ -882,15 +928,88 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		6EC43B901D48E3EE00467810 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				6EC43B911D48E45100467810 /* HomeRecommendHeaderView.h */,
+				6EC43B921D48E45100467810 /* HomeRecommendHeaderView.m */,
+				6EC43B971D48E4BA00467810 /* HomeRecommendBodyItemTableViewCell.h */,
+				6EC43B981D48E4BA00467810 /* HomeRecommendBodyItemTableViewCell.m */,
+				6EC43B941D48E46E00467810 /* HomeRecommendFooterView.h */,
+				6EC43B951D48E46E00467810 /* HomeRecommendFooterView.m */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		6EC6A4EE1D489FB50021BE48 /* Region */ = {
+			isa = PBXGroup;
+			children = (
+				6EC6A4EF1D489FB60021BE48 /* Cell */,
+				6EC6A4F01D489FB60021BE48 /* Controller */,
+				6EC6A4F11D489FB60021BE48 /* Entity */,
+				6EC6A4F21D489FB60021BE48 /* Model */,
+				6EC6A4F31D489FB60021BE48 /* Request */,
+			);
+			path = Region;
+			sourceTree = "<group>";
+		};
+		6EC6A4EF1D489FB60021BE48 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6EC6A5001D48ADEE0021BE48 /* RegionCollectionViewCell.h */,
+				6EC6A5011D48ADEE0021BE48 /* RegionCollectionViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6EC6A4F01D489FB60021BE48 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6EC6A4F41D489FCA0021BE48 /* RegionViewController.h */,
+				6EC6A4F51D489FCA0021BE48 /* RegionViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6EC6A4F11D489FB60021BE48 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				6EC6A4FD1D48A05E0021BE48 /* RegionEntity.h */,
+				6EC6A4FE1D48A05E0021BE48 /* RegionEntity.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		6EC6A4F21D489FB60021BE48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6EC6A4F71D489FE00021BE48 /* RegionModel.h */,
+				6EC6A4F81D489FE00021BE48 /* RegionModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6EC6A4F31D489FB60021BE48 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				6EC6A4FA1D489FF30021BE48 /* RegionRequest.h */,
+				6EC6A4FB1D489FF30021BE48 /* RegionRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		6ED65D4E1D38B67800D264F8 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				6EC43B901D48E3EE00467810 /* Recommend */,
 				6ED65D4F1D38B67800D264F8 /* HomeChannelCollectionViewCell.h */,
 				6ED65D501D38B67800D264F8 /* HomeChannelCollectionViewCell.m */,
 				6ED65D5C1D38B86E00D264F8 /* HomeAnimationCategoryCollectionViewCell.h */,
 				6ED65D5D1D38B86E00D264F8 /* HomeAnimationCategoryCollectionViewCell.m */,
 				6ED65D621D38D55D00D264F8 /* HomeAnimationCategoryItemCollectionViewCell.h */,
 				6ED65D631D38D55D00D264F8 /* HomeAnimationCategoryItemCollectionViewCell.m */,
+				6EC43B8D1D48DB1800467810 /* HomeRecommendTableViewCell.h */,
+				6EC43B8E1D48DB1800467810 /* HomeRecommendTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -900,6 +1019,8 @@
 			children = (
 				6ED65D521D38B67800D264F8 /* HomeChannelModel.h */,
 				6ED65D531D38B67800D264F8 /* HomeChannelModel.m */,
+				6EC43B8A1D48CDF000467810 /* HomeRecommendModel.h */,
+				6EC43B8B1D48CDF000467810 /* HomeRecommendModel.m */,
 				6ED65D5F1D38B9A100D264F8 /* HomeAnimationModel.h */,
 				6ED65D601D38B9A100D264F8 /* HomeAnimationModel.m */,
 			);
@@ -1629,6 +1750,7 @@
 				6ED65D641D38D55D00D264F8 /* HomeAnimationCategoryItemCollectionViewCell.m in Sources */,
 				FC4704001D4078DF009F0B62 /* GameCentreData.m in Sources */,
 				FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */,
+				6EC6A4FC1D489FF30021BE48 /* RegionRequest.m in Sources */,
 				FCB5C9CD1D33AF41000215B3 /* FindViewCell.m in Sources */,
 				FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
@@ -1647,6 +1769,7 @@
 				6E4836651D40E45A004AD1A4 /* NSString+Size.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
 				6E026FE91D3E29460038C2A0 /* Request.m in Sources */,
+				6EC6A4F91D489FE00021BE48 /* RegionModel.m in Sources */,
 				FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */,
 				6E026FEB1D3E29460038C2A0 /* RequestHandler.m in Sources */,
 				FCB6C4671D2BE880008A3137 /* JCCollectionViewTagFlowLayout.m in Sources */,
@@ -1656,15 +1779,20 @@
 				FC792C221D2E9B7600762831 /* SearchResultVC.m in Sources */,
 				6E575CAC1D40713F007BCD73 /* VideoOwnerInfoEntity.m in Sources */,
 				6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */,
+				6EC6A5021D48ADEE0021BE48 /* RegionCollectionViewCell.m in Sources */,
 				FCB6C4681D2BE880008A3137 /* JCTagCell.m in Sources */,
 				FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */,
+				6EC43B931D48E45100467810 /* HomeRecommendHeaderView.m in Sources */,
 				6E76C1791D2A736A00C259E8 /* HomeChannelRequest.m in Sources */,
+				6EC6A4FF1D48A05E0021BE48 /* RegionEntity.m in Sources */,
 				6ED65D551D38B67800D264F8 /* HomeChannelModel.m in Sources */,
 				FCB6C4691D2BE880008A3137 /* JCTagListView.m in Sources */,
 				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,
 				6E48366B1D40F414004AD1A4 /* VideoPageNameCollectionViewCell.m in Sources */,
+				6EC43B961D48E46E00467810 /* HomeRecommendFooterView.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
+				6EC6A50B1D48C8170021BE48 /* HomeRecommendEntity.m in Sources */,
 				6E575CB41D40713F007BCD73 /* VideoIntroView.m in Sources */,
 				6E76344E1D3F563A002CFA63 /* UIViewController+GetViewController.m in Sources */,
 				6E4836551D409617004AD1A4 /* UIImage+BlurEffect.swift in Sources */,
@@ -1672,11 +1800,15 @@
 				6E575CAF1D40713F007BCD73 /* VideoModel.m in Sources */,
 				6E575CB11D40713F007BCD73 /* VideoRequest.m in Sources */,
 				FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */,
+				6EC43B8C1D48CDF000467810 /* HomeRecommendModel.m in Sources */,
 				6E4836761D410818004AD1A4 /* MediaPlayerControl.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
 				6E4836611D40CB18004AD1A4 /* VideoCommentItemEntity.m in Sources */,
 				6E575CA81D40713F007BCD73 /* VideoTagsView.m in Sources */,
+				6EC43B991D48E4BA00467810 /* HomeRecommendBodyItemTableViewCell.m in Sources */,
 				6ED65D5B1D38B71900D264F8 /* HomeAnimationCategoryEntity.m in Sources */,
+				6EC43B8F1D48DB1800467810 /* HomeRecommendTableViewCell.m in Sources */,
+				6EC6A5051D48BB290021BE48 /* HomeRecommendView.m in Sources */,
 				6E18E19C1D3E388D003D35C1 /* BaseRequest.m in Sources */,
 				FCB5C9AE1D333D33000215B3 /* SearchPromptsVC.m in Sources */,
 				6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */,
@@ -1686,9 +1818,11 @@
 				6E575CAB1D40713F007BCD73 /* VideoInfoEntity.m in Sources */,
 				6E6128181D474D4800FA70D9 /* VideoCommentTableViewCell.m in Sources */,
 				FC66E7601D3E2D7A00F28B90 /* StartVCData.m in Sources */,
+				6EC6A4F61D489FCA0021BE48 /* RegionViewController.m in Sources */,
 				FC66E75F1D3E2D7A00F28B90 /* StartViewController.m in Sources */,
 				6E4836771D410818004AD1A4 /* MediaPlayerProgressView.m in Sources */,
 				6E48365B1D40C12E004AD1A4 /* VideoCommentEntity.m in Sources */,
+				6EC6A5081D48BCA50021BE48 /* HomeRecommend.m in Sources */,
 				FCB5C9A71D333886000215B3 /* SearchResultData.m in Sources */,
 				6E575CB31D40713F007BCD73 /* VideoHeaderView.m in Sources */,
 				FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */,

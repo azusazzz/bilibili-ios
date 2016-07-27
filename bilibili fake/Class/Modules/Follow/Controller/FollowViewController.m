@@ -44,7 +44,6 @@
 - (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
     ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;
     [tabbar handlePanGesture:panGestureRecognizer];
-    NSLog(@"Follow:%lf", [panGestureRecognizer locationInView:self.view].x);
 }
 
 

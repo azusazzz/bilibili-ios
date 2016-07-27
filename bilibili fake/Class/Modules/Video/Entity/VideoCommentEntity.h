@@ -34,4 +34,6 @@
 
 @property (assign, nonatomic) BOOL hasNext;
 
+@property (assign, nonatomic) NSInteger aid;
+
 @end

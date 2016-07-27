@@ -21,6 +21,6 @@
 
 @property (assign, nonatomic) BOOL hasNext;
 
-@property (copy, nonatomic) void (^loadNextPage)(void);
+@property (copy, nonatomic) void (^handleLoadNextPage)(void);
 
 @end
