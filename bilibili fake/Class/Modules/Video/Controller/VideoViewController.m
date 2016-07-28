@@ -206,7 +206,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == _backgroundScrollView) {
-        _tabBar.contentOffset = scrollView.contentOffset.x / scrollView.contentSize.width;
+        _tabBar.contentOffset = scrollView.contentOffset.x / scrollView.width;
     }
     else {
         CGFloat offset = scrollView.contentOffset.y / 2;

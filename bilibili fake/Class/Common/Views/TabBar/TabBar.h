@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, TabBarStyle) {
+    TabBarStyleNormal,
     TabBarStyleScroll
 };
 
@@ -26,10 +27,13 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
 
 @property (assign, nonatomic, readonly) NSInteger currentIndex;
 
+/**
+ *  Default TabBarStyleNormal
+ */
 @property (assign, nonatomic) TabBarStyle style;
 
 /**
- *  0.0 ~ 1.0
+ *  0.00 ~ (_items.count-1).00
  */
 @property (assign, nonatomic) CGFloat contentOffset;
 
@@ -39,7 +43,9 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
 
 @property (copy, nonatomic) void (^onClickItem)(NSInteger index);
 
-
+/**
+ *  Default  UIEdgeInsetsZero
+ */
 @property (assign, nonatomic) UIEdgeInsets edgeInsets;
 
 /**

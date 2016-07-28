@@ -97,7 +97,10 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView; {
-    _headerView.contentOffset = scrollView.contentOffset.x / scrollView.contentSize.width;
+//    _headerView.contentOffset = scrollView.contentOffset.x / scrollView.contentSize.width;
+    _headerView.contentOffset = scrollView.contentOffset.x / scrollView.width;
+//    NSLog(@"Progress: %lf", scrollView.contentOffset.x / scrollView.width);
+    
 }
 
 #pragma mark - View

@@ -65,42 +65,83 @@
     return _index;
 }
 
-- (void)setContentOffset:(CGFloat)contentOffset; {
+- (void)setContentOffset:(CGFloat)contentOffset {
     
-    CGFloat offsetX = (self.width-_edgeInsets.left-_edgeInsets.right + self.spacing) * contentOffset;
-    
-    _bottomLineView.x =  _edgeInsets.left + offsetX;
-    
-    CGFloat itemWidth = (self.bounds.size.width - _edgeInsets.left - _edgeInsets.right + self.spacing) / _items.count;
-    
-    NSInteger index = (NSInteger)(offsetX / itemWidth);
-    
-    
-    CGFloat bottomOffsetX = offsetX - index * itemWidth;
-    
-    
-    
-    if (bottomOffsetX > 0) {
-        CGFloat progress = bottomOffsetX / itemWidth;
-        [_items[index] setTitleColor:ColorRGB(self.cR - (self.cR-200)*progress, self.cG - (self.cG-200)*progress, self.cB - (self.cB-200)*progress) forState:UIControlStateNormal];
-        [_items[index+1] setTitleColor:ColorRGB(200 + (self.cR-200)*progress, 200 + (self.cG-200)*progress, 200 + (self.cB-200)*progress) forState:UIControlStateNormal];
-        
+    if (contentOffset < 0 || contentOffset > _items.count) {
+        return;
     }
-    else if (bottomOffsetX < 0) {
-        CGFloat progress = 1 - (bottomOffsetX) / itemWidth;
-        [_items[_index] setTitleColor:ColorRGB(self.cR - (self.cR-200)*progress, self.cG - (self.cG-200)*progress, self.cB - (self.cB-200)*progress) forState:UIControlStateNormal];
-        [_items[index] setTitleColor:ColorRGB(200 + (self.cR-200)*progress, 200 + (self.cG-200)*progress, 200 + (self.cB-200)*progress) forState:UIControlStateNormal];
+    
+    
+    NSInteger index = (NSInteger)contentOffset;
+    CGFloat progress = contentOffset - index;
+    
+    CGFloat lineX;
+    CGFloat lineWidth;
+    if (index == _items.count-1) {
+        lineX = _items[index].x;
+        lineWidth = _items[index].width;
     }
     else {
-        if (_index != index) {
-            [_items[_index] setTitleColor:ColorWhite(200) forState:UIControlStateNormal];
-            [_items[index] setTitleColor:ColorRGB(self.cR,self.cG,self.cB) forState:UIControlStateNormal];
-            _index = index;
-        }
+        lineX = _items[index].x + (_items[index + 1].x - _items[index].x) * progress;
+        lineWidth = _items[index].width + (_items[index + 1].width - _items[index].width) * progress;
     }
     
+    _bottomLineView.x = lineX;
+    
+    
+    
+    
+//    printf("%lf %ld %lf  %ld\t", contentOffset, index, progress, _index);
+    
+    
+    if (contentOffset > _index) {
+        
+//        printf("++\t");
+        if (progress == 0) {
+            [_items[index] setTitleColor:ColorRGB(self.cR, self.cG, self.cG) forState:UIControlStateNormal];
+            [_items[index-1] setTitleColor:ColorWhite(200) forState:UIControlStateNormal];
+        }
+        else {
+            [_items[index] setTitleColor:ColorRGB(self.cR - (self.cR-200)*progress, self.cG - (self.cG-200)*progress, self.cB - (self.cB-200)*progress) forState:UIControlStateNormal];
+            [_items[index+1] setTitleColor:ColorRGB(200 + (self.cR-200)*progress, 200 + (self.cG-200)*progress, 200 + (self.cB-200)*progress) forState:UIControlStateNormal];
+        }
+        
+        
+        if (_index != index) {
+            _index = index;
+        }
+        
+    }
+    else if (contentOffset < _index) {
+//        printf("--\t");
+        progress = 1 - progress;
+        if (progress == 0) {
+            [_items[index] setTitleColor:ColorRGB(self.cR, self.cG, self.cG) forState:UIControlStateNormal];
+            [_items[index+1] setTitleColor:ColorWhite(200) forState:UIControlStateNormal];
+        }
+        else {
+            [_items[index+1] setTitleColor:[self colorWithFromColorRGB:self.tintColorRGB toColorRGB:@[@200,@200,@200] progress:progress] forState:UIControlStateNormal];
+            [_items[index] setTitleColor:[self colorWithFromColorRGB:@[@200,@200,@200] toColorRGB:self.tintColorRGB progress:progress] forState:UIControlStateNormal];
+        }
+        
+        if (1 - progress == 0) {
+            if (_index != index) {
+                _index = index;
+            }
+        }
+        else if (index+1 < _index) {
+            _index = index+1;
+        }
+    }
+//    else {
+//        printf("==\t");
+//    }
+
+    
+//    printf("%lf %ld %lf  %ld\n", contentOffset, index, progress, _index);
     
 }
+
 
 - (void)setTitle:(NSString *)title forIndex:(NSInteger)index; {
     [_items[index] setTitle:title forState:UIControlStateNormal];
@@ -114,10 +155,20 @@
 
 - (void)layoutSubviews; {
     
-    CGFloat itemWidth = (self.bounds.size.width - _edgeInsets.left - _edgeInsets.right - self.spacing * (_items.count-1)) / _items.count;
-    [_items enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.frame = CGRectMake(_edgeInsets.left + itemWidth * idx + self.spacing * idx, _edgeInsets.top, itemWidth, self.bounds.size.height-_edgeInsets.top-_edgeInsets.bottom);
-    }];
+    if (_style == TabBarStyleNormal) {
+        CGFloat itemWidth = (self.bounds.size.width - _edgeInsets.left - _edgeInsets.right - self.spacing * (_items.count-1)) / _items.count;
+        [_items enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.frame = CGRectMake(_edgeInsets.left + itemWidth * idx + self.spacing * idx, _edgeInsets.top, itemWidth, self.bounds.size.height-_edgeInsets.top-_edgeInsets.bottom);
+        }];
+    }
+    else {
+        __block CGFloat x = _edgeInsets.left;
+        [_items enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            CGFloat width = [obj.titleLabel textRectForBounds:CGRectMake(0, 0, 9999, 16) limitedToNumberOfLines:1].size.width;
+            obj.frame = CGRectMake(x, _edgeInsets.top, width, self.bounds.size.height-_edgeInsets.top-_edgeInsets.bottom);
+            x = obj.maxY + self.spacing;
+        }];
+    }
     
     _bottomLineView.frame = CGRectMake(_items[_index].x, self.height-2 - _edgeInsets.bottom, _items[_index].width, 2);
     
@@ -153,6 +204,20 @@
 }
 - (NSInteger)cB {
     return [self.tintColorRGB[2] integerValue];
+}
+
+
+- (UIColor *)colorWithFromColorRGB:(NSArray<NSNumber *> *)fromColorRGB toColorRGB:(NSArray<NSNumber *> *)toColorRGB progress:(CGFloat)progress {
+//    ColorRGB(self.cR - (self.cR-200)*progress, self.cG - (self.cG-200)*progress, self.cB - (self.cB-200)*progress)
+    // 200 -> 255
+    NSInteger fR = [fromColorRGB[0] integerValue];
+    NSInteger fG = [fromColorRGB[1] integerValue];
+    NSInteger fB = [fromColorRGB[2] integerValue];
+    NSInteger tR = [toColorRGB[0] integerValue];
+    NSInteger tG = [toColorRGB[1] integerValue];
+    NSInteger tB = [toColorRGB[2] integerValue];
+    
+    return ColorRGB(fR + (tR - fR) * progress, fG + (tG - fG) * progress, fB + (tB - fB) * progress);
 }
 
 @end

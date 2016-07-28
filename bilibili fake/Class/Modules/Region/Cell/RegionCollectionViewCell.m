@@ -23,7 +23,12 @@
 
 - (void)setRegion:(RegionEntity *)region {
     _titleLabel.text = region.name;
-    _logoImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"home_region_icon_%ld", region.tid]];
+    if ([region.name isEqualToString:@"直播"]) {
+        _logoImageView.image = [UIImage imageNamed:@"home_region_icon_live"];
+    }
+    else {
+        _logoImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"home_region_icon_%ld", region.tid]];
+    }
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
