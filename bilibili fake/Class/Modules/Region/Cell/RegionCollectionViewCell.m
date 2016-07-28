@@ -17,12 +17,24 @@
 
 @implementation RegionCollectionViewCell
 
++ (CGFloat)heightForWidth:(CGFloat)width {
+    return width * 152.0/144.0 + 14;
+}
+
 - (void)setRegion:(RegionEntity *)region {
     _titleLabel.text = region.name;
+    _logoImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"home_region_icon_%ld", region.tid]];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = ColorWhite(247);
+        
+        UIImageView *borderView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_region_border"]];
+        [self.contentView addSubview:borderView];
+        
+        _logoImageView = [[UIImageView alloc] init];
+        [borderView addSubview:_logoImageView];
         
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.font = Font(12);
@@ -31,11 +43,25 @@
         [self.contentView addSubview:_titleLabel];
         
         
+        [borderView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.offset = 0;
+            make.left.offset = 0;
+            make.right.offset = 0;
+            make.height.equalTo(borderView.mas_width).multipliedBy(152.0/144.0);
+        }];
+        
+        [_logoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(borderView.mas_width).multipliedBy(0.4);
+            make.height.equalTo(_logoImageView.mas_width);
+            make.centerY.equalTo(borderView).offset = -5;
+            make.centerX.equalTo(borderView);
+        }];
+        
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.offset = 0;
             make.right.offset = 0;
             make.height.offset = 14;
-            make.centerY.offset = 0;
+            make.bottom.offset = 0;
         }];
         
     }

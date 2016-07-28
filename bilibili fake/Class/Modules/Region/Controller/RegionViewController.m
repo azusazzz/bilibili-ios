@@ -34,7 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = CRed;
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [self loadSubviews];
     
@@ -86,7 +86,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(RegionCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     [cell setRegion:_model.regions[indexPath.row]];
-    cell.backgroundColor = [UIColor whiteColor];
 }
 
 
@@ -101,7 +100,8 @@
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    flowLayout.itemSize = CGSizeMake((SSize.width - 15*4) / 3, 100);
+    CGFloat itemWidth = (SSize.width - 15*4) / 3;
+    flowLayout.itemSize = CGSizeMake(itemWidth, [RegionCollectionViewCell heightForWidth:itemWidth]);
     flowLayout.minimumLineSpacing = 15;
     flowLayout.minimumInteritemSpacing = 15;
     flowLayout.sectionInset = UIEdgeInsetsMake(15, 15, 15, 15);
@@ -111,6 +111,7 @@
     _collectionView.delegate = self;
     [_collectionView registerClass:[RegionCollectionViewCell class] forCellWithReuseIdentifier:@"Region"];
     _collectionView.layer.cornerRadius = 6;
+    _collectionView.layer.masksToBounds = YES;
     [self.view addSubview:_collectionView];
     
     
@@ -122,14 +123,14 @@
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset = 0;
         make.right.offset = 0;
-        make.top.offset = 20;
-        make.height.offset = 44;
+        make.top.offset = 0;
+        make.height.offset = 44 + 20 + 20;
     }];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset = 0;
         make.right.offset = 0;
-        make.top.equalTo(titleLabel.mas_bottom);
-        make.bottom.offset = 0;
+        make.top.equalTo(titleLabel.mas_bottom).offset = -20;
+        make.bottom.offset = -49 + 3;
     }];
 }
 

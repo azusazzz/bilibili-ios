@@ -11,6 +11,8 @@
 
 @interface RegionCollectionViewCell : UICollectionViewCell
 
++ (CGFloat)heightForWidth:(CGFloat)width;
+
 - (void)setRegion:(RegionEntity *)region;
 
 @end
