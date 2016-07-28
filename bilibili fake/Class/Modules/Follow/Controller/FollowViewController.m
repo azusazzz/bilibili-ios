@@ -49,13 +49,13 @@
     scrollView.frame = CGRectMake(0, 160, SSize.width, 400);
     [self.view addSubview:scrollView];
     
-    
+    scrollView.contentSize = CGSizeMake(scrollView.width * 5, 0);
     for (NSInteger i=0; i<5; i++) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(scrollView.width * i, 0, scrollView.width, scrollView.height)];
         view.backgroundColor = ColorRGB(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255));
         [scrollView addSubview:view];
     }
-    scrollView.contentSize = CGSizeMake(scrollView.width * 5, 0);
+    
     
     
 }

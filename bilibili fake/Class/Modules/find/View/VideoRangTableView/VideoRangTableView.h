@@ -12,4 +12,5 @@
 
 -(instancetype)initWithTitle:(NSString*)title;
 
+- (void)setData;
 @end

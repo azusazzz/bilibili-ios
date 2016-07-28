@@ -42,7 +42,10 @@ typedef NS_ENUM(NSInteger, RowBottonStyle) {
  */
 - (instancetype)initWithTitles:(NSMutableArray<NSString *> *)titles Style:(RowBottonStyle)style  Block:(void(^)(NSInteger btnTag))block;
 
-
+/**
+ *  0.00 ~ (_items.count-1).00
+ */
+@property (assign, nonatomic) CGFloat contentOffset;
 /**
  *  重新设置标题数组
  *

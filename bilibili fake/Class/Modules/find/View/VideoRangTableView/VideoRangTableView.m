@@ -18,23 +18,31 @@
 
 @implementation VideoRangTableView{
     NSDictionary* VideoListData;
+    NSString* _title;
 }
 
 -(instancetype)initWithTitle:(NSString *)title{
     self = [super init];
     if (self) {
+        _title = title;
         self.delegate = self;
         self.dataSource = self;
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         VideoListData = @{};
-        [[[VideoRangData alloc] init] getRangData:title block:^(NSMutableDictionary *data) {
-            VideoListData = data;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self reloadData];
-            });
-        }];
+
     }
     return self;
+}
+
+- (void)setData{
+    if (VideoListData.count) return;
+    
+    [[[VideoRangData alloc] init] getRangData:_title block:^(NSMutableDictionary *data) {
+        VideoListData = data;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self reloadData];
+        });
+    }];
 }
 
 - (void)dealloc {

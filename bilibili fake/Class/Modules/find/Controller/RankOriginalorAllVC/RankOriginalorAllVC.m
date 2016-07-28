@@ -17,6 +17,7 @@
 
 @implementation RankOriginalorAllVC{
     NSMutableArray<NSString* >* titles;
+    NSMutableArray<VideoRangTableView* > *_tableViews;
     
     TabBar*      _titleTabBar;
     UIScrollView*   _scrollView;
@@ -72,7 +73,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self loadSubviews];
-    
+    [self scrollViewDidEndDecelerating:_scrollView];
     
 }
 
@@ -84,8 +85,16 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView; {
     _titleTabBar.contentOffset = scrollView.contentOffset.x / scrollView.contentSize.width;
+    //加载附近的两个视图数据
+    
 }
-
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    int page = scrollView.contentOffset.x/scrollView.frame.size.width;
+    for(int i = page -1; i <page +2; i++){
+       if(i>=0&&i<_tableViews.count)[_tableViews[page] setData];
+    }
+    
+}
 #pragma mark - ActionDealt
 -(void)goBackAction{
     [self.navigationController popViewControllerAnimated:YES];
@@ -97,16 +106,22 @@
     
     
     UIView* headView = [UIView new];
-    headView.layer.borderWidth = 0.5;
-    headView.layer.borderColor = [ColorRGB(100, 100, 100) CGColor];
+//    headView.layer.borderWidth = 0.5;
+//    headView.layer.borderColor = [ColorRGB(200, 200, 200) CGColor];
+//    headView.layer.shadowColor = [UIColor blackColor].CGColor;//shadowColor阴影颜色
+//    headView.layer.shadowOffset = CGSizeMake(0,-1);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
+//    headView.layer.shadowOpacity = 0.8;//阴影透明度，默认0
+//    headView.layer.shadowRadius = 2;//阴影半径，默认3
     [self.view addSubview:headView];
+    //下边框
+    CALayer *TopBorder = [CALayer layer];
+    TopBorder.frame = CGRectMake(0.0f, 63.0f, SSize.width,1.0f);
+    TopBorder.backgroundColor = [ColorRGB(200, 200, 200) CGColor];
+    [headView.layer addSublayer:TopBorder];
+
     
     //返回按钮
     UIView* backbtn_bg  = [UIView new];
-//    backbtn_bg.layer.shadowColor = [UIColor blackColor].CGColor;//shadowColor阴影颜色
-//    backbtn_bg.layer.shadowOffset = CGSizeMake(2,0);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
-//    backbtn_bg.layer.shadowOpacity = 0.8;//阴影透明度，默认0
-//    backbtn_bg.layer.shadowRadius = 4;//阴影半径，默认3
     [headView addSubview:backbtn_bg];
     
     UIButton *backbtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -122,7 +137,7 @@
     _titleTabBar = [[TabBar alloc] initWithTitles:titles style:TabBarStyleNormal];
     _titleTabBar.backgroundColor = [UIColor whiteColor];
     _titleTabBar.tintColorRGB = @[@253,@129,@164];
-//    _titleTabBar.itemWidth = SSize.width / 5;
+    _titleTabBar.spacing = SSize.width / 5;
 //    __weak typeof(self) weakself = self;
 //    [_titleTabBar setOnClickItem:^(NSInteger idx) {
 ////        [weakself.scrollView setContentOffset:CGPointMake(weakself.scrollView.width * idx, 0) animated:YES];
@@ -143,11 +158,12 @@
     [self.view addSubview:_scrollView];
     
     
-    
+    _tableViews = [[NSMutableArray alloc] init];
     for (int i = 0; i < titles.count; i++) {
         VideoRangTableView *vrtv = [[VideoRangTableView alloc] initWithTitle:titles[i]];
         vrtv.frame = CGRectMake( _scrollView.frame.size.width*i, 0, _scrollView.frame.size.width,_scrollView.frame.size.height);
         [_scrollView addSubview:vrtv];
+        [_tableViews addObject:vrtv];
     }
     // Layout
     [headView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -168,7 +184,7 @@
         make.left.equalTo(backbtn.mas_right);
         make.right.equalTo(headView);
         make.top.mas_equalTo(headView.mas_top).offset(20);
-        make.bottom.equalTo(headView.mas_bottom);
+        make.bottom.equalTo(headView.mas_bottom).offset(-1);
     }];
     
     titleScr.contentSize = CGSizeMake(SSize.width*0.2*titles.count, 44);
@@ -189,6 +205,8 @@
 //        make.top.equalTo(self.view).offset = 0;
 //        make.height.equalTo(@(44+20));
 //    }];
-
+    
+ 
+    
 }
 @end
