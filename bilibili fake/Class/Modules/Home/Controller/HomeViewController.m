@@ -69,6 +69,10 @@
     [super viewWillAppear:animated];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle; {
+    return UIStatusBarStyleLightContent;
+}
+
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
@@ -117,8 +121,8 @@
     _headerView = [[HomeHeaderView alloc] initWithTitles:@[@"直播", @"推荐", @"番剧"]];
     _headerView.backgroundColor = CRed;
     _headerView.tintColorRGB = @[@255,@255,@255];
-    _headerView.edgeInsets = UIEdgeInsetsMake(20, (SSize.width-60*3)/2, 4, (SSize.width-60*3)/2);
-//    _headerView.itemWidth = SSize.width / 3;
+    _headerView.edgeInsets = UIEdgeInsetsMake(20, (SSize.width-50*3)/2, 4, (SSize.width-50*3)/2);
+    _headerView.spacing = 20;
     __weak typeof(self) weakself = self;
     [_headerView setOnClickItem:^(NSInteger idx) {
         [weakself.scrollView setContentOffset:CGPointMake(weakself.scrollView.width * idx, 0) animated:YES];

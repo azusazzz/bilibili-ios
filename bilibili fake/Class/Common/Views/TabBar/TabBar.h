@@ -24,8 +24,6 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
 
 @interface TabBar : UIView
 
-@property (assign, nonatomic) CGFloat itemWidth;
-
 @property (assign, nonatomic, readonly) NSInteger currentIndex;
 
 @property (assign, nonatomic) TabBarStyle style;
@@ -35,6 +33,7 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
  */
 @property (assign, nonatomic) CGFloat contentOffset;
 
+
 @property (weak, nonatomic) id<TabBarDelegate> delegate;
 
 
@@ -43,8 +42,15 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
 
 @property (assign, nonatomic) UIEdgeInsets edgeInsets;
 
-
+/**
+ *  色调  RGB   @[@255, @255, @255]
+ */
 @property (strong, nonatomic) NSArray<NSNumber *> *tintColorRGB;
+
+/**
+ *  间距
+ */
+@property (assign, nonatomic) CGFloat spacing;
 
 
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles;

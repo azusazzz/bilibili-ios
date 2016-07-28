@@ -28,6 +28,10 @@
 @property (strong, nonatomic) NSArray<HomeRecommendBannerEntity *> *banner_bottom;
 
 
+
+@property (strong, nonatomic) NSString *logoIconNmae;
+//@property (strong, nonatomic) NSString *subTitle;
+
 @end
 
 @interface HomeRecommendBodyEntity : NSObject
@@ -42,9 +46,19 @@
 
 @property (strong, nonatomic) NSString *_goto;
 
+// AV
+
 @property (assign, nonatomic) NSInteger play;
 
 @property (assign, nonatomic) NSInteger danmaku;
+
+// Live
+
+@property (strong, nonatomic) NSString *name;
+
+@property (strong, nonatomic) NSString *face;
+
+@property (assign, nonatomic) NSInteger online;
 
 @end
 

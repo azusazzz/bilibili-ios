@@ -16,6 +16,27 @@
     [[HomeRecommend request] startWithCompletionBlock:^(BaseRequest *request) {
         if (request.responseCode == 0) {
             _recommendList = [HomeRecommendEntity mj_objectArrayWithKeyValuesArray:request.responseData];
+            
+            [_recommendList enumerateObjectsUsingBlock:^(HomeRecommendEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj.type isEqualToString:@"recommend"]) {
+                    obj.logoIconNmae = @"hd_home_recommend";
+                }
+                else if ([obj.type isEqualToString:@"live"]) {
+                    obj.logoIconNmae = @"hd_home_subregion_live";
+                }
+                else if ([obj.type isEqualToString:@"bangumi"]) {
+                    obj.logoIconNmae = @"hd_home_subregion_live";
+                }
+                else if ([obj.type isEqualToString:@"region"]) {
+                    obj.logoIconNmae = [NSString stringWithFormat:@"home_region_icon_%@", obj.param];
+                }
+                else if ([obj.type isEqualToString:@"activity"]) {
+                    obj.logoIconNmae = @"hd_home_subregion_live";
+                }
+                else {
+                    obj.logoIconNmae = @"hd_home_recommend";
+                }
+            }];
             success();
         }
         else {

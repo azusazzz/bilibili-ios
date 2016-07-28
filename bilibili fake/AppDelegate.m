@@ -26,6 +26,9 @@
     [StartViewController show];
     
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    
     NSDictionary *dict = @{
                            @"_device": @"iphone",
                            @"_hwid": @"edc9b2ac43799c0c",

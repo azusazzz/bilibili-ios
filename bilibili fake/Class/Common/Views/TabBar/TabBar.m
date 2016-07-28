@@ -67,21 +67,27 @@
 
 - (void)setContentOffset:(CGFloat)contentOffset; {
     
+    CGFloat offsetX = (self.width-_edgeInsets.left-_edgeInsets.right + self.spacing) * contentOffset;
+    
+    _bottomLineView.x =  _edgeInsets.left + offsetX;
+    
+    CGFloat itemWidth = (self.bounds.size.width - _edgeInsets.left - _edgeInsets.right + self.spacing) / _items.count;
+    
+    NSInteger index = (NSInteger)(offsetX / itemWidth);
     
     
-    _bottomLineView.x =  _edgeInsets.left + (self.width-_edgeInsets.left-_edgeInsets.right) * contentOffset;
-    NSInteger index = (NSInteger)((_bottomLineView.x-_edgeInsets.left) / self.itemWidth);
+    CGFloat bottomOffsetX = offsetX - index * itemWidth;
     
     
-    CGFloat bottomOffsetX = _bottomLineView.x - _edgeInsets.left - index * self.itemWidth;
+    
     if (bottomOffsetX > 0) {
-        CGFloat progress = bottomOffsetX / self.itemWidth;
+        CGFloat progress = bottomOffsetX / itemWidth;
         [_items[index] setTitleColor:ColorRGB(self.cR - (self.cR-200)*progress, self.cG - (self.cG-200)*progress, self.cB - (self.cB-200)*progress) forState:UIControlStateNormal];
         [_items[index+1] setTitleColor:ColorRGB(200 + (self.cR-200)*progress, 200 + (self.cG-200)*progress, 200 + (self.cB-200)*progress) forState:UIControlStateNormal];
         
     }
     else if (bottomOffsetX < 0) {
-        CGFloat progress = 1 - (bottomOffsetX) / self.itemWidth;
+        CGFloat progress = 1 - (bottomOffsetX) / itemWidth;
         [_items[_index] setTitleColor:ColorRGB(self.cR - (self.cR-200)*progress, self.cG - (self.cG-200)*progress, self.cB - (self.cB-200)*progress) forState:UIControlStateNormal];
         [_items[index] setTitleColor:ColorRGB(200 + (self.cR-200)*progress, 200 + (self.cG-200)*progress, 200 + (self.cB-200)*progress) forState:UIControlStateNormal];
     }
@@ -108,18 +114,14 @@
 
 - (void)layoutSubviews; {
     
-    CGFloat itemWidth = (self.bounds.size.width - _edgeInsets.left - _edgeInsets.right) / _items.count;
+    CGFloat itemWidth = (self.bounds.size.width - _edgeInsets.left - _edgeInsets.right - self.spacing * (_items.count-1)) / _items.count;
     [_items enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.frame = CGRectMake(_edgeInsets.left + itemWidth * idx, _edgeInsets.top, itemWidth, self.bounds.size.height-_edgeInsets.top-_edgeInsets.bottom);
+        obj.frame = CGRectMake(_edgeInsets.left + itemWidth * idx + self.spacing * idx, _edgeInsets.top, itemWidth, self.bounds.size.height-_edgeInsets.top-_edgeInsets.bottom);
     }];
     
     _bottomLineView.frame = CGRectMake(_items[_index].x, self.height-2 - _edgeInsets.bottom, _items[_index].width, 2);
     
     [super layoutSubviews];
-}
-
-- (CGFloat)itemWidth {
-    return (self.bounds.size.width - _edgeInsets.left - _edgeInsets.right) / _items.count;
 }
 
 

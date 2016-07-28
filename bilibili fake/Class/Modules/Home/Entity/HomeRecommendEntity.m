@@ -21,6 +21,10 @@
              @"banner_bottom": @"banner.bottom"};
 }
 
++ (NSArray *)mj_ignoredPropertyNames {
+    return @[@"logoIconNmae"];
+}
+
 
 @end
 

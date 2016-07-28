@@ -54,6 +54,11 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle; {
+    return UIStatusBarStyleLightContent;
+}
+
+
 
 - (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
     ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;

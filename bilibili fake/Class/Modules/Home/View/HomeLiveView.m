@@ -10,6 +10,28 @@
 #import "VideoViewController.h"
 #import "UIViewController+GetViewController.h"
 
+@interface TestView : UIView
+
+@end
+
+@implementation TestView
+
+- (void)drawRect:(CGRect)rect {
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    NSArray *colors = @[(__bridge id)[UIColor colorWithRed:0 green:0.0 blue:0.0 alpha:0.4].CGColor,
+                        (__bridge id)[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0].CGColor];
+    const CGFloat locations[] = {0.0, 1.0};
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
+    CGContextDrawLinearGradient(context, gradient, CGPointMake(0, rect.size.height), CGPointMake(0, 0), 0);
+    
+}
+
+@end
+
+
 
 @interface HomeLiveView ()
 {
@@ -22,6 +44,13 @@
 - (instancetype)init; {
     if (self = [super init]) {
         self.backgroundColor = ColorWhite(200);
+        
+        TestView *tv = [[TestView alloc] init];
+        tv.frame = CGRectMake(40, 40, 100, 100);
+        tv.backgroundColor = [UIColor clearColor];
+        [self addSubview:tv];
+        
+        
         
         _textField = [[UITextField alloc] init];
         _textField.backgroundColor = [UIColor whiteColor];
@@ -38,7 +67,7 @@
         
         
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.offset = 200;
+            [make.width.offset(200) priorityLow];
             make.height.offset = 40;
             make.centerX.equalTo(self);
             make.top.offset = 150;

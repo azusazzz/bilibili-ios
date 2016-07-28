@@ -122,7 +122,7 @@
     _titleTabBar = [[TabBar alloc] initWithTitles:titles];
     _titleTabBar.backgroundColor = [UIColor whiteColor];
     _titleTabBar.tintColorRGB = @[@253,@129,@164];
-    _titleTabBar.itemWidth = SSize.width / 5;
+//    _titleTabBar.itemWidth = SSize.width / 5;
 //    __weak typeof(self) weakself = self;
 //    [_titleTabBar setOnClickItem:^(NSInteger idx) {
 ////        [weakself.scrollView setContentOffset:CGPointMake(weakself.scrollView.width * idx, 0) animated:YES];
