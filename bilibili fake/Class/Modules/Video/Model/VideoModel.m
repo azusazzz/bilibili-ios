@@ -44,7 +44,7 @@
 //}
 
 - (void)dealloc {
-    Log(@"%s", __FUNCTION__);
+//    Log(@"%s", __FUNCTION__);
 }
 
 - (void)getVideoInfoWithSuccess:(void (^)(void))success failure:(void (^)(NSString *))failure {

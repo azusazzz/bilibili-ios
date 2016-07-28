@@ -26,6 +26,7 @@
     [StartViewController show];
     
     
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     

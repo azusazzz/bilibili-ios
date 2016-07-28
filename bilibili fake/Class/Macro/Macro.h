@@ -10,15 +10,43 @@
 #define Macro_h
 
 
+#define LogLevelNONE    0
+#define LogLevelDEBUG   1
+#define LogLevelINFO    2
+#define LogLevelWARN    3
+#define LogLevelERROR   4
+
+
+#define LogDEBUG(...) Log(LogLevelDEBUG, __VA_ARGS__)
+#define LogINFO(...) Log(LogLevelINFO, __VA_ARGS__)
+#define LogWARN(...) Log(LogLevelWARN, __VA_ARGS__)
+#define LogERROR(...) Log(LogLevelERROR, __VA_ARGS__)
+
+// 这里设置日志显示的级别
+#define LogLevel LogLevelERROR
+
+#define Log(level, ...)  \
+if(level <= LogLevel) { \
+    printf("\n%s 第%d行 level:%d\n %s\n\n",__func__,__LINE__,LogLevelDEBUG,[[NSString stringWithFormat:__VA_ARGS__] cStringUsingEncoding:NSUTF8StringEncoding]);   \
+}
+
+
+
 #define SSize   [UIScreen mainScreen].bounds.size
 
 
 
+
+/*
 #ifdef DEBUG
 #define Log(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
 #else
 #define Log(...)
 #endif
+*/
+
+
+
 
 
 
