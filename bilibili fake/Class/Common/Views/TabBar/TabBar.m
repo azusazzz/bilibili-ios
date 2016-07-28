@@ -16,11 +16,9 @@
     NSInteger _index;
     
     NSArray<NSNumber *> *_tintColorRGB;
+    
+    UIScrollView *_scrollView;
 }
-
-@property (assign, nonatomic, readonly) NSInteger cR;
-@property (assign, nonatomic, readonly) NSInteger cG;
-@property (assign, nonatomic, readonly) NSInteger cB;
 
 @end
 
@@ -28,13 +26,24 @@
 
 @dynamic tintColorRGB;
 
-- (instancetype)initWithTitles:(NSArray<NSString *> *)titles; {
+- (instancetype)initWithTitles:(NSArray<NSString *> *)titles style:(TabBarStyle)style {
     if (self = [super init]) {
         self.backgroundColor = [UIColor whiteColor];
-        _items = [NSMutableArray arrayWithCapacity:titles.count];
+        _style = style;
         
+        if (_style == TabBarStyleScroll) {
+            _scrollView = [[UIScrollView alloc] init];
+//            _scrollView.backgroundColor = [UIColor orangeColor];
+            _scrollView.contentOffset = CGPointZero;
+            _scrollView.bounces = NO;
+            [self addSubview:_scrollView];
+        }
+        
+        
+        _items = [NSMutableArray arrayWithCapacity:titles.count];
         [titles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+//            button.backgroundColor = [UIColor yellowColor];
             [button setTitle:obj forState:UIControlStateNormal];
             if (idx == _index) {
                 [button setTitleColor:ColorRGB(self.cR,self.cG,self.cB) forState:UIControlStateNormal];
@@ -45,13 +54,24 @@
             button.titleLabel.font = Font(14);
             button.tag = idx;
             [button addTarget:self action:@selector(onClickItem:) forControlEvents:UIControlEventTouchUpInside];
-            [self addSubview:button];
+            if (_style == TabBarStyleScroll) {
+                [_scrollView addSubview:button];
+            }
+            else {
+                [self addSubview:button];
+            }
             [_items addObject:button];
         }];
         
         _bottomLineView = [[UIView alloc] init];
         _bottomLineView.backgroundColor = ColorRGB(self.cR,self.cG,self.cB);
-        [self addSubview:_bottomLineView];
+        
+        if (_style == TabBarStyleScroll) {
+            [_scrollView addSubview:_bottomLineView];
+        }
+        else {
+            [self addSubview:_bottomLineView];
+        }
         
     }
     return self;
@@ -67,7 +87,7 @@
 
 - (void)setContentOffset:(CGFloat)contentOffset {
     
-    if (contentOffset < 0 || contentOffset > _items.count) {
+    if (contentOffset < 0 || contentOffset > _items.count-1) {
         return;
     }
     
@@ -86,9 +106,17 @@
         lineWidth = _items[index].width + (_items[index + 1].width - _items[index].width) * progress;
     }
     
-    _bottomLineView.x = lineX;
+    if (_style == TabBarStyleNormal) {
+        _bottomLineView.frame = CGRectMake(lineX, _bottomLineView.y, lineWidth, _bottomLineView.height);
+    }
+    else {
+//        _bottomLineView.x = lineX + _scrollView.x;
+        _bottomLineView.frame = CGRectMake(lineX, _bottomLineView.y, lineWidth, _bottomLineView.height);
+    }
     
     
+    
+    _scrollView.contentOffset = CGPointMake((_scrollView.contentSize.width - _scrollView.width) * (contentOffset / (_items.count-1)), 0);
     
     
 //    printf("%lf %ld %lf  %ld\t", contentOffset, index, progress, _index);
@@ -155,22 +183,34 @@
 
 - (void)layoutSubviews; {
     
+    
+    
     if (_style == TabBarStyleNormal) {
         CGFloat itemWidth = (self.bounds.size.width - _edgeInsets.left - _edgeInsets.right - self.spacing * (_items.count-1)) / _items.count;
         [_items enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             obj.frame = CGRectMake(_edgeInsets.left + itemWidth * idx + self.spacing * idx, _edgeInsets.top, itemWidth, self.bounds.size.height-_edgeInsets.top-_edgeInsets.bottom);
         }];
+        
+        _bottomLineView.frame = CGRectMake(_items[_index].x, self.height-2 - _edgeInsets.bottom, _items[_index].width, 2);
     }
     else {
-        __block CGFloat x = _edgeInsets.left;
+        CGRect rect = CGRectMake(_edgeInsets.left, _edgeInsets.top, self.width-_edgeInsets.left-_edgeInsets.right, self.height-_edgeInsets.top-_edgeInsets.bottom);
+        if (CGRectEqualToRect(rect, _scrollView.frame)) {
+            return;
+        }
+        
+        _scrollView.frame = rect;
+        
+        __block CGFloat x = 0;
         [_items enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             CGFloat width = [obj.titleLabel textRectForBounds:CGRectMake(0, 0, 9999, 16) limitedToNumberOfLines:1].size.width;
-            obj.frame = CGRectMake(x, _edgeInsets.top, width, self.bounds.size.height-_edgeInsets.top-_edgeInsets.bottom);
-            x = obj.maxY + self.spacing;
+            obj.frame = CGRectMake(x, 0, width, _scrollView.height);
+            x = obj.maxX + self.spacing;
         }];
+        _scrollView.contentSize = CGSizeMake(x - self.spacing, 0);
+        _scrollView.contentOffset = CGPointZero;
+        _bottomLineView.frame = CGRectMake(_items[_index].x, self.height-2 - _edgeInsets.bottom, _items[_index].width, 2);
     }
-    
-    _bottomLineView.frame = CGRectMake(_items[_index].x, self.height-2 - _edgeInsets.bottom, _items[_index].width, 2);
     
     [super layoutSubviews];
 }
@@ -208,8 +248,6 @@
 
 
 - (UIColor *)colorWithFromColorRGB:(NSArray<NSNumber *> *)fromColorRGB toColorRGB:(NSArray<NSNumber *> *)toColorRGB progress:(CGFloat)progress {
-//    ColorRGB(self.cR - (self.cR-200)*progress, self.cG - (self.cG-200)*progress, self.cB - (self.cB-200)*progress)
-    // 200 -> 255
     NSInteger fR = [fromColorRGB[0] integerValue];
     NSInteger fG = [fromColorRGB[1] integerValue];
     NSInteger fB = [fromColorRGB[2] integerValue];

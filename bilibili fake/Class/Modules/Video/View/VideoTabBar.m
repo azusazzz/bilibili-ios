@@ -15,6 +15,11 @@
 
 @implementation VideoTabBar
 
-
+- (instancetype)initWithTitles:(NSArray<NSString *> *)titles {
+    if (self = [super initWithTitles:titles style:TabBarStyleNormal]) {
+        self.edgeInsets = UIEdgeInsetsMake(0, (SSize.width-180)/2, 0, (SSize.width-180)/2);
+    }
+    return self;
+}
 
 @end

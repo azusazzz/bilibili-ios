@@ -285,7 +285,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     [self.view addSubview:_headerView];
     
     _tabBar = [[VideoTabBar alloc] initWithTitles:@[@"简介", @"评论"]];
-    _tabBar.edgeInsets = UIEdgeInsetsMake(0, (self.view.width-180)/2, 0, (self.view.width-180)/2);
+    
     __weak typeof(self) weakself = self;
     [_tabBar setOnClickItem:^(NSInteger idx) {
         [weakself.backgroundScrollView setContentOffset:CGPointMake(weakself.backgroundScrollView.width * idx, 0) animated:YES];

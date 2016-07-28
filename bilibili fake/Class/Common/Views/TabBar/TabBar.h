@@ -27,10 +27,8 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
 
 @property (assign, nonatomic, readonly) NSInteger currentIndex;
 
-/**
- *  Default TabBarStyleNormal
- */
-@property (assign, nonatomic) TabBarStyle style;
+
+@property (assign, nonatomic, readonly) TabBarStyle style;
 
 /**
  *  0.00 ~ (_items.count-1).00
@@ -59,7 +57,7 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
 @property (assign, nonatomic) CGFloat spacing;
 
 
-- (instancetype)initWithTitles:(NSArray<NSString *> *)titles;
+- (instancetype)initWithTitles:(NSArray<NSString *> *)titles style:(TabBarStyle)style;
 
 - (void)setTitle:(NSString *)title forIndex:(NSInteger)index;
 

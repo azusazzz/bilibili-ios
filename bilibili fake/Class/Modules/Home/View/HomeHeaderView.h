@@ -11,4 +11,6 @@
 
 @interface HomeHeaderView : TabBar
 
+- (instancetype)initWithTitles:(NSArray<NSString *> *)titles;
+
 @end

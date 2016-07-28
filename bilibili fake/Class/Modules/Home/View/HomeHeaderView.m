@@ -19,7 +19,7 @@
 @implementation HomeHeaderView
 
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles {
-    if (self = [super initWithTitles:titles]) {
+    if (self = [super initWithTitles:titles style:TabBarStyleNormal]) {
         self.backgroundColor = CRed;
         self.tintColorRGB = @[@255,@255,@255];
         self.edgeInsets = UIEdgeInsetsMake(20, (SSize.width-50*3)/2, 4, (SSize.width-50*3)/2);

@@ -11,5 +11,6 @@
 
 @interface VideoTabBar : TabBar
 
+- (instancetype)initWithTitles:(NSArray<NSString *> *)titles;
 
 @end
