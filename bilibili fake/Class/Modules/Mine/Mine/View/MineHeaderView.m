@@ -1,22 +1,22 @@
 //
-//  MeHeaderView.m
+//  MineHeaderView.m
 //  bilibili fake
 //
 //  Created by 翟泉 on 2016/7/29.
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "MeHeaderView.h"
+#import "MineHeaderView.h"
 
 
-@interface MeHeaderView ()
+@interface MineHeaderView ()
 {
     UIButton *_signupButton;
     UIButton *_signinButton;
 }
 @end
 
-@implementation MeHeaderView
+@implementation MineHeaderView
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -53,4 +53,5 @@
     }
     return self;
 }
+
 @end

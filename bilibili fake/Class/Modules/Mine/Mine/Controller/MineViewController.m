@@ -1,44 +1,34 @@
 //
-//  MeViewController.m
+//  MineViewController.m
 //  bilibili fake
 //
-//  Created by 翟泉 on 2016/7/7.
+//  Created by 翟泉 on 2016/7/29.
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "MeViewController.h"
+#import "MineViewController.h"
 #import "ScrollTabBarController.h"
 
-#import "MeHeaderView.h"
+// Subviews
+#import "MineHeaderView.h"
 #import "MineCollectionView.h"
 
+// ViewController
 #import "HistoryViewController.h"
 
+@interface MineViewController ()
 
-//typedef struct MeItemEntity {
-//    char *title;
-//    char *logoName;
-//} MeItemEntity;
-//
-//typedef struct MeGroupEntity {
-//    char *title;
-//    MeItemEntity *items;
-//} MeGroupEntity;
-
-
-@interface MeViewController ()
-
-@property (strong, nonatomic) MeHeaderView *headerView;
+@property (strong, nonatomic) MineHeaderView *headerView;
 
 @property (strong, nonatomic) MineCollectionView *collectionView;
 
 @end
 
-@implementation MeViewController
+@implementation MineViewController
 
 - (instancetype)init; {
     if (self = [super init]) {
-        self.title = @"首页";
+        self.title = @"我的";
     }
     return self;
 }
@@ -46,28 +36,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"我的";
     self.view.backgroundColor = CRed;
     
     [self loadSubviews];
     
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [_collectionView removeFromSuperview];
-//        _collectionView = NULL;
-//    });
     
-    
-    
-//    MeItemEntity items[7] = {
-//        {"",""},
-//        {"",""},
-//        {"",""},
-//        {"",""},
-//        {"",""},
-//        {"",""},
-//        {"",""}
-//    };
     
     __weak typeof(self) weakself = self;
     [_collectionView setHandleDidSelectedItem:^(NSIndexPath *indexPath) {
@@ -81,14 +55,14 @@
     MineGroupEntity *group1 = [[MineGroupEntity alloc] init];
     group1.title = @"个人中心";
     group1.items = @[
-                    [MineItemEntity entityWithTitle:@"离线缓存" logoName:@"mine_download"],
-                    [MineItemEntity entityWithTitle:@"历史记录" logoName:@"mine_history"],
-                    [MineItemEntity entityWithTitle:@"我的收藏" logoName:@"mine_favourite"],
-                    [MineItemEntity entityWithTitle:@"我的关注" logoName:@"mine_follow"],
-                    [MineItemEntity entityWithTitle:@"我的钱包" logoName:@"mine_pocketcenter"],
-                    [MineItemEntity entityWithTitle:@"游戏中心" logoName:@"mine_gamecenter"],
-                    [MineItemEntity entityWithTitle:@"主题选择" logoName:@"mine_theme"],
-                    ];
+                     [MineItemEntity entityWithTitle:@"离线缓存" logoName:@"mine_download"],
+                     [MineItemEntity entityWithTitle:@"历史记录" logoName:@"mine_history"],
+                     [MineItemEntity entityWithTitle:@"我的收藏" logoName:@"mine_favourite"],
+                     [MineItemEntity entityWithTitle:@"我的关注" logoName:@"mine_follow"],
+                     [MineItemEntity entityWithTitle:@"我的钱包" logoName:@"mine_pocketcenter"],
+                     [MineItemEntity entityWithTitle:@"游戏中心" logoName:@"mine_gamecenter"],
+                     [MineItemEntity entityWithTitle:@"主题选择" logoName:@"mine_theme"],
+                     ];
     
     
     
@@ -131,7 +105,7 @@
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
     
-    _headerView = [[MeHeaderView alloc] init];
+    _headerView = [[MineHeaderView alloc] init];
     [self.view addSubview:_headerView];
     
     _collectionView = [[MineCollectionView alloc] init];
