@@ -132,7 +132,7 @@
         make.left.offset = 0;
         make.right.offset = 0;
         make.top.equalTo(_headerView.mas_bottom);
-        make.bottom.offset = 0;
+        make.bottom.offset = 3;
     }];
 }
 
