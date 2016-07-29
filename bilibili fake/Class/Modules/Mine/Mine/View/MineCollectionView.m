@@ -30,15 +30,10 @@
 }
 
 - (void)layoutSubviews {
-    
     [super layoutSubviews];
-    
-//    NSLog(@"layoutSubviews %@", self.backgroundView);
     if (self.backgroundView.y < 0) {
         self.backgroundView.y = 0;
     }
-    
-//    NSLog(@"layoutSubviews %@\n", self.backgroundView);
 }
 
 - (instancetype)init {
@@ -68,7 +63,9 @@
     return self;
 }
 
-
+/**
+ *  Number
+ */
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return [self.groups count];
 }
@@ -76,17 +73,9 @@
     NSInteger count = [self.groups[section].items count];
     return count % 4 == 0 ? count : count + (4-count%4);
 }
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-}
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(MineCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row < _groups[indexPath.section].items.count) {
-        [cell setItem:self.groups[indexPath.section].items[indexPath.row]];
-    }
-    else {
-        [cell setItem:NULL];
-    }
-}
+/**
+ *  Cell
+ */
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"Header" forIndexPath:indexPath];
@@ -96,6 +85,12 @@
     }
     return NULL;
 }
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+}
+/**
+ *  Data
+ */
 - (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
     if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
         
@@ -111,12 +106,23 @@
         }
     }
 }
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(MineCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row < _groups[indexPath.section].items.count) {
+        [cell setItem:self.groups[indexPath.section].items[indexPath.row]];
+    }
+    else {
+        [cell setItem:NULL];
+    }
+}
 
+/**
+ *  Select
+ */
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return indexPath.row < _groups[indexPath.section].items.count;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    LogDEBUG(@"%@", indexPath)
+    _handleDidSelectedItem ? _handleDidSelectedItem(indexPath) : NULL;
 }
 
 @end

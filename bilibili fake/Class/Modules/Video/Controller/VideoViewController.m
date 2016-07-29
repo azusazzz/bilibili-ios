@@ -18,8 +18,8 @@
 
 
 @interface VideoViewController ()
-<UIScrollViewDelegate, UIGestureRecognizerDelegate,
-UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
+<UIScrollViewDelegate, UIGestureRecognizerDelegate
+/*,UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning*/>
 {
 //    NSInteger _aid;
     
@@ -33,8 +33,8 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     
     
     
-    BOOL _interactive;
-    UIPercentDrivenInteractiveTransition *_interactionController;
+//    BOOL _interactive;
+//    UIPercentDrivenInteractiveTransition *_interactionController;
     
     
 }
@@ -62,6 +62,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
 - (instancetype)initWithAid:(NSInteger)aid; {
     if (self = [super init]) {
         _aid = aid;
+        self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }
@@ -75,11 +76,12 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     // Do any additional setup after loading the view.
     self.view.backgroundColor = ColorWhite(240);
     
-    self.navigationController.delegate = self;
+//    _interactionController = [[UIPercentDrivenInteractiveTransition alloc] init];
+//    self.navigationController.delegate = self;
     
     [self initSubviews];
     
-    _interactionController = [[UIPercentDrivenInteractiveTransition alloc] init];
+
     
     
     [self loadData];
@@ -132,7 +134,6 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle; {
@@ -239,6 +240,7 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     }
 }
 
+/*
 - (void)handlePangesture:(UIPanGestureRecognizer *)panGesture {
     CGFloat translationX = [panGesture translationInView:_backgroundScrollView].x;
     CGFloat progress = translationX / self.view.width;
@@ -262,9 +264,10 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
         default:
             break;
     }
-}
+}*/
 
 #pragma mark - UIGestureRecognizerDelegate
+
 
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
     CGPoint translation = [gestureRecognizer translationInView:_backgroundScrollView];
@@ -344,14 +347,21 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
     }];
     
     
-    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePangesture:)];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    NSArray *internalTargets = [self.navigationController.interactivePopGestureRecognizer valueForKey:@"targets"];
+    id internalTarget = [internalTargets.firstObject valueForKey:@"target"];
+    SEL internalAction = NSSelectorFromString(@"handleNavigationTransition:");
+    
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:internalTarget action:internalAction];
     panGesture.delegate = self;
     [_backgroundScrollView addGestureRecognizer:panGesture];
-    UIPanGestureRecognizer *headerPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePangesture:)];
+    UIPanGestureRecognizer *headerPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:internalTarget action:internalAction];
     headerPanGesture.delegate = self;
     [_headerView addGestureRecognizer:headerPanGesture];
 }
 
+
+/*
 
 #pragma mark - UINavigationControllerDelegate
 
@@ -391,5 +401,6 @@ UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning>
         [transitionContext completeTransition:!isCancelled];
     }];
 }
+*/
 
 @end

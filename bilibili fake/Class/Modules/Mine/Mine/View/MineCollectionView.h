@@ -13,4 +13,8 @@
 
 @property (strong, nonatomic) NSArray<MineGroupEntity *> *groups;
 
+@property (strong, nonatomic) void (^handleDidSelectedItem)(NSIndexPath *indexPath);
+
+- (void)setHandleDidSelectedItem:(void (^)(NSIndexPath *indexPath))handleDidSelectedItem;
+
 @end

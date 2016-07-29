@@ -1,5 +1,5 @@
 //
-//  MeHeaderView.h
+//  MineHeaderView.h
 //  bilibili fake
 //
 //  Created by 翟泉 on 2016/7/29.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MeHeaderView : UIView
+@interface MineHeaderView : UIView
 
 @end

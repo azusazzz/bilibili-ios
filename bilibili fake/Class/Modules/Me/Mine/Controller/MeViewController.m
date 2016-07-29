@@ -12,6 +12,8 @@
 #import "MeHeaderView.h"
 #import "MineCollectionView.h"
 
+#import "HistoryViewController.h"
+
 
 //typedef struct MeItemEntity {
 //    char *title;
@@ -67,6 +69,15 @@
 //        {"",""}
 //    };
     
+    __weak typeof(self) weakself = self;
+    [_collectionView setHandleDidSelectedItem:^(NSIndexPath *indexPath) {
+        LogDEBUG(@"%@", indexPath);
+        [weakself handleDidSelectedItem:indexPath];
+    }];
+    
+    
+    
+    
     MineGroupEntity *group1 = [[MineGroupEntity alloc] init];
     group1.title = @"个人中心";
     group1.items = @[
@@ -92,6 +103,10 @@
                      ];
     
     _collectionView.groups = @[group1, group2];
+}
+
+- (void)handleDidSelectedItem:(NSIndexPath *)indexPath {
+    [self.navigationController pushViewController:[[HistoryViewController alloc] init] animated:YES];
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {

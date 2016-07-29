@@ -13,7 +13,7 @@
 #import "RegionViewController.h"
 #import "FollowViewController.h"
 #import "FindViewController.h"
-#import "MeViewController.h"
+#import "MineViewController.h"
 
 #import "TabBarControllerAnimatedTransitioning.h"
 
@@ -41,7 +41,7 @@
                              [[UINavigationController alloc] initWithRootViewController:[[RegionViewController alloc] init]],
                              [[UINavigationController alloc] initWithRootViewController:[[FollowViewController alloc] init]],
                              [[UINavigationController alloc] initWithRootViewController:[[FindViewController alloc] init]],
-                             [[UINavigationController alloc] initWithRootViewController:[[MeViewController alloc] init]],
+                             [[UINavigationController alloc] initWithRootViewController:[[MineViewController alloc] init]],
                              ];
     
     self.delegate = self;
