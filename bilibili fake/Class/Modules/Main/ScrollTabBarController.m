@@ -46,6 +46,7 @@
     
     self.delegate = self;
     self.tabBar.tintColor = CRed;
+    self.tabBar.translucent = NO;
     
     _interactionController = [[UIPercentDrivenInteractiveTransition alloc] init];
     
@@ -76,7 +77,7 @@
     
     
     
-    NSLog(@"%ld", self.selectedIndex);
+//    NSLog(@"%ld", self.selectedIndex);
     
     switch (panGesture.state) {
         case UIGestureRecognizerStateBegan:
@@ -103,7 +104,7 @@
         case UIGestureRecognizerStateEnded:
         {
             CGFloat speed = translationAbs / (CACurrentMediaTime() - beganTime);
-            NSLog(@"speed %lf", speed);
+//            NSLog(@"speed %lf", speed);
             self.interactionController.completionSpeed = 0.99;
             if (progress > 0.5 || speed > 600) {
                 [self.interactionController finishInteractiveTransition];

@@ -55,7 +55,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = CRed;
     [self loadSubviews];
     
     
@@ -171,15 +171,15 @@
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.top.equalTo(self.view).offset = 0;
-        make.height.equalTo(@(44+20));
+        make.top.equalTo(self.view).offset = 20;
+        make.height.equalTo(@(44));
     }];
     
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.top.equalTo(_headerView.mas_bottom);
-        make.bottom.equalTo(@-49);
+        make.bottom.equalTo(@0);
     }];
     
     [_liveView mas_makeConstraints:^(MASConstraintMaker *make) {

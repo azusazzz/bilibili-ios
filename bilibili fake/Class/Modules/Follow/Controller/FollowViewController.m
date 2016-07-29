@@ -56,7 +56,9 @@
         [scrollView addSubview:view];
     }
     
-    
+    [_tabbar setOnClickItem:^(NSInteger idx) {
+        [scrollView setContentOffset:CGPointMake(scrollView.width * idx, 0) animated:YES];
+    }];
     
 }
 
@@ -72,6 +74,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle; {
+    return UIStatusBarStyleLightContent;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {

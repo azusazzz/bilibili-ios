@@ -86,6 +86,15 @@ typedef enum : NSUInteger {
 }
 
 
+- (UIStatusBarStyle)preferredStatusBarStyle; {
+    return UIStatusBarStyleLightContent;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
 #pragma mark - ActionDealt
 -(void)loadActions{
     //二维码按钮

@@ -34,7 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = CRed;
     
     [self loadSubviews];
     
@@ -123,14 +123,14 @@
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset = 0;
         make.right.offset = 0;
-        make.top.offset = 0;
-        make.height.offset = 44 + 20 + 20;
+        make.top.offset = 20;
+        make.height.offset = 44;
     }];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset = 0;
         make.right.offset = 0;
-        make.top.equalTo(titleLabel.mas_bottom).offset = -20;
-        make.bottom.offset = -49 + 3;
+        make.top.equalTo(titleLabel.mas_bottom);
+        make.bottom.offset = 3;
     }];
 }
 
