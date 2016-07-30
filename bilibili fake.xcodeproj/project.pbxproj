@@ -597,6 +597,7 @@
 		6E215CE61D4B61B00004CA5B /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				6E215D0E1D4B74540004CA5B /* Download */,
 				6E215CE71D4B61B00004CA5B /* History */,
 				6E215CEB1D4B61B00004CA5B /* Mine */,
 			);
@@ -623,11 +624,11 @@
 		6E215CEB1D4B61B00004CA5B /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				6E215CEC1D4B61B00004CA5B /* Cell */,
-				6E215CF11D4B61B00004CA5B /* Controller */,
 				6E215CF41D4B61B00004CA5B /* Entity */,
 				6E215CF91D4B61B00004CA5B /* Model */,
+				6E215CEC1D4B61B00004CA5B /* Cell */,
 				6E215CFA1D4B61B00004CA5B /* View */,
+				6E215CF11D4B61B00004CA5B /* Controller */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -679,6 +680,13 @@
 				6E215CFE1D4B61B00004CA5B /* MineCollectionView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6E215D0E1D4B74540004CA5B /* Download */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Download;
 			sourceTree = "<group>";
 		};
 		6E48364F1D409617004AD1A4 /* SABlurImageView */ = {
@@ -917,15 +925,15 @@
 		6E9FB08C1D1289FB0032C1DB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				6EC6A4EE1D489FB50021BE48 /* Region */,
-				6E575C791D40713F007BCD73 /* Video */,
 				6E89DA401D3D06730055C9F2 /* Modules.md */,
 				FC66E7581D3E2D7A00F28B90 /* start */,
 				6E66C8B91D1ADFDB002DA3AB /* Main */,
 				6E1535E31D1A96950053A846 /* Home */,
+				6EC6A4EE1D489FB50021BE48 /* Region */,
 				6E66C8B31D1ACBC5002DA3AB /* Follow */,
 				FCD80DBE1D22B870009CDEC3 /* find */,
 				6E215CE61D4B61B00004CA5B /* Mine */,
+				6E575C791D40713F007BCD73 /* Video */,
 			);
 			path = Modules;
 			sourceTree = "<group>";

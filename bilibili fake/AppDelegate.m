@@ -30,37 +30,6 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     
-    NSDictionary *dict = @{
-                           @"_device": @"iphone",
-                           @"_hwid": @"edc9b2ac43799c0c",
-                           @"_ulv": @"0",
-                           @"access_key": @"",
-                           @"aid": @"5387299",
-                           @"appkey": @"27eb53fc9058f8c3",
-                           @"appver": @"2310",
-                           @"build": @"2310",
-                           @"page": @"0",
-                           @"pagesize": @"20",
-                           @"platform": @"ios",
-                           @"type": @"json",
-                           @"ver": @"3",
-                           };
-    
-    
-    NSMutableString *str = [NSMutableString string];
-    
-    for (NSString *key in [dict allKeys]) {
-        if (str.length == 0) {
-            [str appendFormat:@"%@=%@", key, [dict objectForKey:key]];
-        }
-        else {
-            [str appendFormat:@"&%@=%@", key, [dict objectForKey:key]];
-        }
-    }
-    
-    
-    
-    
     return YES;
 }
 

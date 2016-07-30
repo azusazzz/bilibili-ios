@@ -33,9 +33,8 @@
         
         if (_style == TabBarStyleScroll) {
             _scrollView = [[UIScrollView alloc] init];
-//            _scrollView.backgroundColor = [UIColor orangeColor];
-            _scrollView.contentOffset = CGPointZero;
-            _scrollView.bounces = NO;
+//            _scrollView.bounces = NO;
+            _scrollView.showsHorizontalScrollIndicator = NO;
             [self addSubview:_scrollView];
         }
         
@@ -43,7 +42,6 @@
         _items = [NSMutableArray arrayWithCapacity:titles.count];
         [titles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-//            button.backgroundColor = [UIColor yellowColor];
             [button setTitle:obj forState:UIControlStateNormal];
             if (idx == _index) {
                 [button setTitleColor:ColorRGB(self.cR,self.cG,self.cB) forState:UIControlStateNormal];
@@ -106,16 +104,7 @@
         lineWidth = _items[index].width + (_items[index + 1].width - _items[index].width) * progress;
     }
     
-    if (_style == TabBarStyleNormal) {
-        _bottomLineView.frame = CGRectMake(lineX, _bottomLineView.y, lineWidth, _bottomLineView.height);
-    }
-    else {
-//        _bottomLineView.x = lineX + _scrollView.x;
-        _bottomLineView.frame = CGRectMake(lineX, _bottomLineView.y, lineWidth, _bottomLineView.height);
-    }
-    
-    
-    
+    _bottomLineView.frame = CGRectMake(lineX, _bottomLineView.y, lineWidth, _bottomLineView.height);
     _scrollView.contentOffset = CGPointMake((_scrollView.contentSize.width - _scrollView.width) * (contentOffset / (_items.count-1)), 0);
     
     
@@ -123,8 +112,6 @@
     
     
     if (contentOffset > _index) {
-        
-//        printf("++\t");
         if (progress == 0) {
             [_items[index] setTitleColor:ColorRGB(self.cR, self.cG, self.cG) forState:UIControlStateNormal];
             [_items[index-1] setTitleColor:ColorWhite(200) forState:UIControlStateNormal];
@@ -133,15 +120,11 @@
             [_items[index] setTitleColor:ColorRGB(self.cR - (self.cR-200)*progress, self.cG - (self.cG-200)*progress, self.cB - (self.cB-200)*progress) forState:UIControlStateNormal];
             [_items[index+1] setTitleColor:ColorRGB(200 + (self.cR-200)*progress, 200 + (self.cG-200)*progress, 200 + (self.cB-200)*progress) forState:UIControlStateNormal];
         }
-        
-        
         if (_index != index) {
             _index = index;
         }
-        
     }
     else if (contentOffset < _index) {
-//        printf("--\t");
         progress = 1 - progress;
         if (progress == 0) {
             [_items[index] setTitleColor:ColorRGB(self.cR, self.cG, self.cG) forState:UIControlStateNormal];
@@ -151,7 +134,6 @@
             [_items[index+1] setTitleColor:[self colorWithFromColorRGB:self.tintColorRGB toColorRGB:@[@200,@200,@200] progress:progress] forState:UIControlStateNormal];
             [_items[index] setTitleColor:[self colorWithFromColorRGB:@[@200,@200,@200] toColorRGB:self.tintColorRGB progress:progress] forState:UIControlStateNormal];
         }
-        
         if (1 - progress == 0) {
             if (_index != index) {
                 _index = index;
@@ -161,10 +143,6 @@
             _index = index+1;
         }
     }
-//    else {
-//        printf("==\t");
-//    }
-
     
 //    printf("%lf %ld %lf  %ld\n", contentOffset, index, progress, _index);
     
@@ -190,8 +168,6 @@
         [_items enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             obj.frame = CGRectMake(_edgeInsets.left + itemWidth * idx + self.spacing * idx, _edgeInsets.top, itemWidth, self.bounds.size.height-_edgeInsets.top-_edgeInsets.bottom);
         }];
-        
-        _bottomLineView.frame = CGRectMake(_items[_index].x, self.height-2 - _edgeInsets.bottom, _items[_index].width, 2);
     }
     else {
         CGRect rect = CGRectMake(_edgeInsets.left, _edgeInsets.top, self.width-_edgeInsets.left-_edgeInsets.right, self.height-_edgeInsets.top-_edgeInsets.bottom);
@@ -208,9 +184,8 @@
             x = obj.maxX + self.spacing;
         }];
         _scrollView.contentSize = CGSizeMake(x - self.spacing, 0);
-        _scrollView.contentOffset = CGPointZero;
-        _bottomLineView.frame = CGRectMake(_items[_index].x, self.height-2 - _edgeInsets.bottom, _items[_index].width, 2);
     }
+    _bottomLineView.frame = CGRectMake(_items[_index].x, self.height-2 - _edgeInsets.bottom, _items[_index].width, 2);
     
     [super layoutSubviews];
 }

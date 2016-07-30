@@ -12,9 +12,9 @@
 
 #define LogLevelNONE    0
 #define LogLevelDEBUG   1
-#define LogLevelINFO    2
+#define LogLevelERROR   2
 #define LogLevelWARN    3
-#define LogLevelERROR   4
+#define LogLevelINFO    4
 
 
 #define LogDEBUG(...) Log(LogLevelDEBUG, __VA_ARGS__)
@@ -23,7 +23,7 @@
 #define LogERROR(...) Log(LogLevelERROR, __VA_ARGS__)
 
 // 这里设置日志显示的级别
-#define LogLevel LogLevelERROR
+#define LogLevel LogLevelINFO
 
 #define Log(level, ...)  \
 if(level <= LogLevel) { \

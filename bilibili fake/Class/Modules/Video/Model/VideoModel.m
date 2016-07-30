@@ -219,6 +219,7 @@
     [dataTask cancel];
     [_session finishTasksAndInvalidate];
     _session = NULL;
+    completionHandler(NSURLSessionResponseCancel);
 }
 
 - (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(nullable NSError *)error {
