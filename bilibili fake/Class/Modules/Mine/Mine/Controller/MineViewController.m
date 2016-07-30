@@ -15,6 +15,7 @@
 
 // ViewController
 #import "HistoryViewController.h"
+#import "GameCentreVC.h"
 
 @interface MineViewController ()
 
@@ -80,7 +81,20 @@
 }
 
 - (void)handleDidSelectedItem:(NSIndexPath *)indexPath {
-    [self.navigationController pushViewController:[[HistoryViewController alloc] init] animated:YES];
+    
+    if(indexPath.section ==0){
+        switch (indexPath.row) {
+            case 5:
+                [self.navigationController pushViewController:[[GameCentreVC alloc] init] animated:YES];
+                break;
+            default:
+                [self.navigationController pushViewController:[[HistoryViewController alloc] init] animated:YES];
+                break;
+        }
+    }else{
+            [self.navigationController pushViewController:[[HistoryViewController alloc] init] animated:YES];
+    }
+   
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {

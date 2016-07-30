@@ -10,6 +10,7 @@
 #import "RowBotton.h"
 #import "TabBar.h"
 #import "VideoRangTableView.h"
+#import "UIView+Frame.h"
 
 @interface RankOriginalorAllVC ()<UIScrollViewDelegate>
 
@@ -60,7 +61,7 @@
 
 
 - (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
+    LogDEBUG(@"%s", __FUNCTION__);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -84,7 +85,7 @@
 }
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView; {
-    _titleTabBar.contentOffset = scrollView.contentOffset.x / scrollView.contentSize.width;
+    _titleTabBar.contentOffset = scrollView.contentOffset.x / scrollView.width;
     //加载附近的两个视图数据
     
 }
@@ -129,20 +130,21 @@
     [backbtn addTarget: self action: @selector(goBackAction) forControlEvents: UIControlEventTouchUpInside];
     [backbtn_bg addSubview:backbtn];
     
-    //标题按钮
-    UIScrollView* titleScr = [[UIScrollView alloc] init];
-    [headView addSubview:titleScr];
+//    //标题按钮
+//    UIScrollView* titleScr = [[UIScrollView alloc] init];
+//    [headView addSubview:titleScr];
     
     
     _titleTabBar = [[TabBar alloc] initWithTitles:titles style:TabBarStyleNormal];
     _titleTabBar.backgroundColor = [UIColor whiteColor];
     _titleTabBar.tintColorRGB = @[@253,@129,@164];
-    _titleTabBar.spacing = SSize.width / 5;
+    _titleTabBar.spacing = 10;
+//     _titleTabBar.edgeInsets = UIEdgeInsetsMake(0, 60, 0, 60);
 //    __weak typeof(self) weakself = self;
 //    [_titleTabBar setOnClickItem:^(NSInteger idx) {
 ////        [weakself.scrollView setContentOffset:CGPointMake(weakself.scrollView.width * idx, 0) animated:YES];
 //    }];
-    [titleScr addSubview:_titleTabBar];
+    [headView addSubview:_titleTabBar];
 
     
     //底部列表
@@ -153,7 +155,7 @@
     _scrollView.alwaysBounceVertical = NO;
     _scrollView.bounces = NO;//设置没有弹性
     _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.frame = CGRectMake(0, 0, SSize.width,SSize.height-64);
+    _scrollView.frame = CGRectMake(0, 64, SSize.width,SSize.height-64);
     _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width*titles.count, 0);
     [self.view addSubview:_scrollView];
     
@@ -180,14 +182,14 @@
         make.edges.equalTo(backbtn_bg);
     }];
     
-    [titleScr mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_titleTabBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(backbtn.mas_right);
         make.right.equalTo(headView);
         make.top.mas_equalTo(headView.mas_top).offset(20);
         make.bottom.equalTo(headView.mas_bottom).offset(-1);
     }];
     
-    titleScr.contentSize = CGSizeMake(SSize.width*0.2*titles.count, 44);
+//    titleScr.contentSize = CGSizeMake(SSize.width*0.2*titles.count, 44);
     _titleTabBar.frame = CGRectMake(0, 0, SSize.width*0.2*titles.count, 44);
     
     
@@ -196,7 +198,7 @@
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.top.equalTo(headView.mas_bottom);
-        make.bottom.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(64);
     }];
 //    _titleTabBar.frame = CGRectMake(0, 0, _titleTabBar.itemWidth * titles.count, 44);
 //    [_titleTabBar mas_makeConstraints:^(MASConstraintMaker *make) {

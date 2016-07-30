@@ -8,6 +8,7 @@
 
 #import "StartVCData.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "Macro.h"
 
 @implementation StartVCData{
     NSString* startView_data_path;//启动图数据储存路径
@@ -18,7 +19,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
+    LogINFO(@"%s", __FUNCTION__);
 }
 
 -(NSMutableDictionary*)getStartViewData{
@@ -36,12 +37,12 @@
         //获取当前的时间戳
         NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
         NSTimeInterval now_time=[dat timeIntervalSince1970];
-        NSLog(@"当前的时间戳:%f",now_time);
+        LogINFO(@"当前的时间戳:%f",now_time);
         
         for (NSDictionary* dic in startView_data_dic) {
             //查找是否有需要显示的启动图
             if([[dic objectForKey:@"end_time"] doubleValue] > now_time && [[dic objectForKey:@"start_time"] doubleValue] < now_time){
-                NSLog(@"%@",dic);
+                LogDEBUG(@"%@",dic);
                 //判断图片是否已加载
                 NSURL* image_URL = [NSURL URLWithString:[dic objectForKey:@"image"]];
                 SDWebImageManager *manager = [SDWebImageManager sharedManager];
@@ -69,7 +70,7 @@
     CGFloat scale_screen = [UIScreen mainScreen].scale;
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://app.bilibili.com/x/splash?build=3390&channel=appstore&height=%0.0f&plat=1&width=%0.0f",height*scale_screen,width*scale_screen]]];
-    NSLog(@"%@",request.URL.absoluteString);
+    LogINFO(@"%@",request.URL.absoluteString);
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;//忽略本地缓存数据
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithRequest:request completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error)
@@ -78,7 +79,7 @@
         {
             // NSLog(@"%@",data);
             //保存数据
-            NSLog(@"写入启动图数据:%@",startView_data_path);
+            LogINFO(@"写入启动图数据:%@",startView_data_path);
             [data writeToFile:startView_data_path atomically:YES];
             //预加载一遍视图
             NSDictionary* startView_data_dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -86,7 +87,7 @@
             //获取当前的时间戳
             NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
             NSTimeInterval now_time=[dat timeIntervalSince1970];
-            NSLog(@"当前的时间戳:%f",now_time);
+            LogINFO(@"当前的时间戳:%f",now_time);
             
             for (NSDictionary* dic in startView_data_dic) {
                 //查找是否有需要预先下载显示的启动图

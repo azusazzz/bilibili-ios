@@ -34,7 +34,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
+    LogDEBUG(@"%s", __FUNCTION__);
 }
 
 -(void)getRangData:(NSString*)title block:(void(^)(NSMutableDictionary* data))block{

@@ -262,6 +262,7 @@ typedef void(^BLOCK)(NSInteger btnTag);
     if (contentOffset < 0 || contentOffset > 1 ||_style == RowBottonStyle2) {
         return;
     }
+    
 }
 #pragma ----------------------------------
 

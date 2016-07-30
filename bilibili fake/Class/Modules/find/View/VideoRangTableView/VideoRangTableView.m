@@ -47,7 +47,7 @@
 
 - (void)dealloc {
     [[SDImageCache sharedImageCache] clearMemory];//清理内存中的
-    NSLog(@"%s", __FUNCTION__);
+    LogDEBUG(@"%s", __FUNCTION__);
 }
 
 - (UIViewController*)viewController {

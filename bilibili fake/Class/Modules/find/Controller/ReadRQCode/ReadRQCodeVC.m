@@ -23,7 +23,7 @@
 
 
 - (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
+    LogDEBUG(@"%s", __FUNCTION__);
 }
 
 
@@ -39,7 +39,7 @@
     // 初始化输入流
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
     if (!input) {
-        NSLog(@"%@", [error localizedDescription]);
+        LogWARN(@"%@", [error localizedDescription]);
         return;
     }
     // 创建会话
@@ -84,10 +84,10 @@
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
             result = metadataObj.stringValue;
         } else {
-            NSLog(@"不是二维码");
+            LogWARN(@"不是二维码");
         }
         //得到结果
-        NSLog(@"扫描结果:%@",result);
+        LogDEBUG(@"扫描结果:%@",result);
         [_captureSession stopRunning];
         _captureSession = nil;
         [self goBackAction];

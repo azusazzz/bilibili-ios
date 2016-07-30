@@ -56,7 +56,7 @@ typedef enum : NSUInteger {
 }
 
 - (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
+    LogDEBUG(@"%s", __FUNCTION__);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -99,7 +99,7 @@ typedef enum : NSUInteger {
 -(void)loadActions{
     //二维码按钮
     QRcode_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        NSLog(@"调用二维码界面");
+        LogINFO(@"调用二维码界面");
         ReadRQ_CodeVC* gamevc = [[ReadRQ_CodeVC alloc] init] ;
         
         [self.navigationController pushViewController:gamevc animated:YES];

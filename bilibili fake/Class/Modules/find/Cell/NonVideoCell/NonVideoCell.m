@@ -33,7 +33,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
+    LogDEBUG(@"%s", __FUNCTION__);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -92,7 +92,7 @@
 }
 
 -(void)SpecialSetData{
-    NSLog(@"%@",_data_dic);
+    LogINFO(@"%@",_data_dic);
     [_cover sd_setImageWithURL:[NSURL URLWithString:[_data_dic objectForKey:@"pic"]]];
 
     _cover_title.text = @"专题";

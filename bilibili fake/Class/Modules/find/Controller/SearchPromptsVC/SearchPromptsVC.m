@@ -48,7 +48,7 @@
 
 
 - (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
+    LogDEBUG(@"%s", __FUNCTION__);
 }
 
 
@@ -185,7 +185,7 @@
     }
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     search_tf.text = cell.textLabel.text;
-    NSLog(@"search_tf:%@",search_tf.text);
+    LogDEBUG(@"search_tf:%@",search_tf.text);
     //通过通知中心发送通知
     NSNotification *notification =[NSNotification notificationWithName:@"setSearchKeyword" object:nil userInfo:@{@"keyword":cell.textLabel.text}];
     [[NSNotificationCenter defaultCenter] postNotification:notification];

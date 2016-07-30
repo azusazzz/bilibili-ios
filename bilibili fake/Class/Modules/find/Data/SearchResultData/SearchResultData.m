@@ -97,7 +97,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
+    LogDEBUG(@"%s", __FUNCTION__);
 }
 
 //设置keywork 获取数据前必须要设置关键字
@@ -125,7 +125,7 @@
     pageinfo_dic = nil;
     //请求数据
     NSString* urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=%@&page=1&pagesize=1",Search_URL,_keyword,@"all"];
-    NSLog(@"%@",urlstr);
+    LogINFO(@"%@",urlstr);
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -192,7 +192,7 @@
     
     //请求数据
     NSString* urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=%@&page=1&pagesize=30",Search_URL,_keyword,search_type];
-    NSLog(@"%@",urlstr);
+    LogINFO(@"%@",urlstr);
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -261,7 +261,7 @@
     
     //请求数据
     NSString* urlstr = [NSString stringWithFormat:@"%@&keyword=%@&search_type=%@&page=%0.0f&pagesize=30",Search_URL,_keyword,search_type,(outARR.count/30.0 +1)];
-    NSLog(@"%@",urlstr);
+    LogINFO(@"%@",urlstr);
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -346,7 +346,7 @@
 
     
     
-    NSLog(@"%@",urlstr);
+    LogINFO(@"%@",urlstr);
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -437,7 +437,7 @@
     
     
     
-    NSLog(@"%@",urlstr);
+    LogINFO(@"%@",urlstr);
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
     NSURLSession *session = [NSURLSession sharedSession];

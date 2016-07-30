@@ -32,7 +32,7 @@
     GameData_Arr  = nil;
 //    [[SDImageCache sharedImageCache] clearDisk];//清理磁盘中的
     [[SDImageCache sharedImageCache] clearMemory];//清理内存中的
-    NSLog(@"%s", __FUNCTION__);
+    LogDEBUG(@"%s", __FUNCTION__);
 }
 
 
@@ -92,7 +92,7 @@
 //点击
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary* dic = GameData_Arr[indexPath.row];
-     NSLog(@"请跳转到:%@",[dic objectForKey:@"download_link"]);
+     LogDEBUG(@"请跳转到:%@",[dic objectForKey:@"download_link"]);
 }
 
 
