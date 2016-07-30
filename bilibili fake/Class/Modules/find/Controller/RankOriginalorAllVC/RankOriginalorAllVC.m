@@ -73,14 +73,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view addSubview:UIView.new];
     [self loadSubviews];
     [self scrollViewDidEndDecelerating:_scrollView];
-    
+    [self loadActions];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+}
+
+
+
+-(void)loadActions{
+    __block RankOriginalorAllVC* BlockSelf = self;
+    [_titleTabBar setOnClickItem:^(NSInteger idx) {
+        [BlockSelf->_scrollView setContentOffset:CGPointMake(BlockSelf->_scrollView.width * idx, 0) animated:YES];
+    }];
     
 }
 #pragma mark - UIScrollViewDelegate
@@ -95,6 +106,9 @@
        if(i>=0&&i<_tableViews.count)[_tableViews[page] setData];
     }
     
+}
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    [self scrollViewDidEndDecelerating:scrollView];
 }
 #pragma mark - ActionDealt
 -(void)goBackAction{
@@ -190,7 +204,7 @@
     }];
     
 //    titleScr.contentSize = CGSizeMake(SSize.width*0.2*titles.count, 44);
-    _titleTabBar.frame = CGRectMake(0, 0, SSize.width*0.2*titles.count, 44);
+  
     
     
     
