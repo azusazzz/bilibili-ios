@@ -50,7 +50,9 @@ typedef enum : NSUInteger {
 }
 - (instancetype)init; {
     if (self = [super init]) {
-        self.title = @"发现";
+        self.tabBarItem.image = [UIImage imageNamed:@"home_discovery_tab"];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"home_discovery_tab_s"];
+        self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     }
     return self;
 }

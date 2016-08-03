@@ -63,6 +63,7 @@
 		6E885B971D4AEBB200A3BA35 /* JCTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E885B941D4AEBB200A3BA35 /* JCTagListView.m */; };
 		6E89DA3D1D3D00950055C9F2 /* IJKMediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */; };
 		6E89DA3E1D3D00950055C9F2 /* IJKMediaPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6EB450251D51E90D00A4F626 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB450241D51E90D00A4F626 /* DownloadViewController.m */; };
 		6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */; };
 		6EB691EC1D12422C000FA482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EB1D12422C000FA482 /* main.m */; };
 		6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EE1D12422C000FA482 /* AppDelegate.m */; };
@@ -306,6 +307,8 @@
 		6E885B941D4AEBB200A3BA35 /* JCTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagListView.m; sourceTree = "<group>"; };
 		6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaPlayer.framework; sourceTree = "<group>"; };
 		6E89DA401D3D06730055C9F2 /* Modules.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Modules.md; sourceTree = "<group>"; };
+		6EB450231D51E90D00A4F626 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
+		6EB450241D51E90D00A4F626 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
 		6EB4C1801D2CF59600AEB6EF /* HomeAnimationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAnimationRequest.h; sourceTree = "<group>"; };
 		6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAnimationRequest.m; sourceTree = "<group>"; };
 		6EB691E71D12422B000FA482 /* bilibili fake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bilibili fake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -685,6 +688,7 @@
 		6E215D0E1D4B74540004CA5B /* Download */ = {
 			isa = PBXGroup;
 			children = (
+				6EB450221D51E90000A4F626 /* Controller */,
 			);
 			path = Download;
 			sourceTree = "<group>";
@@ -936,6 +940,15 @@
 				6E575C791D40713F007BCD73 /* Video */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		6EB450221D51E90000A4F626 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6EB450231D51E90D00A4F626 /* DownloadViewController.h */,
+				6EB450241D51E90D00A4F626 /* DownloadViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		6EB691DE1D12422B000FA482 = {
@@ -1833,6 +1846,7 @@
 			files = (
 				FC4704041D4078EA009F0B62 /* RankOriginalorAllVC.m in Sources */,
 				FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */,
+				6EB450251D51E90D00A4F626 /* DownloadViewController.m in Sources */,
 				FC1CBAE01D3F551900D8295C /* SearchAnimateView.m in Sources */,
 				FC6F48921D363B1A00047EEA /* VideoCell.m in Sources */,
 				6E575CA71D40713F007BCD73 /* VideoOwnerInfoView.m in Sources */,

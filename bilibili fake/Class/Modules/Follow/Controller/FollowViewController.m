@@ -22,7 +22,9 @@
 
 - (instancetype)init; {
     if (self = [super init]) {
-        self.title = @"关注";
+        self.tabBarItem.image = [UIImage imageNamed:@"home_attention_tab"];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"home_attention_tab_s"];
+        self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     }
     return self;
 }

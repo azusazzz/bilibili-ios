@@ -111,12 +111,12 @@
     }
     _isGetVideoURLExecuting = YES;
     
-    [self getVideoURLMode1WithCid:cid completionBlock:^(NSURL *videoURL) {
-        if (videoURL) {
-            _isGetVideoURLExecuting = NO;
-            completionBlock(videoURL);
-        }
-        else {
+//    [self getVideoURLMode1WithCid:cid completionBlock:^(NSURL *videoURL) {
+//        if (videoURL) {
+//            _isGetVideoURLExecuting = NO;
+//            completionBlock(videoURL);
+//        }
+//        else {
             __block NSInteger page;
             [_videoInfo.pages enumerateObjectsUsingBlock:^(VideoPageInfoEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if (obj.cid == cid) {
@@ -127,8 +127,8 @@
                 _isGetVideoURLExecuting = NO;
                 completionBlock(videoURL);
             }];
-        }
-    }];
+//        }
+//    }];
     
 }
 

@@ -46,8 +46,9 @@
 
 - (instancetype)init; {
     if (self = [super init]) {
-        self.title = @"首页";
-//        self.tabBarItem.selectedImage
+        self.tabBarItem.image = [UIImage imageNamed:@"home_home_tab"];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"home_home_tab_s"];
+        self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     }
     return self;
 }
