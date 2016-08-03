@@ -23,7 +23,7 @@
 }
 
 - (NSString *)URLString {
-    return @"http://app.bilibili.com/x/view?actionKey=appkey&aid=##aid##&appkey=27eb53fc9058f8c3";
+    return @"http://app.bilibili.com/x/view?actionKey=appkey&aid=##aid##&appkey=27eb53fc9058f8c3&build=3380";
 }
 
 - (HTTPMethod)method {
