@@ -64,6 +64,9 @@
 		6E89DA3D1D3D00950055C9F2 /* IJKMediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */; };
 		6E89DA3E1D3D00950055C9F2 /* IJKMediaPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EB450251D51E90D00A4F626 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB450241D51E90D00A4F626 /* DownloadViewController.m */; };
+		6EB450291D51F26E00A4F626 /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB450281D51F26E00A4F626 /* DownloadManager.m */; };
+		6EB4502C1D51F30600A4F626 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4502B1D51F30600A4F626 /* DownloadOperation.m */; };
+		6EB450301D51FD0000A4F626 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4502F1D51FD0000A4F626 /* NSString+MD5.m */; };
 		6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */; };
 		6EB691EC1D12422C000FA482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EB1D12422C000FA482 /* main.m */; };
 		6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB691EE1D12422C000FA482 /* AppDelegate.m */; };
@@ -309,6 +312,12 @@
 		6E89DA401D3D06730055C9F2 /* Modules.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Modules.md; sourceTree = "<group>"; };
 		6EB450231D51E90D00A4F626 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
 		6EB450241D51E90D00A4F626 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
+		6EB450271D51F26E00A4F626 /* DownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManager.h; sourceTree = "<group>"; };
+		6EB450281D51F26E00A4F626 /* DownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadManager.m; sourceTree = "<group>"; };
+		6EB4502A1D51F30600A4F626 /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
+		6EB4502B1D51F30600A4F626 /* DownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperation.m; sourceTree = "<group>"; };
+		6EB4502E1D51FD0000A4F626 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		6EB4502F1D51FD0000A4F626 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		6EB4C1801D2CF59600AEB6EF /* HomeAnimationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAnimationRequest.h; sourceTree = "<group>"; };
 		6EB4C1811D2CF59600AEB6EF /* HomeAnimationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAnimationRequest.m; sourceTree = "<group>"; };
 		6EB691E71D12422B000FA482 /* bilibili fake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bilibili fake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -688,6 +697,7 @@
 		6E215D0E1D4B74540004CA5B /* Download */ = {
 			isa = PBXGroup;
 			children = (
+				6EB450261D51F26000A4F626 /* Manager */,
 				6EB450221D51E90000A4F626 /* Controller */,
 			);
 			path = Download;
@@ -708,6 +718,8 @@
 			children = (
 				6E4836631D40E45A004AD1A4 /* NSString+Size.h */,
 				6E4836641D40E45A004AD1A4 /* NSString+Size.m */,
+				6EB4502E1D51FD0000A4F626 /* NSString+MD5.h */,
+				6EB4502F1D51FD0000A4F626 /* NSString+MD5.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -949,6 +961,17 @@
 				6EB450241D51E90D00A4F626 /* DownloadViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		6EB450261D51F26000A4F626 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6EB450271D51F26E00A4F626 /* DownloadManager.h */,
+				6EB450281D51F26E00A4F626 /* DownloadManager.m */,
+				6EB4502A1D51F30600A4F626 /* DownloadOperation.h */,
+				6EB4502B1D51F30600A4F626 /* DownloadOperation.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		6EB691DE1D12422B000FA482 = {
@@ -1891,6 +1914,7 @@
 				6E575CAC1D40713F007BCD73 /* VideoOwnerInfoEntity.m in Sources */,
 				FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */,
 				6E66C8B21D1AC307002DA3AB /* HomeLiveView.m in Sources */,
+				6EB4502C1D51F30600A4F626 /* DownloadOperation.m in Sources */,
 				6EC6A5021D48ADEE0021BE48 /* RegionCollectionViewCell.m in Sources */,
 				FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */,
 				6EC6A4FF1D48A05E0021BE48 /* RegionEntity.m in Sources */,
@@ -1931,6 +1955,7 @@
 				FC66E7601D3E2D7A00F28B90 /* StartVCData.m in Sources */,
 				6EC6A4F61D489FCA0021BE48 /* RegionViewController.m in Sources */,
 				FC66E75F1D3E2D7A00F28B90 /* StartViewController.m in Sources */,
+				6EB450301D51FD0000A4F626 /* NSString+MD5.m in Sources */,
 				6E4836771D410818004AD1A4 /* MediaPlayerProgressView.m in Sources */,
 				6E48365B1D40C12E004AD1A4 /* VideoCommentEntity.m in Sources */,
 				6EC6A5081D48BCA50021BE48 /* HomeRecommend.m in Sources */,
@@ -1942,6 +1967,7 @@
 				6E575CA41D40713F007BCD73 /* VideoAndStatInfoView.m in Sources */,
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
 				6E575CB01D40713F007BCD73 /* VideoURLProtocol.m in Sources */,
+				6EB450291D51F26E00A4F626 /* DownloadManager.m in Sources */,
 				6E575CAE1D40713F007BCD73 /* VideoStatInfoEntity.m in Sources */,
 				6E215D061D4B61B00004CA5B /* MineCollectionView.m in Sources */,
 				6EC43B9F1D49A72500467810 /* HomeRecommendFooterView.m in Sources */,
