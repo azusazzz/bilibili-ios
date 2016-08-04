@@ -45,11 +45,8 @@
     [self loadSubviews];
     
     
-    
-    
     __weak typeof(self) weakself = self;
     [_collectionView setHandleDidSelectedItem:^(NSIndexPath *indexPath) {
-        LogDEBUG(@"%@", indexPath);
         [weakself handleDidSelectedItem:indexPath];
     }];
     

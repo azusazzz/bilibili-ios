@@ -10,6 +10,8 @@
 #import "HistoryModel.h"
 #import "HistoryCollectionViewCell.h"
 
+#import "UIViewController+HeaderView.h"
+
 #import "VideoViewController.h" // 视频播放
 
 @interface HistoryViewController ()
@@ -47,6 +49,11 @@
         HUDFailure(errorMsg);
     }];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [super viewWillAppear:animated];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle; {
@@ -97,6 +104,8 @@
 
 - (void)loadSubviews {
     
+    self.headerView.title = @"历史记录";
+    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     flowLayout.itemSize = CGSizeMake(SSize.width, 80);
@@ -113,7 +122,7 @@
         make.left.offset = 0;
         make.right.offset = 0;
         make.bottom.offset = 0;
-        make.top.offset = 20+44;
+        make.top.equalTo(self.headerView.mas_bottom);
     }];
     
     NSArray *internalTargets = [self.navigationController.interactivePopGestureRecognizer valueForKey:@"targets"];

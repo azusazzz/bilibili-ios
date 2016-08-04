@@ -27,6 +27,7 @@
 		6E2377401D530FAF00102550 /* HistoryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E23773F1D530FAF00102550 /* HistoryEntity.m */; };
 		6E2377431D53106400102550 /* HistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2377421D53106400102550 /* HistoryModel.m */; };
 		6E23777B1D53653A00102550 /* HistoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E23777A1D53653A00102550 /* HistoryCollectionViewCell.m */; };
+		6E23777E1D536BD400102550 /* UIViewController+HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E23777D1D536BD400102550 /* UIViewController+HeaderView.m */; };
 		6E48364E1D407FA6004AD1A4 /* VideoTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E48364D1D407FA6004AD1A4 /* VideoTabBar.m */; };
 		6E4836531D409617004AD1A4 /* CATransition+Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836501D409617004AD1A4 /* CATransition+Closure.swift */; };
 		6E4836541D409617004AD1A4 /* SABlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836511D409617004AD1A4 /* SABlurImageView.swift */; };
@@ -245,6 +246,8 @@
 		6E2377421D53106400102550 /* HistoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryModel.m; sourceTree = "<group>"; };
 		6E2377791D53653A00102550 /* HistoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCollectionViewCell.h; sourceTree = "<group>"; };
 		6E23777A1D53653A00102550 /* HistoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCollectionViewCell.m; sourceTree = "<group>"; };
+		6E23777C1D536BD400102550 /* UIViewController+HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HeaderView.h"; sourceTree = "<group>"; };
+		6E23777D1D536BD400102550 /* UIViewController+HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HeaderView.m"; sourceTree = "<group>"; };
 		6E48364C1D407FA6004AD1A4 /* VideoTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTabBar.h; sourceTree = "<group>"; };
 		6E48364D1D407FA6004AD1A4 /* VideoTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTabBar.m; sourceTree = "<group>"; };
 		6E4836501D409617004AD1A4 /* CATransition+Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransition+Closure.swift"; sourceTree = "<group>"; };
@@ -1002,6 +1005,8 @@
 			children = (
 				6E76344C1D3F563A002CFA63 /* UIViewController+GetViewController.h */,
 				6E76344D1D3F563A002CFA63 /* UIViewController+GetViewController.m */,
+				6E23777C1D536BD400102550 /* UIViewController+HeaderView.h */,
+				6E23777D1D536BD400102550 /* UIViewController+HeaderView.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -2023,6 +2028,7 @@
 				6EC6A50B1D48C8170021BE48 /* HomeRecommendEntity.m in Sources */,
 				6E575CB41D40713F007BCD73 /* VideoIntroView.m in Sources */,
 				6EC43BA21D49A74700467810 /* HomeRecommendCollectionViewCell.m in Sources */,
+				6E23777E1D536BD400102550 /* UIViewController+HeaderView.m in Sources */,
 				6E76344E1D3F563A002CFA63 /* UIViewController+GetViewController.m in Sources */,
 				6E4836551D409617004AD1A4 /* UIImage+BlurEffect.swift in Sources */,
 				6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */,
