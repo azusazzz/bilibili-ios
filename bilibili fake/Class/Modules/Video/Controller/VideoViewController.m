@@ -157,7 +157,11 @@
     [self.model getVideoURLWithCid:self.currentPage.cid completionBlock:^(NSURL *videoURL) {
         HUDLoadingHidden();
         if (videoURL) {
-            [MediaPlayer playerWithURL:videoURL title:weakself.currentPage.part inViewController:weakself];
+            NSString *title = weakself.currentPage.part;
+            if (title) {
+                title = weakself.model.videoInfo.title;
+            }
+            [MediaPlayer playerWithURL:videoURL title:title inViewController:weakself];
         }
         else {
             HUDFailure(@"获取视频地址失败");
