@@ -71,4 +71,25 @@ if(level <= LogLevel) { \
 //#define CRed ColorRGB(219,92,92)
 #define CRed ColorRGB(253,129,164)
 
+
+
+
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-function"
+static void DeferBlock(__strong void(^*block)(void)) {
+    (*block)();
+}
+#pragma clang diagnostic pop
+
+
+/**
+ *  作用域结束后会调用Block   后进先出
+ *  Defer {
+ *      printf("...");
+ *  };
+ */
+#define Defer __strong void(^deferBlock)(void) __attribute__((cleanup(DeferBlock), unused)) = ^
+
+
 #endif /* Macro_h */

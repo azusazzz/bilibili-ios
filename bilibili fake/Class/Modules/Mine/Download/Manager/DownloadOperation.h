@@ -54,3 +54,6 @@ typedef NS_ENUM(NSInteger, DownloadOperationStatus) {
 @property (weak, nonatomic, nullable) DownloadOperation *operation;
 
 @end
+
+
+

@@ -47,7 +47,7 @@
     return self;
 }
 
-- (DownloadOperation *)downloadOperationWithURL:(NSURL *)url {
+- (DownloadOperation *)operationWithURL:(NSURL *)url {
     __block DownloadOperation *operation;
     
     [_operations enumerateObjectsUsingBlock:^(DownloadOperation * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -60,7 +60,7 @@
     if (!operation) {
         operation = [[DownloadOperation alloc] initWithURL:url session:_session queue:_queue];;
         [_operations addObject:operation];
-        //        [operation addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:NULL];
+        [operation addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:NULL];
     }
     
     

@@ -17,6 +17,9 @@
 #import "MediaPlayer.h"
 
 
+
+
+
 @interface VideoViewController ()
 <UIScrollViewDelegate, UIGestureRecognizerDelegate
 /*,UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning*/>
@@ -181,7 +184,12 @@
         }
         else {
             HUDFailure(@"视频信息不存在");
+            return;
         }
+        
+        
+        
+        
         [_headerView setupVideoInfo:_model.videoInfo];
         _introView.videoInfo = _model.videoInfo;
         [_tabBar setTitle:[NSString stringWithFormat:@"评论(%ld)", _model.videoInfo.stat.reply] forIndex:1];

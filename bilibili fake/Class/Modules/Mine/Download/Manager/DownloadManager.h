@@ -16,6 +16,8 @@
 
 + (instancetype)manager;
 
-- (DownloadOperation *)downloadOperationWithURL:(NSURL *)url;
+//- (void)downloadWithAid:(NSInteger)aid;
+
+- (DownloadOperation *)operationWithURL:(NSURL *)url;
 
 @end

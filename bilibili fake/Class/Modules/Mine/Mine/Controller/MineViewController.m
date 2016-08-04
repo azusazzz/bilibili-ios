@@ -85,16 +85,19 @@
 
 - (void)handleDidSelectedItem:(NSIndexPath *)indexPath {
     
-    if(indexPath.section ==0) {
+    if(indexPath.section == 0) {
         if (indexPath.row == 0) {
             [self.navigationController pushViewController:[[DownloadViewController alloc] init] animated:YES];
+        }
+        else if (indexPath.row == 1) {
+            [self.navigationController pushViewController:[[HistoryViewController alloc] init] animated:YES];
         }
         else if (indexPath.row == 5) {
             [self.navigationController pushViewController:[[GameCentreVC alloc] init] animated:YES];
         }
     }
-    else {
-        [self.navigationController pushViewController:[[HistoryViewController alloc] init] animated:YES];
+    else if (indexPath.section == 1) {
+        
     }
    
 }

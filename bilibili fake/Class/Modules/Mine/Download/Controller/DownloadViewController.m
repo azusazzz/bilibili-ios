@@ -28,6 +28,8 @@
     self.view.backgroundColor = CRed;
     
     
+    
+    
     NSArray *internalTargets = [self.navigationController.interactivePopGestureRecognizer valueForKey:@"targets"];
     id internalTarget = [internalTargets.firstObject valueForKey:@"target"];
     SEL internalAction = NSSelectorFromString(@"handleNavigationTransition:");

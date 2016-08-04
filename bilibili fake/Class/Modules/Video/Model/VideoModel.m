@@ -13,7 +13,9 @@
 
 #import <AFNetworking.h>
 #import "VideoURLProtocol.h"
-#import "VideoURLProtocol.h"
+
+
+#import "HistoryModel.h" // 历史记录
 
 @interface VideoModel ()
 <NSURLSessionTaskDelegate, UIWebViewDelegate>
@@ -54,6 +56,13 @@
         if (request.responseCode == 0 && request.responseData) {
             _videoInfo = [VideoInfoEntity mj_objectWithKeyValues:request.responseData];
             success();
+            
+            /**
+             新增历史记录
+             */
+            HistoryEntity *history = [[HistoryEntity alloc] initWithVideoInfo:_videoInfo];
+            [HistoryModel addHistory:history];
+            
         }
         else {
             failure(request.errorMsg);
@@ -111,12 +120,12 @@
     }
     _isGetVideoURLExecuting = YES;
     
-//    [self getVideoURLMode1WithCid:cid completionBlock:^(NSURL *videoURL) {
-//        if (videoURL) {
-//            _isGetVideoURLExecuting = NO;
-//            completionBlock(videoURL);
-//        }
-//        else {
+    [self getVideoURLMode1WithCid:cid completionBlock:^(NSURL *videoURL) {
+        if (videoURL) {
+            _isGetVideoURLExecuting = NO;
+            completionBlock(videoURL);
+        }
+        else {
             __block NSInteger page;
             [_videoInfo.pages enumerateObjectsUsingBlock:^(VideoPageInfoEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if (obj.cid == cid) {
@@ -127,8 +136,8 @@
                 _isGetVideoURLExecuting = NO;
                 completionBlock(videoURL);
             }];
-//        }
-//    }];
+        }
+    }];
     
 }
 
