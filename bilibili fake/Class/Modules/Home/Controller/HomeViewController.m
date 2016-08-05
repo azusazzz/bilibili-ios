@@ -14,9 +14,10 @@
 
 #import "HomeHeaderView.h"
 
-#import "HomeLiveView.h"
-#import "HomeRecommendView.h"
-#import "HomeAnimationView.h"
+
+#import "LiveListViewController.h"
+#import "RecommendListViewController.h"
+#import "BangumiListViewController.h"
 
 #import "ScrollTabBarController.h"
 
@@ -28,12 +29,6 @@
 <UIGestureRecognizerDelegate, UIScrollViewDelegate>
 {
     HomeHeaderView *_headerView;
-    
-    
-    
-    HomeLiveView *_liveView;
-    HomeRecommendView *_recommendView;
-    HomeAnimationView *_animationView;
 }
 
 @property (strong, nonatomic) UIScrollView *scrollView;
@@ -127,11 +122,6 @@
 - (void)loadSubviews {
     [self.view addSubview:UIView.new];
     
-    // Header
-    _headerView = [[HomeHeaderView alloc] initWithTitles:@[@"直播", @"推荐", @"番剧"]];
-    [self.view addSubview:_headerView];
-    
-    
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.delegate = self;
     _scrollView.backgroundColor = CRed;
@@ -144,37 +134,47 @@
     [_scrollView addGestureRecognizer:panGestureRecognizer];
     
     
-    // SubModules
-    
     // 直播
-    _liveView = [[HomeLiveView alloc] init];
-    _liveView.layer.cornerRadius = 6;
-    _liveView.layer.masksToBounds = YES;
-    [_scrollView addSubview:_liveView];
-    
+    LiveListViewController *liveListController = [[LiveListViewController alloc] init];
+    [self addChildViewController:liveListController];
     // 推荐
-    _recommendView = [[HomeRecommendView alloc] init];
-    _recommendView.layer.cornerRadius = 6;
-    _recommendView.layer.masksToBounds = YES;
-    [_scrollView addSubview:_recommendView];
-    
+    RecommendListViewController *recommendListController = [[RecommendListViewController alloc] init];
+    [self addChildViewController:recommendListController];
     // 番剧
-    _animationView = [[HomeAnimationView alloc] init];
-    _animationView.layer.cornerRadius = 6;
-    _animationView.layer.masksToBounds = YES;
-    [_scrollView addSubview:_animationView];
+    BangumiListViewController *bangumiListController = [[BangumiListViewController alloc] init];
+    [self addChildViewController:bangumiListController];
     
     
+    NSMutableArray *titles = [NSMutableArray arrayWithCapacity:self.childViewControllers.count];
     
+    MASViewAttribute *constraint = _scrollView.mas_left;
+    for (UIViewController *controller in self.childViewControllers) {
+        [titles addObject:controller.title];
+        
+        [_scrollView addSubview:controller.view];
+        [controller.view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(constraint);
+            make.top.equalTo(_scrollView);
+            make.width.equalTo(_scrollView);
+            make.height.equalTo(_scrollView).offset = 3;
+        }];
+        
+        constraint = controller.view.mas_right;
+    }
+    
+    
+    // Header
+    _headerView = [[HomeHeaderView alloc] initWithTitles:titles];
+    [self.view addSubview:_headerView];
     
     // Layout
-    
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.top.equalTo(self.view).offset = 20;
         make.height.equalTo(@(44));
     }];
+    
     
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
@@ -183,27 +183,8 @@
         make.bottom.equalTo(@0);
     }];
     
-    [_liveView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_scrollView);
-        make.top.equalTo(_scrollView);
-        make.width.equalTo(_scrollView);
-        make.height.equalTo(_scrollView).offset = 3;
-    }];
-    [_recommendView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_liveView.mas_right);
-        make.top.equalTo(_scrollView);
-        make.width.equalTo(_scrollView);
-        make.height.equalTo(_scrollView).offset = 3;
-    }];
-    [_animationView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_recommendView.mas_right);
-        make.top.equalTo(_scrollView);
-        make.width.equalTo(_scrollView);
-        make.height.equalTo(_scrollView).offset = 3;
-    }];
-    
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(_animationView.mas_right);
+        make.right.equalTo(constraint);
     }];
     
 }

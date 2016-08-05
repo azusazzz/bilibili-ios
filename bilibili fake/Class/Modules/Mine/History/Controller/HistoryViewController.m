@@ -11,8 +11,11 @@
 #import "HistoryCollectionViewCell.h"
 
 #import "UIViewController+HeaderView.h"
+#import "UIAlertView+Block.h"
 
 #import "VideoViewController.h" // 视频播放
+
+
 
 @interface HistoryViewController ()
 <UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
@@ -52,7 +55,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-//    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [super viewWillAppear:animated];
 }
 
@@ -63,6 +65,24 @@
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
+
+/**
+ *  清空历史记录
+ */
+- (void)deleteAllHistory {
+    
+    [[UIAlertView alertViewWithTitle:@"清空播放历史" message:@"喵，想掩盖些什么呢？" buttonTitles:@[@"取消", @"清空"] clickedButtonAtIndex:^(NSInteger buttonIndex) {
+        if (buttonIndex == 1) {
+            [_model deleteAllHistoryWithSuccess:^{
+                [_collectionView reloadData];
+            } failure:^(NSString *errorMsg) {
+                HUDFailure(errorMsg);
+            }];
+        }
+    }] show];
+    
+}
+
 
 #pragma mark - UICollectionViewDataSource
 
@@ -84,6 +104,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger aid = _model.list[indexPath.row].aid;
     [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:aid] animated:YES];
+//    [self.navigationController pushViewController:[[HistoryViewController alloc] init] animated:YES];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
@@ -104,7 +125,10 @@
 
 - (void)loadSubviews {
     
-    self.headerView.title = @"历史记录";
+    self.navigationItem.title = @"历史记录";
+    UIBarButtonItem *deleteBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"misc_delete"] style:UIBarButtonItemStyleDone target:self action:@selector(deleteAllHistory)];
+    self.navigationItem.rightBarButtonItem = deleteBarButton;
+    
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
@@ -122,7 +146,7 @@
         make.left.offset = 0;
         make.right.offset = 0;
         make.bottom.offset = 0;
-        make.top.equalTo(self.headerView.mas_bottom);
+        make.top.equalTo(self.navigationBar.mas_bottom);
     }];
     
     NSArray *internalTargets = [self.navigationController.interactivePopGestureRecognizer valueForKey:@"targets"];

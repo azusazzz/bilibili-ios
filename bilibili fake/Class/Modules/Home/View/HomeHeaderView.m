@@ -22,7 +22,7 @@
     if (self = [super initWithTitles:titles style:TabBarStyleNormal]) {
         self.backgroundColor = CRed;
         self.tintColorRGB = @[@255,@255,@255];
-        self.edgeInsets = UIEdgeInsetsMake(0, (SSize.width-50*3)/2, 4, (SSize.width-50*3)/2);
+        self.edgeInsets = UIEdgeInsetsMake(0, (SSize.width-50*titles.count)/2, 4, (SSize.width-50*titles.count)/2);
         self.spacing = 20;
     }
     return self;

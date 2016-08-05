@@ -8,18 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewControllerHeaderView : UIView
-
-@property (strong, nonatomic) NSString *title;
-
-- (void)setBackTarget:(id)target action:(SEL)action;
+@interface NavigationBar : UINavigationBar
 
 @end
 
 
 @interface UIViewController (HeaderView)
 
-@property (strong, nonatomic, readonly) ViewControllerHeaderView *headerView;
+@property (strong, nonatomic, readonly) NavigationBar *navigationBar;
 
 @end
 

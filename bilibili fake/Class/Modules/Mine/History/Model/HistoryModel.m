@@ -59,6 +59,39 @@
 }
 
 
+- (void)deleteAllHistoryWithSuccess:(void (^)(void))success failure:(void (^)(NSString *))failure {
+    
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"History.db"];
+    sqlite3 *sqlite;
+    if (sqlite3_open([path UTF8String], &sqlite) != SQLITE_OK) {
+        printf("数据库打开失败\n");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            failure(@"数据库打开失败");
+        });
+        return;
+    }
+    
+    char *error = NULL;
+    
+    Defer {
+        sqlite3_close(sqlite);
+        if (error) {
+            printf("SQLITE ERROR: %s\n", error);
+        }
+    };
+    
+    NSString *deleteSQL = @"DELETE FROM History";
+    if (sqlite3_exec(sqlite, [deleteSQL UTF8String], NULL, NULL, &error) != SQLITE_OK) {
+        failure([NSString stringWithUTF8String:error]);
+        return;
+    }
+    
+    self.list = @[];
+    success();
+    
+}
+
+
 - (void)getHistoryListWithSuccess:(void (^)(void))success failure:(void (^)(NSString *))failure {
     if ([NSThread isMainThread]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

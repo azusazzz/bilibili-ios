@@ -22,6 +22,14 @@
  */
 + (void)addHistory:(HistoryEntity *)history;
 
+/**
+ *  清空播放历史记录
+ *
+ *  @param success <#success description#>
+ *  @param failure <#failure description#>
+ */
+- (void)deleteAllHistoryWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
 
 /**
  *  获取历史记录列表

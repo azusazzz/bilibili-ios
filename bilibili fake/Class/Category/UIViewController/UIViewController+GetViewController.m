@@ -27,7 +27,6 @@
 }
 
 + (UIViewController*)currentViewControllerFrom:(UIViewController*)viewController {
-    //传入的根节点控制器是导航控制器
     if ([viewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController* navigationController = (UINavigationController *)viewController;
         return [self currentViewControllerFrom:navigationController.viewControllers.lastObject];
