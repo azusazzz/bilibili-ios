@@ -16,9 +16,15 @@
     NSInteger _index;
     
     NSArray<NSNumber *> *_tintColorRGB;
+    NSArray<NSNumber *> *_selTintColorRGB;
     
     UIScrollView *_scrollView;
 }
+
+@property (assign, nonatomic, readonly) UIColor *tintColor;
+
+@property (assign, nonatomic, readonly) UIColor *selTintColor;
+
 
 @end
 
@@ -44,10 +50,10 @@
             UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
             [button setTitle:obj forState:UIControlStateNormal];
             if (idx == _index) {
-                [button setTitleColor:ColorRGB(self.cR,self.cG,self.cB) forState:UIControlStateNormal];
+                [button setTitleColor:self.selTintColor forState:UIControlStateNormal];
             }
             else {
-                [button setTitleColor:ColorWhite(200) forState:UIControlStateNormal];
+                [button setTitleColor:self.tintColor forState:UIControlStateNormal];
             }
             button.titleLabel.font = Font(14);
             button.tag = idx;
@@ -62,7 +68,7 @@
         }];
         
         _bottomLineView = [[UIView alloc] init];
-        _bottomLineView.backgroundColor = ColorRGB(self.cR,self.cG,self.cB);
+        _bottomLineView.backgroundColor = self.selTintColor;
         
         if (_style == TabBarStyleScroll) {
             [_scrollView addSubview:_bottomLineView];
@@ -108,17 +114,14 @@
     _scrollView.contentOffset = CGPointMake((_scrollView.contentSize.width - _scrollView.width) * (contentOffset / (_items.count-1)), 0);
     
     
-//    printf("%lf %ld %lf  %ld\t", contentOffset, index, progress, _index);
-    
-    
     if (contentOffset > _index) {
         if (progress == 0) {
-            [_items[index] setTitleColor:ColorRGB(self.cR, self.cG, self.cG) forState:UIControlStateNormal];
-            [_items[index-1] setTitleColor:ColorWhite(200) forState:UIControlStateNormal];
+            [_items[index] setTitleColor:self.selTintColor forState:UIControlStateNormal];
+            [_items[index-1] setTitleColor:self.tintColor forState:UIControlStateNormal];
         }
         else {
-            [_items[index] setTitleColor:ColorRGB(self.cR - (self.cR-200)*progress, self.cG - (self.cG-200)*progress, self.cB - (self.cB-200)*progress) forState:UIControlStateNormal];
-            [_items[index+1] setTitleColor:ColorRGB(200 + (self.cR-200)*progress, 200 + (self.cG-200)*progress, 200 + (self.cB-200)*progress) forState:UIControlStateNormal];
+            [_items[index] setTitleColor:[self colorWithFromColorRGB:self.selTintColorRGB toColorRGB:self.tintColorRGB progress:progress] forState:UIControlStateNormal];
+            [_items[index+1] setTitleColor:[self colorWithFromColorRGB:self.tintColorRGB toColorRGB:self.selTintColorRGB progress:progress] forState:UIControlStateNormal];
         }
         if (_index != index) {
             _index = index;
@@ -127,12 +130,12 @@
     else if (contentOffset < _index) {
         progress = 1 - progress;
         if (progress == 0) {
-            [_items[index] setTitleColor:ColorRGB(self.cR, self.cG, self.cG) forState:UIControlStateNormal];
-            [_items[index+1] setTitleColor:ColorWhite(200) forState:UIControlStateNormal];
+            [_items[index] setTitleColor:self.selTintColor forState:UIControlStateNormal];
+            [_items[index+1] setTitleColor:self.tintColor forState:UIControlStateNormal];
         }
         else {
-            [_items[index+1] setTitleColor:[self colorWithFromColorRGB:self.tintColorRGB toColorRGB:@[@200,@200,@200] progress:progress] forState:UIControlStateNormal];
-            [_items[index] setTitleColor:[self colorWithFromColorRGB:@[@200,@200,@200] toColorRGB:self.tintColorRGB progress:progress] forState:UIControlStateNormal];
+            [_items[index+1] setTitleColor:[self colorWithFromColorRGB:self.selTintColorRGB toColorRGB:self.tintColorRGB progress:progress] forState:UIControlStateNormal];
+            [_items[index] setTitleColor:[self colorWithFromColorRGB:self.tintColorRGB toColorRGB:self.selTintColorRGB progress:progress] forState:UIControlStateNormal];
         }
         if (1 - progress == 0) {
             if (_index != index) {
@@ -191,36 +194,48 @@
 }
 
 
+
+
+#pragma mark - Color
+
 - (void)setTintColorRGB:(NSArray<NSNumber *> *)tintColorRGB {
     _tintColorRGB = [tintColorRGB mutableCopy];
     [_items enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (idx == _index) {
-            [obj setTitleColor:ColorRGB(self.cR,self.cG,self.cB) forState:UIControlStateNormal];
-        }
-        else {
-            [obj setTitleColor:ColorWhite(200) forState:UIControlStateNormal];
+        if (idx != _index) {
+            [obj setTitleColor:self.tintColor forState:UIControlStateNormal];
         }
     }];
-    _bottomLineView.backgroundColor = ColorRGB(self.cR,self.cG,self.cB);
+}
+- (void)setSelTintColorRGB:(NSArray<NSNumber *> *)selTintColorRGB {
+    _selTintColorRGB = selTintColorRGB;
+    [_items enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (idx == _index) {
+            [obj setTitleColor:self.selTintColor forState:UIControlStateNormal];
+        }
+    }];
+    _bottomLineView.backgroundColor = self.selTintColor;
 }
 
 - (NSArray<NSNumber *> *)tintColorRGB {
     if (!_tintColorRGB) {
-        _tintColorRGB = @[@253,@129,@164];
+        _tintColorRGB = @[@200,@200,@200];
     }
     return _tintColorRGB;
 }
 
-- (NSInteger)cR {
-    return [self.tintColorRGB[0] integerValue];
-}
-- (NSInteger)cG {
-    return [self.tintColorRGB[1] integerValue];
-}
-- (NSInteger)cB {
-    return [self.tintColorRGB[2] integerValue];
+- (NSArray<NSNumber *> *)selTintColorRGB {
+    if (!_selTintColorRGB) {
+        _selTintColorRGB = @[@253,@129,@164];
+    }
+    return _selTintColorRGB;
 }
 
+- (UIColor *)tintColor {
+    return ColorRGB([self.tintColorRGB[0] integerValue], [self.tintColorRGB[1] integerValue], [self.tintColorRGB[2] integerValue]);
+}
+- (UIColor *)selTintColor {
+    return ColorRGB([self.selTintColorRGB[0] integerValue], [self.selTintColorRGB[1] integerValue], [self.selTintColorRGB[2] integerValue]);
+}
 
 - (UIColor *)colorWithFromColorRGB:(NSArray<NSNumber *> *)fromColorRGB toColorRGB:(NSArray<NSNumber *> *)toColorRGB progress:(CGFloat)progress {
     NSInteger fR = [fromColorRGB[0] integerValue];

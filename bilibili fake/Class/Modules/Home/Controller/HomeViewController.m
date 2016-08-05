@@ -156,7 +156,7 @@
             make.left.equalTo(constraint);
             make.top.equalTo(_scrollView);
             make.width.equalTo(_scrollView);
-            make.height.equalTo(_scrollView).offset = 3;
+            make.height.equalTo(_scrollView);
         }];
         
         constraint = controller.view.mas_right;

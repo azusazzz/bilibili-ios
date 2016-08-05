@@ -47,9 +47,13 @@ typedef NS_ENUM(NSInteger, TabBarStyle) {
 @property (assign, nonatomic) UIEdgeInsets edgeInsets;
 
 /**
- *  色调  RGB   @[@255, @255, @255]
+ *  按钮色调  RGB   @[@255, @255, @255]
  */
 @property (strong, nonatomic) NSArray<NSNumber *> *tintColorRGB;
+/**
+ *  选中按钮的色调
+ */
+@property (strong, nonatomic) NSArray<NSNumber *> *selTintColorRGB;
 
 /**
  *  间距

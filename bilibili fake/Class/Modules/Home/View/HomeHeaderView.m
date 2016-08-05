@@ -21,7 +21,8 @@
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles {
     if (self = [super initWithTitles:titles style:TabBarStyleNormal]) {
         self.backgroundColor = CRed;
-        self.tintColorRGB = @[@255,@255,@255];
+        self.tintColorRGB = @[@230,@230,@230];
+        self.selTintColorRGB = @[@255, @255, @255];
         self.edgeInsets = UIEdgeInsetsMake(0, (SSize.width-50*titles.count)/2, 4, (SSize.width-50*titles.count)/2);
         self.spacing = 20;
     }

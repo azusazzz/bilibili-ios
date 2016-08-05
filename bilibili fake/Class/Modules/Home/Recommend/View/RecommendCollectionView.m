@@ -28,13 +28,17 @@
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     if (self = [super initWithFrame:CGRectZero collectionViewLayout:flowLayout]) {
-        self.backgroundColor = ColorWhite(247);
+        self.backgroundColor = CRed;
+        self.backgroundView = [[UIView alloc] init];
+        self.backgroundView.backgroundColor = ColorWhite(247);
+        self.backgroundView.layer.cornerRadius = 6;
+        self.backgroundView.layer.masksToBounds = YES;
         self.dataSource = self;
         self.delegate = self;
         [self registerClass:[RecommendCollectionViewCell class] forCellWithReuseIdentifier:@"Recommend"];
         [self registerClass:[RecommendAvCollectionViewCell class] forCellWithReuseIdentifier:@"RecommendAv"];
-        [self registerClass:[RecommendLiveCollectionViewCell class] forCellWithReuseIdentifier:@"Live"];
-        [self registerClass:[RecommendBangumiCollectionViewCell class] forCellWithReuseIdentifier:@"Bangumi"];
+        [self registerClass:[RecommendLiveCollectionViewCell class] forCellWithReuseIdentifier:@"RecommendLive"];
+        [self registerClass:[RecommendBangumiCollectionViewCell class] forCellWithReuseIdentifier:@"RecommendBangumi"];
         [self registerClass:[RecommendHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"];
         [self registerClass:[RecommendFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"Footer"];
     }
@@ -48,13 +52,7 @@
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    RecommendBodyEntity *body = _list[indexPath.section].body[indexPath.row];
-    if ([body._goto isEqualToString:@"av"]) {
-//        NSInteger aid = [body.param integerValue];
-        
-    }
-    
+    _handleDidSelectedItem ? _handleDidSelectedItem(indexPath) : NULL;
 }
 
 

@@ -10,6 +10,8 @@
 #import "RecommendCollectionView.h"
 #import "RecommendListModel.h"
 
+#import "VideoViewController.h" // 视频信息
+
 @interface RecommendListViewController ()
 {
     RecommendCollectionView *_collectionView;
@@ -29,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = ColorWhite(247);
+    self.view.backgroundColor = CRed;
     [self.view addSubview:UIView.new];
     
     _collectionView = [[RecommendCollectionView alloc] init];
@@ -37,6 +39,11 @@
     
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
+    }];
+    
+    __weak typeof(self) weakself = self;
+    [_collectionView setHandleDidSelectedItem:^(NSIndexPath *indexPath) {
+        [weakself handleDidSelectedItem:indexPath];
     }];
     
     
@@ -49,6 +56,12 @@
     
 }
 
-
+- (void)handleDidSelectedItem:(NSIndexPath *)indexPath {
+    RecommendBodyEntity *body = _model.recommendList[indexPath.section].body[indexPath.row];
+    if ([body._goto isEqualToString:@"av"]) {
+        NSInteger aid = [body.param integerValue];
+        [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:aid] animated:YES];
+    }
+}
 
 @end

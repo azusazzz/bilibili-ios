@@ -13,4 +13,6 @@
 
 @property (strong, nonatomic) NSArray<RecommendEntity *> *list;
 
+@property (strong, nonatomic) void (^handleDidSelectedItem)(NSIndexPath *indexPath);
+
 @end
