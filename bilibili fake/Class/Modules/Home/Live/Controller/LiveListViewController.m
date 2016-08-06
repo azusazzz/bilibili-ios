@@ -7,8 +7,15 @@
 //
 
 #import "LiveListViewController.h"
+#import "MediaPlayer.h"
+#import "LiveListModel.h"
+#import "LiveCollectionView.h"
 
 @interface LiveListViewController ()
+
+@property (strong, nonatomic) LiveListModel *model;
+
+@property (strong, nonatomic) LiveCollectionView *collectionView;
 
 @end
 
@@ -25,16 +32,37 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = ColorWhite(247);
+    
+    [self loadSubviews];
+    
+    [self loadData];
+    
+    
+    __weak typeof(self) weakself = self;
+    
+    [_collectionView setHandleDidSelectedLive:^(LiveListPartitionLiveEntity *live) {
+        [MediaPlayer livePlayerWithURL:[NSURL URLWithString:live.playurl] title:live.title inViewController:weakself];
+    }];
+    
+    
+    
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    LogDEBUG(@"")
+- (void)loadData {
+    _model = [[LiveListModel alloc] init];
+    [_model getLiveListWithSuccess:^{
+        _collectionView.liveList = _model.liveList;
+    } failure:^(NSString *errorMsg) {
+        //
+    }];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    LogDEBUG(@"")
+- (void)loadSubviews {
+    _collectionView = [[LiveCollectionView alloc] init];
+    [self.view addSubview:_collectionView];
+    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 @end

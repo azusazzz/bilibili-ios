@@ -9,6 +9,8 @@
 #import "ScrollTabBarController.h"
 
 // ViewController
+#import "NavigationController.h"
+
 #import "HomeViewController.h"
 #import "RegionViewController.h"
 #import "FollowViewController.h"
@@ -37,11 +39,11 @@
     }
     
     self.viewControllers = @[
-                             [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]],
-                             [[UINavigationController alloc] initWithRootViewController:[[RegionViewController alloc] init]],
-                             [[UINavigationController alloc] initWithRootViewController:[[FollowViewController alloc] init]],
-                             [[UINavigationController alloc] initWithRootViewController:[[FindViewController alloc] init]],
-                             [[UINavigationController alloc] initWithRootViewController:[[MineViewController alloc] init]],
+                             [[NavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]],
+                             [[NavigationController alloc] initWithRootViewController:[[RegionViewController alloc] init]],
+                             [[NavigationController alloc] initWithRootViewController:[[FollowViewController alloc] init]],
+                             [[NavigationController alloc] initWithRootViewController:[[FindViewController alloc] init]],
+                             [[NavigationController alloc] initWithRootViewController:[[MineViewController alloc] init]],
                              ];
     
     self.delegate = self;

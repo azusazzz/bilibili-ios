@@ -33,6 +33,12 @@
     return player;
 }
 
++ (instancetype)livePlayerWithURL:(NSURL *)url title:(NSString *)title inViewController:(UIViewController *)controller {
+    MediaPlayer *player = [[MediaPlayer alloc] initWithURL:url title:title];
+    [controller presentViewController:player animated:YES completion:NULL];
+    return player;
+}
+
 - (instancetype)initWithURL:(NSURL *)url title:(NSString *)title; {
     if (self = [super init]) {
         _url = [url copy];

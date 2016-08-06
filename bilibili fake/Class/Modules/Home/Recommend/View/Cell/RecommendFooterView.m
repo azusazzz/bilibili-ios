@@ -8,10 +8,11 @@
 
 #import "RecommendFooterView.h"
 #import <UIImageView+WebCache.h>
+#import "BannerView.h"
 
 @interface RecommendFooterView ()
 {
-    UIImageView *_bannerView;
+    BannerView *_bannerView;
 }
 @end
 
@@ -30,7 +31,11 @@
             make.top.offset = 0;
             make.height.equalTo(self.mas_width).multipliedBy(280.0/960.0);
         }];
-        [_bannerView sd_setImageWithURL:[NSURL URLWithString:banner[0].image]];
+        NSMutableArray *urls = [NSMutableArray arrayWithCapacity:banner.count];
+        for (RecommendBannerEntity *item in banner) {
+            [urls addObject:[NSURL URLWithString:item.image]];
+        }
+        _bannerView.urls = urls;
     }
     else {
         [_bannerView removeFromSuperview];
@@ -40,7 +45,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = ColorWhite(247);
-        _bannerView = [[UIImageView alloc] init];
+        _bannerView = [[BannerView alloc] init];
     }
     return self;
 }

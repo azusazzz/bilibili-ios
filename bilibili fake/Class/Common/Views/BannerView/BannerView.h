@@ -10,4 +10,11 @@
 
 @interface BannerView : UIView
 
+/**
+ *  Default 4.0
+ */
+@property (assign, nonatomic) NSTimeInterval scrollTimeInterval;
+
+@property (copy, nonatomic) NSArray<NSURL *> *urls;
+
 @end

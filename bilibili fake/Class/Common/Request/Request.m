@@ -49,7 +49,7 @@ NSString * MD5(NSString *str) {
     _error = NULL;
     _task = NULL;
     
-    if ([self readCache]) {
+    if (!_mustFromNetwork && [self readCache]) {
         [self.delegate requestCompletion:self];
         _completionBlock ? _completionBlock(self) : NULL;
         _completionBlock = NULL;

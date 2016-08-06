@@ -12,4 +12,6 @@
 
 + (instancetype)playerWithURL:(NSURL *)url title:(NSString *)title inViewController:(UIViewController *)controller;
 
++ (instancetype)livePlayerWithURL:(NSURL *)url title:(NSString *)title inViewController:(UIViewController *)controller;
+
 @end

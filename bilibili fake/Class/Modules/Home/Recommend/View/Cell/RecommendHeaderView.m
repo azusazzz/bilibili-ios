@@ -8,10 +8,11 @@
 
 #import "RecommendHeaderView.h"
 #import <UIImageView+WebCache.h>
+#import "BannerView.h"
 
 @interface RecommendHeaderView ()
 {
-    UIImageView *_bannerView;
+    BannerView *_bannerView;
     
     UIImageView *_leftImageView;
     UILabel *_leftTitleLabel;
@@ -39,7 +40,12 @@
             make.top.offset = 0;
             make.height.equalTo(self.mas_width).multipliedBy(280.0/960.0);
         }];
-        [_bannerView sd_setImageWithURL:[NSURL URLWithString:recommend.banner_top[0].image]];
+        NSMutableArray *urls = [NSMutableArray arrayWithCapacity:recommend.banner_top.count];
+        for (RecommendBannerEntity *banner in recommend.banner_top) {
+            [urls addObject:[NSURL URLWithString:banner.image]];
+        }
+        _bannerView.urls = urls;
+        
     }
     else {
         [_bannerView removeFromSuperview];
@@ -50,7 +56,7 @@
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = ColorWhite(247);
         
-        _bannerView = [[UIImageView alloc] init];
+        _bannerView = [[BannerView alloc] init];
         
         _leftImageView = [[UIImageView alloc] init];
         [self addSubview:_leftImageView];

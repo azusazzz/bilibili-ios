@@ -27,7 +27,7 @@
 
 #define Log(level, ...)  \
 if(level <= LogLevel) { \
-    printf("\n%s 第%d行 level:%d\n %s\n\n",__func__,__LINE__,LogLevelDEBUG,[[NSString stringWithFormat:__VA_ARGS__] cStringUsingEncoding:NSUTF8StringEncoding]);   \
+    printf("\n%s 第%d行 level:%d\n%s\n",__func__,__LINE__,LogLevelDEBUG,[[NSString stringWithFormat:__VA_ARGS__] cStringUsingEncoding:NSUTF8StringEncoding]);   \
 }
 
 

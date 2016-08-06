@@ -42,6 +42,7 @@
 @property (strong, nonatomic) NSString *identifier;
 
 
+@property (assign, nonatomic) BOOL mustFromNetwork;
 
 @property (assign, nonatomic) NSInteger tag;
 
