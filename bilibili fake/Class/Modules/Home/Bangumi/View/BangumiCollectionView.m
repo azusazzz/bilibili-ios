@@ -1,28 +1,26 @@
 //
-//  LiveCollectionView.m
+//  BangumiCollectionView.m
 //  bilibili fake
 //
-//  Created by 翟泉 on 2016/8/6.
+//  Created by 翟泉 on 2016/8/8.
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "LiveCollectionView.h"
+#import "BangumiCollectionView.h"
 
-#import "LiveListBannerView.h"
-#import "LiveEntranceFooterView.h"
-#import "LiveEntranceCollectionViewCell.h"
-
-#import "LivePartitionsHeaderView.h"
-#import "LivePartitionsFooterView.h"
-#import "LiveCollectionViewCell.h"
+#import "BangumiEntranceHeaderView.h"
+#import "BangumiEntranceFooterView.h"
+#import "BangumiEntranceCollectionViewCell.h"
 
 
-@interface LiveCollectionView ()
+
+@interface BangumiCollectionView ()
 <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
 
 @end
 
-@implementation LiveCollectionView
+@implementation BangumiCollectionView
 
 - (instancetype)init {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -36,53 +34,51 @@
         self.dataSource = self;
         self.delegate = self;
         
-        [self registerClass:[LiveListBannerView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Banner"];
-        [self registerClass:[LiveEntranceFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"EntranceFooter"];
-        [self registerClass:[LiveEntranceCollectionViewCell class] forCellWithReuseIdentifier:@"Entrance"];
+        [self registerClass:[BangumiEntranceHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"EntranceHeader"];
+        [self registerClass:[BangumiEntranceFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"EntranceFooter"];
+        [self registerClass:[BangumiEntranceCollectionViewCell class] forCellWithReuseIdentifier:@"Entrance"];
         
-        [self registerClass:[LivePartitionsHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"LiveHeader"];
-        [self registerClass:[LivePartitionsFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"LiveFooter"];
-        [self registerClass:[LiveCollectionViewCell class] forCellWithReuseIdentifier:@"Live"];
+//        [self registerClass:[LivePartitionsHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"LiveHeader"];
+//        [self registerClass:[LivePartitionsFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"LiveFooter"];
+//        [self registerClass:[LiveCollectionViewCell class] forCellWithReuseIdentifier:@"Live"];
         
     }
     return self;
 }
 
-- (void)setLiveList:(LiveListEntity *)liveList {
-    _liveList = liveList;
+- (void)setBangumiList:(BangumiListEntity *)bangumiList {
+    _bangumiList = bangumiList;
     [self reloadData];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.section == 0) {
-        
-    }
-    else {
-        LiveListPartitionLiveEntity *live = _liveList.partitions[indexPath.section-1].lives[indexPath.row];
-        _handleDidSelectedLive ? _handleDidSelectedLive(live) : NULL;
-    }
-    
-}
 
 /**
  *  Number
  */
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    if (!_liveList) {
+    if (!_bangumiList) {
         return 0;
     }
-    return 1 + [_liveList.partitions count];
+    return 1;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section == 0) {
-        return [_liveList.entranceIcons count];
+        return [_bangumiList.entrances count];
+    }
+    else if (section == 1) {
+        return [_bangumiList.latestUpdate count];
+    }
+    else if (section == 2) {
+        return 1;
+    }
+    else if (section == 3) {
+        return [_bangumiList.recommends count];
     }
     else {
-        NSInteger count = [_liveList.partitions[section-1].lives count];
-        return count > 4 ? 4 : count;
+        return 0;
     }
 }
+
 
 /**
  *  Size
@@ -91,33 +87,41 @@
     if (section == 0) {
         return UIEdgeInsetsMake(15, 0, 0, 0);
     }
-    else {
+    else if (section == 1) {
         return UIEdgeInsetsMake(15, 15, 15, 15);
+    }
+    else if (section == 2) {
+        return UIEdgeInsetsMake(15, 0, 0, 0);
+    }
+    else if (section == 3) {
+        return UIEdgeInsetsMake(15, 15, 15, 15);
+    }
+    else {
+        return UIEdgeInsetsZero;
     }
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return CGSizeMake(SSize.width, [LiveListBannerView heightForBanner:_liveList.banner width:SSize.width]);
+        return CGSizeMake(SSize.width, [BangumiEntranceHeaderView heightForBanner:_bangumiList.banners width:SSize.width]);
     }
     else {
-        return CGSizeMake(SSize.width, [LivePartitionsHeaderView height]);
+        return CGSizeZero;
     }
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     if (section == 0) {
-        return CGSizeMake(SSize.width, [LiveEntranceFooterView height]);
+        return CGSizeMake(SSize.width, [BangumiEntranceFooterView height]);
     }
     else {
-        return CGSizeMake(SSize.width, [LivePartitionsFooterView height]);
+        return CGSizeZero;
     }
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return CGSizeMake(SSize.width / 4, [LiveEntranceCollectionViewCell height]);
+        return CGSizeMake(SSize.width / 4, [BangumiEntranceCollectionViewCell height]);
     }
     else {
-        CGFloat width = (SSize.width-15*3) / 2;
-        return CGSizeMake(width, [LiveCollectionViewCell heightForWitdh:width]);
+        return CGSizeZero;
     }
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
@@ -143,31 +147,21 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-            return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"Banner" forIndexPath:indexPath];
+            return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"EntranceHeader" forIndexPath:indexPath];
         }
         else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
             return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"EntranceFooter" forIndexPath:indexPath];
         }
     }
-    else {
-        if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-            return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"LiveHeader" forIndexPath:indexPath];
-        }
-        else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
-            return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"LiveFooter" forIndexPath:indexPath];
-        }
-    }
     return NULL;
 }
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"Entrance" forIndexPath:indexPath];
     }
-    else {
-        return [collectionView dequeueReusableCellWithReuseIdentifier:@"Live" forIndexPath:indexPath];
-    }
+    return NULL;
 }
-
 
 /**
  *  Data
@@ -175,22 +169,13 @@
 - (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
-            ((LiveListBannerView *)view).banner = _liveList.banner;
+            ((BangumiEntranceHeaderView *)view).banners = _bangumiList.banners;
         }
     }
-    else {
-        if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
-            ((LivePartitionsHeaderView *)view).partition = _liveList.partitions[indexPath.section-1];
-        }
-    }
-    
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        ((LiveEntranceCollectionViewCell *) cell).entrance = _liveList.entranceIcons[indexPath.row];
-    }
-    else {
-        ((LiveCollectionViewCell *) cell).live = _liveList.partitions[indexPath.section-1].lives[indexPath.row];
+        ((BangumiEntranceCollectionViewCell *) cell).entrance = _bangumiList.entrances[indexPath.row];
     }
 }
 

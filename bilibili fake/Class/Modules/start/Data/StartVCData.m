@@ -18,10 +18,6 @@
     return [[[StartVCData alloc] init] getStartViewData];
 }
 
-- (void)dealloc {
-    LogINFO(@"%s", __FUNCTION__);
-}
-
 -(NSMutableDictionary*)getStartViewData{
     //检查是否有启动图数据
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -37,12 +33,10 @@
         //获取当前的时间戳
         NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
         NSTimeInterval now_time=[dat timeIntervalSince1970];
-        LogINFO(@"当前的时间戳:%f",now_time);
         
         for (NSDictionary* dic in startView_data_dic) {
             //查找是否有需要显示的启动图
             if([[dic objectForKey:@"end_time"] doubleValue] > now_time && [[dic objectForKey:@"start_time"] doubleValue] < now_time){
-                LogDEBUG(@"%@",dic);
                 //判断图片是否已加载
                 NSURL* image_URL = [NSURL URLWithString:[dic objectForKey:@"image"]];
                 SDWebImageManager *manager = [SDWebImageManager sharedManager];
@@ -70,16 +64,13 @@
     CGFloat scale_screen = [UIScreen mainScreen].scale;
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://app.bilibili.com/x/splash?build=3390&channel=appstore&height=%0.0f&plat=1&width=%0.0f",height*scale_screen,width*scale_screen]]];
-    LogINFO(@"%@",request.URL.absoluteString);
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;//忽略本地缓存数据
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithRequest:request completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error)
     {
         if (!error)
         {
-            // NSLog(@"%@",data);
             //保存数据
-            LogINFO(@"写入启动图数据:%@",startView_data_path);
             [data writeToFile:startView_data_path atomically:YES];
             //预加载一遍视图
             NSDictionary* startView_data_dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -87,7 +78,6 @@
             //获取当前的时间戳
             NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
             NSTimeInterval now_time=[dat timeIntervalSince1970];
-            LogINFO(@"当前的时间戳:%f",now_time);
             
             for (NSDictionary* dic in startView_data_dic) {
                 //查找是否有需要预先下载显示的启动图
@@ -99,8 +89,6 @@
             }
 
         }
-    
-        //[session invalidateAndCancel];
    }] resume];
 
 }

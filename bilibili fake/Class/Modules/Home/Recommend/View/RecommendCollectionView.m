@@ -31,8 +31,8 @@
         self.backgroundColor = CRed;
         self.backgroundView = [[UIView alloc] init];
         self.backgroundView.backgroundColor = ColorWhite(247);
-        self.backgroundView.layer.cornerRadius = 6;
-        self.backgroundView.layer.masksToBounds = YES;
+//        self.backgroundView.layer.cornerRadius = 6;
+//        self.backgroundView.layer.masksToBounds = YES;
         self.dataSource = self;
         self.delegate = self;
         [self registerClass:[RecommendCollectionViewCell class] forCellWithReuseIdentifier:@"Recommend"];

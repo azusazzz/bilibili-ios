@@ -7,8 +7,14 @@
 //
 
 #import "BangumiListViewController.h"
+#import "BangumiListModel.h"
+#import "BangumiCollectionView.h"
 
 @interface BangumiListViewController ()
+
+@property (strong, nonatomic) BangumiListModel *model;
+
+@property (strong, nonatomic) BangumiCollectionView *collectionView;
 
 @end
 
@@ -25,21 +31,32 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = ColorWhite(247);
+    
+    [self loadSubviews];
+    
+    [self loadData];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)loadData {
+    _model = [[BangumiListModel alloc] init];
+    
+    [_model getBangumiListWithSuccess:^{
+        //
+        _collectionView.bangumiList = _model.bangumiList;
+    } failure:^(NSString *errorMsg) {
+        //
+        
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)loadSubviews {
+    _collectionView = [[BangumiCollectionView alloc] init];
+    [self.view addSubview:_collectionView];
+    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
-*/
 
 @end

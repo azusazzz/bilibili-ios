@@ -83,6 +83,18 @@
 		6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8BB1D1AE014002DA3AB /* ScrollTabBarController.m */; };
 		6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */; };
 		6E76344E1D3F563A002CFA63 /* UIViewController+GetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76344D1D3F563A002CFA63 /* UIViewController+GetViewController.m */; };
+		6E7E46E31D587A1B0027AE8D /* BangumiListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46E21D587A1B0027AE8D /* BangumiListRequest.m */; };
+		6E7E46E61D587A300027AE8D /* BangumiRecommendRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46E51D587A300027AE8D /* BangumiRecommendRequest.m */; };
+		6E7E46E91D587AD20027AE8D /* BangumiListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46E81D587AD20027AE8D /* BangumiListEntity.m */; };
+		6E7E46EC1D587CD60027AE8D /* BangumiListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46EB1D587CD60027AE8D /* BangumiListModel.m */; };
+		6E7E46EF1D587E470027AE8D /* BangumiEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46EE1D587E470027AE8D /* BangumiEntity.m */; };
+		6E7E46F21D587EEB0027AE8D /* BangumiBannerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46F11D587EEB0027AE8D /* BangumiBannerEntity.m */; };
+		6E7E46F51D58868D0027AE8D /* BangumiRecommendEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46F41D58868D0027AE8D /* BangumiRecommendEntity.m */; };
+		6E7E46F81D58AF8A0027AE8D /* BangumiCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46F71D58AF8A0027AE8D /* BangumiCollectionView.m */; };
+		6E7E46FB1D58AFE90027AE8D /* BangumiEntranceHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46FA1D58AFE90027AE8D /* BangumiEntranceHeaderView.m */; };
+		6E7E46FE1D58B00A0027AE8D /* BangumiEntranceFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46FD1D58B00A0027AE8D /* BangumiEntranceFooterView.m */; };
+		6E7E47011D58B0230027AE8D /* BangumiEntranceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E47001D58B0230027AE8D /* BangumiEntranceCollectionViewCell.m */; };
+		6E7E47041D58B2BF0027AE8D /* BangumiEntranceEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E47031D58B2BF0027AE8D /* BangumiEntranceEntity.m */; };
 		6E885B951D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E885B901D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.m */; };
 		6E885B961D4AEBB200A3BA35 /* JCTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E885B921D4AEBB200A3BA35 /* JCTagCell.m */; };
 		6E885B971D4AEBB200A3BA35 /* JCTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E885B941D4AEBB200A3BA35 /* JCTagListView.m */; };
@@ -379,6 +391,30 @@
 		6E76344C1D3F563A002CFA63 /* UIViewController+GetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GetViewController.h"; sourceTree = "<group>"; };
 		6E76344D1D3F563A002CFA63 /* UIViewController+GetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GetViewController.m"; sourceTree = "<group>"; };
 		6E76C17A1D2A768D00C259E8 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
+		6E7E46E11D587A1B0027AE8D /* BangumiListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiListRequest.h; sourceTree = "<group>"; };
+		6E7E46E21D587A1B0027AE8D /* BangumiListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiListRequest.m; sourceTree = "<group>"; };
+		6E7E46E41D587A300027AE8D /* BangumiRecommendRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiRecommendRequest.h; sourceTree = "<group>"; };
+		6E7E46E51D587A300027AE8D /* BangumiRecommendRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiRecommendRequest.m; sourceTree = "<group>"; };
+		6E7E46E71D587AD20027AE8D /* BangumiListEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiListEntity.h; sourceTree = "<group>"; };
+		6E7E46E81D587AD20027AE8D /* BangumiListEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiListEntity.m; sourceTree = "<group>"; };
+		6E7E46EA1D587CD60027AE8D /* BangumiListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiListModel.h; sourceTree = "<group>"; };
+		6E7E46EB1D587CD60027AE8D /* BangumiListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiListModel.m; sourceTree = "<group>"; };
+		6E7E46ED1D587E470027AE8D /* BangumiEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiEntity.h; sourceTree = "<group>"; };
+		6E7E46EE1D587E470027AE8D /* BangumiEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiEntity.m; sourceTree = "<group>"; };
+		6E7E46F01D587EEB0027AE8D /* BangumiBannerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiBannerEntity.h; sourceTree = "<group>"; };
+		6E7E46F11D587EEB0027AE8D /* BangumiBannerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiBannerEntity.m; sourceTree = "<group>"; };
+		6E7E46F31D58868D0027AE8D /* BangumiRecommendEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiRecommendEntity.h; sourceTree = "<group>"; };
+		6E7E46F41D58868D0027AE8D /* BangumiRecommendEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiRecommendEntity.m; sourceTree = "<group>"; };
+		6E7E46F61D58AF8A0027AE8D /* BangumiCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiCollectionView.h; sourceTree = "<group>"; };
+		6E7E46F71D58AF8A0027AE8D /* BangumiCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiCollectionView.m; sourceTree = "<group>"; };
+		6E7E46F91D58AFE90027AE8D /* BangumiEntranceHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiEntranceHeaderView.h; sourceTree = "<group>"; };
+		6E7E46FA1D58AFE90027AE8D /* BangumiEntranceHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiEntranceHeaderView.m; sourceTree = "<group>"; };
+		6E7E46FC1D58B00A0027AE8D /* BangumiEntranceFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiEntranceFooterView.h; sourceTree = "<group>"; };
+		6E7E46FD1D58B00A0027AE8D /* BangumiEntranceFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiEntranceFooterView.m; sourceTree = "<group>"; };
+		6E7E46FF1D58B0230027AE8D /* BangumiEntranceCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiEntranceCollectionViewCell.h; sourceTree = "<group>"; };
+		6E7E47001D58B0230027AE8D /* BangumiEntranceCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiEntranceCollectionViewCell.m; sourceTree = "<group>"; };
+		6E7E47021D58B2BF0027AE8D /* BangumiEntranceEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiEntranceEntity.h; sourceTree = "<group>"; };
+		6E7E47031D58B2BF0027AE8D /* BangumiEntranceEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiEntranceEntity.m; sourceTree = "<group>"; };
 		6E885B8F1D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCollectionViewTagFlowLayout.h; sourceTree = "<group>"; };
 		6E885B901D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCollectionViewTagFlowLayout.m; sourceTree = "<group>"; };
 		6E885B911D4AEBB200A3BA35 /* JCTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagCell.h; sourceTree = "<group>"; };
@@ -807,6 +843,10 @@
 		6E21B0771D54BB860081CDC1 /* Bangumi */ = {
 			isa = PBXGroup;
 			children = (
+				6E7E46DE1D5876E50027AE8D /* Request */,
+				6E7E46DC1D5876E50027AE8D /* Entity */,
+				6E7E46DD1D5876E50027AE8D /* Model */,
+				6E7E46DF1D5876E50027AE8D /* View */,
 				6E21B0781D54BB860081CDC1 /* Controller */,
 			);
 			path = Bangumi;
@@ -1171,6 +1211,66 @@
 				6E23777D1D536BD400102550 /* UIViewController+HeaderView.m */,
 			);
 			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		6E7E46DC1D5876E50027AE8D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				6E7E46E71D587AD20027AE8D /* BangumiListEntity.h */,
+				6E7E46E81D587AD20027AE8D /* BangumiListEntity.m */,
+				6E7E46F01D587EEB0027AE8D /* BangumiBannerEntity.h */,
+				6E7E46F11D587EEB0027AE8D /* BangumiBannerEntity.m */,
+				6E7E47021D58B2BF0027AE8D /* BangumiEntranceEntity.h */,
+				6E7E47031D58B2BF0027AE8D /* BangumiEntranceEntity.m */,
+				6E7E46ED1D587E470027AE8D /* BangumiEntity.h */,
+				6E7E46EE1D587E470027AE8D /* BangumiEntity.m */,
+				6E7E46F31D58868D0027AE8D /* BangumiRecommendEntity.h */,
+				6E7E46F41D58868D0027AE8D /* BangumiRecommendEntity.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		6E7E46DD1D5876E50027AE8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6E7E46EA1D587CD60027AE8D /* BangumiListModel.h */,
+				6E7E46EB1D587CD60027AE8D /* BangumiListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E7E46DE1D5876E50027AE8D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				6E7E46E11D587A1B0027AE8D /* BangumiListRequest.h */,
+				6E7E46E21D587A1B0027AE8D /* BangumiListRequest.m */,
+				6E7E46E41D587A300027AE8D /* BangumiRecommendRequest.h */,
+				6E7E46E51D587A300027AE8D /* BangumiRecommendRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		6E7E46DF1D5876E50027AE8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E7E46E01D5876E50027AE8D /* Cell */,
+				6E7E46F61D58AF8A0027AE8D /* BangumiCollectionView.h */,
+				6E7E46F71D58AF8A0027AE8D /* BangumiCollectionView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E7E46E01D5876E50027AE8D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6E7E46F91D58AFE90027AE8D /* BangumiEntranceHeaderView.h */,
+				6E7E46FA1D58AFE90027AE8D /* BangumiEntranceHeaderView.m */,
+				6E7E46FC1D58B00A0027AE8D /* BangumiEntranceFooterView.h */,
+				6E7E46FD1D58B00A0027AE8D /* BangumiEntranceFooterView.m */,
+				6E7E46FF1D58B0230027AE8D /* BangumiEntranceCollectionViewCell.h */,
+				6E7E47001D58B0230027AE8D /* BangumiEntranceCollectionViewCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		6E885B8E1D4AEBB200A3BA35 /* JCTagListView */ = {
@@ -2206,8 +2306,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E7E46E91D587AD20027AE8D /* BangumiListEntity.m in Sources */,
 				6E5FB1951D557CBE00984DC6 /* LiveListEntranceEntity.m in Sources */,
 				6EB5529B1D548D50001099C1 /* RecommendAvCollectionViewCell.m in Sources */,
+				6E7E46E61D587A300027AE8D /* BangumiRecommendRequest.m in Sources */,
 				FC4704041D4078EA009F0B62 /* RankOriginalorAllVC.m in Sources */,
 				FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */,
 				6EB450251D51E90D00A4F626 /* DownloadViewController.m in Sources */,
@@ -2216,6 +2318,7 @@
 				6E575CA71D40713F007BCD73 /* VideoOwnerInfoView.m in Sources */,
 				6E5FB1AE1D55924C00984DC6 /* LiveEntranceCollectionViewCell.m in Sources */,
 				6EB4C1821D2CF59600AEB6EF /* HomeAnimationRequest.m in Sources */,
+				6E7E46F81D58AF8A0027AE8D /* BangumiCollectionView.m in Sources */,
 				FC6F488B1D363AEB00047EEA /* NonVideoCell.m in Sources */,
 				6EFFD4AE1D2BDE9400D1BC9E /* HomeAnimationView.m in Sources */,
 				6EB552831D5487A4001099C1 /* RecommendEntity.m in Sources */,
@@ -2229,6 +2332,7 @@
 				6E215D0C1D4B62210004CA5B /* MineViewController.m in Sources */,
 				6E885B951D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
+				6E7E46E31D587A1B0027AE8D /* BangumiListRequest.m in Sources */,
 				6E026FEA1D3E29460038C2A0 /* RequestCache.m in Sources */,
 				6E4836541D409617004AD1A4 /* SABlurImageView.swift in Sources */,
 				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
@@ -2270,14 +2374,17 @@
 				6EB552A41D5491AD001099C1 /* RecommendCollectionView.m in Sources */,
 				6E2377401D530FAF00102550 /* HistoryEntity.m in Sources */,
 				6E5FB1921D557C0400984DC6 /* LiveListEntity.m in Sources */,
+				6E7E46EF1D587E470027AE8D /* BangumiEntity.m in Sources */,
 				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,
 				6E0528211D52D402004C51EE /* DownloadEntity.m in Sources */,
 				6E48366B1D40F414004AD1A4 /* VideoPageNameCollectionViewCell.m in Sources */,
+				6E7E47011D58B0230027AE8D /* BangumiEntranceCollectionViewCell.m in Sources */,
 				6E5FB1B11D55926A00984DC6 /* LiveEntranceFooterView.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
 				6E5FB19F1D5590F400984DC6 /* LiveCollectionView.m in Sources */,
 				6E2377431D53106400102550 /* HistoryModel.m in Sources */,
 				6E5FB1A81D5591A100984DC6 /* LivePartitionsFooterView.m in Sources */,
+				6E7E46FB1D58AFE90027AE8D /* BangumiEntranceHeaderView.m in Sources */,
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
 				6E2377361D52ED0300102550 /* DownloadModel.m in Sources */,
 				6E575CB41D40713F007BCD73 /* VideoIntroView.m in Sources */,
@@ -2285,6 +2392,7 @@
 				6E23777E1D536BD400102550 /* UIViewController+HeaderView.m in Sources */,
 				6E76344E1D3F563A002CFA63 /* UIViewController+GetViewController.m in Sources */,
 				6E4836551D409617004AD1A4 /* UIImage+BlurEffect.swift in Sources */,
+				6E7E46F51D58868D0027AE8D /* BangumiRecommendEntity.m in Sources */,
 				6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */,
 				6EB552891D5487F4001099C1 /* RecommendBodyEntity.m in Sources */,
 				6E5FB1A21D55913B00984DC6 /* LiveListBannerView.m in Sources */,
@@ -2294,10 +2402,13 @@
 				6E4836761D410818004AD1A4 /* MediaPlayerControl.m in Sources */,
 				6EB5528C1D548809001099C1 /* RecommendBannerEntity.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
+				6E7E46EC1D587CD60027AE8D /* BangumiListModel.m in Sources */,
 				FC6A427B1D490C340058A1FA /* VideoRangData.m in Sources */,
 				6E2377821D543D0000102550 /* UIAlertView+Block.m in Sources */,
 				6EB552921D548CD2001099C1 /* RecommendHeaderView.m in Sources */,
+				6E7E46FE1D58B00A0027AE8D /* BangumiEntranceFooterView.m in Sources */,
 				6E215D011D4B61B00004CA5B /* MineHeaderCollectionReusableView.m in Sources */,
+				6E7E47041D58B2BF0027AE8D /* BangumiEntranceEntity.m in Sources */,
 				6E4836611D40CB18004AD1A4 /* VideoCommentItemEntity.m in Sources */,
 				6E575CA81D40713F007BCD73 /* VideoTagsView.m in Sources */,
 				6ED65D5B1D38B71900D264F8 /* HomeAnimationCategoryEntity.m in Sources */,
@@ -2335,6 +2446,7 @@
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
 				6E575CB01D40713F007BCD73 /* VideoURLProtocol.m in Sources */,
 				6EB450291D51F26E00A4F626 /* DownloadManager.m in Sources */,
+				6E7E46F21D587EEB0027AE8D /* BangumiBannerEntity.m in Sources */,
 				6E575CAE1D40713F007BCD73 /* VideoStatInfoEntity.m in Sources */,
 				6E215D061D4B61B00004CA5B /* MineCollectionView.m in Sources */,
 				6E575CA51D40713F007BCD73 /* VideoIntroHeaderView.m in Sources */,
