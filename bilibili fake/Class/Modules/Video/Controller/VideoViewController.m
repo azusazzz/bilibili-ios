@@ -21,25 +21,9 @@
 
 
 @interface VideoViewController ()
-<UIScrollViewDelegate, UIGestureRecognizerDelegate
-/*,UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning*/>
+<UIScrollViewDelegate, UIGestureRecognizerDelegate>
 {
-//    NSInteger _aid;
-    
-//    VideoModel *_model;
-    
-//    VideoHeaderView *_headerView;
-    
     VideoTabBar *_tabBar;
-    
-    
-    
-    
-    
-//    BOOL _interactive;
-//    UIPercentDrivenInteractiveTransition *_interactionController;
-    
-    
 }
 
 @property (strong, nonatomic) UIScrollView *backgroundScrollView;
@@ -70,28 +54,17 @@
     return self;
 }
 
-- (void)dealloc {
-//    Log(@"%s", __FUNCTION__);
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = ColorWhite(240);
     
-//    _interactionController = [[UIPercentDrivenInteractiveTransition alloc] init];
-//    self.navigationController.delegate = self;
-    
     [self initSubviews];
-    
-
-    
     
     [self loadData];
     
     
     __weak typeof(self) weakself = self;
-    
     
     /**
      *  点击分集   切换当前分集 并播放
@@ -190,10 +163,6 @@
             HUDFailure(@"视频信息不存在");
             return;
         }
-        
-        
-        
-        
         [_headerView setupVideoInfo:_model.videoInfo];
         _introView.videoInfo = _model.videoInfo;
         [_tabBar setTitle:[NSString stringWithFormat:@"评论(%ld)", _model.videoInfo.stat.reply] forIndex:1];
@@ -231,13 +200,8 @@
         }
         
         if (-offset != _headerView.transform.ty) {
-            _headerView.transform = CGAffineTransformMakeTranslation(0, -offset);
+            _headerView.transform = CGAffineTransformMakeTranslation(0, -offset/2);
         }
-        
-        //    [_headerView mas_updateConstraints:^(MASConstraintMaker *make) {
-        //        make.top.offset = -offset;
-        //    }];
-        
         
         if (_headerView.backgroundView.image) {
             CGFloat blurRadius = offset / (_headerView.height);
@@ -251,32 +215,6 @@
         
     }
 }
-
-/*
-- (void)handlePangesture:(UIPanGestureRecognizer *)panGesture {
-    CGFloat translationX = [panGesture translationInView:_backgroundScrollView].x;
-    CGFloat progress = translationX / self.view.width;
-    switch (panGesture.state) {
-        case UIGestureRecognizerStateBegan:
-            _interactive = YES;
-            [self.navigationController popViewControllerAnimated:YES];
-            break;
-        case UIGestureRecognizerStateChanged:
-            [_interactionController updateInteractiveTransition:progress];
-            break;
-        case UIGestureRecognizerStateCancelled:
-        case UIGestureRecognizerStateEnded:
-            _interactive = NO;
-            if (progress > 0.4) {
-                [_interactionController finishInteractiveTransition];
-            }
-            else {
-                [_interactionController cancelInteractiveTransition];
-            }
-        default:
-            break;
-    }
-}*/
 
 #pragma mark - UIGestureRecognizerDelegate
 
@@ -372,47 +310,5 @@
     [_headerView addGestureRecognizer:headerPanGesture];
 }
 
-
-/*
-
-#pragma mark - UINavigationControllerDelegate
-
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
-    if (operation == UINavigationControllerOperationPop) {
-        return self;
-    }
-    else {
-        return nil;
-    }
-}
-
-- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
-    return _interactive ? _interactionController : NULL;
-}
-
-#pragma mark - UIViewControllerAnimatedTransitioning
-
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return 0.8;
-}
-
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    UIView *containerView = [transitionContext containerView];
-    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIView *fromView = fromVC.view;
-    UIView *toView = toVC.view;
-    
-    [containerView insertSubview:toView belowSubview:fromView];
-    
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        fromView.transform = CGAffineTransformTranslate(fromView.transform, containerView.width, 0);
-    } completion:^(BOOL finished) {
-        fromView.transform = CGAffineTransformIdentity;
-        BOOL isCancelled = [transitionContext transitionWasCancelled];
-        [transitionContext completeTransition:!isCancelled];
-    }];
-}
-*/
 
 @end

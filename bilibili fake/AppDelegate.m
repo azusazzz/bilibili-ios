@@ -25,6 +25,7 @@
     [self.window makeKeyAndVisible];
     [StartViewController show];
     
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     

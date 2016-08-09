@@ -77,9 +77,9 @@
     if (section == 0) {
         return NULL;
     }
-    UIView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"Header"];
+    UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"Header"];
     if (headerView.tag == 0) {
-        headerView.backgroundColor = ColorWhite(247);
+        headerView.contentView.backgroundColor = ColorWhite(247);
         headerView.tag = 1;
         
         UIView *lineView = [[UIView alloc] init];
