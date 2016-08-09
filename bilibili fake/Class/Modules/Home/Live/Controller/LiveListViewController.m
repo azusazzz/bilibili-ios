@@ -48,6 +48,10 @@
     
 }
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (void)loadData {
     _model = [[LiveListModel alloc] init];
     [_model getLiveListWithSuccess:^{

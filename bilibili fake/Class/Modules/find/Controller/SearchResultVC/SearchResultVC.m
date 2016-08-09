@@ -697,7 +697,7 @@ struct tablePoint{
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(screen_view.mas_bottom);
         make.right.left.equalTo(self.view);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-48);
+        make.bottom.equalTo(self.view.mas_bottom).offset(0);
     }];
     
     [_tableViewRefresh_label mas_makeConstraints:^(MASConstraintMaker *make) {

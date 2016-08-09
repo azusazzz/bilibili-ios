@@ -12,7 +12,14 @@
 #import "BangumiEntranceFooterView.h"
 #import "BangumiEntranceCollectionViewCell.h"
 
+#import "BangumiLatestUpdateHeaderView.h"
+#import "BangumiLatestUpdateCollectionViewCell.h"
 
+#import "BangumiEndHeaderView.h"
+#import "BangumiEndCollectionViewCell.h"
+
+#import "BangumiRecommendHeaderView.h"
+#import "BangumiRecommendCollectionViewCell.h"
 
 @interface BangumiCollectionView ()
 <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
@@ -38,9 +45,14 @@
         [self registerClass:[BangumiEntranceFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"EntranceFooter"];
         [self registerClass:[BangumiEntranceCollectionViewCell class] forCellWithReuseIdentifier:@"Entrance"];
         
-//        [self registerClass:[LivePartitionsHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"LiveHeader"];
-//        [self registerClass:[LivePartitionsFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"LiveFooter"];
-//        [self registerClass:[LiveCollectionViewCell class] forCellWithReuseIdentifier:@"Live"];
+        [self registerClass:[BangumiLatestUpdateHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BangumiLatestUpdateHeader"];
+        [self registerClass:[BangumiLatestUpdateCollectionViewCell class] forCellWithReuseIdentifier:@"BangumiLatest"];
+        
+        [self registerClass:[BangumiEndHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BangumiEndHeader"];
+        [self registerClass:[BangumiEndCollectionViewCell class] forCellWithReuseIdentifier:@"BangumiEnd"];
+        
+        [self registerClass:[BangumiRecommendHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BangumiRecommendHeader"];
+        [self registerClass:[BangumiRecommendCollectionViewCell class] forCellWithReuseIdentifier:@"BangumiRecommend"];
         
     }
     return self;
@@ -59,7 +71,7 @@
     if (!_bangumiList) {
         return 0;
     }
-    return 1;
+    return 4;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section == 0) {
@@ -104,6 +116,15 @@
     if (section == 0) {
         return CGSizeMake(SSize.width, [BangumiEntranceHeaderView heightForBanner:_bangumiList.banners width:SSize.width]);
     }
+    else if (section == 1) {
+        return CGSizeMake(SSize.width, [BangumiLatestUpdateHeaderView height]);
+    }
+    else if (section == 2) {
+        return CGSizeMake(SSize.width, [BangumiEndHeaderView height]);
+    }
+    else if (section == 3) {
+        return CGSizeMake(SSize.width, [BangumiRecommendHeaderView height]);
+    }
     else {
         return CGSizeZero;
     }
@@ -120,6 +141,16 @@
     if (indexPath.section == 0) {
         return CGSizeMake(SSize.width / 4, [BangumiEntranceCollectionViewCell height]);
     }
+    else if (indexPath.section == 1) {
+        CGFloat width = (SSize.width-15*3) / 2;
+        return CGSizeMake(width, [BangumiLatestUpdateCollectionViewCell heightForWitdh:width]);
+    }
+    else if (indexPath.section == 2) {
+        return CGSizeMake(SSize.width, [BangumiEndCollectionViewCell heightForWidth:SSize.width ends:_bangumiList.ends]);
+    }
+    else if (indexPath.section == 3) {
+        return CGSizeMake(SSize.width-30, [BangumiRecommendCollectionViewCell heightForWidth:SSize.width-30 bangumiRecommend:_bangumiList.recommends[indexPath.row]]);
+    }
     else {
         return CGSizeZero;
     }
@@ -128,16 +159,34 @@
     if (section == 0) {
         return 0;
     }
-    else {
+    else if (section == 1) {
         return 15;
+    }
+    else if (section == 2) {
+        return 0;
+    }
+    else if (section == 3) {
+        return 15;
+    }
+    else {
+        return 0;
     }
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     if (section == 0) {
         return 0;
     }
-    else {
+    else if (section == 1) {
         return 15;
+    }
+    else if (section == 2) {
+        return 0;
+    }
+    else if (section == 3) {
+        return 15;
+    }
+    else {
+        return 0;
     }
 }
 
@@ -153,12 +202,36 @@
             return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"EntranceFooter" forIndexPath:indexPath];
         }
     }
+    else if (indexPath.section == 1) {
+        if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+            return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"BangumiLatestUpdateHeader" forIndexPath:indexPath];
+        }
+    }
+    else if (indexPath.section == 2) {
+        if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+            return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"BangumiEndHeader" forIndexPath:indexPath];
+        }
+    }
+    else if (indexPath.section == 3) {
+        if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+            return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"BangumiRecommendHeader" forIndexPath:indexPath];
+        }
+    }
     return NULL;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"Entrance" forIndexPath:indexPath];
+    }
+    else if (indexPath.section == 1) {
+        return [collectionView dequeueReusableCellWithReuseIdentifier:@"BangumiLatest" forIndexPath:indexPath];
+    }
+    else if (indexPath.section == 2) {
+        return [collectionView dequeueReusableCellWithReuseIdentifier:@"BangumiEnd" forIndexPath:indexPath];
+    }
+    else if (indexPath.section == 3) {
+        return [collectionView dequeueReusableCellWithReuseIdentifier:@"BangumiRecommend" forIndexPath:indexPath];
     }
     return NULL;
 }
@@ -172,11 +245,26 @@
             ((BangumiEntranceHeaderView *)view).banners = _bangumiList.banners;
         }
     }
+    else if (indexPath.section == 1) {
+        if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
+            [((BangumiLatestUpdateHeaderView *)view) setCount:_bangumiList.latestUpdate.count];
+        }
+    }
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         ((BangumiEntranceCollectionViewCell *) cell).entrance = _bangumiList.entrances[indexPath.row];
     }
+    else if (indexPath.section == 1) {
+        [((BangumiLatestUpdateCollectionViewCell *) cell) setBangumi:_bangumiList.latestUpdate[indexPath.row]];
+    }
+    else if (indexPath.section == 2) {
+        [((BangumiEndCollectionViewCell *) cell) setEnds:_bangumiList.ends];
+    }
+    else if (indexPath.section == 3) {
+        [((BangumiRecommendCollectionViewCell *) cell) setBangumiRecommend:_bangumiList.recommends[indexPath.row]];
+    }
+    
 }
 
 

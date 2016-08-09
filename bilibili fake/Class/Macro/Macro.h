@@ -60,7 +60,7 @@ if(level <= LogLevel) { \
 
 
 
-#define Font(size) [UIFont systemFontOfSize:size]
+#define Font(fontSize) [UIFont fontWithName:@"ArialMT" size:fontSize]
 
 
 #define ImageWithName(name)  [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[name stringByAppendingString:@".png"]]]
