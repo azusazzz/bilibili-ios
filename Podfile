@@ -18,6 +18,8 @@ target 'bilibili fake' do
     
 #    pod 'FXBlurView'
 
+    pod 'XMLDictionary'
+
 end
 
 

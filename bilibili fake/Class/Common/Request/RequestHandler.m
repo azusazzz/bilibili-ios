@@ -8,7 +8,7 @@
 
 #import "RequestHandler.h"
 #import <AFNetworking.h>
-
+#import "ResponseSerializer.h"
 #import "Request.h"
 
 @interface RequestHandler ()
@@ -33,10 +33,12 @@
 - (instancetype)init {
     if (self = [super init]) {
         _HTTPSessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:NULL sessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-        _HTTPSessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain", @"text/xml", nil];
+        _HTTPSessionManager.responseSerializer = [ResponseSerializer serializer];
+//        _HTTPSessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain", @"text/xml", @"xhr", nil];
         [_HTTPSessionManager.requestSerializer setQueryStringSerializationWithBlock:^NSString * _Nonnull(NSURLRequest * _Nonnull request, id  _Nonnull parameters, NSError * _Nullable __autoreleasing * _Nullable error) {
             return [[RequestHandler sharedInstance] queryStringSerialization:request parameters:parameters error:error];
         }];
+        
     }
     return self;
 }

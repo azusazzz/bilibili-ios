@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "StartViewController.h"
 #import "ScrollTabBarController.h"
+#import "DanmakuRequest.h"
 
 @interface AppDelegate ()
 
@@ -27,6 +28,8 @@
     
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    
     
     
     return YES;
