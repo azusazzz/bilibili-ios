@@ -9,6 +9,7 @@
 #import "FindViewData.h"
 
 @implementation FindViewData
+
 +(void)getKeyword:(void(^)(NSMutableArray* keyword_arr))block{
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://s.search.bilibili.com/main/hotword?access_key=ec0f54fc369d8c104ee1068672975d6a&actionKey=appkey&appkey=27eb53fc9058f8c3"]];
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;//忽略本地缓存数据
@@ -30,12 +31,5 @@
      }] resume];
 
 }
-
-
-
-
-
-
-
 
 @end

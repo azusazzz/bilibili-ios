@@ -36,7 +36,7 @@
     if (self) {
 
         SearchRecords = [SearchPromptsData getSearchRecords];
-        self.view.backgroundColor = ColorRGB(244, 244, 242);
+        self.view.backgroundColor = ColorRGB(245, 245, 245);
         
         [self loadSubviews];
         search_tf.text = str;
@@ -364,7 +364,8 @@
     [bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
         make.bottom.equalTo(self.view.mas_centerY);
-        make.width.equalTo(self.view.mas_width).multipliedBy(0.5);
+        make.top.equalTo(HeadView.mas_bottom).offset(50);
+//        make.width.equalTo(self.view.mas_width).multipliedBy(0.5);
         make.height.equalTo(bgImageView.mas_width);
     }];
     

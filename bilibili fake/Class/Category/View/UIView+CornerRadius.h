@@ -5,15 +5,7 @@
 //  Created by Artron_LQQ on 16/2/20.
 //  Copyright © 2016年 Artup. All rights reserved.
 //
-/**
- *  @author LQQ, 16-02-20 23:02:40
- *
- *  github地址:https://github.com/LQQZYY/UIViewCornerDemo
- *
- *  喜欢的话就给颗星支持一下,感谢!
- *
- *
- */
+
 
 #import <UIKit/UIKit.h>
 

@@ -77,7 +77,7 @@
     
     return 1;
 }
-//列数
+//行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return VideoListData.count?20:0;
 }
