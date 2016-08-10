@@ -145,19 +145,12 @@
     [backbtn_bg addSubview:backbtn];
     
 //    //标题按钮
-//    UIScrollView* titleScr = [[UIScrollView alloc] init];
-//    [headView addSubview:titleScr];
-    
-    
-    _titleTabBar = [[TabBar alloc] initWithTitles:titles style:TabBarStyleNormal];
+    _titleTabBar = [[TabBar alloc] initWithTitles:titles style:TabBarStyleScroll];
     _titleTabBar.backgroundColor = [UIColor whiteColor];
     _titleTabBar.tintColorRGB = @[@253,@129,@164];
-    _titleTabBar.spacing = 10;
-//     _titleTabBar.edgeInsets = UIEdgeInsetsMake(0, 60, 0, 60);
-//    __weak typeof(self) weakself = self;
-//    [_titleTabBar setOnClickItem:^(NSInteger idx) {
-////        [weakself.scrollView setContentOffset:CGPointMake(weakself.scrollView.width * idx, 0) animated:YES];
-//    }];
+    _titleTabBar.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 30);
+    _titleTabBar.spacing = 30;
+
     [headView addSubview:_titleTabBar];
 
     
