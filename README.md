@@ -25,3 +25,4 @@
 ###### 普通/直播 视频播放
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/%E6%99%AE%E9%80%9A%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE.png" width=533 />
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/%E7%9B%B4%E6%92%AD%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE.png" width=533 />
+<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/%E6%99%AE%E9%80%9A%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE-%E5%BC%B9%E5%B9%95.jpg" width=533 />
