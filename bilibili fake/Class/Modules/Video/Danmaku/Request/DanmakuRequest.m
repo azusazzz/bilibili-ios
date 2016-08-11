@@ -8,14 +8,30 @@
 
 #import "DanmakuRequest.h"
 
+@interface DanmakuRequest ()
+
+@property (assign, nonatomic) NSInteger cid;
+
+@end
+
 @implementation DanmakuRequest
 
++ (instancetype)requestWithCid:(NSInteger)cid {
+    DanmakuRequest *request = [self request];
+    request.cid = cid;
+    return request;
+}
+
 - (NSString *)URLString {
-    return @"http://comment.bilibili.com/9279683.xml";
+    return @"http://comment.bilibili.com/##cid##.xml";
 }
 
 - (HTTPMethod)method {
     return HTTPMethodGet;
+}
+
+- (NSObject *)parameters {
+    return @{@"cid": @(_cid)};
 }
 
 @end

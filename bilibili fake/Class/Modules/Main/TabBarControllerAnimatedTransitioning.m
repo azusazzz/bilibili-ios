@@ -9,7 +9,6 @@
 #import "TabBarControllerAnimatedTransitioning.h"
 
 @interface TabBarControllerAnimatedTransitioning ()
-
 {
     TabOperationDirection _direction;
 }

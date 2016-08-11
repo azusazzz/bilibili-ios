@@ -65,6 +65,14 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
+    return toInterfaceOrientation == UIInterfaceOrientationPortrait;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 
 - (void)handlePanGesture:(UIPanGestureRecognizer *)panGesture; {
     

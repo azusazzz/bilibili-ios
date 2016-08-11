@@ -88,6 +88,11 @@ typedef NS_ENUM(NSInteger, PanGestureHandleMode) {
     return self;
 }
 
+- (void)dealloc {
+    NSLog(@"%s", __FUNCTION__);
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)refreshMediaControl; {
     CGFloat currentTime = self.delegatePlayer.currentPlaybackTime;
     CGFloat duration = self.delegatePlayer.duration;

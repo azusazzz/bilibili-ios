@@ -10,7 +10,7 @@
 
 @interface MediaPlayer : UIViewController
 
-+ (instancetype)playerWithURL:(NSURL *)url title:(NSString *)title inViewController:(UIViewController *)controller;
++ (instancetype)playerWithURL:(NSURL *)url cid:(NSInteger)cid title:(NSString *)title inViewController:(UIViewController *)controller;
 
 + (instancetype)livePlayerWithURL:(NSURL *)url title:(NSString *)title inViewController:(UIViewController *)controller;
 

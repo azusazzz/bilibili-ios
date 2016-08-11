@@ -11,10 +11,18 @@
 
 #import "TabBar.h"
 
+#import "DanmakuControl.h"
+
+
 @interface FollowViewController ()
-<UIScrollViewDelegate>
+<UIScrollViewDelegate, DanmakuControlDelegate>
 {
     TabBar *_tabbar;
+    
+    
+    NSTimeInterval _time;
+    
+    DanmakuControl *_danmaku;
 }
 @end
 
@@ -37,6 +45,40 @@
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
+    
+    
+    /*
+    _danmaku = [[DanmakuControl alloc] initWithCid:6001707];
+    [self.view addSubview:_danmaku];
+    _danmaku.delegate = self;
+    [_danmaku mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset = 0;
+        make.bottom.offset = 0;
+        make.left.offset = 0;
+        make.right.offset = 0;
+    }];
+    [_danmaku start];
+    
+    UIButton *resumeButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [resumeButton setTitle:@"Resume" forState:UIControlStateNormal];
+    [resumeButton addTarget:self action:@selector(onClickResume) forControlEvents:UIControlEventTouchUpInside];
+    resumeButton.frame = CGRectMake(150, 60, 60, 30);
+    [self.view addSubview:resumeButton];
+    
+    
+    UIButton *pauseButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+    [pauseButton addTarget:self action:@selector(onClickPause) forControlEvents:UIControlEventTouchUpInside];
+    pauseButton.frame = CGRectMake(240, 60, 60, 30);
+    [self.view addSubview:pauseButton];
+    */
+    
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [danmaku pause];
+//        [danmaku removeFromSuperview];
+//    });
+    
     
     
     _tabbar = [[TabBar alloc] initWithTitles:@[@"测试",@"测试测试",@"测试测试测试",@"测试",@"测试测试"] style:TabBarStyleScroll];
@@ -62,11 +104,24 @@
     [_tabbar setOnClickItem:^(NSInteger idx) {
         [scrollView setContentOffset:CGPointMake(scrollView.width * idx, 0) animated:YES];
     }];
-    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     _tabbar.contentOffset = scrollView.contentOffset.x / scrollView.width;
+}
+
+
+- (void)onClickPause {
+    [_danmaku pause];
+}
+
+- (void)onClickResume {
+    [_danmaku resume];
+}
+
+
+- (NSTimeInterval)danmakuControlCurrentTime:(DanmakuControl *)danmakuControl {
+    return _time += 0.5;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -84,7 +139,8 @@
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
+//    return UIInterfaceOrientationMaskPortrait;
+    return UIInterfaceOrientationMaskLandscapeRight;
 }
 
 

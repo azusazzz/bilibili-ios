@@ -116,10 +116,21 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
+    return toInterfaceOrientation == UIInterfaceOrientationPortrait;
+}
+
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
 
+//- (BOOL)shouldAutorotate {
+//    return NO;
+//}
+//
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+//    return UIInterfaceOrientationPortrait;
+//}
 
 /**
  *  播放视频
@@ -134,7 +145,8 @@
             if (title) {
                 title = weakself.model.videoInfo.title;
             }
-            [MediaPlayer playerWithURL:videoURL title:title inViewController:weakself];
+//            [MediaPlayer playerWithURL:videoURL title:title inViewController:weakself];
+            [MediaPlayer playerWithURL:videoURL cid:weakself.currentPage.cid title:title inViewController:weakself];
         }
         else {
             HUDFailure(@"获取视频地址失败");

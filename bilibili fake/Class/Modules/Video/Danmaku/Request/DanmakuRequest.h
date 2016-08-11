@@ -10,4 +10,6 @@
 
 @interface DanmakuRequest : BaseRequest
 
++ (instancetype)requestWithCid:(NSInteger)cid;
+
 @end

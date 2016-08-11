@@ -38,10 +38,10 @@
     [self loadData];
     
     
-    __weak typeof(self) weakself = self;
+//    __weak typeof(self) weakself = self;
     
     [_collectionView setHandleDidSelectedLive:^(LiveListPartitionLiveEntity *live) {
-        [MediaPlayer livePlayerWithURL:[NSURL URLWithString:live.playurl] title:live.title inViewController:weakself];
+//        [MediaPlayer livePlayerWithURL:[NSURL URLWithString:live.playurl] title:live.title inViewController:weakself];
     }];
     
     
