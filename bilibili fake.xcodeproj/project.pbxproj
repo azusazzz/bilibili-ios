@@ -216,6 +216,7 @@
 		FCBD20491D3FE91800A756F3 /* bilibili_splash_iphone_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBD20211D3FE91800A756F3 /* bilibili_splash_iphone_bg@2x.png */; };
 		FCBD204A1D3FE91800A756F3 /* bilibili_splash_iphone_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBD20221D3FE91800A756F3 /* bilibili_splash_iphone_bg@3x.png */; };
 		FCF131B81D5B366600790DC6 /* UIStyleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF131B71D5B366600790DC6 /* UIStyleMacro.m */; };
+		FCF131BE1D5C1CA700790DC6 /* UIColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF131BD1D5C1CA700790DC6 /* UIColor+String.m */; };
 		FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFA05411D2FAFE0004A1742 /* GLIRViewController.m */; };
 		FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFA05431D2FAFE0004A1742 /* RippleModel.m */; };
 		FCFA05481D2FAFE0004A1742 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FCFA05441D2FAFE0004A1742 /* Shader.fsh */; };
@@ -632,6 +633,8 @@
 		FCBD20221D3FE91800A756F3 /* bilibili_splash_iphone_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bilibili_splash_iphone_bg@3x.png"; sourceTree = "<group>"; };
 		FCF131B61D5B366600790DC6 /* UIStyleMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStyleMacro.h; sourceTree = "<group>"; };
 		FCF131B71D5B366600790DC6 /* UIStyleMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStyleMacro.m; sourceTree = "<group>"; };
+		FCF131BC1D5C1CA700790DC6 /* UIColor+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+String.h"; path = "UIColor/UIColor+String.h"; sourceTree = "<group>"; };
+		FCF131BD1D5C1CA700790DC6 /* UIColor+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+String.m"; path = "UIColor/UIColor+String.m"; sourceTree = "<group>"; };
 		FCFA05401D2FAFE0004A1742 /* GLIRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLIRViewController.h; sourceTree = "<group>"; };
 		FCFA05411D2FAFE0004A1742 /* GLIRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLIRViewController.m; sourceTree = "<group>"; };
 		FCFA05421D2FAFE0004A1742 /* RippleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleModel.h; sourceTree = "<group>"; };
@@ -732,6 +735,7 @@
 		6E1535E11D1A94A40053A846 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				FCF131BA1D5C1C4500790DC6 /* UIColor */,
 				6E23777F1D543C9D00102550 /* UIAlertView */,
 				6E4836621D40E429004AD1A4 /* NSString */,
 				6E76344B1D3F55DC002CFA63 /* UIViewController */,
@@ -2149,6 +2153,15 @@
 			path = find/View;
 			sourceTree = "<group>";
 		};
+		FCF131BA1D5C1C4500790DC6 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				FCF131BC1D5C1CA700790DC6 /* UIColor+String.h */,
+				FCF131BD1D5C1CA700790DC6 /* UIColor+String.m */,
+			);
+			name = UIColor;
+			sourceTree = "<group>";
+		};
 		FCFA053F1D2FAFE0004A1742 /* RippleTableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2500,6 +2513,7 @@
 				6E5FB19F1D5590F400984DC6 /* LiveCollectionView.m in Sources */,
 				6E2377431D53106400102550 /* HistoryModel.m in Sources */,
 				6E5FB1A81D5591A100984DC6 /* LivePartitionsFooterView.m in Sources */,
+				FCF131BE1D5C1CA700790DC6 /* UIColor+String.m in Sources */,
 				6E7E46FB1D58AFE90027AE8D /* BangumiEntranceHeaderView.m in Sources */,
 				6E5976011D5B171500D520E0 /* VideoCommentItemEntity.m in Sources */,
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,

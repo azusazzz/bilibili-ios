@@ -27,9 +27,57 @@
 
 
 
+#define UIStyleName [UIStyleMacro share].styleName
+
+#define UIStyleBackgroundColor [UIStyleMacro share].backgroundColor
+#define UIStyleForegroundColor [UIStyleMacro share].foregroundColor
+#define UIStyleColourBtnColor [UIStyleMacro share].colourBtnColor
+#define UIStylePromptLabelColor [UIStyleMacro share].promptLabelColor
+
+
+//不知道怎么起名了
+#define UIStyleFont_2   [UIFont systemFontOfSize:10]
+#define UIStyleFont_1   [UIFont systemFontOfSize:12]
+#define UIStyleDefaultFont [UIFont systemFontOfSize:15]
+#define UIStyleFont1   [UIFont systemFontOfSize:18]
+#define UIStyleFont2   [UIFont systemFontOfSize:20]
+
 
 #import <Foundation/Foundation.h>
 
 @interface UIStyleMacro : NSObject
+
++(instancetype)share;
+
+
+//改风格
++(void)changeWithStyleName:(NSString*)styleName;
+
+
+
+//风格名字
+@property(nonatomic,strong,readonly)NSString* styleName;
+//风格名字列表
+@property(nonatomic,strong,readonly)NSArray* styleNameArr;
+
+
+//前景色
+@property(nonatomic,strong,readonly)UIColor* foregroundColor;
+//背景色
+@property(nonatomic,strong,readonly)UIColor* backgroundColor;
+//彩色按钮颜色
+@property(nonatomic,strong,readonly)UIColor* colourBtnColor;
+//提示标签颜色
+@property(nonatomic,strong,readonly)UIColor* promptLabelColor;
+
+
+////字体就不想设置了，
+////一般单元格的标题
+//@property(nonatomic,strong)UIFont* cellTitleFont;
+////一般单元格的描述
+//@property(nonatomic,strong)UIFont* cellDesFont;
+////顶部标题
+//@property(nonatomic,strong)UIFont* topTitleFont;
+
 
 @end

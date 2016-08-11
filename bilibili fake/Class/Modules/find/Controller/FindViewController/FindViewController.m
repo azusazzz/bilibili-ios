@@ -64,11 +64,15 @@ typedef enum : NSUInteger {
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
     self.tabBarController.tabBar.hidden = NO;
+    
+    main_scrollview.backgroundColor = UIStyleBackgroundColor;
+//    HeadView.backgroundColor = UIStyleBackgroundColor;
+//    QRcode_btn.backgroundColor = UIStyleBackgroundColor;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
     
@@ -252,18 +256,17 @@ typedef enum : NSUInteger {
     
     main_view = [[UIView alloc] init];
     [main_scrollview addSubview:main_view];
-    main_scrollview.backgroundColor = [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
+    
    
     
     //头视图
     HeadView = UIView.new;
     [main_view addSubview:HeadView];
-    HeadView.backgroundColor = [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
+    
     
     
     //二维码按钮
     QRcode_btn = [[UIButton alloc] init];
-    QRcode_btn.backgroundColor = [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
     [QRcode_btn setImage:[UIImage imageNamed:@"search_qr"] forState:UIControlStateNormal];
     [HeadView addSubview:QRcode_btn];
     
@@ -301,7 +304,7 @@ typedef enum : NSUInteger {
     //大家都在搜
     label1 = UILabel.new;
     label1.text = @"大家都在搜";
-    label1.textColor = ColorRGB(180, 180, 180);
+    label1.textColor = [UIStyleMacro share].promptLabelColor;
     label1.font = [UIFont systemFontOfSize:12];
     [contentView addSubview:label1];
 
