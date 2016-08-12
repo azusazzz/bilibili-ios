@@ -70,6 +70,17 @@
             make.top.equalTo(self.mas_centerY).offset = 3;
         }];
         
+        
+        UIView *bottomLine = [[UIView alloc] init];
+        bottomLine.backgroundColor = ColorWhite(200);
+        [self addSubview:bottomLine];
+        [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset = 10;
+            make.right.offset = -10;
+            make.bottom.offset = 0;
+            make.height.offset = 0.5;
+        }];
+        
     }
     return self;
 }

@@ -39,18 +39,13 @@
 		6E4836761D410818004AD1A4 /* MediaPlayerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836721D410818004AD1A4 /* MediaPlayerControl.m */; };
 		6E4836771D410818004AD1A4 /* MediaPlayerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836741D410818004AD1A4 /* MediaPlayerProgressView.m */; };
 		6E48367A1D410DB0004AD1A4 /* Function.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836791D410DB0004AD1A4 /* Function.m */; };
-		6E5975F21D5B171500D520E0 /* VideoAndStatInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975B61D5B171500D520E0 /* VideoAndStatInfoView.m */; };
 		6E5975F31D5B171500D520E0 /* VideoIntroCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975B81D5B171500D520E0 /* VideoIntroCollectionViewCell.m */; };
-		6E5975F41D5B171500D520E0 /* VideoIntroHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975BA1D5B171500D520E0 /* VideoIntroHeaderView.m */; };
 		6E5975F51D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975BC1D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.m */; };
 		6E5975F61D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975BE1D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.m */; };
 		6E5975F71D5B171500D520E0 /* VideoIntroRelateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975C01D5B171500D520E0 /* VideoIntroRelateCollectionViewCell.m */; };
 		6E5975F81D5B171500D520E0 /* VideoIntroStatCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975C21D5B171500D520E0 /* VideoIntroStatCollectionViewCell.m */; };
 		6E5975F91D5B171500D520E0 /* VideoIntroTagsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975C41D5B171500D520E0 /* VideoIntroTagsCollectionViewCell.m */; };
-		6E5975FA1D5B171500D520E0 /* VideoOwnerInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975C61D5B171500D520E0 /* VideoOwnerInfoView.m */; };
 		6E5975FB1D5B171500D520E0 /* VideoPageNameCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975C81D5B171500D520E0 /* VideoPageNameCollectionViewCell.m */; };
-		6E5975FC1D5B171500D520E0 /* VideoPagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975CA1D5B171500D520E0 /* VideoPagesView.m */; };
-		6E5975FD1D5B171500D520E0 /* VideoTagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975CC1D5B171500D520E0 /* VideoTagsView.m */; };
 		6E5975FE1D5B171500D520E0 /* VideoCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975CE1D5B171500D520E0 /* VideoCommentTableViewCell.m */; };
 		6E5975FF1D5B171500D520E0 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975D11D5B171500D520E0 /* VideoViewController.m */; };
 		6E5976001D5B171500D520E0 /* VideoCommentEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975D41D5B171500D520E0 /* VideoCommentEntity.m */; };
@@ -317,12 +312,8 @@
 		6E4836781D410DB0004AD1A4 /* Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Function.h; sourceTree = "<group>"; };
 		6E4836791D410DB0004AD1A4 /* Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Function.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		6E5975B51D5B171500D520E0 /* VideoAndStatInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoAndStatInfoView.h; sourceTree = "<group>"; };
-		6E5975B61D5B171500D520E0 /* VideoAndStatInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoAndStatInfoView.m; sourceTree = "<group>"; };
 		6E5975B71D5B171500D520E0 /* VideoIntroCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoIntroCollectionViewCell.h; sourceTree = "<group>"; };
 		6E5975B81D5B171500D520E0 /* VideoIntroCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoIntroCollectionViewCell.m; sourceTree = "<group>"; };
-		6E5975B91D5B171500D520E0 /* VideoIntroHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoIntroHeaderView.h; sourceTree = "<group>"; };
-		6E5975BA1D5B171500D520E0 /* VideoIntroHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoIntroHeaderView.m; sourceTree = "<group>"; };
 		6E5975BB1D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoIntroOwnerCollectionViewCell.h; sourceTree = "<group>"; };
 		6E5975BC1D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoIntroOwnerCollectionViewCell.m; sourceTree = "<group>"; };
 		6E5975BD1D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoIntroPagesCollectionViewCell.h; sourceTree = "<group>"; };
@@ -333,14 +324,8 @@
 		6E5975C21D5B171500D520E0 /* VideoIntroStatCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoIntroStatCollectionViewCell.m; sourceTree = "<group>"; };
 		6E5975C31D5B171500D520E0 /* VideoIntroTagsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoIntroTagsCollectionViewCell.h; sourceTree = "<group>"; };
 		6E5975C41D5B171500D520E0 /* VideoIntroTagsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoIntroTagsCollectionViewCell.m; sourceTree = "<group>"; };
-		6E5975C51D5B171500D520E0 /* VideoOwnerInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoOwnerInfoView.h; sourceTree = "<group>"; };
-		6E5975C61D5B171500D520E0 /* VideoOwnerInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoOwnerInfoView.m; sourceTree = "<group>"; };
 		6E5975C71D5B171500D520E0 /* VideoPageNameCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPageNameCollectionViewCell.h; sourceTree = "<group>"; };
 		6E5975C81D5B171500D520E0 /* VideoPageNameCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPageNameCollectionViewCell.m; sourceTree = "<group>"; };
-		6E5975C91D5B171500D520E0 /* VideoPagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPagesView.h; sourceTree = "<group>"; };
-		6E5975CA1D5B171500D520E0 /* VideoPagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPagesView.m; sourceTree = "<group>"; };
-		6E5975CB1D5B171500D520E0 /* VideoTagsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTagsView.h; sourceTree = "<group>"; };
-		6E5975CC1D5B171500D520E0 /* VideoTagsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTagsView.m; sourceTree = "<group>"; };
 		6E5975CD1D5B171500D520E0 /* VideoCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCommentTableViewCell.h; sourceTree = "<group>"; };
 		6E5975CE1D5B171500D520E0 /* VideoCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCommentTableViewCell.m; sourceTree = "<group>"; };
 		6E5975D01D5B171500D520E0 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
@@ -1033,11 +1018,11 @@
 			isa = PBXGroup;
 			children = (
 				6E5975B31D5B171500D520E0 /* Cell */,
+				6E5975E91D5B171500D520E0 /* View */,
 				6E5975CF1D5B171500D520E0 /* Controller */,
 				6E5975D21D5B171500D520E0 /* Entity */,
 				6E5975DF1D5B171500D520E0 /* Model */,
 				6E5975E41D5B171500D520E0 /* Request */,
-				6E5975E91D5B171500D520E0 /* View */,
 			);
 			path = VideoInfo;
 			sourceTree = "<group>";
@@ -1055,30 +1040,20 @@
 		6E5975B41D5B171500D520E0 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
-				6E5975B51D5B171500D520E0 /* VideoAndStatInfoView.h */,
-				6E5975B61D5B171500D520E0 /* VideoAndStatInfoView.m */,
 				6E5975B71D5B171500D520E0 /* VideoIntroCollectionViewCell.h */,
 				6E5975B81D5B171500D520E0 /* VideoIntroCollectionViewCell.m */,
-				6E5975B91D5B171500D520E0 /* VideoIntroHeaderView.h */,
-				6E5975BA1D5B171500D520E0 /* VideoIntroHeaderView.m */,
-				6E5975BB1D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.h */,
-				6E5975BC1D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.m */,
-				6E5975BD1D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.h */,
-				6E5975BE1D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.m */,
-				6E5975BF1D5B171500D520E0 /* VideoIntroRelateCollectionViewCell.h */,
-				6E5975C01D5B171500D520E0 /* VideoIntroRelateCollectionViewCell.m */,
 				6E5975C11D5B171500D520E0 /* VideoIntroStatCollectionViewCell.h */,
 				6E5975C21D5B171500D520E0 /* VideoIntroStatCollectionViewCell.m */,
-				6E5975C31D5B171500D520E0 /* VideoIntroTagsCollectionViewCell.h */,
-				6E5975C41D5B171500D520E0 /* VideoIntroTagsCollectionViewCell.m */,
-				6E5975C51D5B171500D520E0 /* VideoOwnerInfoView.h */,
-				6E5975C61D5B171500D520E0 /* VideoOwnerInfoView.m */,
+				6E5975BD1D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.h */,
+				6E5975BE1D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.m */,
 				6E5975C71D5B171500D520E0 /* VideoPageNameCollectionViewCell.h */,
 				6E5975C81D5B171500D520E0 /* VideoPageNameCollectionViewCell.m */,
-				6E5975C91D5B171500D520E0 /* VideoPagesView.h */,
-				6E5975CA1D5B171500D520E0 /* VideoPagesView.m */,
-				6E5975CB1D5B171500D520E0 /* VideoTagsView.h */,
-				6E5975CC1D5B171500D520E0 /* VideoTagsView.m */,
+				6E5975BB1D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.h */,
+				6E5975BC1D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.m */,
+				6E5975C31D5B171500D520E0 /* VideoIntroTagsCollectionViewCell.h */,
+				6E5975C41D5B171500D520E0 /* VideoIntroTagsCollectionViewCell.m */,
+				6E5975BF1D5B171500D520E0 /* VideoIntroRelateCollectionViewCell.h */,
+				6E5975C01D5B171500D520E0 /* VideoIntroRelateCollectionViewCell.m */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -1095,12 +1070,12 @@
 		6E5975D21D5B171500D520E0 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				6E5975D71D5B171500D520E0 /* VideoInfoEntity.h */,
+				6E5975D81D5B171500D520E0 /* VideoInfoEntity.m */,
 				6E5975D31D5B171500D520E0 /* VideoCommentEntity.h */,
 				6E5975D41D5B171500D520E0 /* VideoCommentEntity.m */,
 				6E5975D51D5B171500D520E0 /* VideoCommentItemEntity.h */,
 				6E5975D61D5B171500D520E0 /* VideoCommentItemEntity.m */,
-				6E5975D71D5B171500D520E0 /* VideoInfoEntity.h */,
-				6E5975D81D5B171500D520E0 /* VideoInfoEntity.m */,
 				6E5975D91D5B171500D520E0 /* VideoOwnerInfoEntity.h */,
 				6E5975DA1D5B171500D520E0 /* VideoOwnerInfoEntity.m */,
 				6E5975DB1D5B171500D520E0 /* VideoPageInfoEntity.h */,
@@ -1136,12 +1111,12 @@
 		6E5975E91D5B171500D520E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6E5975EA1D5B171500D520E0 /* VideoCommentView.h */,
-				6E5975EB1D5B171500D520E0 /* VideoCommentView.m */,
 				6E5975EC1D5B171500D520E0 /* VideoHeaderView.h */,
 				6E5975ED1D5B171500D520E0 /* VideoHeaderView.m */,
 				6E5975EE1D5B171500D520E0 /* VideoIntroView.h */,
 				6E5975EF1D5B171500D520E0 /* VideoIntroView.m */,
+				6E5975EA1D5B171500D520E0 /* VideoCommentView.h */,
+				6E5975EB1D5B171500D520E0 /* VideoCommentView.m */,
 				6E5975F01D5B171500D520E0 /* VideoTabBar.h */,
 				6E5975F11D5B171500D520E0 /* VideoTabBar.m */,
 			);
@@ -2450,7 +2425,6 @@
 				6E885B951D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.m in Sources */,
 				6E5FE9061D596D8400459BF4 /* BangumiLatestUpdateCollectionViewCell.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
-				6E5975F41D5B171500D520E0 /* VideoIntroHeaderView.m in Sources */,
 				6E7E46E31D587A1B0027AE8D /* BangumiListRequest.m in Sources */,
 				6E026FEA1D3E29460038C2A0 /* RequestCache.m in Sources */,
 				6E4836541D409617004AD1A4 /* SABlurImageView.swift in Sources */,
@@ -2488,14 +2462,12 @@
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
 				FC792C221D2E9B7600762831 /* SearchResultVC.m in Sources */,
 				6E5FB1B41D55CE3D00984DC6 /* ValueConversion.m in Sources */,
-				6E5975F21D5B171500D520E0 /* VideoAndStatInfoView.m in Sources */,
 				6E5975F51D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.m in Sources */,
 				6EB552861D5487C3001099C1 /* RecommendListRequest.m in Sources */,
 				FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */,
 				6EB4502C1D51F30600A4F626 /* DownloadOperation.m in Sources */,
 				6E5FE91E1D59CEE200459BF4 /* DownloadDataBase.m in Sources */,
 				6E5FB1A51D55918F00984DC6 /* LivePartitionsHeaderView.m in Sources */,
-				6E5975FC1D5B171500D520E0 /* VideoPagesView.m in Sources */,
 				6EC6A5021D48ADEE0021BE48 /* RegionCollectionViewCell.m in Sources */,
 				6E5975FB1D5B171500D520E0 /* VideoPageNameCollectionViewCell.m in Sources */,
 				FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */,
@@ -2558,7 +2530,6 @@
 				6E5FB1891D557AB100984DC6 /* LiveListRequest.m in Sources */,
 				6EC6A4F61D489FCA0021BE48 /* RegionViewController.m in Sources */,
 				FC66E75F1D3E2D7A00F28B90 /* StartViewController.m in Sources */,
-				6E5975FA1D5B171500D520E0 /* VideoOwnerInfoView.m in Sources */,
 				6EB450301D51FD0000A4F626 /* NSString+MD5.m in Sources */,
 				6E4836771D410818004AD1A4 /* MediaPlayerProgressView.m in Sources */,
 				6E5976121D5B174D00D520E0 /* DanmakuRequest.m in Sources */,
@@ -2569,7 +2540,6 @@
 				6E215D041D4B61B00004CA5B /* MineItemEntity.m in Sources */,
 				6E215D031D4B61B00004CA5B /* MineGroupEntity.m in Sources */,
 				6EB552A11D548D79001099C1 /* RecommendBangumiCollectionViewCell.m in Sources */,
-				6E5975FD1D5B171500D520E0 /* VideoTagsView.m in Sources */,
 				6EB5527F1D548671001099C1 /* RecommendListViewController.m in Sources */,
 				6E5FB18F1D557BF500984DC6 /* LiveListBannerEntity.m in Sources */,
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,

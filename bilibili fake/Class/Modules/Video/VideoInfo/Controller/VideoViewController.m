@@ -70,7 +70,7 @@
      *  点击分集   切换当前分集 并播放
      *
      */
-    [_introView.headerView.pagesView setOnClickPageItem:^(NSInteger idx) {
+    [_introView setOnClickPageItem:^(NSInteger idx) {
         weakself.currentPage = weakself.model.videoInfo.pages[idx];
         [weakself playVideo];
     }];

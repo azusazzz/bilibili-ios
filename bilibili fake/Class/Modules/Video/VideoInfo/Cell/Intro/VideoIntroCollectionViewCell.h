@@ -11,8 +11,8 @@
 
 @interface VideoIntroCollectionViewCell : UICollectionViewCell
 
-@property (assign, nonatomic) BOOL showAllDesc;
++ (CGFloat)heightForWidth:(CGFloat)width videoInfo:(VideoInfoEntity *)videoInfo showAllDesc:(BOOL)showAllDesc;
 
-- (void)setVideoInfo:(VideoInfoEntity *)videoInfo;
+- (void)setVideoInfo:(VideoInfoEntity *)videoInfo showAllDesc:(BOOL)showAllDesc;
 
 @end

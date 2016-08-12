@@ -26,13 +26,13 @@
 
 + (CGFloat)heightForWidth:(CGFloat)width videoInfo:(VideoInfoEntity *)videoInfo showAllDesc:(BOOL)showAllDesc {
     CGFloat descHeight = [videoInfo.desc boundingRectWithSize:CGSizeMake(width-30, 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: Font(12)} context:NULL].size.height + 15;
-    if (showAllDesc && descHeight > Font(12).lineHeight*2) {
+    if (!showAllDesc && descHeight > Font(12).lineHeight*2) {
         descHeight = Font(12).lineHeight*2;
     }
     return 15+15 + 10+10 + 15+descHeight + 15;
 }
 
-- (void)setVideoInfo:(VideoInfoEntity *)videoInfo {
+- (void)setVideoInfo:(VideoInfoEntity *)videoInfo showAllDesc:(BOOL)showAllDesc {
     _titleLabel.text = videoInfo.title;
     _viewCountLabel.text = [NSString stringWithFormat:@"%ld", videoInfo.stat.view];
     _danmakuCountLabel.text = [NSString stringWithFormat:@"%ld", videoInfo.stat.danmaku];
@@ -48,7 +48,7 @@
     }];
     
     [_descLabel layoutIfNeeded];
-    CGFloat descCountHeight = [_descLabel textRectForBounds:CGRectMake(0, 0, _descLabel.width, 999) limitedToNumberOfLines:(_showAllDesc ? 0 : 2)].size.height;
+    CGFloat descCountHeight = [_descLabel textRectForBounds:CGRectMake(0, 0, _descLabel.width, 999) limitedToNumberOfLines:(showAllDesc ? 0 : 2)].size.height;
     [_descLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.offset = descCountHeight;
     }];

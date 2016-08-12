@@ -10,4 +10,6 @@
 
 @interface VideoIntroStatCollectionViewCell : UICollectionViewCell
 
++ (CGFloat)height;
+
 @end

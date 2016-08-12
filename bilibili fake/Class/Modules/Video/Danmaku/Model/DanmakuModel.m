@@ -15,6 +15,8 @@
     NSInteger _cid;
     
     NSInteger _index;
+    
+    NSTimeInterval _lastTime;
 }
 @end
 
@@ -62,8 +64,25 @@
         return NULL;
     }
     
-    NSInteger idx = 0;
-    for (NSInteger i= _index; i<_danmakuEntitys.count; i++) {
+    
+    
+    if (fabs(time - _lastTime) > 5) {
+        for (NSInteger i=0; i<_danmakuEntitys.count; i++) {
+            DanmakuEntity *danmaku = _danmakuEntitys[i];
+            if (danmaku.time > time) {
+                _index = i;
+                break;
+            }
+        }
+        _lastTime = time;
+        return @[];
+    }
+    _lastTime = time;
+    
+    
+    
+    NSInteger idx = _index;
+    for (NSInteger i=_index; i<_danmakuEntitys.count; i++) {
         DanmakuEntity *danmaku = _danmakuEntitys[i];
         if (danmaku.time > time) {
             idx = i;
@@ -72,20 +91,13 @@
     }
     
     
-    
-    
-    
     NSMutableArray *danmakus = [NSMutableArray arrayWithCapacity:idx-_index];
-    
-    
-    
     for (NSInteger i=_index; i<idx; i++) {
         [danmakus addObject:_danmakuEntitys[i]];
-//        [self displayDanmaku:_danmakuEntitys[i]];
     }
     _index = idx;
     
-    if (idx == _danmakuEntitys.count-1) {
+    if (idx >= _danmakuEntitys.count-1) {
         NSLog(@"结束");
     }
     

@@ -13,11 +13,19 @@
 
 #import "VideoIntroRelateCollectionViewCell.h"
 
+
+
+#import "VideoIntroCollectionViewCell.h"
+#import "VideoIntroStatCollectionViewCell.h"
+#import "VideoIntroPagesCollectionViewCell.h"
+#import "VideoIntroOwnerCollectionViewCell.h"
+#import "VideoIntroTagsCollectionViewCell.h"
+
+
 @interface VideoIntroView ()
 <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
-
 {
-    
+    BOOL _showAllDesc;
 }
 
 @property (assign, nonatomic) CGFloat headerHeight;
@@ -31,25 +39,18 @@
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     if (self = [super initWithFrame:CGRectZero collectionViewLayout:flowLayout]) {
         self.backgroundColor = ColorWhite(247);
+        
+        [self registerClass:[VideoIntroCollectionViewCell class] forCellWithReuseIdentifier:@"VideoIntro"];
+        [self registerClass:[VideoIntroStatCollectionViewCell class] forCellWithReuseIdentifier:@"Stat"];
+        [self registerClass:[VideoIntroPagesCollectionViewCell class] forCellWithReuseIdentifier:@"Pages"];
+        [self registerClass:[VideoIntroOwnerCollectionViewCell class] forCellWithReuseIdentifier:@"Owner"];
+        [self registerClass:[VideoIntroTagsCollectionViewCell class] forCellWithReuseIdentifier:@"Tags"];
+        
+        
         [self registerClass:[VideoIntroRelateCollectionViewCell class] forCellWithReuseIdentifier:@"relates"];
-        [self registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"];
         self.delegate = self;
         self.dataSource = self;
         self.alwaysBounceVertical = YES;
-        
-        
-        
-        __weak typeof(self) weakself = self;
-        [RACObserve(self.headerView, frame) subscribeNext:^(id x) {
-            CGRect rect = [x CGRectValue];
-            if (weakself.headerHeight == rect.size.height) {
-                return;
-            }
-            weakself.headerHeight = rect.size.height;
-            [self reloadData];
-        }];
-        
-        
         
     }
     return self;
@@ -57,7 +58,6 @@
 
 - (void)setVideoInfo:(VideoInfoEntity *)videoInfo {
     _videoInfo = videoInfo;
-    [self.headerView setupVideoInfo:_videoInfo];
     [self reloadData];
 }
 
@@ -67,40 +67,48 @@
 
 #pragma mark - UICollectionViewDataSource
 
+#pragma mark - Number
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [_videoInfo.relates count];
+    if (section == 0) {
+        return 5;
+    }
+    else {
+        return [_videoInfo.relates count];
+    }
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [collectionView dequeueReusableCellWithReuseIdentifier:@"relates" forIndexPath:indexPath];
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"Header" forIndexPath:indexPath];
-    [view addSubview:self.headerView];
-    self.headerView.frame = view.bounds;
-    return view;
-}
-
-
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(VideoIntroRelateCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    [cell setupVideoInfo:_videoInfo.relates[indexPath.row]];
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(SSize.width, _headerHeight);
-}
+#pragma mark - Size
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            return CGSizeMake(SSize.width, [VideoIntroCollectionViewCell heightForWidth:SSize.width videoInfo:_videoInfo showAllDesc:_showAllDesc]);
+        }
+        else if (indexPath.row == 1) {
+            return CGSizeMake(SSize.width, [VideoIntroStatCollectionViewCell height]);
+        }
+        else if (indexPath.row == 2) {
+            return CGSizeMake(SSize.width, [VideoIntroPagesCollectionViewCell heightWithPages:_videoInfo.pages]);
+        }
+        else if (indexPath.row == 3) {
+            return CGSizeMake(SSize.width, [VideoIntroOwnerCollectionViewCell height]);
+        }
+        else if (indexPath.row == 4) {
+            return CGSizeMake(SSize.width, [VideoIntroTagsCollectionViewCell heightForWidth:SSize.width tags:_videoInfo.tags]);
+        }
+    }
     return CGSizeMake(SSize.width, 100 + 10);
-    
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    if (section == 0) {
+        return 0;
+    }
     return 10;
 }
 
@@ -108,17 +116,65 @@
     return 0;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    _onClickRelate ? _onClickRelate(indexPath.row) : NULL;
+
+#pragma mark - Cell
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            return [collectionView dequeueReusableCellWithReuseIdentifier:@"VideoIntro" forIndexPath:indexPath];
+        }
+        else if (indexPath.row == 1) {
+            return [collectionView dequeueReusableCellWithReuseIdentifier:@"Stat" forIndexPath:indexPath];
+        }
+        else if (indexPath.row == 2) {
+            return [collectionView dequeueReusableCellWithReuseIdentifier:@"Pages" forIndexPath:indexPath];
+        }
+        else if (indexPath.row == 3) {
+            return [collectionView dequeueReusableCellWithReuseIdentifier:@"Owner" forIndexPath:indexPath];
+        }
+        else if (indexPath.row == 4) {
+            return [collectionView dequeueReusableCellWithReuseIdentifier:@"Tags" forIndexPath:indexPath];
+        }
+    }
+    else if (indexPath.section == 1) {
+       return [collectionView dequeueReusableCellWithReuseIdentifier:@"relates" forIndexPath:indexPath];
+    }
+    return NULL;
 }
 
-#pragma mark - get / set 
 
-- (VideoIntroHeaderView *)headerView {
-    if (!_headerView) {
-        _headerView = [[VideoIntroHeaderView alloc] initWithFrame:CGRectMake(0, 0, SSize.width, 0)];
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(VideoIntroRelateCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            [((VideoIntroCollectionViewCell *)cell) setVideoInfo:_videoInfo showAllDesc:_showAllDesc];
+        }
+        else if (indexPath.row == 2) {
+            [((VideoIntroPagesCollectionViewCell *)cell) setPages:_videoInfo.pages];
+            ((VideoIntroPagesCollectionViewCell *)cell).onClickPageItem = _onClickPageItem;
+        }
+        else if (indexPath.row == 3) {
+            [((VideoIntroOwnerCollectionViewCell *)cell) setOwnerInfo:_videoInfo.owner pubdate:_videoInfo.pubdate];
+        }
+        else if (indexPath.row == 4) {
+            [((VideoIntroTagsCollectionViewCell *)cell) setTags:_videoInfo.tags];
+        }
     }
-    return _headerView;
+    else {
+        [cell setupVideoInfo:_videoInfo.relates[indexPath.row]];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            _showAllDesc = !_showAllDesc;
+            [self reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
+        }
+        return;
+    }
+    _onClickRelate ? _onClickRelate(indexPath.row) : NULL;
 }
 
 

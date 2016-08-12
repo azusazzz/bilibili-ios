@@ -10,4 +10,8 @@
 
 @interface VideoIntroTagsCollectionViewCell : UICollectionViewCell
 
++ (CGFloat)heightForWidth:(CGFloat)width tags:(NSArray<NSString *> *)tags;
+
+- (void)setTags:(NSArray<NSString *> *)tags;
+
 @end

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "VideoInfoEntity.h"
-#import "VideoIntroHeaderView.h"
 
 /**
  *  简介
@@ -19,7 +18,8 @@
 
 @property (strong, nonatomic) VideoInfoEntity *videoInfo;
 
-@property (strong, nonatomic) VideoIntroHeaderView *headerView;
+
+@property (copy, nonatomic) void (^onClickPageItem)(NSInteger idx);
 
 
 @property (strong, nonatomic) void (^onClickRelate)(NSInteger idx);

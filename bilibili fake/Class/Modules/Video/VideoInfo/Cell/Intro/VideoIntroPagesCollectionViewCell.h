@@ -15,4 +15,7 @@
 
 @property (copy, nonatomic) void (^onClickPageItem)(NSInteger idx);
 
+
++ (CGFloat)heightWithPages:(NSArray<VideoPageInfoEntity *> *)pages;
+
 @end

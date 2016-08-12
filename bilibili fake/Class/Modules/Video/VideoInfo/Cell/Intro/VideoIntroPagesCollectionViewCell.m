@@ -16,13 +16,15 @@
     UICollectionView *_collectionView;
     UILabel *_titleLable;
     NSInteger _index;
+    
+    UIView *_bottomLine;
 }
 @end
 
 @implementation VideoIntroPagesCollectionViewCell
 
 + (CGFloat)heightWithPages:(NSArray<VideoPageInfoEntity *> *)pages {
-    if (pages.count <= 1) {
+    if (pages.count > 1) {
         return 15+15 + 15+70+20 + 15;
     }
     else {
@@ -33,11 +35,13 @@
 - (void)setPages:(NSArray<VideoPageInfoEntity *> *)pages {
     _pages = pages;
     
-    [_collectionView reloadData];
+    _bottomLine.hidden = pages.count <= 1;
     
     if (pages.count <= 1) {
         return;
     }
+    
+    [_collectionView reloadData];
     
     _titleLable.text = [NSString stringWithFormat:@"分集 (%ld)", _pages.count];
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithAttributedString:_titleLable.attributedText];
@@ -77,12 +81,12 @@
             make.height.offset = 90;
         }];
         
-        UIView *bottomLine = [[UIView alloc] init];
-        bottomLine.backgroundColor = ColorWhite(200);
-        [self addSubview:bottomLine];
-        [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.offset = 0;
-            make.right.offset = 0;
+        _bottomLine = [[UIView alloc] init];
+        _bottomLine.backgroundColor = ColorWhite(200);
+        [self addSubview:_bottomLine];
+        [_bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset = 10;
+            make.right.offset = -10;
             make.bottom.offset = 0;
             make.height.offset = 0.5;
         }];
