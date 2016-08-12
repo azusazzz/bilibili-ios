@@ -19,8 +19,9 @@
 #import "SearchResultVC.h"
 #import "SearchPromptsVC.h"
 #import "RankOriginalorAllVC.h"
+#import "UIView+CornerRadius.h"
 
-#define FinViewCell_Height 50
+#define FinViewCell_Height 60
 @interface FindViewController ()
 
 @end
@@ -35,18 +36,18 @@ typedef enum : NSUInteger {
     NSArray* FindViewTableViewData;
     NSArray* keywordArr;
     
-    UIScrollView* main_scrollview;
-        UIView* main_view;
-            UIView* HeadView;
-                UIButton *QRcode_btn;
-                UITextField* search_tf;
-                    UIImageView* search_left_imageview;
-            UIView* contentView;
-                UILabel* label1;
-                JCTagListView* tagListView;
-                UIButton* tagList_btn;
-                UIImageView *btnbg_imageView;
-                UITableView* tabelView;
+    
+    UIView* HeadView;
+    UIButton *QRcode_btn;
+    UITextField* search_tf;
+    UIImageView* search_left_imageview;
+    UIView* contentView;
+    UILabel* label1;
+    JCTagListView* tagListView;
+    UIButton* tagList_btn;
+    UIImageView *btnbg_imageView;
+    UITableView* tabelView;
+    
 }
 - (instancetype)init; {
     if (self = [super init]) {
@@ -65,9 +66,17 @@ typedef enum : NSUInteger {
     self.navigationController.navigationBarHidden = YES;
     self.tabBarController.tabBar.hidden = NO;
     
-    main_scrollview.backgroundColor = UIStyleBackgroundColor;
+    self.view.backgroundColor = UIStyleBackgroundColor;
+    QRcode_btn.tintColor = UIStylePromptLabelColor;
+    label1.textColor = UIStylePromptLabelColor;
+    [tagList_btn setTitleColor:UIStylePromptLabelColor forState:UIControlStateNormal];
+    tagList_btn.tintColor = UIStylePromptLabelColor;
+    tagListView.tagTextColor = UIStyleForegroundColor;
+    tagListView.tagBackgroundColor = UIStyleJCTagCellBg;
 //    HeadView.backgroundColor = UIStyleBackgroundColor;
 //    QRcode_btn.backgroundColor = UIStyleBackgroundColor;
+    [tabelView layoutIfNeeded];
+    [tabelView cornerRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight withCornerRadius:5];
 }
 
 - (void)viewDidLoad {
@@ -213,7 +222,7 @@ typedef enum : NSUInteger {
     return FinViewCell_Height;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 10.0;
+    return section?5.0:0.1;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return FindViewTableViewData.count;
@@ -229,7 +238,7 @@ typedef enum : NSUInteger {
     FindViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[FindViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;    
         NSArray* arr = FindViewTableViewData[indexPath.section];
         NSDictionary* dic = arr[indexPath.row];
         [cell setIconImage:[UIImage imageNamed:[dic objectForKey:@"icon"]] TitleText:[dic objectForKey:@"title"]];
@@ -249,24 +258,15 @@ typedef enum : NSUInteger {
 #pragma mark Subviews
 - (void)loadSubviews {
 
-
-    //最底层视图
-    main_scrollview = UIScrollView.new;
-    [self.view addSubview:main_scrollview];
-    
-    main_view = [[UIView alloc] init];
-    [main_scrollview addSubview:main_view];
-    
-   
     
     //头视图
     HeadView = UIView.new;
-    [main_view addSubview:HeadView];
+    [self.view addSubview:HeadView];
     
     
     
     //二维码按钮
-    QRcode_btn = [[UIButton alloc] init];
+    QRcode_btn = [UIButton buttonWithType:UIButtonTypeSystem];
     [QRcode_btn setImage:[UIImage imageNamed:@"search_qr"] forState:UIControlStateNormal];
     [HeadView addSubview:QRcode_btn];
     
@@ -299,12 +299,11 @@ typedef enum : NSUInteger {
     
     //底部内容视图
     contentView = UIView.new;
-    [main_view addSubview:contentView];
+    [self.view addSubview:contentView];
 
     //大家都在搜
     label1 = UILabel.new;
     label1.text = @"大家都在搜";
-    label1.textColor = [UIStyleMacro share].promptLabelColor;
     label1.font = [UIFont systemFontOfSize:12];
     [contentView addSubview:label1];
 
@@ -313,7 +312,7 @@ typedef enum : NSUInteger {
     tagListView = JCTagListView.new;
     [contentView addSubview:tagListView];
     tagListView.tagCornerRadius = 5.0f;
-    tagListView.tagTextColor = ColorRGB(27, 27, 27);
+   
     
     
     [FindViewData getKeyword:^(NSArray *keyword_arr) {
@@ -334,9 +333,8 @@ typedef enum : NSUInteger {
     btnbg_imageView.image = [UIImage imageNamed:@"search_moreLine"];
     [contentView addSubview:btnbg_imageView];
     
-    tagList_btn = [[UIButton alloc] init];
+    tagList_btn = [UIButton buttonWithType:UIButtonTypeSystem];
     tagList_btn.titleLabel.font = [UIFont systemFontOfSize:13];
-    [tagList_btn setTitleColor:ColorRGB(144, 144, 144) forState:UIControlStateNormal];
     [tagList_btn setTitle:@" 查看更多" forState:UIControlStateNormal];
     [tagList_btn setImage:[UIImage imageNamed:@"search_closeMore"] forState:UIControlStateNormal];
     [contentView addSubview:tagList_btn];
@@ -344,48 +342,41 @@ typedef enum : NSUInteger {
 
     
     //列表
-    tabelView = [UITableView new];
+    tabelView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];//设置页眉没粘性
     tabelView.delegate = self;
     tabelView.dataSource = self;
     [contentView addSubview:tabelView];
-    tabelView.scrollEnabled = NO;
-
-    
-    
+//    tabelView.scrollEnabled = NO;
+    tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tabelView.backgroundColor = ColorRGB(243, 243, 243);
+//    tabelView.contentInset = UIEdgeInsetsMake(-5, 0, 0, 0);
     
     // Layout
-    [main_scrollview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-    }];
-    
-    [main_view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(main_scrollview);
-        make.width.mas_equalTo(main_scrollview);
-    }];
-    
     [HeadView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@44);
-        make.width.equalTo(main_view);
-        make.left.top.mas_equalTo(0);
+        make.height.equalTo(@64);
+        make.width.equalTo(self.view);
+        make.left.top.equalTo(self.view);
+        make.top.equalTo(self.view).offset(0);
     }];
-    
 
-   
     [QRcode_btn mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(HeadView.mas_left).offset(10);
-        make.top.mas_equalTo(HeadView.mas_top);
+        make.top.mas_equalTo(HeadView.mas_top).offset(20);
         make.size.mas_equalTo(CGSizeMake(44, 44));
     }];
     [search_tf mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(QRcode_btn.mas_right).offset(5);
-        make.top.mas_equalTo(HeadView.mas_top).offset(8);
+        make.top.mas_equalTo(HeadView.mas_top).offset(28);
         make.bottom.mas_equalTo(HeadView.mas_bottom).offset(-8);
         make.right.mas_equalTo(self.view.mas_right).offset(-10);
     }];
 
+    
+    
+    
     [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(HeadView.mas_bottom);
-        make.width.equalTo(main_view);
+        make.left.right.bottom.equalTo(self.view);
     }];
     
     [label1 mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -419,21 +410,9 @@ typedef enum : NSUInteger {
     [tabelView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(tagList_btn.mas_bottom).offset(0);
         make.left.right.equalTo(contentView);
-        NSInteger height = 0;
-        for (int i = 0; i < FindViewTableViewData.count; i++) {
-            height+=10;
-            NSArray* arr = FindViewTableViewData[i];
-            height+=(arr.count*FinViewCell_Height);
-        }
-        make.height.equalTo(@(height-1));
+        make.bottom.equalTo(contentView).offset(100);
     }];
     
-    [contentView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(tabelView.mas_bottom);
-    }];
     
-    [main_view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(contentView.mas_bottom);
-    }];
 }
 @end

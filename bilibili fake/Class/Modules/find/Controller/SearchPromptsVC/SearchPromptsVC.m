@@ -20,6 +20,8 @@
 @implementation SearchPromptsVC{
     NSMutableArray*  SearchRecords;
     NSString* keyword;//搜索内容
+    
+    UIView* HeadView;
     UITextField* search_tf;
     UIButton* cancel_btn;
     
@@ -54,6 +56,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
+    HeadView.backgroundColor = UIStyleBackgroundColor;
+    [cancel_btn setTitleColor:UIStyleColourBtnColor forState:UIControlStateNormal];
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 200), dispatch_get_main_queue(), ^{
     dispatch_async(dispatch_get_main_queue(), ^{
         [search_tf becomeFirstResponder];
@@ -322,9 +326,9 @@
 - (void)loadSubviews{
     
     //头视图
-    UIView* HeadView = UIView.new;
+    HeadView = UIView.new;
     [self.view addSubview:HeadView];
-    HeadView.backgroundColor = [UIColor whiteColor];
+
   
     //搜索输入栏
     UIImageView *search_left_imageview =  [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"find_search_tf_left_btn"]];
@@ -352,7 +356,6 @@
     cancel_btn = UIButton.new;
     [cancel_btn setTitle:@"取消" forState:UIControlStateNormal];
     [cancel_btn.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [cancel_btn setTitleColor:ColorRGB(252, 142, 175) forState:UIControlStateNormal];
     [HeadView addSubview:cancel_btn];
 
     

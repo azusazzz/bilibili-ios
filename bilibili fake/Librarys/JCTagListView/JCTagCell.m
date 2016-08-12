@@ -13,8 +13,8 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        self.layer.masksToBounds = YES;
-        self.layer.borderWidth = 0.2f;
+//        self.layer.masksToBounds = YES;
+//        self.layer.borderWidth = 0.2f;
         
         _titleLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _titleLabel.textAlignment = NSTextAlignmentCenter;

@@ -76,7 +76,6 @@ struct tablePoint{
         //self.view.backgroundColor = ColorRGBA(0, 0, 0, 0);
         isScreen = NO;
         _keyword = keyword;
-       
         
         _searchResultData = [[SearchResultData alloc] initWithKeyword:_keyword];
     
@@ -97,7 +96,6 @@ struct tablePoint{
             });
         }];
 
-       
         [self SearchAndUPdata];
     }
     return self;
@@ -120,9 +118,6 @@ struct tablePoint{
      dispatch_async(dispatch_get_main_queue(), ^{
          [search_tf setText:_keyword];
      });
-    
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

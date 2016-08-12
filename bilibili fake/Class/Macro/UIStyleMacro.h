@@ -33,7 +33,7 @@
 #define UIStyleForegroundColor [UIStyleMacro share].foregroundColor
 #define UIStyleColourBtnColor [UIStyleMacro share].colourBtnColor
 #define UIStylePromptLabelColor [UIStyleMacro share].promptLabelColor
-
+#define UIStyleJCTagCellBg [UIStyleMacro share].JCTagCellBg
 
 //不知道怎么起名了
 #define UIStyleFont_2   [UIFont systemFontOfSize:10]
@@ -69,7 +69,8 @@
 @property(nonatomic,strong,readonly)UIColor* colourBtnColor;
 //提示标签颜色
 @property(nonatomic,strong,readonly)UIColor* promptLabelColor;
-
+//提示标签颜色
+@property(nonatomic,strong,readonly)UIColor* JCTagCellBg;
 
 ////字体就不想设置了，
 ////一般单元格的标题

@@ -65,6 +65,7 @@ static UIStyleMacro* UIStyle;
         _foregroundColor = [UIColor colorWithRed:27/255.0 green:27/255.0 blue:27/255.0 alpha:1];
         _colourBtnColor = [UIColor colorWithRed:253/255.0 green:129/255.0 blue:164/255.0 alpha:1];
         _promptLabelColor = [UIColor colorWithRed:180/255.0 green:180/255.0 blue:180/255.0 alpha:1];
+        _JCTagCellBg = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1];
     }else{
         //风格名字
         _styleName = @"少女粉";
@@ -73,6 +74,7 @@ static UIStyleMacro* UIStyle;
         _foregroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1];
         _colourBtnColor = [UIColor colorWithRed:253/255.0 green:255/255.0 blue:255/255.0 alpha:1];
         _promptLabelColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1];
+        _JCTagCellBg = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.1];
     }
     
     NSDictionary* UIStyleData = @{@"styleName":_styleName};
