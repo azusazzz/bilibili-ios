@@ -69,6 +69,7 @@
 		6E5976341D5C6FD700D520E0 /* DanmakuLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5976331D5C6FD700D520E0 /* DanmakuLabel.m */; };
 		6E5976371D5C6FE500D520E0 /* DanmakuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5976361D5C6FE500D520E0 /* DanmakuConfiguration.m */; };
 		6E59763A1D5C6FF500D520E0 /* DanmakuControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5976391D5C6FF500D520E0 /* DanmakuControl.m */; };
+		6E5A61271D5F077E007A4740 /* RefreshCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A61261D5F077E007A4740 /* RefreshCollectionView.m */; };
 		6E5FB1891D557AB100984DC6 /* LiveListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5FB1881D557AB100984DC6 /* LiveListRequest.m */; };
 		6E5FB18C1D557AE800984DC6 /* LiveListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5FB18B1D557AE800984DC6 /* LiveListModel.m */; };
 		6E5FB18F1D557BF500984DC6 /* LiveListBannerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5FB18E1D557BF500984DC6 /* LiveListBannerEntity.m */; };
@@ -372,6 +373,8 @@
 		6E5976361D5C6FE500D520E0 /* DanmakuConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuConfiguration.m; sourceTree = "<group>"; };
 		6E5976381D5C6FF500D520E0 /* DanmakuControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuControl.h; sourceTree = "<group>"; };
 		6E5976391D5C6FF500D520E0 /* DanmakuControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuControl.m; sourceTree = "<group>"; };
+		6E5A61251D5F077E007A4740 /* RefreshCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshCollectionView.h; sourceTree = "<group>"; };
+		6E5A61261D5F077E007A4740 /* RefreshCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshCollectionView.m; sourceTree = "<group>"; };
 		6E5FB1871D557AB100984DC6 /* LiveListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveListRequest.h; sourceTree = "<group>"; };
 		6E5FB1881D557AB100984DC6 /* LiveListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveListRequest.m; sourceTree = "<group>"; };
 		6E5FB18A1D557AE800984DC6 /* LiveListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveListModel.h; sourceTree = "<group>"; };
@@ -1182,6 +1185,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6E5A61241D5F06FB007A4740 /* RefreshCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				6E5A61251D5F077E007A4740 /* RefreshCollectionView.h */,
+				6E5A61261D5F077E007A4740 /* RefreshCollectionView.m */,
+			);
+			path = RefreshCollectionView;
+			sourceTree = "<group>";
+		};
 		6E5FB1831D557A9900984DC6 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -1673,6 +1685,7 @@
 		6EFFD4A31D2BCDFB00D1BC9E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6E5A61241D5F06FB007A4740 /* RefreshCollectionView */,
 				6E2377BA1D54735100102550 /* BannerView */,
 				FCAA18EA1D2DED910046CBA4 /* rowBtn */,
 				6EFFD4A41D2BCE0B00D1BC9E /* TabBar */,
@@ -2467,6 +2480,7 @@
 				FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */,
 				6EB4502C1D51F30600A4F626 /* DownloadOperation.m in Sources */,
 				6E5FE91E1D59CEE200459BF4 /* DownloadDataBase.m in Sources */,
+				6E5A61271D5F077E007A4740 /* RefreshCollectionView.m in Sources */,
 				6E5FB1A51D55918F00984DC6 /* LivePartitionsHeaderView.m in Sources */,
 				6EC6A5021D48ADEE0021BE48 /* RegionCollectionViewCell.m in Sources */,
 				6E5975FB1D5B171500D520E0 /* VideoPageNameCollectionViewCell.m in Sources */,
