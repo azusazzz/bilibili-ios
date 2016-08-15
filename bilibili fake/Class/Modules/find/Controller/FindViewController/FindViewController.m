@@ -65,6 +65,13 @@ typedef enum : NSUInteger {
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
     self.tabBarController.tabBar.hidden = NO;
+    self.navigationController.navigationBar.tintColor = UIStyleForegroundColor;
+    self.navigationController.navigationBar.barTintColor = UIStyleBackgroundColor;
+    self.navigationController.navigationBar.titleTextAttributes =
+    @{NSForegroundColorAttributeName: UIStyleForegroundColor,
+      NSFontAttributeName : [UIFont boldSystemFontOfSize:18]};  //标题颜色和字体
+    self.navigationItem.backBarButtonItem =  [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
     
     self.view.backgroundColor = UIStyleBackgroundColor;
     QRcode_btn.tintColor = UIStylePromptLabelColor;

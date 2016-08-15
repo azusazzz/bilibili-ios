@@ -74,7 +74,6 @@ if(level <= LogLevel) { \
 
 
 
-
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-function"
 static void DeferBlock(__strong void(^*block)(void)) {

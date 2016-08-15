@@ -37,7 +37,7 @@
 
 //不知道怎么起名了
 #define UIStyleFont_2   [UIFont systemFontOfSize:10]
-#define UIStyleFont_1   [UIFont systemFontOfSize:12]
+#define UIStyleFont_1   [UIFont systemFontOfSize:13]
 #define UIStyleDefaultFont [UIFont systemFontOfSize:15]
 #define UIStyleFont1   [UIFont systemFontOfSize:18]
 #define UIStyleFont2   [UIFont systemFontOfSize:20]
@@ -52,13 +52,13 @@
 
 //改风格
 +(void)changeWithStyleName:(NSString*)styleName;
-
++(void)changeWithIndex:(NSInteger)index;
 
 
 //风格名字
 @property(nonatomic,strong,readonly)NSString* styleName;
 //风格名字列表
-@property(nonatomic,strong,readonly)NSArray* styleNameArr;
+@property(nonatomic,strong,readonly)NSArray<NSDictionary *>* uiStyleDataArr;
 
 
 //前景色
@@ -71,7 +71,8 @@
 @property(nonatomic,strong,readonly)UIColor* promptLabelColor;
 //提示标签颜色
 @property(nonatomic,strong,readonly)UIColor* JCTagCellBg;
-
+//风格label的颜色（主题设置里面）
+@property(nonatomic,strong,readonly)UIColor* styleNameLabelColor;
 ////字体就不想设置了，
 ////一般单元格的标题
 //@property(nonatomic,strong)UIFont* cellTitleFont;

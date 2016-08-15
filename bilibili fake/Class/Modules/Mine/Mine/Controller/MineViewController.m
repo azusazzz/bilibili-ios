@@ -8,6 +8,7 @@
 
 #import "MineViewController.h"
 #import "ScrollTabBarController.h"
+#import "UIStyleMacro.h"
 
 // Subviews
 #import "MineHeaderView.h"
@@ -17,6 +18,7 @@
 #import "DownloadViewController.h"  // 离线缓存
 #import "HistoryViewController.h"   // 历史记录
 #import "GameCentreVC.h"            // 游戏中心
+#import "UIStyleSelectionVC.h"      // 主题选择
 
 @interface MineViewController ()
 
@@ -37,10 +39,11 @@
     return self;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = CRed;
+    self.view.backgroundColor = UIStyleBackgroundColor;
     
     [self loadSubviews];
     
@@ -91,6 +94,8 @@
         }
         else if (indexPath.row == 5) {
             [self.navigationController pushViewController:[[GameCentreVC alloc] init] animated:YES];
+        }else if(indexPath.row == 6){
+            [self.navigationController pushViewController:[[UIStyleSelectionVC alloc] init] animated:YES];
         }
     }
     else if (indexPath.section == 1) {
@@ -107,6 +112,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.navigationController.navigationBar.tintColor = UIStyleForegroundColor;
+    self.navigationController.navigationBar.barTintColor = UIStyleBackgroundColor;
+    self.navigationController.navigationBar.titleTextAttributes =
+    @{NSForegroundColorAttributeName: UIStyleForegroundColor,
+      NSFontAttributeName : [UIFont boldSystemFontOfSize:18]};  //标题颜色和字体
+    self.navigationItem.backBarButtonItem =  [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle; {

@@ -50,18 +50,6 @@
     self.tableView.backgroundColor = ColorRGBA(0, 0, 0, 0);
     //设置标题栏
     self.title = @"游戏中心";
-    [self.navigationItem setHidesBackButton:YES];
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 5, 15, 15);
-    [btn setBackgroundImage:ImageWithName(@"common_back") forState:UIControlStateNormal];
-    [btn addTarget: self action: @selector(goBackAction) forControlEvents: UIControlEventTouchUpInside];
-    UIBarButtonItem*back=[[UIBarButtonItem alloc]initWithCustomView:btn];
-    self.navigationItem.leftBarButtonItem=back;
-        //标题颜色和字体
-    self.navigationController.navigationBar.titleTextAttributes =
-    @{NSForegroundColorAttributeName: ColorRGB(100, 100, 100),
-      NSFontAttributeName : [UIFont boldSystemFontOfSize:18]};
-
     
 }
 

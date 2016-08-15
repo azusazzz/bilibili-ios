@@ -160,6 +160,8 @@
 		FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */; };
 		FC6F488B1D363AEB00047EEA /* NonVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6F488A1D363AEB00047EEA /* NonVideoCell.m */; };
 		FC6F48921D363B1A00047EEA /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6F48911D363B1A00047EEA /* VideoCell.m */; };
+		FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C081D6197F500993327 /* UIStyleSelectionVC.m */; };
+		FC749C0E1D61B2B200993327 /* UIStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C0D1D61B2B200993327 /* UIStyleCell.m */; };
 		FC792C221D2E9B7600762831 /* SearchResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC792C211D2E9B7600762831 /* SearchResultVC.m */; };
 		FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */ = {isa = PBXBuildFile; fileRef = FC80C7331D377C6400D30E23 /* UILabel+LeftTopAlign.m */; };
 		FC9CA9CF1D44D60A00036CCC /* VideoRangTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9CA9CE1D44D60A00036CCC /* VideoRangTableView.m */; };
@@ -558,6 +560,10 @@
 		FC6F488A1D363AEB00047EEA /* NonVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NonVideoCell.m; path = "bilibili fake/Class/Modules/find/Cell/NonVideoCell/NonVideoCell.m"; sourceTree = SOURCE_ROOT; };
 		FC6F48901D363B1A00047EEA /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
 		FC6F48911D363B1A00047EEA /* VideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCell.m; sourceTree = "<group>"; };
+		FC749C071D6197F500993327 /* UIStyleSelectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIStyleSelectionVC.h; path = Style/Controller/UIStyleSelectionVC.h; sourceTree = "<group>"; };
+		FC749C081D6197F500993327 /* UIStyleSelectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIStyleSelectionVC.m; path = Style/Controller/UIStyleSelectionVC.m; sourceTree = "<group>"; };
+		FC749C0C1D61B2B200993327 /* UIStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIStyleCell.h; path = Style/View/Cell/UIStyleCell.h; sourceTree = "<group>"; };
+		FC749C0D1D61B2B200993327 /* UIStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIStyleCell.m; path = Style/View/Cell/UIStyleCell.m; sourceTree = "<group>"; };
 		FC792C201D2E9B7600762831 /* SearchResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultVC.h; path = SearchResultVC/SearchResultVC.h; sourceTree = "<group>"; };
 		FC792C211D2E9B7600762831 /* SearchResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultVC.m; path = SearchResultVC/SearchResultVC.m; sourceTree = "<group>"; };
 		FC80C7321D377C6400D30E23 /* UILabel+LeftTopAlign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+LeftTopAlign.h"; path = "Label/UILabel+LeftTopAlign.h"; sourceTree = "<group>"; };
@@ -775,6 +781,7 @@
 		6E215CE61D4B61B00004CA5B /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				FC749C031D61970B00993327 /* Style */,
 				6E215D0E1D4B74540004CA5B /* Download */,
 				6E215CE71D4B61B00004CA5B /* History */,
 				6E215CEB1D4B61B00004CA5B /* Mine */,
@@ -1849,6 +1856,41 @@
 			path = VideoCell;
 			sourceTree = "<group>";
 		};
+		FC749C031D61970B00993327 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				FC749C0A1D61B0EF00993327 /* View */,
+				FC749C041D61973600993327 /* Controller */,
+			);
+			name = Style;
+			sourceTree = "<group>";
+		};
+		FC749C041D61973600993327 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC749C071D6197F500993327 /* UIStyleSelectionVC.h */,
+				FC749C081D6197F500993327 /* UIStyleSelectionVC.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		FC749C0A1D61B0EF00993327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC749C0B1D61B0F400993327 /* Cell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		FC749C0B1D61B0F400993327 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FC749C0C1D61B2B200993327 /* UIStyleCell.h */,
+				FC749C0D1D61B2B200993327 /* UIStyleCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		FC792C1F1D2E9B5300762831 /* SearchResultVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -2429,6 +2471,7 @@
 				6E5976071D5B171500D520E0 /* VideoURLProtocol.m in Sources */,
 				FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */,
 				6EC6A4FC1D489FF30021BE48 /* RegionRequest.m in Sources */,
+				FC749C0E1D61B2B200993327 /* UIStyleCell.m in Sources */,
 				FCB5C9CD1D33AF41000215B3 /* FindViewCell.m in Sources */,
 				FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */,
 				6E5975F31D5B171500D520E0 /* VideoIntroCollectionViewCell.m in Sources */,
@@ -2549,6 +2592,7 @@
 				6E5976121D5B174D00D520E0 /* DanmakuRequest.m in Sources */,
 				FCB5C9A71D333886000215B3 /* SearchResultData.m in Sources */,
 				6E5FB1981D557DAA00984DC6 /* LiveListPartitionEntity.m in Sources */,
+				FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */,
 				FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */,
 				6EB552761D548004001099C1 /* LiveListViewController.m in Sources */,
 				6E215D041D4B61B00004CA5B /* MineItemEntity.m in Sources */,
