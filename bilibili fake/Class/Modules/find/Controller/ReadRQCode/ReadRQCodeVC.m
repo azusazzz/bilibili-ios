@@ -32,7 +32,10 @@
 }
 
 - (void)viewDidLoad {
-
+  
+    
+    
+//      self.navigationController.interactivePopGestureRecognizer.delegate =  self;
     // 获取 AVCaptureDevice 实例
     NSError * error;
     AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];

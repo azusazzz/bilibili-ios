@@ -238,7 +238,7 @@ typedef enum : NSUInteger {
     FindViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[FindViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;    
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;    
         NSArray* arr = FindViewTableViewData[indexPath.section];
         NSDictionary* dic = arr[indexPath.row];
         [cell setIconImage:[UIImage imageNamed:[dic objectForKey:@"icon"]] TitleText:[dic objectForKey:@"title"]];
