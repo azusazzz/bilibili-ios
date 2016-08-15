@@ -59,8 +59,14 @@ static UIStyleMacro* UIStyle;
                                @"promptLabelColor":[UIColor colorWithRed:180/255.0 green:180/255.0 blue:180/255.0 alpha:1],
                                @"JCTagCellBg":[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1],
                                @"styleNameLabelColor":[UIColor colorWithRed:180/255.0 green:180/255.0 blue:180/255.0 alpha:1]};
-
-        _uiStyleDataArr = @[dic1,dic2];
+        NSDictionary* dic3 = @{@"styleName":@"帽子绿",
+                               @"backgroundColor":[UIColor colorWithRed:43/255.0 green:182/255.0 blue:130/255.0 alpha:1],
+                               @"foregroundColor":[UIColor colorWithRed:27/255.0 green:27/255.0 blue:27/255.0 alpha:1],
+                               @"colourBtnColor":[UIColor colorWithRed:253/255.0 green:129/255.0 blue:164/255.0 alpha:1],
+                               @"promptLabelColor":[UIColor colorWithRed:180/255.0 green:180/255.0 blue:180/255.0 alpha:1],
+                               @"JCTagCellBg":[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1],
+                               @"styleNameLabelColor":[UIColor colorWithRed:180/255.0 green:180/255.0 blue:180/255.0 alpha:1]};
+        _uiStyleDataArr = @[dic1,dic2,dic3];
         
         //读取本地的
         NSFileManager* mgr = [NSFileManager defaultManager];
