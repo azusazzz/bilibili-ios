@@ -105,7 +105,6 @@
     for(int i = page -1; i <page +2; i++){
        if(i>=0&&i<_tableViews.count)[_tableViews[page] setData];
     }
-    
 }
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
     [self scrollViewDidEndDecelerating:scrollView];
@@ -145,11 +144,15 @@
     [backbtn_bg addSubview:backbtn];
     
 //    //标题按钮
-    _titleTabBar = [[TabBar alloc] initWithTitles:titles style:TabBarStyleScroll];
+    if (titles.count>4) {
+       _titleTabBar = [[TabBar alloc] initWithTitles:titles style:TabBarStyleScroll];
+    }else{
+        _titleTabBar = [[TabBar alloc] initWithTitles:titles style:TabBarStyleNormal];
+    }
     _titleTabBar.backgroundColor = [UIColor whiteColor];
     _titleTabBar.tintColorRGB = @[@253,@129,@164];
-    _titleTabBar.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 30);
-    _titleTabBar.spacing = 30;
+    _titleTabBar.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    _titleTabBar.spacing = 40;
 
     [headView addSubview:_titleTabBar];
 

@@ -63,7 +63,7 @@
         
         Download_btn = [UIButton new];
         [Download_btn setTitle:@"下载" forState:UIControlStateNormal];
-        UIColor *color = ColorRGB(220, 130, 150);
+        UIColor *color = UIStyleColourBtnColor;
         [Download_btn setTitleColor:color forState:UIControlStateNormal];
         [Download_btn.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
         [Download_btn.layer setMasksToBounds:YES];

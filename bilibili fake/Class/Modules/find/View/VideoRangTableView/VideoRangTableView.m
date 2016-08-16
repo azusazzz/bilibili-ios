@@ -17,7 +17,7 @@
 @end
 
 @implementation VideoRangTableView{
-    NSDictionary* VideoListData;
+    NSArray* VideoListData;
     NSString* _title;
 }
 
@@ -62,8 +62,8 @@
 #pragma UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString *ranking = [NSString stringWithFormat:@"%lu",indexPath.row];
-    NSMutableDictionary* dic = [VideoListData objectForKey:ranking];
+
+    NSMutableDictionary* dic = VideoListData[indexPath.row];
     [[self viewController].navigationController pushViewController:[[VideoViewController alloc] initWithAid:[[dic objectForKey:@"aid"] integerValue]] animated:YES];
 }
 
@@ -79,17 +79,15 @@
 }
 //行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return VideoListData.count?20:0;
+    return VideoListData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //普通视频
     VideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoCell"];
     if (!cell) {
-        NSString *ranking = [NSString stringWithFormat:@"%lu",indexPath.row];
-        NSMutableDictionary* dic = [VideoListData objectForKey:ranking];
-        ranking = [NSString stringWithFormat:@"%lu",indexPath.row+1];
-        [dic setObject:ranking forKey:@"ranking"];
+     
+        NSMutableDictionary* dic = VideoListData[indexPath.row];
         cell = [[VideoCell alloc] initWithData:dic order:@""];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }

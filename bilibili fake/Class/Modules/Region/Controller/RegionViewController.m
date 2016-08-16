@@ -105,7 +105,7 @@
     CGFloat itemWidth = (SSize.width - 40*4) / 3;
     flowLayout.itemSize = CGSizeMake(itemWidth, [RegionCollectionViewCell heightForWidth:itemWidth]);
     flowLayout.minimumLineSpacing = 15;
-    flowLayout.minimumInteritemSpacing = 40;
+    flowLayout.minimumInteritemSpacing = 39;
     flowLayout.sectionInset = UIEdgeInsetsMake(15, 40, 15, 40);
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     _collectionView.backgroundColor = ColorWhite(247);
