@@ -43,7 +43,7 @@
     LogDEBUG(@"%s", __FUNCTION__);
 }
 
--(void)getRangData:(NSString*)title block:(void(^)(NSMutableDictionary* data))block{
+-(void)getRangData:(NSString*)title block:(void(^)(NSMutableArray* data))block{
     NSString* urlstr = [title_URL objectForKey:title];
     if (urlstr.length == 0){
         urlstr = [title_URL objectForKey:@"全站"];

@@ -11,7 +11,7 @@
 #import "GameCenterCell.h"
 #import <UIImageView+WebCache.h>
 #import "GameCentreData.h"
-
+#import "UIView+CornerRadius.h"
 
 @interface GameCentreVC ()
 
@@ -37,6 +37,7 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 }
 
@@ -50,7 +51,7 @@
     self.tableView.backgroundColor = ColorRGBA(0, 0, 0, 0);
     //设置标题栏
     self.title = @"游戏中心";
-    
+   
 }
 
 - (void)didReceiveMemoryWarning {

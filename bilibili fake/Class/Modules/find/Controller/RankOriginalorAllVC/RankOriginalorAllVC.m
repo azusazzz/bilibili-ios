@@ -11,6 +11,7 @@
 #import "TabBar.h"
 #import "VideoRangTableView.h"
 #import "UIView+Frame.h"
+#import <UIImageView+WebCache.h>
 
 @interface RankOriginalorAllVC ()<UIScrollViewDelegate>
 
@@ -62,6 +63,7 @@
 
 - (void)dealloc {
     LogDEBUG(@"%s", __FUNCTION__);
+     [[SDImageCache sharedImageCache] clearMemory];//清理内存中的
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -88,9 +90,9 @@
 
 
 -(void)loadActions{
-    __block RankOriginalorAllVC* BlockSelf = self;
+    __weak UIScrollView* scrollView = _scrollView;
     [_titleTabBar setOnClickItem:^(NSInteger idx) {
-        [BlockSelf->_scrollView setContentOffset:CGPointMake(BlockSelf->_scrollView.width * idx, 0) animated:YES];
+        [scrollView setContentOffset:CGPointMake(scrollView.width * idx, 0) animated:YES];
     }];
     
 }

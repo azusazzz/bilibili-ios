@@ -28,7 +28,7 @@
         self.delegate = self;
         self.dataSource = self;
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
-        VideoListData = @{};
+        VideoListData = @[];
 
     }
     return self;
@@ -36,11 +36,11 @@
 
 - (void)setData{
     if (VideoListData.count) return;
-    
-    [[[VideoRangData alloc] init] getRangData:_title block:^(NSMutableDictionary *data) {
-        VideoListData = data;
+    __block VideoRangTableView* selfWeak = self;
+    [[[VideoRangData alloc] init] getRangData:_title block:^(NSMutableArray *data) {
+        selfWeak->VideoListData = data;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self reloadData];
+            [selfWeak reloadData];
         });
     }];
 }
@@ -88,6 +88,7 @@
     if (!cell) {
      
         NSMutableDictionary* dic = VideoListData[indexPath.row];
+        [dic setObject:[NSString stringWithFormat:@"%ld",indexPath.row+1] forKey:@"ranking"];
         cell = [[VideoCell alloc] initWithData:dic order:@""];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }

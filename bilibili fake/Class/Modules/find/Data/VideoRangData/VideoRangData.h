@@ -10,6 +10,6 @@
 
 @interface VideoRangData : NSObject
 
--(void)getRangData:(NSString*)title block:(void(^)(NSMutableDictionary* data))block;
+-(void)getRangData:(NSString*)title block:(void(^)(NSMutableArray* data))block;
 
 @end

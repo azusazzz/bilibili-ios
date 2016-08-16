@@ -35,11 +35,7 @@ static UIStyleMacro* UIStyle;
 }
 
 
--(NSString*)getPath{
-    NSString *path = NSSearchPathForDirectoriesInDomains(NSPreferencePanesDirectory, NSUserDomainMask, YES)[0];
-    path = [path stringByAppendingPathComponent:@"UIStyleMacro.plist"];
-    return path;
-}
+
 
 -(instancetype)init{
     self = [super init];
@@ -69,12 +65,7 @@ static UIStyleMacro* UIStyle;
         _uiStyleDataArr = @[dic1,dic2,dic3];
         
         //读取本地的
-        NSFileManager* mgr = [NSFileManager defaultManager];
-        if([mgr fileExistsAtPath:[self getPath]] == YES){//查看文件是否存在
-            NSDictionary* UIStyleData = [NSDictionary dictionaryWithContentsOfFile:[self getPath]];
-            //风格名字
-            _styleName = [UIStyleData objectForKey:@"styleName"];
-        }
+        _styleName = [[[NSUserDefaults alloc] init] stringForKey:@"styleName"];
         
         [self changeWithStyleName:_styleName];
     }
@@ -92,8 +83,7 @@ static UIStyleMacro* UIStyle;
     _promptLabelColor = [styleDic objectForKey:@"promptLabelColor"];
     _JCTagCellBg = [styleDic objectForKey:@"JCTagCellBg"];
     
-    NSDictionary* UIStyleData = @{@"styleName":_styleName};
-    [UIStyleData writeToFile:[self getPath] atomically:YES];
+    [[[NSUserDefaults alloc] init] setObject:_styleName forKey:@"styleName"];
 }
 
 -(void)changeWithStyleName:(NSString*)styleName{
@@ -117,9 +107,8 @@ static UIStyleMacro* UIStyle;
     _colourBtnColor = [styleDic objectForKey:@"colourBtnColor"];
     _promptLabelColor = [styleDic objectForKey:@"promptLabelColor"];
     _JCTagCellBg = [styleDic objectForKey:@"JCTagCellBg"];
-    
-    NSDictionary* UIStyleData = @{@"styleName":_styleName};
-    [UIStyleData writeToFile:[self getPath] atomically:YES];
+
+    [[[NSUserDefaults alloc] init] setObject:_styleName forKey:@"styleName"];
 }
 
 

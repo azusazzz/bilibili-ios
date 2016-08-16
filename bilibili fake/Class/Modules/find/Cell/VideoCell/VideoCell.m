@@ -38,7 +38,7 @@
 }
 
 - (void)dealloc {
-    LogDEBUG(@"%s", __FUNCTION__);
+//    LogDEBUG(@"%s", __FUNCTION__);
 }
 
 
