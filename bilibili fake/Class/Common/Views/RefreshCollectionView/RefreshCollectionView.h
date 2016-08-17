@@ -11,4 +11,9 @@
 @interface RefreshCollectionView : UICollectionView
 <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
+
+@property (assign, nonatomic) CGFloat pullOffsetY;
+
+@property (assign, nonatomic) CGFloat backgroundViewOffsetY;
+
 @end

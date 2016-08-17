@@ -31,6 +31,7 @@
 		6E23777E1D536BD400102550 /* UIViewController+HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E23777D1D536BD400102550 /* UIViewController+HeaderView.m */; };
 		6E2377821D543D0000102550 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2377811D543CFF00102550 /* UIAlertView+Block.m */; };
 		6E2377BD1D54736D00102550 /* BannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2377BC1D54736D00102550 /* BannerView.m */; };
+		6E2A92EA1D6458EC00A8F9BA /* PullAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2A92E91D6458EC00A8F9BA /* PullAnimationView.m */; };
 		6E4836531D409617004AD1A4 /* CATransition+Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836501D409617004AD1A4 /* CATransition+Closure.swift */; };
 		6E4836541D409617004AD1A4 /* SABlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836511D409617004AD1A4 /* SABlurImageView.swift */; };
 		6E4836551D409617004AD1A4 /* UIImage+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836521D409617004AD1A4 /* UIImage+BlurEffect.swift */; };
@@ -301,6 +302,8 @@
 		6E2377811D543CFF00102550 /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
 		6E2377BB1D54736D00102550 /* BannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerView.h; sourceTree = "<group>"; };
 		6E2377BC1D54736D00102550 /* BannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerView.m; sourceTree = "<group>"; };
+		6E2A92E81D6458EC00A8F9BA /* PullAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullAnimationView.h; sourceTree = "<group>"; };
+		6E2A92E91D6458EC00A8F9BA /* PullAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullAnimationView.m; sourceTree = "<group>"; };
 		6E4836501D409617004AD1A4 /* CATransition+Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransition+Closure.swift"; sourceTree = "<group>"; };
 		6E4836511D409617004AD1A4 /* SABlurImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SABlurImageView.swift; sourceTree = "<group>"; };
 		6E4836521D409617004AD1A4 /* UIImage+BlurEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+BlurEffect.swift"; sourceTree = "<group>"; };
@@ -1197,6 +1200,8 @@
 			children = (
 				6E5A61251D5F077E007A4740 /* RefreshCollectionView.h */,
 				6E5A61261D5F077E007A4740 /* RefreshCollectionView.m */,
+				6E2A92E81D6458EC00A8F9BA /* PullAnimationView.h */,
+				6E2A92E91D6458EC00A8F9BA /* PullAnimationView.m */,
 			);
 			path = RefreshCollectionView;
 			sourceTree = "<group>";
@@ -2523,6 +2528,7 @@
 				FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */,
 				6EB4502C1D51F30600A4F626 /* DownloadOperation.m in Sources */,
 				6E5FE91E1D59CEE200459BF4 /* DownloadDataBase.m in Sources */,
+				6E2A92EA1D6458EC00A8F9BA /* PullAnimationView.m in Sources */,
 				6E5A61271D5F077E007A4740 /* RefreshCollectionView.m in Sources */,
 				6E5FB1A51D55918F00984DC6 /* LivePartitionsHeaderView.m in Sources */,
 				6EC6A5021D48ADEE0021BE48 /* RegionCollectionViewCell.m in Sources */,

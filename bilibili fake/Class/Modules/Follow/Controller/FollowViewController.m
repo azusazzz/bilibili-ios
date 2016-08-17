@@ -14,6 +14,10 @@
 #import "DanmakuControl.h"
 
 
+#import "RefreshCollectionView.h"
+
+
+
 @interface FollowViewController ()
 <UIScrollViewDelegate, DanmakuControlDelegate>
 {
@@ -80,7 +84,7 @@
 //    });
     
     
-    
+    /*
     _tabbar = [[TabBar alloc] initWithTitles:@[@"测试",@"测试测试",@"测试测试测试",@"测试",@"测试测试"] style:TabBarStyleScroll];
     _tabbar.frame = CGRectMake(0, 100, SSize.width, 40);
     _tabbar.spacing = 40;
@@ -103,7 +107,20 @@
     
     [_tabbar setOnClickItem:^(NSInteger idx) {
         [scrollView setContentOffset:CGPointMake(scrollView.width * idx, 0) animated:YES];
+    }];*/
+    
+    
+    self.view.backgroundColor = CRed;
+    
+    RefreshCollectionView *refreshView = [[RefreshCollectionView alloc] init];
+    [self.view addSubview:refreshView];
+    [refreshView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset = 64;
+        make.bottom.offset = 0;
+        make.left.offset = 0;
+        make.right.offset = 0;
     }];
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
