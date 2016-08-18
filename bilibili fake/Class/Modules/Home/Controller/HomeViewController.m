@@ -93,10 +93,7 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView; {
-//    _headerView.contentOffset = scrollView.contentOffset.x / scrollView.contentSize.width;
-    _headerView.contentOffset = scrollView.contentOffset.x / scrollView.width;
-//    NSLog(@"Progress: %lf", scrollView.contentOffset.x / scrollView.width);
-    
+    _headerView.contentOffset = scrollView.contentOffset.x / self.view.width;
 }
 
 #pragma mark - View
@@ -187,6 +184,9 @@
         make.right.equalTo(constraint);
     }];
     
+    
+    _scrollView.contentSize = CGSizeMake(self.view.width * 3, 0);
+    [_scrollView setContentOffset:CGPointMake(self.view.width, 0)];
 }
 
 

@@ -6,10 +6,10 @@
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RefreshCollectionView.h"
 #import "BangumiListEntity.h"
 
-@interface BangumiCollectionView : UICollectionView
+@interface BangumiCollectionView : RefreshCollectionView
 
 @property (strong, nonatomic) BangumiListEntity *bangumiList;
 

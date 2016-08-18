@@ -30,16 +30,9 @@
 @implementation BangumiCollectionView
 
 - (instancetype)init {
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    if (self = [super initWithFrame:CGRectZero collectionViewLayout:flowLayout]) {
+    if (self = [super init]) {
         self.backgroundColor = CRed;
-        self.backgroundView = [[UIView alloc] init];
         self.backgroundView.backgroundColor = ColorWhite(247);
-//        self.backgroundView.layer.cornerRadius = 6;
-//        self.backgroundView.layer.masksToBounds = YES;
-        self.dataSource = self;
-        self.delegate = self;
         
         [self registerClass:[BangumiEntranceHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"EntranceHeader"];
         [self registerClass:[BangumiEntranceFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"EntranceFooter"];
@@ -250,6 +243,7 @@
             [((BangumiLatestUpdateHeaderView *)view) setCount:_bangumiList.latestUpdate.count];
         }
     }
+    [super collectionView:collectionView willDisplaySupplementaryView:view forElementKind:elementKind atIndexPath:indexPath];
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
@@ -264,7 +258,7 @@
     else if (indexPath.section == 3) {
         [((BangumiRecommendCollectionViewCell *) cell) setBangumiRecommend:_bangumiList.recommends[indexPath.row]];
     }
-    
+    [super collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
 }
 
 

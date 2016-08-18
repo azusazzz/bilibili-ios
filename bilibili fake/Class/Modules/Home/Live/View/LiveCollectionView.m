@@ -18,23 +18,17 @@
 
 
 @interface LiveCollectionView ()
-<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
 
 @end
 
 @implementation LiveCollectionView
 
 - (instancetype)init {
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    if (self = [super initWithFrame:CGRectZero collectionViewLayout:flowLayout]) {
+    if (self = [super init]) {
         self.backgroundColor = CRed;
-        self.backgroundView = [[UIView alloc] init];
+//        self.backgroundView = [[UIView alloc] init];
         self.backgroundView.backgroundColor = ColorWhite(247);
-//        self.backgroundView.layer.cornerRadius = 6;
-//        self.backgroundView.layer.masksToBounds = YES;
-        self.dataSource = self;
-        self.delegate = self;
         
         [self registerClass:[LiveListBannerView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Banner"];
         [self registerClass:[LiveEntranceFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"EntranceFooter"];
@@ -183,7 +177,7 @@
             ((LivePartitionsHeaderView *)view).partition = _liveList.partitions[indexPath.section-1];
         }
     }
-    
+    [super collectionView:collectionView willDisplaySupplementaryView:view forElementKind:elementKind atIndexPath:indexPath];
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
@@ -192,6 +186,7 @@
     else {
         ((LiveCollectionViewCell *) cell).live = _liveList.partitions[indexPath.section-1].lives[indexPath.row];
     }
+    [super collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
 }
 
 

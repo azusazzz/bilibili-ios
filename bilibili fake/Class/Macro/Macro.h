@@ -22,7 +22,6 @@
 #define LogWARN(...) Log(LogLevelWARN, __VA_ARGS__)
 #define LogERROR(...) Log(LogLevelERROR, __VA_ARGS__)
 
-// 这里设置日志显示的级别
 #define LogLevel LogLevelINFO
 
 #define Log(level, ...)  \
@@ -33,18 +32,6 @@ if(level <= LogLevel) { \
 
 
 #define SSize   [UIScreen mainScreen].bounds.size
-
-
-
-
-/*
-#ifdef DEBUG
-#define Log(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
-#else
-#define Log(...)
-#endif
-*/
-
 
 
 
@@ -89,6 +76,9 @@ static void DeferBlock(__strong void(^*block)(void)) {
  *  };
  */
 #define Defer __strong void(^deferBlock)(void) __attribute__((cleanup(DeferBlock), unused)) = ^
+
+// 标志子类继承这个方法时需要调用 super，否则给出编译警告
+#define RequiresSuper __attribute__((objc_requires_super))
 
 
 #endif /* Macro_h */

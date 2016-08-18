@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "LiveListEntity.h"
+#import "RefreshCollectionView.h"
 
-@interface LiveCollectionView : UICollectionView
+@interface LiveCollectionView : RefreshCollectionView
 
 @property (strong, nonatomic) LiveListEntity *liveList;
 

@@ -14,7 +14,7 @@
 #import "DanmakuControl.h"
 
 
-#import "RefreshCollectionView.h"
+#import "TestRefreshCollectionView.h"
 
 
 
@@ -112,7 +112,7 @@
     
     self.view.backgroundColor = CRed;
     
-    RefreshCollectionView *refreshView = [[RefreshCollectionView alloc] init];
+    TestRefreshCollectionView *refreshView = [[TestRefreshCollectionView alloc] init];
     [self.view addSubview:refreshView];
     [refreshView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.offset = 64;

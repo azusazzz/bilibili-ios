@@ -20,16 +20,19 @@
 
 {
     NSMutableArray<UIView *> *_headerViews;
+    BOOL _needReloadData;
+    BOOL _animating;
 }
-
-@property (assign, nonatomic) BOOL refreshing;
-
 
 @property (strong, nonatomic) UILabel *pullLabel;
 @property (strong, nonatomic) UILabel *refreshLabel;
 @property (strong, nonatomic) PullAnimationView *pullAnimationView;
 
 @end
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wprotocol"
+
 
 @implementation RefreshCollectionView
 
@@ -41,8 +44,6 @@
         self.dataSource = self;
         self.delegate = self;
         self.backgroundColor = CRed;
-        [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
-        [self registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"];
         
         self.backgroundView = [[UIView alloc] init];
         self.backgroundView.backgroundColor = ColorWhite(247);
@@ -50,7 +51,7 @@
         _headerViews = [NSMutableArray array];
         
         _backgroundViewOffsetY = 40;
-        _pullOffsetY = _backgroundViewOffsetY + 40 + 15 + 20;
+        _pullOffsetY = _backgroundViewOffsetY + PullAnimationViewHeight + PullLabelHeight + PullLabelTopOffset;
         
         
         _refreshLabel = [[UILabel alloc] init];
@@ -125,7 +126,17 @@
     
 }
 
+- (void)reloadData {
+    if (_animating) {
+        _needReloadData = YES;
+    }
+    else {
+        [super reloadData];
+    }
+}
+
 - (void)startAnimating {
+    
     
     _refreshLabel.text = @"正在更新...";
     [self.backgroundView addSubview:_refreshLabel];
@@ -140,23 +151,24 @@
         self.contentOffset = CGPointMake(0, -_backgroundViewOffsetY);
         _refreshLabel.frame = CGRectMake(0, _backgroundViewOffsetY-15, self.backgroundView.width, 15);
     } completion:^(BOOL finished) {
-        
+        [self.refreshDelegate collectionViewRefreshing:self];
     }];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.refreshing = NO;
-    });
 }
 
 - (void)stopAnimating {
     _refreshLabel.text = @"更新完成";
     
+    _animating = YES;
     self.bounces = YES;
     [UIView animateWithDuration:0.3 animations:^{
         self.contentInset = UIEdgeInsetsZero;
         _refreshLabel.frame = CGRectMake(0, -15, self.backgroundView.width, 15);
     } completion:^(BOOL finished) {
         [_refreshLabel removeFromSuperview];
+        _animating = NO;
+        if (_needReloadData) {
+            [super reloadData];
+        }
     }];
 }
 
@@ -180,44 +192,10 @@
     }
 }
 
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 3;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 6;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(collectionView.width, 100);
-}
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(collectionView.width, 60);
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(15, 0, 15, 0);
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"Header" forIndexPath:indexPath];
-    }
-    return NULL;
-}
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-}
-
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    cell.backgroundColor = [UIColor grayColor];
     [self.backgroundView addSubview:cell];
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
-    if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
-        view.backgroundColor = ColorWhite(86);
-    }
     [self.backgroundView addSubview:view];
     if (view.tag == 0) {
         view.tag = 1;
@@ -228,3 +206,5 @@
 
 
 @end
+
+#pragma clang diagnostic pop

@@ -13,7 +13,13 @@
 
 - (void)getRecommendListWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure {
     
-    [[RecommendListRequest request] startWithCompletionBlock:^(BaseRequest *request) {
+    RecommendListRequest *request = [RecommendListRequest request];
+    
+    if (self.recommendList) {
+        request.mustFromNetwork = YES;
+    }
+    
+    [request startWithCompletionBlock:^(BaseRequest *request) {
         if (request.responseCode == 0) {
             _recommendList = [RecommendEntity mj_objectArrayWithKeyValuesArray:request.responseData];
             

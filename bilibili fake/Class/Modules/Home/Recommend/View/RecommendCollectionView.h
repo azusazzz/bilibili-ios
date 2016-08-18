@@ -6,10 +6,10 @@
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RefreshCollectionView.h"
 #import "RecommendEntity.h"
 
-@interface RecommendCollectionView : UICollectionView
+@interface RecommendCollectionView : RefreshCollectionView
 
 @property (strong, nonatomic) NSArray<RecommendEntity *> *list;
 

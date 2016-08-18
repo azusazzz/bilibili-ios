@@ -11,6 +11,7 @@
 #import "BangumiCollectionView.h"
 
 @interface BangumiListViewController ()
+<RefreshCollectionViewDelegate>
 
 @property (strong, nonatomic) BangumiListModel *model;
 
@@ -38,12 +39,20 @@
     
 }
 
+#pragma mark - RefreshCollectionViewDelegate
+- (void)collectionViewRefreshing:(__kindof RefreshCollectionView *)collectionView {
+    [self loadData];
+}
+
 
 - (void)loadData {
-    _model = [[BangumiListModel alloc] init];
+    if (!_model) {
+        _model = [[BangumiListModel alloc] init];
+    }
     
     [_model getBangumiListWithSuccess:^{
         //
+        _collectionView.refreshing = NO;
         _collectionView.bangumiList = _model.bangumiList;
     } failure:^(NSString *errorMsg) {
         //
@@ -53,10 +62,13 @@
 
 - (void)loadSubviews {
     _collectionView = [[BangumiCollectionView alloc] init];
+    _collectionView.refreshDelegate = self;
     [self.view addSubview:_collectionView];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
 }
+
+
 
 @end

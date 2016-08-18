@@ -12,6 +12,7 @@
 #import "LiveCollectionView.h"
 
 @interface LiveListViewController ()
+<RefreshCollectionViewDelegate>
 
 @property (strong, nonatomic) LiveListModel *model;
 
@@ -52,9 +53,17 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
+- (void)collectionViewRefreshing:(__kindof RefreshCollectionView *)collectionView {
+    [self loadData];
+}
+
 - (void)loadData {
-    _model = [[LiveListModel alloc] init];
+    if (!_model) {
+        _model = [[LiveListModel alloc] init];
+    }
+    
     [_model getLiveListWithSuccess:^{
+        _collectionView.refreshing = NO;
         _collectionView.liveList = _model.liveList;
     } failure:^(NSString *errorMsg) {
         //
@@ -63,6 +72,7 @@
 
 - (void)loadSubviews {
     _collectionView = [[LiveCollectionView alloc] init];
+    _collectionView.refreshDelegate = self;
     [self.view addSubview:_collectionView];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);

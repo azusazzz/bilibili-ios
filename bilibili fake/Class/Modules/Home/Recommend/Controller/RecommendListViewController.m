@@ -13,6 +13,7 @@
 #import "VideoViewController.h" // 视频信息
 
 @interface RecommendListViewController ()
+<RefreshCollectionViewDelegate>
 {
     RecommendCollectionView *_collectionView;
     RecommendListModel *_model;
@@ -35,6 +36,7 @@
     [self.view addSubview:UIView.new];
     
     _collectionView = [[RecommendCollectionView alloc] init];
+    _collectionView.refreshDelegate = self;
     [self.view addSubview:_collectionView];
     
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -47,12 +49,7 @@
     }];
     
     
-    _model = [[RecommendListModel alloc] init];
-    [_model getRecommendListWithSuccess:^{
-        _collectionView.list = _model.recommendList;
-    } failure:^(NSString *errorMsg) {
-        HUDFailure(errorMsg);
-    }];
+    [self loadData];
     
 }
 
@@ -62,6 +59,22 @@
         NSInteger aid = [body.param integerValue];
         [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:aid] animated:YES];
     }
+}
+
+- (void)collectionViewRefreshing:(__kindof RefreshCollectionView *)collectionView {
+    [self loadData];
+}
+
+- (void)loadData {
+    if (!_model) {
+        _model = [[RecommendListModel alloc] init];
+    }
+    [_model getRecommendListWithSuccess:^{
+        _collectionView.refreshing = NO;
+        _collectionView.list = _model.recommendList;
+    } failure:^(NSString *errorMsg) {
+        HUDFailure(errorMsg);
+    }];
 }
 
 @end

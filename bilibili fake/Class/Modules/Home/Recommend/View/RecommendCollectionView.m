@@ -25,16 +25,9 @@
 @implementation RecommendCollectionView
 
 - (instancetype)init {
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    if (self = [super initWithFrame:CGRectZero collectionViewLayout:flowLayout]) {
+    if (self = [super init]) {
         self.backgroundColor = CRed;
-        self.backgroundView = [[UIView alloc] init];
         self.backgroundView.backgroundColor = ColorWhite(247);
-//        self.backgroundView.layer.cornerRadius = 6;
-//        self.backgroundView.layer.masksToBounds = YES;
-        self.dataSource = self;
-        self.delegate = self;
         [self registerClass:[RecommendCollectionViewCell class] forCellWithReuseIdentifier:@"Recommend"];
         [self registerClass:[RecommendAvCollectionViewCell class] forCellWithReuseIdentifier:@"RecommendAv"];
         [self registerClass:[RecommendLiveCollectionViewCell class] forCellWithReuseIdentifier:@"RecommendLive"];
@@ -126,9 +119,11 @@
     else if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
         ((RecommendFooterView *)view).banner = _list[indexPath.section].banner_bottom;
     }
+    [super collectionView:collectionView willDisplaySupplementaryView:view forElementKind:elementKind atIndexPath:indexPath];
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(RecommendCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     cell.body = _list[indexPath.section].body[indexPath.row];
+    [super collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
 }
 
 
