@@ -48,6 +48,8 @@
         self.backgroundView = [[UIView alloc] init];
         self.backgroundView.backgroundColor = ColorWhite(247);
         
+        self.alwaysBounceVertical = YES;
+        
         _headerViews = [NSMutableArray array];
         
         _backgroundViewOffsetY = 40;

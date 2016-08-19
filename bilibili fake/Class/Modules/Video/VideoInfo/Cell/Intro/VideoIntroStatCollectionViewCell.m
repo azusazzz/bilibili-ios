@@ -25,6 +25,7 @@
         downloadButton.layer.cornerRadius = 6;
         downloadButton.layer.borderColor = ColorWhite(200).CGColor;
         downloadButton.layer.borderWidth = 0.5;
+        [downloadButton addTarget:self action:@selector(onClickDownload:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:downloadButton];
         [downloadButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.offset = 80;
@@ -44,6 +45,10 @@
         
     }
     return self;
+}
+
+- (void)onClickDownload:(UIButton *)button {
+    _onClickDownload ? _onClickDownload() : NULL;
 }
 
 @end

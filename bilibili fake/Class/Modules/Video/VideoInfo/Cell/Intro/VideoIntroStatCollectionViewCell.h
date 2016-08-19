@@ -10,6 +10,8 @@
 
 @interface VideoIntroStatCollectionViewCell : UICollectionViewCell
 
+@property (copy, nonatomic) void (^onClickDownload)(void);
+
 + (CGFloat)height;
 
 @end

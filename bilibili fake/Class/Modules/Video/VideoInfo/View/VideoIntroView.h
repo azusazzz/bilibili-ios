@@ -18,9 +18,9 @@
 
 @property (strong, nonatomic) VideoInfoEntity *videoInfo;
 
+@property (copy, nonatomic) void (^onClickDownload)(void);
 
 @property (copy, nonatomic) void (^onClickPageItem)(NSInteger idx);
-
 
 @property (strong, nonatomic) void (^onClickRelate)(NSInteger idx);
 

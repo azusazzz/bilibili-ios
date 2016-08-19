@@ -55,6 +55,11 @@
         
         if (request.responseCode == 0 && request.responseData) {
             _videoInfo = [VideoInfoEntity mj_objectWithKeyValues:request.responseData];
+            if ([_videoInfo.pages count] == 1) {
+                _videoInfo.pages[0].part = _videoInfo.title;
+            }
+            
+            
             success();
             
             /**

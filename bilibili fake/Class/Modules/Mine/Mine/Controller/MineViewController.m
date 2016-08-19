@@ -15,7 +15,7 @@
 #import "MineCollectionView.h"
 
 // ViewController
-#import "DownloadViewController.h"  // 离线缓存
+#import "DownloadVideoManagerViewController.h"  // 离线缓存
 #import "HistoryViewController.h"   // 历史记录
 #import "GameCentreVC.h"            // 游戏中心
 #import "UIStyleSelectionVC.h"      // 主题选择
@@ -87,7 +87,7 @@
     
     if(indexPath.section == 0) {
         if (indexPath.row == 0) {
-            [self.navigationController pushViewController:[[DownloadViewController alloc] init] animated:YES];
+            [self.navigationController pushViewController:[[DownloadVideoManagerViewController alloc] init] animated:YES];
         }
         else if (indexPath.row == 1) {
             [self.navigationController pushViewController:[[HistoryViewController alloc] init] animated:YES];

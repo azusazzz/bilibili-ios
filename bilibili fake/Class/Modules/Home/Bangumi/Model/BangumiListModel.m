@@ -16,6 +16,10 @@
     
     BangumiListRequest *request = [BangumiListRequest request];
     
+    if (self.bangumiList) {
+        request.mustFromNetwork = YES;
+    }
+    
     [request startWithCompletionBlock:^(BaseRequest *request) {
         if ([request.responseObject objectForKey:@"result"]) {
             

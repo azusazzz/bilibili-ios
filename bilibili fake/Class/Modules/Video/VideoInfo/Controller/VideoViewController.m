@@ -16,9 +16,7 @@
 
 #import "MediaPlayer.h"
 
-
-
-
+#import "DownloadVideoSelectView.h"
 
 @interface VideoViewController ()
 <UIScrollViewDelegate, UIGestureRecognizerDelegate>
@@ -33,7 +31,6 @@
 @property (strong, nonatomic) VideoIntroView *introView;
 
 @property (strong, nonatomic) VideoCommentView *commentView;
-
 
 @property (assign, nonatomic) NSInteger aid;
 
@@ -67,18 +64,26 @@
     __weak typeof(self) weakself = self;
     
     /**
+     *  点击头部  播放视频
+     */
+    [_headerView setOnClickPlay:^{
+        [weakself playVideo];
+    }];
+    
+    
+    [_introView setOnClickDownload:^{
+        
+        [DownloadVideoSelectView showWithVideoInfo:weakself.model.videoInfo];
+        
+    }];
+    
+    
+    /**
      *  点击分集   切换当前分集 并播放
      *
      */
     [_introView setOnClickPageItem:^(NSInteger idx) {
         weakself.currentPage = weakself.model.videoInfo.pages[idx];
-        [weakself playVideo];
-    }];
-    
-    /**
-     *  点击头部  播放视频
-     */
-    [_headerView setOnClickPlay:^{
         [weakself playVideo];
     }];
     
@@ -124,14 +129,6 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
-//- (BOOL)shouldAutorotate {
-//    return NO;
-//}
-//
-//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-//    return UIInterfaceOrientationPortrait;
-//}
-
 /**
  *  播放视频
  */
@@ -141,12 +138,12 @@
     [self.model getVideoURLWithCid:self.currentPage.cid completionBlock:^(NSURL *videoURL) {
         HUDLoadingHidden();
         if (videoURL) {
-            NSString *title = weakself.currentPage.part;
-            if (title) {
-                title = weakself.model.videoInfo.title;
-            }
+//            NSString *title = weakself.currentPage.part;
+//            if (title) {
+//                title = weakself.model.videoInfo.title;
+//            }
 //            [MediaPlayer playerWithURL:videoURL title:title inViewController:weakself];
-            [MediaPlayer playerWithURL:videoURL cid:weakself.currentPage.cid title:title inViewController:weakself];
+            [MediaPlayer playerWithURL:videoURL cid:weakself.currentPage.cid title:weakself.currentPage.part inViewController:weakself];
         }
         else {
             HUDFailure(@"获取视频地址失败");

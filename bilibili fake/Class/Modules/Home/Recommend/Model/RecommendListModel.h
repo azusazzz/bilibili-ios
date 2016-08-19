@@ -16,4 +16,6 @@
 
 - (void)getRecommendListWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
+
+
 @end

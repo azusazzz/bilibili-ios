@@ -150,6 +150,9 @@
         if (indexPath.row == 0) {
             [((VideoIntroCollectionViewCell *)cell) setVideoInfo:_videoInfo showAllDesc:_showAllDesc];
         }
+        else if (indexPath.row == 1) {
+            ((VideoIntroStatCollectionViewCell *)cell).onClickDownload = _onClickDownload;
+        }
         else if (indexPath.row == 2) {
             [((VideoIntroPagesCollectionViewCell *)cell) setPages:_videoInfo.pages];
             ((VideoIntroPagesCollectionViewCell *)cell).onClickPageItem = _onClickPageItem;
