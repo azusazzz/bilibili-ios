@@ -21,7 +21,12 @@ typedef NS_ENUM(NSInteger, DownloadOperationStatus) {
 
 @interface DownloadOperation : NSObject
 
-@property (strong, nonatomic, readonly, nonnull) NSURL *url;
+@property (strong, nonatomic, readonly, nullable) NSURL *url;
+
+@property (assign, nonatomic, readonly) NSInteger aid;
+@property (assign, nonatomic, readonly) NSInteger cid;
+@property (assign, nonatomic, readonly) NSInteger page;
+
 
 @property (assign, nonatomic, readonly) DownloadOperationStatus status;
 
@@ -33,7 +38,13 @@ typedef NS_ENUM(NSInteger, DownloadOperationStatus) {
 
 @property (strong, nonatomic, nonnull) NSString *downloadDirectory;
 
+@property (copy, nonatomic, nullable) void (^progressChanged)(DownloadOperation * _Nonnull peration);
+@property (copy, nonatomic, nullable) void (^statusChanged)(DownloadOperation * _Nonnull peration);
+
+
 - (nonnull instancetype)initWithURL:(nonnull NSURL *)url session:(nonnull NSURLSession *)session queue:(nonnull NSOperationQueue *)queue;
+
+- (nonnull instancetype)initWithAid:(NSInteger)aid cid:(NSInteger)cid page:(NSInteger)page session:(nonnull NSURLSession *)session queue:(nonnull NSOperationQueue *)queue;
 
 - (void)resume;
 

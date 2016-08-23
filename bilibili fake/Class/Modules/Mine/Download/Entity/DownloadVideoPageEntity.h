@@ -11,6 +11,8 @@
 
 @interface DownloadVideoPageEntity : NSObject
 
+@property (assign, nonatomic) NSInteger aid;
+
 @property (assign, nonatomic) NSInteger cid;
 
 @property (strong, nonatomic) NSString *part;

@@ -104,17 +104,12 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger aid = _model.list[indexPath.row].aid;
     [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:aid] animated:YES];
-//    [self.navigationController pushViewController:[[HistoryViewController alloc] init] animated:YES];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
-    CGPoint location = [gestureRecognizer locationInView:_collectionView];
     CGPoint translation = [gestureRecognizer translationInView:_collectionView];
-    if (location.x > _collectionView.bounds.size.width * 0.5) {
-        return NO;
-    }
     if (translation.x <= translation.y) {
         return NO;
     }

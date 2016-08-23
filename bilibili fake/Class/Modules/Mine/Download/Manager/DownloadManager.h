@@ -18,4 +18,6 @@
 
 - (DownloadOperation *)operationWithURL:(NSURL *)url;
 
+- (DownloadOperation *)operationWithAid:(NSInteger)aid cid:(NSInteger)cid page:(NSInteger)page;
+
 @end

@@ -338,6 +338,7 @@
     video.title = _videoInfo.title;
     video.pic = _videoInfo.pic;
     DownloadVideoPageEntity *page = [[DownloadVideoPageEntity alloc] init];
+    page.aid = _videoInfo.aid;
     page.cid = videoPageInfo.cid;
     page.part = videoPageInfo.part;
     page.page = videoPageInfo.page;

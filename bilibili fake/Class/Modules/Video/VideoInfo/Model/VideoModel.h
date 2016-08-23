@@ -50,10 +50,6 @@
 - (void)getVideoCommentWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 
-
-
-@property (assign, nonatomic) BOOL isGetVideoURLExecuting;
-
 /**
  *  解析出视频链接  
  *
@@ -62,7 +58,7 @@
 - (void)getVideoURLWithCid:(NSInteger)cid completionBlock:(void (^)(NSURL *videoURL))completionBlock;
 
 
-- (void)webViewVideoURL:(NSURL *)videoURL;
+//- (void)webViewVideoURL:(NSURL *)videoURL;
 
 
 @end

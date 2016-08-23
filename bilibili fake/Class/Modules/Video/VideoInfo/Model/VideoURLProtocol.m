@@ -11,25 +11,21 @@
 #import "VideoViewController.h"
 #import "VideoModel.h"
 
+#import "VideoURL.h"
+
 @implementation VideoURLProtocol
 
 + (BOOL)canInitWithRequest:(NSURLRequest *)request {
     
-    if ([request.URL.absoluteString rangeOfString:@"mp4"].length) {
-        
-        [NSURLProtocol unregisterClass:[self class]];
-        
-        UIViewController *controller = UIViewController.currentViewController;
-        if ([controller isKindOfClass:[VideoViewController class]]) {
-            VideoViewController *video = (VideoViewController *)controller;
-            
+    NSString *urlString = [request.URL.absoluteString componentsSeparatedByString:@"?"][0].pathExtension;
+    
+    if ([urlString isEqualToString:@"mp4"]) {
+        if ([VideoURL currentOperation]) {
             SEL sel = NSSelectorFromString(@"webViewVideoURL:");
-            if ([video.model respondsToSelector:sel]) {
-                [video.model performSelectorOnMainThread:sel withObject:request.URL waitUntilDone:NO];
+            if ([[VideoURL currentOperation] respondsToSelector:sel]) {
+                [[VideoURL currentOperation] performSelectorOnMainThread:sel withObject:request.URL waitUntilDone:NO];
             }
-            
         }
-//        return YES;
     }
     
     return NO;

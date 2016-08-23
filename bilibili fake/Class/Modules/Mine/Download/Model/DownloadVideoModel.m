@@ -83,6 +83,7 @@
             id value = [NSString stringWithUTF8String:pResult[c+r*col]];
             [page setValue:value forKey:key];
         }
+        page.aid = aid;
         [download.pages addObject:page];
     }
     

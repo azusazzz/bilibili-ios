@@ -7,28 +7,132 @@
 //
 
 #import "DownloadVideoPageCollectionViewCell.h"
+#import <ReactiveCocoa.h>
 
 @interface DownloadVideoPageCollectionViewCell ()
 {
     UILabel *pageLabel;
-    UILabel *titleLabel;
-    UILabel *leftInfoLabel;
-    UILabel *rightInfoLabel;
-    UIProgressView *progressView;
-    UIButton *statusButton;
+    
+    
+    
+    
+    
+    
+    RACDisposable *progressDisposable;
+    RACDisposable *statusDisposable;
 }
+
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UILabel *leftInfoLabel;
+@property (strong, nonatomic) UILabel *rightInfoLabel;
+@property (strong, nonatomic) UIProgressView *progressView;
+@property (strong, nonatomic) UIImageView *statusImageView;
+
 @end
 
 @implementation DownloadVideoPageCollectionViewCell
 
 + (CGFloat)height {
-    return 70.0;
+    return 16+10+14+5+4;
 }
 
-- (void)onClickStatusButton {
+- (void)setVideoPage:(DownloadVideoPageEntity *)videoPage {
+    
+    pageLabel.text = @(videoPage.page).stringValue;
+    _titleLabel.text = videoPage.part;
+    
+    _progressView.progress = 0.6;
+    
+    
+    
+    if ([videoPage.filePath length] > 0) {
+        _statusImageView.image = [UIImage imageNamed:@"download_complete"];
+        _leftInfoLabel.text = @"大小: 164.7MB";
+    }
+    else {
+        __weak typeof(self) weakself = self;
+        
+        _videoPage.operation.progressChanged = NULL;
+        _videoPage.operation.statusChanged = NULL;
+        
+        _videoPage = videoPage;
+        
+        [_videoPage.operation setProgressChanged:^(DownloadOperation * _Nonnull operation) {
+            if (operation.status == DownloadOperationStatusRuning) {
+                NSUInteger received = operation.countOfBytesReceived;
+                NSUInteger expectedToReceive = operation.countOfBytesExpectedToReceive;
+                weakself.rightInfoLabel.text = [NSString stringWithFormat:@"缓存中 %.2lf/%.2lfMB", received / 1024.0 / 1024.0, expectedToReceive / 1024.0 / 1024.0];
+                weakself.progressView.progress = received / (CGFloat)expectedToReceive;
+            }
+        }];
+        
+        [_videoPage.operation setStatusChanged:^(DownloadOperation * _Nonnull operation) {
+            DownloadOperationStatus status = operation.status;
+            if (status == DownloadOperationStatusWaiting) {
+                weakself.rightInfoLabel.text = @"等待中";
+                weakself.statusImageView.image = [UIImage imageNamed:@"download_start"];
+            }
+            else if (status == DownloadOperationStatusRuning) {
+                weakself.statusImageView.image = [UIImage imageNamed:@"download_stop"];
+                weakself.rightInfoLabel.text = @"缓存中";
+            }
+            else if (status == DownloadOperationStatusPause ||
+                     status ==  DownloadOperationStatusNone) {
+                weakself.rightInfoLabel.text = @"已暂停";
+                weakself.statusImageView.image = [UIImage imageNamed:@"download_start"];
+            }
+            else if (status == DownloadOperationStatusSuccess) {
+                weakself.rightInfoLabel.text = @"下载成功";
+                weakself.statusImageView.image = [UIImage imageNamed:@"download_complete"];
+            }
+            else if (status == DownloadOperationStatusFailure) {
+                weakself.rightInfoLabel.text = @"下载失败";
+                weakself.statusImageView.image = [UIImage imageNamed:@"download_complete"];
+            }
+        }];
+        
+        
+        /*
+        [statusDisposable dispose];
+        statusDisposable = [RACObserve(videoPage.operation, status) subscribeNext:^(id x) {
+            DownloadOperationStatus status = [x integerValue];
+            if (status == DownloadOperationStatusWaiting) {
+                weakself.rightInfoLabel.text = @"等待中";
+                weakself.statusImageView.image = [UIImage imageNamed:@"download_start"];
+            }
+            else if (status == DownloadOperationStatusRuning) {
+                weakself.statusImageView.image = [UIImage imageNamed:@"download_stop"];
+                weakself.rightInfoLabel.text = @"缓存中";
+            }
+            else if (status == DownloadOperationStatusPause ||
+                     status ==  DownloadOperationStatusNone) {
+                weakself.rightInfoLabel.text = @"已暂停";
+                weakself.statusImageView.image = [UIImage imageNamed:@"download_start"];
+            }
+            else if (status == DownloadOperationStatusSuccess) {
+                weakself.rightInfoLabel.text = @"下载成功";
+                weakself.statusImageView.image = [UIImage imageNamed:@"download_complete"];
+            }
+            else if (status == DownloadOperationStatusFailure) {
+                weakself.rightInfoLabel.text = @"下载失败";
+                weakself.statusImageView.image = [UIImage imageNamed:@"download_complete"];
+            }
+        }];
+        
+        [progressDisposable dispose];
+        __weak typeof(videoPage.operation) weakOperation = videoPage.operation;
+        progressDisposable = [RACObserve(videoPage.operation, countOfBytesReceived) subscribeNext:^(id x) {
+            if (weakOperation.status == DownloadOperationStatusRuning) {
+                NSUInteger received = weakOperation.countOfBytesReceived;
+                NSUInteger expectedToReceive = weakOperation.countOfBytesExpectedToReceive;
+                weakself.rightInfoLabel.text = [NSString stringWithFormat:@"缓存中 %.2lf/%.2lfMB", received / 1024.0 / 1024.0, expectedToReceive / 1024.0 / 1024.0];
+                weakself.progressView.progress = received / (CGFloat)expectedToReceive;
+            }
+        }];*/
+    }
+    
     
 }
-
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -41,36 +145,35 @@
     
     pageLabel = ({
         UILabel *label = [[UILabel alloc] init];
-        label.font = Font(12);
+        label.font = Font(14);
         label.textColor = CRed;
         label.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:label];
         label;
     });
     
-    titleLabel = [[UILabel alloc] init];
-    titleLabel.font = Font(14);
-    [self.contentView addSubview:titleLabel];
+    _titleLabel = [[UILabel alloc] init];
+    _titleLabel.font = Font(14);
+    [self.contentView addSubview:_titleLabel];
     
-    leftInfoLabel = [[UILabel alloc] init];
-    leftInfoLabel.font = Font(12);
-    leftInfoLabel.textColor = ColorWhite(146);
-    [self.contentView addSubview:leftInfoLabel];
+    _leftInfoLabel = [[UILabel alloc] init];
+    _leftInfoLabel.font = Font(12);
+    _leftInfoLabel.textColor = ColorWhite(146);
+    [self.contentView addSubview:_leftInfoLabel];
     
-    rightInfoLabel = [[UILabel alloc] init];
-    rightInfoLabel.font = Font(12);
-    rightInfoLabel.textColor = ColorWhite(146);
-    rightInfoLabel.textAlignment = NSTextAlignmentRight;
-    [self.contentView addSubview:rightInfoLabel];
+    _rightInfoLabel = [[UILabel alloc] init];
+    _rightInfoLabel.font = Font(12);
+    _rightInfoLabel.textColor = ColorWhite(146);
+    _rightInfoLabel.textAlignment = NSTextAlignmentRight;
+    [self.contentView addSubview:_rightInfoLabel];
     
-    progressView = [[UIProgressView alloc] init];
-    progressView.trackTintColor = [UIColor whiteColor];
-    progressView.progressTintColor = ColorWhite(146);
-    [self.contentView addSubview:progressView];
+    _progressView = [[UIProgressView alloc] init];
+    _progressView.trackTintColor = [UIColor whiteColor];
+    _progressView.progressTintColor = ColorWhite(146);
+    [self.contentView addSubview:_progressView];
     
-    statusButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [statusButton addTarget:self action:@selector(onClickStatusButton) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:statusButton];
+    _statusImageView = [[UIImageView alloc] init];
+    [self.contentView addSubview:_statusImageView];
     
     
     [pageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -79,16 +182,41 @@
         make.height.offset = 14;
         make.centerY.offset = 0;
     }];
-    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(pageLabel.mas_right).offset = 10;
         make.top.offset = 10;
-        make.right.equalTo(statusButton.mas_left).offset = -10;
-        
+        make.right.equalTo(_statusImageView.mas_left).offset = -15;
+        make.height.offset = 16;
+    }];
+    [_leftInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_titleLabel);
+        make.top.equalTo(_titleLabel.mas_bottom).offset = 10;
+        make.right.equalTo(_titleLabel);
+        make.height.offset = 14;
+    }];
+    [_rightInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(_leftInfoLabel);
+    }];
+    [_progressView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_titleLabel);
+        make.right.equalTo(_titleLabel);
+        make.top.equalTo(_leftInfoLabel.mas_bottom).offset = 5;
+        make.height.offset = 4;
+    }];
+    [_statusImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.offset = 0;
+        make.right.offset = -10;
+        make.width.offset = 15;
+        make.height.offset = 15;
     }];
     
-    
-    
     return self;
+}
+
+- (void)dealloc {
+    NSLog(@"%s", __FUNCTION__);
+    [statusDisposable dispose];
+    [progressDisposable dispose];
 }
 
 @end

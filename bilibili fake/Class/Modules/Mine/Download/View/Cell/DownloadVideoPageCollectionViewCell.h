@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DownloadVideoPageEntity.h"
 
 @interface DownloadVideoPageCollectionViewCell : UICollectionViewCell
+
+@property (weak, nonatomic) DownloadVideoPageEntity *videoPage;
 
 + (CGFloat)height;
 

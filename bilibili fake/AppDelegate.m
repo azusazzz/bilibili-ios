@@ -11,6 +11,11 @@
 #import "ScrollTabBarController.h"
 #import "DanmakuRequest.h"
 
+
+#import "VideoURL.h"
+
+#import "DownloadManager.h"
+
 @interface AppDelegate ()
 
 @end
@@ -27,9 +32,14 @@
     [StartViewController show];
     
     
-
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    DownloadOperation *operation = [[DownloadManager manager] operationWithAid:3743027 cid:6001707 page:1];
+//    [operation setProgressChanged:^(DownloadOperation * _Nonnull operation) {
+//        NSLog(@"%lf", operation.countOfBytesReceived / (CGFloat)operation.countOfBytesExpectedToReceive);
+//    }];
+//    [operation setStatusChanged:^(DownloadOperation * _Nonnull operation) {
+//        NSLog(@"%ld", operation.status);
+//    }];
+//    [operation resume];
     
     
     return YES;

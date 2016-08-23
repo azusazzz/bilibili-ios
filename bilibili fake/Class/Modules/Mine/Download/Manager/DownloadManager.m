@@ -49,23 +49,36 @@
 
 - (DownloadOperation *)operationWithURL:(NSURL *)url {
     __block DownloadOperation *operation;
-    
     [_operations enumerateObjectsUsingBlock:^(DownloadOperation * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj.url isEqual:url]) {
             operation = obj;
             *stop = YES;
         }
     }];
-    
     if (!operation) {
         operation = [[DownloadOperation alloc] initWithURL:url session:_session queue:_queue];;
         [_operations addObject:operation];
         [operation addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:NULL];
     }
-    
-    
     return operation;
 }
+
+- (DownloadOperation *)operationWithAid:(NSInteger)aid cid:(NSInteger)cid page:(NSInteger)page {
+    __block DownloadOperation *operation;
+    [_operations enumerateObjectsUsingBlock:^(DownloadOperation * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.cid == cid) {
+            operation = obj;
+            *stop = YES;
+        }
+    }];
+    if (!operation) {
+        operation = [[DownloadOperation alloc] initWithAid:aid cid:cid page:page session:_session queue:_queue];;
+        [_operations addObject:operation];
+        [operation addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:NULL];
+    }
+    return operation;
+}
+
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     

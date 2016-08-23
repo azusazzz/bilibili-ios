@@ -7,7 +7,23 @@
 //
 
 #import "DownloadVideoPageEntity.h"
+#import "DownloadManager.h"
+
+@interface DownloadVideoPageEntity ()
+{
+    DownloadOperation *_operation;
+}
+@end
 
 @implementation DownloadVideoPageEntity
+
+@dynamic operation;
+
+- (DownloadOperation *)operation {
+    if (!_operation && _aid > 0 && _cid > 0) {
+        _operation = [[DownloadManager manager] operationWithAid:_aid cid:_cid page:_page];
+    }
+    return _operation;
+}
 
 @end

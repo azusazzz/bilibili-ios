@@ -19,6 +19,4 @@
 
 @property (strong, nonatomic, readonly) NSMutableArray<DownloadVideoPageEntity *> *pages;
 
-//- (void)insertPages:(NSArray<DownloadVideoPageEntity *> *)pages;
-
 @end

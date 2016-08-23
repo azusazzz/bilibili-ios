@@ -8,7 +8,7 @@
 
 #import "DownloadOperation.h"
 #import "NSString+MD5.h"
-
+#import "VideoURL.h"
 
 @protocol __DownloadOperationDelegate <NSObject>
 
@@ -37,6 +37,11 @@
 @interface DownloadOperation ()
 <__DownloadOperationDelegate>
 
+@property (strong, nonatomic, nullable) NSURL *url;
+
+
+
+
 @property (strong, nonatomic, readonly, nonnull) __DownloadOperation *operation;
 @property (weak, nonatomic, nullable) NSOperationQueue *weakQueue;
 
@@ -54,6 +59,21 @@
 @end
 
 @implementation DownloadOperation
+
+- (instancetype)initWithAid:(NSInteger)aid cid:(NSInteger)cid page:(NSInteger)page session:(NSURLSession *)session queue:(NSOperationQueue *)queue {
+    if (self = [super init]) {
+        _aid = aid;
+        _cid = cid;
+        _page = page;
+        
+        _session = session;
+        _status = DownloadOperationStatusNone;
+        _operation = [[__DownloadOperation alloc] init];
+        _operation.delegate = self;
+        self.weakQueue = queue;
+    }
+    return self;
+}
 
 - (instancetype)initWithURL:(NSURL *)url session:(NSURLSession *)session queue:(NSOperationQueue *)queue {
     if (self = [super init]) {
@@ -93,7 +113,16 @@
         [_dataTask resume];
     }
     else {
-        [self.dataTask resume];
+        if (self.url) {
+            [self.dataTask resume];
+        }
+        else {
+            __weak typeof(self) weakself = self;
+            [VideoURL getVideoURLWithAid:_aid cid:_cid page:_page completionBlock:^(NSURL *videoURL) {
+                weakself.url = videoURL;
+                [weakself.dataTask resume];
+            }];
+        }
     }
 }
 
@@ -110,6 +139,10 @@
     
     [_fileHandle writeData:data];
     [_fileHandle seekToEndOfFile];
+    
+    
+    
+    !_progressChanged ?: _progressChanged(self);
 }
 
 - (void)completeWithError:(NSError *)error {
@@ -139,11 +172,12 @@
         default:
             break;
     }
+    !_statusChanged ?: _statusChanged(self);
 }
 
 - (NSURLSessionDataTask *)dataTask {
     if (!_dataTask) {
-        _filePath = [NSString stringWithFormat:@"%@/%@",self.downloadDirectory, _url.absoluteString.md5];
+        _filePath = [NSString stringWithFormat:@"%@/%ld",self.downloadDirectory, _cid];
         if (![[NSFileManager defaultManager] fileExistsAtPath:_filePath]) {
             [[NSFileManager defaultManager] createFileAtPath:_filePath contents:NULL attributes:NULL];
         }
@@ -163,11 +197,11 @@
 }
 
 - (unsigned long long)countOfBytesReceived {
-    return _downloadOffset + _dataTask.countOfBytesReceived;
+    return _downloadOffset + [_dataTask countOfBytesReceived];
 }
 
 - (unsigned long long)countOfBytesExpectedToReceive {
-    return _downloadOffset + _dataTask.countOfBytesExpectedToReceive;
+    return _downloadOffset + [_dataTask countOfBytesExpectedToReceive];
 }
 
 - (NSString *)downloadDirectory {
