@@ -43,6 +43,15 @@
         _operations = [NSMutableArray array];
         _queue = [[NSOperationQueue alloc] init];
         _queue.maxConcurrentOperationCount = 1;
+        
+        _downloadDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        BOOL isDirectory;
+        [[NSFileManager defaultManager] fileExistsAtPath:_downloadDirectory isDirectory:&isDirectory];
+        if (!isDirectory) {
+            [[NSFileManager defaultManager] createDirectoryAtPath:_downloadDirectory withIntermediateDirectories:YES attributes:NULL error:NULL];
+        }
+        
+        
     }
     return self;
 }

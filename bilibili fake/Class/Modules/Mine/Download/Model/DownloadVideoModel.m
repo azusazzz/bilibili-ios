@@ -43,13 +43,13 @@
     
     char *error = NULL;
     
-    NSString *createTableSQL = @"CREATE TABLE DownloadVideo (cid INTEGER PRIMARY KEY, part STRING, page INTEGER, filePath STRING, aid INTEGER NOT NULL, title STRING, pic STRING, date INTEGER);";
+    NSString *createTableSQL = @"CREATE TABLE DownloadVideo (cid INTEGER PRIMARY KEY, part STRING, page INTEGER, fileName STRING, aid INTEGER NOT NULL, title STRING, pic STRING, date INTEGER);";
     sqlite3_exec(sqlite, [createTableSQL UTF8String], NULL, NULL, &error);
     
     
     char **pResult;
     int row, col;
-    NSString *selectSQL = [NSString stringWithFormat:@"SELECT aid,title,pic, cid,part,page,filePath FROM DownloadVideo ORDER BY date ASC;"];
+    NSString *selectSQL = [NSString stringWithFormat:@"SELECT aid,title,pic, cid,part,page,fileName FROM DownloadVideo ORDER BY date ASC;"];
     if (sqlite3_get_table(sqlite, [selectSQL UTF8String], &pResult, &row, &col, &error) != SQLITE_OK) {
         printf("%s\n", error);
         return self;
@@ -107,7 +107,7 @@
                 if (!hasPage) {
                     // add
                     [entity.pages addObject:page];
-                    NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO DownloadVideo (cid, part, page, filePath, aid, title, pic, date) VALUES (%ld, \'%@\', %ld, \'%@\', %ld, \'%@\', \'%@\', %ld);", page.cid, page.part, page.page, @"", download.aid, download.title, download.pic, (NSInteger)[NSDate date].timeIntervalSince1970];
+                    NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO DownloadVideo (cid, part, page, fileName, aid, title, pic, date) VALUES (%ld, \'%@\', %ld, \'%@\', %ld, \'%@\', \'%@\', %ld);", page.cid, page.part, page.page, @"", download.aid, download.title, download.pic, (NSInteger)[NSDate date].timeIntervalSince1970];
                     char *error = NULL;
                     if (sqlite3_exec(sqlite, [insertSQL UTF8String], NULL, NULL, &error) != SQLITE_OK) {
                         printf("%s\n", error);
@@ -121,7 +121,7 @@
     [_list addObject:download];
     
     for (DownloadVideoPageEntity *page in download.pages) {
-        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO DownloadVideo (cid, part, page, filePath, aid, title, pic, date) VALUES (%ld, \'%@\', %ld, \'%@\', %ld, \'%@\', \'%@\', %ld);", page.cid, page.part, page.page, @"", download.aid, download.title, download.pic, (NSInteger)[NSDate date].timeIntervalSince1970];
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO DownloadVideo (cid, part, page, fileName, aid, title, pic, date) VALUES (%ld, \'%@\', %ld, \'%@\', %ld, \'%@\', \'%@\', %ld);", page.cid, page.part, page.page, @"", download.aid, download.title, download.pic, (NSInteger)[NSDate date].timeIntervalSince1970];
         char *error = NULL;
         if (sqlite3_exec(sqlite, [insertSQL UTF8String], NULL, NULL, &error) != SQLITE_OK) {
             printf("%s\n", error);

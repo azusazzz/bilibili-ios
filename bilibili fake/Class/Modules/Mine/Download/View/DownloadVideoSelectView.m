@@ -9,6 +9,7 @@
 #import "DownloadVideoSelectView.h"
 #import "UIViewController+GetViewController.h"
 #import "DownloadVideoModel.h"
+#import "DownloadVideoInfoViewController.h"
 
 @interface DownloadVideoSelectView ()
 <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
@@ -127,6 +128,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         [button setTitle:@"管理缓存(1)" forState:UIControlStateNormal];
         [button setTitleColor:CRed forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(downloadManger) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         button;
     });
@@ -244,6 +246,14 @@
     [pageCollectionView reloadData];
 }
 
+- (void)downloadManger {
+    for (DownloadVideoEntity *video in [DownloadVideoModel sharedInstance].list) {
+        if (video.aid == _videoInfo.aid) {
+            [[UIViewController currentNavigationViewController] pushViewController:[[DownloadVideoInfoViewController alloc] initWithDownloadVideo:video] animated:YES];
+            return;
+        }
+    }
+}
 
 #pragma mark - Number
 
@@ -311,7 +321,7 @@
     DownloadVideoPageEntity *page;
     
     if (page = [[DownloadVideoModel sharedInstance] hasVideoPageWithAid:_videoInfo.aid cid:pageInfo.cid], page) {
-        if ([page.filePath length] > 0) {
+        if ([page.fileName length] > 0) {
             statusImageView.image = [UIImage imageNamed:@"season_downloaded"];
         }
         else {
@@ -345,6 +355,8 @@
     [video.pages addObject:page];
     
     [[DownloadVideoModel sharedInstance] downloadVideo:video];
+    
+    [page.operation resume];
     
     [collectionView reloadItemsAtIndexPaths:@[indexPath]];
 }

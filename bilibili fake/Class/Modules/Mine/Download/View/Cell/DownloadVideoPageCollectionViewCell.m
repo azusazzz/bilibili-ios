@@ -18,8 +18,8 @@
     
     
     
-    RACDisposable *progressDisposable;
-    RACDisposable *statusDisposable;
+//    RACDisposable *progressDisposable;
+//    RACDisposable *statusDisposable;
 }
 
 @property (strong, nonatomic) UILabel *titleLabel;
@@ -41,13 +41,14 @@
     pageLabel.text = @(videoPage.page).stringValue;
     _titleLabel.text = videoPage.part;
     
-    _progressView.progress = 0.6;
     
-    
-    
-    if ([videoPage.filePath length] > 0) {
+    if ([videoPage.fileName length] > 0) {
         _statusImageView.image = [UIImage imageNamed:@"download_complete"];
-        _leftInfoLabel.text = @"大小: 164.7MB";
+        NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:videoPage.filePath error:NULL];
+        NSUInteger size = [[attributes valueForKey:NSFileSize] integerValue];
+        _leftInfoLabel.text = [NSString stringWithFormat:@"大小: %.1lfMB", size / 1024.0 / 1024.0];
+        _progressView.hidden = YES;
+        _rightInfoLabel.hidden = YES;
     }
     else {
         __weak typeof(self) weakself = self;
@@ -63,11 +64,13 @@
                 NSUInteger expectedToReceive = operation.countOfBytesExpectedToReceive;
                 weakself.rightInfoLabel.text = [NSString stringWithFormat:@"缓存中 %.2lf/%.2lfMB", received / 1024.0 / 1024.0, expectedToReceive / 1024.0 / 1024.0];
                 weakself.progressView.progress = received / (CGFloat)expectedToReceive;
+                NSLog(@"progress:%lf", weakself.progressView.progress);
             }
         }];
         
         [_videoPage.operation setStatusChanged:^(DownloadOperation * _Nonnull operation) {
             DownloadOperationStatus status = operation.status;
+            NSLog(@"Status:%ld", status);
             if (status == DownloadOperationStatusWaiting) {
                 weakself.rightInfoLabel.text = @"等待中";
                 weakself.statusImageView.image = [UIImage imageNamed:@"download_start"];
@@ -91,46 +94,7 @@
             }
         }];
         
-        
-        /*
-        [statusDisposable dispose];
-        statusDisposable = [RACObserve(videoPage.operation, status) subscribeNext:^(id x) {
-            DownloadOperationStatus status = [x integerValue];
-            if (status == DownloadOperationStatusWaiting) {
-                weakself.rightInfoLabel.text = @"等待中";
-                weakself.statusImageView.image = [UIImage imageNamed:@"download_start"];
-            }
-            else if (status == DownloadOperationStatusRuning) {
-                weakself.statusImageView.image = [UIImage imageNamed:@"download_stop"];
-                weakself.rightInfoLabel.text = @"缓存中";
-            }
-            else if (status == DownloadOperationStatusPause ||
-                     status ==  DownloadOperationStatusNone) {
-                weakself.rightInfoLabel.text = @"已暂停";
-                weakself.statusImageView.image = [UIImage imageNamed:@"download_start"];
-            }
-            else if (status == DownloadOperationStatusSuccess) {
-                weakself.rightInfoLabel.text = @"下载成功";
-                weakself.statusImageView.image = [UIImage imageNamed:@"download_complete"];
-            }
-            else if (status == DownloadOperationStatusFailure) {
-                weakself.rightInfoLabel.text = @"下载失败";
-                weakself.statusImageView.image = [UIImage imageNamed:@"download_complete"];
-            }
-        }];
-        
-        [progressDisposable dispose];
-        __weak typeof(videoPage.operation) weakOperation = videoPage.operation;
-        progressDisposable = [RACObserve(videoPage.operation, countOfBytesReceived) subscribeNext:^(id x) {
-            if (weakOperation.status == DownloadOperationStatusRuning) {
-                NSUInteger received = weakOperation.countOfBytesReceived;
-                NSUInteger expectedToReceive = weakOperation.countOfBytesExpectedToReceive;
-                weakself.rightInfoLabel.text = [NSString stringWithFormat:@"缓存中 %.2lf/%.2lfMB", received / 1024.0 / 1024.0, expectedToReceive / 1024.0 / 1024.0];
-                weakself.progressView.progress = received / (CGFloat)expectedToReceive;
-            }
-        }];*/
     }
-    
     
 }
 
@@ -215,8 +179,8 @@
 
 - (void)dealloc {
     NSLog(@"%s", __FUNCTION__);
-    [statusDisposable dispose];
-    [progressDisposable dispose];
+//    [statusDisposable dispose];
+//    [progressDisposable dispose];
 }
 
 @end

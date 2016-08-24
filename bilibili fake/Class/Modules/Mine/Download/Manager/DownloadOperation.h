@@ -36,7 +36,7 @@ typedef NS_ENUM(NSInteger, DownloadOperationStatus) {
 
 @property (assign, nonatomic, readonly) unsigned long long speed;
 
-@property (strong, nonatomic, nonnull) NSString *downloadDirectory;
+@property (strong, nonatomic, readonly, nonnull) NSString *filePath;
 
 @property (copy, nonatomic, nullable) void (^progressChanged)(DownloadOperation * _Nonnull peration);
 @property (copy, nonatomic, nullable) void (^statusChanged)(DownloadOperation * _Nonnull peration);

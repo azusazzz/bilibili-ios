@@ -12,6 +12,8 @@
 #import "DownloadVideoPageCollectionViewCell.h"
 
 #import "VideoViewController.h" // 视频播放
+#import "MediaPlayer.h"
+
 
 @interface DownloadVideoInfoViewController ()
 <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
@@ -114,11 +116,17 @@
 #pragma mark - Selected
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (_video.pages[indexPath.row].operation.status == DownloadOperationStatusRuning) {
-        [_video.pages[indexPath.row].operation pause];
+    if ([_video.pages[indexPath.row].fileName length] > 0) {
+        NSURL *videoURL = [NSURL fileURLWithPath:_video.pages[indexPath.row].filePath];
+        [MediaPlayer playerWithURL:videoURL cid:_video.pages[indexPath.row].cid title:_video.pages[indexPath.row].part inViewController:self];
     }
     else {
-        [_video.pages[indexPath.row].operation resume];
+        if (_video.pages[indexPath.row].operation.status == DownloadOperationStatusRuning) {
+            [_video.pages[indexPath.row].operation pause];
+        }
+        else {
+            [_video.pages[indexPath.row].operation resume];
+        }
     }
 }
 
@@ -127,7 +135,7 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
     CGPoint translation = [gestureRecognizer translationInView:_collectionView];
-    if (translation.x <= translation.y) {
+    if (fabs(translation.x) <= fabs(translation.y)) {
         return NO;
     }
     return YES;

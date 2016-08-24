@@ -10,6 +10,8 @@
 #import "NSString+MD5.h"
 #import "VideoURL.h"
 
+#import "DownloadManager.h"
+
 @protocol __DownloadOperationDelegate <NSObject>
 
 - (void)start;
@@ -48,7 +50,7 @@
 @property (weak, nonatomic) NSURLSession *session;
 @property (weak, nonatomic) NSURLSessionDataTask *dataTask;
 
-@property (strong, nonatomic) NSString *filePath;
+
 @property (strong, nonatomic) NSFileHandle *fileHandle;
 
 @property (assign, nonatomic) unsigned long long downloadOffset;
@@ -141,8 +143,9 @@
     [_fileHandle seekToEndOfFile];
     
     
-    
-    !_progressChanged ?: _progressChanged(self);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        !_progressChanged ?: _progressChanged(self);
+    });
 }
 
 - (void)completeWithError:(NSError *)error {
@@ -155,6 +158,7 @@
         NSString *toPath = [_filePath stringByAppendingPathExtension:_dataTask.response.suggestedFilename.pathExtension];
         NSURL *toURL = [NSURL fileURLWithPath:toPath];
         [[NSFileManager defaultManager] moveItemAtURL:[NSURL fileURLWithPath:_filePath] toURL:toURL error:NULL];
+        _filePath = toPath;
         self.status = DownloadOperationStatusSuccess;
     }
 }
@@ -172,12 +176,15 @@
         default:
             break;
     }
-    !_statusChanged ?: _statusChanged(self);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        !_statusChanged ?: _statusChanged(self);
+    });
 }
 
 - (NSURLSessionDataTask *)dataTask {
     if (!_dataTask) {
-        _filePath = [NSString stringWithFormat:@"%@/%ld",self.downloadDirectory, _cid];
+        _filePath = [NSString stringWithFormat:@"%@/%ld", DownloadDirectory, _cid];
         if (![[NSFileManager defaultManager] fileExistsAtPath:_filePath]) {
             [[NSFileManager defaultManager] createFileAtPath:_filePath contents:NULL attributes:NULL];
         }
@@ -204,16 +211,13 @@
     return _downloadOffset + [_dataTask countOfBytesExpectedToReceive];
 }
 
-- (NSString *)downloadDirectory {
-    if (!_downloadDirectory) {
-        _downloadDirectory = @"/Users/cezr/Desktop/Download";
-    }
-    BOOL isDirectory;
-    [[NSFileManager defaultManager] fileExistsAtPath:_downloadDirectory isDirectory:&isDirectory];
-    if (!isDirectory) {
-        [[NSFileManager defaultManager] createDirectoryAtPath:_downloadDirectory withIntermediateDirectories:YES attributes:NULL error:NULL];
-    }
-    return _downloadDirectory;
+- (void)setProgressChanged:(void (^)(DownloadOperation * _Nonnull))progressChanged {
+    _progressChanged = [progressChanged copy];
+    !_progressChanged ?: _progressChanged(self);
+}
+- (void)setStatusChanged:(void (^)(DownloadOperation * _Nonnull))statusChanged {
+    _statusChanged = [statusChanged copy];
+    !_statusChanged ?: _statusChanged(self);
 }
 
 @end

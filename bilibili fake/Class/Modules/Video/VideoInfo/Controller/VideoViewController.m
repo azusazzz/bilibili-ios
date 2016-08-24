@@ -133,16 +133,15 @@
  *  播放视频
  */
 - (void)playVideo {
+    if (!self.model.videoInfo) {
+        return;
+    }
+    
     __weak typeof(self) weakself = self;
     HUDLoading(@"正在解析视频地址");
     [self.model getVideoURLWithCid:self.currentPage.cid completionBlock:^(NSURL *videoURL) {
         HUDLoadingHidden();
         if (videoURL) {
-//            NSString *title = weakself.currentPage.part;
-//            if (title) {
-//                title = weakself.model.videoInfo.title;
-//            }
-//            [MediaPlayer playerWithURL:videoURL title:title inViewController:weakself];
             [MediaPlayer playerWithURL:videoURL cid:weakself.currentPage.cid title:weakself.currentPage.part inViewController:weakself];
         }
         else {
