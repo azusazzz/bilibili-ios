@@ -25,4 +25,61 @@
     return _pages;
 }
 
+- (DownloadOperationStatus)status {
+    if (self.countRuning > 0) {
+        return DownloadOperationStatusRuning;
+    }
+    else if (self.countWaiting > 0) {
+        return DownloadOperationStatusWaiting;
+    }
+    else if (self.countWaiting > 0) {
+        return DownloadOperationStatusPause;
+    }
+    else {
+        return DownloadOperationStatusSuccess;
+    }
+    /*
+    DownloadOperationStatus status = DownloadOperationStatusSuccess;
+    for (DownloadVideoPageEntity *page in _pages) {
+        if (page.operation.status == DownloadOperationStatusRuning) {
+            return DownloadOperationStatusRuning;
+        }
+        else if (page.operation.status == DownloadOperationStatusWaiting) {
+            status = status != DownloadOperationStatusRuning ? DownloadOperationStatusWaiting : status;
+        }
+        else if (page.operation.status == DownloadOperationStatusPause) {
+            status = status != DownloadOperationStatusRuning && status != DownloadOperationStatusWaiting ? DownloadOperationStatusPause : status;
+        }
+    }
+    return status;*/
+}
+
+- (NSUInteger)countSuccess {
+    NSUInteger count = 0;
+    for (DownloadVideoPageEntity *page in _pages) {
+        if ([page.fileName length] > 0) {
+            ++count;
+        }
+    }
+    return count;
+}
+- (NSUInteger)countRuning {
+    NSUInteger count = 0;
+    for (DownloadVideoPageEntity *page in _pages) {
+        if (page.operation.status == DownloadOperationStatusRuning) {
+            ++count;
+        }
+    }
+    return count;
+}
+- (NSUInteger)countWaiting {
+    NSUInteger count = 0;
+    for (DownloadVideoPageEntity *page in _pages) {
+        if (page.operation.status == DownloadOperationStatusWaiting) {
+            ++count;
+        }
+    }
+    return count;
+}
+
 @end

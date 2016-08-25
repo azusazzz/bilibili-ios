@@ -236,6 +236,7 @@
     if (indexPath.section == 0) {
         if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
             ((BangumiEntranceHeaderView *)view).banners = _bangumiList.banners;
+            ((BangumiEntranceHeaderView *)view).onClickBannerItem = _onClickBannerItem;
         }
     }
     else if (indexPath.section == 1) {

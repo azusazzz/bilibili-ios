@@ -9,6 +9,7 @@
 #import "LiveListBannerView.h"
 #import <UIImageView+WebCache.h>
 #import "BannerView.h"
+#import <ReactiveCocoa.h>
 
 @interface LiveListBannerView ()
 {
@@ -28,6 +29,7 @@
 }
 
 - (void)setBanner:(NSArray<LiveListBannerEntity *> *)banner {
+    _banner = banner;
     NSMutableArray *urls = [NSMutableArray arrayWithCapacity:banner.count];
     for (LiveListBannerEntity *item in banner) {
         [urls addObject:[NSURL URLWithString:item.img]];
@@ -44,6 +46,14 @@
         }];
     }
     return self;
+}
+
+- (void)setOnClickBannerItem:(void (^)(LiveListBannerEntity *))onClickBannerItem {
+    _onClickBannerItem = onClickBannerItem;
+    __weak typeof(self) weakself = self;
+    [_bannerView setOnClickBannerItem:^(NSUInteger index) {
+        weakself.onClickBannerItem(weakself.banner[index]);
+    }];
 }
 
 @end

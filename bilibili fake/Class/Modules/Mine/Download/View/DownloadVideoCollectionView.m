@@ -26,6 +26,7 @@
         self.backgroundColor = ColorWhite(247);
         self.dataSource = self;
         self.delegate = self;
+        self.alwaysBounceVertical = YES;
         [self registerClass:[DownloadVideoCollectionViewCell class] forCellWithReuseIdentifier:@"DownloadVideo"];
     }
     return self;

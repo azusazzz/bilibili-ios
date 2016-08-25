@@ -30,6 +30,10 @@
     return HTTPMethodGet;
 }
 
+- (NSTimeInterval)cacheTimeoutInterval {
+    return 60 * 60 * 3;
+}
+
 - (NSObject *)parameters {
     return @{@"cid": @(_cid)};
 }

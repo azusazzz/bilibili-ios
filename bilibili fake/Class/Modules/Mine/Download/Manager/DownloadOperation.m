@@ -110,19 +110,28 @@
 
 #pragma mark __DownloadOperationDelegate
 - (void)start {
-    self.status = DownloadOperationStatusRuning;
+    
     if (_dataTask) {
+        self.status = DownloadOperationStatusRuning;
         [_dataTask resume];
     }
     else {
         if (self.url) {
+            self.status = DownloadOperationStatusRuning;
             [self.dataTask resume];
         }
         else {
             __weak typeof(self) weakself = self;
+            self.status = DownloadOperationStatusGetURLing;
             [VideoURL getVideoURLWithAid:_aid cid:_cid page:_page completionBlock:^(NSURL *videoURL) {
-                weakself.url = videoURL;
-                [weakself.dataTask resume];
+                if (videoURL) {
+                    self.status = DownloadOperationStatusRuning;
+                    weakself.url = videoURL;
+                    [weakself.dataTask resume];
+                }
+                else {
+                    weakself.status = DownloadOperationStatusFailure;
+                }
             }];
         }
     }
@@ -157,7 +166,9 @@
     else {
         NSString *toPath = [_filePath stringByAppendingPathExtension:_dataTask.response.suggestedFilename.pathExtension];
         NSURL *toURL = [NSURL fileURLWithPath:toPath];
-        [[NSFileManager defaultManager] moveItemAtURL:[NSURL fileURLWithPath:_filePath] toURL:toURL error:NULL];
+        if (![[NSFileManager defaultManager] moveItemAtURL:[NSURL fileURLWithPath:_filePath] toURL:toURL error:NULL]) {
+            [[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:_filePath] error:NULL];
+        };
         _filePath = toPath;
         self.status = DownloadOperationStatusSuccess;
     }

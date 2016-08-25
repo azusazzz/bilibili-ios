@@ -17,4 +17,6 @@
 
 @property (copy, nonatomic) NSArray<NSURL *> *urls;
 
+@property (strong, nonatomic) void (^onClickBannerItem)(NSUInteger index);
+
 @end

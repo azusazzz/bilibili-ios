@@ -158,9 +158,9 @@
     }
     
     NSInteger index = 0;
-    NSTimeInterval minTime = ((DanmakuLabel *)_topAndBottomDanmakuLabels[0]).animateDuration;
-    for (NSInteger idx=1; idx<_topAndBottomDanmakuLabels.count; idx++) {
-        NSTimeInterval animateDuration = ((DanmakuLabel *)_topAndBottomDanmakuLabels[0]).animateDuration;
+    NSTimeInterval minTime = ((DanmakuLabel *)_normalDanmakuLabels[0]).animateDuration;
+    for (NSInteger idx=1; idx<_normalDanmakuLabels.count; idx++) {
+        NSTimeInterval animateDuration = ((DanmakuLabel *)_normalDanmakuLabels[0]).animateDuration;
         if (animateDuration < minTime) {
             index = idx;
             minTime = animateDuration;

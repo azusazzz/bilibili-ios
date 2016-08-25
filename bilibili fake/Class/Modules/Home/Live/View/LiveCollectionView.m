@@ -170,6 +170,7 @@
     if (indexPath.section == 0) {
         if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
             ((LiveListBannerView *)view).banner = _liveList.banner;
+            ((LiveListBannerView *)view).onClickBannerItem = _onClickBannerItem;
         }
     }
     else {

@@ -19,4 +19,13 @@
 
 @property (strong, nonatomic, readonly) NSMutableArray<DownloadVideoPageEntity *> *pages;
 
+
+@property (assign, nonatomic, readonly) DownloadOperationStatus status;
+
+@property (assign, nonatomic, readonly) NSUInteger countSuccess;
+
+@property (assign, nonatomic, readonly) NSUInteger countRuning;
+
+@property (assign, nonatomic, readonly) NSUInteger countWaiting;
+
 @end

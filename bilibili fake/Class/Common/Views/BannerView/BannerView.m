@@ -155,6 +155,22 @@
     [cell.imageView sd_setImageWithURL:_urls[indexPath.row]];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger index = indexPath.row;
+    if ([_urls count] > 1) {
+        if (index == 0) {
+            index = [_urls count] - 2 - 1;
+        }
+        else if (index == [_urls count] -1) {
+            index = 0;
+        }
+        else {
+            index -= 1;
+        }
+    }
+    
+    !_onClickBannerItem ?: _onClickBannerItem(_index - 1);
+}
 
 #pragma mark - UIScrollViewDelegate
 

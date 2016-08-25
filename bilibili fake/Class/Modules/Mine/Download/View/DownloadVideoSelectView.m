@@ -235,6 +235,7 @@
         page.cid = videoPageInfo.cid;
         page.part = videoPageInfo.part;
         page.page = videoPageInfo.page;
+        [page.operation resume];
         [video.pages addObject:page];
     }
     
@@ -242,17 +243,36 @@
         return;
     }
     
+    
+    
     [[DownloadVideoModel sharedInstance] downloadVideo:video];
     [pageCollectionView reloadData];
 }
 
 - (void)downloadManger {
-    for (DownloadVideoEntity *video in [DownloadVideoModel sharedInstance].list) {
-        if (video.aid == _videoInfo.aid) {
-            [[UIViewController currentNavigationViewController] pushViewController:[[DownloadVideoInfoViewController alloc] initWithDownloadVideo:video] animated:YES];
-            return;
+    DownloadVideoEntity *video;
+    for (DownloadVideoEntity *obj in [DownloadVideoModel sharedInstance].list) {
+        if (obj.aid == _videoInfo.aid) {
+            video = obj;
+            break;
         }
     }
+    
+    if (!video) {
+        return;
+    }
+    
+    for (UIViewController *controller in [UIViewController currentNavigationViewController].viewControllers) {
+        if ([controller isKindOfClass:[DownloadVideoInfoViewController class]]) {
+            DownloadVideoInfoViewController *downloadInfoController = (DownloadVideoInfoViewController *)controller;
+            if (downloadInfoController.video.aid == video.aid) {
+                [[UIViewController currentNavigationViewController] popToViewController:controller animated:YES];
+                return;
+            }
+        }
+    }
+    
+    [[UIViewController currentNavigationViewController] pushViewController:[[DownloadVideoInfoViewController alloc] initWithDownloadVideo:video] animated:YES];
 }
 
 #pragma mark - Number

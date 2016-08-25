@@ -12,6 +12,7 @@
 typedef NS_ENUM(NSInteger, DownloadOperationStatus) {
     DownloadOperationStatusNone,
     DownloadOperationStatusWaiting,
+    DownloadOperationStatusGetURLing,
     DownloadOperationStatusRuning,
     DownloadOperationStatusPause,
     DownloadOperationStatusSuccess,

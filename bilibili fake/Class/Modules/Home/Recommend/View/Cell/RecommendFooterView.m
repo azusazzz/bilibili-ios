@@ -14,6 +14,9 @@
 {
     BannerView *_bannerView;
 }
+
+@property (strong, nonatomic) NSArray<RecommendBannerEntity *> *banner;
+
 @end
 
 @implementation RecommendFooterView
@@ -23,6 +26,7 @@
 }
 
 - (void)setBanner:(NSArray<RecommendBannerEntity *> *)banner {
+    _banner = banner;
     if ([banner count]) {
         [self addSubview:_bannerView];
         [_bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -40,6 +44,14 @@
     else {
         [_bannerView removeFromSuperview];
     }
+}
+
+- (void)setOnClickBannerItem:(void (^)(RecommendBannerEntity *))onClickBannerItem {
+    _onClickBannerItem = onClickBannerItem;
+    __weak typeof(self) weakself = self;
+    [_bannerView setOnClickBannerItem:^(NSUInteger index) {
+        weakself.onClickBannerItem(weakself.banner[index]);
+    }];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {

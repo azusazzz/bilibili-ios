@@ -17,6 +17,9 @@
     UIImageView *_leftImageView;
     UILabel *_leftTitleLabel;
 }
+
+@property (strong, nonatomic) NSArray<RecommendBannerEntity *> *banner;
+
 @end
 
 @implementation RecommendHeaderView
@@ -30,6 +33,8 @@
 }
 
 - (void)setRecommend:(RecommendEntity *)recommend {
+    _banner = recommend.banner_top;
+    
     _leftTitleLabel.text = recommend.title;
     _leftImageView.image = [UIImage imageNamed:recommend.logoIconNmae];
     if ([recommend.banner_top count]) {
@@ -50,6 +55,14 @@
     else {
         [_bannerView removeFromSuperview];
     }
+}
+
+- (void)setOnClickBannerItem:(void (^)(RecommendBannerEntity *))onClickBannerItem {
+    _onClickBannerItem = onClickBannerItem;
+    __weak typeof(self) weakself = self;
+    [_bannerView setOnClickBannerItem:^(NSUInteger index) {
+        weakself.onClickBannerItem(weakself.banner[index]);
+    }];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {

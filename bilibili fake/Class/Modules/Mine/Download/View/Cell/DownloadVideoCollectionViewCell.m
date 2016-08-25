@@ -22,7 +22,17 @@
 - (void)setDownloadVideoEntity:(DownloadVideoEntity *)downloadVideoEntity {
     [picImageView sd_setImageWithURL:[NSURL URLWithString:downloadVideoEntity.pic]];
     titleLabel.text = downloadVideoEntity.title;
-    infoLabel.text = [NSString stringWithFormat:@"已完成 运行中:0 已完成:0 总下载:%ld", downloadVideoEntity.pages.count];
+    
+    if (downloadVideoEntity.status == DownloadOperationStatusSuccess) {
+        infoLabel.text = [NSString stringWithFormat:@"已完成 运行中:%lu 已完成:%lu 总下载:%lu", downloadVideoEntity.countRuning, downloadVideoEntity.countSuccess, downloadVideoEntity.pages.count];
+    }
+    else if (downloadVideoEntity.status == DownloadOperationStatusWaiting) {
+        infoLabel.text = [NSString stringWithFormat:@"等待中 运行中:%lu 已完成:%lu 总下载:%lu", downloadVideoEntity.countRuning, downloadVideoEntity.countSuccess, downloadVideoEntity.pages.count];
+    }
+    else if (downloadVideoEntity.status == DownloadOperationStatusRuning) {
+        infoLabel.text = [NSString stringWithFormat:@"缓存中 运行中:%lu 已完成:%lu 总下载:%lu", downloadVideoEntity.countRuning, downloadVideoEntity.countSuccess, downloadVideoEntity.pages.count];
+    }
+    
     
     [titleLabel layoutIfNeeded];
     [titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {

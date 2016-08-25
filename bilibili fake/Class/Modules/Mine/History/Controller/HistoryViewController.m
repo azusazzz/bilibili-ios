@@ -110,8 +110,6 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
     CGPoint translation = [gestureRecognizer translationInView:_collectionView];
-    NSLog(@"%lf,%lf", translation.x, translation.y);
-    
     if (fabs(translation.x) <= fabs(translation.y)) {
         return NO;
     }

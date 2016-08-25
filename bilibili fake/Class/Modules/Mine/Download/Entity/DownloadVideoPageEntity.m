@@ -81,4 +81,8 @@
     return [DownloadDirectory stringByAppendingPathComponent:_fileName];
 }
 
+- (void)insertDatabase {
+    
+}
+
 @end

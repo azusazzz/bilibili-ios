@@ -316,9 +316,6 @@ typedef NS_ENUM(NSInteger, PanGestureHandleMode) {
         make.height.offset = 44;
     }];
     [_backButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.offset = 15;
-//        make.width.offset = 25;
-//        make.height.offset = 25;
         make.left.offset = 5;
         make.width.equalTo(_topView.mas_height);
         make.height.equalTo(_topView);

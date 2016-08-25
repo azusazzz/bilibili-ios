@@ -81,4 +81,8 @@ static void DeferBlock(__strong void(^*block)(void)) {
 #define RequiresSuper __attribute__((objc_requires_super))
 
 
+// 弱引用对象
+#define WeakObject(object) __weak typeof(object) weakobject = object;
+
+
 #endif /* Macro_h */

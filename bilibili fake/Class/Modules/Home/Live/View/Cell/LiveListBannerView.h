@@ -13,6 +13,8 @@
 
 @property (strong, nonatomic) NSArray<LiveListBannerEntity *> *banner;
 
+@property (strong, nonatomic) void (^onClickBannerItem)(LiveListBannerEntity *banner);
+
 + (CGFloat)heightForBanner:(NSArray<LiveListBannerEntity *> *)banner width:(CGFloat)width;
 
 @end

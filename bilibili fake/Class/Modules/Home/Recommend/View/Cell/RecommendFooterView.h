@@ -11,6 +11,8 @@
 
 @interface RecommendFooterView : UICollectionReusableView
 
+@property (strong, nonatomic) void (^onClickBannerItem)(RecommendBannerEntity *banner);
+
 + (CGFloat)heightForBanner:(NSArray<RecommendBannerEntity *> *)banner width:(CGFloat)width;
 
 - (void)setBanner:(NSArray<RecommendBannerEntity *> *)banner;

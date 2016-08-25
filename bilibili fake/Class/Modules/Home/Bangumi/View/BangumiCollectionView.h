@@ -13,5 +13,7 @@
 
 @property (strong, nonatomic) BangumiListEntity *bangumiList;
 
+@property (strong, nonatomic) void (^onClickBannerItem)(BangumiBannerEntity *banner);
+
 
 @end

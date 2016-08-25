@@ -15,4 +15,6 @@
 
 @property (strong, nonatomic) void (^handleDidSelectedItem)(NSIndexPath *indexPath);
 
+@property (strong, nonatomic) void (^onClickBannerItem)(RecommendBannerEntity *banner);
+
 @end

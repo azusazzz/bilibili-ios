@@ -20,9 +20,6 @@
 {
     UICollectionView *_collectionView;
 }
-
-@property (strong, nonatomic) DownloadVideoEntity *video;
-
 @end
 
 @implementation DownloadVideoInfoViewController

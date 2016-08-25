@@ -64,7 +64,6 @@
                 NSUInteger expectedToReceive = operation.countOfBytesExpectedToReceive;
                 weakself.rightInfoLabel.text = [NSString stringWithFormat:@"缓存中 %.2lf/%.2lfMB", received / 1024.0 / 1024.0, expectedToReceive / 1024.0 / 1024.0];
                 weakself.progressView.progress = received / (CGFloat)expectedToReceive;
-                NSLog(@"progress:%lf", weakself.progressView.progress);
             }
         }];
         
@@ -74,6 +73,10 @@
             if (status == DownloadOperationStatusWaiting) {
                 weakself.rightInfoLabel.text = @"等待中";
                 weakself.statusImageView.image = [UIImage imageNamed:@"download_start"];
+            }
+            else if (status == DownloadOperationStatusGetURLing) {
+                weakself.statusImageView.image = [UIImage imageNamed:@"download_stop"];
+                weakself.rightInfoLabel.text = @"正在解析下载地址";
             }
             else if (status == DownloadOperationStatusRuning) {
                 weakself.statusImageView.image = [UIImage imageNamed:@"download_stop"];

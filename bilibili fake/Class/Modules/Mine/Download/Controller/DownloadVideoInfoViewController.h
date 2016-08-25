@@ -11,6 +11,8 @@
 
 @interface DownloadVideoInfoViewController : UIViewController
 
+@property (strong, nonatomic, readonly) DownloadVideoEntity *video;
+
 - (instancetype)initWithDownloadVideo:(DownloadVideoEntity *)downloadVideo;
 
 @end

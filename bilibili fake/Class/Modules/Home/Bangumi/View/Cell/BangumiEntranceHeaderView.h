@@ -13,6 +13,8 @@
 
 @property (strong, nonatomic) NSArray<BangumiBannerEntity *> *banners;
 
+@property (strong, nonatomic) void (^onClickBannerItem)(BangumiBannerEntity *banner);
+
 + (CGFloat)heightForBanner:(NSArray<BangumiBannerEntity *> *)banner width:(CGFloat)width;
 
 @end

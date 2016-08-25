@@ -14,6 +14,7 @@
 #import "DownloadVideoInfoViewController.h"
 
 @interface DownloadVideoManagerViewController ()
+<UIGestureRecognizerDelegate>
 {
     DownloadVideoCollectionView *_collectionView;
     DownloadVideoModel *_model;
@@ -45,12 +46,27 @@
     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [_collectionView reloadData];
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle; {
     return UIStatusBarStyleLightContent;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
+    CGPoint translation = [gestureRecognizer translationInView:_collectionView];
+    if (fabs(translation.x) <= fabs(translation.y)) {
+        return NO;
+    }
+    return YES;
 }
 
 - (void)loadData {
@@ -73,6 +89,7 @@
     SEL internalAction = NSSelectorFromString(@"handleNavigationTransition:");
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:internalTarget action:internalAction];
+    panGestureRecognizer.delegate = self;
     panGestureRecognizer.maximumNumberOfTouches = 1;
     [self.view addGestureRecognizer:panGestureRecognizer];
     

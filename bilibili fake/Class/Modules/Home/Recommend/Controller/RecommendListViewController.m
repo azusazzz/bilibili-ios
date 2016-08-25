@@ -12,6 +12,8 @@
 
 #import "VideoViewController.h" // 视频信息
 
+#import "URLRouter.h"
+
 @interface RecommendListViewController ()
 <RefreshCollectionViewDelegate>
 {
@@ -47,7 +49,9 @@
     [_collectionView setHandleDidSelectedItem:^(NSIndexPath *indexPath) {
         [weakself handleDidSelectedItem:indexPath];
     }];
-    
+    [_collectionView setOnClickBannerItem:^(RecommendBannerEntity *banner) {
+        [URLRouter openURL:banner.uri];
+    }];
     
     [self loadData];
     

@@ -115,9 +115,11 @@
 - (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
     if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
         ((RecommendHeaderView *)view).recommend = _list[indexPath.section];
+        ((RecommendHeaderView *)view).onClickBannerItem = _onClickBannerItem;
     }
     else if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
         ((RecommendFooterView *)view).banner = _list[indexPath.section].banner_bottom;
+        ((RecommendFooterView *)view).onClickBannerItem = _onClickBannerItem;
     }
     [super collectionView:collectionView willDisplaySupplementaryView:view forElementKind:elementKind atIndexPath:indexPath];
 }

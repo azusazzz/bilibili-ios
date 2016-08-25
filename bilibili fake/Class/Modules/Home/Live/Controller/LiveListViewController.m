@@ -10,6 +10,9 @@
 #import "MediaPlayer.h"
 #import "LiveListModel.h"
 #import "LiveCollectionView.h"
+#import "LivePlayer.h"
+
+#import "URLRouter.h"
 
 @interface LiveListViewController ()
 <RefreshCollectionViewDelegate>
@@ -39,12 +42,14 @@
     [self loadData];
     
     
-//    __weak typeof(self) weakself = self;
+    __weak typeof(self) weakself = self;
     
     [_collectionView setHandleDidSelectedLive:^(LiveListPartitionLiveEntity *live) {
-//        [MediaPlayer livePlayerWithURL:[NSURL URLWithString:live.playurl] title:live.title inViewController:weakself];
+        [LivePlayer playLiveWithURL:[NSURL URLWithString:live.playurl] title:live.title inController:weakself];
     }];
-    
+    [_collectionView setOnClickBannerItem:^(LiveListBannerEntity *banner) {
+        [URLRouter openURL:banner.link];
+    }];
     
     
 }

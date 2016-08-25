@@ -25,11 +25,20 @@
 }
 
 - (void)setBanners:(NSArray<BangumiBannerEntity *> *)banners {
+    _banners = banners;
     NSMutableArray *urls = [NSMutableArray arrayWithCapacity:banners.count];
     for (BangumiBannerEntity *item in banners) {
         [urls addObject:[NSURL URLWithString:item.img]];
     }
     _bannerView.urls = urls;
+}
+
+- (void)setOnClickBannerItem:(void (^)(BangumiBannerEntity *))onClickBannerItem {
+    _onClickBannerItem = onClickBannerItem;
+    __weak typeof(self) weakself = self;
+    [_bannerView setOnClickBannerItem:^(NSUInteger index) {
+        weakself.onClickBannerItem(weakself.banners[index]);
+    }];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {

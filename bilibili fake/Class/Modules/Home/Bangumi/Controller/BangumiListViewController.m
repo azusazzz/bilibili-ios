@@ -10,6 +10,8 @@
 #import "BangumiListModel.h"
 #import "BangumiCollectionView.h"
 
+#import "URLRouter.h"
+
 @interface BangumiListViewController ()
 <RefreshCollectionViewDelegate>
 
@@ -36,6 +38,10 @@
     [self loadSubviews];
     
     [self loadData];
+    
+    [_collectionView setOnClickBannerItem:^(BangumiBannerEntity *banner) {
+        [URLRouter openURL:banner.link];
+    }];
     
 }
 

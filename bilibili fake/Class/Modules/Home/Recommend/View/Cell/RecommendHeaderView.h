@@ -11,6 +11,8 @@
 
 @interface RecommendHeaderView : UICollectionReusableView
 
+@property (strong, nonatomic) void (^onClickBannerItem)(RecommendBannerEntity *banner);
+
 + (CGFloat)heightForRecommend:(RecommendEntity *)recommend width:(CGFloat)width;
 
 - (void)setRecommend:(RecommendEntity *)recommend;

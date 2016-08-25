@@ -25,4 +25,6 @@
 
 @property (strong, nonatomic, readonly) NSString *filePath;
 
+- (void)insertDatabase;
+
 @end

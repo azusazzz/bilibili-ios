@@ -18,4 +18,6 @@
 
 @property (strong, nonatomic) void (^handleDidSelectedLive)(LiveListPartitionLiveEntity *live);
 
+@property (strong, nonatomic) void (^onClickBannerItem)(LiveListBannerEntity *banner);
+
 @end
