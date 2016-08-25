@@ -128,6 +128,7 @@
 		6E9CA3041D6F01F6004B2C86 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA3031D6F01F6004B2C86 /* WebViewController.m */; };
 		6E9CA30E1D6F07B5004B2C86 /* URLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA30D1D6F07B5004B2C86 /* URLRouter.m */; };
 		6E9CA3141D6F1B46004B2C86 /* UIViewController+URLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA3131D6F1B46004B2C86 /* UIViewController+URLRouter.m */; };
+		6E9CA3171D6F2F0F004B2C86 /* WebViewCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA3161D6F2F0F004B2C86 /* WebViewCache.m */; };
 		6EB450291D51F26E00A4F626 /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB450281D51F26E00A4F626 /* DownloadManager.m */; };
 		6EB4502C1D51F30600A4F626 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4502B1D51F30600A4F626 /* DownloadOperation.m */; };
 		6EB450301D51FD0000A4F626 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4502F1D51FD0000A4F626 /* NSString+MD5.m */; };
@@ -506,6 +507,8 @@
 		6E9CA30D1D6F07B5004B2C86 /* URLRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLRouter.m; sourceTree = "<group>"; };
 		6E9CA3121D6F1B46004B2C86 /* UIViewController+URLRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+URLRouter.h"; sourceTree = "<group>"; };
 		6E9CA3131D6F1B46004B2C86 /* UIViewController+URLRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+URLRouter.m"; sourceTree = "<group>"; };
+		6E9CA3151D6F2F0F004B2C86 /* WebViewCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewCache.h; sourceTree = "<group>"; };
+		6E9CA3161D6F2F0F004B2C86 /* WebViewCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewCache.m; sourceTree = "<group>"; };
 		6EB450271D51F26E00A4F626 /* DownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManager.h; sourceTree = "<group>"; };
 		6EB450281D51F26E00A4F626 /* DownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadManager.m; sourceTree = "<group>"; };
 		6EB4502A1D51F30600A4F626 /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
@@ -1490,6 +1493,8 @@
 			children = (
 				6E9CA3021D6F01F6004B2C86 /* WebViewController.h */,
 				6E9CA3031D6F01F6004B2C86 /* WebViewController.m */,
+				6E9CA3151D6F2F0F004B2C86 /* WebViewCache.h */,
+				6E9CA3161D6F2F0F004B2C86 /* WebViewCache.m */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -2665,6 +2670,7 @@
 				6E59762E1D5C6FBB00D520E0 /* DanmakuEntity.m in Sources */,
 				6E23777E1D536BD400102550 /* UIViewController+HeaderView.m in Sources */,
 				6E2A92ED1D64657500A8F9BA /* TestRefreshCollectionView.m in Sources */,
+				6E9CA3171D6F2F0F004B2C86 /* WebViewCache.m in Sources */,
 				6E76344E1D3F563A002CFA63 /* UIViewController+GetViewController.m in Sources */,
 				6E5976311D5C6FC900D520E0 /* DanmakuModel.m in Sources */,
 				6E4836551D409617004AD1A4 /* UIImage+BlurEffect.swift in Sources */,

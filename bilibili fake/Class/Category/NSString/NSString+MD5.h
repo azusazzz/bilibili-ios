@@ -12,4 +12,6 @@
 
 @property (assign, nonatomic, readonly) NSString *md5;
 
+@property (assign, nonatomic, readonly) NSString *MD5;
+
 @end

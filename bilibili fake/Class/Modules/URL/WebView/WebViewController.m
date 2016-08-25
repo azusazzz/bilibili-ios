@@ -58,6 +58,11 @@
     
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle; {
     return UIStatusBarStyleLightContent;
 }
