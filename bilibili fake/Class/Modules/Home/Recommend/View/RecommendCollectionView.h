@@ -13,8 +13,12 @@
 
 @property (strong, nonatomic) NSArray<RecommendEntity *> *list;
 
+
 @property (strong, nonatomic) void (^handleDidSelectedItem)(NSIndexPath *indexPath);
 
+/**
+ *  点击Banner
+ */
 @property (strong, nonatomic) void (^onClickBannerItem)(RecommendBannerEntity *banner);
 
 @end

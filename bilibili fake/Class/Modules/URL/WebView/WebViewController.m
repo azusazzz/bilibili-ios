@@ -8,6 +8,7 @@
 
 #import "WebViewController.h"
 #import "UIViewController+HeaderView.h"
+#import "URLRouter.h"
 
 @interface WebViewController ()
 <UIWebViewDelegate>
@@ -79,6 +80,16 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSLog(@"%@", request.URL.absoluteString);
+    NSString *URL = request.URL.absoluteString;
+    if ([URL isEqualToString:_URL]) {
+        return YES;
+    }
+    if ([URLRouter openURL:URL]) {
+        return NO;
+    }
+    if ([URL hasPrefix:@"https://itunes.apple.com"]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
     return YES;
 }
 

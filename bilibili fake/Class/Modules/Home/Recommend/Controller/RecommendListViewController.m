@@ -45,6 +45,8 @@
         make.edges.equalTo(self.view);
     }];
     
+    
+    
     __weak typeof(self) weakself = self;
     [_collectionView setHandleDidSelectedItem:^(NSIndexPath *indexPath) {
         [weakself handleDidSelectedItem:indexPath];

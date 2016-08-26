@@ -7,13 +7,59 @@
 //
 
 #import "URLRouter.h"
-#import "WebViewController.h"
+
 #import "UIViewController+GetViewController.h"
 
-@interface URLRouter ()
-{
-    NSMutableDictionary *URLPatterns;
+#import "WebViewController.h"
+
+
+
+
+
+
+
+
+
+
+@interface URLRoute : NSObject
+
+@property (strong, nonatomic) NSString *key;
+
+@property (strong, nonatomic) URLRouterCanOpenURL canOpenURL;
+
+@property (strong, nonatomic) URLRouterHandler handler;
+
+@end
+
+@implementation URLRoute
+
++ (instancetype)routeWithKey:(NSString *)key canOpenURL:(URLRouterCanOpenURL)canOpenURL handler:(URLRouterHandler)handler {
+    URLRoute *route = [[URLRoute alloc] init];
+    route.key = key;
+    route.canOpenURL = [canOpenURL copy];
+    route.handler = [handler copy];
+    return route;
 }
+
+@end
+
+@implementation URLRouterParameters
+
++ (instancetype)parametersWithURL:(NSString *)URL withUserInfo:(NSDictionary *)userInfo completion:(URLRouterCompletion)completion {
+    URLRouterParameters *parameters = [[URLRouterParameters alloc] init];
+    parameters.URL = URL;
+    parameters.userInfo = userInfo;
+    parameters.completion = completion;
+    return parameters;
+}
+
+@end
+
+
+@interface URLRouter ()
+
+@property (nonatomic, strong) NSMutableArray<URLRoute *> *routes;
+
 @end
 
 @implementation URLRouter
@@ -27,36 +73,85 @@
     return sharedInstance;
 }
 
-+ (void)openURL:(NSString *)URL {
-    [[URLRouter sharedInstance] openURL:URL];
-}
-
 - (instancetype)init {
-    self = [super init];
-    if (!self) {
-        return NULL;
+    if (self = [super init]) {
+        _routes = [NSMutableArray array];
     }
-    
-    URLPatterns = [NSMutableDictionary dictionary];
-    
     return self;
 }
 
-- (void)registerURLPattern:(NSString *)URLPattern toController:(UIViewController<URLRouterProtocol> *)controller {
-    
-    if (![controller respondsToSelector:@selector(initWithURL:)]) {
-        return;
-    }
-    
-    [URLPatterns setObject:NSStringFromClass([controller class]) forKey:URLPatterns];
-    
+#pragma mark Register 注册
+
++ (void)registerURLPattern:(NSString *)URLPattern toHandler:(URLRouterHandler)handler {
+    URLRouterCanOpenURL canOpenURL = ^BOOL(NSString *URL) {
+        return [URL rangeOfString:URLPattern].length > 0;
+    };
+    [self registerKey:URLPattern canOpenURL:canOpenURL toHandler:handler];
+}
++ (void)registerClass:(Class<URLRouterProtocol>)cls {
+    URLRouterCanOpenURL canOpenURL = ^BOOL(NSString *URL) {
+        return [cls canOpenURL:URL];;
+    };
+    URLRouterHandler handler = ^(URLRouterParameters * routerParameters) {
+        return [cls openURLWithRouterParameters:routerParameters];
+    };
+    [self registerKey:NSStringFromClass(cls) canOpenURL:canOpenURL toHandler:handler];
 }
 
-- (void)openURL:(NSString *)URL {
-    if ([URL hasPrefix:@"http"]) {
-        WebViewController *controller = [[WebViewController alloc] initWithURL:URL];
-        [[UIViewController currentNavigationViewController] pushViewController:controller animated:YES];
++ (void)registerKey:(NSString *)key canOpenURL:(URLRouterCanOpenURL)canOpenURL toHandler:(URLRouterHandler)handler {
+    for (URLRoute *route in [URLRouter sharedInstance].routes) {
+        if ([route.key isEqualToString:key]) {
+            route.canOpenURL = canOpenURL;
+            route.handler = handler;
+            return;
+        }
     }
+    [[URLRouter sharedInstance].routes addObject:[URLRoute routeWithKey:key canOpenURL:canOpenURL handler:handler]];
 }
+
+#pragma mark UnRegister 注销
+
++ (void)unregisterURLPattern:(NSString *)URLPattern {
+    [self unregisterURLPattern:URLPattern];
+}
++ (void)unregisterClass:(Class<URLRouterProtocol>)cls {
+    [self unregisterWithKey:NSStringFromClass(cls)];
+}
++ (void)unregisterWithKey:(NSString *)key {
+    [[URLRouter sharedInstance].routes enumerateObjectsUsingBlock:^(URLRoute * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.key isEqualToString:key]) {
+            [[URLRouter sharedInstance].routes removeObjectAtIndex:idx];
+            *stop = YES;
+        }
+    }];
+}
+
+#pragma mark OpenURL 打开URL
+
++ (BOOL)openURL:(NSString *)URL {
+    return [self openURL:URL withUserInfo:NULL completion:NULL];
+}
++ (BOOL)openURL:(NSString *)URL withUserInfo:(NSDictionary *)userInfo {
+    return [self openURL:URL withUserInfo:userInfo completion:NULL];
+}
++ (BOOL)openURL:(NSString *)URL completion:(URLRouterCompletion)completion {
+    return [self openURL:URL withUserInfo:NULL completion:completion];
+}
++ (BOOL)openURL:(NSString *)URL withUserInfo:(NSDictionary *)userInfo completion:(URLRouterCompletion)completion {
+    for (URLRoute *route in [URLRouter sharedInstance].routes) {
+        if (route.canOpenURL(URL)) {
+            URLRouterParameters *parameters = [URLRouterParameters parametersWithURL:URL withUserInfo:userInfo completion:completion];
+            if (route.handler(parameters)) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
+
+
 
 @end
+
+

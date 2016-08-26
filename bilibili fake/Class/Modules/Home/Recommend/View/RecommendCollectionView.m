@@ -50,11 +50,7 @@
 
 
 
-#pragma mark - UICollectionViewDataSource / Delegate
-
-/**
- *  Number
- */
+#pragma mark - Number
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return [_list count];
 }
@@ -62,9 +58,7 @@
     return [_list[section].body count];
 }
 
-/**
- *  Size
- */
+#pragma mark - Size
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(15, 15, 15, 15);
 }
@@ -85,10 +79,7 @@
     return 15;
 }
 
-
-/**
- *  Cell
- */
+#pragma mark - Cell
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"Header" forIndexPath:indexPath];
@@ -109,9 +100,7 @@
     }
 }
 
-/**
- *  Data
- */
+#pragma mark - Data
 - (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
     if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
         ((RecommendHeaderView *)view).recommend = _list[indexPath.section];

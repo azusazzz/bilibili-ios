@@ -33,7 +33,7 @@ static NSString *WebViewCachesDirectory;
     });
 }
 
-+ (void)removeAllCache; {
++ (void)removeAllCache {
     if (!WebViewCachesDirectory) {
         NSString *cachesDirectory = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
         WebViewCachesDirectory = [NSString stringWithFormat:@"%@/WebView", cachesDirectory];
@@ -41,8 +41,7 @@ static NSString *WebViewCachesDirectory;
     [[NSFileManager defaultManager] removeItemAtPath:WebViewCachesDirectory error:NULL];
 }
 
-
-+ (BOOL)canInitWithRequest:(NSURLRequest *)request; {
++ (BOOL)canInitWithRequest:(NSURLRequest *)request {
     if ([request.URL.absoluteString rangeOfString:@".png"].length || [request.URL.absoluteString rangeOfString:@".jpg"].length) {
         if ([NSURLProtocol propertyForKey:URLProtocolHandledKey inRequest:request]) {
             return NO;
@@ -52,12 +51,11 @@ static NSString *WebViewCachesDirectory;
     return NO;
 }
 
-
-+ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request; {
++ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request {
     return request;
 }
 
-- (void)startLoading; {
+- (void)startLoading {
     NSMutableURLRequest *mutableReqeust = [[self request] mutableCopy];
     [NSURLProtocol setProperty:@YES forKey:URLProtocolHandledKey inRequest:mutableReqeust];
     
@@ -82,11 +80,11 @@ static NSString *WebViewCachesDirectory;
 
 #pragma mark - NSURLConnectionDelegate
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(nonnull NSURLResponse *)response; {
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(nonnull NSURLResponse *)response {
     [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(nonnull NSData *)data; {
+- (void)connection:(NSURLConnection *)connection didReceiveData:(nonnull NSData *)data {
     [_mutableData appendBytes:data.bytes length:data.length];
 }
 
@@ -105,7 +103,7 @@ static NSString *WebViewCachesDirectory;
 
 #pragma mark - Tool
 
-- (NSData *)cacheForRequest:(NSURLRequest *)request; {
+- (NSData *)cacheForRequest:(NSURLRequest *)request {
     NSString *path = [self cachePathWithRequest:request];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -123,7 +121,7 @@ static NSString *WebViewCachesDirectory;
     return [NSData dataWithContentsOfFile:path];
 }
 
-- (NSString *)cachePathWithRequest:(NSURLRequest *)request; {
+- (NSString *)cachePathWithRequest:(NSURLRequest *)request {
     if (!WebViewCachesDirectory) {
         NSString *cachesDirectory = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
         WebViewCachesDirectory = [NSString stringWithFormat:@"%@/WebView", cachesDirectory];
@@ -137,7 +135,7 @@ static NSString *WebViewCachesDirectory;
     return [NSString stringWithFormat:@"%@/%@", WebViewCachesDirectory, urlString.MD5];
 }
 
-- (void)storeCache:(NSData *)cache atRequest:(NSURLRequest *)request; {
+- (void)storeCache:(NSData *)cache atRequest:(NSURLRequest *)request {
     [cache writeToFile:[self cachePathWithRequest:request] atomically:YES];
 }
 

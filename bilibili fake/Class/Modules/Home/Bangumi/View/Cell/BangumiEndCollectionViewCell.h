@@ -13,6 +13,8 @@
 
 @property (strong, nonatomic) NSArray<BangumiEntity *> *ends;
 
+@property (copy, nonatomic) void (^handleDidSelectedBangumi)(BangumiEntity *bangumi);
+
 + (CGFloat)heightForWidth:(CGFloat)width ends:(NSArray<BangumiEntity *> *)ends;
 
 @end

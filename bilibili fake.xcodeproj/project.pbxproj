@@ -127,8 +127,8 @@
 		6E9CA2FE1D6EE76D004B2C86 /* LivePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA2FD1D6EE76D004B2C86 /* LivePlayer.m */; };
 		6E9CA3041D6F01F6004B2C86 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA3031D6F01F6004B2C86 /* WebViewController.m */; };
 		6E9CA30E1D6F07B5004B2C86 /* URLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA30D1D6F07B5004B2C86 /* URLRouter.m */; };
-		6E9CA3141D6F1B46004B2C86 /* UIViewController+URLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA3131D6F1B46004B2C86 /* UIViewController+URLRouter.m */; };
 		6E9CA3171D6F2F0F004B2C86 /* WebViewCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA3161D6F2F0F004B2C86 /* WebViewCache.m */; };
+		6E9CA3511D704C37004B2C86 /* URLRouterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA3501D704C37004B2C86 /* URLRouterConfig.m */; };
 		6EB450291D51F26E00A4F626 /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB450281D51F26E00A4F626 /* DownloadManager.m */; };
 		6EB4502C1D51F30600A4F626 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4502B1D51F30600A4F626 /* DownloadOperation.m */; };
 		6EB450301D51FD0000A4F626 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4502F1D51FD0000A4F626 /* NSString+MD5.m */; };
@@ -505,10 +505,9 @@
 		6E9CA3031D6F01F6004B2C86 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		6E9CA30C1D6F07B5004B2C86 /* URLRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLRouter.h; sourceTree = "<group>"; };
 		6E9CA30D1D6F07B5004B2C86 /* URLRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLRouter.m; sourceTree = "<group>"; };
-		6E9CA3121D6F1B46004B2C86 /* UIViewController+URLRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+URLRouter.h"; sourceTree = "<group>"; };
-		6E9CA3131D6F1B46004B2C86 /* UIViewController+URLRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+URLRouter.m"; sourceTree = "<group>"; };
 		6E9CA3151D6F2F0F004B2C86 /* WebViewCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewCache.h; sourceTree = "<group>"; };
 		6E9CA3161D6F2F0F004B2C86 /* WebViewCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewCache.m; sourceTree = "<group>"; };
+		6E9CA3501D704C37004B2C86 /* URLRouterConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLRouterConfig.m; sourceTree = "<group>"; };
 		6EB450271D51F26E00A4F626 /* DownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManager.h; sourceTree = "<group>"; };
 		6EB450281D51F26E00A4F626 /* DownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadManager.m; sourceTree = "<group>"; };
 		6EB4502A1D51F30600A4F626 /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
@@ -1504,8 +1503,7 @@
 			children = (
 				6E9CA30C1D6F07B5004B2C86 /* URLRouter.h */,
 				6E9CA30D1D6F07B5004B2C86 /* URLRouter.m */,
-				6E9CA3121D6F1B46004B2C86 /* UIViewController+URLRouter.h */,
-				6E9CA3131D6F1B46004B2C86 /* UIViewController+URLRouter.m */,
+				6E9CA3501D704C37004B2C86 /* URLRouterConfig.m */,
 			);
 			path = URLRouter;
 			sourceTree = "<group>";
@@ -2676,7 +2674,6 @@
 				6E4836551D409617004AD1A4 /* UIImage+BlurEffect.swift in Sources */,
 				6E7E46F51D58868D0027AE8D /* BangumiRecommendEntity.m in Sources */,
 				6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */,
-				6E9CA3141D6F1B46004B2C86 /* UIViewController+URLRouter.m in Sources */,
 				6EB552891D5487F4001099C1 /* RecommendBodyEntity.m in Sources */,
 				6E5FB1A21D55913B00984DC6 /* LiveListBannerView.m in Sources */,
 				FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */,
@@ -2726,6 +2723,7 @@
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
 				6EB450291D51F26E00A4F626 /* DownloadManager.m in Sources */,
 				6E5FE9181D59B5EA00459BF4 /* BangumiRecommendHeaderView.m in Sources */,
+				6E9CA3511D704C37004B2C86 /* URLRouterConfig.m in Sources */,
 				6E7E46F21D587EEB0027AE8D /* BangumiBannerEntity.m in Sources */,
 				6E215D061D4B61B00004CA5B /* MineCollectionView.m in Sources */,
 				6E48367A1D410DB0004AD1A4 /* Function.m in Sources */,

@@ -56,10 +56,17 @@
     [self reloadData];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        !_handleDidSelectedBangumi ?: _handleDidSelectedBangumi(_bangumiList.latestUpdate[indexPath.row]);
+    }
+    else if (indexPath.section == 3) {
+        !_handleDidSelectedRecommend ?: _handleDidSelectedRecommend(_bangumiList.recommends[indexPath.row]);
+    }
+}
 
-/**
- *  Number
- */
+#pragma mark - Number
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     if (!_bangumiList) {
         return 0;
@@ -85,9 +92,8 @@
 }
 
 
-/**
- *  Size
- */
+#pragma mark - Size
+
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (section == 0) {
         return UIEdgeInsetsMake(15, 0, 0, 0);
@@ -183,9 +189,8 @@
     }
 }
 
-/**
- *  Cell
- */
+#pragma mark - Cell
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
@@ -229,9 +234,8 @@
     return NULL;
 }
 
-/**
- *  Data
- */
+#pragma mark - Data
+
 - (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
@@ -255,6 +259,7 @@
     }
     else if (indexPath.section == 2) {
         [((BangumiEndCollectionViewCell *) cell) setEnds:_bangumiList.ends];
+        ((BangumiEndCollectionViewCell *) cell).handleDidSelectedBangumi = _handleDidSelectedBangumi;
     }
     else if (indexPath.section == 3) {
         [((BangumiRecommendCollectionViewCell *) cell) setBangumiRecommend:_bangumiList.recommends[indexPath.row]];

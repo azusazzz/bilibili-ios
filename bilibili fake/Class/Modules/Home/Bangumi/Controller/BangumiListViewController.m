@@ -12,6 +12,8 @@
 
 #import "URLRouter.h"
 
+#import "WebViewController.h"
+
 @interface BangumiListViewController ()
 <RefreshCollectionViewDelegate>
 
@@ -39,10 +41,19 @@
     
     [self loadData];
     
+    __weak typeof(self) weakself = self;
     [_collectionView setOnClickBannerItem:^(BangumiBannerEntity *banner) {
         [URLRouter openURL:banner.link];
     }];
-    
+    [_collectionView setHandleDidSelectedBangumi:^(BangumiEntity *bangumi) {
+        NSString *URL = [NSString stringWithFormat:@"http://bangumi.bilibili.com/mobile/anime/%ld", bangumi.season_id];
+        WebViewController *controller = [[WebViewController alloc] initWithURL:URL];
+        [weakself.navigationController pushViewController:controller animated:YES];
+    }];
+    [_collectionView setHandleDidSelectedRecommend:^(BangumiRecommendEntity *recommend) {
+        WebViewController *controller = [[WebViewController alloc] initWithURL:recommend.link];
+        [weakself.navigationController pushViewController:controller animated:YES];
+    }];
 }
 
 #pragma mark - RefreshCollectionViewDelegate

@@ -15,5 +15,8 @@
 
 @property (strong, nonatomic) void (^onClickBannerItem)(BangumiBannerEntity *banner);
 
+@property (copy, nonatomic) void (^handleDidSelectedBangumi)(BangumiEntity *bangumi);
+
+@property (copy, nonatomic) void (^handleDidSelectedRecommend)(BangumiRecommendEntity *recommend);
 
 @end

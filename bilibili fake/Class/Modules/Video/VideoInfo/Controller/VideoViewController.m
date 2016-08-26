@@ -18,6 +18,8 @@
 
 #import "DownloadVideoSelectView.h"
 
+#import "UIViewController+GetViewController.h"
+
 @interface VideoViewController ()
 <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 {
@@ -43,13 +45,55 @@
 
 @implementation VideoViewController
 
-- (instancetype)initWithAid:(NSInteger)aid; {
+
+#pragma mark - URLRouterProtocol
+
+// http://www.bilibili.com/video/av2344701/
+// bilibili://video/6002357
+// http://www.bilibili.com/mobile/video/av5104768.html
+
++ (NSInteger)getAidForURL:(NSString *)URL {
+    NSInteger aid = 0;
+    NSRange range = [URL rangeOfString:@"/video/av"];
+    if (range.length > 0) {
+        URL = [URL stringByReplacingOccurrencesOfString:@".html" withString:@""];
+        aid = [[[URL substringFromIndex:range.location + range.length] componentsSeparatedByString:@"/"][0] integerValue];
+    }
+    else {
+        range = [URL rangeOfString:@"bilibili://video/"];
+        if (range.length > 0) {
+            aid = [[URL lastPathComponent] integerValue];
+        }
+    }
+    return aid;
+}
+
++ (BOOL)canOpenURL:(NSString *)URL {
+    return [self getAidForURL:URL] > 0;
+}
+
++ (BOOL)openURLWithRouterParameters:(URLRouterParameters *)parameters {
+    NSInteger aid = [self getAidForURL:parameters.URL];
+    if (aid <= 0) {
+        return NO;
+    }
+    
+    VideoViewController *controller = [[VideoViewController alloc] initWithAid:aid];
+    [[UIViewController currentNavigationViewController] pushViewController:controller animated:YES];
+    return YES;
+}
+
+#pragma mark - Init
+
+- (instancetype)initWithAid:(NSInteger)aid {
     if (self = [super init]) {
         _aid = aid;
         self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }
+
+#pragma mark - ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -128,6 +172,8 @@
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
+
+#pragma mark - Event
 
 /**
  *  播放视频

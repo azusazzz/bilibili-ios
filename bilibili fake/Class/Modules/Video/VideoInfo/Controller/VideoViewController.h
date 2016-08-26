@@ -13,6 +13,7 @@
  视频播放页面
  */
 @interface VideoViewController : UIViewController
+<URLRouterProtocol>
 
 
 @property (strong, nonatomic, readonly) VideoModel *model;

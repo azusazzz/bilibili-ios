@@ -72,6 +72,9 @@
     return NO;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    !_handleDidSelectedBangumi ?: _handleDidSelectedBangumi(_ends[indexPath.row]);
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [_ends count];
