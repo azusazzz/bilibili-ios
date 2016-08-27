@@ -16,6 +16,9 @@
 
 #import "DownloadManager.h"
 
+
+#import "BaseRequest.h"
+
 @interface AppDelegate ()
 
 @end
@@ -30,6 +33,17 @@
     self.window.rootViewController = [[ScrollTabBarController alloc] init];
     [self.window makeKeyAndVisible];
     [StartViewController show];
+    
+    /*
+    BaseRequest *request = [BaseRequest request];
+//    request.URLString = @"https://account.bilibili.com/api/login/v2?app_subid=1&appkey=27eb53fc9058f8c3&appver=3600&permission=ALL&platform=ios&pwd=J%2BbKmCsHulGDFSW2TEWul4HBTpxrrDx2%2FiXJbhrKe2wlBvN%2B3DD0cBZoNVkhbvG7kan4XXqti91FzQqOqHspOVfiSDBEoyMf7wmYCDbD0tALoCG5CkycDZRoJGeV1i3LOEyOuzDr0bMMEyYCroELOk8aQZis6mjoRL1nKiq%2FyQ8%3D&type=json&userid=cezr%40sina.com&sign=bb359608efd9737b6a7dd028e0550c1e";
+    request.URLString = @"https://account.bilibili.com/api/login?userid=cezr%40sina.com&password=mssj1995";
+    request.method = HTTPMethodGet;
+    
+    [request startWithCompletionBlock:^(BaseRequest *request) {
+        
+    }];
+    */
     
     
 //    DownloadOperation *operation = [[DownloadManager manager] operationWithAid:3743027 cid:6001707 page:1];

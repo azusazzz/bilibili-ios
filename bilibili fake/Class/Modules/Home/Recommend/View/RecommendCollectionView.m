@@ -58,8 +58,6 @@
     _handleDidSelectedItem ? _handleDidSelectedItem(indexPath) : NULL;
 }
 
-
-
 #pragma mark - Number
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return [_list count];
@@ -82,13 +80,13 @@
     if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"av"]) {
         return [RecommendAvCollectionViewCell sizeForContentWidth:collectionView.width];
     }
-    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"live"]) {
+    else if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"live"]) {
         return [RecommendLiveCollectionViewCell sizeForContentWidth:collectionView.width];
     }
-    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"bangumi"]) {
+    else if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"bangumi"]) {
         return [RecommendBangumiCollectionViewCell sizeForContentWidth:collectionView.width];
     }
-    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"web"]) {
+    else if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"web"]) {
         return [RecommendWebCollectionViewCell sizeForContentWidth:collectionView.width];
     }
     else {
@@ -118,13 +116,13 @@
     if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"av"]) {
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"RecommendAv" forIndexPath:indexPath];
     }
-    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"live"]) {
+    else if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"live"]) {
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"RecommendLive" forIndexPath:indexPath];
     }
-    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"bangumi"]) {
+    else if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"bangumi"]) {
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"RecommendBangumi" forIndexPath:indexPath];
     }
-    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"web"]) {
+    else if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"web"]) {
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"RecommendWeb" forIndexPath:indexPath];
     }
     else {

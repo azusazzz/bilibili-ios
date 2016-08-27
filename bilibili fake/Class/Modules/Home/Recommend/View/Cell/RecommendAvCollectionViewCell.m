@@ -29,6 +29,7 @@
 - (void)setBody:(RecommendBodyEntity *)body {
     [super setBody:body];
     _titleLabel.text = body.title;
+    
     _playCountLabel.text = [NSString stringWithFormat:@"%ld", body.play];
     _danmakuCountLabel.text = [NSString stringWithFormat:@"%ld", body.danmaku];
     
