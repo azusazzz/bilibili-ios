@@ -7,11 +7,15 @@
 //
 
 #import "DownloadVideoManagerViewController.h"
-#import "UIViewController+HeaderView.h"
+
 #import "DownloadVideoCollectionView.h"
 #import "DownloadVideoModel.h"
 
 #import "DownloadVideoInfoViewController.h"
+
+// Tool
+#import "UIViewController+HeaderView.h"
+#import "UIViewController+PopGesture.h"
 
 @interface DownloadVideoManagerViewController ()
 <UIGestureRecognizerDelegate>
@@ -84,16 +88,12 @@
 }
 
 - (void)loadSubviews {
-    NSArray *internalTargets = [self.navigationController.interactivePopGestureRecognizer valueForKey:@"targets"];
-    id internalTarget = [internalTargets.firstObject valueForKey:@"target"];
-    SEL internalAction = NSSelectorFromString(@"handleNavigationTransition:");
-    
-    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:internalTarget action:internalAction];
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] init];
     panGestureRecognizer.delegate = self;
     panGestureRecognizer.maximumNumberOfTouches = 1;
     [self.view addGestureRecognizer:panGestureRecognizer];
+    [self replacingPopGestureRecognizer:panGestureRecognizer];
     
-    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     
     [self navigationBar];
     

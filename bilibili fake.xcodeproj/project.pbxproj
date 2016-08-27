@@ -48,6 +48,9 @@
 		6E4836761D410818004AD1A4 /* MediaPlayerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836721D410818004AD1A4 /* MediaPlayerControl.m */; };
 		6E4836771D410818004AD1A4 /* MediaPlayerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836741D410818004AD1A4 /* MediaPlayerProgressView.m */; };
 		6E48367A1D410DB0004AD1A4 /* Function.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4836791D410DB0004AD1A4 /* Function.m */; };
+		6E4E03971D71374200C669E6 /* UIViewController+PopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E03961D71374200C669E6 /* UIViewController+PopGesture.m */; };
+		6E4E039B1D71391400C669E6 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E039A1D71391400C669E6 /* NSObject+Runtime.m */; };
+		6E4E03A41D71882600C669E6 /* RecommendWebCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E03A31D71882600C669E6 /* RecommendWebCollectionViewCell.m */; };
 		6E5975F31D5B171500D520E0 /* VideoIntroCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975B81D5B171500D520E0 /* VideoIntroCollectionViewCell.m */; };
 		6E5975F51D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975BC1D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.m */; };
 		6E5975F61D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975BE1D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.m */; };
@@ -346,6 +349,12 @@
 		6E4836741D410818004AD1A4 /* MediaPlayerProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPlayerProgressView.m; sourceTree = "<group>"; };
 		6E4836781D410DB0004AD1A4 /* Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Function.h; sourceTree = "<group>"; };
 		6E4836791D410DB0004AD1A4 /* Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Function.m; sourceTree = "<group>"; };
+		6E4E03951D71374200C669E6 /* UIViewController+PopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PopGesture.h"; sourceTree = "<group>"; };
+		6E4E03961D71374200C669E6 /* UIViewController+PopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PopGesture.m"; sourceTree = "<group>"; };
+		6E4E03991D71391400C669E6 /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
+		6E4E039A1D71391400C669E6 /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
+		6E4E03A21D71882600C669E6 /* RecommendWebCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendWebCollectionViewCell.h; sourceTree = "<group>"; };
+		6E4E03A31D71882600C669E6 /* RecommendWebCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendWebCollectionViewCell.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6E5975B71D5B171500D520E0 /* VideoIntroCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoIntroCollectionViewCell.h; sourceTree = "<group>"; };
 		6E5975B81D5B171500D520E0 /* VideoIntroCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoIntroCollectionViewCell.m; sourceTree = "<group>"; };
@@ -772,6 +781,7 @@
 		6E1535E11D1A94A40053A846 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				6E4E03981D71390200C669E6 /* NSObject */,
 				FCF131BA1D5C1C4500790DC6 /* UIColor */,
 				6E23777F1D543C9D00102550 /* UIAlertView */,
 				6E4836621D40E429004AD1A4 /* NSString */,
@@ -1068,6 +1078,15 @@
 				6EB4502F1D51FD0000A4F626 /* NSString+MD5.m */,
 			);
 			path = NSString;
+			sourceTree = "<group>";
+		};
+		6E4E03981D71390200C669E6 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				6E4E03991D71391400C669E6 /* NSObject+Runtime.h */,
+				6E4E039A1D71391400C669E6 /* NSObject+Runtime.m */,
+			);
+			path = NSObject;
 			sourceTree = "<group>";
 		};
 		6E575C791D40713F007BCD73 /* Video */ = {
@@ -1387,6 +1406,8 @@
 				6E76344D1D3F563A002CFA63 /* UIViewController+GetViewController.m */,
 				6E23777C1D536BD400102550 /* UIViewController+HeaderView.h */,
 				6E23777D1D536BD400102550 /* UIViewController+HeaderView.m */,
+				6E4E03951D71374200C669E6 /* UIViewController+PopGesture.h */,
+				6E4E03961D71374200C669E6 /* UIViewController+PopGesture.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -1643,6 +1664,8 @@
 				6EB5529D1D548D64001099C1 /* RecommendLiveCollectionViewCell.m */,
 				6EB5529F1D548D79001099C1 /* RecommendBangumiCollectionViewCell.h */,
 				6EB552A01D548D79001099C1 /* RecommendBangumiCollectionViewCell.m */,
+				6E4E03A21D71882600C669E6 /* RecommendWebCollectionViewCell.h */,
+				6E4E03A31D71882600C669E6 /* RecommendWebCollectionViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2556,6 +2579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E4E03971D71374200C669E6 /* UIViewController+PopGesture.m in Sources */,
 				6E7E46E91D587AD20027AE8D /* BangumiListEntity.m in Sources */,
 				6E5FB1951D557CBE00984DC6 /* LiveListEntranceEntity.m in Sources */,
 				6E5975F71D5B171500D520E0 /* VideoIntroRelateCollectionViewCell.m in Sources */,
@@ -2591,6 +2615,7 @@
 				6E885B951D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.m in Sources */,
 				6E5FE9061D596D8400459BF4 /* BangumiLatestUpdateCollectionViewCell.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
+				6E4E039B1D71391400C669E6 /* NSObject+Runtime.m in Sources */,
 				6E7E46E31D587A1B0027AE8D /* BangumiListRequest.m in Sources */,
 				6E199CD71D673889003E06F6 /* DownloadVideoCollectionViewCell.m in Sources */,
 				6E026FEA1D3E29460038C2A0 /* RequestCache.m in Sources */,
@@ -2681,6 +2706,7 @@
 				6EB5528C1D548809001099C1 /* RecommendBannerEntity.m in Sources */,
 				6E5976021D5B171500D520E0 /* VideoInfoEntity.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
+				6E4E03A41D71882600C669E6 /* RecommendWebCollectionViewCell.m in Sources */,
 				6E7E46EC1D587CD60027AE8D /* BangumiListModel.m in Sources */,
 				FC6A427B1D490C340058A1FA /* VideoRangData.m in Sources */,
 				6E9CA2FE1D6EE76D004B2C86 /* LivePlayer.m in Sources */,

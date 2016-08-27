@@ -37,6 +37,10 @@
 
 @implementation RecommendCollectionViewCell
 
++ (CGSize)sizeForContentWidth:(CGFloat)width {
+    CGFloat itemWidth = (width - 15*3) / 2;
+    return CGSizeMake(itemWidth, itemWidth * 0.625 + 5 + 30 + 5);
+}
 
 + (CGFloat)heightForWidth:(CGFloat)width {
     return width * 0.625 + 5 + 30 + 5;
@@ -62,6 +66,7 @@
 }
 
 - (void)setBody:(RecommendBodyEntity *)body {
+    _body = body;
     [_imageView sd_setImageWithURL:[NSURL URLWithString:body.cover]];
 }
 

@@ -6,8 +6,11 @@
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RecommendCollectionViewCell.h"
 
-@interface RecommendBangumiCollectionViewCell : UICollectionViewCell
+/**
+ *  推荐 Body模块 番剧
+ */
+@interface RecommendBangumiCollectionViewCell : RecommendCollectionViewCell
 
 @end

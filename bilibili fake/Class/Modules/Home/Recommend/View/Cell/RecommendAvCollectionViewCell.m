@@ -10,17 +10,21 @@
 
 @interface RecommendAvCollectionViewCell ()
 {
-    UILabel *_titleLabel;
-    
+    UILabel     *_titleLabel;
     UIImageView *_playCountImageView;
-    UILabel *_playCountLabel;
+    UILabel     *_playCountLabel;
     UIImageView *_danmakuCountImageView;
-    UILabel *_danmakuCountLabel;
+    UILabel     *_danmakuCountLabel;
 }
 @end
 
 
 @implementation RecommendAvCollectionViewCell
+
++ (CGSize)sizeForContentWidth:(CGFloat)width {
+    CGFloat itemWidth = (width - 15*3) / 2;
+    return CGSizeMake(itemWidth, itemWidth * 0.625 + 5 + 30 + 5);
+}
 
 - (void)setBody:(RecommendBodyEntity *)body {
     [super setBody:body];

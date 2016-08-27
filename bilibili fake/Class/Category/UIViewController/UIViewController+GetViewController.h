@@ -10,10 +10,25 @@
 
 @interface UIViewController (GetViewController)
 
+/**
+ *  获取根控制器
+ *
+ *  @return <#return value description#>
+ */
 + (UIViewController *)rootViewController;
 
+/**
+ *  获取当前导航控制器
+ *
+ *  @return <#return value description#>
+ */
 + (UINavigationController*)currentNavigationViewController;
 
+/**
+ *  获取当前控制器
+ *
+ *  @return <#return value description#>
+ */
 + (UIViewController *)currentViewController;
 
 @end

@@ -11,6 +11,14 @@
 
 @interface NSString (Size)
 
+/**
+ *  计算文本显示的宽度
+ *
+ *  @param font      字体
+ *  @param maxHeight 最大高度
+ *
+ *  @return 宽度
+ */
 - (CGFloat)widthWithFont:(UIFont *)font maxHeight:(CGFloat)maxHeight;
 
 @end

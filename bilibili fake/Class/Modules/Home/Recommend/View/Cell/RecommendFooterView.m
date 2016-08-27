@@ -12,7 +12,7 @@
 
 @interface RecommendFooterView ()
 {
-    BannerView *_bannerView;
+    BannerView  *_bannerView;
 }
 
 @property (strong, nonatomic) NSArray<RecommendBannerEntity *> *banner;
@@ -58,6 +58,17 @@
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = ColorWhite(247);
         _bannerView = [[BannerView alloc] init];
+        
+        UIView *view = [[UIView alloc] init];
+        view.backgroundColor = CRed;
+        [self addSubview:view];
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.mas_top).offset = -15;
+            make.right.offset = -15;
+            make.width.offset = 60;
+            make.height.offset = 60;
+        }];
+        
     }
     return self;
 }

@@ -7,12 +7,15 @@
 //
 
 #import "DownloadVideoInfoViewController.h"
-#import "UIViewController+HeaderView.h"
 #import "DownloadVideoInfoHeaderView.h"
 #import "DownloadVideoPageCollectionViewCell.h"
 
-#import "VideoViewController.h" // 视频播放
-#import "MediaPlayer.h"
+#import "VideoViewController.h" // 视频信息
+#import "MediaPlayer.h" // 视频播放
+
+// Tool
+#import "UIViewController+PopGesture.h"
+#import "UIViewController+HeaderView.h"
 
 
 @interface DownloadVideoInfoViewController ()
@@ -170,14 +173,11 @@
     });
     
     
-    NSArray *internalTargets = [self.navigationController.interactivePopGestureRecognizer valueForKey:@"targets"];
-    id internalTarget = [internalTargets.firstObject valueForKey:@"target"];
-    SEL internalAction = NSSelectorFromString(@"handleNavigationTransition:");
-    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:internalTarget action:internalAction];
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] init];
     panGestureRecognizer.maximumNumberOfTouches = 1;
-    [_collectionView addGestureRecognizer:panGestureRecognizer];
     panGestureRecognizer.delegate = self;
-    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    [_collectionView addGestureRecognizer:panGestureRecognizer];
+    [self replacingPopGestureRecognizer:panGestureRecognizer];
 }
 
 

@@ -10,8 +10,14 @@
 
 @interface NSString (MD5)
 
+/**
+ *  MD5  小写
+ */
 @property (assign, nonatomic, readonly) NSString *md5;
 
+/**
+ *  MD5  大写
+ */
 @property (assign, nonatomic, readonly) NSString *MD5;
 
 @end

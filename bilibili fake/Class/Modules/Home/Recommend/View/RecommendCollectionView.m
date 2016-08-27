@@ -10,10 +10,16 @@
 
 #import "RecommendHeaderView.h"
 #import "RecommendFooterView.h"
+
+
+
+
+// Body
 #import "RecommendCollectionViewCell.h"
-#import "RecommendAvCollectionViewCell.h"
-#import "RecommendLiveCollectionViewCell.h"
-#import "RecommendBangumiCollectionViewCell.h"
+#import "RecommendAvCollectionViewCell.h"       // av 视频
+#import "RecommendLiveCollectionViewCell.h"     // live 直播
+#import "RecommendBangumiCollectionViewCell.h"  // bangumi 番剧
+#import "RecommendWebCollectionViewCell.h"      // web 网页
 
 
 @interface RecommendCollectionView ()
@@ -28,12 +34,16 @@
     if (self = [super init]) {
         self.backgroundColor = CRed;
         self.backgroundView.backgroundColor = ColorWhite(247);
+        
+        [self registerClass:[RecommendHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"];
+        [self registerClass:[RecommendFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"Footer"];
+        
         [self registerClass:[RecommendCollectionViewCell class] forCellWithReuseIdentifier:@"Recommend"];
+        
         [self registerClass:[RecommendAvCollectionViewCell class] forCellWithReuseIdentifier:@"RecommendAv"];
         [self registerClass:[RecommendLiveCollectionViewCell class] forCellWithReuseIdentifier:@"RecommendLive"];
         [self registerClass:[RecommendBangumiCollectionViewCell class] forCellWithReuseIdentifier:@"RecommendBangumi"];
-        [self registerClass:[RecommendHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"];
-        [self registerClass:[RecommendFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"Footer"];
+        [self registerClass:[RecommendWebCollectionViewCell class] forCellWithReuseIdentifier:@"RecommendWeb"];
     }
     return self;
 }
@@ -69,8 +79,21 @@
     return CGSizeMake(SSize.width, [RecommendFooterView heightForBanner:_list[section].banner_bottom width:SSize.width]);
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat width = (SSize.width-15*3) / 2;
-    return CGSizeMake(width, [RecommendCollectionViewCell heightForWidth:width]);
+    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"av"]) {
+        return [RecommendAvCollectionViewCell sizeForContentWidth:collectionView.width];
+    }
+    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"live"]) {
+        return [RecommendLiveCollectionViewCell sizeForContentWidth:collectionView.width];
+    }
+    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"bangumi"]) {
+        return [RecommendBangumiCollectionViewCell sizeForContentWidth:collectionView.width];
+    }
+    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"web"]) {
+        return [RecommendWebCollectionViewCell sizeForContentWidth:collectionView.width];
+    }
+    else {
+        return [RecommendCollectionViewCell sizeForContentWidth:collectionView.width];
+    }
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 15;
@@ -94,6 +117,15 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"av"]) {
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"RecommendAv" forIndexPath:indexPath];
+    }
+    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"live"]) {
+        return [collectionView dequeueReusableCellWithReuseIdentifier:@"RecommendLive" forIndexPath:indexPath];
+    }
+    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"bangumi"]) {
+        return [collectionView dequeueReusableCellWithReuseIdentifier:@"RecommendBangumi" forIndexPath:indexPath];
+    }
+    if ([_list[indexPath.section].body[indexPath.row]._goto isEqualToString:@"web"]) {
+        return [collectionView dequeueReusableCellWithReuseIdentifier:@"RecommendWeb" forIndexPath:indexPath];
     }
     else {
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"Recommend" forIndexPath:indexPath];

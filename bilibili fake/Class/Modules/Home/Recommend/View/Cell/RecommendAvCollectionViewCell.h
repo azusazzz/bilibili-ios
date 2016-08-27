@@ -8,6 +8,9 @@
 
 #import "RecommendCollectionViewCell.h"
 
+/**
+ *  推荐 Body模块 分区
+ */
 @interface RecommendAvCollectionViewCell : RecommendCollectionViewCell
 
 @end

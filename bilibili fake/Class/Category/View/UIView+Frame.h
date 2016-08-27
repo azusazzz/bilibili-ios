@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  设置/获取 视图位置、尺寸
+ */
 @interface UIView (Frame)
 
 #pragma mark point

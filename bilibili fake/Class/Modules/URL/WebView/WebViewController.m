@@ -10,8 +10,10 @@
 #import "UIViewController+HeaderView.h"
 #import "URLRouter.h"
 
+#import "UIViewController+PopGesture.h"
+
 @interface WebViewController ()
-<UIWebViewDelegate>
+<UIWebViewDelegate, UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) NSString *URL;
 
@@ -27,6 +29,10 @@
         self.hidesBottomBarWhenPushed = YES;
     }
     return self;
+}
+
+- (void)dealloc {
+    NSLog(@"%s", __FUNCTION__);
 }
 
 - (void)viewDidLoad {
@@ -52,11 +58,12 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_URL]];
     [_webView loadRequest:request];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
-    [_webView addGestureRecognizer:tap];
     
-    _webView.scrollView.contentInset = UIEdgeInsetsZero;
-    
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] init];
+    panGesture.maximumNumberOfTouches = 1;
+    panGesture.delegate = self;
+    [_webView addGestureRecognizer:panGesture];
+    [self replacingPopGestureRecognizer:panGesture];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -72,8 +79,16 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
-- (void)tap {
-    
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
+    if (_webView.scrollView.contentSize.width > _webView.width) {
+        return NO;
+    }
+    CGPoint translation = [gestureRecognizer translationInView:_webView];
+    if (fabs(translation.x) <= fabs(translation.y)) {
+        return NO;
+    }
+    return YES;
 }
 
 #pragma mark - UIWebViewDelegate

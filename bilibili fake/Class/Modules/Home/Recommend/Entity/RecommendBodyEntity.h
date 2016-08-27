@@ -34,4 +34,10 @@
 
 @property (assign, nonatomic) NSInteger online;
 
+// bangumi
+
+@property (strong, nonatomic) NSString *mtime;
+
+@property (assign, nonatomic) NSInteger index;
+
 @end

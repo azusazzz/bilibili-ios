@@ -6,8 +6,11 @@
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RecommendCollectionViewCell.h"
 
-@interface RecommendLiveCollectionViewCell : UICollectionViewCell
+/**
+ *  推荐 Body模块 直播
+ */
+@interface RecommendLiveCollectionViewCell : RecommendCollectionViewCell
 
 @end

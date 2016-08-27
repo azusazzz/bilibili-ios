@@ -11,6 +11,7 @@
 #import "RecommendListModel.h"
 
 #import "VideoViewController.h" // 视频信息
+#import "WebViewController.h"   // 网页
 
 #import "URLRouter.h"
 
@@ -64,6 +65,13 @@
     if ([body._goto isEqualToString:@"av"]) {
         NSInteger aid = [body.param integerValue];
         [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:aid] animated:YES];
+    }
+    else if ([body._goto isEqualToString:@"web"]) {
+        WebViewController *controller = [[WebViewController alloc] initWithURL:body.uri];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    else if ([body._goto isEqualToString:@"bangumi"]) {
+        [URLRouter openURL:body.uri];
     }
 }
 

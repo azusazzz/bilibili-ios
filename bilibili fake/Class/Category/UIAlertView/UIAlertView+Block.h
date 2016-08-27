@@ -11,6 +11,17 @@
 @interface UIAlertView (Block)
 <UIAlertViewDelegate>
 
+/**
+ *  初始化
+ *  为UIAlertView添加Block形式的回调
+ *
+ *  @param title               <#title description#>
+ *  @param message             <#message description#>
+ *  @param buttonTitles        <#buttonTitles description#>
+ *  @param handleClickedButton <#handleClickedButton description#>
+ *
+ *  @return <#return value description#>
+ */
 + (UIAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)message buttonTitles:(NSArray<NSString *> *)buttonTitles clickedButtonAtIndex:(void (^)(NSInteger buttonIndex))handleClickedButton;
 
 @end

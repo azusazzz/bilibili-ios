@@ -12,10 +12,9 @@
 
 @interface RecommendHeaderView ()
 {
-    BannerView *_bannerView;
-    
+    BannerView  *_bannerView;
     UIImageView *_leftImageView;
-    UILabel *_leftTitleLabel;
+    UILabel     *_leftTitleLabel;
 }
 
 @property (strong, nonatomic) NSArray<RecommendBannerEntity *> *banner;

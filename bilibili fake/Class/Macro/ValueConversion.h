@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-
+/**
+ *  整形 数据长度
+ *
+ *  @param integer <#integer description#>
+ *
+ *  @return <#return value description#>
+ */
 NSInteger IntegerLength(NSInteger integer);
 
 
