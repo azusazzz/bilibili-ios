@@ -15,20 +15,20 @@
  *
  *  @return <#return value description#>
  */
-+ (UIViewController *)rootViewController;
++ (__kindof UIViewController *)rootViewController;
 
 /**
  *  获取当前导航控制器
  *
  *  @return <#return value description#>
  */
-+ (UINavigationController*)currentNavigationViewController;
++ (__kindof UINavigationController*)currentNavigationViewController;
 
 /**
  *  获取当前控制器
  *
  *  @return <#return value description#>
  */
-+ (UIViewController *)currentViewController;
++ (__kindof UIViewController *)currentViewController;
 
 @end

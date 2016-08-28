@@ -10,7 +10,7 @@
 
 NSInteger IntegerLength(NSInteger integer) {
     NSInteger length = 1;
-    while (integer > 10) {
+    while (integer >= 10) {
         integer /= 10;
         length += 1;
     }

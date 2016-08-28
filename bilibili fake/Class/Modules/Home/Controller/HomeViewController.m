@@ -19,10 +19,14 @@
 #import "RecommendListViewController.h"
 #import "BangumiListViewController.h"
 
+
+
 #import "ScrollTabBarController.h"
 
 
-#import "VideoViewController.h"
+#import "VideoViewController.h"  // 视频信息
+
+#import "UIViewController+GetViewController.h"
 
 
 @interface HomeViewController ()
@@ -38,6 +42,17 @@
 
 
 @implementation HomeViewController
+
++ (void)showLiveList {
+    [[UIViewController currentNavigationViewController] popToRootViewControllerAnimated:NO];
+    [UIViewController currentViewController].tabBarController.selectedIndex = 0;
+    
+    HomeViewController *controller = [UIViewController currentViewController];
+    if (![controller isMemberOfClass:[HomeViewController class]]) {
+        return;
+    }
+    [controller.scrollView setContentOffset:CGPointZero animated:NO];
+}
 
 - (instancetype)init; {
     if (self = [super init]) {
@@ -77,11 +92,6 @@
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

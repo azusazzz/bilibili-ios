@@ -56,6 +56,9 @@
 
 @property (weak, nonatomic) id<RequestDelegate> delegate;
 
+/**
+ *  请求完成后会释放
+ */
 @property (copy, nonatomic) void (^completionBlock)(__kindof Request * request);
 
 

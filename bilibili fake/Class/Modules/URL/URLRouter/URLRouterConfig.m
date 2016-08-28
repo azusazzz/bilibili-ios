@@ -13,6 +13,8 @@
 #import "WebViewController.h"
 #import "VideoViewController.h"
 
+#import "HomeViewController.h"
+
 /**
  *  +load之后 main函数之前 被调用
  */
@@ -26,6 +28,13 @@ static void URLRouterConfig(void) {
     // bilibili://video/6002357
     // http://www.bilibili.com/mobile/video/av5104768.html
     [URLRouter registerClass:[VideoViewController class]];
+    
+    
+    // 分区-直播  --> 首页-直播
+    [URLRouter registerURLPattern:@"bilibili://home/live" toHandler:^BOOL(URLRouterParameters * _Nonnull routerParameters) {
+        [HomeViewController showLiveList];
+        return YES;
+    }];
     
     
     /**

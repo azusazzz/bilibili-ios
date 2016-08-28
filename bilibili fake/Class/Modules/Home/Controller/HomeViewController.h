@@ -13,4 +13,9 @@
  */
 @interface HomeViewController : UIViewController
 
+/**
+ *  切换到直播列表页面
+ */
++ (void)showLiveList;
+
 @end

@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RegionChildEntity.h"
 
+/**
+ *  分区
+ */
 @interface RegionEntity : NSObject
 
 @property (assign, nonatomic) NSInteger tid;
@@ -22,6 +26,6 @@
 
 @property (strong, nonatomic) NSString *param;
 
-@property (strong, nonatomic) NSArray *children;
+@property (strong, nonatomic) NSArray<RegionChildEntity *> *children;
 
 @end

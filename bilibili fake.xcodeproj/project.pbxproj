@@ -51,6 +51,18 @@
 		6E4E03971D71374200C669E6 /* UIViewController+PopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E03961D71374200C669E6 /* UIViewController+PopGesture.m */; };
 		6E4E039B1D71391400C669E6 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E039A1D71391400C669E6 /* NSObject+Runtime.m */; };
 		6E4E03A41D71882600C669E6 /* RecommendWebCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E03A31D71882600C669E6 /* RecommendWebCollectionViewCell.m */; };
+		6E58B2281D729FC1002714FD /* RegionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B21F1D729FC1002714FD /* RegionEntity.m */; };
+		6E58B22D1D72A229002714FD /* RegionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B22C1D72A229002714FD /* RegionListViewController.m */; };
+		6E58B2321D72A267002714FD /* RegionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B2311D72A267002714FD /* RegionCollectionViewCell.m */; };
+		6E58B2351D72A8D2002714FD /* RegionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B2341D72A8D2002714FD /* RegionListModel.m */; };
+		6E58B2381D72A8F3002714FD /* RegionListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B2371D72A8F3002714FD /* RegionListRequest.m */; };
+		6E58B23B1D72AA53002714FD /* RegionChildEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B23A1D72AA53002714FD /* RegionChildEntity.m */; };
+		6E58B2441D72B534002714FD /* RegionShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B2431D72B534002714FD /* RegionShowViewController.m */; };
+		6E58B2471D72B5AC002714FD /* RegionShowRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B2461D72B5AC002714FD /* RegionShowRequest.m */; };
+		6E58B24A1D72B5FC002714FD /* RegionShowChildRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B2491D72B5FC002714FD /* RegionShowChildRequest.m */; };
+		6E58B24D1D72B81E002714FD /* RegionShowEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B24C1D72B81E002714FD /* RegionShowEntity.m */; };
+		6E58B2501D72B86A002714FD /* RegionShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B24F1D72B86A002714FD /* RegionShowModel.m */; };
+		6E58B2531D72B87E002714FD /* RegionShowCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B2521D72B87E002714FD /* RegionShowCollectionView.m */; };
 		6E5975F31D5B171500D520E0 /* VideoIntroCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975B81D5B171500D520E0 /* VideoIntroCollectionViewCell.m */; };
 		6E5975F51D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975BC1D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.m */; };
 		6E5975F61D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5975BE1D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.m */; };
@@ -155,11 +167,6 @@
 		6EB691FA1D12422C000FA482 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB691F81D12422C000FA482 /* LaunchScreen.storyboard */; };
 		6EB692051D12422C000FA482 /* bilibili_fakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB692041D12422C000FA482 /* bilibili_fakeTests.m */; };
 		6EB692101D12422C000FA482 /* bilibili_fakeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */; };
-		6EC6A4F61D489FCA0021BE48 /* RegionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A4F51D489FCA0021BE48 /* RegionViewController.m */; };
-		6EC6A4F91D489FE00021BE48 /* RegionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A4F81D489FE00021BE48 /* RegionModel.m */; };
-		6EC6A4FC1D489FF30021BE48 /* RegionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A4FB1D489FF30021BE48 /* RegionRequest.m */; };
-		6EC6A4FF1D48A05E0021BE48 /* RegionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A4FE1D48A05E0021BE48 /* RegionEntity.m */; };
-		6EC6A5021D48ADEE0021BE48 /* RegionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6A5011D48ADEE0021BE48 /* RegionCollectionViewCell.m */; };
 		6ED9D4CC1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9D4CB1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.m */; };
 		6ED9D4CF1D6C22C1004E2557 /* VideoURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9D4CE1D6C22C1004E2557 /* VideoURL.m */; };
 		6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4A61D2BCE4400D1BC9E /* TabBar.m */; };
@@ -356,6 +363,30 @@
 		6E4E03A21D71882600C669E6 /* RecommendWebCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendWebCollectionViewCell.h; sourceTree = "<group>"; };
 		6E4E03A31D71882600C669E6 /* RecommendWebCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendWebCollectionViewCell.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		6E58B21E1D729FC1002714FD /* RegionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionEntity.h; sourceTree = "<group>"; };
+		6E58B21F1D729FC1002714FD /* RegionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionEntity.m; sourceTree = "<group>"; };
+		6E58B22B1D72A229002714FD /* RegionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionListViewController.h; sourceTree = "<group>"; };
+		6E58B22C1D72A229002714FD /* RegionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionListViewController.m; sourceTree = "<group>"; };
+		6E58B2301D72A267002714FD /* RegionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionCollectionViewCell.h; sourceTree = "<group>"; };
+		6E58B2311D72A267002714FD /* RegionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionCollectionViewCell.m; sourceTree = "<group>"; };
+		6E58B2331D72A8D2002714FD /* RegionListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionListModel.h; sourceTree = "<group>"; };
+		6E58B2341D72A8D2002714FD /* RegionListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionListModel.m; sourceTree = "<group>"; };
+		6E58B2361D72A8F3002714FD /* RegionListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionListRequest.h; sourceTree = "<group>"; };
+		6E58B2371D72A8F3002714FD /* RegionListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionListRequest.m; sourceTree = "<group>"; };
+		6E58B2391D72AA53002714FD /* RegionChildEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionChildEntity.h; sourceTree = "<group>"; };
+		6E58B23A1D72AA53002714FD /* RegionChildEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionChildEntity.m; sourceTree = "<group>"; };
+		6E58B2421D72B534002714FD /* RegionShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowViewController.h; sourceTree = "<group>"; };
+		6E58B2431D72B534002714FD /* RegionShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowViewController.m; sourceTree = "<group>"; };
+		6E58B2451D72B5AC002714FD /* RegionShowRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowRequest.h; sourceTree = "<group>"; };
+		6E58B2461D72B5AC002714FD /* RegionShowRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowRequest.m; sourceTree = "<group>"; };
+		6E58B2481D72B5FC002714FD /* RegionShowChildRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowChildRequest.h; sourceTree = "<group>"; };
+		6E58B2491D72B5FC002714FD /* RegionShowChildRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowChildRequest.m; sourceTree = "<group>"; };
+		6E58B24B1D72B81E002714FD /* RegionShowEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowEntity.h; sourceTree = "<group>"; };
+		6E58B24C1D72B81E002714FD /* RegionShowEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowEntity.m; sourceTree = "<group>"; };
+		6E58B24E1D72B86A002714FD /* RegionShowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowModel.h; sourceTree = "<group>"; };
+		6E58B24F1D72B86A002714FD /* RegionShowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowModel.m; sourceTree = "<group>"; };
+		6E58B2511D72B87E002714FD /* RegionShowCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowCollectionView.h; sourceTree = "<group>"; };
+		6E58B2521D72B87E002714FD /* RegionShowCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowCollectionView.m; sourceTree = "<group>"; };
 		6E5975B71D5B171500D520E0 /* VideoIntroCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoIntroCollectionViewCell.h; sourceTree = "<group>"; };
 		6E5975B81D5B171500D520E0 /* VideoIntroCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoIntroCollectionViewCell.m; sourceTree = "<group>"; };
 		6E5975BB1D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoIntroOwnerCollectionViewCell.h; sourceTree = "<group>"; };
@@ -564,16 +595,6 @@
 		6EB6920B1D12422C000FA482 /* bilibili fakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bilibili fakeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bilibili_fakeUITests.m; sourceTree = "<group>"; };
 		6EB692111D12422C000FA482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6EC6A4F41D489FCA0021BE48 /* RegionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionViewController.h; sourceTree = "<group>"; };
-		6EC6A4F51D489FCA0021BE48 /* RegionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionViewController.m; sourceTree = "<group>"; };
-		6EC6A4F71D489FE00021BE48 /* RegionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionModel.h; sourceTree = "<group>"; };
-		6EC6A4F81D489FE00021BE48 /* RegionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionModel.m; sourceTree = "<group>"; };
-		6EC6A4FA1D489FF30021BE48 /* RegionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionRequest.h; sourceTree = "<group>"; };
-		6EC6A4FB1D489FF30021BE48 /* RegionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionRequest.m; sourceTree = "<group>"; };
-		6EC6A4FD1D48A05E0021BE48 /* RegionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionEntity.h; sourceTree = "<group>"; };
-		6EC6A4FE1D48A05E0021BE48 /* RegionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionEntity.m; sourceTree = "<group>"; };
-		6EC6A5001D48ADEE0021BE48 /* RegionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionCollectionViewCell.h; sourceTree = "<group>"; };
-		6EC6A5011D48ADEE0021BE48 /* RegionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionCollectionViewCell.m; sourceTree = "<group>"; };
 		6ED9D4CA1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVideoInfoHeaderView.h; sourceTree = "<group>"; };
 		6ED9D4CB1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVideoInfoHeaderView.m; sourceTree = "<group>"; };
 		6ED9D4CD1D6C22C1004E2557 /* VideoURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoURL.h; sourceTree = "<group>"; };
@@ -1112,6 +1133,132 @@
 				6E4836741D410818004AD1A4 /* MediaPlayerProgressView.m */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		6E58B2161D729FC1002714FD /* RegionList */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B2231D729FC1002714FD /* Request */,
+				6E58B21D1D729FC1002714FD /* Entity */,
+				6E58B2201D729FC1002714FD /* Model */,
+				6E58B22E1D72A267002714FD /* View */,
+				6E58B21A1D729FC1002714FD /* Controller */,
+			);
+			path = RegionList;
+			sourceTree = "<group>";
+		};
+		6E58B21A1D729FC1002714FD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B22B1D72A229002714FD /* RegionListViewController.h */,
+				6E58B22C1D72A229002714FD /* RegionListViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E58B21D1D729FC1002714FD /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B21E1D729FC1002714FD /* RegionEntity.h */,
+				6E58B21F1D729FC1002714FD /* RegionEntity.m */,
+				6E58B2391D72AA53002714FD /* RegionChildEntity.h */,
+				6E58B23A1D72AA53002714FD /* RegionChildEntity.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		6E58B2201D729FC1002714FD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B2331D72A8D2002714FD /* RegionListModel.h */,
+				6E58B2341D72A8D2002714FD /* RegionListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E58B2231D729FC1002714FD /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B2361D72A8F3002714FD /* RegionListRequest.h */,
+				6E58B2371D72A8F3002714FD /* RegionListRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		6E58B22E1D72A267002714FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B22F1D72A267002714FD /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E58B22F1D72A267002714FD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B2301D72A267002714FD /* RegionCollectionViewCell.h */,
+				6E58B2311D72A267002714FD /* RegionCollectionViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6E58B23C1D72B49A002714FD /* RegionShow */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B2401D72B49A002714FD /* Request */,
+				6E58B23E1D72B49A002714FD /* Entity */,
+				6E58B23F1D72B49A002714FD /* Model */,
+				6E58B2411D72B49A002714FD /* View */,
+				6E58B23D1D72B49A002714FD /* Controller */,
+			);
+			path = RegionShow;
+			sourceTree = "<group>";
+		};
+		6E58B23D1D72B49A002714FD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B2421D72B534002714FD /* RegionShowViewController.h */,
+				6E58B2431D72B534002714FD /* RegionShowViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E58B23E1D72B49A002714FD /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B24B1D72B81E002714FD /* RegionShowEntity.h */,
+				6E58B24C1D72B81E002714FD /* RegionShowEntity.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		6E58B23F1D72B49A002714FD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B24E1D72B86A002714FD /* RegionShowModel.h */,
+				6E58B24F1D72B86A002714FD /* RegionShowModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E58B2401D72B49A002714FD /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B2451D72B5AC002714FD /* RegionShowRequest.h */,
+				6E58B2461D72B5AC002714FD /* RegionShowRequest.m */,
+				6E58B2481D72B5FC002714FD /* RegionShowChildRequest.h */,
+				6E58B2491D72B5FC002714FD /* RegionShowChildRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		6E58B2411D72B49A002714FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E58B2511D72B87E002714FD /* RegionShowCollectionView.h */,
+				6E58B2521D72B87E002714FD /* RegionShowCollectionView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6E5975B21D5B171500D520E0 /* VideoInfo */ = {
@@ -1766,58 +1913,10 @@
 		6EC6A4EE1D489FB50021BE48 /* Region */ = {
 			isa = PBXGroup;
 			children = (
-				6EC6A4EF1D489FB60021BE48 /* Cell */,
-				6EC6A4F01D489FB60021BE48 /* Controller */,
-				6EC6A4F11D489FB60021BE48 /* Entity */,
-				6EC6A4F21D489FB60021BE48 /* Model */,
-				6EC6A4F31D489FB60021BE48 /* Request */,
+				6E58B2161D729FC1002714FD /* RegionList */,
+				6E58B23C1D72B49A002714FD /* RegionShow */,
 			);
 			path = Region;
-			sourceTree = "<group>";
-		};
-		6EC6A4EF1D489FB60021BE48 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				6EC6A5001D48ADEE0021BE48 /* RegionCollectionViewCell.h */,
-				6EC6A5011D48ADEE0021BE48 /* RegionCollectionViewCell.m */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		6EC6A4F01D489FB60021BE48 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				6EC6A4F41D489FCA0021BE48 /* RegionViewController.h */,
-				6EC6A4F51D489FCA0021BE48 /* RegionViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		6EC6A4F11D489FB60021BE48 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				6EC6A4FD1D48A05E0021BE48 /* RegionEntity.h */,
-				6EC6A4FE1D48A05E0021BE48 /* RegionEntity.m */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		6EC6A4F21D489FB60021BE48 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				6EC6A4F71D489FE00021BE48 /* RegionModel.h */,
-				6EC6A4F81D489FE00021BE48 /* RegionModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		6EC6A4F31D489FB60021BE48 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				6EC6A4FA1D489FF30021BE48 /* RegionRequest.h */,
-				6EC6A4FB1D489FF30021BE48 /* RegionRequest.m */,
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		6EFFD4A31D2BCDFB00D1BC9E /* Views */ = {
@@ -2581,8 +2680,10 @@
 			files = (
 				6E4E03971D71374200C669E6 /* UIViewController+PopGesture.m in Sources */,
 				6E7E46E91D587AD20027AE8D /* BangumiListEntity.m in Sources */,
+				6E58B2281D729FC1002714FD /* RegionEntity.m in Sources */,
 				6E5FB1951D557CBE00984DC6 /* LiveListEntranceEntity.m in Sources */,
 				6E5975F71D5B171500D520E0 /* VideoIntroRelateCollectionViewCell.m in Sources */,
+				6E58B24D1D72B81E002714FD /* RegionShowEntity.m in Sources */,
 				6EB5529B1D548D50001099C1 /* RecommendAvCollectionViewCell.m in Sources */,
 				6E7E46E61D587A300027AE8D /* BangumiRecommendRequest.m in Sources */,
 				FC4704041D4078EA009F0B62 /* RankOriginalorAllVC.m in Sources */,
@@ -2591,6 +2692,7 @@
 				6E199CE61D674CBC003E06F6 /* DownloadVideoPageEntity.m in Sources */,
 				6E59760C1D5B171500D520E0 /* VideoIntroView.m in Sources */,
 				6E5976371D5C6FE500D520E0 /* DanmakuConfiguration.m in Sources */,
+				6E58B24A1D72B5FC002714FD /* RegionShowChildRequest.m in Sources */,
 				FC1CBAE01D3F551900D8295C /* SearchAnimateView.m in Sources */,
 				FC6F48921D363B1A00047EEA /* VideoCell.m in Sources */,
 				6E5FB1AE1D55924C00984DC6 /* LiveEntranceCollectionViewCell.m in Sources */,
@@ -2601,10 +2703,11 @@
 				6EB552831D5487A4001099C1 /* RecommendEntity.m in Sources */,
 				6E199CDA1D673BB2003E06F6 /* DownloadVideoCollectionView.m in Sources */,
 				6EB552981D548D1A001099C1 /* RecommendCollectionViewCell.m in Sources */,
+				6E58B2441D72B534002714FD /* RegionShowViewController.m in Sources */,
 				FC4704001D4078DF009F0B62 /* GameCentreData.m in Sources */,
+				6E58B2501D72B86A002714FD /* RegionShowModel.m in Sources */,
 				6E5976071D5B171500D520E0 /* VideoURLProtocol.m in Sources */,
 				FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */,
-				6EC6A4FC1D489FF30021BE48 /* RegionRequest.m in Sources */,
 				FC749C0E1D61B2B200993327 /* UIStyleCell.m in Sources */,
 				FCB5C9CD1D33AF41000215B3 /* FindViewCell.m in Sources */,
 				FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */,
@@ -2622,14 +2725,17 @@
 				6E4836541D409617004AD1A4 /* SABlurImageView.swift in Sources */,
 				6E66C8AF1D1AB1E9002DA3AB /* HomeHeaderView.m in Sources */,
 				6E9CA3041D6F01F6004B2C86 /* WebViewController.m in Sources */,
+				6E58B2471D72B5AC002714FD /* RegionShowRequest.m in Sources */,
 				6E5976341D5C6FD700D520E0 /* DanmakuLabel.m in Sources */,
 				6E9CA30E1D6F07B5004B2C86 /* URLRouter.m in Sources */,
 				6E5975F91D5B171500D520E0 /* VideoIntroTagsCollectionViewCell.m in Sources */,
+				6E58B22D1D72A229002714FD /* RegionListViewController.m in Sources */,
 				6E5975FE1D5B171500D520E0 /* VideoCommentTableViewCell.m in Sources */,
 				6E5976081D5B171500D520E0 /* VideoCommentRequest.m in Sources */,
 				FCB5C9CE1D33AF41000215B3 /* GameCenterCell.m in Sources */,
 				6E21B07B1D54BBC90081CDC1 /* BangumiListViewController.m in Sources */,
 				6E4836751D410818004AD1A4 /* MediaPlayer.m in Sources */,
+				6E58B2321D72A267002714FD /* RegionCollectionViewCell.m in Sources */,
 				6E5976051D5B171500D520E0 /* VideoStatInfoEntity.m in Sources */,
 				6E23777B1D53653A00102550 /* HistoryCollectionViewCell.m in Sources */,
 				FCF131B81D5B366600790DC6 /* UIStyleMacro.m in Sources */,
@@ -2648,7 +2754,6 @@
 				6E5976181D5B24E100D520E0 /* ResponseSerializer.m in Sources */,
 				6E026FE91D3E29460038C2A0 /* Request.m in Sources */,
 				6E199CE01D674368003E06F6 /* DownloadVideoEntity.m in Sources */,
-				6EC6A4F91D489FE00021BE48 /* RegionModel.m in Sources */,
 				6E215CFF1D4B61B00004CA5B /* HistoryViewController.m in Sources */,
 				FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */,
 				6E5FE91B1D59B6E200459BF4 /* BangumiRecommendCollectionViewCell.m in Sources */,
@@ -2665,13 +2770,12 @@
 				6E2A92EA1D6458EC00A8F9BA /* PullAnimationView.m in Sources */,
 				6E5A61271D5F077E007A4740 /* RefreshCollectionView.m in Sources */,
 				6E5FB1A51D55918F00984DC6 /* LivePartitionsHeaderView.m in Sources */,
-				6EC6A5021D48ADEE0021BE48 /* RegionCollectionViewCell.m in Sources */,
 				6E5975FB1D5B171500D520E0 /* VideoPageNameCollectionViewCell.m in Sources */,
 				FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */,
-				6EC6A4FF1D48A05E0021BE48 /* RegionEntity.m in Sources */,
 				6EB552A41D5491AD001099C1 /* RecommendCollectionView.m in Sources */,
 				6E2377401D530FAF00102550 /* HistoryEntity.m in Sources */,
 				6E5FB1921D557C0400984DC6 /* LiveListEntity.m in Sources */,
+				6E58B2531D72B87E002714FD /* RegionShowCollectionView.m in Sources */,
 				6E7E46EF1D587E470027AE8D /* BangumiEntity.m in Sources */,
 				6E59763A1D5C6FF500D520E0 /* DanmakuControl.m in Sources */,
 				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,
@@ -2682,6 +2786,7 @@
 				6ED9D4CF1D6C22C1004E2557 /* VideoURL.m in Sources */,
 				6E5FB19F1D5590F400984DC6 /* LiveCollectionView.m in Sources */,
 				6E2377431D53106400102550 /* HistoryModel.m in Sources */,
+				6E58B2351D72A8D2002714FD /* RegionListModel.m in Sources */,
 				6E5FB1A81D5591A100984DC6 /* LivePartitionsFooterView.m in Sources */,
 				6E199CF21D67A592003E06F6 /* DownloadVideoPageCollectionViewCell.m in Sources */,
 				FCF131BE1D5C1CA700790DC6 /* UIColor+String.m in Sources */,
@@ -2690,6 +2795,7 @@
 				FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */,
 				6E5976001D5B171500D520E0 /* VideoCommentEntity.m in Sources */,
 				6E5FB18C1D557AE800984DC6 /* LiveListModel.m in Sources */,
+				6E58B2381D72A8F3002714FD /* RegionListRequest.m in Sources */,
 				6E59762E1D5C6FBB00D520E0 /* DanmakuEntity.m in Sources */,
 				6E23777E1D536BD400102550 /* UIViewController+HeaderView.m in Sources */,
 				6E2A92ED1D64657500A8F9BA /* TestRefreshCollectionView.m in Sources */,
@@ -2731,7 +2837,7 @@
 				6EB5528F1D5488D8001099C1 /* RecommendListModel.m in Sources */,
 				FC66E7601D3E2D7A00F28B90 /* StartVCData.m in Sources */,
 				6E5FB1891D557AB100984DC6 /* LiveListRequest.m in Sources */,
-				6EC6A4F61D489FCA0021BE48 /* RegionViewController.m in Sources */,
+				6E58B23B1D72AA53002714FD /* RegionChildEntity.m in Sources */,
 				FC66E75F1D3E2D7A00F28B90 /* StartViewController.m in Sources */,
 				6EB450301D51FD0000A4F626 /* NSString+MD5.m in Sources */,
 				6E4836771D410818004AD1A4 /* MediaPlayerProgressView.m in Sources */,

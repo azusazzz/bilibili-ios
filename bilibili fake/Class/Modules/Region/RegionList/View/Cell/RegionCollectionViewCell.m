@@ -41,12 +41,14 @@
         _logoImageView = [[UIImageView alloc] init];
         [borderView addSubview:_logoImageView];
         
-        _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = Font(12);
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.textColor = ColorWhite(146);
-        [self.contentView addSubview:_titleLabel];
-        
+        _titleLabel = ({
+            UILabel *label = [[UILabel alloc] init];
+            label.font = Font(12);
+            label.textAlignment = NSTextAlignmentCenter;
+            label.textColor = ColorWhite(146);
+            [self.contentView addSubview:label];
+            label;
+        });
         
         [borderView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.offset = 0;

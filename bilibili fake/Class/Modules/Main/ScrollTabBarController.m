@@ -12,7 +12,7 @@
 #import "NavigationController.h"
 
 #import "HomeViewController.h"
-#import "RegionViewController.h"
+#import "RegionListViewController.h"
 #import "FollowViewController.h"
 #import "FindViewController.h"
 #import "MineViewController.h"
@@ -40,7 +40,7 @@
     
     self.viewControllers = @[
                              [[NavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]],
-                             [[NavigationController alloc] initWithRootViewController:[[RegionViewController alloc] init]],
+                             [[NavigationController alloc] initWithRootViewController:[[RegionListViewController alloc] init]],
                              [[NavigationController alloc] initWithRootViewController:[[FollowViewController alloc] init]],
                              [[NavigationController alloc] initWithRootViewController:[[FindViewController alloc] init]],
                              [[NavigationController alloc] initWithRootViewController:[[MineViewController alloc] init]],
