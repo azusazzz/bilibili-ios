@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RegionEntity.h"
 
 @interface RegionShowViewController : UIViewController
+
+- (instancetype)initWithRegion:(RegionEntity *)region;
 
 @end

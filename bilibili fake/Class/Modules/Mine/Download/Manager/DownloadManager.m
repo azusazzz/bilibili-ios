@@ -38,7 +38,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-        config.allowsCellularAccess = NO;
+//        config.allowsCellularAccess = NO;
         _session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:[[NSOperationQueue alloc] init]];
         _operations = [NSMutableArray array];
         _queue = [[NSOperationQueue alloc] init];

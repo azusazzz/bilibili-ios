@@ -10,8 +10,9 @@
 #import "RegionListModel.h"
 #import "RegionCollectionViewCell.h"
 
-#import "ScrollTabBarController.h"
+#import "RegionShowViewController.h"
 
+#import "ScrollTabBarController.h"
 #import "URLRouter.h"
 
 @interface RegionListViewController ()
@@ -75,6 +76,7 @@
     }
     else {
         NSLog(@"%@", region.name);
+        [self.navigationController pushViewController:[[RegionShowViewController alloc] initWithRegion:region] animated:YES];
     }
 }
 

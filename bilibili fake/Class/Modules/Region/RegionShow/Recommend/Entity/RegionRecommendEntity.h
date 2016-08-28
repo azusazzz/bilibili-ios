@@ -1,5 +1,5 @@
 //
-//  RegionShowEntity.h
+//  RegionRecommendEntity.h
 //  bilibili fake
 //
 //  Created by cezr on 16/8/28.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RegionShowEntity : NSObject
+@interface RegionRecommendEntity : NSObject
 
 @property (strong, nonatomic) NSArray *banners;
 

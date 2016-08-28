@@ -1,5 +1,5 @@
 //
-//  RegionShowRequest.h
+//  RegionShowChildRequest.h
 //  bilibili fake
 //
 //  Created by cezr on 16/8/28.
@@ -8,9 +8,6 @@
 
 #import "BaseRequest.h"
 
-/**
- *  分区展示-推荐模块数据请求
- */
-@interface RegionShowRequest : BaseRequest
+@interface RegionShowChildRequest : BaseRequest
 
 @end
