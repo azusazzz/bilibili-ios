@@ -98,6 +98,10 @@
 		6E5976371D5C6FE500D520E0 /* DanmakuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5976361D5C6FE500D520E0 /* DanmakuConfiguration.m */; };
 		6E59763A1D5C6FF500D520E0 /* DanmakuControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5976391D5C6FF500D520E0 /* DanmakuControl.m */; };
 		6E5A61271D5F077E007A4740 /* RefreshCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A61261D5F077E007A4740 /* RefreshCollectionView.m */; };
+		6E5ED8801D7434E200839B9E /* RegionShowHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5ED87F1D7434E200839B9E /* RegionShowHeaderView.m */; };
+		6E5ED8831D7448DD00839B9E /* RegionShowRecommendCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5ED8821D7448DD00839B9E /* RegionShowRecommendCollectionView.m */; };
+		6E5ED8861D74511000839B9E /* RegionShowBannerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5ED8851D74511000839B9E /* RegionShowBannerEntity.m */; };
+		6E5ED8891D74535200839B9E /* RegionShowVideoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5ED8881D74535200839B9E /* RegionShowVideoEntity.m */; };
 		6E5FB1891D557AB100984DC6 /* LiveListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5FB1881D557AB100984DC6 /* LiveListRequest.m */; };
 		6E5FB18C1D557AE800984DC6 /* LiveListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5FB18B1D557AE800984DC6 /* LiveListModel.m */; };
 		6E5FB18F1D557BF500984DC6 /* LiveListBannerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5FB18E1D557BF500984DC6 /* LiveListBannerEntity.m */; };
@@ -461,6 +465,14 @@
 		6E5976391D5C6FF500D520E0 /* DanmakuControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuControl.m; sourceTree = "<group>"; };
 		6E5A61251D5F077E007A4740 /* RefreshCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshCollectionView.h; sourceTree = "<group>"; };
 		6E5A61261D5F077E007A4740 /* RefreshCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshCollectionView.m; sourceTree = "<group>"; };
+		6E5ED87E1D7434E200839B9E /* RegionShowHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowHeaderView.h; sourceTree = "<group>"; };
+		6E5ED87F1D7434E200839B9E /* RegionShowHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowHeaderView.m; sourceTree = "<group>"; };
+		6E5ED8811D7448DD00839B9E /* RegionShowRecommendCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowRecommendCollectionView.h; sourceTree = "<group>"; };
+		6E5ED8821D7448DD00839B9E /* RegionShowRecommendCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowRecommendCollectionView.m; sourceTree = "<group>"; };
+		6E5ED8841D74511000839B9E /* RegionShowBannerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowBannerEntity.h; sourceTree = "<group>"; };
+		6E5ED8851D74511000839B9E /* RegionShowBannerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowBannerEntity.m; sourceTree = "<group>"; };
+		6E5ED8871D74535200839B9E /* RegionShowVideoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowVideoEntity.h; sourceTree = "<group>"; };
+		6E5ED8881D74535200839B9E /* RegionShowVideoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowVideoEntity.m; sourceTree = "<group>"; };
 		6E5FB1871D557AB100984DC6 /* LiveListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveListRequest.h; sourceTree = "<group>"; };
 		6E5FB1881D557AB100984DC6 /* LiveListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveListRequest.m; sourceTree = "<group>"; };
 		6E5FB18A1D557AE800984DC6 /* LiveListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveListModel.h; sourceTree = "<group>"; };
@@ -844,11 +856,11 @@
 		6E08FD2F1D72D7F900544842 /* Recommend */ = {
 			isa = PBXGroup;
 			children = (
-				6E08FD301D72D7F900544842 /* Controller */,
+				6E08FD331D72D7F900544842 /* Request */,
 				6E08FD311D72D7F900544842 /* Entity */,
 				6E08FD321D72D7F900544842 /* Model */,
-				6E08FD331D72D7F900544842 /* Request */,
 				6E08FD341D72D7F900544842 /* View */,
+				6E08FD301D72D7F900544842 /* Controller */,
 			);
 			path = Recommend;
 			sourceTree = "<group>";
@@ -867,6 +879,10 @@
 			children = (
 				6E08FD5C1D7336C100544842 /* RegionShowRecommendEntity.h */,
 				6E08FD5D1D7336C100544842 /* RegionShowRecommendEntity.m */,
+				6E5ED8841D74511000839B9E /* RegionShowBannerEntity.h */,
+				6E5ED8851D74511000839B9E /* RegionShowBannerEntity.m */,
+				6E5ED8871D74535200839B9E /* RegionShowVideoEntity.h */,
+				6E5ED8881D74535200839B9E /* RegionShowVideoEntity.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -892,6 +908,8 @@
 		6E08FD341D72D7F900544842 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6E5ED8811D7448DD00839B9E /* RegionShowRecommendCollectionView.h */,
+				6E5ED8821D7448DD00839B9E /* RegionShowRecommendCollectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1349,6 +1367,8 @@
 			children = (
 				6E58B2511D72B87E002714FD /* RegionShowCollectionView.h */,
 				6E58B2521D72B87E002714FD /* RegionShowCollectionView.m */,
+				6E5ED87E1D7434E200839B9E /* RegionShowHeaderView.h */,
+				6E5ED87F1D7434E200839B9E /* RegionShowHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2840,8 +2860,10 @@
 				6E5975F81D5B171500D520E0 /* VideoIntroStatCollectionViewCell.m in Sources */,
 				6E59760D1D5B171500D520E0 /* VideoTabBar.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
+				6E5ED8831D7448DD00839B9E /* RegionShowRecommendCollectionView.m in Sources */,
 				6E5976041D5B171500D520E0 /* VideoPageInfoEntity.m in Sources */,
 				6E5FB19B1D55881100984DC6 /* LiveListPartitionLiveEntity.m in Sources */,
+				6E5ED8861D74511000839B9E /* RegionShowBannerEntity.m in Sources */,
 				6E5976181D5B24E100D520E0 /* ResponseSerializer.m in Sources */,
 				6E026FE91D3E29460038C2A0 /* Request.m in Sources */,
 				6E199CE01D674368003E06F6 /* DownloadVideoEntity.m in Sources */,
@@ -2924,6 +2946,7 @@
 				6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */,
 				6E199CDD1D673F8D003E06F6 /* DownloadVideoModel.m in Sources */,
 				6E885B971D4AEBB200A3BA35 /* JCTagListView.m in Sources */,
+				6E5ED8801D7434E200839B9E /* RegionShowHeaderView.m in Sources */,
 				6EB5529E1D548D64001099C1 /* RecommendLiveCollectionViewCell.m in Sources */,
 				6E215D001D4B61B00004CA5B /* MineCollectionViewCell.m in Sources */,
 				6E5FB1B71D55DF8D00984DC6 /* NavigationController.m in Sources */,
@@ -2938,6 +2961,7 @@
 				6E4836771D410818004AD1A4 /* MediaPlayerProgressView.m in Sources */,
 				6E5976121D5B174D00D520E0 /* DanmakuRequest.m in Sources */,
 				FCB5C9A71D333886000215B3 /* SearchResultData.m in Sources */,
+				6E5ED8891D74535200839B9E /* RegionShowVideoEntity.m in Sources */,
 				6E5FB1981D557DAA00984DC6 /* LiveListPartitionEntity.m in Sources */,
 				FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */,
 				FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */,

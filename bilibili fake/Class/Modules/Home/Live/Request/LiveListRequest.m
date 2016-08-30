@@ -18,9 +18,9 @@
     return HTTPMethodGet;
 }
 
-//- (NSTimeInterval)cacheTimeoutInterval; {
-//    return 60 * 30;
-//}
+- (NSTimeInterval)cacheTimeoutInterval; {
+    return 60 * 30;
+}
 
 
 @end

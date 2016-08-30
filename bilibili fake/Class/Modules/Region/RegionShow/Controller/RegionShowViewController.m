@@ -9,12 +9,23 @@
 #import "RegionShowViewController.h"
 #import "UIViewController+HeaderView.h"
 
+#import "RegionShowHeaderView.h"    // 头部标签栏
+
+#import "RegionShowRecommendViewController.h"   // 推荐
+#import "RegionShowChildViewController.h"       // 子模块
+
 @interface RegionShowViewController ()
 <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 
 @property (strong, nonatomic) RegionEntity *region;
+
+@property (strong, nonatomic) RegionShowHeaderView *headerView;
+
+@property (strong, nonatomic) RegionShowRecommendViewController *recommendViewController;
+
+@property (strong, nonatomic) NSArray<RegionShowChildViewController *> *childrens;
 
 @end
 
@@ -58,6 +69,15 @@
     
     [self navigationBar];
     
+    NSMutableArray<NSString *> *titles = [NSMutableArray arrayWithCapacity:_region.children.count+1];
+    [titles addObject:@"推荐"];
+    for (RegionChildEntity *child in _region.children) {
+        [titles addObject:child.name];
+    }
+    // Header
+    _headerView = [[RegionShowHeaderView alloc] initWithTitles:titles];
+    [self.view addSubview:_headerView];
+    
     _collectionView = ({
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -72,12 +92,31 @@
         collectionView;
     });
     [self.view addSubview:_collectionView];
+    
+    [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.top.equalTo(self.navigationBar.mas_bottom);
+        make.height.equalTo(@(44));
+    }];
+    
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset = 0;
         make.right.offset = 0;
         make.bottom.offset = 0;
-        make.top.equalTo(self.navigationBar.mas_bottom);
+        make.top.equalTo(self.headerView.mas_bottom);
     }];
+    
+    _recommendViewController = [[RegionShowRecommendViewController alloc] init];
+    NSMutableArray *childrens = [NSMutableArray arrayWithCapacity:_region.children.count];
+    for (NSInteger idx=0; idx<_region.children.count; idx++) {
+        [childrens addObject:[[RegionShowChildViewController alloc] init]];
+    }
+    _childrens = [childrens copy];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    _headerView.contentOffset = scrollView.contentOffset.x / self.view.width;
 }
 
 #pragma mark - Number
@@ -95,8 +134,37 @@
     return [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
 }
 
+#pragma mark - Data
+
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     cell.backgroundColor = ColorRGB(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255));
+    NSLog(@"%ld", indexPath.row);
+    UIView *contentView;
+    if (indexPath.row == 0) {
+        [self addChildViewController:_recommendViewController];
+        contentView = _recommendViewController.view;
+    }
+    else {
+        [self addChildViewController:_childrens[indexPath.row - 1]];
+        contentView = _childrens[indexPath.row - 1].view;
+    }
+    [cell.contentView addSubview:contentView];
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.offset = 0;
+    }];
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%ld", indexPath.row);
+    if (indexPath.row == 0) {
+        [_recommendViewController.view removeFromSuperview];
+        [_recommendViewController removeFromParentViewController];
+    }
+    else {
+        [_childrens[indexPath.row - 1].view removeFromSuperview];
+        [_childrens[indexPath.row - 1] removeFromParentViewController];
+    }
+}
+
 
 @end

@@ -10,4 +10,12 @@
 
 @interface RegionShowRecommendEntity : NSObject
 
+@property (strong, nonatomic) NSArray *banners;
+
+@property (strong, nonatomic) NSArray *recommends;
+
+@property (strong, nonatomic) NSArray *news;
+
+@property (strong, nonatomic) NSArray *dynamics;
+
 @end

@@ -10,4 +10,6 @@
 
 @interface RegionShowRecommendRequest : BaseRequest
 
++ (instancetype)requestWithRid:(NSInteger)rid;
+
 @end
