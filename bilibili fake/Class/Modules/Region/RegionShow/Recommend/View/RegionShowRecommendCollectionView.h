@@ -7,7 +7,10 @@
 //
 
 #import "RefreshCollectionView.h"
+#import "RegionShowRecommendEntity.h"
 
 @interface RegionShowRecommendCollectionView : RefreshCollectionView
+
+@property (strong, nonatomic, readonly) RegionShowRecommendEntity *regionShow;
 
 @end

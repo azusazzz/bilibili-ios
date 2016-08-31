@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RegionShowRecommendEntity.h"
 
 @interface RegionShowRecommendModel : NSObject
+
+@property (strong, nonatomic, readonly) RegionShowRecommendEntity *regionShow;
+
+- (instancetype)initWithRid:(NSInteger)rid;
+
+- (void)getRegionShowWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 @end

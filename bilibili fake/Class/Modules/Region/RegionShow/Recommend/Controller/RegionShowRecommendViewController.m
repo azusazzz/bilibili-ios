@@ -7,18 +7,50 @@
 //
 
 #import "RegionShowRecommendViewController.h"
+#import "RegionShowRecommendCollectionView.h"
+#import "RegionShowRecommendModel.h"
+#import <ReactiveCocoa.h>
 
 @interface RegionShowRecommendViewController ()
+
+@property (strong, nonatomic) RegionShowRecommendCollectionView *collectionView;
+
+@property (strong, nonatomic) RegionShowRecommendModel *model;
 
 @end
 
 @implementation RegionShowRecommendViewController
+
+- (instancetype)initWithRid:(NSInteger)rid {
+    if (self = [super init]) {
+        _model = [[RegionShowRecommendModel alloc] initWithRid:rid];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = ColorWhite(247);
+    
+    if (!_model) {
+        return;
+    }
+    /*
+    _collectionView = [[RegionShowRecommendCollectionView alloc] init];
+    [self.view addSubview:_collectionView];
+    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    RAC(self.collectionView, regionShow) = RACObserve(self.model, regionShow);
+    
+    [self.model getRegionShowWithSuccess:^{
+        //
+    } failure:^(NSString *errorMsg) {
+        //
+    }];*/
     
 }
 
@@ -38,19 +70,5 @@
     [super viewDidDisappear:animated];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

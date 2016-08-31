@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MBProgressHUD.h>
+#import "ValueConversion.h"
 
 /**
  *  提示框  成功

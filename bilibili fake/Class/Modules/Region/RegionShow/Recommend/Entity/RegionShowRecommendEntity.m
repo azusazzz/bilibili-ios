@@ -10,4 +10,21 @@
 
 @implementation RegionShowRecommendEntity
 
+
++ (NSDictionary *)mj_objectClassInArray; {
+    return @{@"banners": NSStringFromClass([RegionShowBannerEntity class]),
+             @"recommends": NSStringFromClass([RegionShowVideoEntity class]),
+             @"news": NSStringFromClass([RegionShowVideoEntity class]),
+             @"dynamics": NSStringFromClass([RegionShowVideoEntity class]),};
+}
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName; {
+    return @{@"banners": @"banner.top",
+             @"recommends": @"recommend",
+             @"news": @"new",
+             @"dynamics": @"dynamic",};
+}
+
+
+
 @end

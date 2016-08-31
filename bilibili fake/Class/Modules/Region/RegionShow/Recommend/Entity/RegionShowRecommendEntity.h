@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RegionShowBannerEntity.h"
+#import "RegionShowVideoEntity.h"
 
 @interface RegionShowRecommendEntity : NSObject
 
-@property (strong, nonatomic) NSArray *banners;
+@property (strong, nonatomic) NSArray<RegionShowBannerEntity *> *banners;
 
-@property (strong, nonatomic) NSArray *recommends;
+@property (strong, nonatomic) NSArray<RegionShowVideoEntity *> *recommends;
 
-@property (strong, nonatomic) NSArray *news;
+@property (strong, nonatomic) NSArray<RegionShowVideoEntity *> *news;
 
-@property (strong, nonatomic) NSArray *dynamics;
+@property (strong, nonatomic) NSArray<RegionShowVideoEntity *> *dynamics;
 
 @end

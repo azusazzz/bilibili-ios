@@ -8,6 +8,7 @@
 
 #import "RegionShowViewController.h"
 #import "UIViewController+HeaderView.h"
+#import "UIViewController+PopGesture.h"
 
 #import "RegionShowHeaderView.h"    // 头部标签栏
 
@@ -15,7 +16,7 @@
 #import "RegionShowChildViewController.h"       // 子模块
 
 @interface RegionShowViewController ()
-<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 
@@ -54,6 +55,77 @@
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
+    CGPoint translation = [gestureRecognizer translationInView:self.collectionView];
+    if (translation.x <= fabs(translation.y)) {
+        return NO;
+    }
+    if (self.collectionView.contentOffset.x > 0) {
+        CGPoint location = [gestureRecognizer locationInView:self.collectionView];
+        location.x -= (NSInteger)(location.x / self.collectionView.width) * self.collectionView.width;
+        if (location.x < 40) {
+            return YES;
+        }
+        else {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    _headerView.contentOffset = scrollView.contentOffset.x / self.view.width;
+}
+
+#pragma mark - Number
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [_region.children count] + 1;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return collectionView.bounds.size;
+}
+
+#pragma mark - Cell
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+}
+
+#pragma mark - Data
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    cell.backgroundColor = ColorRGB(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255));
+    NSLog(@"%ld", indexPath.row);
+    UIView *contentView;
+    if (indexPath.row == 0) {
+        [self addChildViewController:_recommendViewController];
+        contentView = _recommendViewController.view;
+    }
+    else {
+        [self addChildViewController:_childrens[indexPath.row - 1]];
+        contentView = _childrens[indexPath.row - 1].view;
+    }
+    [cell.contentView addSubview:contentView];
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.offset = 0;
+    }];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%ld", indexPath.row);
+    if (indexPath.row == 0) {
+        [_recommendViewController.view removeFromSuperview];
+        [_recommendViewController removeFromParentViewController];
+    }
+    else {
+        [_childrens[indexPath.row - 1].view removeFromSuperview];
+        [_childrens[indexPath.row - 1] removeFromParentViewController];
+    }
 }
 
 - (void)loadSubviews {
@@ -107,63 +179,17 @@
         make.top.equalTo(self.headerView.mas_bottom);
     }];
     
-    _recommendViewController = [[RegionShowRecommendViewController alloc] init];
+    _recommendViewController = [[RegionShowRecommendViewController alloc] initWithRid:_region.tid];
     NSMutableArray *childrens = [NSMutableArray arrayWithCapacity:_region.children.count];
     for (NSInteger idx=0; idx<_region.children.count; idx++) {
         [childrens addObject:[[RegionShowChildViewController alloc] init]];
     }
     _childrens = [childrens copy];
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    _headerView.contentOffset = scrollView.contentOffset.x / self.view.width;
-}
-
-#pragma mark - Number
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [_region.children count] + 1;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return collectionView.bounds.size;
-}
-
-#pragma mark - Cell
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-}
-
-#pragma mark - Data
-
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    cell.backgroundColor = ColorRGB(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255));
-    NSLog(@"%ld", indexPath.row);
-    UIView *contentView;
-    if (indexPath.row == 0) {
-        [self addChildViewController:_recommendViewController];
-        contentView = _recommendViewController.view;
-    }
-    else {
-        [self addChildViewController:_childrens[indexPath.row - 1]];
-        contentView = _childrens[indexPath.row - 1].view;
-    }
-    [cell.contentView addSubview:contentView];
-    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.offset = 0;
-    }];
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%ld", indexPath.row);
-    if (indexPath.row == 0) {
-        [_recommendViewController.view removeFromSuperview];
-        [_recommendViewController removeFromParentViewController];
-    }
-    else {
-        [_childrens[indexPath.row - 1].view removeFromSuperview];
-        [_childrens[indexPath.row - 1] removeFromParentViewController];
-    }
+    
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] init];
+    panGesture.delegate = self;
+    [self.collectionView addGestureRecognizer:panGesture];
+    [self replacingPopGestureRecognizer:panGesture];
 }
 
 

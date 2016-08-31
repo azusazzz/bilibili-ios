@@ -59,6 +59,9 @@
 		6E4E03971D71374200C669E6 /* UIViewController+PopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E03961D71374200C669E6 /* UIViewController+PopGesture.m */; };
 		6E4E039B1D71391400C669E6 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E039A1D71391400C669E6 /* NSObject+Runtime.m */; };
 		6E4E03A41D71882600C669E6 /* RecommendWebCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E03A31D71882600C669E6 /* RecommendWebCollectionViewCell.m */; };
+		6E53E75E1D76D4BA00D84581 /* RegionShowAvCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E75D1D76D4BA00D84581 /* RegionShowAvCollectionViewCell.m */; };
+		6E53E7611D76D94C00D84581 /* RegionShowBannerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E7601D76D94C00D84581 /* RegionShowBannerCollectionViewCell.m */; };
+		6E53E7641D76D96D00D84581 /* RegionShowHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E7631D76D96D00D84581 /* RegionShowHeaderView.m */; };
 		6E58B2281D729FC1002714FD /* RegionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B21F1D729FC1002714FD /* RegionEntity.m */; };
 		6E58B22D1D72A229002714FD /* RegionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B22C1D72A229002714FD /* RegionListViewController.m */; };
 		6E58B2321D72A267002714FD /* RegionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B2311D72A267002714FD /* RegionCollectionViewCell.m */; };
@@ -387,6 +390,12 @@
 		6E4E03A21D71882600C669E6 /* RecommendWebCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendWebCollectionViewCell.h; sourceTree = "<group>"; };
 		6E4E03A31D71882600C669E6 /* RecommendWebCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendWebCollectionViewCell.m; sourceTree = "<group>"; };
 		6E5381E11D1EA73E00B5B638 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		6E53E75C1D76D4BA00D84581 /* RegionShowAvCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowAvCollectionViewCell.h; sourceTree = "<group>"; };
+		6E53E75D1D76D4BA00D84581 /* RegionShowAvCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowAvCollectionViewCell.m; sourceTree = "<group>"; };
+		6E53E75F1D76D94C00D84581 /* RegionShowBannerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowBannerCollectionViewCell.h; sourceTree = "<group>"; };
+		6E53E7601D76D94C00D84581 /* RegionShowBannerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowBannerCollectionViewCell.m; sourceTree = "<group>"; };
+		6E53E7621D76D96D00D84581 /* RegionShowHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowHeaderView.h; sourceTree = "<group>"; };
+		6E53E7631D76D96D00D84581 /* RegionShowHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowHeaderView.m; sourceTree = "<group>"; };
 		6E58B21E1D729FC1002714FD /* RegionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionEntity.h; sourceTree = "<group>"; };
 		6E58B21F1D729FC1002714FD /* RegionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionEntity.m; sourceTree = "<group>"; };
 		6E58B22B1D72A229002714FD /* RegionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionListViewController.h; sourceTree = "<group>"; };
@@ -908,6 +917,7 @@
 		6E08FD341D72D7F900544842 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6E53E75B1D76D33D00D84581 /* Cell */,
 				6E5ED8811D7448DD00839B9E /* RegionShowRecommendCollectionView.h */,
 				6E5ED8821D7448DD00839B9E /* RegionShowRecommendCollectionView.m */,
 			);
@@ -1248,6 +1258,19 @@
 				6E4E039A1D71391400C669E6 /* NSObject+Runtime.m */,
 			);
 			path = NSObject;
+			sourceTree = "<group>";
+		};
+		6E53E75B1D76D33D00D84581 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6E53E75F1D76D94C00D84581 /* RegionShowBannerCollectionViewCell.h */,
+				6E53E7601D76D94C00D84581 /* RegionShowBannerCollectionViewCell.m */,
+				6E53E75C1D76D4BA00D84581 /* RegionShowAvCollectionViewCell.h */,
+				6E53E75D1D76D4BA00D84581 /* RegionShowAvCollectionViewCell.m */,
+				6E53E7621D76D96D00D84581 /* RegionShowHeaderView.h */,
+				6E53E7631D76D96D00D84581 /* RegionShowHeaderView.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		6E575C791D40713F007BCD73 /* Video */ = {
@@ -2857,6 +2880,7 @@
 				6EB552951D548CE7001099C1 /* RecommendFooterView.m in Sources */,
 				6E5976031D5B171500D520E0 /* VideoOwnerInfoEntity.m in Sources */,
 				6E4836651D40E45A004AD1A4 /* NSString+Size.m in Sources */,
+				6E53E7611D76D94C00D84581 /* RegionShowBannerCollectionViewCell.m in Sources */,
 				6E5975F81D5B171500D520E0 /* VideoIntroStatCollectionViewCell.m in Sources */,
 				6E59760D1D5B171500D520E0 /* VideoTabBar.m in Sources */,
 				6EB691EF1D12422C000FA482 /* AppDelegate.m in Sources */,
@@ -2892,6 +2916,7 @@
 				6E5FB1921D557C0400984DC6 /* LiveListEntity.m in Sources */,
 				6E58B2531D72B87E002714FD /* RegionShowCollectionView.m in Sources */,
 				6E7E46EF1D587E470027AE8D /* BangumiEntity.m in Sources */,
+				6E53E7641D76D96D00D84581 /* RegionShowHeaderView.m in Sources */,
 				6E59763A1D5C6FF500D520E0 /* DanmakuControl.m in Sources */,
 				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,
 				6E7E47011D58B0230027AE8D /* BangumiEntranceCollectionViewCell.m in Sources */,
@@ -2933,6 +2958,7 @@
 				6E9CA2FE1D6EE76D004B2C86 /* LivePlayer.m in Sources */,
 				6E2377821D543D0000102550 /* UIAlertView+Block.m in Sources */,
 				6EB552921D548CD2001099C1 /* RecommendHeaderView.m in Sources */,
+				6E53E75E1D76D4BA00D84581 /* RegionShowAvCollectionViewCell.m in Sources */,
 				6E08FD581D73368F00544842 /* RegionShowChildViewController.m in Sources */,
 				6E7E46FE1D58B00A0027AE8D /* BangumiEntranceFooterView.m in Sources */,
 				6E59760A1D5B171500D520E0 /* VideoCommentView.m in Sources */,

@@ -17,4 +17,4 @@
  */
 NSInteger IntegerLength(NSInteger integer);
 
-
+NSString *IntegerToTenThousand(NSInteger integer);

@@ -13,4 +13,10 @@
  */
 @interface RecommendAvCollectionViewCell : RecommendCollectionViewCell
 
+@property (strong, nonatomic) UILabel     *titleLabel;
+@property (strong, nonatomic) UIImageView *playCountImageView;
+@property (strong, nonatomic) UILabel     *playCountLabel;
+@property (strong, nonatomic) UIImageView *danmakuCountImageView;
+@property (strong, nonatomic) UILabel     *danmakuCountLabel;
+
 @end

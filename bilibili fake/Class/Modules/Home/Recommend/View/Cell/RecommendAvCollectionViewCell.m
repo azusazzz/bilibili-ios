@@ -9,13 +9,13 @@
 #import "RecommendAvCollectionViewCell.h"
 
 @interface RecommendAvCollectionViewCell ()
-{
-    UILabel     *_titleLabel;
-    UIImageView *_playCountImageView;
-    UILabel     *_playCountLabel;
-    UIImageView *_danmakuCountImageView;
-    UILabel     *_danmakuCountLabel;
-}
+//{
+//    UILabel     *_titleLabel;
+//    UIImageView *_playCountImageView;
+//    UILabel     *_playCountLabel;
+//    UIImageView *_danmakuCountImageView;
+//    UILabel     *_danmakuCountLabel;
+//}
 @end
 
 
@@ -30,8 +30,9 @@
     [super setBody:body];
     _titleLabel.text = body.title;
     
-    _playCountLabel.text = [NSString stringWithFormat:@"%ld", body.play];
-    _danmakuCountLabel.text = [NSString stringWithFormat:@"%ld", body.danmaku];
+    
+    _playCountLabel.text = IntegerToTenThousand(body.play);
+    _danmakuCountLabel.text = IntegerToTenThousand(body.danmaku);
     
     [_titleLabel layoutIfNeeded];
     CGFloat height = [_titleLabel textRectForBounds:CGRectMake(0, 0, _titleLabel.width, 999) limitedToNumberOfLines:2].size.height;

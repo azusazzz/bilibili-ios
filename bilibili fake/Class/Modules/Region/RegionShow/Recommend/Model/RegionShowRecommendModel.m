@@ -7,7 +7,40 @@
 //
 
 #import "RegionShowRecommendModel.h"
+#import "RegionShowRecommendRequest.h"
+
+
+@interface RegionShowRecommendModel ()
+
+@property (assign, nonatomic) NSInteger rid;
+
+@end
 
 @implementation RegionShowRecommendModel
+
+- (instancetype)initWithRid:(NSInteger)rid
+{
+    self = [super init];
+    if (self) {
+        _rid = rid;
+    }
+    return self;
+}
+
+- (void)getRegionShowWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure
+{
+    RegionShowRecommendRequest *request = [RegionShowRecommendRequest requestWithRid:_rid];
+    
+    [request startWithCompletionBlock:^(BaseRequest *request) {
+        if (request.responseData) {
+            _regionShow = [RegionShowRecommendEntity mj_objectWithKeyValues:request.responseData];
+            success();
+        }
+        else {
+            failure(request.errorMsg);
+        }
+    }];
+    
+}
 
 @end

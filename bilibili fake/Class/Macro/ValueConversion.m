@@ -16,3 +16,12 @@ NSInteger IntegerLength(NSInteger integer) {
     }
     return length;
 }
+
+NSString *IntegerToTenThousand(NSInteger integer) {
+    if (integer >= 10000) {
+        return [NSString stringWithFormat:@"%.1lf万", integer / 10000.0];
+    }
+    else {
+        return [NSString stringWithFormat:@"%ld", integer];
+    }
+}

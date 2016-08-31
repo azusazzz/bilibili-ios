@@ -22,12 +22,12 @@
 
 @property (strong, nonatomic) NSString *name;
 
-@property (strong, nonatomic) NSString *play;
+@property (assign, nonatomic) NSInteger play;
 
-@property (strong, nonatomic) NSString *danmaku;
+@property (assign, nonatomic) NSInteger danmaku;
 
-@property (strong, nonatomic) NSString *reply;
+@property (assign, nonatomic) NSInteger reply;
 
-@property (strong, nonatomic) NSString *favourite;
+@property (assign, nonatomic) NSInteger favourite;
 
 @end
