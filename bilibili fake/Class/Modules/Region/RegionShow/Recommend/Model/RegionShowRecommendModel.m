@@ -14,6 +14,8 @@
 
 @property (assign, nonatomic) NSInteger rid;
 
+@property (strong, nonatomic) RegionShowRecommendEntity *regionShow;
+
 @end
 
 @implementation RegionShowRecommendModel
@@ -33,7 +35,7 @@
     
     [request startWithCompletionBlock:^(BaseRequest *request) {
         if (request.responseData) {
-            _regionShow = [RegionShowRecommendEntity mj_objectWithKeyValues:request.responseData];
+            self.regionShow = [RegionShowRecommendEntity mj_objectWithKeyValues:request.responseData];
             success();
         }
         else {

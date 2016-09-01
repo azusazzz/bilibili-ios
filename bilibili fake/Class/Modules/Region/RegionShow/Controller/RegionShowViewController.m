@@ -10,7 +10,7 @@
 #import "UIViewController+HeaderView.h"
 #import "UIViewController+PopGesture.h"
 
-#import "RegionShowHeaderView.h"    // 头部标签栏
+#import "RegionShowTabBar.h"    // 头部标签栏
 
 #import "RegionShowRecommendViewController.h"   // 推荐
 #import "RegionShowChildViewController.h"       // 子模块
@@ -22,7 +22,7 @@
 
 @property (strong, nonatomic) RegionEntity *region;
 
-@property (strong, nonatomic) RegionShowHeaderView *headerView;
+@property (strong, nonatomic) RegionShowTabBar *headerView;
 
 @property (strong, nonatomic) RegionShowRecommendViewController *recommendViewController;
 
@@ -147,7 +147,7 @@
         [titles addObject:child.name];
     }
     // Header
-    _headerView = [[RegionShowHeaderView alloc] initWithTitles:titles];
+    _headerView = [[RegionShowTabBar alloc] initWithTitles:titles];
     [self.view addSubview:_headerView];
     
     _collectionView = ({
@@ -182,7 +182,7 @@
     _recommendViewController = [[RegionShowRecommendViewController alloc] initWithRid:_region.tid];
     NSMutableArray *childrens = [NSMutableArray arrayWithCapacity:_region.children.count];
     for (NSInteger idx=0; idx<_region.children.count; idx++) {
-        [childrens addObject:[[RegionShowChildViewController alloc] init]];
+        [childrens addObject:[[RegionShowChildViewController alloc] initWithRid:_region.children[idx].tid]];
     }
     _childrens = [childrens copy];
     

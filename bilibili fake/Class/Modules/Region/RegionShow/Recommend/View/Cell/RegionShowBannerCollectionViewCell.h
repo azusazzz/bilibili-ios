@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RegionShowBannerEntity.h"
 
 @interface RegionShowBannerCollectionViewCell : UICollectionViewCell
+
+
+@property (strong, nonatomic) NSArray<RegionShowBannerEntity *> *banners;
+
+@property (strong, nonatomic) void (^onClickBannerItem)(RegionShowBannerEntity *banner);
+
+
++ (CGSize)sizeForWidth:(CGFloat)width;
 
 @end

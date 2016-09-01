@@ -25,8 +25,8 @@
     [_picImageView sd_setImageWithURL:[NSURL URLWithString:history.pic]];
     _titleLabel.text = history.title;
     _ownerLabel.text = [NSString stringWithFormat:@"UP主: %@", history.ownerName];
-    _viewCountLabel.text = [NSString stringWithFormat:@"播放 :%ld", history.viewCount];
-    _danmakuCountLabel.text = [NSString stringWithFormat:@"弹幕 :%ld", history.danmakuCount];
+    _viewCountLabel.text = [NSString stringWithFormat:@"播放 :%@", IntegerToTenThousand(history.viewCount)];
+    _danmakuCountLabel.text = [NSString stringWithFormat:@"弹幕 :%@", IntegerToTenThousand(history.danmakuCount)];
     
     [_titleLabel layoutIfNeeded];
     CGFloat titleHeight = [_titleLabel textRectForBounds:CGRectMake(0, 0, _titleLabel.width, 666) limitedToNumberOfLines:2].size.height;

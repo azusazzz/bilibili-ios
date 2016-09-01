@@ -34,8 +34,8 @@
 
 - (void)setVideoInfo:(VideoInfoEntity *)videoInfo showAllDesc:(BOOL)showAllDesc {
     _titleLabel.text = videoInfo.title;
-    _viewCountLabel.text = [NSString stringWithFormat:@"%ld", videoInfo.stat.view];
-    _danmakuCountLabel.text = [NSString stringWithFormat:@"%ld", videoInfo.stat.danmaku];
+    _viewCountLabel.text = IntegerToTenThousand(videoInfo.stat.view);
+    _danmakuCountLabel.text = IntegerToTenThousand(videoInfo.stat.danmaku);
     _descLabel.text = videoInfo.desc;
     
     CGFloat viewCountWidth = [_viewCountLabel textRectForBounds:CGRectMake(0, 0, 150, 12) limitedToNumberOfLines:1].size.width;

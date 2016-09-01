@@ -10,4 +10,6 @@
 
 @interface RegionShowChildViewController : UIViewController
 
+- (instancetype)initWithRid:(NSInteger)rid;
+
 @end

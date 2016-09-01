@@ -1,14 +1,14 @@
 //
-//  RegionShowHeaderView.m
+//  RegionShowTabBar.m
 //  bilibili fake
 //
-//  Created by 翟泉 on 2016/8/29.
+//  Created by 翟泉 on 2016/9/1.
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "RegionShowHeaderView.h"
+#import "RegionShowTabBar.h"
 
-@implementation RegionShowHeaderView
+@implementation RegionShowTabBar
 
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles {
     if (self = [super initWithTitles:titles style:TabBarStyleScroll]) {

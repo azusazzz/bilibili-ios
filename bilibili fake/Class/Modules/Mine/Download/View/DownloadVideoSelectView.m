@@ -372,6 +372,7 @@
     page.cid = videoPageInfo.cid;
     page.part = videoPageInfo.part;
     page.page = videoPageInfo.page;
+    page.fileName = @"";
     [video.pages addObject:page];
     
     [[DownloadVideoModel sharedInstance] downloadVideo:video];

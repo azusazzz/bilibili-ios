@@ -25,8 +25,8 @@
     [_picImageView sd_setImageWithURL:[NSURL URLWithString:videoInfo.pic]];
     _titleLabel.text = videoInfo.title;
     _ownerLabel.text = [NSString stringWithFormat:@"UP主: %@", videoInfo.owner.name];
-    _viewCountLabel.text = [NSString stringWithFormat:@"播放 :%ld", videoInfo.stat.view];
-    _danmakuCountLabel.text = [NSString stringWithFormat:@"弹幕 :%ld", videoInfo.stat.danmaku];
+    _viewCountLabel.text = [NSString stringWithFormat:@"播放 :%@", IntegerToTenThousand(videoInfo.stat.view)];
+    _danmakuCountLabel.text = [NSString stringWithFormat:@"弹幕 :%@", IntegerToTenThousand(videoInfo.stat.danmaku)];
 }
 
 - (void)layoutSubviews {

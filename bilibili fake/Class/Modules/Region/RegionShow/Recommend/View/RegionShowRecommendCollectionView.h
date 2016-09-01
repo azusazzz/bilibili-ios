@@ -13,4 +13,9 @@
 
 @property (strong, nonatomic, readonly) RegionShowRecommendEntity *regionShow;
 
+
+@property (strong, nonatomic) void (^onClickBannerItem)(RegionShowBannerEntity *banner);
+
+@property (strong, nonatomic) void (^handleDidSelectedVideo)(RegionShowVideoEntity *video);
+
 @end

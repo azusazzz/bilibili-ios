@@ -10,4 +10,6 @@
 
 @interface RegionShowChildRequest : BaseRequest
 
++ (instancetype)requestWithRid:(NSInteger)rid;
+
 @end

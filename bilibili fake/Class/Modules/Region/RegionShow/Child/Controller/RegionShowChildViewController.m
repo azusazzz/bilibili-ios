@@ -7,18 +7,60 @@
 //
 
 #import "RegionShowChildViewController.h"
+#import "RegionShowChildModel.h"
+#import "RegionShowChildCollectionView.h"
+#import <ReactiveCocoa.h>
+
+#import "VideoViewController.h" // 视频信息
 
 @interface RegionShowChildViewController ()
+<RefreshCollectionViewDelegate>
+
+@property (strong, nonatomic) RegionShowChildModel *model;
+
+@property (strong, nonatomic) RegionShowChildCollectionView *collectionView;
 
 @end
 
 @implementation RegionShowChildViewController
+
+- (instancetype)initWithRid:(NSInteger)rid {
+    if (self = [super init]) {
+        _model = [[RegionShowChildModel alloc] initWithRid:rid];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = ColorWhite(247);
+    
+    if (!_model) {
+        return;
+    }
+    
+    _collectionView = [[RegionShowChildCollectionView alloc] init];
+    _collectionView.refreshDelegate = self;
+    [self.view addSubview:_collectionView];
+    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    RAC(self.collectionView, regionShowChild) = RACObserve(self.model, regionShowChild);
+    
+    [self.model getRegionShowWithSuccess:^{
+        //
+    } failure:^(NSString *errorMsg) {
+        //
+    }];
+    
+    __weak typeof(self) weakself = self;
+    [_collectionView setHandleDidSelectedVideo:^(RegionShowVideoEntity *video) {
+        NSInteger aid = [video.param integerValue];
+        [weakself.navigationController pushViewController:[[VideoViewController alloc] initWithAid:aid] animated:YES];
+    }];
     
 }
 
@@ -39,19 +81,12 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)collectionViewRefreshing:(__kindof RefreshCollectionView *)collectionView {
+    [self.model getRegionShowWithSuccess:^{
+        collectionView.refreshing = NO;
+    } failure:^(NSString *errorMsg) {
+        
+    }];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

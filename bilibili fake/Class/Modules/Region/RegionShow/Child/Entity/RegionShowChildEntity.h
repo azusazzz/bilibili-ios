@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RegionShowVideoEntity.h"
 
 @interface RegionShowChildEntity : NSObject
+
+@property (strong, nonatomic) NSArray<RegionShowVideoEntity *> *recommends;
+
+@property (strong, nonatomic) NSArray<RegionShowVideoEntity *> *news;
 
 @end

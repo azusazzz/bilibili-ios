@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RegionShowChildEntity.h"
 
 @interface RegionShowChildModel : NSObject
+
+@property (strong, nonatomic, readonly) RegionShowChildEntity *regionShowChild;
+
+- (instancetype)initWithRid:(NSInteger)rid;
+
+- (void)getRegionShowWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 @end

@@ -13,6 +13,12 @@
 
 @property (strong, nonatomic) UIView *bottomLine;
 
+@property (strong, nonatomic) UIImageView *picImageView;
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UILabel *ownerLabel;
+@property (strong, nonatomic) UILabel *viewCountLabel;
+@property (strong, nonatomic) UILabel *danmakuCountLabel;
+
 - (void)setHistory:(HistoryEntity *)history;
 
 @end

@@ -10,4 +10,14 @@
 
 @implementation RegionShowChildEntity
 
++ (NSDictionary *)mj_objectClassInArray; {
+    return @{@"recommends": NSStringFromClass([RegionShowVideoEntity class]),
+             @"news": NSStringFromClass([RegionShowVideoEntity class])};
+}
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName; {
+    return @{@"recommends": @"recommend",
+             @"news": @"new",};
+}
+
 @end

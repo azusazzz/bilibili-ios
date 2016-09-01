@@ -83,6 +83,7 @@
             make.width.offset = 20;
             make.height.offset = 20;
         }];
+        
         [_leftTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_leftImageView.mas_right).offset = 5;
             make.bottom.offset = 0;
