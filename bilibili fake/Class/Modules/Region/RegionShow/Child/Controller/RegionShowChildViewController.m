@@ -14,7 +14,6 @@
 #import "VideoViewController.h" // 视频信息
 
 @interface RegionShowChildViewController ()
-<RefreshCollectionViewDelegate>
 
 @property (strong, nonatomic) RegionShowChildModel *model;
 
@@ -42,7 +41,6 @@
     }
     
     _collectionView = [[RegionShowChildCollectionView alloc] init];
-    _collectionView.refreshDelegate = self;
     [self.view addSubview:_collectionView];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -78,15 +76,6 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-}
-
-
-- (void)collectionViewRefreshing:(__kindof RefreshCollectionView *)collectionView {
-    [self.model getRegionShowWithSuccess:^{
-        collectionView.refreshing = NO;
-    } failure:^(NSString *errorMsg) {
-        
-    }];
 }
 
 @end

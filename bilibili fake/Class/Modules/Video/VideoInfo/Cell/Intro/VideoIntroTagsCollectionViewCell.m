@@ -53,7 +53,6 @@
     for (NSInteger i=[_tagButtons count]; i<tagsCount; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         button.backgroundColor = [UIColor whiteColor];
-        [button setTitle:tags[i] forState:UIControlStateNormal];
         [button setTitleColor:ColorWhite(34) forState:UIControlStateNormal];
         button.titleLabel.font = Font(12);
         button.layer.cornerRadius = 12;
@@ -88,6 +87,8 @@
         rect.size.width = width + TagHeight;
         
         _tagButtons[i].frame = rect;
+        
+        [_tagButtons[i] setTitle:tags[i] forState:UIControlStateNormal];
     }
     
     

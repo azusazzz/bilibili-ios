@@ -6,10 +6,10 @@
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "RefreshCollectionView.h"
+#import <UIKit/UIKit.h>
 #import "RegionShowChildEntity.h"
 
-@interface RegionShowChildCollectionView : RefreshCollectionView
+@interface RegionShowChildCollectionView : UICollectionView
 
 @property (strong, nonatomic) RegionShowChildEntity *regionShowChild;
 

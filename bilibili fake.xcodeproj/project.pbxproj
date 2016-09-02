@@ -1408,12 +1408,12 @@
 		6E5975B21D5B171500D520E0 /* VideoInfo */ = {
 			isa = PBXGroup;
 			children = (
+				6E5975E41D5B171500D520E0 /* Request */,
+				6E5975D21D5B171500D520E0 /* Entity */,
+				6E5975DF1D5B171500D520E0 /* Model */,
 				6E5975B31D5B171500D520E0 /* Cell */,
 				6E5975E91D5B171500D520E0 /* View */,
 				6E5975CF1D5B171500D520E0 /* Controller */,
-				6E5975D21D5B171500D520E0 /* Entity */,
-				6E5975DF1D5B171500D520E0 /* Model */,
-				6E5975E41D5B171500D520E0 /* Request */,
 			);
 			path = VideoInfo;
 			sourceTree = "<group>";

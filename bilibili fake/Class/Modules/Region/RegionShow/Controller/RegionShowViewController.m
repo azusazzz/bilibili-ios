@@ -179,7 +179,7 @@
         make.top.equalTo(self.headerView.mas_bottom);
     }];
     
-    _recommendViewController = [[RegionShowRecommendViewController alloc] initWithRid:_region.tid];
+    _recommendViewController = [[RegionShowRecommendViewController alloc] initWithTid:_region.tid];
     NSMutableArray *childrens = [NSMutableArray arrayWithCapacity:_region.children.count];
     for (NSInteger idx=0; idx<_region.children.count; idx++) {
         [childrens addObject:[[RegionShowChildViewController alloc] initWithRid:_region.children[idx].tid]];

@@ -20,6 +20,15 @@
 
 @dynamic list;
 
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+            [DownloadVideoModel sharedInstance];
+        });
+    });
+}
+
 + (instancetype)sharedInstance {
     static id sharedInstance = nil;
     static dispatch_once_t onceToken;

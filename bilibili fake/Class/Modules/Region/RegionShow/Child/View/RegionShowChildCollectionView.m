@@ -11,13 +11,22 @@
 #import "RegionShowHeaderView.h"
 #import "RegionShowChildCollectionViewCell.h"
 
+@interface RegionShowChildCollectionView ()
+<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+@end
+
 @implementation RegionShowChildCollectionView
 
 - (instancetype)init {
-    self = [super init];
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    self = [super initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     if (self) {
-        self.backgroundColor = CRed;
-        self.backgroundView.backgroundColor = ColorWhite(247);
+        
+        self.dataSource = self;
+        self.delegate = self;
+        self.backgroundColor = ColorWhite(247);
         
         [self registerClass:[RegionShowHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"];
         [self registerClass:[RegionShowChildCollectionViewCell class] forCellWithReuseIdentifier:@"Video"];
@@ -67,7 +76,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(SSize.width, 50);
+    return CGSizeMake(SSize.width, [RegionShowHeaderView height]);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -99,12 +108,18 @@
 #pragma mark - Data
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
-    [super collectionView:collectionView willDisplaySupplementaryView:view forElementKind:elementKind atIndexPath:indexPath];
-    
+    if (indexPath.section == 0) {
+        ((RegionShowHeaderView *)view).leftTitleLabel.text = @"热门推荐";
+        ((RegionShowHeaderView *)view).leftImageView.image = [UIImage imageNamed:@"hd_home_recommend"];
+    }
+    else if (indexPath.section == 1) {
+        ((RegionShowHeaderView *)view).leftTitleLabel.text = @"最新投稿";
+        ((RegionShowHeaderView *)view).leftImageView.image = [UIImage imageNamed:@"home_new_region"];
+    }
+    view.backgroundColor = ColorWhite(247);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    [super collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
     if (indexPath.section == 0) {
         [((RegionShowChildCollectionViewCell *)cell) setVideo:_regionShowChild.recommends[indexPath.row]];
     }

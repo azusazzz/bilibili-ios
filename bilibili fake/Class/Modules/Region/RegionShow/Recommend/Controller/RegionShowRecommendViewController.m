@@ -14,19 +14,21 @@
 #import "VideoViewController.h" // 视频信息
 
 @interface RegionShowRecommendViewController ()
-<RefreshCollectionViewDelegate>
 
 @property (strong, nonatomic) RegionShowRecommendCollectionView *collectionView;
 
 @property (strong, nonatomic) RegionShowRecommendModel *model;
 
+@property (assign, nonatomic) NSInteger tid;
+
 @end
 
 @implementation RegionShowRecommendViewController
 
-- (instancetype)initWithRid:(NSInteger)rid {
+- (instancetype)initWithTid:(NSInteger)tid {
     if (self = [super init]) {
-        _model = [[RegionShowRecommendModel alloc] initWithRid:rid];
+        _tid = tid;
+        _model = [[RegionShowRecommendModel alloc] initWithRid:tid];
     }
     return self;
 }
@@ -43,8 +45,7 @@
     
     
     
-    _collectionView = [[RegionShowRecommendCollectionView alloc] init];
-    _collectionView.refreshDelegate = self;
+    _collectionView = [[RegionShowRecommendCollectionView alloc] initWithTid:_tid];
     [self.view addSubview:_collectionView];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -88,14 +89,6 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-}
-
-- (void)collectionViewRefreshing:(__kindof RefreshCollectionView *)collectionView {
-    [self.model getRegionShowWithSuccess:^{
-        collectionView.refreshing = NO;
-    } failure:^(NSString *errorMsg) {
-        
-    }];
 }
 
 

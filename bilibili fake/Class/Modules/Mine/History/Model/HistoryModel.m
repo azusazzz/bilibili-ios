@@ -53,7 +53,7 @@
     NSInteger date = [NSDate date].timeIntervalSince1970;
     NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO History (aid, title, pic, ownerName, viewCount, danmakuCount, date) VALUES (%ld, \'%@\', \'%@\', \'%@\', %ld, %ld, %ld);", history.aid, history.title, history.pic, history.ownerName, history.viewCount, history.danmakuCount, date];
     if (sqlite3_exec(sqlite, [insertSQL UTF8String], NULL, NULL, &error) != SQLITE_OK) {
-        NSString *updateSQL = [NSString stringWithFormat:@"UPDATE History SET date = %ld WHERE aid = %ld;", date, history.aid];
+        NSString *updateSQL = [NSString stringWithFormat:@"UPDATE History SET date=%ld, viewCount=%ld, danmakuCount=%ld WHERE aid = %ld;", date, history.viewCount, history.danmakuCount, history.aid];
         sqlite3_exec(sqlite, [updateSQL UTF8String], NULL, NULL, &error);
     }
 }

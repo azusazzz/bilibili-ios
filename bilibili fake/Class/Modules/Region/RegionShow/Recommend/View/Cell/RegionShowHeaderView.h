@@ -10,4 +10,10 @@
 
 @interface RegionShowHeaderView : UICollectionReusableView
 
+@property (strong, nonatomic) UIImageView *leftImageView;
+
+@property (strong, nonatomic) UILabel     *leftTitleLabel;
+
++ (CGFloat)height;
+
 @end

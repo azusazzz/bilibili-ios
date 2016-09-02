@@ -12,14 +12,26 @@
 #import "RegionShowBannerCollectionViewCell.h"
 #import "RegionShowAvCollectionViewCell.h"
 
+@interface RegionShowRecommendCollectionView ()
+<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+{
+    NSInteger _tid;
+}
+@end
 
 @implementation RegionShowRecommendCollectionView
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithTid:(NSInteger)tid {
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    self = [super initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     if (self) {
-        self.backgroundColor = CRed;
-        self.backgroundView.backgroundColor = ColorWhite(247);
+        _tid = tid;
+        
+        self.dataSource = self;
+        self.delegate = self;
+        self.backgroundColor = ColorWhite(247);
+//        self.backgroundView.backgroundColor = ColorWhite(247);
         
         [self registerClass:[RegionShowHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"];
         [self registerClass:[RegionShowBannerCollectionViewCell class] forCellWithReuseIdentifier:@"Banner"];
@@ -86,7 +98,7 @@
         return CGSizeZero;
     }
     else {
-        return CGSizeMake(SSize.width, 50);
+        return CGSizeMake(SSize.width, [RegionShowHeaderView height]);
     }
 }
 
@@ -138,27 +150,33 @@
 #pragma mark - Data
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
-    [super collectionView:collectionView willDisplaySupplementaryView:view forElementKind:elementKind atIndexPath:indexPath];
-    
+    if (indexPath.section == 1) {
+        ((RegionShowHeaderView *)view).leftTitleLabel.text = @"热门推荐";
+        ((RegionShowHeaderView *)view).leftImageView.image = [UIImage imageNamed:@"hd_home_recommend"];
+    }
+    else if (indexPath.section == 2) {
+        ((RegionShowHeaderView *)view).leftTitleLabel.text = @"最新投稿";
+        ((RegionShowHeaderView *)view).leftImageView.image = [UIImage imageNamed:@"home_new_region"];
+    }
+    else if (indexPath.section == 3) {
+        ((RegionShowHeaderView *)view).leftTitleLabel.text = @"全区动态";
+        ((RegionShowHeaderView *)view).leftImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"home_region_icon_%ld", _tid]];
+    }
+    view.backgroundColor = ColorWhite(247);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    [super collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
     if (indexPath.section == 0) {
-//        cell.backgroundColor = [UIColor yellowColor];
         [((RegionShowBannerCollectionViewCell *)cell) setBanners:_regionShow.banners];
         ((RegionShowBannerCollectionViewCell *)cell).onClickBannerItem = _onClickBannerItem;
     }
     else if (indexPath.section == 1) {
-//        cell.backgroundColor = [UIColor orangeColor];
         [((RegionShowAvCollectionViewCell *)cell) setVideo:_regionShow.recommends[indexPath.row]];
     }
     else if (indexPath.section == 2) {
-//        cell.backgroundColor = [UIColor orangeColor];
         [((RegionShowAvCollectionViewCell *)cell) setVideo:_regionShow.news[indexPath.row]];
     }
     else if (indexPath.section == 3) {
-//        cell.backgroundColor = [UIColor orangeColor];
         [((RegionShowAvCollectionViewCell *)cell) setVideo:_regionShow.dynamics[indexPath.row]];
     }
 }

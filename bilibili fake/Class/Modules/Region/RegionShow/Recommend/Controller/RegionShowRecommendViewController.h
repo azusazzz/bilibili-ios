@@ -10,6 +10,6 @@
 
 @interface RegionShowRecommendViewController : UIViewController
 
-- (instancetype)initWithRid:(NSInteger)rid;
+- (instancetype)initWithTid:(NSInteger)tid;
 
 @end
