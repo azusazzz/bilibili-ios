@@ -10,6 +10,8 @@
 
 @interface VideoIntroTagsCollectionViewCell : UICollectionViewCell
 
+@property (copy, nonatomic) void (^onClickTag)(NSString *tag);
+
 + (CGFloat)heightForWidth:(CGFloat)width tags:(NSArray<NSString *> *)tags;
 
 - (void)setTags:(NSArray<NSString *> *)tags;

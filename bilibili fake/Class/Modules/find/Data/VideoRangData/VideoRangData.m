@@ -39,9 +39,6 @@
     return self;
 }
 
-- (void)dealloc {
-    LogDEBUG(@"%s", __FUNCTION__);
-}
 
 -(void)getRangData:(NSString*)title block:(void(^)(NSMutableArray* data))block{
     NSString* urlstr = [title_URL objectForKey:title];

@@ -20,9 +20,6 @@
 
 @implementation MineCollectionView
 
-- (void)dealloc {
-    LogDEBUG(@"");
-}
 
 - (void)setGroups:(NSArray<MineGroupEntity *> *)groups {
     _groups = groups;

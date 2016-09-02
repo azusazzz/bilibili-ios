@@ -25,9 +25,6 @@
     return self;
 }
 
-- (void)dealloc {
-    LogDEBUG(@"%s", __FUNCTION__);
-}
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];

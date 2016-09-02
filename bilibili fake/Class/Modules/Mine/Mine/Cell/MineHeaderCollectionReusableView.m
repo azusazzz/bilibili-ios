@@ -23,9 +23,6 @@
     return _titleLabel.text;
 }
 
-- (void)dealloc {
-    LogDEBUG(@"");
-}
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {

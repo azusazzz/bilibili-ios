@@ -28,14 +28,6 @@
     return self;
 }
 
-- (void)dealloc {
-    GameData_Arr  = nil;
-//    [[SDImageCache sharedImageCache] clearDisk];//清理磁盘中的
-    [[SDImageCache sharedImageCache] clearMemory];//清理内存中的
-    LogDEBUG(@"%s", __FUNCTION__);
-}
-
-
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
@@ -81,7 +73,7 @@
 //点击
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary* dic = GameData_Arr[indexPath.row];
-     LogDEBUG(@"请跳转到:%@",[dic objectForKey:@"download_link"]);
+     NSLog(@"请跳转到:%@",[dic objectForKey:@"download_link"]);
 }
 
 

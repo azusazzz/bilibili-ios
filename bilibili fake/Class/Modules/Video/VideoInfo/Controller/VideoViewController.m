@@ -20,6 +20,8 @@
 
 #import "UIViewController+GetViewController.h"
 
+#import "SearchResultVC.h" // 点击标签 搜索
+
 @interface VideoViewController ()
 <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 {
@@ -123,12 +125,24 @@
     
     
     /**
-     *  点击分集   切换当前分集 并播放
+     *  点击简介-分集   切换当前分集 并播放
      *
      */
     [_introView setOnClickPageItem:^(NSInteger idx) {
         weakself.currentPage = weakself.model.videoInfo.pages[idx];
         [weakself playVideo];
+    }];
+    
+    /**
+     *  点击简介-标签
+     *
+     */
+    [_introView setOnClickTag:^(NSString *tag) {
+        if ([tag length] <= 0) {
+            return;
+        }
+        SearchResultVC *searchController = [[SearchResultVC alloc] initWithkeyword:tag];
+        [weakself.navigationController pushViewController:searchController animated:YES];
     }];
     
     /**
@@ -154,6 +168,7 @@
             HUDFailure(@"网络请求出错");
         }];
     }];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

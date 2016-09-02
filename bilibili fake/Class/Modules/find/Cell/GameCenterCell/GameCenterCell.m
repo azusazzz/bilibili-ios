@@ -78,7 +78,7 @@
             make.size.mas_equalTo(CGSizeMake(50, 30));
         }];
         Download_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-            LogDEBUG(@"请跳转到:%@",[dic objectForKey:@"download_link"]);
+            NSLog(@"请跳转到:%@",[dic objectForKey:@"download_link"]);
             return [RACSignal empty];
         }];
         
@@ -92,10 +92,6 @@
         }];
     }
     return self;
-}
-
-- (void)dealloc {
-    LogDEBUG(@"%s", __FUNCTION__);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

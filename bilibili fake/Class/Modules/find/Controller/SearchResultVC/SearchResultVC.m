@@ -68,7 +68,7 @@ struct tablePoint{
 
 -(instancetype)initWithkeyword:(NSString*)keyword{
     
-    LogDEBUG(@"关键字：%@",keyword);
+    NSLog(@"关键字：%@",keyword);
     [SearchResultData addSearchRecords:keyword];
    
     self = [super init];
@@ -101,12 +101,6 @@ struct tablePoint{
     return self;
 }
 
-- (void)dealloc {
-//    [[SDImageCache sharedImageCache] clearDisk];//清理磁盘中的
-    [[SDImageCache sharedImageCache] clearMemory];//清理内存中的
-    LogDEBUG(@"%s", __FUNCTION__);
-}
-
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
@@ -132,7 +126,7 @@ struct tablePoint{
 -(void)setSearchKeyword:(NSNotification*)notification{
 
     NSString* keyword = [notification.userInfo objectForKey:@"keyword"];
-    LogDEBUG(@"关键字：%@",keyword);
+    NSLog(@"关键字：%@",keyword);
     //if ([keyword isEqualToString:_keyword])  return;
     if (keyword.length == 0) return;
     
@@ -270,7 +264,7 @@ struct tablePoint{
                 }
             });
         } Error:^(NSError *error) {
-            LogWARN(@"code:%lu.%@",[error code],[error localizedDescription]);
+            NSLog(@"code:%lu.%@",[error code],[error localizedDescription]);
             dispatch_async(dispatch_get_main_queue(), ^{
                 if(oldTablePoint.X==rowbtn.Selectedtag||oldTablePoint.x1==screen_rowbtn1.Selectedtag||oldTablePoint.x2==screen_rowbtn2.Selectedtag){
                     if(completeBlock)completeBlock();
@@ -282,7 +276,7 @@ struct tablePoint{
     }else{
         
         [_searchResultData getVideoSearchResultData_arr:[screen_rowbtn2 getSelected_button].titleLabel.text Tid_name:[screen_rowbtn1 getSelected_button].titleLabel.text Success:^(NSMutableArray *SearchResultData_arr, NSMutableArray* bangumiSearchResultData_arr) {
-            LogINFO(@"%lu",SearchResultData_arr.count);
+            NSLog(@"%lu",SearchResultData_arr.count);
             _tableViewData_arr = SearchResultData_arr;
             _tableViewData_bangumi_arr = bangumiSearchResultData_arr;
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -297,7 +291,7 @@ struct tablePoint{
                 }
             });
         } Error:^(NSError *error) {
-            LogINFO(@"code:%lu.%@",[error code],[error localizedDescription]);
+            NSLog(@"code:%lu.%@",[error code],[error localizedDescription]);
             dispatch_async(dispatch_get_main_queue(), ^{
                 if(oldTablePoint.X==rowbtn.Selectedtag||oldTablePoint.x1==screen_rowbtn1.Selectedtag||oldTablePoint.x2==screen_rowbtn2.Selectedtag){
                     if(completeBlock)completeBlock();
@@ -325,7 +319,7 @@ struct tablePoint{
     //底部加载更多
     
     if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - scrollView.frame.size.height) {
-        LogINFO(@"快滑到底部加载更多");
+        NSLog(@"快滑到底部加载更多");
       
         //防止请求成功刷新界面的时候用户已经改变筛选项了
         struct tablePoint oldTablePoint;
@@ -347,7 +341,7 @@ struct tablePoint{
             
             
             [_searchResultData getMoreNonVideoSearchResultData_arr:typeName Success:^(NSMutableArray *SearchResultData_arr) {
-                LogINFO(@"%lu",SearchResultData_arr.count);
+                NSLog(@"%lu",SearchResultData_arr.count);
                 _tableViewData_arr = SearchResultData_arr;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_tableView reloadData];
@@ -358,7 +352,7 @@ struct tablePoint{
             //设置视频
             
             [_searchResultData getMoreVideoSearchResultData_arr:[screen_rowbtn2 getSelected_button].titleLabel.text Tid_name:[screen_rowbtn1 getSelected_button].titleLabel.text Success:^(NSMutableArray *SearchResultData_arr) {
-                LogINFO(@"%lu",SearchResultData_arr.count);
+                NSLog(@"%lu",SearchResultData_arr.count);
                 _tableViewData_arr = SearchResultData_arr;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_tableView reloadData];
@@ -431,18 +425,18 @@ struct tablePoint{
     if (rowbtn.Selectedtag == 0){
         //前三个番剧
         if(_tableViewData_bangumi_arr.count &&indexPath.section == 0 && screen_rowbtn1.Selectedtag == 0 && screen_rowbtn2.Selectedtag == 0) {
-            LogDEBUG(@"%@",_tableViewData_bangumi_arr[indexPath.row]);
+            NSLog(@"%@",_tableViewData_bangumi_arr[indexPath.row]);
             return;
         }
         //普通视频
         NSDictionary* data = _tableViewData_arr[indexPath.row];
-        LogDEBUG(@"%@",_tableViewData_arr[indexPath.row]);
+        NSLog(@"%@",_tableViewData_arr[indexPath.row]);
         [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:[[data objectForKey:@"aid"] integerValue]] animated:YES];
          return;
     }
     
     //番剧，专题，upuser
-    LogDEBUG(@"%@",_tableViewData_arr[indexPath.row]);
+    NSLog(@"%@",_tableViewData_arr[indexPath.row]);
     return;
 }
 

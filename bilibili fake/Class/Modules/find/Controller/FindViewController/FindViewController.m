@@ -58,10 +58,6 @@ typedef enum : NSUInteger {
     return self;
 }
 
-- (void)dealloc {
-    LogDEBUG(@"%s", __FUNCTION__);
-}
-
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
     self.tabBarController.tabBar.hidden = NO;
@@ -121,7 +117,7 @@ typedef enum : NSUInteger {
 -(void)loadActions{
     //二维码按钮
     QRcode_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        LogINFO(@"调用二维码界面");
+        NSLog(@"调用二维码界面");
         ReadRQ_CodeVC* gamevc = [[ReadRQ_CodeVC alloc] init] ;
         
         [self.navigationController pushViewController:gamevc animated:YES];

@@ -22,11 +22,6 @@
 }
 
 
-- (void)dealloc {
-    LogDEBUG(@"%s", __FUNCTION__);
-}
-
-
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO;
 }
@@ -42,7 +37,7 @@
     // 初始化输入流
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
     if (!input) {
-        LogWARN(@"%@", [error localizedDescription]);
+        NSLog(@"%@", [error localizedDescription]);
         return;
     }
     // 创建会话
@@ -87,10 +82,10 @@
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
             result = metadataObj.stringValue;
         } else {
-            LogWARN(@"不是二维码");
+            NSLog(@"不是二维码");
         }
         //得到结果
-        LogDEBUG(@"扫描结果:%@",result);
+        NSLog(@"扫描结果:%@",result);
         [_captureSession stopRunning];
         _captureSession = nil;
         [self goBackAction];

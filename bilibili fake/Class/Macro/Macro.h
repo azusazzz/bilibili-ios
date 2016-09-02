@@ -10,24 +10,6 @@
 #define Macro_h
 
 
-#define LogLevelNONE    0
-#define LogLevelDEBUG   1
-#define LogLevelERROR   2
-#define LogLevelWARN    3
-#define LogLevelINFO    4
-
-
-#define LogDEBUG(...) Log(LogLevelDEBUG, __VA_ARGS__)
-#define LogINFO(...) Log(LogLevelINFO, __VA_ARGS__)
-#define LogWARN(...) Log(LogLevelWARN, __VA_ARGS__)
-#define LogERROR(...) Log(LogLevelERROR, __VA_ARGS__)
-
-#define LogLevel LogLevelINFO
-
-#define Log(level, ...)  \
-if(level <= LogLevel) { \
-    printf("\n%s 第%d行 level:%d\n%s\n",__func__,__LINE__,LogLevelDEBUG,[[NSString stringWithFormat:__VA_ARGS__] cStringUsingEncoding:NSUTF8StringEncoding]);   \
-}
 
 
 

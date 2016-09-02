@@ -24,4 +24,6 @@
 
 @property (strong, nonatomic) void (^onClickRelate)(NSInteger idx);
 
+@property (copy, nonatomic) void (^onClickTag)(NSString *tag);
+
 @end

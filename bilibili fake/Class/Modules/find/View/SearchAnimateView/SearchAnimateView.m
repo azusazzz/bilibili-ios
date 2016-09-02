@@ -21,7 +21,7 @@
 }
 
 - (void)dealloc {
-    LogDEBUG(@"%s", __FUNCTION__);
+    NSLog(@"%s", __FUNCTION__);
 }
 
 #pragma loadActions

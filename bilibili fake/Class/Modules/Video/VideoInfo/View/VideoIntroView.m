@@ -162,6 +162,7 @@
         }
         else if (indexPath.row == 4) {
             [((VideoIntroTagsCollectionViewCell *)cell) setTags:_videoInfo.tags];
+            ((VideoIntroTagsCollectionViewCell *)cell).onClickTag = _onClickTag;
         }
     }
     else {

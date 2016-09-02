@@ -62,7 +62,7 @@
 
 
 - (void)dealloc {
-    LogDEBUG(@"%s", __FUNCTION__);
+    NSLog(@"%s", __FUNCTION__);
      [[SDImageCache sharedImageCache] clearMemory];//清理内存中的
 }
 

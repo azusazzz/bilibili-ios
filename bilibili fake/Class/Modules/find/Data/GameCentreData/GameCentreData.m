@@ -14,9 +14,6 @@
     return [[GameCentreData alloc] init];
 }
 
-- (void)dealloc {
-    LogDEBUG(@"%s", __FUNCTION__);
-}
 
 
 -(void)getGamesInfo:(void (^)(NSArray *GamesInfo))block{

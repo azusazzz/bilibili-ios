@@ -44,7 +44,7 @@
 }
 
 - (void)onClickTag:(UIButton *)button {
-    
+    !_onClickTag ?: _onClickTag(button.titleLabel.text);
 }
 
 - (void)setTags:(NSArray<NSString *> *)tags {

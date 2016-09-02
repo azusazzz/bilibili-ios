@@ -45,11 +45,6 @@
     }];
 }
 
-- (void)dealloc {
-    [[SDImageCache sharedImageCache] clearMemory];//清理内存中的
-    LogDEBUG(@"%s", __FUNCTION__);
-}
-
 - (UIViewController*)viewController {
     for (UIView* next = [self superview]; next; next = next.superview) {
         UIResponder* nextResponder = [next nextResponder];

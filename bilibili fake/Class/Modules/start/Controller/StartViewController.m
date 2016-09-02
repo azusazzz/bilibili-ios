@@ -95,7 +95,7 @@
         //先把调用接口留好
         NSString* param = [_data_dic objectForKey:@"param"];//param ＝ bilibili://events/626 的时候无法获取活动网址
         if (param.length) {//param  不为空时点击下方就会跳转到链接
-            LogDEBUG(@"跳转至%@",param);;
+            NSLog(@"跳转至%@",param);;
         }
     }
 

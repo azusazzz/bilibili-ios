@@ -133,9 +133,9 @@
     
     self.navigationItem.rightBarButtonItem = ({
         UIButton *sortButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [sortButton setTitle:@"播放" forState:UIControlStateNormal];
+        [sortButton setTitle:@"排序" forState:UIControlStateNormal];
         [sortButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        sortButton.frame = CGRectMake(0, 0, 44, 44);
+        sortButton.frame = CGRectMake(0, 0, 30, 44);
         [[UIBarButtonItem alloc] initWithCustomView:sortButton];
     });
     

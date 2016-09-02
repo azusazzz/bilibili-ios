@@ -132,6 +132,7 @@
 		6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8B71D1ACBD9002DA3AB /* FollowViewController.m */; };
 		6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8BB1D1AE014002DA3AB /* ScrollTabBarController.m */; };
 		6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */; };
+		6E73B0D81D799B9700950BF3 /* UIViewController+Dealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E73B0D71D799B9700950BF3 /* UIViewController+Dealloc.m */; };
 		6E76344E1D3F563A002CFA63 /* UIViewController+GetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76344D1D3F563A002CFA63 /* UIViewController+GetViewController.m */; };
 		6E7E46E31D587A1B0027AE8D /* BangumiListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46E21D587A1B0027AE8D /* BangumiListRequest.m */; };
 		6E7E46E61D587A300027AE8D /* BangumiRecommendRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46E51D587A300027AE8D /* BangumiRecommendRequest.m */; };
@@ -539,6 +540,8 @@
 		6E66C8C01D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerAnimatedTransitioning.h; sourceTree = "<group>"; };
 		6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarControllerAnimatedTransitioning.m; sourceTree = "<group>"; };
 		6E71ECDD1D1C1E5500F4B917 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		6E73B0D61D799B9700950BF3 /* UIViewController+Dealloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Dealloc.h"; sourceTree = "<group>"; };
+		6E73B0D71D799B9700950BF3 /* UIViewController+Dealloc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Dealloc.m"; sourceTree = "<group>"; };
 		6E76344C1D3F563A002CFA63 /* UIViewController+GetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GetViewController.h"; sourceTree = "<group>"; };
 		6E76344D1D3F563A002CFA63 /* UIViewController+GetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GetViewController.m"; sourceTree = "<group>"; };
 		6E76C17A1D2A768D00C259E8 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
@@ -1699,6 +1702,8 @@
 				6E23777D1D536BD400102550 /* UIViewController+HeaderView.m */,
 				6E4E03951D71374200C669E6 /* UIViewController+PopGesture.h */,
 				6E4E03961D71374200C669E6 /* UIViewController+PopGesture.m */,
+				6E73B0D61D799B9700950BF3 /* UIViewController+Dealloc.h */,
+				6E73B0D71D799B9700950BF3 /* UIViewController+Dealloc.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -2844,6 +2849,7 @@
 				6EC489A01D782F260078EC0A /* RegionShowChildCollectionView.m in Sources */,
 				6E199CE61D674CBC003E06F6 /* DownloadVideoPageEntity.m in Sources */,
 				6E59760C1D5B171500D520E0 /* VideoIntroView.m in Sources */,
+				6E73B0D81D799B9700950BF3 /* UIViewController+Dealloc.m in Sources */,
 				6E5976371D5C6FE500D520E0 /* DanmakuConfiguration.m in Sources */,
 				FC1CBAE01D3F551900D8295C /* SearchAnimateView.m in Sources */,
 				FC6F48921D363B1A00047EEA /* VideoCell.m in Sources */,
