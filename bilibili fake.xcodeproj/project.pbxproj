@@ -186,6 +186,8 @@
 		6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4A61D2BCE4400D1BC9E /* TabBar.m */; };
 		6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AA1D2BD6D800D1BC9E /* UIView+Frame.m */; };
 		FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0745521D2CB7B9000DFBA6 /* ReadRQCodeVC.m */; };
+		FC0F6BEE1D7C748800907F5E /* StartInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0F6BED1D7C748800907F5E /* StartInfoRequest.m */; };
+		FC0F6BF21D7C754400907F5E /* StartInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0F6BF11D7C754400907F5E /* StartInfoModel.m */; };
 		FC1CBAE01D3F551900D8295C /* SearchAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1CBADF1D3F551900D8295C /* SearchAnimateView.m */; };
 		FC4704001D4078DF009F0B62 /* GameCentreData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4703FF1D4078DF009F0B62 /* GameCentreData.m */; };
 		FC4704041D4078EA009F0B62 /* RankOriginalorAllVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4704031D4078EA009F0B62 /* RankOriginalorAllVC.m */; };
@@ -650,6 +652,10 @@
 		8A799A4DD17AEAA2C2D0960A /* Pods-bilibili fake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.release.xcconfig"; sourceTree = "<group>"; };
 		FC0745511D2CB7B9000DFBA6 /* ReadRQCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ReadRQ\U0010CodeVC.h"; path = "ReadRQ\U0010Code/ReadRQ\U0010CodeVC.h"; sourceTree = "<group>"; };
 		FC0745521D2CB7B9000DFBA6 /* ReadRQCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ReadRQ\U0010CodeVC.m"; path = "ReadRQ\U0010Code/ReadRQ\U0010CodeVC.m"; sourceTree = "<group>"; };
+		FC0F6BEC1D7C748800907F5E /* StartInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartInfoRequest.h; path = "bilibili fake/Class/Modules/Start/Request/StartInfoRequest.h"; sourceTree = SOURCE_ROOT; };
+		FC0F6BED1D7C748800907F5E /* StartInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartInfoRequest.m; path = "bilibili fake/Class/Modules/Start/Request/StartInfoRequest.m"; sourceTree = SOURCE_ROOT; };
+		FC0F6BF01D7C754400907F5E /* StartInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartInfoModel.h; path = "bilibili fake/Class/Modules/Start/StartInfoModel.h"; sourceTree = SOURCE_ROOT; };
+		FC0F6BF11D7C754400907F5E /* StartInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartInfoModel.m; path = "bilibili fake/Class/Modules/Start/StartInfoModel.m"; sourceTree = SOURCE_ROOT; };
 		FC1CBADE1D3F551900D8295C /* SearchAnimateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAnimateView.h; sourceTree = "<group>"; };
 		FC1CBADF1D3F551900D8295C /* SearchAnimateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAnimateView.m; sourceTree = "<group>"; };
 		FC4703FE1D4078DF009F0B62 /* GameCentreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCentreData.h; sourceTree = "<group>"; };
@@ -1840,7 +1846,7 @@
 			isa = PBXGroup;
 			children = (
 				6E89DA401D3D06730055C9F2 /* Modules.md */,
-				FC66E7581D3E2D7A00F28B90 /* start */,
+				FC66E7581D3E2D7A00F28B90 /* Start */,
 				6E66C8B91D1ADFDB002DA3AB /* Main */,
 				6E1535E31D1A96950053A846 /* Home */,
 				6EC6A4EE1D489FB50021BE48 /* Region */,
@@ -2126,6 +2132,24 @@
 			name = "ReadRQ\U0010CodeVC";
 			sourceTree = "<group>";
 		};
+		FC0F6BEB1D7C744800907F5E /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				FC0F6BEC1D7C748800907F5E /* StartInfoRequest.h */,
+				FC0F6BED1D7C748800907F5E /* StartInfoRequest.m */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
+		FC0F6BEF1D7C753100907F5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC0F6BF01D7C754400907F5E /* StartInfoModel.h */,
+				FC0F6BF11D7C754400907F5E /* StartInfoModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		FC1CBADD1D3F550200D8295C /* SearchAnimateView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2198,12 +2222,15 @@
 			path = GameCentreViewController;
 			sourceTree = "<group>";
 		};
-		FC66E7581D3E2D7A00F28B90 /* start */ = {
+		FC66E7581D3E2D7A00F28B90 /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				FC0F6BEF1D7C753100907F5E /* Model */,
+				FC0F6BEB1D7C744800907F5E /* Request */,
 				FC66E7591D3E2D7A00F28B90 /* Controller */,
 				FC66E75C1D3E2D7A00F28B90 /* Data */,
 			);
+			name = Start;
 			path = start;
 			sourceTree = "<group>";
 		};
@@ -2838,6 +2865,7 @@
 			files = (
 				6E4E03971D71374200C669E6 /* UIViewController+PopGesture.m in Sources */,
 				6E7E46E91D587AD20027AE8D /* BangumiListEntity.m in Sources */,
+				FC0F6BEE1D7C748800907F5E /* StartInfoRequest.m in Sources */,
 				6E58B2281D729FC1002714FD /* RegionEntity.m in Sources */,
 				6E5FB1951D557CBE00984DC6 /* LiveListEntranceEntity.m in Sources */,
 				6E5975F71D5B171500D520E0 /* VideoIntroRelateCollectionViewCell.m in Sources */,
@@ -2939,6 +2967,7 @@
 				FC0745531D2CB7B9000DFBA6 /* ReadRQCodeVC.m in Sources */,
 				6EB552A41D5491AD001099C1 /* RecommendCollectionView.m in Sources */,
 				6E2377401D530FAF00102550 /* HistoryEntity.m in Sources */,
+				FC0F6BF21D7C754400907F5E /* StartInfoModel.m in Sources */,
 				6E08FD4F1D7329BA00544842 /* RegionShowChildEntity.m in Sources */,
 				6E5FB1921D557C0400984DC6 /* LiveListEntity.m in Sources */,
 				6E58B2531D72B87E002714FD /* RegionShowCollectionView.m in Sources */,
