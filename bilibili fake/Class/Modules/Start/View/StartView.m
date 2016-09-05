@@ -1,72 +1,50 @@
 //
-//  CXHStartViewController.m
-//  webView_bilibili
+//  StartView.m
+//  bilibili fake
 //
-//  Created by C on 16/6/26.
-//  Copyright © 2016年 C. All rights reserved.
+//  Created by cxh on 16/9/5.
+//  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "StartViewController.h"
+#import "StartView.h"
+#import "StartInfoModel.h"
+
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "Masonry.h"
-#import "StartInfoModel.h"
 #import "Macro.h"
+#import "URLRouter.h"
 
-
-@implementation StartViewController{
-
+@implementation StartView{
     StartInfoModel* model;
-
+    
     BOOL Jump; //是否跳转
     NSTimer *MouseTimer;//计时器
     UIButton* skip_btn;//跳过按钮
     NSInteger skip_time;//跳过的时间
-    
-    UIImageView* bilibili2233ImageView;
-    UIViewController* _oldVC;
 }
-
 +(void)show{
-//    [UIApplication sharedApplication].keyWindow.rootViewController = [[StartViewController alloc] initWithOldVC:[UIApplication sharedApplication].keyWindow.rootViewController];
-//    UIViewController* rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
-//    [rootVC presentViewController:[[StartViewController alloc] init] animated:NO completion:^{}];
-    
-    [[UIApplication sharedApplication].keyWindow addSubview:[[StartViewController alloc] init].view];
-    
+     [[UIApplication sharedApplication].keyWindow addSubview:[[StartView alloc] init]];
 }
 
-//-(id)initWithOldVC:(UIViewController*)oldVC{
-//    self = [super init];
-//    if (self) {
-//        _oldVC = oldVC;
-//    }
-//    return self;
-//}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    Jump = NO;
-    skip_time = 3;
-    
-    model = [[StartInfoModel alloc] init];
-    
-    if (model.currentStartPage) {
-        [self loadInternetSubviews];
-        skip_time = model.currentStartPage.duration;
-    }else{
-        [self loadDefaultSubviews];
+-(instancetype)init{
+    self = [super initWithFrame:[UIScreen mainScreen].bounds];
+    if (self) {
+        Jump = NO;
+        skip_time = 3;
+        
+        model = [[StartInfoModel alloc] init];
+        
+        if (model.currentStartPage) {
+            [self loadInternetSubviews];
+            skip_time = model.currentStartPage.duration;
+        }else{
+            [self loadDefaultSubviews];
+        }
+        
+        [self loadActions];
     }
-    
-    [self loadActions];
+    return self;
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 #pragma mark - ActionDealt
 -(void)loadActions{
     //加定时器
@@ -85,6 +63,7 @@
         [self removeVC];
     }
 }
+
 //跳过按钮点击事件
 -(void)skip_btn_action:(id)sender{
     [self removeVC];
@@ -94,34 +73,22 @@
 -(void)removeVC{
     //移除定时器
     [MouseTimer invalidate];
-//    [UIApplication sharedApplication].keyWindow.rootViewController = _oldVC;
-//    [self dismissViewControllerAnimated:NO completion:nil];
-    [self.view removeFromSuperview];
+    [self removeFromSuperview];
     if (Jump) {
-        //先把调用接口留好
-        NSString* param = model.currentStartPage.param;//param ＝ bilibili://events/626 的时候无法获取活动网址
-        if (param.length) {
-            NSLog(@"跳转至%@",param);;
+        if ( model.currentStartPage.param.length) {
+            NSLog(@"跳转至%@", model.currentStartPage.param);
+            [URLRouter openURL: model.currentStartPage.param];
         }
     }
-
-
-}
-#pragma  UIViewControllerDelegate
-//隐藏状态栏
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
 }
 
 //点击跳转按钮（按钮一般放在图中的下方）
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     
     UITouch *touch = [touches anyObject];
-    CGPoint point = [touch  locationInView:self.view];
-    //NSLog(@"%f,%f",point.x,point.y);
-    float h = self.view.frame.size.height;
-    float w = self.view.frame.size.width;
+    CGPoint point = [touch  locationInView:self];
+    float h = self.frame.size.height;
+    float w = self.frame.size.width;
     if (point.y > h*0.7&&point.y<h*0.9&&point.x > w*0.3&&point.x < w*0.7) {
         Jump = YES;
     }
@@ -132,48 +99,46 @@
 //加载默认子视图
 -(void)loadDefaultSubviews{
     //默认启动图方式
-    self.view.backgroundColor = ColorRGB(246, 246, 246);
+    self.backgroundColor = ColorRGB(246, 246, 246);
     
     UIImageView *bgimageView = ({
         UIImageView *imageView = UIImageView.new;
         [imageView setImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[@"bilibili_splash_iphone_bg" stringByAppendingString:@".png"]]]];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [self.view addSubview:imageView];
+        [self addSubview:imageView];
         imageView;
     });
-
-    bilibili2233ImageView =({
+    
+    UIImageView* bilibili2233ImageView =({
         UIImageView *imageView =  UIImageView.new;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.image = [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"bilibili_splash_default.png"]];
-        imageView.center = self.view.center;
-        [self.view addSubview:imageView];
+        imageView.center = self.center;
+        [self addSubview:imageView];
         imageView;
     });
-
-
+    
+    
     // Layout
     [bgimageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.edges.equalTo(self);
     }];
     
     [bilibili2233ImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(100, 100));
-        make.center.equalTo(self.view);
+        make.center.equalTo(self);
     }];
     
-    [self performSelector:@selector(animate) withObject:nil afterDelay:0.1f];
-}
--(void)animate{
     [UIView animateWithDuration:0.8 animations:^{
         [bilibili2233ImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(self.view.mas_width);
-            make.height.mas_equalTo(self.view.mas_height).multipliedBy(0.8);
-            make.top.left.right.mas_equalTo(self.view);
+            make.width.mas_equalTo(self.mas_width);
+            make.height.mas_equalTo(self.mas_height).multipliedBy(0.8);
+            make.top.left.right.mas_equalTo(self);
         }];
         [bilibili2233ImageView layoutIfNeeded];
     }];
 }
+
 //加载网络启动图
 -(void)loadInternetSubviews{
     
@@ -181,7 +146,7 @@
         UIImageView *imageView = UIImageView.new;
         [imageView sd_setImageWithURL:[NSURL URLWithString:model.currentStartPage.image]];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [self.view addSubview:imageView];
+        [self addSubview:imageView];
         imageView;
     });
     
@@ -201,7 +166,7 @@
     
     // Layout
     [bgimageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.edges.equalTo(self);
     }];
     
     [skip_btn mas_makeConstraints:^(MASConstraintMaker *make) {

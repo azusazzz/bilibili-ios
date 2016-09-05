@@ -192,11 +192,11 @@
 		FC4D35F81D28378D000C3F01 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D35F61D28378D000C3F01 /* FindViewController.m */; };
 		FC4D35F91D28378D000C3F01 /* FindViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC4D35F71D28378D000C3F01 /* FindViewController.plist */; };
 		FC4D36011D283F47000C3F01 /* GameCentreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4D36001D283F47000C3F01 /* GameCentreVC.m */; };
-		FC4DB3C21D7D5A73003935E3 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3B61D7D5A73003935E3 /* StartViewController.m */; };
 		FC4DB3C31D7D5A73003935E3 /* StartInfoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3B91D7D5A73003935E3 /* StartInfoEntity.m */; };
 		FC4DB3C41D7D5A73003935E3 /* StartPageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3BB1D7D5A73003935E3 /* StartPageEntity.m */; };
 		FC4DB3C51D7D5A73003935E3 /* StartInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3BE1D7D5A73003935E3 /* StartInfoModel.m */; };
 		FC4DB3C61D7D5A73003935E3 /* StartInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3C11D7D5A73003935E3 /* StartInfoRequest.m */; };
+		FC4DB3CD1D7D799B003935E3 /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3CC1D7D799B003935E3 /* StartView.m */; };
 		FC6A427B1D490C340058A1FA /* VideoRangData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6A427A1D490C340058A1FA /* VideoRangData.m */; };
 		FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */; };
 		FC6F488B1D363AEB00047EEA /* NonVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6F488A1D363AEB00047EEA /* NonVideoCell.m */; };
@@ -664,8 +664,6 @@
 		FC4D35F71D28378D000C3F01 /* FindViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FindViewController.plist; sourceTree = "<group>"; };
 		FC4D35FF1D283F47000C3F01 /* GameCentreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCentreVC.h; path = "bilibili fake/Class/Modules/find/Controller/GameCentreVC/GameCentreVC.h"; sourceTree = SOURCE_ROOT; };
 		FC4D36001D283F47000C3F01 /* GameCentreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCentreVC.m; path = "bilibili fake/Class/Modules/find/Controller/GameCentreVC/GameCentreVC.m"; sourceTree = SOURCE_ROOT; };
-		FC4DB3B51D7D5A73003935E3 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
-		FC4DB3B61D7D5A73003935E3 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		FC4DB3B81D7D5A73003935E3 /* StartInfoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartInfoEntity.h; sourceTree = "<group>"; };
 		FC4DB3B91D7D5A73003935E3 /* StartInfoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartInfoEntity.m; sourceTree = "<group>"; };
 		FC4DB3BA1D7D5A73003935E3 /* StartPageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartPageEntity.h; sourceTree = "<group>"; };
@@ -674,6 +672,8 @@
 		FC4DB3BE1D7D5A73003935E3 /* StartInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartInfoModel.m; sourceTree = "<group>"; };
 		FC4DB3C01D7D5A73003935E3 /* StartInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartInfoRequest.h; sourceTree = "<group>"; };
 		FC4DB3C11D7D5A73003935E3 /* StartInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartInfoRequest.m; sourceTree = "<group>"; };
+		FC4DB3CB1D7D799B003935E3 /* StartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartView.h; path = View/StartView.h; sourceTree = "<group>"; };
+		FC4DB3CC1D7D799B003935E3 /* StartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartView.m; path = View/StartView.m; sourceTree = "<group>"; };
 		FC6A42791D490C340058A1FA /* VideoRangData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoRangData.h; path = "bilibili fake/Class/Modules/find/Data/VideoRangData/VideoRangData.h"; sourceTree = SOURCE_ROOT; };
 		FC6A427A1D490C340058A1FA /* VideoRangData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoRangData.m; path = "bilibili fake/Class/Modules/find/Data/VideoRangData/VideoRangData.m"; sourceTree = SOURCE_ROOT; };
 		FC6A427F1D4925530058A1FA /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
@@ -2210,21 +2210,12 @@
 		FC4DB3B31D7D5A73003935E3 /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				FC4DB3B41D7D5A73003935E3 /* Controller */,
+				FC4DB3C71D7D7933003935E3 /* View */,
 				FC4DB3B71D7D5A73003935E3 /* Entity */,
 				FC4DB3BC1D7D5A73003935E3 /* Model */,
 				FC4DB3BF1D7D5A73003935E3 /* Request */,
 			);
 			path = Start;
-			sourceTree = "<group>";
-		};
-		FC4DB3B41D7D5A73003935E3 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				FC4DB3B51D7D5A73003935E3 /* StartViewController.h */,
-				FC4DB3B61D7D5A73003935E3 /* StartViewController.m */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		FC4DB3B71D7D5A73003935E3 /* Entity */ = {
@@ -2254,6 +2245,15 @@
 				FC4DB3C11D7D5A73003935E3 /* StartInfoRequest.m */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		FC4DB3C71D7D7933003935E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC4DB3CB1D7D799B003935E3 /* StartView.h */,
+				FC4DB3CC1D7D799B003935E3 /* StartView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		FC6A42781D490C1E0058A1FA /* VideoRangData */ = {
@@ -2980,6 +2980,7 @@
 				6E7E47011D58B0230027AE8D /* BangumiEntranceCollectionViewCell.m in Sources */,
 				6E5FB1B11D55926A00984DC6 /* LiveEntranceFooterView.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
+				FC4DB3CD1D7D799B003935E3 /* StartView.m in Sources */,
 				6E199CEF1D678BF8003E06F6 /* DownloadVideoManagerViewController.m in Sources */,
 				6ED9D4CF1D6C22C1004E2557 /* VideoURL.m in Sources */,
 				6E5FB19F1D5590F400984DC6 /* LiveCollectionView.m in Sources */,
@@ -3038,7 +3039,6 @@
 				6E5FB1B71D55DF8D00984DC6 /* NavigationController.m in Sources */,
 				6E5FE90F1D59A88200459BF4 /* BangumiEndHeaderView.m in Sources */,
 				6EB5528F1D5488D8001099C1 /* RecommendListModel.m in Sources */,
-				FC4DB3C21D7D5A73003935E3 /* StartViewController.m in Sources */,
 				6E5FB1891D557AB100984DC6 /* LiveListRequest.m in Sources */,
 				6E58B23B1D72AA53002714FD /* RegionChildEntity.m in Sources */,
 				6E08FD611D7336CD00544842 /* RegionShowRecommendModel.m in Sources */,

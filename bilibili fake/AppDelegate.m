@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <SDImageCache.h>
 
-#import "StartViewController.h"
+#import "StartView.h"
 #import "ScrollTabBarController.h"
 #import "DanmakuRequest.h"
 
@@ -35,7 +35,7 @@
     self.window.rootViewController = [[ScrollTabBarController alloc] init];
    
     [self.window makeKeyAndVisible];
-    [StartViewController show];
+    [StartView show];
     
     
     
