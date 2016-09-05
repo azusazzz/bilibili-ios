@@ -7,7 +7,9 @@
 //
 
 #import "BaseRequest.h"
-
+#import "StartPageEntity.h"
 @interface StartInfoModel : BaseRequest
+
+@property(nonatomic,strong)StartPageEntity* currentStartPage;
 
 @end

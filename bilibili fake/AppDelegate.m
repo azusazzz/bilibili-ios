@@ -33,6 +33,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[ScrollTabBarController alloc] init];
+   
     [self.window makeKeyAndVisible];
     [StartViewController show];
     

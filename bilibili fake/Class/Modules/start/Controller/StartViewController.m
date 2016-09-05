@@ -9,45 +9,47 @@
 #import "StartViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "Masonry.h"
-#import "StartVCData.h"
+#import "StartInfoModel.h"
 #import "Macro.h"
+
 
 @implementation StartViewController{
 
-    NSMutableDictionary* _data_dic;
+    StartInfoModel* model;
 
     BOOL Jump; //是否跳转
     NSTimer *MouseTimer;//计时器
     UIButton* skip_btn;//跳过按钮
     NSInteger skip_time;//跳过的时间
     
-    
+    UIImageView* bilibili2233ImageView;
     UIViewController* _oldVC;
 }
 
 +(void)show{
-    [UIApplication sharedApplication].keyWindow.rootViewController = [[StartViewController alloc] initWithOldVC:[UIApplication sharedApplication].keyWindow.rootViewController];
-
+//    [UIApplication sharedApplication].keyWindow.rootViewController = [[StartViewController alloc] initWithOldVC:[UIApplication sharedApplication].keyWindow.rootViewController];
+    UIViewController* rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [rootVC presentViewController:[[StartViewController alloc] init] animated:NO completion:^{}];
 }
 
--(id)initWithOldVC:(UIViewController*)oldVC{
-    self = [super init];
-    if (self) {
-        _oldVC = oldVC;
-    }
-    return self;
-}
+//-(id)initWithOldVC:(UIViewController*)oldVC{
+//    self = [super init];
+//    if (self) {
+//        _oldVC = oldVC;
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     Jump = NO;
     skip_time = 3;
     
-    _data_dic = [StartVCData getStartViewData];
+    model = [[StartInfoModel alloc] init];
     
-    if (_data_dic) {
+    if (model.currentStartPage) {
         [self loadInternetSubviews];
-        skip_time = [[_data_dic objectForKey:@"duration"] integerValue];
+        skip_time = model.currentStartPage.duration;
     }else{
         [self loadDefaultSubviews];
     }
@@ -89,12 +91,12 @@
 -(void)removeVC{
     //移除定时器
     [MouseTimer invalidate];
-    [UIApplication sharedApplication].keyWindow.rootViewController = _oldVC;
-
+//    [UIApplication sharedApplication].keyWindow.rootViewController = _oldVC;
+    [self dismissViewControllerAnimated:NO completion:nil];
     if (Jump) {
         //先把调用接口留好
-        NSString* param = [_data_dic objectForKey:@"param"];//param ＝ bilibili://events/626 的时候无法获取活动网址
-        if (param.length) {//param  不为空时点击下方就会跳转到链接
+        NSString* param = model.currentStartPage.param;//param ＝ bilibili://events/626 的时候无法获取活动网址
+        if (param.length) {
             NSLog(@"跳转至%@",param);;
         }
     }
@@ -105,7 +107,7 @@
 //隐藏状态栏
 - (BOOL)prefersStatusBarHidden
 {
-    return YES; // 返回NO表示要显示，返回YES将hiden
+    return YES;
 }
 
 //点击跳转按钮（按钮一般放在图中的下方）
@@ -127,59 +129,73 @@
 -(void)loadDefaultSubviews{
     //默认启动图方式
     self.view.backgroundColor = ColorRGB(246, 246, 246);
-    //[[NSBundle mainBundle] pathForResource:@"bilibili_splash_iphone_bg" ofType:@"png"]
-    UIImageView *bgimageView = UIImageView.new;
     
-    [bgimageView setImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[@"bilibili_splash_iphone_bg" stringByAppendingString:@".png"]]]];
-    bgimageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:bgimageView];
+    UIImageView *bgimageView = ({
+        UIImageView *imageView = UIImageView.new;
+        [imageView setImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[@"bilibili_splash_iphone_bg" stringByAppendingString:@".png"]]]];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.view addSubview:imageView];
+        imageView;
+    });
 
-    UIImageView *imageView =  UIImageView.new;
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.image = [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"bilibili_splash_default.png"]];
-    imageView.center = self.view.center;
-    [self.view addSubview:imageView];
+    bilibili2233ImageView =({
+        UIImageView *imageView =  UIImageView.new;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.image = [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"bilibili_splash_default.png"]];
+        imageView.center = self.view.center;
+        [self.view addSubview:imageView];
+        imageView;
+    });
+
 
     // Layout
     [bgimageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
     
-    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(0, 0));
+    [bilibili2233ImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(100, 100));
         make.center.equalTo(self.view);
     }];
     
-    [UIView animateWithDuration:1.2 animations:^{
-        [imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+    [self performSelector:@selector(animate) withObject:nil afterDelay:0.1f];
+}
+-(void)animate{
+    [UIView animateWithDuration:0.8 animations:^{
+        [bilibili2233ImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo(self.view.mas_width);
             make.height.mas_equalTo(self.view.mas_height).multipliedBy(0.8);
             make.top.left.right.mas_equalTo(self.view);
         }];
-        [imageView layoutIfNeeded];//强制绘制
+        [bilibili2233ImageView layoutIfNeeded];
     }];
-    //
 }
-
 //加载网络启动图
 -(void)loadInternetSubviews{
-    UIImageView *bgimageView = UIImageView.new;
-    [bgimageView sd_setImageWithURL:[NSURL URLWithString:[_data_dic objectForKey:@"image"]]];
-    bgimageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:bgimageView];
+    UIImageView *bgimageView = ({
+        UIImageView *imageView = UIImageView.new;
+        [imageView sd_setImageWithURL:[NSURL URLWithString:model.currentStartPage.image]];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.view addSubview:imageView];
+        imageView;
+    });
+    
+    
     
     //增加跳过按钮
-    NSInteger skip = [[_data_dic objectForKey:@"skip"] integerValue];
-    if (skip == 1) {
-        skip_btn = UIButton.new;
-        bgimageView.userInteractionEnabled = YES;
-        [skip_btn.layer setCornerRadius:6.0];
-         skip_btn.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.7];
-        [skip_btn.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:13]];
-        [skip_btn setTitle: [NSString stringWithFormat:@"跳过 %lus",skip_time] forState:UIControlStateNormal];
-        [bgimageView addSubview:skip_btn];
+    if (model.currentStartPage.skip== 1) {
+        skip_btn = ({
+            UIButton* btn = UIButton.new;
+            bgimageView.userInteractionEnabled = YES;
+            [btn.layer setCornerRadius:6.0];
+            btn.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.7];
+            [btn.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:13]];
+            [btn setTitle: [NSString stringWithFormat:@"跳过 %lus",skip_time] forState:UIControlStateNormal];
+            [bgimageView addSubview:btn];
+            btn;
+        });
     }
-
+    
     // Layout
     [bgimageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
