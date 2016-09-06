@@ -42,11 +42,7 @@
     [self.view addGestureRecognizer:panGestureRecognizer];
     [self replacingPopGestureRecognizer:panGestureRecognizer];
     
-    
     [self loadSubviews];
-    
-    
-    
     
     // 开始会话
     [_captureSession startRunning];
@@ -73,6 +69,7 @@
     }
     return YES;
 }
+
 
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects
@@ -124,8 +121,6 @@
         [session addOutput:captureMetadataOutput];
         [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
         captureMetadataOutput.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
-        
-        
         
         session;
     });

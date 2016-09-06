@@ -12,6 +12,7 @@
 
 #import "Macro.h"
 #import "Masonry.h"
+#import "UIView+CornerRadius.h"
 
 #import "HotWorkView.h"
 #import "FindTableView.h"
@@ -176,9 +177,13 @@
     
     [findTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(hotWorkView.mas_bottom).offset(0);
-        make.bottom.equalTo(self.view.mas_bottom).offset(5);
+        make.bottom.equalTo(self.view.mas_bottom).offset(0);
         make.left.right.equalTo(self.view);
     }];
+    
+    [self.view layoutIfNeeded];
+//    [findTableView cornerRoundingCorners: UIRectCornerTopLeft|UIRectCornerTopRight  withCornerRadius:5.0];
+  
 }
 
 @end
