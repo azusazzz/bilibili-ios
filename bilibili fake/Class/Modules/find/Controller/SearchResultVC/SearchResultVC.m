@@ -102,9 +102,9 @@ struct tablePoint{
 }
 
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
-    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)viewDidLoad {
@@ -113,13 +113,6 @@ struct tablePoint{
          [search_tf setText:_keyword];
      });
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 
 #pragma mark - ActionDealt
 //设置关键字
@@ -155,7 +148,7 @@ struct tablePoint{
     //取消按钮
     __weak typeof(self) weakSelf = self;
     cancel_btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        [weakSelf.navigationController popToRootViewControllerAnimated:NO];
+        [weakSelf.navigationController popViewControllerAnimated:NO];
         [[NSNotificationCenter defaultCenter] removeObserver:weakSelf];
         return [RACSignal empty];
     }];

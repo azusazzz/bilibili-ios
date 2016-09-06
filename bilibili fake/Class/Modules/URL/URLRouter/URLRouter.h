@@ -47,17 +47,11 @@ typedef BOOL (^URLRouterHandler)(URLRouterParameters * _Nonnull routerParameters
 
 /**
  *  是否可以打开URL
- *
- *  @param URL
- *
- *  @return 不为空，则可以打开
  */
 + (BOOL)canOpenURL:(NSString * _Nonnull)URL;
 
 /**
  *  打开URL
- *
- *  @param parameters 参数
  */
 + (BOOL)openURLWithRouterParameters:(URLRouterParameters * _Nonnull)parameters;
 
