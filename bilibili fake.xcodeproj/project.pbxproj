@@ -153,9 +153,7 @@
 		6E89DA3E1D3D00950055C9F2 /* IJKMediaPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E9CA2FE1D6EE76D004B2C86 /* LivePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA2FD1D6EE76D004B2C86 /* LivePlayer.m */; };
 		6E9CA3041D6F01F6004B2C86 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA3031D6F01F6004B2C86 /* WebViewController.m */; };
-		6E9CA30E1D6F07B5004B2C86 /* URLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA30D1D6F07B5004B2C86 /* URLRouter.m */; };
 		6E9CA3171D6F2F0F004B2C86 /* WebViewCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA3161D6F2F0F004B2C86 /* WebViewCache.m */; };
-		6E9CA3511D704C37004B2C86 /* URLRouterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CA3501D704C37004B2C86 /* URLRouterConfig.m */; };
 		6EB450291D51F26E00A4F626 /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB450281D51F26E00A4F626 /* DownloadManager.m */; };
 		6EB4502C1D51F30600A4F626 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4502B1D51F30600A4F626 /* DownloadOperation.m */; };
 		6EB450301D51FD0000A4F626 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4502F1D51FD0000A4F626 /* NSString+MD5.m */; };
@@ -181,6 +179,8 @@
 		6EB692101D12422C000FA482 /* bilibili_fakeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6920F1D12422C000FA482 /* bilibili_fakeUITests.m */; };
 		6EC489A01D782F260078EC0A /* RegionShowChildCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC4899F1D782F260078EC0A /* RegionShowChildCollectionView.m */; };
 		6EC489A71D7857890078EC0A /* RegionShowChildCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC489A61D7857890078EC0A /* RegionShowChildCollectionViewCell.m */; };
+		6EC9A48A1D7EE49900B5F0BA /* URLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9A4881D7EE49900B5F0BA /* URLRouter.m */; };
+		6EC9A48B1D7EE49900B5F0BA /* URLRouterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9A4891D7EE49900B5F0BA /* URLRouterConfig.m */; };
 		6ED9D4CC1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9D4CB1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.m */; };
 		6ED9D4CF1D6C22C1004E2557 /* VideoURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9D4CE1D6C22C1004E2557 /* VideoURL.m */; };
 		6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4A61D2BCE4400D1BC9E /* TabBar.m */; };
@@ -590,11 +590,8 @@
 		6E9CA2FD1D6EE76D004B2C86 /* LivePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivePlayer.m; sourceTree = "<group>"; };
 		6E9CA3021D6F01F6004B2C86 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		6E9CA3031D6F01F6004B2C86 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		6E9CA30C1D6F07B5004B2C86 /* URLRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLRouter.h; sourceTree = "<group>"; };
-		6E9CA30D1D6F07B5004B2C86 /* URLRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLRouter.m; sourceTree = "<group>"; };
 		6E9CA3151D6F2F0F004B2C86 /* WebViewCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewCache.h; sourceTree = "<group>"; };
 		6E9CA3161D6F2F0F004B2C86 /* WebViewCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewCache.m; sourceTree = "<group>"; };
-		6E9CA3501D704C37004B2C86 /* URLRouterConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLRouterConfig.m; sourceTree = "<group>"; };
 		6EB450271D51F26E00A4F626 /* DownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManager.h; sourceTree = "<group>"; };
 		6EB450281D51F26E00A4F626 /* DownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadManager.m; sourceTree = "<group>"; };
 		6EB4502A1D51F30600A4F626 /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
@@ -646,6 +643,9 @@
 		6EC4899F1D782F260078EC0A /* RegionShowChildCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowChildCollectionView.m; sourceTree = "<group>"; };
 		6EC489A51D7857890078EC0A /* RegionShowChildCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowChildCollectionViewCell.h; sourceTree = "<group>"; };
 		6EC489A61D7857890078EC0A /* RegionShowChildCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowChildCollectionViewCell.m; sourceTree = "<group>"; };
+		6EC9A4871D7EE49900B5F0BA /* URLRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLRouter.h; sourceTree = "<group>"; };
+		6EC9A4881D7EE49900B5F0BA /* URLRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLRouter.m; sourceTree = "<group>"; };
+		6EC9A4891D7EE49900B5F0BA /* URLRouterConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLRouterConfig.m; sourceTree = "<group>"; };
 		6ED9D4CA1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVideoInfoHeaderView.h; sourceTree = "<group>"; };
 		6ED9D4CB1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVideoInfoHeaderView.m; sourceTree = "<group>"; };
 		6ED9D4CD1D6C22C1004E2557 /* VideoURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoURL.h; sourceTree = "<group>"; };
@@ -1006,6 +1006,7 @@
 		6E1535E21D1A95940053A846 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6EC9A4861D7EE49900B5F0BA /* URLRouter */,
 				6E026FE21D3E29340038C2A0 /* Request */,
 				6EFFD4A31D2BCDFB00D1BC9E /* Views */,
 			);
@@ -1826,7 +1827,6 @@
 		6E9CA2FF1D6F01DD004B2C86 /* URL */ = {
 			isa = PBXGroup;
 			children = (
-				6E9CA30B1D6F07B5004B2C86 /* URLRouter */,
 				6E9CA3011D6F01DD004B2C86 /* WebView */,
 			);
 			path = URL;
@@ -1841,16 +1841,6 @@
 				6E9CA3161D6F2F0F004B2C86 /* WebViewCache.m */,
 			);
 			path = WebView;
-			sourceTree = "<group>";
-		};
-		6E9CA30B1D6F07B5004B2C86 /* URLRouter */ = {
-			isa = PBXGroup;
-			children = (
-				6E9CA30C1D6F07B5004B2C86 /* URLRouter.h */,
-				6E9CA30D1D6F07B5004B2C86 /* URLRouter.m */,
-				6E9CA3501D704C37004B2C86 /* URLRouterConfig.m */,
-			);
-			path = URLRouter;
 			sourceTree = "<group>";
 		};
 		6E9FB08B1D1289FB0032C1DB /* Class */ = {
@@ -2103,6 +2093,16 @@
 				6E58B23C1D72B49A002714FD /* RegionShow */,
 			);
 			path = Region;
+			sourceTree = "<group>";
+		};
+		6EC9A4861D7EE49900B5F0BA /* URLRouter */ = {
+			isa = PBXGroup;
+			children = (
+				6EC9A4871D7EE49900B5F0BA /* URLRouter.h */,
+				6EC9A4881D7EE49900B5F0BA /* URLRouter.m */,
+				6EC9A4891D7EE49900B5F0BA /* URLRouterConfig.m */,
+			);
+			path = URLRouter;
 			sourceTree = "<group>";
 		};
 		6EFFD4A31D2BCDFB00D1BC9E /* Views */ = {
@@ -2987,6 +2987,7 @@
 				FC6F488B1D363AEB00047EEA /* NonVideoCell.m in Sources */,
 				FC9847521D7EAC040006CCCE /* FindViewController.m in Sources */,
 				6EB552831D5487A4001099C1 /* RecommendEntity.m in Sources */,
+				6EC9A48A1D7EE49900B5F0BA /* URLRouter.m in Sources */,
 				6E199CDA1D673BB2003E06F6 /* DownloadVideoCollectionView.m in Sources */,
 				6EB552981D548D1A001099C1 /* RecommendCollectionViewCell.m in Sources */,
 				6E58B2441D72B534002714FD /* RegionShowViewController.m in Sources */,
@@ -3000,6 +3001,7 @@
 				6E215D0C1D4B62210004CA5B /* MineViewController.m in Sources */,
 				6E59760B1D5B171500D520E0 /* VideoHeaderView.m in Sources */,
 				6E885B951D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.m in Sources */,
+				6EC9A48B1D7EE49900B5F0BA /* URLRouterConfig.m in Sources */,
 				6E5FE9061D596D8400459BF4 /* BangumiLatestUpdateCollectionViewCell.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
 				6E4E039B1D71391400C669E6 /* NSObject+Runtime.m in Sources */,
@@ -3013,7 +3015,6 @@
 				6E5976341D5C6FD700D520E0 /* DanmakuLabel.m in Sources */,
 				6E08FD641D733C4500544842 /* RegionShowRecommendRequest.m in Sources */,
 				6E08FD5B1D7336B100544842 /* RegionShowRecommendViewController.m in Sources */,
-				6E9CA30E1D6F07B5004B2C86 /* URLRouter.m in Sources */,
 				6E5975F91D5B171500D520E0 /* VideoIntroTagsCollectionViewCell.m in Sources */,
 				6E58B22D1D72A229002714FD /* RegionListViewController.m in Sources */,
 				6E5975FE1D5B171500D520E0 /* VideoCommentTableViewCell.m in Sources */,
@@ -3163,7 +3164,6 @@
 				6EB450291D51F26E00A4F626 /* DownloadManager.m in Sources */,
 				FC9847511D7EAC040006CCCE /* FindCell.m in Sources */,
 				6E5FE9181D59B5EA00459BF4 /* BangumiRecommendHeaderView.m in Sources */,
-				6E9CA3511D704C37004B2C86 /* URLRouterConfig.m in Sources */,
 				6E7E46F21D587EEB0027AE8D /* BangumiBannerEntity.m in Sources */,
 				6E215D061D4B61B00004CA5B /* MineCollectionView.m in Sources */,
 				6E48367A1D410DB0004AD1A4 /* Function.m in Sources */,
