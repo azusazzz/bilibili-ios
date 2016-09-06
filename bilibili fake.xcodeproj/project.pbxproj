@@ -211,14 +211,13 @@
 		FC9847561D7EAC040006CCCE /* FindReqiest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC98474B1D7EAC040006CCCE /* FindReqiest.m */; };
 		FC9847571D7EAC040006CCCE /* FindTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC98474E1D7EAC040006CCCE /* FindTableView.m */; };
 		FC9847581D7EAC040006CCCE /* HotWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9847501D7EAC040006CCCE /* HotWorkView.m */; };
+		FC98475D1D7EB07C0006CCCE /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC98475C1D7EB07C0006CCCE /* QRCodeViewController.m */; };
 		FC9CA9CF1D44D60A00036CCC /* VideoRangTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9CA9CE1D44D60A00036CCC /* VideoRangTableView.m */; };
 		FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */; };
 		FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */; };
-		FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9A21D333886000215B3 /* FindViewData.m */; };
 		FCB5C9A71D333886000215B3 /* SearchResultData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9A51D333886000215B3 /* SearchResultData.m */; };
 		FCB5C9AE1D333D33000215B3 /* SearchPromptsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9AD1D333D33000215B3 /* SearchPromptsVC.m */; };
 		FCB5C9B11D333D6F000215B3 /* SearchPromptsData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9B01D333D6F000215B3 /* SearchPromptsData.m */; };
-		FCB5C9CD1D33AF41000215B3 /* FindViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9C81D33AF41000215B3 /* FindViewCell.m */; };
 		FCB5C9CE1D33AF41000215B3 /* GameCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB5C9CB1D33AF41000215B3 /* GameCenterCell.m */; };
 		FCBD20231D3FE91800A756F3 /* empty_list_no_search_history.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCBD1FED1D3FE91800A756F3 /* empty_list_no_search_history.jpg */; };
 		FCBD20241D3FE91800A756F3 /* common_back.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBD1FF01D3FE91800A756F3 /* common_back.png */; };
@@ -709,21 +708,19 @@
 		FC98474E1D7EAC040006CCCE /* FindTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindTableView.m; sourceTree = "<group>"; };
 		FC98474F1D7EAC040006CCCE /* HotWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotWorkView.h; sourceTree = "<group>"; };
 		FC9847501D7EAC040006CCCE /* HotWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotWorkView.m; sourceTree = "<group>"; };
+		FC98475B1D7EB07C0006CCCE /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeViewController.h; path = Find/QRCode/Controller/QRCodeViewController.h; sourceTree = "<group>"; };
+		FC98475C1D7EB07C0006CCCE /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeViewController.m; path = Find/QRCode/Controller/QRCodeViewController.m; sourceTree = "<group>"; };
 		FC9CA9CD1D44D60A00036CCC /* VideoRangTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRangTableView.h; sourceTree = "<group>"; };
 		FC9CA9CE1D44D60A00036CCC /* VideoRangTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRangTableView.m; sourceTree = "<group>"; };
 		FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "游戏中心假数据.json"; sourceTree = "<group>"; };
 		FCAA18EB1D2DEDD90046CBA4 /* RowBotton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowBotton.h; path = RowBotton/RowBotton.h; sourceTree = "<group>"; };
 		FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowBotton.m; path = RowBotton/RowBotton.m; sourceTree = "<group>"; };
-		FCB5C9A11D333886000215B3 /* FindViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewData.h; sourceTree = "<group>"; };
-		FCB5C9A21D333886000215B3 /* FindViewData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewData.m; sourceTree = "<group>"; };
 		FCB5C9A41D333886000215B3 /* SearchResultData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultData.h; sourceTree = "<group>"; };
 		FCB5C9A51D333886000215B3 /* SearchResultData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultData.m; sourceTree = "<group>"; };
 		FCB5C9AC1D333D33000215B3 /* SearchPromptsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchPromptsVC.h; path = SearchPromptsVC/SearchPromptsVC.h; sourceTree = "<group>"; };
 		FCB5C9AD1D333D33000215B3 /* SearchPromptsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchPromptsVC.m; path = SearchPromptsVC/SearchPromptsVC.m; sourceTree = "<group>"; };
 		FCB5C9AF1D333D6F000215B3 /* SearchPromptsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchPromptsData.h; path = SearchPromptsData/SearchPromptsData.h; sourceTree = "<group>"; };
 		FCB5C9B01D333D6F000215B3 /* SearchPromptsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchPromptsData.m; path = SearchPromptsData/SearchPromptsData.m; sourceTree = "<group>"; };
-		FCB5C9C71D33AF41000215B3 /* FindViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewCell.h; sourceTree = "<group>"; };
-		FCB5C9C81D33AF41000215B3 /* FindViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewCell.m; sourceTree = "<group>"; };
 		FCB5C9CA1D33AF41000215B3 /* GameCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterCell.h; sourceTree = "<group>"; };
 		FCB5C9CB1D33AF41000215B3 /* GameCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterCell.m; sourceTree = "<group>"; };
 		FCBD1FED1D3FE91800A756F3 /* empty_list_no_search_history.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = empty_list_no_search_history.jpg; sourceTree = "<group>"; };
@@ -2186,7 +2183,6 @@
 			children = (
 				FC6F488F1D363B1A00047EEA /* VideoCell */,
 				FCB5C9C31D33AF41000215B3 /* NonVideoCell */,
-				FCB5C9C61D33AF41000215B3 /* FindViewCell */,
 				FCB5C9C91D33AF41000215B3 /* GameCenterCell */,
 			);
 			name = Cell;
@@ -2199,18 +2195,10 @@
 				FC6A42781D490C1E0058A1FA /* VideoRangData */,
 				FC4703FD1D4078DF009F0B62 /* GameCentreData */,
 				FCB5C9A81D3338AE000215B3 /* SearchPromptsData */,
-				FCB5C9A01D333886000215B3 /* FindViewData */,
 				FCB5C9A31D333886000215B3 /* SearchResultData */,
 			);
 			name = Data;
 			path = find/Data;
-			sourceTree = "<group>";
-		};
-		FC4D35F41D28378D000C3F01 /* FindViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FindViewController;
 			sourceTree = "<group>";
 		};
 		FC4D35FB1D283EB5000C3F01 /* GameCentreVC */ = {
@@ -2425,6 +2413,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		FC9847591D7EB0450006CCCE /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				FC98475A1D7EB0510006CCCE /* Controller */,
+			);
+			name = QRCode;
+			sourceTree = "<group>";
+		};
+		FC98475A1D7EB0510006CCCE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC98475B1D7EB07C0006CCCE /* QRCodeViewController.h */,
+				FC98475C1D7EB07C0006CCCE /* QRCodeViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		FC9CA9CC1D44D5CC00036CCC /* VideoRangTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2441,15 +2446,6 @@
 				FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */,
 			);
 			name = rowBtn;
-			sourceTree = "<group>";
-		};
-		FCB5C9A01D333886000215B3 /* FindViewData */ = {
-			isa = PBXGroup;
-			children = (
-				FCB5C9A11D333886000215B3 /* FindViewData.h */,
-				FCB5C9A21D333886000215B3 /* FindViewData.m */,
-			);
-			path = FindViewData;
 			sourceTree = "<group>";
 		};
 		FCB5C9A31D333886000215B3 /* SearchResultData */ = {
@@ -2478,15 +2474,6 @@
 			);
 			name = NonVideoCell;
 			path = BangumiCell;
-			sourceTree = "<group>";
-		};
-		FCB5C9C61D33AF41000215B3 /* FindViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				FCB5C9C71D33AF41000215B3 /* FindViewCell.h */,
-				FCB5C9C81D33AF41000215B3 /* FindViewCell.m */,
-			);
-			path = FindViewCell;
 			sourceTree = "<group>";
 		};
 		FCB5C9C91D33AF41000215B3 /* GameCenterCell */ = {
@@ -2658,6 +2645,7 @@
 		FCD80DBE1D22B870009CDEC3 /* Find */ = {
 			isa = PBXGroup;
 			children = (
+				FC9847591D7EB0450006CCCE /* QRCode */,
 				FC98473A1D7EAC040006CCCE /* Find */,
 				FCEDE0751D2919900032569A /* View */,
 				FC4D35F01D27F5FC000C3F01 /* Data */,
@@ -2673,7 +2661,6 @@
 				FC4704011D4078EA009F0B62 /* RankOriginalorAllVC */,
 				FC792C281D2E9C6300762831 /* SearchPromptsVC */,
 				FC792C1F1D2E9B5300762831 /* SearchResultVC */,
-				FC4D35F41D28378D000C3F01 /* FindViewController */,
 				FC0745501D2CB762000DFBA6 /* ReadRQCodeVC */,
 				FC4D35FB1D283EB5000C3F01 /* GameCentreVC */,
 			);
@@ -2986,7 +2973,6 @@
 				6E5976071D5B171500D520E0 /* VideoURLProtocol.m in Sources */,
 				FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */,
 				FC749C0E1D61B2B200993327 /* UIStyleCell.m in Sources */,
-				FCB5C9CD1D33AF41000215B3 /* FindViewCell.m in Sources */,
 				FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */,
 				6E5975F31D5B171500D520E0 /* VideoIntroCollectionViewCell.m in Sources */,
 				6E5976091D5B171500D520E0 /* VideoRequest.m in Sources */,
@@ -3061,6 +3047,7 @@
 				6E2377401D530FAF00102550 /* HistoryEntity.m in Sources */,
 				6E08FD4F1D7329BA00544842 /* RegionShowChildEntity.m in Sources */,
 				6E5FB1921D557C0400984DC6 /* LiveListEntity.m in Sources */,
+				FC98475D1D7EB07C0006CCCE /* QRCodeViewController.m in Sources */,
 				6E58B2531D72B87E002714FD /* RegionShowCollectionView.m in Sources */,
 				6E7E46EF1D587E470027AE8D /* BangumiEntity.m in Sources */,
 				6E53E7641D76D96D00D84581 /* RegionShowHeaderView.m in Sources */,
@@ -3141,7 +3128,6 @@
 				6E5ED8891D74535200839B9E /* RegionShowVideoEntity.m in Sources */,
 				6E5FB1981D557DAA00984DC6 /* LiveListPartitionEntity.m in Sources */,
 				FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */,
-				FCB5C9A61D333886000215B3 /* FindViewData.m in Sources */,
 				6EB552761D548004001099C1 /* LiveListViewController.m in Sources */,
 				FC4DB3C31D7D5A73003935E3 /* StartInfoEntity.m in Sources */,
 				6E215D041D4B61B00004CA5B /* MineItemEntity.m in Sources */,

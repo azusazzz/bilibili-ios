@@ -15,6 +15,9 @@
 
 #import "HotWorkView.h"
 #import "FindTableView.h"
+
+#import "QRCodeViewController.h"
+
 @interface FindViewController()<UITableViewDelegate>
 
 @end
@@ -74,16 +77,26 @@
 
 #pragma loadActions
 -(void)loadActions{
+    [QRcodeBtn addTarget:self action:@selector(openQRcodeViewController) forControlEvents:UIControlEventTouchUpInside];
     [hotWorkView.openSwitchBtn addTarget:self action:@selector(openHotWorkView) forControlEvents:UIControlEventTouchUpInside];
+    
     findTableView.delegate = self;
 }
 #pragma Actions
 -(void)openHotWorkView{
     hotWorkView.isOpen = !hotWorkView.isOpen;
 }
+
+-(void)openQRcodeViewController{
+    [self.navigationController pushViewController:[[QRCodeViewController alloc] init] animated:YES];
+}
 #pragma UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return section?10.0:0.1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     

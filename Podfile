@@ -16,7 +16,7 @@ target 'bilibili fake' do
 
     pod 'ReactiveCocoa', '~> 2.5'
 
-    pod  'SwipeBack'
+#    pod  'SwipeBack'
     
 #    pod 'FXBlurView'
 

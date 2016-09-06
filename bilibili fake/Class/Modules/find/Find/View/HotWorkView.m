@@ -79,6 +79,9 @@
     _openSwitchBtn.tintColor = UIStylePromptLabelColor;
     _hotWorkListView.tagTextColor = UIStyleForegroundColor;
     _hotWorkListView.tagBackgroundColor = UIStyleJCTagCellBg;
+    
+    [_hotWorkListView.collectionView reloadData];
+    
 }
 
 -(void)setIsOpen:(BOOL)isOpen{
