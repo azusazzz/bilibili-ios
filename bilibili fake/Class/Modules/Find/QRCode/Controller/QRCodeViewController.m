@@ -10,11 +10,16 @@
 #import "UIViewController+PopGesture.h"
 #import "UIViewController+HeaderView.h"
 #import "Macro.h"
+#import "UIViewController+HeaderView.h"
 
 @interface QRCodeViewController ()<UIGestureRecognizerDelegate>
+
+@property (strong, nonatomic) UIView *qrCodeView;
+
 @end
 
-@implementation QRCodeViewController{
+@implementation QRCodeViewController
+{
     UIButton* backBtn;
     UILabel* label;
 }
@@ -24,70 +29,49 @@
     if (self) {
         self.hidesBottomBarWhenPushed = YES;
         self.title = @"扫码";
-        [self loadSubviews];
-        
-        UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] init];
-        panGestureRecognizer.maximumNumberOfTouches = 1;
-        panGestureRecognizer.delegate = self;
-        [self.view addGestureRecognizer:panGestureRecognizer];
-        [self replacingPopGestureRecognizer:panGestureRecognizer];
     }
     return self;
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    self.navigationController.navigationBarHidden = NO;
-   [backBtn setTitleColor:UIStyleForegroundColor forState:UIControlStateNormal];
-}
+
 
 - (void)viewDidLoad {
-    // 获取 AVCaptureDevice 实例
-    NSError * error;
-    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    // 初始化输入流
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
-    if (!input) {
-        NSLog(@"%@", [error localizedDescription]);
-        return;
-    }
-    // 创建会话
-    _captureSession = [[AVCaptureSession alloc] init];
-    // 添加输入流
-    [_captureSession addInput:input];
-    // 初始化输出流
-    AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
-    // 添加输出流
-    [_captureSession addOutput:captureMetadataOutput];
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] init];
+    panGestureRecognizer.maximumNumberOfTouches = 1;
+    panGestureRecognizer.delegate = self;
+    [self.view addGestureRecognizer:panGestureRecognizer];
+    [self replacingPopGestureRecognizer:panGestureRecognizer];
     
-    // 创建dispatch queue.
-    dispatch_queue_t dispatchQueue;
-    dispatchQueue = dispatch_queue_create("QRCodeViewController", NULL);
-    [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
-    // 设置元数据类型 AVMetadataObjectTypeQRCode
-    [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
-    // 创建输出对象
-    _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
-    [_videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-    [_videoPreviewLayer setFrame:self.view.bounds];
-    [self.view.layer addSublayer:_videoPreviewLayer];
+    
+    [self loadSubviews];
+    
+    
+    
     
     // 开始会话
     [_captureSession startRunning];
+    
+    
+    [self navigationBar];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle; {
+    return UIStatusBarStyleLightContent;
 }
 
 
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
     CGPoint translation = [gestureRecognizer translationInView:self.view];
-    if (fabs(translation.x) <= fabs(translation.y)) {
+    if (translation.x <= fabs(translation.y)) {
         return NO;
     }
     return YES;
-}
-
-#pragma mark - ActionDealt
--(void)goBackAction{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate
@@ -101,12 +85,13 @@
             result = metadataObj.stringValue;
         } else {
             NSLog(@"不是二维码");
+            return;
         }
         //得到结果
-        NSLog(@"扫描结果:%@",result);
+        NSLog(@"扫描结果:%@", result);
         [_captureSession stopRunning];
         _captureSession = nil;
-        [self goBackAction];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
@@ -114,30 +99,52 @@
 #pragma mark loadSubviews
 //加载视图
 -(void)loadSubviews{
-    //标题颜色和字体
     
-    backBtn = ({
-         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
-        [btn setTitle:@"取消" forState:UIControlStateNormal];
-        [btn.titleLabel setFont:[UIFont systemFontOfSize:15]];
-        [btn addTarget: self action: @selector(goBackAction) forControlEvents: UIControlEventTouchUpInside];
-        UIBarButtonItem* back=[[UIBarButtonItem alloc]initWithCustomView:btn];
-        self.navigationItem.leftBarButtonItem=back;
-        btn;
+    self.view.backgroundColor = CRed;
+    
+    // 创建会话
+    _captureSession = ({
+        // 获取 AVCaptureDevice 实例
+        NSError * error;
+        AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        // 初始化输入流
+        AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
+        if (!input) {
+            NSLog(@"%@", [error localizedDescription]);
+            return;
+        }
+        
+        AVCaptureSession *session = [[AVCaptureSession alloc] init];
+        // 添加输入流
+        [session addInput:input];
+        
+        // 初始化输出流
+        AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
+        // 添加输出流
+        [session addOutput:captureMetadataOutput];
+        [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+        captureMetadataOutput.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
+        
+        
+        
+        session;
     });
-    //加标签
-    label = ({
-        UILabel* l = [[UILabel alloc] init];
-        l.text = @"将二维码放入扫描框内";
-        l.textAlignment = NSTextAlignmentCenter;
-        l.textColor = [UIColor whiteColor];
-        [self.view addSubview:l];
-        l;
-    });
-
-   
+    
+    if (!_captureSession) {
+        return;
+    }
+    
+    
+    // 创建输出对象
+    _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
+    [_videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+    [_videoPreviewLayer setFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height-44)];
+    [self.view.layer addSublayer:_videoPreviewLayer];
+    
+    
+    
     //加萌版
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.view.bounds];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:_videoPreviewLayer.frame];
     UIBezierPath* path2 = [UIBezierPath bezierPathWithRect:CGRectMake(20, 150, SSize.width-40, SSize.height*0.5)];
     [path appendPath:path2];
     path.usesEvenOddFillRule = YES;
@@ -154,14 +161,26 @@
     translucentView.layer.mask = shapeLayer;
     
     [self.view addSubview:translucentView];
-
     
     
+    
+    //加标签
+    label = ({
+        UILabel* l = [[UILabel alloc] init];
+        l.text = @"将二维码放入扫描框内";
+        l.textAlignment = NSTextAlignmentCenter;
+        l.textColor = [UIColor whiteColor];
+        [self.view addSubview:l];
+        l;
+    });
     // Layout
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@30);
         make.left.right.equalTo(self.view);
         make.top.mas_equalTo(@(SSize.height*0.85));
     }];
+    
+    
+    
 }
 @end
