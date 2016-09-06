@@ -195,6 +195,7 @@
 		FC4DB3C51D7D5A73003935E3 /* StartInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3BE1D7D5A73003935E3 /* StartInfoModel.m */; };
 		FC4DB3C61D7D5A73003935E3 /* StartInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3C11D7D5A73003935E3 /* StartInfoRequest.m */; };
 		FC4DB3CD1D7D799B003935E3 /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3CC1D7D799B003935E3 /* StartView.m */; };
+		FC61B3B51D7ECA67003F9FDF /* GameCentreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC61B3B41D7ECA67003F9FDF /* GameCentreViewController.m */; };
 		FC6A427B1D490C340058A1FA /* VideoRangData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6A427A1D490C340058A1FA /* VideoRangData.m */; };
 		FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */; };
 		FC6F488B1D363AEB00047EEA /* NonVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6F488A1D363AEB00047EEA /* NonVideoCell.m */; };
@@ -676,6 +677,8 @@
 		FC4DB3C11D7D5A73003935E3 /* StartInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartInfoRequest.m; sourceTree = "<group>"; };
 		FC4DB3CB1D7D799B003935E3 /* StartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartView.h; path = View/StartView.h; sourceTree = "<group>"; };
 		FC4DB3CC1D7D799B003935E3 /* StartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartView.m; path = View/StartView.m; sourceTree = "<group>"; };
+		FC61B3B31D7ECA67003F9FDF /* GameCentreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCentreViewController.h; path = GameCentre/Controller/GameCentreViewController.h; sourceTree = "<group>"; };
+		FC61B3B41D7ECA67003F9FDF /* GameCentreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCentreViewController.m; path = GameCentre/Controller/GameCentreViewController.m; sourceTree = "<group>"; };
 		FC6A42791D490C340058A1FA /* VideoRangData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoRangData.h; path = "bilibili fake/Class/Modules/find/Data/VideoRangData/VideoRangData.h"; sourceTree = SOURCE_ROOT; };
 		FC6A427A1D490C340058A1FA /* VideoRangData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoRangData.m; path = "bilibili fake/Class/Modules/find/Data/VideoRangData/VideoRangData.m"; sourceTree = SOURCE_ROOT; };
 		FC6A427F1D4925530058A1FA /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
@@ -2260,6 +2263,23 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		FC61B3B11D7ECA20003F9FDF /* GameCentre */ = {
+			isa = PBXGroup;
+			children = (
+				FC61B3B21D7ECA31003F9FDF /* Controller */,
+			);
+			name = GameCentre;
+			sourceTree = "<group>";
+		};
+		FC61B3B21D7ECA31003F9FDF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC61B3B31D7ECA67003F9FDF /* GameCentreViewController.h */,
+				FC61B3B41D7ECA67003F9FDF /* GameCentreViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		FC6A42781D490C1E0058A1FA /* VideoRangData */ = {
 			isa = PBXGroup;
 			children = (
@@ -2645,6 +2665,7 @@
 		FCD80DBE1D22B870009CDEC3 /* Find */ = {
 			isa = PBXGroup;
 			children = (
+				FC61B3B11D7ECA20003F9FDF /* GameCentre */,
 				FC9847591D7EB0450006CCCE /* QRCode */,
 				FC98473A1D7EAC040006CCCE /* Find */,
 				FCEDE0751D2919900032569A /* View */,
@@ -3133,6 +3154,7 @@
 				6E215D041D4B61B00004CA5B /* MineItemEntity.m in Sources */,
 				6E215D031D4B61B00004CA5B /* MineGroupEntity.m in Sources */,
 				6EB552A11D548D79001099C1 /* RecommendBangumiCollectionViewCell.m in Sources */,
+				FC61B3B51D7ECA67003F9FDF /* GameCentreViewController.m in Sources */,
 				6E08FD521D73366200544842 /* RegionShowChildModel.m in Sources */,
 				FC9847581D7EAC040006CCCE /* HotWorkView.m in Sources */,
 				6EB5527F1D548671001099C1 /* RecommendListViewController.m in Sources */,
