@@ -16,10 +16,11 @@
     UIImageView* imageView;
 }
 
--(void)setIconImage:(UIImage*)image TitleText:(NSString*)text{
+-(void)setIconImage:(UIImage*)image TitleText:(NSString*)text  line:(BOOL)line{
     //分割线
+ 
     
-    if ([text isEqualToString:@"原创排行榜"]) {
+    if (line) {
         UIView* separator = [UIView new];
         separator.backgroundColor =  ColorRGB(200, 200, 200);
         [self addSubview:separator];
@@ -27,7 +28,7 @@
         [separator mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(15);
             make.right.equalTo(self).offset(-10);
-            make.bottom.equalTo(self);
+            make.top.equalTo(self);
             make.height.equalTo(@(0.4));
         }];
     }

@@ -17,4 +17,7 @@
 
 @property(nonatomic,strong)UIButton* openSwitchBtn;
 
+@property(nonatomic)BOOL isOpen;
+-(void)updateColor;
+
 @end

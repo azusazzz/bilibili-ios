@@ -11,6 +11,8 @@
 
 @interface HotWorkListEntity : NSObject
 
-@property(nonatomic,strong)NSArray<NSString*>* hotWorkList;
+@property(nonatomic,strong)NSMutableArray<HotWorkEntity*>* hotWorkList;
+
+@property(nonatomic,strong)NSMutableArray<NSString*>* hotWorkStrList;
 
 @end

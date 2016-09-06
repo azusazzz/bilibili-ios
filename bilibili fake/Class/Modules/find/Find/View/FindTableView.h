@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FindTableView : UITableView
+@interface FindTableView : UITableView<UITableViewDataSource>
 
 @end

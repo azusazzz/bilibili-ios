@@ -10,7 +10,7 @@
 
 @implementation HotWorkListEntity
 +(NSDictionary *)mj_objectClassInArray{
-    return @{@"hotWorkList":NSStringFromClass([NSString class])};
+    return @{@"hotWorkList":NSStringFromClass([HotWorkEntity class])};
 }
 
 +(NSDictionary *)mj_replacedKeyFromPropertyName

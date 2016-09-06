@@ -13,6 +13,11 @@
 #import "Macro.h"
 #import "Masonry.h"
 
+#import "HotWorkView.h"
+#import "FindTableView.h"
+@interface FindViewController()<UITableViewDelegate>
+
+@end
 
 @implementation FindViewController{
     FindModel* model;
@@ -20,6 +25,8 @@
     UIButton *QRcodeBtn;
     UITextField* searchTextField;
     
+    HotWorkView* hotWorkView;
+    FindTableView* findTableView;
 }
 - (instancetype)init; {
     if (self = [super init]) {
@@ -43,7 +50,7 @@
     
     self.view.backgroundColor = UIStyleBackgroundColor;
     QRcodeBtn.tintColor = UIStylePromptLabelColor;
-    
+    [hotWorkView updateColor];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle; {
@@ -67,9 +74,20 @@
 
 #pragma loadActions
 -(void)loadActions{
-
+    [hotWorkView.openSwitchBtn addTarget:self action:@selector(openHotWorkView) forControlEvents:UIControlEventTouchUpInside];
+    findTableView.delegate = self;
 }
-
+#pragma Actions
+-(void)openHotWorkView{
+    hotWorkView.isOpen = !hotWorkView.isOpen;
+}
+#pragma UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return section?10.0:0.1;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 #pragma loadSubViews
 -(void)loadSubViews{
     QRcodeBtn = ({
@@ -101,7 +119,29 @@
         tf;
     });
     
-    //QRcodeBtn
+    hotWorkView = ({
+        HotWorkView * hot = [[HotWorkView alloc] init];
+        [self.view addSubview:hot];
+        //加载数据
+        [model getHotWorkListWithSuccess:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [hot.hotWorkListView.tags addObjectsFromArray:model.hotWorkList.hotWorkStrList];
+                [[hot.hotWorkListView collectionView] reloadData];
+            });
+        } failure:^(NSString *errorMsg) {
+            NSLog(@"%@",errorMsg);
+        }];
+        hot;
+    });
+                   
+    findTableView = ({
+        FindTableView* tableView = [[FindTableView alloc] init];
+        [self.view addSubview:tableView];
+        tableView;
+    });
+    
+    
+    //layout
     [QRcodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view .mas_left).offset(10);
         make.top.mas_equalTo(self.view .mas_top).offset(20);
@@ -113,6 +153,18 @@
         make.right.mas_equalTo(self.view.mas_right).offset(-10);
         make.centerY.equalTo(QRcodeBtn);
         make.height.mas_equalTo(28);
+    }];
+    
+    [hotWorkView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(QRcodeBtn.mas_bottom).offset(10);
+        make.left.right.equalTo(self.view);
+        make.bottom.equalTo(hotWorkView.openSwitchBtn.mas_bottom);
+    }];
+    
+    [findTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(hotWorkView.mas_bottom).offset(0);
+        make.bottom.equalTo(self.view.mas_bottom).offset(5);
+        make.left.right.equalTo(self.view);
     }];
 }
 

@@ -13,4 +13,6 @@
 
 @property(nonatomic,strong)HotWorkListEntity* hotWorkList;
 
+-(void)getHotWorkListWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
 @end
