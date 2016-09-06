@@ -9,6 +9,7 @@
 #import "QRCodeViewController.h"
 #import "UIViewController+PopGesture.h"
 #import "UIViewController+HeaderView.h"
+#import "Macro.h"
 
 @interface QRCodeViewController ()<UIGestureRecognizerDelegate>
 @end
@@ -34,23 +35,6 @@
     return self;
 }
 
-
-
-
-
-
-
-
-
-#pragma mark - UIGestureRecognizerDelegate
-
-- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
-    CGPoint translation = [gestureRecognizer translationInView:self.view];
-    if (fabs(translation.x) <= fabs(translation.y)) {
-        return NO;
-    }
-    return YES;
-}
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO;
    [backBtn setTitleColor:UIStyleForegroundColor forState:UIControlStateNormal];
@@ -91,6 +75,15 @@
     [_captureSession startRunning];
 }
 
+
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
+    CGPoint translation = [gestureRecognizer translationInView:self.view];
+    if (fabs(translation.x) <= fabs(translation.y)) {
+        return NO;
+    }
+    return YES;
+}
 
 #pragma mark - ActionDealt
 -(void)goBackAction{
