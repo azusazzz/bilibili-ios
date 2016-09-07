@@ -45,6 +45,11 @@ NSString * MD5(NSString *str) {
 }
 
 - (__kindof Request *)start {
+    if (self.state == NSURLSessionTaskStateRunning ||
+        self.state == NSURLSessionTaskStateSuspended) {
+        [self stop];
+    }
+    
     _responseObject = NULL;
     _error = NULL;
     _task = NULL;
