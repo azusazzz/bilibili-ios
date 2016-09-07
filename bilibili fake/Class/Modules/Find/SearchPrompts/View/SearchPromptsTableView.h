@@ -10,10 +10,10 @@
 
 @interface SearchPromptsTableView : UITableView
 
-@property(nonatomic)BOOL isHistoryWordArr;
+@property(nonatomic,strong,readonly)NSArray<NSString *>* wordArr;
 
-@property(nonatomic,strong)NSArray<NSString *>* wordArr;
+@property(nonatomic,readonly)NSInteger avId;
 
-
+@property(nonatomic,strong)NSString* keyWord;
 
 @end

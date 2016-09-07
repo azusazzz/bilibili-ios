@@ -29,7 +29,7 @@
     [searchPromptsRequest startWithCompletionBlock:^(BaseRequest *request) {
         if (request.responseCode == 0) {
             NSDictionary* rawdic = request.responseObject;
-            _promptsWordArr = [[NSMutableArray alloc] init];
+            _promptsWordArr = [[NSMutableArray alloc] initWithCapacity:rawdic.count];
             [rawdic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
                 [_promptsWordArr addObject:[obj objectForKey:@"name"]];
             }];

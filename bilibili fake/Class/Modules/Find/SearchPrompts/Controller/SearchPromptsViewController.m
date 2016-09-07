@@ -10,14 +10,12 @@
 #import "Macro.h"
 
 #import "SearchPromptsTableView.h"
-#import "SearchPromptsModel.h"
 
 @interface SearchPromptsViewController()<UITableViewDelegate,UITextFieldDelegate>
 
 @end
 
 @implementation SearchPromptsViewController{
-    SearchPromptsModel *model;
     
     UITextField* searchTextField;
     UIButton* cancelBtn;
@@ -34,12 +32,11 @@
     self.view.backgroundColor =  UIStyleBackgroundColor;
    [cancelBtn setTitleColor:UIStyleColourBtnColor forState:UIControlStateNormal];
     
-    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    model = [[SearchPromptsModel alloc] init];
+   
     
     [self loadSubviews];
     [self loadActions];
@@ -56,17 +53,7 @@
 }
 #pragma UITextFieldDelegate
 - (void)textFieldDidChange:(UITextField*) sender {
-    if (sender.text.length) {
-        [model getPromptsWordArrWithKeyWord:sender.text success:^{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                tabel.isHistoryWordArr = NO;
-                tabel.wordArr = model.promptsWordArr;
-            });
-        } failure:nil];
-    }else{
-        tabel.isHistoryWordArr = YES;
-        tabel.wordArr = model.historyWordArr;
-    }
+    [tabel setKeyWord:sender.text];
 }
 #pragma UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -114,7 +101,6 @@
     tabel = ({
         SearchPromptsTableView* view = [[SearchPromptsTableView alloc] init];
         view.separatorStyle = UITableViewCellSeparatorStyleNone;
-        view.wordArr = model.historyWordArr;
         [self.view addSubview:view];
         view;
     });

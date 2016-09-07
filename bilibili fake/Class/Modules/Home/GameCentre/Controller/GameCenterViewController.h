@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-@interface GameCentreViewController : UIViewController
+@interface GameCenterViewController : UIViewController
 
 @end

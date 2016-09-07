@@ -19,6 +19,7 @@
 
 #import "QRCodeViewController.h"
 #import "SearchPromptsViewController.h"
+#import "GameCenterViewController.h"
 
 @interface FindViewController()<UITableViewDelegate,UITextFieldDelegate>
 
@@ -107,7 +108,9 @@
     return 50;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (indexPath.section == 2&& indexPath.row == 0) {
+        [self.navigationController pushViewController:[[GameCenterViewController alloc] init] animated:YES];
+    }
 }
 #pragma loadSubViews
 -(void)loadSubViews{
@@ -188,7 +191,7 @@
         make.left.right.equalTo(self.view);
     }];
     
-    [self.view layoutIfNeeded];
+//    [self.view layoutIfNeeded];
 //    [findTableView cornerRoundingCorners: UIRectCornerTopLeft|UIRectCornerTopRight  withCornerRadius:5.0];
   
 }

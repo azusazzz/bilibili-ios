@@ -7,26 +7,37 @@
 //
 
 #import "SearchPromptsTableView.h"
+#import "SearchPromptsModel.h"
 @interface SearchPromptsTableView()<UITableViewDataSource>
 @end
 
-@implementation SearchPromptsTableView
+@implementation SearchPromptsTableView{
+    SearchPromptsModel *model;
+}
 
 -(instancetype)init{
     if (self = [super init]) {
+
+        model = [[SearchPromptsModel alloc] init];
+        _wordArr = model.historyWordArr;
         self.dataSource = self;
-        _isHistoryWordArr = YES;
     }
     return self;
 }
 
--(void)setIsHistoryWordArr:(BOOL)isHistoryWordArr{
-    _isHistoryWordArr = isHistoryWordArr;
-    [self reloadData];
-}
--(void)setWordArr:(NSArray<NSString *> *)wordArr{
-    _wordArr = wordArr;
-    [self reloadData];
+-(void)setKeyWord:(NSString *)keyWord{
+    _keyWord = keyWord;
+    if (_keyWord.length) {
+        [model getPromptsWordArrWithKeyWord:keyWord success:^{
+            _wordArr = model.promptsWordArr;
+        } failure:nil];
+    }else{
+        _wordArr = model.historyWordArr;
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self reloadData];
+    });
 }
 
 #pragma UITableViewDataSource
@@ -34,7 +45,7 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (_isHistoryWordArr&&_wordArr.count) {
+    if (_keyWord.length == 0&&_wordArr.count) {
         return _wordArr.count+1;
     }
     return _wordArr.count;
@@ -56,7 +67,11 @@
         }];
     }
     
-    if(_isHistoryWordArr){
+    if(_keyWord.length){
+        cell.textLabel.textAlignment = NSTextAlignmentLeft;
+        cell.imageView.image = nil;
+        cell.textLabel.text = _wordArr[indexPath.row];
+    }else{
         if (indexPath.row == _wordArr.count) {
             cell.imageView.image = nil;
             cell.textLabel.text = @"清除搜索历史";
@@ -66,15 +81,10 @@
             cell.imageView.image = [UIImage imageNamed:@"search_history_icon"];
             cell.textLabel.text = _wordArr[indexPath.row];
         }
-    }else{
-        cell.textLabel.textAlignment = NSTextAlignmentLeft;
-        cell.imageView.image = nil;
-        cell.textLabel.text = _wordArr[indexPath.row];
     }
 
     return cell;
 }
-
 
 
 @end
