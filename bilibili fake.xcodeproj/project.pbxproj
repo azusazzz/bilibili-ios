@@ -260,6 +260,10 @@
 		FCBD20481D3FE91800A756F3 /* bilibili_splash_iphone_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBD20201D3FE91800A756F3 /* bilibili_splash_iphone_bg.png */; };
 		FCBD20491D3FE91800A756F3 /* bilibili_splash_iphone_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBD20211D3FE91800A756F3 /* bilibili_splash_iphone_bg@2x.png */; };
 		FCBD204A1D3FE91800A756F3 /* bilibili_splash_iphone_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBD20221D3FE91800A756F3 /* bilibili_splash_iphone_bg@3x.png */; };
+		FCC41D6E1D7FFB0200F37F52 /* SearchPromptsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC41D6D1D7FFB0200F37F52 /* SearchPromptsViewController.m */; };
+		FCC41D721D80033D00F37F52 /* SearchPromptsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC41D711D80033D00F37F52 /* SearchPromptsModel.m */; };
+		FCC41D761D8009EE00F37F52 /* SearchPromptsReqiest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC41D751D8009EE00F37F52 /* SearchPromptsReqiest.m */; };
+		FCC41D7A1D8014EC00F37F52 /* SearchPromptsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC41D791D8014EC00F37F52 /* SearchPromptsTableView.m */; };
 		FCF131B81D5B366600790DC6 /* UIStyleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF131B71D5B366600790DC6 /* UIStyleMacro.m */; };
 		FCF131BE1D5C1CA700790DC6 /* UIColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF131BD1D5C1CA700790DC6 /* UIColor+String.m */; };
 		FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFA05411D2FAFE0004A1742 /* GLIRViewController.m */; };
@@ -766,6 +770,14 @@
 		FCBD20201D3FE91800A756F3 /* bilibili_splash_iphone_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bilibili_splash_iphone_bg.png; sourceTree = "<group>"; };
 		FCBD20211D3FE91800A756F3 /* bilibili_splash_iphone_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bilibili_splash_iphone_bg@2x.png"; sourceTree = "<group>"; };
 		FCBD20221D3FE91800A756F3 /* bilibili_splash_iphone_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bilibili_splash_iphone_bg@3x.png"; sourceTree = "<group>"; };
+		FCC41D6C1D7FFB0200F37F52 /* SearchPromptsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchPromptsViewController.h; path = Find/SearchPrompts/Controller/SearchPromptsViewController.h; sourceTree = "<group>"; };
+		FCC41D6D1D7FFB0200F37F52 /* SearchPromptsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchPromptsViewController.m; path = Find/SearchPrompts/Controller/SearchPromptsViewController.m; sourceTree = "<group>"; };
+		FCC41D701D80033D00F37F52 /* SearchPromptsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchPromptsModel.h; path = Find/SearchPrompts/Model/SearchPromptsModel.h; sourceTree = "<group>"; };
+		FCC41D711D80033D00F37F52 /* SearchPromptsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchPromptsModel.m; path = Find/SearchPrompts/Model/SearchPromptsModel.m; sourceTree = "<group>"; };
+		FCC41D741D8009EE00F37F52 /* SearchPromptsReqiest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchPromptsReqiest.h; path = Find/SearchPrompts/Reqiest/SearchPromptsReqiest.h; sourceTree = "<group>"; };
+		FCC41D751D8009EE00F37F52 /* SearchPromptsReqiest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchPromptsReqiest.m; path = Find/SearchPrompts/Reqiest/SearchPromptsReqiest.m; sourceTree = "<group>"; };
+		FCC41D781D8014EC00F37F52 /* SearchPromptsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchPromptsTableView.h; path = Find/SearchPrompts/View/SearchPromptsTableView.h; sourceTree = "<group>"; };
+		FCC41D791D8014EC00F37F52 /* SearchPromptsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchPromptsTableView.m; path = Find/SearchPrompts/View/SearchPromptsTableView.m; sourceTree = "<group>"; };
 		FCF131B61D5B366600790DC6 /* UIStyleMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStyleMacro.h; sourceTree = "<group>"; };
 		FCF131B71D5B366600790DC6 /* UIStyleMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStyleMacro.m; sourceTree = "<group>"; };
 		FCF131BC1D5C1CA700790DC6 /* UIColor+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+String.h"; path = "UIColor/UIColor+String.h"; sourceTree = "<group>"; };
@@ -2662,9 +2674,57 @@
 			path = "启动页";
 			sourceTree = "<group>";
 		};
+		FCC41D6A1D7FFA6900F37F52 /* SearchPrompts */ = {
+			isa = PBXGroup;
+			children = (
+				FCC41D771D8014B000F37F52 /* View */,
+				FCC41D731D8009C900F37F52 /* Reqiest */,
+				FCC41D6F1D80031800F37F52 /* Model */,
+				FCC41D6B1D7FFA9000F37F52 /* Controller */,
+			);
+			name = SearchPrompts;
+			sourceTree = "<group>";
+		};
+		FCC41D6B1D7FFA9000F37F52 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FCC41D6C1D7FFB0200F37F52 /* SearchPromptsViewController.h */,
+				FCC41D6D1D7FFB0200F37F52 /* SearchPromptsViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		FCC41D6F1D80031800F37F52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCC41D701D80033D00F37F52 /* SearchPromptsModel.h */,
+				FCC41D711D80033D00F37F52 /* SearchPromptsModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FCC41D731D8009C900F37F52 /* Reqiest */ = {
+			isa = PBXGroup;
+			children = (
+				FCC41D741D8009EE00F37F52 /* SearchPromptsReqiest.h */,
+				FCC41D751D8009EE00F37F52 /* SearchPromptsReqiest.m */,
+			);
+			name = Reqiest;
+			sourceTree = "<group>";
+		};
+		FCC41D771D8014B000F37F52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCC41D781D8014EC00F37F52 /* SearchPromptsTableView.h */,
+				FCC41D791D8014EC00F37F52 /* SearchPromptsTableView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		FCD80DBE1D22B870009CDEC3 /* Find */ = {
 			isa = PBXGroup;
 			children = (
+				FCC41D6A1D7FFA6900F37F52 /* SearchPrompts */,
 				FC61B3B11D7ECA20003F9FDF /* GameCentre */,
 				FC9847591D7EB0450006CCCE /* QRCode */,
 				FC98473A1D7EAC040006CCCE /* Find */,
@@ -3080,6 +3140,8 @@
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
 				FC4DB3CD1D7D799B003935E3 /* StartView.m in Sources */,
 				6E199CEF1D678BF8003E06F6 /* DownloadVideoManagerViewController.m in Sources */,
+				FCC41D7A1D8014EC00F37F52 /* SearchPromptsTableView.m in Sources */,
+				FCC41D721D80033D00F37F52 /* SearchPromptsModel.m in Sources */,
 				6ED9D4CF1D6C22C1004E2557 /* VideoURL.m in Sources */,
 				6E5FB19F1D5590F400984DC6 /* LiveCollectionView.m in Sources */,
 				6E2377431D53106400102550 /* HistoryModel.m in Sources */,
@@ -3158,6 +3220,7 @@
 				FC61B3B51D7ECA67003F9FDF /* GameCentreViewController.m in Sources */,
 				6E08FD521D73366200544842 /* RegionShowChildModel.m in Sources */,
 				FC9847581D7EAC040006CCCE /* HotWorkView.m in Sources */,
+				FCC41D6E1D7FFB0200F37F52 /* SearchPromptsViewController.m in Sources */,
 				6EB5527F1D548671001099C1 /* RecommendListViewController.m in Sources */,
 				6E5FB18F1D557BF500984DC6 /* LiveListBannerEntity.m in Sources */,
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
@@ -3169,6 +3232,7 @@
 				6E48367A1D410DB0004AD1A4 /* Function.m in Sources */,
 				FC9847561D7EAC040006CCCE /* FindReqiest.m in Sources */,
 				6E5FE9151D59A91E00459BF4 /* BangumiEndItemCollectionViewCell.m in Sources */,
+				FCC41D761D8009EE00F37F52 /* SearchPromptsReqiest.m in Sources */,
 				6E2A92F81D66A20700A8F9BA /* DownloadVideoSelectView.m in Sources */,
 				6E2377BD1D54736D00102550 /* BannerView.m in Sources */,
 			);

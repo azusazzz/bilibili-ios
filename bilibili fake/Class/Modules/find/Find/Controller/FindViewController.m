@@ -18,8 +18,9 @@
 #import "FindTableView.h"
 
 #import "QRCodeViewController.h"
+#import "SearchPromptsViewController.h"
 
-@interface FindViewController()<UITableViewDelegate>
+@interface FindViewController()<UITableViewDelegate,UITextFieldDelegate>
 
 @end
 
@@ -81,6 +82,7 @@
     [QRcodeBtn addTarget:self action:@selector(openQRcodeViewController) forControlEvents:UIControlEventTouchUpInside];
     [hotWorkView.openSwitchBtn addTarget:self action:@selector(openHotWorkView) forControlEvents:UIControlEventTouchUpInside];
     
+    searchTextField.delegate = self;
     findTableView.delegate = self;
 }
 #pragma Actions
@@ -90,6 +92,11 @@
 
 -(void)openQRcodeViewController{
     [self.navigationController pushViewController:[[QRCodeViewController alloc] init] animated:YES];
+}
+#pragma UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    [self.navigationController pushViewController:[[SearchPromptsViewController alloc] init] animated:NO];
+    return NO;
 }
 #pragma UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

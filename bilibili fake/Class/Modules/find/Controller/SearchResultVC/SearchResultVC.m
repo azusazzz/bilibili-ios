@@ -26,7 +26,6 @@ typedef NS_ENUM(NSUInteger, RefreshState) {
     RefreshStatePulling,//释放即可刷新
     RefreshStateLoading,//加载中
 };
-//当前页面的坐标（因为网络请求是异步的）
 struct tablePoint{
     NSInteger X;
     NSInteger x1;
