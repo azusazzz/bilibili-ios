@@ -16,6 +16,7 @@
 
 #import "VideoViewController.h"
 #import "SearchPromptsViewController.h"
+#import "AllVideoViewController.h"
 
 @interface SearchResultViewController()<UIGestureRecognizerDelegate,UIScrollViewDelegate,UITextFieldDelegate>
 
@@ -31,7 +32,7 @@
     
     TabBar* tabBar;
     UIScrollView* searchResultScrollView;
-    NSMutableArray<UIView *>* searchResultViews;
+    NSMutableArray<UIViewController *>* searchResultViews;
     
 }
 -(instancetype)initWithKeyword:(NSString*)keyword{
@@ -66,7 +67,7 @@
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] init];
     panGestureRecognizer.maximumNumberOfTouches = 1;
     panGestureRecognizer.delegate = self;
-    [[searchResultViews firstObject] addGestureRecognizer:panGestureRecognizer];
+    [[searchResultViews firstObject].view addGestureRecognizer:panGestureRecognizer];
     [self replacingPopGestureRecognizer:panGestureRecognizer];
  
     searchTextField.delegate = self;
@@ -161,11 +162,17 @@
     });
     
     searchResultViews = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 5; i++) {
-        UITableView* table = [[UITableView alloc] initWithFrame:CGRectMake(SSize.width*i, 0, SSize.width, SSize.height-64)];
-        table.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
-        [searchResultViews addObject:table];
-        [searchResultScrollView addSubview:table];
+    [searchResultViews addObject:[[AllVideoViewController alloc] init]];
+    [searchResultViews addObject:[[UITableViewController alloc] init]];
+    [searchResultViews addObject:[[UITableViewController alloc] init]];
+    [searchResultViews addObject:[[UITableViewController alloc] init]];
+    [searchResultViews addObject:[[UITableViewController alloc] init]];
+    for (int i = 0; i < searchResultViews.count; i++) {
+        UIViewController* table = searchResultViews[i];
+        [self addChildViewController:table];
+        table.view.frame = CGRectMake(SSize.width*i, 0, SSize.width, SSize.height-64);
+        table.view.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
+        [searchResultScrollView addSubview:table.view];
     }
     
     // Layout
