@@ -12,8 +12,9 @@
 
 @property(nonatomic,strong,readonly)NSMutableArray<NSString *>* promptsWordArr;
 
-@property(nonatomic,strong,readonly)NSArray<NSString *>* historyWordArr;
+@property(nonatomic,strong,readonly)NSMutableArray<NSString *>* historyWordArr;
 
 -(void)getPromptsWordArrWithKeyWord:(NSString*)keyword  success:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
+-(void)removeAllHistoryWord;
 @end

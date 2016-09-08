@@ -1,34 +1,44 @@
 //
-//  SearchPromptsViewController.m
+//  SearchResultViewController.m
 //  bilibili fake
 //
-//  Created by cxh on 16/9/7.
+//  Created by cxh on 16/9/8.
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "SearchPromptsViewController.h"
+#import "SearchResultViewController.h"
+
+#import "SearchResultModel.h"
 
 #import "Macro.h"
 #import "UIViewController+PopGesture.h"
+#import "TabBar.h"
 
-#import "SearchPromptsTableView.h"
-#import "SearchPromptsModel.h"
-#import "SearchResultViewController.h"
-@interface SearchPromptsViewController()<UITableViewDelegate,UIGestureRecognizerDelegate>
+#import "VideoViewController.h"
+#import "SearchPromptsViewController.h"
+
+@interface SearchResultViewController()<UIGestureRecognizerDelegate,UIScrollViewDelegate,UITextFieldDelegate>
 
 @end
 
-@implementation SearchPromptsViewController{
-    SearchPromptsModel *model;
+
+@implementation SearchResultViewController{
+    SearchResultModel *model;
+    NSString* _keyWord;
     
-    NSString* _keyword;
     UITextField* searchTextField;
     UIButton* cancelBtn;
-    SearchPromptsTableView* tabel;
+    
+    TabBar* tabBar;
+    UIScrollView* searchResultScrollView;
+    NSMutableArray<UIView *>* searchResultViews;
+    
 }
 -(instancetype)initWithKeyword:(NSString*)keyword{
     if (self = [super init]) {
-        _keyword = keyword;
+        _keyWord = keyword;
+        model = [[SearchResultModel alloc] init];
+        
     }
     return self;
 }
@@ -36,43 +46,59 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [searchTextField becomeFirstResponder];
-    });
     self.view.backgroundColor =  UIStyleBackgroundColor;
-   [cancelBtn setTitleColor:UIStyleColourBtnColor forState:UIControlStateNormal];
+    [cancelBtn setTitleColor:UIStyleColourBtnColor forState:UIControlStateNormal];
     
+    tabBar.backgroundColor = UIStyleBackgroundColor;
+    tabBar.tintColorRGB = [UIStyleMacro share].SearchResultTabBarTintColor;
+    tabBar.selTintColorRGB = [UIStyleMacro share].SearchResultTabBarCelTintColor;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    model = [[SearchPromptsModel alloc] init];
-    
+
     [self loadSubviews];
     [self loadActions];
     
+    [self isAVID];
 }
 -(void)loadActions{
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] init];
     panGestureRecognizer.maximumNumberOfTouches = 1;
     panGestureRecognizer.delegate = self;
-    [self.view addGestureRecognizer:panGestureRecognizer];
+    [[searchResultViews firstObject] addGestureRecognizer:panGestureRecognizer];
     [self replacingPopGestureRecognizer:panGestureRecognizer];
-    
+ 
+    searchTextField.delegate = self;
     
     [cancelBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    tabel.delegate = self;
-    [searchTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged]; // 监听事件
+    searchResultScrollView.delegate = self;
+    
+    __weak UIScrollView* scrollView = searchResultScrollView;
+    [tabBar setOnClickItem:^(NSInteger idx) {
+        [scrollView setContentOffset:CGPointMake(scrollView.width * idx, 0) animated:YES];
+    }];
 }
-
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView; {
+    tabBar.contentOffset = scrollView.contentOffset.x / scrollView.width;
+}
 #pragma Actions
 -(void)back{
     [self.navigationController popViewControllerAnimated:NO];
 }
 
-#pragma UITextField
-- (void)textFieldDidChange:(UITextField*) sender {
-    [tabel setKeyWord:sender.text];
+-(void)isAVID{
+    [model addHistoryWord:_keyWord];
+    searchTextField.text = _keyWord;
+    
+    if (_keyWord.length>2&&[@"av" isEqualToString:[_keyWord substringToIndex:2]]) {
+        NSString* string = [_keyWord substringFromIndex:2];
+        NSInteger val = [string integerValue];
+        if(val&&[[NSString stringWithFormat:@"%lu",val] isEqualToString:string]){
+            [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:val] animated:YES];
+        }
+    }
 }
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
@@ -82,16 +108,11 @@
     }
     return YES;
 }
-#pragma UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (searchTextField.text.length == 0 && indexPath.row == tabel.wordArr.count) {
-        [model removeAllHistoryWord];
-        [tabel setKeyWord:@""];
-    }else{
-        SearchResultViewController* searchResult = [[SearchResultViewController alloc] initWithKeyword:tabel.wordArr[indexPath.row]];
-        [self.navigationController pushViewController:searchResult animated:YES];
-        [self removeFromParentViewController];
-    }
+#pragma UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    SearchPromptsViewController* sp = [[SearchPromptsViewController alloc] initWithKeyword:searchTextField.text];
+    [self.navigationController pushViewController:sp animated:NO];
+    return NO;
 }
 #pragma loadSubviews
 - (void)loadSubviews{
@@ -105,7 +126,6 @@
         tf.leftViewMode = UITextFieldViewModeAlways;
         tf.leftView.alpha = 0.5;
         
-        tf.text = _keyword;
         tf.backgroundColor = ColorRGB(255, 255, 255);
         [tf.layer setCornerRadius:4.0];
         tf.returnKeyType = UIReturnKeySearch;
@@ -125,13 +145,29 @@
         [self.view addSubview:btn];
         btn;
     });
-    
-    tabel = ({
-        SearchPromptsTableView* view = [[SearchPromptsTableView alloc] initWithModel:model];
-        view.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [self.view addSubview:view];
-        view;
+    searchResultScrollView = ({
+        UIScrollView* scr = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 104, SSize.width, SSize.height-104)];
+        scr.contentSize = CGSizeMake(SSize.width*5, 0);
+        scr.showsHorizontalScrollIndicator = NO;
+        scr.pagingEnabled = YES;
+        [self.view addSubview:scr];
+        scr;
     });
+    
+    tabBar = ({
+        TabBar* tb = [[TabBar alloc] initWithTitles:@[@"综合",@"番剧",@"UP主",@"影视",@"专题"] style:TabBarStyleNormal];
+        [self.view addSubview:tb];
+        tb;
+    });
+    
+    searchResultViews = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 5; i++) {
+        UITableView* table = [[UITableView alloc] initWithFrame:CGRectMake(SSize.width*i, 0, SSize.width, SSize.height-64)];
+        table.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
+        [searchResultViews addObject:table];
+        [searchResultScrollView addSubview:table];
+    }
+    
     // Layout
     [searchTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left).offset(5);
@@ -145,9 +181,11 @@
         make.size.mas_equalTo(CGSizeMake(44, 44));
         make.right.mas_equalTo(self.view).offset(-5);
     }];
-    [tabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(cancelBtn.mas_bottom).offset(5);
-        make.left.right.bottom.equalTo(self.view);
+    
+    [tabBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(cancelBtn.mas_bottom);
+        make.height.equalTo(@40);
+        make.left.right.equalTo(self.view);
     }];
 }
 @end

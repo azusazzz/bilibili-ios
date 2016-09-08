@@ -14,9 +14,9 @@
 }
 -(instancetype)init{
     if (self = [super init]) {
-        _historyWordArr = [[NSArray alloc] initWithContentsOfFile:[self getSavePath]];
+        _historyWordArr = [[NSMutableArray alloc] initWithContentsOfFile:[self getSavePath]];
         //调试
-        _historyWordArr = @[@"1",@"2",@"3",@"4"];
+        //_historyWordArr = @[@"1",@"2",@"3",@"4"];
         
         searchPromptsRequest =  [SearchPromptsReqiest request];
     }
@@ -46,5 +46,8 @@
     NSString* path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     return [path stringByAppendingPathComponent:@"SearchHistory.plist"];
 }
-
+-(void)removeAllHistoryWord{
+    [@[] writeToFile:[self getSavePath] atomically:YES];
+    _historyWordArr = [[NSMutableArray alloc] initWithContentsOfFile:[self getSavePath]];
+}
 @end

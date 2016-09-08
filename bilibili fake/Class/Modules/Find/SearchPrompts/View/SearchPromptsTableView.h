@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SearchPromptsModel.h"
 @interface SearchPromptsTableView : UITableView
 
-@property(nonatomic,strong,readonly)NSArray<NSString *>* wordArr;
+-(instancetype)initWithModel:(SearchPromptsModel*)searchPromptsModel;
+
+@property(nonatomic,strong,readonly)NSMutableArray<NSString *>* wordArr;
 
 @property(nonatomic,readonly)NSInteger avId;
 

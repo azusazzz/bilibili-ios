@@ -73,6 +73,9 @@
 @property(nonatomic,strong,readonly)UIColor* JCTagCellBg;
 //风格label的颜色（主题设置里面）
 @property(nonatomic,strong,readonly)UIColor* styleNameLabelColor;
+//搜索结果tabbar颜色
+@property(nonatomic,strong,readonly)NSArray<NSNumber *>* SearchResultTabBarTintColor;
+@property(nonatomic,strong,readonly)NSArray<NSNumber *>* SearchResultTabBarCelTintColor;
 ////字体就不想设置了，
 ////一般单元格的标题
 //@property(nonatomic,strong)UIFont* cellTitleFont;

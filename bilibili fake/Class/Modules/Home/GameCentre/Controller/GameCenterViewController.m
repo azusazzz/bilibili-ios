@@ -54,7 +54,9 @@
     self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = UIStyleBackgroundColor;
     
-
+    self.navigationBar.barTintColor = UIStyleBackgroundColor;
+    self.navigationBar.tintColor = UIStyleForegroundColor;
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:UIStyleForegroundColor};
 }
 
 

@@ -17,8 +17,9 @@
 #import "HotWorkView.h"
 #import "FindTableView.h"
 
-#import "QRCodeViewController.h"
 #import "SearchPromptsViewController.h"
+#import "SearchResultViewController.h"
+#import "QRCodeViewController.h"
 #import "GameCenterViewController.h"
 
 @interface FindViewController()<UITableViewDelegate,UITextFieldDelegate>
@@ -83,6 +84,10 @@
     [QRcodeBtn addTarget:self action:@selector(openQRcodeViewController) forControlEvents:UIControlEventTouchUpInside];
     [hotWorkView.openSwitchBtn addTarget:self action:@selector(openHotWorkView) forControlEvents:UIControlEventTouchUpInside];
     
+    __block FindViewController *blockSelf = self;
+    [hotWorkView.hotWorkListView setCompletionBlockWithSelected:^(NSInteger index) {
+        [blockSelf.navigationController pushViewController:[[SearchResultViewController alloc] initWithKeyword:blockSelf->model.hotWorkList.hotWorkList[index].keyword] animated:NO];
+    }];
     searchTextField.delegate = self;
     findTableView.delegate = self;
 }
