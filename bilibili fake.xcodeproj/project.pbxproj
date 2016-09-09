@@ -189,6 +189,12 @@
 		FC1CBAE01D3F551900D8295C /* SearchAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1CBADF1D3F551900D8295C /* SearchAnimateView.m */; };
 		FC3260ED1D81C6F8006A7813 /* AllVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3260EC1D81C6F8006A7813 /* AllVideoViewController.m */; };
 		FC3260F11D81D58B006A7813 /* SelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3260F01D81D58B006A7813 /* SelectionView.m */; };
+		FC3A18BE1D828CB8008121C9 /* AllVideoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A18BD1D828CB8008121C9 /* AllVideoRequest.m */; };
+		FC3A18C21D828F5E008121C9 /* AllVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A18C11D828F5E008121C9 /* AllVideoModel.m */; };
+		FC3A18C61D82A2FC008121C9 /* movieSummaryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A18C51D82A2FC008121C9 /* movieSummaryEntity.m */; };
+		FC3A18C91D82A5AC008121C9 /* seasonSummaryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A18C81D82A5AC008121C9 /* seasonSummaryEntity.m */; };
+		FC3A18CC1D82A891008121C9 /* archiveSummaryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A18CB1D82A891008121C9 /* archiveSummaryEntity.m */; };
+		FC3A18CF1D82ADF1008121C9 /* AllVideoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A18CE1D82ADF1008121C9 /* AllVideoTableView.m */; };
 		FC4704001D4078DF009F0B62 /* GameCentreData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4703FF1D4078DF009F0B62 /* GameCentreData.m */; };
 		FC4704041D4078EA009F0B62 /* RankOriginalorAllVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4704031D4078EA009F0B62 /* RankOriginalorAllVC.m */; };
 		FC4C0F621D813AD40022D6F8 /* SearchResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4C0F611D813AD40022D6F8 /* SearchResultModel.m */; };
@@ -678,6 +684,19 @@
 		FC3260EC1D81C6F8006A7813 /* AllVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllVideoViewController.m; path = Find/SearchResult/AllVideo/Controller/AllVideoViewController.m; sourceTree = "<group>"; };
 		FC3260EF1D81D58B006A7813 /* SelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectionView.h; path = Find/SearchResult/AllVideo/View/SelectionView.h; sourceTree = "<group>"; };
 		FC3260F01D81D58B006A7813 /* SelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectionView.m; path = Find/SearchResult/AllVideo/View/SelectionView.m; sourceTree = "<group>"; };
+		FC3A18BA1D8286B6008121C9 /* TidNSDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TidNSDictionary.h; sourceTree = "<group>"; };
+		FC3A18BC1D828CB8008121C9 /* AllVideoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllVideoRequest.h; path = Find/SearchResult/AllVideo/Request/AllVideoRequest.h; sourceTree = "<group>"; };
+		FC3A18BD1D828CB8008121C9 /* AllVideoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllVideoRequest.m; path = Find/SearchResult/AllVideo/Request/AllVideoRequest.m; sourceTree = "<group>"; };
+		FC3A18C01D828F5E008121C9 /* AllVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllVideoModel.h; path = Find/SearchResult/AllVideo/Model/AllVideoModel.h; sourceTree = "<group>"; };
+		FC3A18C11D828F5E008121C9 /* AllVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllVideoModel.m; path = Find/SearchResult/AllVideo/Model/AllVideoModel.m; sourceTree = "<group>"; };
+		FC3A18C41D82A2FC008121C9 /* movieSummaryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = movieSummaryEntity.h; path = Find/SearchResult/Entity/movieSummaryEntity.h; sourceTree = "<group>"; };
+		FC3A18C51D82A2FC008121C9 /* movieSummaryEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = movieSummaryEntity.m; path = Find/SearchResult/Entity/movieSummaryEntity.m; sourceTree = "<group>"; };
+		FC3A18C71D82A5AC008121C9 /* seasonSummaryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = seasonSummaryEntity.h; path = Find/SearchResult/Entity/seasonSummaryEntity.h; sourceTree = "<group>"; };
+		FC3A18C81D82A5AC008121C9 /* seasonSummaryEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = seasonSummaryEntity.m; path = Find/SearchResult/Entity/seasonSummaryEntity.m; sourceTree = "<group>"; };
+		FC3A18CA1D82A891008121C9 /* archiveSummaryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = archiveSummaryEntity.h; path = Find/SearchResult/Entity/archiveSummaryEntity.h; sourceTree = "<group>"; };
+		FC3A18CB1D82A891008121C9 /* archiveSummaryEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = archiveSummaryEntity.m; path = Find/SearchResult/Entity/archiveSummaryEntity.m; sourceTree = "<group>"; };
+		FC3A18CD1D82ADF1008121C9 /* AllVideoTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllVideoTableView.h; path = Find/SearchResult/AllVideo/View/AllVideoTableView.h; sourceTree = "<group>"; };
+		FC3A18CE1D82ADF1008121C9 /* AllVideoTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllVideoTableView.m; path = Find/SearchResult/AllVideo/View/AllVideoTableView.m; sourceTree = "<group>"; };
 		FC4703FE1D4078DF009F0B62 /* GameCentreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCentreData.h; sourceTree = "<group>"; };
 		FC4703FF1D4078DF009F0B62 /* GameCentreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCentreData.m; sourceTree = "<group>"; };
 		FC4704021D4078EA009F0B62 /* RankOriginalorAllVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankOriginalorAllVC.h; sourceTree = "<group>"; };
@@ -1024,6 +1043,7 @@
 				6E5FB1B31D55CE3D00984DC6 /* ValueConversion.m */,
 				FCF131B61D5B366600790DC6 /* UIStyleMacro.h */,
 				FCF131B71D5B366600790DC6 /* UIStyleMacro.m */,
+				FC3A18BA1D8286B6008121C9 /* TidNSDictionary.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -2205,6 +2225,8 @@
 		FC3260E91D81C6B8006A7813 /* AllVideo */ = {
 			isa = PBXGroup;
 			children = (
+				FC3A18BF1D828EB4008121C9 /* Model */,
+				FC3A18BB1D828C7A008121C9 /* Request */,
 				FC3260EE1D81D569006A7813 /* View */,
 				FC3260EA1D81C6C2006A7813 /* Controller */,
 			);
@@ -2225,8 +2247,41 @@
 			children = (
 				FC3260EF1D81D58B006A7813 /* SelectionView.h */,
 				FC3260F01D81D58B006A7813 /* SelectionView.m */,
+				FC3A18CD1D82ADF1008121C9 /* AllVideoTableView.h */,
+				FC3A18CE1D82ADF1008121C9 /* AllVideoTableView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		FC3A18BB1D828C7A008121C9 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				FC3A18BC1D828CB8008121C9 /* AllVideoRequest.h */,
+				FC3A18BD1D828CB8008121C9 /* AllVideoRequest.m */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
+		FC3A18BF1D828EB4008121C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC3A18C01D828F5E008121C9 /* AllVideoModel.h */,
+				FC3A18C11D828F5E008121C9 /* AllVideoModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FC3A18C31D82A217008121C9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FC3A18C41D82A2FC008121C9 /* movieSummaryEntity.h */,
+				FC3A18C51D82A2FC008121C9 /* movieSummaryEntity.m */,
+				FC3A18C71D82A5AC008121C9 /* seasonSummaryEntity.h */,
+				FC3A18C81D82A5AC008121C9 /* seasonSummaryEntity.m */,
+				FC3A18CA1D82A891008121C9 /* archiveSummaryEntity.h */,
+				FC3A18CB1D82A891008121C9 /* archiveSummaryEntity.m */,
+			);
+			name = Entity;
 			sourceTree = "<group>";
 		};
 		FC4703FD1D4078DF009F0B62 /* GameCentreData */ = {
@@ -2250,6 +2305,7 @@
 		FC4C0F5A1D810EC40022D6F8 /* SearchResult */ = {
 			isa = PBXGroup;
 			children = (
+				FC3A18C31D82A217008121C9 /* Entity */,
 				FC3260E91D81C6B8006A7813 /* AllVideo */,
 				FC4C0F661D8142770022D6F8 /* View */,
 				FC4C0F5F1D813AAC0022D6F8 /* Model */,
@@ -3160,6 +3216,7 @@
 				6E4E03971D71374200C669E6 /* UIViewController+PopGesture.m in Sources */,
 				6E7E46E91D587AD20027AE8D /* BangumiListEntity.m in Sources */,
 				6E58B2281D729FC1002714FD /* RegionEntity.m in Sources */,
+				FC3A18BE1D828CB8008121C9 /* AllVideoRequest.m in Sources */,
 				6E5FB1951D557CBE00984DC6 /* LiveListEntranceEntity.m in Sources */,
 				6E5975F71D5B171500D520E0 /* VideoIntroRelateCollectionViewCell.m in Sources */,
 				6EB5529B1D548D50001099C1 /* RecommendAvCollectionViewCell.m in Sources */,
@@ -3169,6 +3226,7 @@
 				FC9847541D7EAC040006CCCE /* HotWorkListEntity.m in Sources */,
 				6EC489A01D782F260078EC0A /* RegionShowChildCollectionView.m in Sources */,
 				6E199CE61D674CBC003E06F6 /* DownloadVideoPageEntity.m in Sources */,
+				FC3A18CF1D82ADF1008121C9 /* AllVideoTableView.m in Sources */,
 				6E59760C1D5B171500D520E0 /* VideoIntroView.m in Sources */,
 				6E73B0D81D799B9700950BF3 /* UIViewController+Dealloc.m in Sources */,
 				6E5976371D5C6FE500D520E0 /* DanmakuConfiguration.m in Sources */,
@@ -3182,6 +3240,7 @@
 				FC9847521D7EAC040006CCCE /* FindViewController.m in Sources */,
 				6EB552831D5487A4001099C1 /* RecommendEntity.m in Sources */,
 				6EC9A48A1D7EE49900B5F0BA /* URLRouter.m in Sources */,
+				FC3A18C61D82A2FC008121C9 /* movieSummaryEntity.m in Sources */,
 				6E199CDA1D673BB2003E06F6 /* DownloadVideoCollectionView.m in Sources */,
 				6EB552981D548D1A001099C1 /* RecommendCollectionViewCell.m in Sources */,
 				6E58B2441D72B534002714FD /* RegionShowViewController.m in Sources */,
@@ -3285,6 +3344,7 @@
 				6ED9D4CF1D6C22C1004E2557 /* VideoURL.m in Sources */,
 				6E5FB19F1D5590F400984DC6 /* LiveCollectionView.m in Sources */,
 				6E2377431D53106400102550 /* HistoryModel.m in Sources */,
+				FC3A18CC1D82A891008121C9 /* archiveSummaryEntity.m in Sources */,
 				6E58B2351D72A8D2002714FD /* RegionListModel.m in Sources */,
 				6E5FB1A81D5591A100984DC6 /* LivePartitionsFooterView.m in Sources */,
 				FC9847551D7EAC040006CCCE /* FindModel.m in Sources */,
@@ -3309,6 +3369,7 @@
 				6E7E46F51D58868D0027AE8D /* BangumiRecommendEntity.m in Sources */,
 				6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */,
 				6EB552891D5487F4001099C1 /* RecommendBodyEntity.m in Sources */,
+				FC3A18C91D82A5AC008121C9 /* seasonSummaryEntity.m in Sources */,
 				6E5FB1A21D55913B00984DC6 /* LiveListBannerView.m in Sources */,
 				FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */,
 				6E4836761D410818004AD1A4 /* MediaPlayerControl.m in Sources */,
@@ -3317,6 +3378,7 @@
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
 				FC3260F11D81D58B006A7813 /* SelectionView.m in Sources */,
 				6E4E03A41D71882600C669E6 /* RecommendWebCollectionViewCell.m in Sources */,
+				FC3A18C21D828F5E008121C9 /* AllVideoModel.m in Sources */,
 				6E7E46EC1D587CD60027AE8D /* BangumiListModel.m in Sources */,
 				FC6A427B1D490C340058A1FA /* VideoRangData.m in Sources */,
 				6E9CA2FE1D6EE76D004B2C86 /* LivePlayer.m in Sources */,

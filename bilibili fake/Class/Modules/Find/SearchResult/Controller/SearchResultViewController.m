@@ -170,9 +170,14 @@
     for (int i = 0; i < searchResultViews.count; i++) {
         UIViewController* table = searchResultViews[i];
         [self addChildViewController:table];
-        table.view.frame = CGRectMake(SSize.width*i, 0, SSize.width, SSize.height-64);
+//        table.view.frame = CGRectMake(SSize.width*i, 0, SSize.width, SSize.height-64);
         table.view.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
         [searchResultScrollView addSubview:table.view];
+        [table.view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(searchResultScrollView.width*i);
+            make.width.mas_equalTo(searchResultScrollView.width);
+            make.top.bottom.equalTo(searchResultScrollView);
+        }];
     }
     
     // Layout
@@ -193,6 +198,11 @@
         make.top.equalTo(cancelBtn.mas_bottom);
         make.height.equalTo(@40);
         make.left.right.equalTo(self.view);
+    }];
+    
+    [searchResultScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(tabBar.mas_bottom);
+        make.left.right.bottom.equalTo(self.view);
     }];
 }
 @end

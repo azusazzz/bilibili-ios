@@ -11,9 +11,11 @@
 #import "Macro.h"
 
 #import "SelectionView.h"
+#import "AllVideoTableView.h"
 
 @implementation AllVideoViewController{
     SelectionView* selectionView;
+    AllVideoTableView* tableView;
     UIView* ChoiceView;
     NSMutableArray<UIButton *>* button;
 }
@@ -38,15 +40,27 @@
 
 #pragma loadSubViews
 -(void)loadSubViews{
+    tableView = ({
+        AllVideoTableView* view = [[AllVideoTableView alloc] init];
+        [self.view addSubview:view];
+        view;
+    });
+    
     selectionView = ({
         SelectionView* view = [[SelectionView alloc] init];
         [self.view addSubview:view];
         view;
     });
+
     //layout
     [selectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.left.equalTo(self.view);
         make.bottom.equalTo(selectionView.backgroundView.mas_bottom);
+    }];
+    
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.view).offset(40);
     }];
 }
 @end
