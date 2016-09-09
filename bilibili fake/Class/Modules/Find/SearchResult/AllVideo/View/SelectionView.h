@@ -13,7 +13,7 @@
 
 -(instancetype)init;
 
-@property(nonatomic,strong)NSArray<NSArray<NSString*>*>* itemArrs;//每个按钮下对应的选择标签文字
+@property(nonatomic,strong)NSArray<NSArray<NSString*>*>* itemArrArr;//每个按钮下对应的选择标签文字
 @property(nonatomic,strong,readonly)NSMutableArray<NSNumber*> *selectedIndex;//当前选中的标签 0开始
 
 
