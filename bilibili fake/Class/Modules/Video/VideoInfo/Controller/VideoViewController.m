@@ -20,7 +20,7 @@
 
 #import "UIViewController+GetViewController.h"
 
-#import "SearchResultVC.h" // 点击标签 搜索
+#import "SearchResultViewController.h" // 点击标签 搜索
 
 @interface VideoViewController ()
 <UIScrollViewDelegate, UIGestureRecognizerDelegate>
@@ -141,7 +141,7 @@
         if ([tag length] <= 0) {
             return;
         }
-        SearchResultVC *searchController = [[SearchResultVC alloc] initWithkeyword:tag];
+        SearchResultViewController *searchController = [[SearchResultViewController alloc] initWithKeyword:tag];
         [weakself.navigationController pushViewController:searchController animated:YES];
     }];
     

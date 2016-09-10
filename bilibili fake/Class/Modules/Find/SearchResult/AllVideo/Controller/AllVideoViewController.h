@@ -10,4 +10,6 @@
 
 @interface AllVideoViewController : UIViewController
 
+-(instancetype)initWithKeyword:(NSString*)keyword;
+
 @end

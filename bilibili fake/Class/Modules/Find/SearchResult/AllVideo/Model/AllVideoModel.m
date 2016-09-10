@@ -11,34 +11,37 @@
 #import "TidNSDictionary.h"
 
 @implementation AllVideoModel{
-    AllVideoRequest* request;
+    AllVideoRequest* allVideoRequest;
 }
 -(instancetype)init{
     if (self = [super init]) {
-        _videoArr = [[NSMutableArray alloc] init];
-        request = [AllVideoRequest request];
-        request.pn = 1;
-        request.ps = 20;
-        request.order = @"default";
-        request.duration = 0;
-        request.rid = 0;
+        allVideoRequest = [AllVideoRequest request];
+        allVideoRequest.ps = 20;
+        allVideoRequest.order = @"default";
+        allVideoRequest.duration = 0;
+        allVideoRequest.rid = 0;
+        [self clean];
     }
     return self;
+}
+-(void)setKeyword:(NSString *)keyword{
+    _keyword = keyword;
+    allVideoRequest.keyword = keyword;
 }
 -(void)setOrder:(NSInteger)order{
     _order = order;
     switch (order) {
         case 0:
-            request.order = @"default";
+            allVideoRequest.order = @"default";
             break;
          case 1:
-            request.order = @"view";
+            allVideoRequest.order = @"view";
             break;
         case 2:
-            request.order = @"pubdate";
+            allVideoRequest.order = @"pubdate";
             break;
         case 3:
-            request.order = @"danmaku";
+            allVideoRequest.order = @"danmaku";
             break;
         default:
             break;
@@ -47,21 +50,49 @@
 }
 -(void)setDuration:(NSInteger)duration{
     _duration = duration;
-    request.duration = duration;
+    allVideoRequest.duration = duration;
     [self clean];
 }
 
 -(void)setRidName:(NSString *)ridName{
     _ridName = ridName;
-    request.rid = [[TidNSDictionary objectForKey:ridName] integerValue];
+    allVideoRequest.rid = [[TidNSDictionary objectForKey:ridName] integerValue];
     [self clean];
 }
 -(void)clean{
-    _videoArr = [[NSMutableArray alloc] init];
-    request.pn = 1;
+    _movieArr = [[NSMutableArray alloc] init];
+    _seasonArr = [[NSMutableArray alloc] init];
+    _archiveArr = [[NSMutableArray alloc] init];
+    allVideoRequest.pn = 1;
 }
 
 -(void)getSearchResultWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
+    [allVideoRequest stop];
+    [self clean];
+    [allVideoRequest startWithCompletionBlock:^(BaseRequest *request) {
+        if (request.responseCode == 0) {
+            _movieCount = [[[request.responseData objectForKey:@"nav"][2] objectForKey:@"total"] integerValue];
+            _seasonCount = [[[request.responseData objectForKey:@"nav"][0] objectForKey:@"total"] integerValue];
+            
+            NSArray<NSDictionary *>* arr =[[request.responseData objectForKey:@"items"] objectForKey:@"movie"];
+            [arr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [_movieArr addObject:[MovieSummaryEntity mj_objectWithKeyValues:obj]];
+            }];
+            
+            arr =[[request.responseData objectForKey:@"items"] objectForKey:@"season"];
+            [arr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [_seasonArr addObject:[SeasonSummaryEntity mj_objectWithKeyValues:obj]];
+            }];
+            
+            arr =[[request.responseData objectForKey:@"items"] objectForKey:@"archive"];
+            [arr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [_archiveArr addObject:[ArchiveSummaryEntity mj_objectWithKeyValues:obj]];
+            }];
+            success();
+        }else{
+            if(failure)failure(request.errorMsg);
+        }
+    }];
     
 }
 

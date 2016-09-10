@@ -10,7 +10,7 @@
 
 @implementation SearchPromptsReqiest
 - (NSString *)URLString{
-    return [@"http://api.bilibili.com/suggest?actionKey=appkey&appkey=27eb53fc9058f8c3&term=" stringByAppendingString:self.keywork];
+    return [[@"http://api.bilibili.com/suggest?actionKey=appkey&appkey=27eb53fc9058f8c3&term=" stringByAppendingString:self.keywork] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (HTTPMethod)method; {

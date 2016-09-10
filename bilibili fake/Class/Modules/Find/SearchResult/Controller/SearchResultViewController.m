@@ -113,6 +113,7 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     SearchPromptsViewController* sp = [[SearchPromptsViewController alloc] initWithKeyword:searchTextField.text];
     [self.navigationController pushViewController:sp animated:NO];
+     [self removeFromParentViewController];
     return NO;
 }
 #pragma loadSubviews
@@ -162,7 +163,7 @@
     });
     
     searchResultViews = [[NSMutableArray alloc] init];
-    [searchResultViews addObject:[[AllVideoViewController alloc] init]];
+    [searchResultViews addObject:[[AllVideoViewController alloc] initWithKeyword:_keyWord]];
     [searchResultViews addObject:[[UITableViewController alloc] init]];
     [searchResultViews addObject:[[UITableViewController alloc] init]];
     [searchResultViews addObject:[[UITableViewController alloc] init]];
@@ -171,12 +172,14 @@
         UIViewController* table = searchResultViews[i];
         [self addChildViewController:table];
 //        table.view.frame = CGRectMake(SSize.width*i, 0, SSize.width, SSize.height-64);
-        table.view.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
+//        table.view.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
+        table.view.backgroundColor = ColorWhite(243);
         [searchResultScrollView addSubview:table.view];
         [table.view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(searchResultScrollView.width*i);
             make.width.mas_equalTo(searchResultScrollView.width);
-            make.top.bottom.equalTo(searchResultScrollView);
+            make.top.equalTo(searchResultScrollView);
+            make.height.equalTo(searchResultScrollView);
         }];
     }
     

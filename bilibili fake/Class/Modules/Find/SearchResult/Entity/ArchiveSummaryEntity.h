@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface archiveSummaryEntity : NSObject
+@interface ArchiveSummaryEntity : NSObject
 
 @property(nonatomic,strong)NSString* param;//Aid
 
@@ -21,6 +21,8 @@
 @property(nonatomic,strong)NSString* duration;
 
 @property(nonatomic)NSInteger play;//播放量
+
+@property(nonatomic)NSInteger danmaku;//弹幕
 
 @end
 /*

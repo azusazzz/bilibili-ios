@@ -7,17 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MovieSummaryEntity.h"
+#import "SeasonSummaryEntity.h"
+#import "ArchiveSummaryEntity.h"
 
 @interface AllVideoModel : NSObject
 
+@property(nonatomic,strong)NSString* keyword;
 @property(nonatomic,strong)NSString* ridName;
-
 @property(nonatomic)NSInteger duration;
-
 @property(nonatomic)NSInteger order;
 
 
-@property(nonatomic,strong,readonly)NSMutableArray<NSDictionary *>*videoArr;
+
+@property(nonatomic,readonly)NSInteger seasonCount;
+@property(nonatomic,readonly)NSInteger movieCount;
+
+@property(nonatomic,strong,readonly)NSMutableArray<SeasonSummaryEntity *>* seasonArr;
+@property(nonatomic,strong,readonly)NSMutableArray<MovieSummaryEntity *>* movieArr;
+@property(nonatomic,strong,readonly)NSMutableArray<ArchiveSummaryEntity *>* archiveArr;
+
+
 
 -(void)getSearchResultWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 

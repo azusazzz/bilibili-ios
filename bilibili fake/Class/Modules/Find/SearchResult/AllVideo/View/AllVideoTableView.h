@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AllVideoTableView : UITableView
+@interface AllVideoTableView : UICollectionView
 
 @end

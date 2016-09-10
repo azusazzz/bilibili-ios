@@ -14,7 +14,7 @@
 #import "SearchPromptsTableView.h"
 #import "SearchPromptsModel.h"
 #import "SearchResultViewController.h"
-@interface SearchPromptsViewController()<UITableViewDelegate,UIGestureRecognizerDelegate>
+@interface SearchPromptsViewController()<UITableViewDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate>
 
 @end
 
@@ -62,7 +62,9 @@
     
     [cancelBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     tabel.delegate = self;
-    [searchTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged]; // 监听事件
+    
+    searchTextField.delegate = self;
+    [searchTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 #pragma Actions
@@ -73,6 +75,12 @@
 #pragma UITextField
 - (void)textFieldDidChange:(UITextField*) sender {
     [tabel setKeyWord:sender.text];
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    SearchResultViewController* searchResult = [[SearchResultViewController alloc] initWithKeyword:searchTextField.text];
+    [self.navigationController pushViewController:searchResult animated:YES];
+    [self removeFromParentViewController];
+    return YES;
 }
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {

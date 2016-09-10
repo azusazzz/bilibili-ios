@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface seasonSummaryEntity : NSObject
+@interface SeasonSummaryEntity : NSObject
 
 @property(nonatomic)NSInteger finish;//是否完结
 

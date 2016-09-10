@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface movieSummaryEntity : NSObject
+@interface MovieSummaryEntity : NSObject
 
 @property(nonatomic,strong)NSString* param;//试了一下应该是Aid
 
