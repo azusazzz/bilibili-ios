@@ -49,6 +49,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
     self.navigationController.navigationBarHidden = YES;
     HeadView.backgroundColor = UIStyleBackgroundColor;
     [cancel_btn setTitleColor:UIStyleColourBtnColor forState:UIControlStateNormal];

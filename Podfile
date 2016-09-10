@@ -21,6 +21,8 @@ target 'bilibili fake' do
 #    pod 'FXBlurView'
 
     pod 'XMLDictionary'
+    
+    pod 'SWTableViewCell'
 
 end
 

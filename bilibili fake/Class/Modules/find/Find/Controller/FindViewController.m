@@ -46,6 +46,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
     self.tabBarController.tabBar.hidden = NO;
     self.navigationController.navigationBar.tintColor = UIStyleForegroundColor;

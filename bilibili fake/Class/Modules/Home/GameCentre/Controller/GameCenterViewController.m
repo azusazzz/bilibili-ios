@@ -39,6 +39,8 @@
 
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] init];
     panGestureRecognizer.maximumNumberOfTouches = 1;
     panGestureRecognizer.delegate = self;

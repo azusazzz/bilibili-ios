@@ -52,6 +52,7 @@
         
         _imageView = [[UIImageView alloc] init];
         _imageView.layer.cornerRadius = 6;
+        _imageView.layer.shouldRasterize = YES;
         _imageView.layer.masksToBounds = YES;
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
         [self.contentView addSubview:_imageView];
