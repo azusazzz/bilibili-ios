@@ -18,7 +18,7 @@
 #import "SearchPromptsViewController.h"
 #import "AllVideoViewController.h"
 
-@interface SearchResultViewController()<UIGestureRecognizerDelegate,UIScrollViewDelegate,UITextFieldDelegate>
+@interface SearchResultViewController()<UIGestureRecognizerDelegate,UIScrollViewDelegate,UITextFieldDelegate,AllVideoViewControllerDelegate>
 
 @end
 
@@ -33,13 +33,13 @@
     TabBar* tabBar;
     UIScrollView* searchResultScrollView;
     NSMutableArray<UIViewController *>* searchResultViews;
-    
+    AllVideoViewController* allVideoViewController;
 }
 -(instancetype)initWithKeyword:(NSString*)keyword{
     if (self = [super init]) {
         _keyWord = keyword;
         model = [[SearchResultModel alloc] init];
-        
+        model.keyword =  keyword;
     }
     return self;
 }
@@ -60,7 +60,16 @@
 
     [self loadSubviews];
     [self loadActions];
-    
+    [model getSearchResultPageinfoWithSuccess:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [tabBar setTitle:[NSString stringWithFormat:@"番剧(%lu)",model.seasonCount] forIndex:1];
+            [tabBar setTitle:[NSString stringWithFormat:@"UP主(%lu)",model.upuserCount] forIndex:2];
+            [tabBar setTitle:[NSString stringWithFormat:@"影视(%lu)",model.movieCount] forIndex:3];
+            [tabBar setTitle:[NSString stringWithFormat:@"专题(%lu)",model.specialCount] forIndex:4];
+        });
+    } failure:^(NSString *errorMsg) {
+        NSLog(@"%@",errorMsg);
+    }];
     [self isAVID];
 }
 -(void)loadActions{
@@ -79,7 +88,20 @@
     [tabBar setOnClickItem:^(NSInteger idx) {
         [scrollView setContentOffset:CGPointMake(scrollView.width * idx, 0) animated:YES];
     }];
+    
+    allVideoViewController.delegate = self;
 }
+#pragma AllVideoViewControllerDelegate
+-(void)findMoreMovie{
+     __weak UIScrollView* scrollView = searchResultScrollView;
+    [scrollView setContentOffset:CGPointMake(scrollView.width * 3, 0) animated:YES];
+}
+
+-(void)findMoreSeason{
+    __weak UIScrollView* scrollView = searchResultScrollView;
+    [scrollView setContentOffset:CGPointMake(scrollView.width * 1, 0) animated:YES];
+}
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView; {
     tabBar.contentOffset = scrollView.contentOffset.x / scrollView.width;
@@ -163,7 +185,8 @@
     });
     
     searchResultViews = [[NSMutableArray alloc] init];
-    [searchResultViews addObject:[[AllVideoViewController alloc] initWithKeyword:_keyWord]];
+    allVideoViewController = [[AllVideoViewController alloc] initWithKeyword:_keyWord];
+    [searchResultViews addObject:allVideoViewController];
     [searchResultViews addObject:[[UITableViewController alloc] init]];
     [searchResultViews addObject:[[UITableViewController alloc] init]];
     [searchResultViews addObject:[[UITableViewController alloc] init]];

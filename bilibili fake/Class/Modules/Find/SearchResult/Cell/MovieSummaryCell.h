@@ -13,4 +13,6 @@
 
 @property(nonatomic,strong)MovieSummaryEntity* entity;
 
++(CGFloat)height;
+
 @end

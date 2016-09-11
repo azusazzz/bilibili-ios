@@ -29,6 +29,7 @@
 -(instancetype)initWithKeyword:(NSString*)keyword{
     if (self = [super init]) {
         _keyword = keyword;
+        model = [[SearchPromptsModel alloc] init];
     }
     return self;
 }
@@ -46,7 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    model = [[SearchPromptsModel alloc] init];
+
     
     [self loadSubviews];
     [self loadActions];

@@ -12,4 +12,13 @@
 
 -(void)addHistoryWord:(NSString*)keyword;
 
+-(void)getSearchResultPageinfoWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
+@property(nonatomic,strong)NSString* keyword;
+
+@property(nonatomic,readonly)NSInteger seasonCount;
+@property(nonatomic,readonly)NSInteger movieCount;
+@property(nonatomic,readonly)NSInteger upuserCount;
+@property(nonatomic,readonly)NSInteger specialCount;
+
 @end

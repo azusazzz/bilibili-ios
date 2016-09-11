@@ -22,7 +22,7 @@
 
 @property(nonatomic,strong)NSString* cover;
 
-@property(nonatomic,strong)NSString* screen_data;
+@property(nonatomic,strong)NSString* screen_date;
 
 //@property(nonatomic,strong)NSString* desc;
 @end

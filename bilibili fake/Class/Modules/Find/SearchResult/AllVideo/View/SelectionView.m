@@ -111,6 +111,8 @@
     _selectedIndex[SelectedTag?SelectedTag-100:0]  = @(btn.tag-200);
     
     [self hideAction];
+    if (_delegate)  [_delegate selectedIndexDidChange];
+    
 }
 
 

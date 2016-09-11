@@ -99,14 +99,14 @@
             make.left.equalTo(coverImageView.mas_right).offset(10);
             make.right.equalTo(self.mas_right).offset(-5);
             make.top.equalTo(titleLabel.mas_bottom).offset(5);
-            make.height.equalTo(@20);
+            make.height.equalTo(@15);
         }];
         
         [catDescLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(coverImageView.mas_right).offset(10);
             make.right.equalTo(self.mas_right).offset(-5);
             make.top.equalTo(descLabel.mas_bottom).offset(5);
-            make.height.equalTo(@20);
+            make.height.equalTo(@15);
         }];
     }
     return self;

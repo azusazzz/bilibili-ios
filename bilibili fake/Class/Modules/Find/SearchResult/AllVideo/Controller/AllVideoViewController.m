@@ -12,12 +12,15 @@
 
 #import "AllVideoModel.h"
 #import "SelectionView.h"
-#import "AllVideoTableView.h"
 
 #import "ArchiveSummaryCell.h"
 #import "SeasonSummaryCell.h"
+#import "MovieSummaryCell.h"
+#import "FindMoreReusbleView.h"
 
-@interface AllVideoViewController()<UICollectionViewDelegate,UICollectionViewDataSource>
+#import "VideoViewController.h"
+
+@interface AllVideoViewController()<UICollectionViewDelegate,UICollectionViewDataSource,SelectionDelegate>
 
 @end
 
@@ -28,11 +31,13 @@
     NSMutableArray<UIButton *>* button;
     
     AllVideoModel* model;
+    BOOL isLoadfinish;
 }
 -(instancetype)initWithKeyword:(NSString *)keyword{
     if (self = [super init]) {
         model = [[AllVideoModel alloc] init];
         model.keyword = keyword;
+        isLoadfinish = YES;
     }
     return self;
 }
@@ -53,12 +58,51 @@
 }
 
 -(void)loadActions{
-    
+    videoCollectionView.delegate = self;
+    selectionView.delegate = self;
 }
 
+#pragma UICollectionViewDelegate
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+//        [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:model.seasonArr[indexPath.row]] animated:YES];
+    }else if (indexPath.section == 1) {
+        [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:[model.movieArr[indexPath.row].param integerValue]]animated:YES];
+    }else if (indexPath.section == 2) {
+        [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:[model.archiveArr[indexPath.row].param integerValue]]animated:YES];
+    }
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //底部加载更多
+    if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - scrollView.frame.size.height) {
+        if (isLoadfinish) {
+            isLoadfinish = NO;
+            [model getMoreSearchResultWithSuccess:^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [videoCollectionView reloadData];
+                    isLoadfinish = YES;
+                });
+            } failure:^(NSString *errorMsg) {
+                NSLog(@"%@",errorMsg);
+                isLoadfinish = YES;
+            }];
+        }
+    }
+}
+-(void)findMoreMovie{
+    if (_delegate)[_delegate findMoreMovie];
+}
+
+-(void)findMoreSeason{
+    if (_delegate)[_delegate findMoreSeason];
+}
+#pragma UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    
     return 3;
 }
 
@@ -77,14 +121,18 @@
         SeasonSummaryCell  *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SeasonSummaryCell" forIndexPath:indexPath];
         cell.entity = model.seasonArr[indexPath.row];
         return cell;
+    }else if (indexPath.section == 1) {
+        MovieSummaryCell  *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieSummaryCell" forIndexPath:indexPath];
+        cell.entity = model.movieArr[indexPath.row];
+        return cell;
     }else if (indexPath.section == 2) {
         ArchiveSummaryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ArchiveSummaryCell" forIndexPath:indexPath];
+        cell.orderType = [selectionView.selectedIndex[0] integerValue];
         cell.entity = model.archiveArr[indexPath.row];
         return cell;
     }
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor yellowColor];
-    return cell;
+
+    return nil;
 }
 
 
@@ -93,20 +141,25 @@
     
     if([kind isEqualToString:UICollectionElementKindSectionFooter])
     {
+        FindMoreReusbleView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"FindMoreReusbleView" forIndexPath:indexPath];
         if (indexPath.section == 0) {
             if (model.seasonCount<=3) return nil;
+            else{
+                [footerView.moreBtn setTitle:[NSString stringWithFormat:@"更多番剧（%lu）",model.seasonCount] forState:UIControlStateNormal];
+                [footerView.moreBtn addTarget:self action:@selector(findMoreSeason) forControlEvents:UIControlEventTouchUpInside];
+                return footerView;
+            }
         } else if(indexPath.section == 1){
             if (model.movieCount<=3) return nil;
+            else{
+                [footerView.moreBtn setTitle:[NSString stringWithFormat:@"更多影视（%lu）",model.seasonCount] forState:UIControlStateNormal];
+                [footerView.moreBtn addTarget:self action:@selector(findMoreMovie) forControlEvents:UIControlEventTouchUpInside];
+                return footerView;
+            }
         }else if (indexPath.section == 2) {
             return nil;
         }
-        UICollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"UICollectionReusableView" forIndexPath:indexPath];
-        if(footerView == nil)
-        {
-            footerView = [[UICollectionReusableView alloc] init];
-        }
-        footerView.backgroundColor = [UIColor lightGrayColor];
-        return footerView;
+
     }
     return nil;
 }
@@ -115,6 +168,8 @@
 {
     if (indexPath.section == 0) {
         return (CGSize){SSize.width,[SeasonSummaryCell height]};
+    }else if (indexPath.section == 1) {
+        return (CGSize){SSize.width,[MovieSummaryCell height]};
     }else if (indexPath.section == 2) {
         return (CGSize){SSize.width,[ArchiveSummaryCell height]};
     }
@@ -133,6 +188,23 @@
     }
     return (CGSize){SSize.width,42};
 }
+#pragma SelectionDelegate
+-(void)selectedIndexDidChange{
+    model.order = [selectionView.selectedIndex[0] integerValue];
+    model.duration = [selectionView.selectedIndex[1] integerValue];
+    model.ridName = selectionView.itemArrArr[2][[selectionView.selectedIndex[2] integerValue]];
+    
+    [model getSearchResultWithSuccess:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [videoCollectionView reloadData];
+        });
+    } failure:^(NSString *errorMsg) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [videoCollectionView reloadData];
+        });
+        NSLog(@"%@",errorMsg);
+    }];
+}
 #pragma loadSubViews
 -(void)loadSubViews{
 
@@ -141,17 +213,13 @@
         UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
         layout.itemSize = CGSizeMake(SSize.width, 70);
         layout.minimumLineSpacing = 0;
-//        layout.headerReferenceSize = CGSizeZero;
-//        layout.footerReferenceSize = CGSizeMake(SSize.width, 40);
-        
         UICollectionView* view = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-        view.delegate = self;
         view.dataSource = self;
         view.backgroundColor = ColorRGBA(243, 243, 243, 0);
-        [view registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
         [view registerClass:[ArchiveSummaryCell class] forCellWithReuseIdentifier:NSStringFromClass([ArchiveSummaryCell class])];
         [view registerClass:[SeasonSummaryCell class] forCellWithReuseIdentifier:NSStringFromClass([SeasonSummaryCell class])];
-        [view registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"UICollectionReusableView"];
+        [view registerClass:[MovieSummaryCell class] forCellWithReuseIdentifier:NSStringFromClass([MovieSummaryCell class])];
+        [view registerClass:[FindMoreReusbleView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([FindMoreReusbleView class])];
         [self.view addSubview:view];
         view;
     });
@@ -161,6 +229,7 @@
         [self.view addSubview:view];
         view;
     });
+    
     //layout
     [videoCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);

@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol AllVideoViewControllerDelegate;
+
 @interface AllVideoViewController : UIViewController
+
+@property(nonatomic,weak)id<AllVideoViewControllerDelegate> delegate;
 
 -(instancetype)initWithKeyword:(NSString*)keyword;
 
+@end
+
+@protocol AllVideoViewControllerDelegate <NSObject>
+@optional
+-(void)findMoreMovie;
+-(void)findMoreSeason;
 @end

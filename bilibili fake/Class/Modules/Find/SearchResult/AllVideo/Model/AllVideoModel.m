@@ -8,7 +8,7 @@
 
 #import "AllVideoModel.h"
 #import "AllVideoRequest.h"
-#import "TidNSDictionary.h"
+#import "TidDictionary.h"
 
 @implementation AllVideoModel{
     AllVideoRequest* allVideoRequest;
@@ -56,7 +56,7 @@
 
 -(void)setRidName:(NSString *)ridName{
     _ridName = ridName;
-    allVideoRequest.rid = [[TidNSDictionary objectForKey:ridName] integerValue];
+    allVideoRequest.rid = [[TidDictionary objectForKey:ridName] integerValue];
     [self clean];
 }
 -(void)clean{
@@ -75,18 +75,21 @@
             _seasonCount = [[[request.responseData objectForKey:@"nav"][0] objectForKey:@"total"] integerValue];
             
             NSArray<NSDictionary *>* arr =[[request.responseData objectForKey:@"items"] objectForKey:@"movie"];
-            [arr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (![arr isKindOfClass:[NSNull class]])[arr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                
                 [_movieArr addObject:[MovieSummaryEntity mj_objectWithKeyValues:obj]];
             }];
             
             arr =[[request.responseData objectForKey:@"items"] objectForKey:@"season"];
-            [arr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [_seasonArr addObject:[SeasonSummaryEntity mj_objectWithKeyValues:obj]];
+            if (![arr isKindOfClass:[NSNull class]])[arr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (![obj isKindOfClass:[NSNull class]])
+                    [_seasonArr addObject:[SeasonSummaryEntity mj_objectWithKeyValues:obj]];
             }];
             
             arr =[[request.responseData objectForKey:@"items"] objectForKey:@"archive"];
-            [arr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [_archiveArr addObject:[ArchiveSummaryEntity mj_objectWithKeyValues:obj]];
+            if (![arr isKindOfClass:[NSNull class]])[arr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (![obj isKindOfClass:[NSNull class]])
+                    [_archiveArr addObject:[ArchiveSummaryEntity mj_objectWithKeyValues:obj]];
             }];
             success();
         }else{
@@ -97,7 +100,21 @@
 }
 
 -(void)getMoreSearchResultWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
-
+    ++allVideoRequest.pn;
+    if (_archiveArr.count%allVideoRequest.ps)return;
+    
+    [allVideoRequest startWithCompletionBlock:^(BaseRequest *request) {
+        if (request.responseCode == 0) {
+            NSMutableArray* arr =[[request.responseData objectForKey:@"items"] objectForKey:@"archive"];
+            if (![arr isKindOfClass:[NSNull class]])[arr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (![obj isKindOfClass:[NSNull class]])
+                    [_archiveArr addObject:[ArchiveSummaryEntity mj_objectWithKeyValues:obj]];
+            }];
+            success();
+        }else{
+            if(failure)failure(request.errorMsg);
+        }
+    }];
 }
 
 @end

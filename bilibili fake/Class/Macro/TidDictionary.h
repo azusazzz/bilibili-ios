@@ -9,7 +9,7 @@
 #ifndef TidNSDictionary_h
 #define TidNSDictionary_h
 #import <Foundation/Foundation.h>
-#define TidNSDictionary  @{@"全部分区":@0,\
+#define TidDictionary  @{@"全部分区":@0,\
                                   @"番剧":@13,\
                                   @"动画":@1,\
                                   @"音乐":@3,\

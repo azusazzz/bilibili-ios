@@ -12,13 +12,14 @@
 
 @implementation ArchiveSummaryCell{
     UIImageView* coverImageView;//封面
+    UILabel* durationLabel;
     UILabel* titleLabel;
     UILabel* authorLabel;
     
     UILabel* orderTypeValueLabel;
 }
 +(CGFloat)height{
-    return 70;
+    return 80;
 }
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -31,16 +32,27 @@
             view;
         });
         
+        durationLabel = ({
+            UILabel* label = [UILabel new];
+            label.font = [UIFont systemFontOfSize:12];
+            label.backgroundColor = ColorWhiteAlpha(0, 0.4);
+            label.textColor = ColorWhite(255);
+            label.layer.masksToBounds = YES;
+            label.layer.cornerRadius = 3.0;
+            [coverImageView addSubview:label];
+            label;
+        });
+        
         titleLabel = ({
             UILabel* label = [UILabel new];
-            label.font = [UIFont systemFontOfSize:15];
+            label.font = [UIFont systemFontOfSize:14];
             label.textColor = ColorRGB(0, 0, 0);
-            label.textAlignment = NSTextAlignmentLeft;
+            label.textAlignment = NSTextAlignmentNatural;
             label.numberOfLines = 2;
             [self addSubview:label];
             label;
         });
-        
+
         authorLabel =({
             UILabel* label = [UILabel new];
             label.font = [UIFont systemFontOfSize:12];
@@ -64,16 +76,20 @@
             make.bottom.equalTo(self).offset(-8);
         }];
         
+        [durationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.bottom.equalTo(coverImageView).offset(-5);
+            make.size.mas_equalTo(CGSizeMake(60, 15));
+        }];
+        
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(coverImageView.mas_right).offset(10);
             make.right.equalTo(self.mas_right).offset(-5);
             make.top.equalTo(coverImageView.mas_top).offset(0);
-            make.bottom.equalTo(authorLabel.mas_top);
+            make.bottom.equalTo(authorLabel.mas_top).offset(-10);
         }];
         
         [authorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(titleLabel);
-            make.top.equalTo(titleLabel.mas_bottom);
             make.height.equalTo(@15);
             make.bottom.equalTo(coverImageView);
         }];
@@ -94,15 +110,25 @@
     
     titleLabel.text = [entity.title stringByReplacingOccurrencesOfString:@"【" withString:@"["];
     titleLabel.text = [titleLabel.text stringByReplacingOccurrencesOfString:@"】" withString:@"]"];
-    
+    durationLabel.text = [self getDurationString];
     authorLabel.text = [NSString stringWithFormat:@"UP主:%@",entity.author];
     
-    if (_orderType == 2) {
+    if (_orderType == 3) {
         orderTypeValueLabel.text = [NSString stringWithFormat:@"弹幕: %@",[self stringWithNumber:entity.danmaku]];
     }else{
         orderTypeValueLabel.text = [NSString stringWithFormat:@"播放: %@",[self stringWithNumber:entity.play]];
     }
 }
+
+-(NSString*)getDurationString{
+    if (_entity.duration.length == 0)return @"00:00:00";
+    NSRange range = [_entity.duration rangeOfString:@":"options:NSBackwardsSearch];
+    NSInteger i =  _entity.duration.length - range.location;
+    NSString *text = [_entity.duration stringByAppendingString:[@"00:00:00" substringFromIndex:5+i]];
+    text = [[@"00:00:00" substringToIndex:8 - text.length] stringByAppendingString:text];
+    return text;
+}
+
 #pragma 返回数字对应的字符串
 -(NSString*)stringWithNumber:(NSInteger)num{
     if(num>9999){
