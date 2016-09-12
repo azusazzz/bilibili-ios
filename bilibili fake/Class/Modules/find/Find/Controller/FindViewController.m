@@ -15,14 +15,14 @@
 #import "UIView+CornerRadius.h"
 
 #import "HotWorkView.h"
-#import "FindTableView.h"
+#import "FindCollectionView.h"
 
 #import "SearchPromptsViewController.h"
 #import "SearchResultViewController.h"
 #import "QRCodeViewController.h"
 #import "GameCenterViewController.h"
 
-@interface FindViewController()<UITableViewDelegate,UITextFieldDelegate>
+@interface FindViewController()<UICollectionViewDelegate,UITextFieldDelegate>
 
 @end
 
@@ -33,7 +33,7 @@
     UITextField* searchTextField;
     
     HotWorkView* hotWorkView;
-    FindTableView* findTableView;
+    FindCollectionView* findCollectionView;
 }
 - (instancetype)init; {
     if (self = [super init]) {
@@ -90,7 +90,7 @@
         [blockSelf.navigationController pushViewController:[[SearchResultViewController alloc] initWithKeyword:blockSelf->model.hotWorkList.hotWorkList[index].keyword] animated:NO];
     }];
     searchTextField.delegate = self;
-    findTableView.delegate = self;
+    findCollectionView.delegate = self;
 }
 #pragma Actions
 -(void)openHotWorkView{
@@ -105,15 +105,8 @@
     [self.navigationController pushViewController:[[SearchPromptsViewController alloc] init] animated:NO];
     return NO;
 }
-#pragma UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 10.0;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 50;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+#pragma UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 2&& indexPath.row == 0) {
         [self.navigationController pushViewController:[[GameCenterViewController alloc] init] animated:YES];
     }
@@ -164,8 +157,8 @@
         hot;
     });
                    
-    findTableView = ({
-        FindTableView* tableView = [[FindTableView alloc] init];
+    findCollectionView = ({
+        FindCollectionView* tableView = [[FindCollectionView alloc] init];
         [self.view addSubview:tableView];
         tableView;
     });
@@ -191,7 +184,7 @@
         make.bottom.equalTo(hotWorkView.openSwitchBtn.mas_bottom);
     }];
     
-    [findTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [findCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(hotWorkView.mas_bottom).offset(0);
         make.bottom.equalTo(self.view.mas_bottom).offset(0);
         make.left.right.equalTo(self.view);

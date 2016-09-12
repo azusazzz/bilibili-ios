@@ -1,5 +1,5 @@
 //
-//  FindTabelView.h
+//  FindCollectionView.h
 //  bilibili fake
 //
 //  Created by C on 16/9/6.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RefreshCollectionView.h"
 
-@interface FindTableView : UITableView<UITableViewDataSource>
+@interface FindCollectionView : RefreshCollectionView<UICollectionViewDataSource>
 
 @end

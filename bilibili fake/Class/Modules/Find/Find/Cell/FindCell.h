@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FindCell : UITableViewCell
+@interface FindCell : UICollectionViewCell
 -(void)setIconImage:(UIImage*)image TitleText:(NSString*)text  line:(BOOL)line;
 @end

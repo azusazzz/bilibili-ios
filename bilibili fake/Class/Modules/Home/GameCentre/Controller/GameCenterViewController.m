@@ -113,11 +113,9 @@
         layout.itemSize = CGSizeMake(SSize.width, SSize.width*0.5 + 50 + 10);
         layout.minimumLineSpacing = 10;
         layout.headerReferenceSize = CGSizeZero;
-        layout.footerReferenceSize = CGSizeZero;
-//        layout.sectionInset =  UIEdgeInsetsMake(20, 0, 20, 0);
-        
+        layout.footerReferenceSize = CGSizeZero;        
         RefreshCollectionView* col =  [[RefreshCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-        [gameCollectionView cornerRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight withCornerRadius:10.0];
+        //[gameCollectionView cornerRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight withCornerRadius:10.0];
         col.delegate = self;
         col.dataSource = self;
         col.refreshDelegate = self;
@@ -127,7 +125,6 @@
         view.backgroundColor = ColorRGB(243, 243, 243);
         col.backgroundView = view;
         col.showsVerticalScrollIndicator = NO;
-        col.layer.cornerRadius = 10.0;
         [col registerClass:[GameCell class] forCellWithReuseIdentifier:NSStringFromClass([GameCell class])];
         self.automaticallyAdjustsScrollViewInsets = NO;
         [self.view addSubview:col];

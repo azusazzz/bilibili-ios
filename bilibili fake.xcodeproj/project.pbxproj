@@ -214,7 +214,7 @@
 		FC9847541D7EAC040006CCCE /* HotWorkListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9847451D7EAC040006CCCE /* HotWorkListEntity.m */; };
 		FC9847551D7EAC040006CCCE /* FindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9847481D7EAC040006CCCE /* FindModel.m */; };
 		FC9847561D7EAC040006CCCE /* FindReqiest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC98474B1D7EAC040006CCCE /* FindReqiest.m */; };
-		FC9847571D7EAC040006CCCE /* FindTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC98474E1D7EAC040006CCCE /* FindTableView.m */; };
+		FC9847571D7EAC040006CCCE /* FindCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC98474E1D7EAC040006CCCE /* FindCollectionView.m */; };
 		FC9847581D7EAC040006CCCE /* HotWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9847501D7EAC040006CCCE /* HotWorkView.m */; };
 		FC98475D1D7EB07C0006CCCE /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC98475C1D7EB07C0006CCCE /* QRCodeViewController.m */; };
 		FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */; };
@@ -732,8 +732,8 @@
 		FC9847481D7EAC040006CCCE /* FindModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindModel.m; sourceTree = "<group>"; };
 		FC98474A1D7EAC040006CCCE /* FindReqiest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindReqiest.h; sourceTree = "<group>"; };
 		FC98474B1D7EAC040006CCCE /* FindReqiest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindReqiest.m; sourceTree = "<group>"; };
-		FC98474D1D7EAC040006CCCE /* FindTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindTableView.h; sourceTree = "<group>"; };
-		FC98474E1D7EAC040006CCCE /* FindTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindTableView.m; sourceTree = "<group>"; };
+		FC98474D1D7EAC040006CCCE /* FindCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindCollectionView.h; sourceTree = "<group>"; };
+		FC98474E1D7EAC040006CCCE /* FindCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindCollectionView.m; sourceTree = "<group>"; };
 		FC98474F1D7EAC040006CCCE /* HotWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotWorkView.h; sourceTree = "<group>"; };
 		FC9847501D7EAC040006CCCE /* HotWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotWorkView.m; sourceTree = "<group>"; };
 		FC98475B1D7EB07C0006CCCE /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeViewController.h; path = Find/QRCode/Controller/QRCodeViewController.h; sourceTree = "<group>"; };
@@ -2484,8 +2484,8 @@
 		FC98474C1D7EAC040006CCCE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FC98474D1D7EAC040006CCCE /* FindTableView.h */,
-				FC98474E1D7EAC040006CCCE /* FindTableView.m */,
+				FC98474D1D7EAC040006CCCE /* FindCollectionView.h */,
+				FC98474E1D7EAC040006CCCE /* FindCollectionView.m */,
 				FC98474F1D7EAC040006CCCE /* HotWorkView.h */,
 				FC9847501D7EAC040006CCCE /* HotWorkView.m */,
 			);
@@ -3229,7 +3229,7 @@
 				FC9847551D7EAC040006CCCE /* FindModel.m in Sources */,
 				6E199CF21D67A592003E06F6 /* DownloadVideoPageCollectionViewCell.m in Sources */,
 				FCF131BE1D5C1CA700790DC6 /* UIColor+String.m in Sources */,
-				FC9847571D7EAC040006CCCE /* FindTableView.m in Sources */,
+				FC9847571D7EAC040006CCCE /* FindCollectionView.m in Sources */,
 				6E7E46FB1D58AFE90027AE8D /* BangumiEntranceHeaderView.m in Sources */,
 				6E5976011D5B171500D520E0 /* VideoCommentItemEntity.m in Sources */,
 				6E5976001D5B171500D520E0 /* VideoCommentEntity.m in Sources */,

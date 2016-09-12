@@ -19,12 +19,9 @@
 -(void)dealloc{
     NSLog(@"%s",__FUNCTION__);
 }
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
-        
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         separator = ({
             UIView* view = [UIView new];
             view.backgroundColor =  ColorRGB(200, 200, 200);
