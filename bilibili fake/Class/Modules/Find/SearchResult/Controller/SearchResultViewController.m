@@ -17,6 +17,7 @@
 #import "VideoViewController.h"
 #import "SearchPromptsViewController.h"
 #import "AllVideoViewController.h"
+#import "OtherSearchRegionViewController.h"
 
 @interface SearchResultViewController()<UIGestureRecognizerDelegate,UIScrollViewDelegate,UITextFieldDelegate,AllVideoViewControllerDelegate>
 
@@ -62,10 +63,10 @@
     [self loadActions];
     [model getSearchResultPageinfoWithSuccess:^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            [tabBar setTitle:[NSString stringWithFormat:@"番剧(%lu)",model.seasonCount] forIndex:1];
-            [tabBar setTitle:[NSString stringWithFormat:@"UP主(%lu)",model.upuserCount] forIndex:2];
-            [tabBar setTitle:[NSString stringWithFormat:@"影视(%lu)",model.movieCount] forIndex:3];
-            [tabBar setTitle:[NSString stringWithFormat:@"专题(%lu)",model.specialCount] forIndex:4];
+            [tabBar setTitle:[NSString stringWithFormat:@"番剧(%lu)",model.seasonCount>99?99:model.seasonCount] forIndex:1];
+            [tabBar setTitle:[NSString stringWithFormat:@"UP主(%lu)",model.upuserCount>99?99:model.upuserCount] forIndex:2];
+            [tabBar setTitle:[NSString stringWithFormat:@"影视(%lu)",model.movieCount>99?99:model.movieCount] forIndex:3];
+            [tabBar setTitle:[NSString stringWithFormat:@"专题(%lu)",model.specialCount>99?99:model.specialCount] forIndex:4];
         });
     } failure:^(NSString *errorMsg) {
         NSLog(@"%@",errorMsg);
@@ -187,10 +188,10 @@
     searchResultViews = [[NSMutableArray alloc] init];
     allVideoViewController = [[AllVideoViewController alloc] initWithKeyword:_keyWord];
     [searchResultViews addObject:allVideoViewController];
-    [searchResultViews addObject:[[UITableViewController alloc] init]];
-    [searchResultViews addObject:[[UITableViewController alloc] init]];
-    [searchResultViews addObject:[[UITableViewController alloc] init]];
-    [searchResultViews addObject:[[UITableViewController alloc] init]];
+    [searchResultViews addObject:[[OtherSearchRegionViewController alloc] initWithType:1 keyword:_keyWord]];
+    [searchResultViews addObject:[[OtherSearchRegionViewController alloc] initWithType:2 keyword:_keyWord]];
+    [searchResultViews addObject:[[OtherSearchRegionViewController alloc] initWithType:3 keyword:_keyWord]];
+    [searchResultViews addObject:[[OtherSearchRegionViewController alloc] initWithType:4 keyword:_keyWord]];
     for (int i = 0; i < searchResultViews.count; i++) {
         UIViewController* table = searchResultViews[i];
         [self addChildViewController:table];

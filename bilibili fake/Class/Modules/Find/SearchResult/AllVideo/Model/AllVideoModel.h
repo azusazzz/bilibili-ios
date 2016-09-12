@@ -14,7 +14,7 @@
 @interface AllVideoModel : NSObject
 
 @property(nonatomic,strong)NSString* keyword;
-@property(nonatomic,strong)NSString* ridName;
+@property(nonatomic,strong)NSString* ridName;//分区名字
 @property(nonatomic)NSInteger duration;
 @property(nonatomic)NSInteger order;
 

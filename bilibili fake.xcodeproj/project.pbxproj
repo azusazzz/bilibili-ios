@@ -276,6 +276,13 @@
 		FCFA05481D2FAFE0004A1742 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FCFA05441D2FAFE0004A1742 /* Shader.fsh */; };
 		FCFA05491D2FAFE0004A1742 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FCFA05451D2FAFE0004A1742 /* Shader.vsh */; };
 		FCFA054B1D2FB01A004A1742 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCFA054A1D2FB01A004A1742 /* bg.jpg */; };
+		FCFDE5031D867897006D2115 /* OtherSearchRegionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFDE5021D867897006D2115 /* OtherSearchRegionViewController.m */; };
+		FCFDE5071D8679A9006D2115 /* OtherSearchRegionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFDE5061D8679A9006D2115 /* OtherSearchRegionModel.m */; };
+		FCFDE50B1D867A2E006D2115 /* OtherSearchRegionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFDE50A1D867A2E006D2115 /* OtherSearchRegionRequest.m */; };
+		FCFDE50E1D868554006D2115 /* UPUserSummaryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFDE50D1D868554006D2115 /* UPUserSummaryEntity.m */; };
+		FCFDE5111D8685CC006D2115 /* SpecialSummaryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFDE5101D8685CC006D2115 /* SpecialSummaryEntity.m */; };
+		FCFDE5141D86966D006D2115 /* UPUserSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFDE5131D86966D006D2115 /* UPUserSummaryCell.m */; };
+		FCFDE5171D869B29006D2115 /* SpecialSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFDE5161D869B29006D2115 /* SpecialSummaryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -805,6 +812,20 @@
 		FCFA05441D2FAFE0004A1742 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		FCFA05451D2FAFE0004A1742 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		FCFA054A1D2FB01A004A1742 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		FCFDE5011D867897006D2115 /* OtherSearchRegionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OtherSearchRegionViewController.h; path = Find/SearchResult/OtherRegion/Controller/OtherSearchRegionViewController.h; sourceTree = "<group>"; };
+		FCFDE5021D867897006D2115 /* OtherSearchRegionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherSearchRegionViewController.m; path = Find/SearchResult/OtherRegion/Controller/OtherSearchRegionViewController.m; sourceTree = "<group>"; };
+		FCFDE5051D8679A9006D2115 /* OtherSearchRegionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OtherSearchRegionModel.h; path = Find/SearchResult/OtherRegion/Model/OtherSearchRegionModel.h; sourceTree = "<group>"; };
+		FCFDE5061D8679A9006D2115 /* OtherSearchRegionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherSearchRegionModel.m; path = Find/SearchResult/OtherRegion/Model/OtherSearchRegionModel.m; sourceTree = "<group>"; };
+		FCFDE5091D867A2E006D2115 /* OtherSearchRegionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OtherSearchRegionRequest.h; path = Find/SearchResult/OtherRegion/Request/OtherSearchRegionRequest.h; sourceTree = "<group>"; };
+		FCFDE50A1D867A2E006D2115 /* OtherSearchRegionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherSearchRegionRequest.m; path = Find/SearchResult/OtherRegion/Request/OtherSearchRegionRequest.m; sourceTree = "<group>"; };
+		FCFDE50C1D868554006D2115 /* UPUserSummaryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPUserSummaryEntity.h; path = Find/SearchResult/Entity/UPUserSummaryEntity.h; sourceTree = "<group>"; };
+		FCFDE50D1D868554006D2115 /* UPUserSummaryEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPUserSummaryEntity.m; path = Find/SearchResult/Entity/UPUserSummaryEntity.m; sourceTree = "<group>"; };
+		FCFDE50F1D8685CC006D2115 /* SpecialSummaryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpecialSummaryEntity.h; path = Find/SearchResult/Entity/SpecialSummaryEntity.h; sourceTree = "<group>"; };
+		FCFDE5101D8685CC006D2115 /* SpecialSummaryEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpecialSummaryEntity.m; path = Find/SearchResult/Entity/SpecialSummaryEntity.m; sourceTree = "<group>"; };
+		FCFDE5121D86966D006D2115 /* UPUserSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPUserSummaryCell.h; path = Find/SearchResult/Cell/UPUserSummaryCell.h; sourceTree = "<group>"; };
+		FCFDE5131D86966D006D2115 /* UPUserSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPUserSummaryCell.m; path = Find/SearchResult/Cell/UPUserSummaryCell.m; sourceTree = "<group>"; };
+		FCFDE5151D869B29006D2115 /* SpecialSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpecialSummaryCell.h; path = Find/SearchResult/Cell/SpecialSummaryCell.h; sourceTree = "<group>"; };
+		FCFDE5161D869B29006D2115 /* SpecialSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpecialSummaryCell.m; path = Find/SearchResult/Cell/SpecialSummaryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2183,6 +2204,10 @@
 				FC01401E1D848C8B00C23C9E /* SeasonSummaryCell.m */,
 				FC0140211D848CAF00C23C9E /* ArchiveSummaryCell.h */,
 				FC0140221D848CAF00C23C9E /* ArchiveSummaryCell.m */,
+				FCFDE5121D86966D006D2115 /* UPUserSummaryCell.h */,
+				FCFDE5131D86966D006D2115 /* UPUserSummaryCell.m */,
+				FCFDE5151D869B29006D2115 /* SpecialSummaryCell.h */,
+				FCFDE5161D869B29006D2115 /* SpecialSummaryCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -2245,6 +2270,10 @@
 				FC3A18C81D82A5AC008121C9 /* SeasonSummaryEntity.m */,
 				FC3A18CA1D82A891008121C9 /* ArchiveSummaryEntity.h */,
 				FC3A18CB1D82A891008121C9 /* ArchiveSummaryEntity.m */,
+				FCFDE50C1D868554006D2115 /* UPUserSummaryEntity.h */,
+				FCFDE50D1D868554006D2115 /* UPUserSummaryEntity.m */,
+				FCFDE50F1D8685CC006D2115 /* SpecialSummaryEntity.h */,
+				FCFDE5101D8685CC006D2115 /* SpecialSummaryEntity.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -2252,6 +2281,7 @@
 		FC4C0F5A1D810EC40022D6F8 /* SearchResult */ = {
 			isa = PBXGroup;
 			children = (
+				FCFDE4FF1D8673FE006D2115 /* OtherRegion */,
 				FC3260E91D81C6B8006A7813 /* AllVideo */,
 				FC5051871D85A7E500976288 /* Request */,
 				FC0140191D848C4500C23C9E /* Cell */,
@@ -2786,6 +2816,43 @@
 			path = RippleTableViewController;
 			sourceTree = "<group>";
 		};
+		FCFDE4FF1D8673FE006D2115 /* OtherRegion */ = {
+			isa = PBXGroup;
+			children = (
+				FCFDE5081D867A02006D2115 /* Request */,
+				FCFDE5041D867978006D2115 /* Model */,
+				FCFDE5001D8676AF006D2115 /* Controller */,
+			);
+			name = OtherRegion;
+			sourceTree = "<group>";
+		};
+		FCFDE5001D8676AF006D2115 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FCFDE5011D867897006D2115 /* OtherSearchRegionViewController.h */,
+				FCFDE5021D867897006D2115 /* OtherSearchRegionViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		FCFDE5041D867978006D2115 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCFDE5051D8679A9006D2115 /* OtherSearchRegionModel.h */,
+				FCFDE5061D8679A9006D2115 /* OtherSearchRegionModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FCFDE5081D867A02006D2115 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				FCFDE5091D867A2E006D2115 /* OtherSearchRegionRequest.h */,
+				FCFDE50A1D867A2E006D2115 /* OtherSearchRegionRequest.m */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3136,12 +3203,14 @@
 				6E2377401D530FAF00102550 /* HistoryEntity.m in Sources */,
 				6E08FD4F1D7329BA00544842 /* RegionShowChildEntity.m in Sources */,
 				6E5FB1921D557C0400984DC6 /* LiveListEntity.m in Sources */,
+				FCFDE5141D86966D006D2115 /* UPUserSummaryCell.m in Sources */,
 				FC98475D1D7EB07C0006CCCE /* QRCodeViewController.m in Sources */,
 				6E58B2531D72B87E002714FD /* RegionShowCollectionView.m in Sources */,
 				FC0140231D848CAF00C23C9E /* ArchiveSummaryCell.m in Sources */,
 				6E7E46EF1D587E470027AE8D /* BangumiEntity.m in Sources */,
 				6E53E7641D76D96D00D84581 /* RegionShowHeaderView.m in Sources */,
 				6E59763A1D5C6FF500D520E0 /* DanmakuControl.m in Sources */,
+				FCFDE50B1D867A2E006D2115 /* OtherSearchRegionRequest.m in Sources */,
 				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,
 				6E7E47011D58B0230027AE8D /* BangumiEntranceCollectionViewCell.m in Sources */,
 				6E5FB1B11D55926A00984DC6 /* LiveEntranceFooterView.m in Sources */,
@@ -3156,6 +3225,7 @@
 				FC3A18CC1D82A891008121C9 /* ArchiveSummaryEntity.m in Sources */,
 				6E58B2351D72A8D2002714FD /* RegionListModel.m in Sources */,
 				6E5FB1A81D5591A100984DC6 /* LivePartitionsFooterView.m in Sources */,
+				FCFDE5071D8679A9006D2115 /* OtherSearchRegionModel.m in Sources */,
 				FC9847551D7EAC040006CCCE /* FindModel.m in Sources */,
 				6E199CF21D67A592003E06F6 /* DownloadVideoPageCollectionViewCell.m in Sources */,
 				FCF131BE1D5C1CA700790DC6 /* UIColor+String.m in Sources */,
@@ -3214,6 +3284,7 @@
 				6EB5528F1D5488D8001099C1 /* RecommendListModel.m in Sources */,
 				6E5FB1891D557AB100984DC6 /* LiveListRequest.m in Sources */,
 				6E58B23B1D72AA53002714FD /* RegionChildEntity.m in Sources */,
+				FCFDE50E1D868554006D2115 /* UPUserSummaryEntity.m in Sources */,
 				6E08FD611D7336CD00544842 /* RegionShowRecommendModel.m in Sources */,
 				6EB450301D51FD0000A4F626 /* NSString+MD5.m in Sources */,
 				6E4836771D410818004AD1A4 /* MediaPlayerProgressView.m in Sources */,
@@ -3232,6 +3303,7 @@
 				FCC41D6E1D7FFB0200F37F52 /* SearchPromptsViewController.m in Sources */,
 				FC5051861D859A9600976288 /* FindMoreReusbleView.m in Sources */,
 				6EB5527F1D548671001099C1 /* RecommendListViewController.m in Sources */,
+				FCFDE5111D8685CC006D2115 /* SpecialSummaryEntity.m in Sources */,
 				6E5FB18F1D557BF500984DC6 /* LiveListBannerEntity.m in Sources */,
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
 				6EB450291D51F26E00A4F626 /* DownloadManager.m in Sources */,
@@ -3239,11 +3311,13 @@
 				6E5FE9181D59B5EA00459BF4 /* BangumiRecommendHeaderView.m in Sources */,
 				6E7E46F21D587EEB0027AE8D /* BangumiBannerEntity.m in Sources */,
 				6E215D061D4B61B00004CA5B /* MineCollectionView.m in Sources */,
+				FCFDE5031D867897006D2115 /* OtherSearchRegionViewController.m in Sources */,
 				6E48367A1D410DB0004AD1A4 /* Function.m in Sources */,
 				FC9847561D7EAC040006CCCE /* FindReqiest.m in Sources */,
 				6E5FE9151D59A91E00459BF4 /* BangumiEndItemCollectionViewCell.m in Sources */,
 				FCC41D761D8009EE00F37F52 /* SearchPromptsReqiest.m in Sources */,
 				6E2A92F81D66A20700A8F9BA /* DownloadVideoSelectView.m in Sources */,
+				FCFDE5171D869B29006D2115 /* SpecialSummaryCell.m in Sources */,
 				6E2377BD1D54736D00102550 /* BannerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

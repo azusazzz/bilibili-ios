@@ -27,9 +27,7 @@
 @implementation AllVideoViewController{
     SelectionView* selectionView;
     UICollectionView* videoCollectionView;
-    UIView* ChoiceView;
-    NSMutableArray<UIButton *>* button;
-    
+   
     AllVideoModel* model;
     BOOL isLoadfinish;
 }
@@ -43,7 +41,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    ChoiceView.frame = CGRectZero;
+
 }
 -(void)viewDidLoad{
     [self loadSubViews];
@@ -64,7 +62,6 @@
 
 #pragma UICollectionViewDelegate
 
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
