@@ -195,6 +195,7 @@
 		FC3A18C61D82A2FC008121C9 /* MovieSummaryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A18C51D82A2FC008121C9 /* MovieSummaryEntity.m */; };
 		FC3A18C91D82A5AC008121C9 /* SeasonSummaryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A18C81D82A5AC008121C9 /* SeasonSummaryEntity.m */; };
 		FC3A18CC1D82A891008121C9 /* ArchiveSummaryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A18CB1D82A891008121C9 /* ArchiveSummaryEntity.m */; };
+		FC4B1AF01D87255D00B37CFD /* VideoRankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4B1AEF1D87255D00B37CFD /* VideoRankModel.m */; };
 		FC4C0F621D813AD40022D6F8 /* SearchResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4C0F611D813AD40022D6F8 /* SearchResultModel.m */; };
 		FC4C0F651D813AED0022D6F8 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4C0F641D813AED0022D6F8 /* SearchResultViewController.m */; };
 		FC4DB3C31D7D5A73003935E3 /* StartInfoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3B91D7D5A73003935E3 /* StartInfoEntity.m */; };
@@ -696,6 +697,8 @@
 		FC3A18C81D82A5AC008121C9 /* SeasonSummaryEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeasonSummaryEntity.m; path = Find/SearchResult/Entity/SeasonSummaryEntity.m; sourceTree = "<group>"; };
 		FC3A18CA1D82A891008121C9 /* ArchiveSummaryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArchiveSummaryEntity.h; path = Find/SearchResult/Entity/ArchiveSummaryEntity.h; sourceTree = "<group>"; };
 		FC3A18CB1D82A891008121C9 /* ArchiveSummaryEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArchiveSummaryEntity.m; path = Find/SearchResult/Entity/ArchiveSummaryEntity.m; sourceTree = "<group>"; };
+		FC4B1AEE1D87255D00B37CFD /* VideoRankModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoRankModel.h; path = Find/VideoRank/Model/VideoRankModel.h; sourceTree = "<group>"; };
+		FC4B1AEF1D87255D00B37CFD /* VideoRankModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoRankModel.m; path = Find/VideoRank/Model/VideoRankModel.m; sourceTree = "<group>"; };
 		FC4C0F601D813AD40022D6F8 /* SearchResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultModel.h; path = Find/SearchResult/Model/SearchResultModel.h; sourceTree = "<group>"; };
 		FC4C0F611D813AD40022D6F8 /* SearchResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultModel.m; path = Find/SearchResult/Model/SearchResultModel.m; sourceTree = "<group>"; };
 		FC4C0F631D813AED0022D6F8 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultViewController.h; path = Find/SearchResult/Controller/SearchResultViewController.h; sourceTree = "<group>"; };
@@ -2284,6 +2287,15 @@
 			name = Entity;
 			sourceTree = "<group>";
 		};
+		FC4B1AED1D87252A00B37CFD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC4B1AEE1D87255D00B37CFD /* VideoRankModel.h */,
+				FC4B1AEF1D87255D00B37CFD /* VideoRankModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		FC4C0F5A1D810EC40022D6F8 /* SearchResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -2791,6 +2803,7 @@
 		FCCC73171D86AC260053D6DB /* VideoRank */ = {
 			isa = PBXGroup;
 			children = (
+				FC4B1AED1D87252A00B37CFD /* Model */,
 				FCCC731F1D86B2F60053D6DB /* View */,
 				FCCC73181D86AE420053D6DB /* Controller */,
 			);
@@ -3244,6 +3257,7 @@
 				FC0140231D848CAF00C23C9E /* ArchiveSummaryCell.m in Sources */,
 				6E7E46EF1D587E470027AE8D /* BangumiEntity.m in Sources */,
 				6E53E7641D76D96D00D84581 /* RegionShowHeaderView.m in Sources */,
+				FC4B1AF01D87255D00B37CFD /* VideoRankModel.m in Sources */,
 				6E59763A1D5C6FF500D520E0 /* DanmakuControl.m in Sources */,
 				FCFDE50B1D867A2E006D2115 /* OtherSearchRegionRequest.m in Sources */,
 				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,

@@ -21,6 +21,7 @@
 #import "SearchResultViewController.h"
 #import "QRCodeViewController.h"
 #import "GameCenterViewController.h"
+#import "VideoRankViewController.h"
 
 @interface FindViewController()<UICollectionViewDelegate,UITextFieldDelegate>
 
@@ -109,6 +110,12 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 2&& indexPath.row == 0) {
         [self.navigationController pushViewController:[[GameCenterViewController alloc] init] animated:YES];
+    }else if(indexPath.section == 1&& indexPath.row == 0){
+        NSArray<NSString*> *arr = @[@"原创",@"全站",@"新番"];
+        [self.navigationController pushViewController:[[VideoRankViewController alloc] initWithTitles:arr] animated:YES];
+    }if(indexPath.section == 1&& indexPath.row == 1){
+        NSArray<NSString*> *arr = @[@"番剧",@"动画", @"音乐",@"舞蹈",@"游戏",@"科技",@"生活",@"鬼畜", @"时尚",@"娱乐",@"电影",@"电视剧"];
+        [self.navigationController pushViewController:[[VideoRankViewController alloc] initWithTitles:arr] animated:YES];
     }
 }
 #pragma loadSubViews

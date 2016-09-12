@@ -10,4 +10,8 @@
 
 @interface VideoRankCollectionView : RefreshCollectionView
 
+-(instancetype)initWithTitle:(NSString*)title;
+
+@property(nonatomic,strong,readonly)NSString* title;
+
 @end

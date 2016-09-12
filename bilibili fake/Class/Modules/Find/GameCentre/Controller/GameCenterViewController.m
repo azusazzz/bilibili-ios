@@ -15,7 +15,7 @@
 
 #import "GameCell.h"
 #import "GameCenterModel.h"
-//#import "UIView+CornerRadius.h"
+#import "UIView+CornerRadius.h"
 
 @interface GameCenterViewController()<UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource,RefreshCollectionViewDelegate>
 
@@ -115,11 +115,12 @@
         layout.headerReferenceSize = CGSizeZero;
         layout.footerReferenceSize = CGSizeZero;        
         RefreshCollectionView* col =  [[RefreshCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-        //[gameCollectionView cornerRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight withCornerRadius:10.0];
+        [gameCollectionView cornerRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight withCornerRadius:10.0];
         col.delegate = self;
         col.dataSource = self;
         col.refreshDelegate = self;
         col.backgroundColor = ColorRGBA(243, 243, 243, 0);
+        //col.layer.cornerRadius = 5.0;
         
         UIView* view = [[UIView alloc] init];
         view.backgroundColor = ColorRGB(243, 243, 243);

@@ -28,7 +28,7 @@
         self.dataSource =self;
         self.backgroundColor = [UIColor clearColor];
         UIView* view = [[UIView alloc] init];
-        view.backgroundColor = ColorWhite(243);
+        view.backgroundColor = ColorWhite(255);
         self.backgroundView = view;
         self.showsVerticalScrollIndicator = NO;
         [self registerClass:[FindCell class] forCellWithReuseIdentifier:NSStringFromClass([FindCell class])];

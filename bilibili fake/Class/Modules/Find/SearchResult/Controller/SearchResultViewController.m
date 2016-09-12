@@ -181,6 +181,7 @@
     
     tabBar = ({
         TabBar* tb = [[TabBar alloc] initWithTitles:@[@"综合",@"番剧",@"UP主",@"影视",@"专题"] style:TabBarStyleNormal];
+        tb.edgeInsets = UIEdgeInsetsMake( 0, 0, 2, 0);
         [self.view addSubview:tb];
         tb;
     });
@@ -195,8 +196,6 @@
     for (int i = 0; i < searchResultViews.count; i++) {
         UIViewController* table = searchResultViews[i];
         [self addChildViewController:table];
-//        table.view.frame = CGRectMake(SSize.width*i, 0, SSize.width, SSize.height-64);
-//        table.view.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
         table.view.backgroundColor = ColorWhite(243);
         [searchResultScrollView addSubview:table.view];
         [table.view mas_makeConstraints:^(MASConstraintMaker *make) {

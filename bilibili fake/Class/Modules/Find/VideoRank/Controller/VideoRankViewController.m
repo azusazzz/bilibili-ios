@@ -7,19 +7,28 @@
 //
 
 #import "VideoRankViewController.h"
+
 #import "UIViewController+PopGesture.h"
 #import "UIViewController+HeaderView.h"
 #import "Macro.h"
+#import "UIView+Frame.h"
+#import "TabBar.h"
 
-@interface VideoRankViewController()<UIGestureRecognizerDelegate>
+#import "VideoRankCollectionView.h"
+
+@interface VideoRankViewController()<UIGestureRecognizerDelegate,UIScrollViewDelegate>
 
 @end
 
 @implementation VideoRankViewController{
     NSArray<NSString *>* titleArr;
+    UIScrollView* videoRankScrollView;
+    NSMutableArray<VideoRankCollectionView *>* videoRankViews;
+    TabBar*      titleTabBar;
 }
 -(instancetype)initWithTitles:(NSArray<NSString *>*) titles{
     if (self = [super init]) {
+        self.hidesBottomBarWhenPushed = YES;
         titleArr = titles;
     }
     return self;
@@ -34,8 +43,10 @@
     [self.view addGestureRecognizer:panGestureRecognizer];
     [self replacingPopGestureRecognizer:panGestureRecognizer];
     
-    [self loadSubviews];
     [self navigationBar];
+    [self loadSubviews];
+    [self loadActions];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -46,6 +57,25 @@
     self.navigationBar.barTintColor = UIStyleBackgroundColor;
     self.navigationBar.tintColor = UIStyleForegroundColor;
     self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:UIStyleForegroundColor};
+
+    titleTabBar.backgroundColor = UIStyleBackgroundColor;
+    titleTabBar.tintColorRGB = [UIStyleMacro share].SearchResultTabBarTintColor;
+    titleTabBar.selTintColorRGB = [UIStyleMacro share].SearchResultTabBarCelTintColor;
+}
+
+-(void)loadActions{
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] init];
+    panGestureRecognizer.maximumNumberOfTouches = 1;
+    panGestureRecognizer.delegate = self;
+    [[videoRankViews firstObject] addGestureRecognizer:panGestureRecognizer];
+    [self replacingPopGestureRecognizer:panGestureRecognizer];
+    
+    videoRankScrollView.delegate = self;
+    
+    __weak UIScrollView* scrollView = videoRankScrollView;
+    [titleTabBar setOnClickItem:^(NSInteger idx) {
+        [scrollView setContentOffset:CGPointMake(scrollView.width * idx, 0) animated:YES];
+    }];
 }
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
@@ -55,8 +85,52 @@
     }
     return YES;
 }
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView; {
+    titleTabBar.contentOffset = scrollView.contentOffset.x / scrollView.width;
+}
 #pragma loadSubviews
 -(void)loadSubviews{
+    titleTabBar = ({
+        TabBar* tabBar;
+        if (titleArr.count>4) {
+            tabBar = [[TabBar alloc] initWithTitles:titleArr style:TabBarStyleScroll];
+        }else{
+            tabBar = [[TabBar alloc] initWithTitles:titleArr style:TabBarStyleNormal];
+        }
+        tabBar.edgeInsets = UIEdgeInsetsMake(0, 0, 2, 0);
+        tabBar.spacing = 20;
+        [self.view addSubview:tabBar];
+        tabBar;
+    });
     
+    videoRankScrollView = ({
+        UIScrollView* view = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height-64)];
+        view.contentSize = CGSizeMake(view.width*titleArr.count, 0);
+        view.showsHorizontalScrollIndicator = YES;
+        view.pagingEnabled = YES;
+        [self.view addSubview:view];
+        view;
+    });
+    
+    videoRankViews = [[NSMutableArray alloc] init];
+    for (int i = 0; i < titleArr.count; i++) {
+        VideoRankCollectionView* view = [[VideoRankCollectionView alloc] initWithTitle:titleArr[i]];
+        view.frame = CGRectMake(videoRankScrollView.width*i, 0, videoRankScrollView.width, videoRankScrollView.height);
+        //view.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
+        [videoRankViews addObject:view];
+        [videoRankScrollView addSubview:view];
+    }
+    
+    //layout
+    [titleTabBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(50);
+        if (titleArr.count>4)
+            make.right.equalTo(self.view);
+        else
+            make.right.equalTo(self.view).offset(-50);
+        make.top.equalTo(self.view).offset = 20;
+        make.height.equalTo(@(44));
+    }];
 }
 @end
