@@ -15,7 +15,7 @@
 
 #import "GameCell.h"
 #import "GameCenterModel.h"
-#import "UIView+CornerRadius.h"
+//#import "UIView+CornerRadius.h"
 
 @interface GameCenterViewController()<UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource,RefreshCollectionViewDelegate>
 
@@ -88,9 +88,9 @@
 {
     GameCell *cell = [gameCollectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([GameCell class]) forIndexPath:indexPath];
     cell.gameEntity = model.gameList.gameList[indexPath.row];
-    if (indexPath.row == 0&&indexPath.section == 0) {
-       [cell cornerRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight withCornerRadius:10.0];
-    }
+//    if (indexPath.row == 0&&indexPath.section == 0) {
+//       [cell cornerRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight withCornerRadius:10.0];
+//    }
     return cell;
 }
 
