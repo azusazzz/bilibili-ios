@@ -35,7 +35,6 @@
     if (self = [super init]) {
         model = [[AllVideoModel alloc] init];
         model.keyword = keyword;
-        isLoadfinish = YES;
     }
     return self;
 }
@@ -46,11 +45,15 @@
 -(void)viewDidLoad{
     [self loadSubViews];
     [self loadActions];
+    
+    isLoadfinish = NO;
     [model getSearchResultWithSuccess:^{
+        isLoadfinish = YES;
         dispatch_async(dispatch_get_main_queue(), ^{
             [videoCollectionView reloadData];
         });
     } failure:^(NSString *errorMsg) {
+        isLoadfinish = YES;
         NSLog(@"%@",errorMsg);
     }];
 }

@@ -17,7 +17,7 @@
     UIView* separator;
 }
 -(void)dealloc{
-    NSLog(@"%s",__FUNCTION__);
+    //NSLog(@"%s",__FUNCTION__);
 }
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

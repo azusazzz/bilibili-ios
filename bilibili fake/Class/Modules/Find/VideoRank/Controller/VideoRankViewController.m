@@ -62,6 +62,10 @@
     titleTabBar.backgroundColor = UIStyleBackgroundColor;
     titleTabBar.tintColorRGB = [UIStyleMacro share].SearchResultTabBarTintColor;
     titleTabBar.selTintColorRGB = [UIStyleMacro share].SearchResultTabBarCelTintColor;
+    
+    [videoRankViews enumerateObjectsUsingBlock:^(VideoRankCollectionView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.backgroundColor = UIStyleBackgroundColor;
+    }];
 }
 
 -(void)loadActions{
@@ -124,7 +128,6 @@
     for (int i = 0; i < titleArr.count; i++) {
         VideoRankCollectionView* view = [[VideoRankCollectionView alloc] initWithTitle:titleArr[i]];
         view.frame = CGRectMake(videoRankScrollView.width*i, 0, videoRankScrollView.width, videoRankScrollView.height);
-        view.backgroundColor = ColorWhite(243);
         view.tag = i;
         view.delegate = self;
         [videoRankViews addObject:view];

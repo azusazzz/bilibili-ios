@@ -40,7 +40,7 @@
             }
             //调试用
             _currentStartPage = [startInfoEntity.startPages lastObject];
-            _currentStartPage.param = @"http://www.bilibili.com/video/av2344701/";
+            //_currentStartPage.param = @"http://www.bilibili.com/video/av2344701/";
         }
     }
     

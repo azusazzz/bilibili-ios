@@ -24,7 +24,6 @@
         otherSearchRegionRequest = [OtherSearchRegionRequest request];
         pages=INTMAX_MAX;
         otherSearchRegionRequest.ps = 20;
-        otherSearchRegionRequest.pn = 1;
         otherSearchRegionRequest.type = 1;
         otherSearchRegionRequest.keyword = @"1";
     }
@@ -41,42 +40,17 @@
 
 -(void)getSearchResultWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
     [otherSearchRegionRequest stop];
-    
+    otherSearchRegionRequest.pn = 0;
     _searchResultArr = [[NSMutableArray alloc] init];
     
-    [otherSearchRegionRequest startWithCompletionBlock:^(BaseRequest *request) {
-        if (request.responseCode == 0){
-            pages = [[request.responseData objectForKey:@"pages"] integerValue];
-            NSArray<NSDictionary *>* arr =[request.responseData objectForKey:@"items"];
-            if (![arr isKindOfClass:[NSNull class]])[arr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                switch (_type) {
-                    case 1:
-                        [_searchResultArr addObject:[SeasonSummaryEntity mj_objectWithKeyValues:obj]];
-                        break;
-                    case 2:
-                        [_searchResultArr addObject:[UPUserSummaryEntity mj_objectWithKeyValues:obj]];
-                        break;
-                    case 3:
-                        [_searchResultArr addObject:[MovieSummaryEntity mj_objectWithKeyValues:obj]];
-                        break;
-                    case 4:
-                        [_searchResultArr addObject:[SpecialSummaryEntity mj_objectWithKeyValues:obj]];
-                    default:
-                        break;
-                }
-            }];
-            success();
-        }else{
-            if(failure)failure(request.errorMsg);
-        }
-    }];
+    [self getMoreSearchResultWithSuccess:success failure:failure];
     
 }
 
 -(void)getMoreSearchResultWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
     ++otherSearchRegionRequest.pn;
     if (_searchResultArr.count%otherSearchRegionRequest.ps&&otherSearchRegionRequest.pn>pages)return;
-
+    
     [otherSearchRegionRequest startWithCompletionBlock:^(BaseRequest *request) {
         if (request.responseCode == 0) {
             NSMutableArray* arr =[request.responseData objectForKey:@"items"];

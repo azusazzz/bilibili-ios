@@ -22,6 +22,8 @@
 #import "QRCodeViewController.h"
 #import "GameCenterViewController.h"
 #import "VideoRankViewController.h"
+#import "ActivityCenterViewController.h"
+#import "TopicViewController.h"
 
 @interface FindViewController()<UICollectionViewDelegate,UITextFieldDelegate>
 
@@ -116,6 +118,10 @@
     }if(indexPath.section == 1&& indexPath.row == 1){
         NSArray<NSString*> *arr = @[@"番剧",@"动画", @"音乐",@"舞蹈",@"游戏",@"科技",@"生活",@"鬼畜", @"时尚",@"娱乐",@"电影",@"电视剧"];
         [self.navigationController pushViewController:[[VideoRankViewController alloc] initWithTitles:arr] animated:YES];
+    }if(indexPath.section == 0&& indexPath.row == 2){
+        [self.navigationController pushViewController:[[ActivityCenterViewController alloc] init] animated:YES];
+    }if(indexPath.section == 0&& indexPath.row == 1){
+        [self.navigationController pushViewController:[[TopicViewController alloc] init] animated:YES];
     }
 }
 #pragma loadSubViews

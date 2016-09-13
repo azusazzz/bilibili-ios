@@ -1,37 +1,38 @@
 //
-//  GameCentreViewController.m
+//  ActivityCenterViewController.m
 //  bilibili fake
 //
-//  Created by cxh on 16/9/6.
+//  Created by cxh on 16/9/13.
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "GameCenterViewController.h"
+#import "ActivityCenterViewController.h"
+
 #import "RefreshCollectionView.h"
 
 #import "UIViewController+PopGesture.h"
 #import "UIViewController+HeaderView.h"
 #import "Macro.h"
 
-#import "GameCell.h"
-#import "GameCenterModel.h"
-#import "UIView+CornerRadius.h"
-
-@interface GameCenterViewController()<UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource,RefreshCollectionViewDelegate>
+#import "ActivityCenterModel.h"
+#import "ActivityCell.h"
+@interface ActivityCenterViewController()<UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource,RefreshCollectionViewDelegate>
 
 
 @end
 
-@implementation GameCenterViewController{
-    RefreshCollectionView* gameCollectionView;
-    GameCenterModel* model;
+@implementation ActivityCenterViewController{
+    RefreshCollectionView* activityCollectionView;
+    ActivityCenterModel* model;
+    BOOL isLoadfinish;
 }
--(id)init{
+-(instancetype)init{
     self = [super init];
     if (self) {
         self.hidesBottomBarWhenPushed = YES;
-        self.title = @"游戏中心";
-        model = [[GameCenterModel alloc] init];
+        self.title = @"活动中心";
+        
+        model = [[ActivityCenterModel alloc] init];
     }
     return self;
 }
@@ -49,6 +50,18 @@
     
     [self loadSubviews];
     [self navigationBar];
+    
+    
+    isLoadfinish = NO;
+    [model getActivityArrWithSuccess:^{
+        isLoadfinish = YES;
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [activityCollectionView reloadData];
+        }];
+    } failure:^(NSString *errorMsg) {
+        isLoadfinish = YES;
+        NSLog(@"%@",errorMsg);
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -70,6 +83,27 @@
     }
     return YES;
 }
+#pragma UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //底部加载更多
+    if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - scrollView.frame.size.height) {
+        if (isLoadfinish) {
+            isLoadfinish = NO;
+            [model getMoreActivityArrWithSuccess:^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [activityCollectionView reloadData];
+                    isLoadfinish = YES;
+                });
+            } failure:^(NSString *errorMsg) {
+                NSLog(@"%@",errorMsg);
+                isLoadfinish = YES;
+            }];
+        }
+    }
+}
 #pragma mark ---- UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -80,25 +114,18 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return model.gameList.gameList.count;
+    return model.activityArr.count;
 }
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    GameCell *cell = [gameCollectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([GameCell class]) forIndexPath:indexPath];
-    cell.gameEntity = model.gameList.gameList[indexPath.row];
-//    if (indexPath.row == 0&&indexPath.section == 0) {
-//       [cell cornerRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight withCornerRadius:10.0];
-//    }
+    ActivityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ActivityCell class]) forIndexPath:indexPath];
+    //cell.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
+    cell.entity = model.activityArr[indexPath.row];
     return cell;
 }
 
-
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [URLRouter openURL: model.gameList.gameList[indexPath.row].download_link];
-}
 
 - (void)collectionViewRefreshing:(__kindof RefreshCollectionView *)collectionView {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -108,14 +135,15 @@
 
 #pragma loadSubviews
 -(void)loadSubviews{
-    gameCollectionView = ({
+    activityCollectionView = ({
         UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.itemSize = CGSizeMake(SSize.width, SSize.width*0.5 + 50 + 10);
+        layout.itemSize = CGSizeMake(SSize.width-20, [ActivityCell height]);
         layout.minimumLineSpacing = 10;
         layout.headerReferenceSize = CGSizeZero;
-        layout.footerReferenceSize = CGSizeZero;        
+        layout.footerReferenceSize = CGSizeZero;
+        layout.sectionInset = UIEdgeInsetsMake(10, 0, 10, 0);
         RefreshCollectionView* col =  [[RefreshCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-        [gameCollectionView cornerRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight withCornerRadius:10.0];
+        
         col.delegate = self;
         col.dataSource = self;
         col.refreshDelegate = self;
@@ -126,24 +154,21 @@
         view.backgroundColor = ColorRGB(243, 243, 243);
         col.backgroundView = view;
         col.showsVerticalScrollIndicator = NO;
-        [col registerClass:[GameCell class] forCellWithReuseIdentifier:NSStringFromClass([GameCell class])];
+        [col registerClass:[ActivityCell class] forCellWithReuseIdentifier:NSStringFromClass([ActivityCell class])];
         self.automaticallyAdjustsScrollViewInsets = NO;
         [self.view addSubview:col];
         col;
     });
     
-    [model getGameListWithSuccess:^{
-        [gameCollectionView reloadData];
-    } failure:^(NSString *errorMsg) {
-        NSLog(@"%@",errorMsg);
-    }];
+    
     //layout
-    [gameCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [activityCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.navigationBar.mas_bottom).offset(0);
         make.bottom.equalTo(self.view).offset(0);
         make.left.right.equalTo(self.view);
     }];
-
-
+    
+    
 }
+
 @end

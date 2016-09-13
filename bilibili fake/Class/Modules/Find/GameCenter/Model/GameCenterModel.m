@@ -7,11 +7,11 @@
 //
 
 #import "GameCenterModel.h"
-#import "GameCentreRequest.h"
+#import "GameCenterRequest.h"
 
 @implementation GameCenterModel
 -(void)getGameListWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
-//    GameCentreRequest* request =  [GameCentreRequest request];
+//    GameCenterRequest* request =  [GameCenterRequest request];
 //    [request startWithCompletionBlock:^(BaseRequest *request) {
 //        if (request.responseCode == 0) {
 //            _gameList = [GameListEntity mj_objectWithKeyValues:request.responseObject];

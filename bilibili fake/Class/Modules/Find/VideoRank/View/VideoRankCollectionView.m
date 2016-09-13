@@ -9,7 +9,7 @@
 #import "VideoRankCollectionView.h"
 
 #import "RankingVideoCell.h"
-
+#import "UIView+CornerRadius.h"
 
 
 @interface VideoRankCollectionView()<UICollectionViewDataSource>
@@ -33,6 +33,9 @@
         _title = title;
        [self registerClass:[RankingVideoCell class] forCellWithReuseIdentifier:NSStringFromClass([RankingVideoCell class])];
         self.dataSource = self;
+        UIView* view = [[UIView alloc] init];
+        view.backgroundColor = ColorRGB(243, 243, 243);
+        self.backgroundView = view;
         [_model getvideoRankingWithTitle:title success:^{
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self reloadData];

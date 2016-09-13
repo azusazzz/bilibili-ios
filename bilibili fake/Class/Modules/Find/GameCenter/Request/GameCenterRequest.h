@@ -1,5 +1,5 @@
 //
-//  GameCentreRequest.h
+//  GameCenterRequest.h
 //  bilibili fake
 //
 //  Created by C on 16/9/6.
@@ -8,6 +8,6 @@
 
 #import "BaseRequest.h"
 
-@interface GameCentreRequest : BaseRequest
+@interface GameCenterRequest : BaseRequest
 
 @end
