@@ -16,6 +16,7 @@
 
 #import "TopicCenterModel.h"
 #import "TopicCell.h"
+#import "URLRouter.h"
 
 @interface TopicViewController()<UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource,RefreshCollectionViewDelegate>
 
@@ -85,7 +86,7 @@
 }
 #pragma UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+     [URLRouter openURL: model.topicArr[indexPath.row].link];
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     //底部加载更多

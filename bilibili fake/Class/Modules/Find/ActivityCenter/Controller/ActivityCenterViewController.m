@@ -16,6 +16,8 @@
 
 #import "ActivityCenterModel.h"
 #import "ActivityCell.h"
+#import "URLRouter.h"
+
 @interface ActivityCenterViewController()<UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource,RefreshCollectionViewDelegate>
 
 
@@ -85,7 +87,7 @@
 }
 #pragma UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+       [URLRouter openURL: model.activityArr[indexPath.row].link];
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     //底部加载更多
