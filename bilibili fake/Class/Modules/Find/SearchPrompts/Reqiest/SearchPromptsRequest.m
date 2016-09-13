@@ -1,14 +1,14 @@
 //
-//  SearchPromptsReqiest.m
+//  SearchPromptsRequest.m
 //  bilibili fake
 //
 //  Created by cxh on 16/9/7.
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "SearchPromptsReqiest.h"
+#import "SearchPromptsRequest.h"
 
-@implementation SearchPromptsReqiest
+@implementation SearchPromptsRequest
 - (NSString *)URLString{
     return [[@"http://api.bilibili.com/suggest?actionKey=appkey&appkey=27eb53fc9058f8c3&term=" stringByAppendingString:self.keywork] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }

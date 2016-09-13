@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "RankingVideoEntity.h"
 @interface VideoRankModel : NSObject
+
+@property(nonatomic,strong)NSMutableArray<RankingVideoEntity *>* videoRanking;
+
+-(void)getvideoRankingWithTitle:(NSString*)title success:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 @end

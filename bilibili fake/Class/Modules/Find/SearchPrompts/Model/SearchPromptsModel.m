@@ -7,10 +7,10 @@
 //
 
 #import "SearchPromptsModel.h"
-#import "SearchPromptsReqiest.h"
+#import "SearchPromptsRequest.h"
 
 @implementation SearchPromptsModel{
-    SearchPromptsReqiest* searchPromptsRequest;
+    SearchPromptsRequest* searchPromptsRequest;
 }
 -(instancetype)init{
     if (self = [super init]) {
@@ -18,7 +18,7 @@
         //调试
         //_historyWordArr = @[@"1",@"2",@"3",@"4"];
         
-        searchPromptsRequest =  [SearchPromptsReqiest request];
+        searchPromptsRequest =  [SearchPromptsRequest request];
     }
     return self;
 }

@@ -1,5 +1,5 @@
 //
-//  SearchPromptsReqiest.h
+//  SearchPromptsRequest.h
 //  bilibili fake
 //
 //  Created by cxh on 16/9/7.
@@ -8,7 +8,7 @@
 
 #import "BaseRequest.h"
 
-@interface SearchPromptsReqiest : BaseRequest
+@interface SearchPromptsRequest : BaseRequest
 
 @property(nonatomic,strong)NSString* keywork;
 

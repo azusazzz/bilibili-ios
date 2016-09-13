@@ -8,11 +8,17 @@
 
 #import "VideoRankCollectionView.h"
 
+#import "RankingVideoCell.h"
+
+
+
 @interface VideoRankCollectionView()<UICollectionViewDataSource>
 
 @end
 
-@implementation VideoRankCollectionView
+@implementation VideoRankCollectionView{
+
+}
 
 -(instancetype)initWithTitle:(NSString*)title{
     
@@ -23,12 +29,22 @@
     self = [super initWithFrame:CGRectZero collectionViewLayout:layout];
     
     if (self) {
+        _model = [[VideoRankModel alloc] init];
         _title = title;
-       [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+       [self registerClass:[RankingVideoCell class] forCellWithReuseIdentifier:NSStringFromClass([RankingVideoCell class])];
         self.dataSource = self;
+        [_model getvideoRankingWithTitle:title success:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self reloadData];
+            });
+        } failure:^(NSString *errorMsg) {
+            NSLog(@"%@",errorMsg);
+        }];
     }
     return  self;
 }
+
+
 #pragma UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -38,16 +54,15 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 20;
+    return _model.videoRanking.count;
 }
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor yellowColor];
+    RankingVideoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RankingVideoCell" forIndexPath:indexPath];
+    cell.entity = _model.videoRanking[indexPath.row];
     return cell;
 }
-
 
 @end

@@ -1,5 +1,5 @@
 //
-//  FindReqiest.h
+//  FindRequest.h
 //  bilibili fake
 //
 //  Created by C on 16/9/6.
@@ -8,6 +8,6 @@
 
 #import "BaseRequest.h"
 
-@interface FindReqiest : BaseRequest
+@interface FindRequest : BaseRequest
 
 @end

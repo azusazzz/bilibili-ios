@@ -7,7 +7,7 @@
 //
 
 #import "FindModel.h"
-#import "FindReqiest.h"
+#import "FindRequest.h"
 
 @implementation FindModel
 
@@ -19,7 +19,7 @@
     return self;
 }
 -(void)getHotWorkListWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
-    FindReqiest* request =  [FindReqiest request];
+    FindRequest* request =  [FindRequest request];
     [request startWithCompletionBlock:^(BaseRequest *request) {
         if (request.responseCode == 0) {
             _hotWorkList = [HotWorkListEntity mj_objectWithKeyValues:request.responseObject];

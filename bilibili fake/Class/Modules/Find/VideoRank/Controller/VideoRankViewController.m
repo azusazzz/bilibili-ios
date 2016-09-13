@@ -15,8 +15,9 @@
 #import "TabBar.h"
 
 #import "VideoRankCollectionView.h"
+#import "VideoViewController.h"
 
-@interface VideoRankViewController()<UIGestureRecognizerDelegate,UIScrollViewDelegate>
+@interface VideoRankViewController()<UIGestureRecognizerDelegate,UIScrollViewDelegate,UICollectionViewDelegate>
 
 @end
 
@@ -85,6 +86,12 @@
     }
     return YES;
 }
+#pragma UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+     [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:videoRankViews[collectionView.tag].model.videoRanking[indexPath.row].aid] animated:YES];
+}
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView; {
     titleTabBar.contentOffset = scrollView.contentOffset.x / scrollView.width;
@@ -117,7 +124,9 @@
     for (int i = 0; i < titleArr.count; i++) {
         VideoRankCollectionView* view = [[VideoRankCollectionView alloc] initWithTitle:titleArr[i]];
         view.frame = CGRectMake(videoRankScrollView.width*i, 0, videoRankScrollView.width, videoRankScrollView.height);
-        //view.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
+        view.backgroundColor = ColorWhite(243);
+        view.tag = i;
+        view.delegate = self;
         [videoRankViews addObject:view];
         [videoRankScrollView addSubview:view];
     }

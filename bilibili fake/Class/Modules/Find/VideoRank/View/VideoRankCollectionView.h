@@ -7,11 +7,13 @@
 //
 
 #import "RefreshCollectionView.h"
-
+#import "VideoRankModel.h"
 @interface VideoRankCollectionView : RefreshCollectionView
 
 -(instancetype)initWithTitle:(NSString*)title;
 
 @property(nonatomic,strong,readonly)NSString* title;
+
+@property(nonatomic,strong,readonly)VideoRankModel* model;
 
 @end
