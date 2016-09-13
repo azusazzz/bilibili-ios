@@ -13,6 +13,8 @@
 #import "Macro.h"
 #import "Masonry.h"
 #import "UIView+CornerRadius.h"
+#import "ScrollTabBarController.h"
+
 
 #import "HotWorkView.h"
 #import "FindCollectionView.h"
@@ -94,6 +96,9 @@
     }];
     searchTextField.delegate = self;
     findCollectionView.delegate = self;
+    
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [self.view addGestureRecognizer:panGestureRecognizer];
 }
 #pragma Actions
 -(void)openHotWorkView{
@@ -102,6 +107,13 @@
 
 -(void)openQRcodeViewController{
     [self.navigationController pushViewController:[[QRCodeViewController alloc] init] animated:YES];
+}
+#pragma mark - GestureRecognizer
+
+- (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
+    ScrollTabBarController *tabbar = (ScrollTabBarController *)self.tabBarController;
+    [tabbar handlePanGesture:panGestureRecognizer];
+    
 }
 #pragma UITextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
