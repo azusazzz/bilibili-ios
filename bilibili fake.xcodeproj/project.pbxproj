@@ -292,6 +292,7 @@
 		FCBD20481D3FE91800A756F3 /* bilibili_splash_iphone_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBD20201D3FE91800A756F3 /* bilibili_splash_iphone_bg.png */; };
 		FCBD20491D3FE91800A756F3 /* bilibili_splash_iphone_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBD20211D3FE91800A756F3 /* bilibili_splash_iphone_bg@2x.png */; };
 		FCBD204A1D3FE91800A756F3 /* bilibili_splash_iphone_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBD20221D3FE91800A756F3 /* bilibili_splash_iphone_bg@3x.png */; };
+		FCD8A3B41D88442F00B55086 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD8A3B31D88442F00B55086 /* UserInfoViewController.m */; };
 		FCF131B81D5B366600790DC6 /* UIStyleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF131B71D5B366600790DC6 /* UIStyleMacro.m */; };
 		FCF131BE1D5C1CA700790DC6 /* UIColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF131BD1D5C1CA700790DC6 /* UIColor+String.m */; };
 		FCFA05461D2FAFE0004A1742 /* GLIRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFA05411D2FAFE0004A1742 /* GLIRViewController.m */; };
@@ -863,6 +864,8 @@
 		FCBD20201D3FE91800A756F3 /* bilibili_splash_iphone_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bilibili_splash_iphone_bg.png; sourceTree = "<group>"; };
 		FCBD20211D3FE91800A756F3 /* bilibili_splash_iphone_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bilibili_splash_iphone_bg@2x.png"; sourceTree = "<group>"; };
 		FCBD20221D3FE91800A756F3 /* bilibili_splash_iphone_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bilibili_splash_iphone_bg@3x.png"; sourceTree = "<group>"; };
+		FCD8A3B21D88442F00B55086 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoViewController.h; path = UserInfo/Controller/UserInfoViewController.h; sourceTree = "<group>"; };
+		FCD8A3B31D88442F00B55086 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoViewController.m; path = UserInfo/Controller/UserInfoViewController.m; sourceTree = "<group>"; };
 		FCF131B61D5B366600790DC6 /* UIStyleMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStyleMacro.h; sourceTree = "<group>"; };
 		FCF131B71D5B366600790DC6 /* UIStyleMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStyleMacro.m; sourceTree = "<group>"; };
 		FCF131BC1D5C1CA700790DC6 /* UIColor+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+String.h"; path = "UIColor/UIColor+String.h"; sourceTree = "<group>"; };
@@ -1965,6 +1968,7 @@
 				6E215CE61D4B61B00004CA5B /* Mine */,
 				6E575C791D40713F007BCD73 /* Video */,
 				6E9CA2FF1D6F01DD004B2C86 /* URL */,
+				FCD8A3B01D8843D500B55086 /* UserInfo */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -3054,6 +3058,23 @@
 			path = "启动页";
 			sourceTree = "<group>";
 		};
+		FCD8A3B01D8843D500B55086 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				FCD8A3B11D8843F200B55086 /* Controller */,
+			);
+			name = UserInfo;
+			sourceTree = "<group>";
+		};
+		FCD8A3B11D8843F200B55086 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FCD8A3B21D88442F00B55086 /* UserInfoViewController.h */,
+				FCD8A3B31D88442F00B55086 /* UserInfoViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		FCF131BA1D5C1C4500790DC6 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -3528,6 +3549,7 @@
 				6EB450301D51FD0000A4F626 /* NSString+MD5.m in Sources */,
 				6E4836771D410818004AD1A4 /* MediaPlayerProgressView.m in Sources */,
 				FC5138EE1D87CF46006FC8E3 /* RankingVideoEntity.m in Sources */,
+				FCD8A3B41D88442F00B55086 /* UserInfoViewController.m in Sources */,
 				FC5139211D87DB49006FC8E3 /* TopicCenterRequest.m in Sources */,
 				FC5138ED1D87CF46006FC8E3 /* VideoRankViewController.m in Sources */,
 				6E5976121D5B174D00D520E0 /* DanmakuRequest.m in Sources */,

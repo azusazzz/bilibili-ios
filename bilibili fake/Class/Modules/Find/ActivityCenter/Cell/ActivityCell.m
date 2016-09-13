@@ -14,6 +14,7 @@
 
 @implementation ActivityCell{
     UIImageView* coverImageView;
+    UIImageView* stateImageView;
     UILabel* titleLabel;
 }
 +(CGFloat)height{
@@ -22,11 +23,18 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.layer.cornerRadius = 5.0;
+        self.layer.cornerRadius = 7.0;
         self.backgroundColor = ColorWhite(255);
         self.layer.masksToBounds = YES;
         
         coverImageView = ({
+            UIImageView* view = [[UIImageView alloc] init];
+            view.layer.masksToBounds = YES;
+            [self addSubview:view];
+            view;
+        });
+        
+        stateImageView = ({
             UIImageView* view = [[UIImageView alloc] init];
             view.layer.masksToBounds = YES;
             [self addSubview:view];
@@ -47,6 +55,13 @@
             make.bottom.equalTo(self).offset(-40);
         }];
         
+        [stateImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self);
+            make.right.equalTo(self).offset(-15);
+            make.size.mas_equalTo(CGSizeMake(50, 25));
+        }];
+        
+        
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self);
             make.width.equalTo(self.mas_width).offset(-20);
@@ -60,6 +75,18 @@
 -(void)setEntity:(ActivityEntity *)entity{
     _entity = entity;
     [coverImageView sd_setImageWithURL:[NSURL URLWithString:entity.cover]];
+    switch (_entity.state) {
+        case 0:
+            stateImageView.image = [UIImage imageNamed:@"discovery_activity_running"];
+            break;
+        case 1:
+            stateImageView.image = [UIImage imageNamed:@"discovery_activity_end"];
+            break;
+        default:
+            stateImageView.image = [UIImage imageNamed:@"discovery_activity_unstart"];
+            break;
+    }
+    
     titleLabel.text = entity.title;
 }
 

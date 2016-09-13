@@ -33,7 +33,7 @@
         self.showsVerticalScrollIndicator = NO;
         [self registerClass:[FindCell class] forCellWithReuseIdentifier:NSStringFromClass([FindCell class])];
         [self registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([UICollectionReusableView class])];
-        dataArr = @[@[@{@"title":@"兴趣圈",@"icon":@"discovery_circle_ico"},@{@"title":@"话题中心",@"icon":@"discovery_circle_ico"},@{@"title":@"活动中心",@"icon":@"discovery_circle_ico"}],
+        dataArr = @[@[@{@"title":@"兴趣圈",@"icon":@"discovery_circle_ico"},@{@"title":@"话题中心",@"icon":@"discovery_topicCenter"},@{@"title":@"活动中心",@"icon":@"home_recommend_activity"}],
                     @[@{@"title":@"原创排行榜",@"icon":@"discovery_rankOriginal_ico"},@{@"title":@"全区排行榜",@"icon":@"discovery_rankAll_ico"}],
                     @[@{@"title":@"游戏中心",@"icon":@"discovery_game_ico"}]];
     

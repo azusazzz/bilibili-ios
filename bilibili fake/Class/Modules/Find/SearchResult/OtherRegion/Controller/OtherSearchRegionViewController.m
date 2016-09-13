@@ -14,6 +14,7 @@
 #import "UPUserSummaryCell.h"
 #import "MovieSummaryCell.h"
 #import "SpecialSummaryCell.h"
+#import "UserInfoViewController.h"
 
 @interface OtherSearchRegionViewController()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -66,6 +67,7 @@
            // [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:[((SeasonSummaryEntity*)model.searchResultArr[indexPath.row]).param integerValue]] animated:YES];
             break;
         case 2:
+            [self.navigationController pushViewController:[[UserInfoViewController alloc] initWithUid:[((UPUserSummaryEntity*)model.searchResultArr[indexPath.row]).param integerValue]] animated:YES];
             break;
         case 3:
             break;

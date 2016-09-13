@@ -128,12 +128,6 @@
 }
 
 
-- (void)collectionViewRefreshing:(__kindof RefreshCollectionView *)collectionView {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        collectionView.refreshing = NO;
-    });
-}
-
 #pragma loadSubviews
 -(void)loadSubviews{
     topicCollectionView = ({

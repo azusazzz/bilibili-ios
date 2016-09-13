@@ -22,6 +22,8 @@
 
 @property(nonatomic,strong)NSString* uri;
 
+@property(nonatomic,strong)NSString* param;//uid
+
 @end
 /*
  {

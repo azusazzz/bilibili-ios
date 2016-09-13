@@ -16,7 +16,7 @@
 
 @property(nonatomic,strong)NSString* link;
 
-@property(nonatomic)NSInteger state;//0进行中 1已结束
+@property(nonatomic)NSInteger state;//0进行中 1已结束 准备中：不详
 
 @end
 /*

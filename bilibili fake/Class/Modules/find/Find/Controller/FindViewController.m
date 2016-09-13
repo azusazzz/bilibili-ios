@@ -117,7 +117,7 @@
 }
 #pragma UITextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    [self.navigationController pushViewController:[[SearchPromptsViewController alloc] init] animated:NO];
+    [self.navigationController pushViewController:[[SearchPromptsViewController alloc] initWithKeyword:@""] animated:NO];
     return NO;
 }
 #pragma UICollectionViewDelegate
