@@ -1,5 +1,5 @@
 //
-//  UserInfoHeaderReusableView.h
+//  UserInfoCardView.h
 //  bilibili fake
 //
 //  Created by cxh on 16/9/14.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UserInfoCardEntity.h"
 
-@interface UserInfoHeaderReusableView : UICollectionReusableView
+@interface UserInfoCardView : UIView
 
 +(CGFloat)height;
 

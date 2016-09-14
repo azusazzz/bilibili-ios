@@ -15,17 +15,20 @@
 #import "UIView+Frame.h"
 
 
-#import "UserInfoHeaderReusableView.h"
+#import "UserInfoCardView.h"
 #import "UserInfoModel.h"
 
-@interface UserInfoViewController()<UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface UserInfoViewController()<UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
 
 @end
 
 @implementation UserInfoViewController{
     UIImageView* backgroundImageView;
-    UICollectionView* userInfoCollectionView;
+    UIScrollView* userInfoScrollView;
+    UserInfoCardView* userInfoCardView;
+    
+    
     UserInfoModel * model;
 }
 
@@ -63,7 +66,7 @@
 -(void)loadData{
     [model getCardEntityWithSuccess:^{
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-           [userInfoCollectionView reloadData];
+            userInfoCardView.entity = model.cardEntity;
         }];
     } failure:^(NSString *errorMsg) {
         NSLog(@"%@",errorMsg);
@@ -79,7 +82,7 @@
     return YES;
 }
 
-#pragma UICollectionViewDelegate
+#pragma UIScrollViewDelegate
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     //底部加载更多
@@ -90,58 +93,7 @@
     }];
     self.navigationBar.alpha = scrollView.contentOffset.y/64.0;
 }
-#pragma mark ---- UICollectionViewDataSource
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
-
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return 20;
-}
-
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
-    cell.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
-    return cell;
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    if([kind isEqualToString:UICollectionElementKindSectionHeader])
-    {
-        if (indexPath.section == 0) {
-            UserInfoHeaderReusableView* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"UserInfoHeaderReusableView" forIndexPath:indexPath];
-            cell.entity = model.cardEntity;
-            return cell;
-        }
-        
-
-    }
-    return nil;
-}
-//size
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(collectionView.width, 60);
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            return CGSizeMake(collectionView.width, [UserInfoHeaderReusableView height]);
-            break;
-            
-        default:
-            break;
-    }
-    return CGSizeZero;
-}
 
 #pragma loadSubviews
 
@@ -157,47 +109,42 @@
     });
     
 
-    userInfoCollectionView = ({
-        UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.minimumLineSpacing = 10;
-        //layout.headerReferenceSize = CGSizeZero;
-        layout.footerReferenceSize = CGSizeZero;
-        layout.sectionInset = UIEdgeInsetsMake(10, 10, 20, 10);
-        
-        UICollectionView* col =  [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-        col.delegate = self;
-        col.dataSource = self;
-        col.backgroundColor = ColorWhiteAlpha(243, 0);
-//        UIView* view = [[UIView alloc] init];
-//        view.backgroundColor = ColorWhite(200);
-//        col.backgroundView = view;
-        //col.layer.cornerRadius = 5.0;
-        
-        col.showsVerticalScrollIndicator = NO;
-        [col registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
-        
-        [col registerClass:[UserInfoHeaderReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([UserInfoHeaderReusableView class])];
+    userInfoScrollView = ({
+        UIScrollView* src =  [[UIScrollView alloc] initWithFrame:self.view.bounds];
+        src.delegate = self;
+        src.contentSize = CGSizeMake(SSize.width, 1000);
+        src.backgroundColor = ColorWhiteAlpha(243, 0);
         self.automaticallyAdjustsScrollViewInsets = NO;
-        [self.view addSubview:col];
-        col;
+        [self.view addSubview:src];
+        src;
     });
+    
+    userInfoCardView = [[UserInfoCardView alloc] init];
+    [userInfoScrollView addSubview:userInfoCardView];
     
     
     //layout
-    [userInfoCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(0);
-        make.bottom.equalTo(self.view.mas_bottom).offset(0);
-        make.left.right.equalTo(self.view);
-    }];
-    
-  
-    
-    
     [backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.centerX.equalTo(self.view);
         make.width.equalTo(self.view);
         make.height.equalTo(backgroundImageView.mas_width).multipliedBy(0.57);
     }];
+    
+//    [userInfoScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.view).offset(0);
+//        make.bottom.equalTo(self.view.mas_bottom).offset(0);
+//        make.left.right.equalTo(self.view);
+//    }];
+//
+  
+    [userInfoCardView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(userInfoScrollView);
+        make.left.equalTo(userInfoScrollView);
+        make.height.equalTo(@([UserInfoCardView height])).priorityLow();
+        make.width.equalTo(@(SSize.width));
+    }];
+    
+    
 
 }
 

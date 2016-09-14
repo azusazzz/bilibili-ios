@@ -246,7 +246,7 @@
 		FC51392C1D87DC34006FC8E3 /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC51392B1D87DC34006FC8E3 /* ActivityCell.m */; };
 		FC5139301D87DEE3006FC8E3 /* TopicCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC51392F1D87DEE3006FC8E3 /* TopicCenterModel.m */; };
 		FC5139341D87EBA4006FC8E3 /* ActivityCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139331D87EBA4006FC8E3 /* ActivityCenterModel.m */; };
-		FC51393D1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC51393C1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m */; };
+		FC51393D1D8924D4006FC8E3 /* UserInfoCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC51393C1D8924D4006FC8E3 /* UserInfoCardView.m */; };
 		FC5139411D894D85006FC8E3 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139401D894D85006FC8E3 /* UserInfoModel.m */; };
 		FC5139451D894E38006FC8E3 /* UserInfoCardEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139441D894E38006FC8E3 /* UserInfoCardEntity.m */; };
 		FC5139491D8955EE006FC8E3 /* UserInfoCardRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139481D8955EE006FC8E3 /* UserInfoCardRequest.m */; };
@@ -817,8 +817,8 @@
 		FC51392F1D87DEE3006FC8E3 /* TopicCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicCenterModel.m; path = TopicCenter/Model/TopicCenterModel.m; sourceTree = "<group>"; };
 		FC5139321D87EBA4006FC8E3 /* ActivityCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityCenterModel.h; path = ActivityCenter/Model/ActivityCenterModel.h; sourceTree = "<group>"; };
 		FC5139331D87EBA4006FC8E3 /* ActivityCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityCenterModel.m; path = ActivityCenter/Model/ActivityCenterModel.m; sourceTree = "<group>"; };
-		FC51393B1D8924D4006FC8E3 /* UserInfoHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoHeaderReusableView.h; path = UserInfo/View/UserInfoHeaderReusableView.h; sourceTree = "<group>"; };
-		FC51393C1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoHeaderReusableView.m; path = UserInfo/View/UserInfoHeaderReusableView.m; sourceTree = "<group>"; };
+		FC51393B1D8924D4006FC8E3 /* UserInfoCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoCardView.h; path = UserInfo/View/UserInfoCardView.h; sourceTree = "<group>"; };
+		FC51393C1D8924D4006FC8E3 /* UserInfoCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCardView.m; path = UserInfo/View/UserInfoCardView.m; sourceTree = "<group>"; };
 		FC51393F1D894D85006FC8E3 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoModel.h; path = UserInfo/Model/UserInfoModel.h; sourceTree = "<group>"; };
 		FC5139401D894D85006FC8E3 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoModel.m; path = UserInfo/Model/UserInfoModel.m; sourceTree = "<group>"; };
 		FC5139431D894E38006FC8E3 /* UserInfoCardEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoCardEntity.h; path = UserInfo/Entity/UserInfoCardEntity.h; sourceTree = "<group>"; };
@@ -2863,8 +2863,8 @@
 		FC51393A1D89236E006FC8E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FC51393B1D8924D4006FC8E3 /* UserInfoHeaderReusableView.h */,
-				FC51393C1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m */,
+				FC51393B1D8924D4006FC8E3 /* UserInfoCardView.h */,
+				FC51393C1D8924D4006FC8E3 /* UserInfoCardView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3436,7 +3436,7 @@
 				6EC9A48B1D7EE49900B5F0BA /* URLRouterConfig.m in Sources */,
 				6E5FE9061D596D8400459BF4 /* BangumiLatestUpdateCollectionViewCell.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
-				FC51393D1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m in Sources */,
+				FC51393D1D8924D4006FC8E3 /* UserInfoCardView.m in Sources */,
 				6E4E039B1D71391400C669E6 /* NSObject+Runtime.m in Sources */,
 				6E7E46E31D587A1B0027AE8D /* BangumiListRequest.m in Sources */,
 				6E199CD71D673889003E06F6 /* DownloadVideoCollectionViewCell.m in Sources */,
