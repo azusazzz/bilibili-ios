@@ -7,12 +7,16 @@
 //
 
 #import "UserInfoViewController.h"
+
 #import "Macro.h"
 #import <Masonry.h>
 #import "UIViewController+PopGesture.h"
 #import "UIViewController+HeaderView.h"
 #import "UIView+Frame.h"
+
+
 #import "UserInfoHeaderReusableView.h"
+#import "UserInfoModel.h"
 
 @interface UserInfoViewController()<UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -22,11 +26,13 @@
 @implementation UserInfoViewController{
     UIImageView* backgroundImageView;
     UICollectionView* userInfoCollectionView;
+    UserInfoModel * model;
 }
 
--(instancetype)initWithUid:(NSInteger)uid{
+-(instancetype)initWithMid:(NSInteger)mid{
     if (self = [super init]) {
         self.title = @"用户名字";
+        model = [[UserInfoModel alloc] initWithMid:mid];
     }
     return self;
 }
@@ -37,7 +43,7 @@
     
     [self loadSubviews];
     [self loadActions];
-   
+    [self loadData];
     [self.navigationBar mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.offset = 0;
         make.right.offset = 0;
@@ -54,7 +60,16 @@
     [self.view addGestureRecognizer:panGestureRecognizer];
     [self replacingPopGestureRecognizer:panGestureRecognizer];
 }
+-(void)loadData{
+    [model getCardEntityWithSuccess:^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+           [userInfoCollectionView reloadData];
+        }];
+    } failure:^(NSString *errorMsg) {
+        NSLog(@"%@",errorMsg);
+    }];
 
+}
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
     CGPoint translation = [gestureRecognizer translationInView:self.view];
@@ -101,14 +116,13 @@
     
     if([kind isEqualToString:UICollectionElementKindSectionHeader])
     {
-        switch (indexPath.section) {
-            case 0:
-                return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"UserInfoHeaderReusableView" forIndexPath:indexPath];
-                break;
-                
-            default:
-                break;
+        if (indexPath.section == 0) {
+            UserInfoHeaderReusableView* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"UserInfoHeaderReusableView" forIndexPath:indexPath];
+            cell.entity = model.cardEntity;
+            return cell;
         }
+        
+
     }
     return nil;
 }

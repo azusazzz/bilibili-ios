@@ -247,6 +247,9 @@
 		FC5139301D87DEE3006FC8E3 /* TopicCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC51392F1D87DEE3006FC8E3 /* TopicCenterModel.m */; };
 		FC5139341D87EBA4006FC8E3 /* ActivityCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139331D87EBA4006FC8E3 /* ActivityCenterModel.m */; };
 		FC51393D1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC51393C1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m */; };
+		FC5139411D894D85006FC8E3 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139401D894D85006FC8E3 /* UserInfoModel.m */; };
+		FC5139451D894E38006FC8E3 /* UserInfoCardEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139441D894E38006FC8E3 /* UserInfoCardEntity.m */; };
+		FC5139491D8955EE006FC8E3 /* UserInfoCardRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139481D8955EE006FC8E3 /* UserInfoCardRequest.m */; };
 		FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */; };
 		FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C081D6197F500993327 /* UIStyleSelectionVC.m */; };
 		FC749C0E1D61B2B200993327 /* UIStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C0D1D61B2B200993327 /* UIStyleCell.m */; };
@@ -816,6 +819,12 @@
 		FC5139331D87EBA4006FC8E3 /* ActivityCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityCenterModel.m; path = ActivityCenter/Model/ActivityCenterModel.m; sourceTree = "<group>"; };
 		FC51393B1D8924D4006FC8E3 /* UserInfoHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoHeaderReusableView.h; path = UserInfo/View/UserInfoHeaderReusableView.h; sourceTree = "<group>"; };
 		FC51393C1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoHeaderReusableView.m; path = UserInfo/View/UserInfoHeaderReusableView.m; sourceTree = "<group>"; };
+		FC51393F1D894D85006FC8E3 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoModel.h; path = UserInfo/Model/UserInfoModel.h; sourceTree = "<group>"; };
+		FC5139401D894D85006FC8E3 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoModel.m; path = UserInfo/Model/UserInfoModel.m; sourceTree = "<group>"; };
+		FC5139431D894E38006FC8E3 /* UserInfoCardEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoCardEntity.h; path = UserInfo/Entity/UserInfoCardEntity.h; sourceTree = "<group>"; };
+		FC5139441D894E38006FC8E3 /* UserInfoCardEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCardEntity.m; path = UserInfo/Entity/UserInfoCardEntity.m; sourceTree = "<group>"; };
+		FC5139471D8955EE006FC8E3 /* UserInfoCardRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoCardRequest.h; path = UserInfo/Request/UserInfoCardRequest.h; sourceTree = "<group>"; };
+		FC5139481D8955EE006FC8E3 /* UserInfoCardRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCardRequest.m; path = UserInfo/Request/UserInfoCardRequest.m; sourceTree = "<group>"; };
 		FC6A427F1D4925530058A1FA /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
 		FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadius.m"; sourceTree = "<group>"; };
 		FC749C071D6197F500993327 /* UIStyleSelectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIStyleSelectionVC.h; path = Style/Controller/UIStyleSelectionVC.h; sourceTree = "<group>"; };
@@ -2860,6 +2869,33 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		FC51393E1D893B63006FC8E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC51393F1D894D85006FC8E3 /* UserInfoModel.h */,
+				FC5139401D894D85006FC8E3 /* UserInfoModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FC5139421D894DE7006FC8E3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FC5139431D894E38006FC8E3 /* UserInfoCardEntity.h */,
+				FC5139441D894E38006FC8E3 /* UserInfoCardEntity.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		FC5139461D89559B006FC8E3 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				FC5139471D8955EE006FC8E3 /* UserInfoCardRequest.h */,
+				FC5139481D8955EE006FC8E3 /* UserInfoCardRequest.m */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
 		FC749C031D61970B00993327 /* Style */ = {
 			isa = PBXGroup;
 			children = (
@@ -3073,6 +3109,9 @@
 		FCD8A3B01D8843D500B55086 /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				FC5139461D89559B006FC8E3 /* Request */,
+				FC5139421D894DE7006FC8E3 /* Entity */,
+				FC51393E1D893B63006FC8E3 /* Model */,
 				FC51393A1D89236E006FC8E3 /* View */,
 				FCD8A3B11D8843F200B55086 /* Controller */,
 			);
@@ -3493,11 +3532,13 @@
 				6ED9D4CF1D6C22C1004E2557 /* VideoURL.m in Sources */,
 				6E5FB19F1D5590F400984DC6 /* LiveCollectionView.m in Sources */,
 				FC5138E11D87CF46006FC8E3 /* SearchResultViewController.m in Sources */,
+				FC5139491D8955EE006FC8E3 /* UserInfoCardRequest.m in Sources */,
 				FC5139241D87DB65006FC8E3 /* ActivityCenterRequest.m in Sources */,
 				6E2377431D53106400102550 /* HistoryModel.m in Sources */,
 				6E58B2351D72A8D2002714FD /* RegionListModel.m in Sources */,
 				6E5FB1A81D5591A100984DC6 /* LivePartitionsFooterView.m in Sources */,
 				6E199CF21D67A592003E06F6 /* DownloadVideoPageCollectionViewCell.m in Sources */,
+				FC5139411D894D85006FC8E3 /* UserInfoModel.m in Sources */,
 				FC5138C71D87CF46006FC8E3 /* HotWorkListEntity.m in Sources */,
 				FCF131BE1D5C1CA700790DC6 /* UIColor+String.m in Sources */,
 				6E7E46FB1D58AFE90027AE8D /* BangumiEntranceHeaderView.m in Sources */,
@@ -3548,6 +3589,7 @@
 				FC5139301D87DEE3006FC8E3 /* TopicCenterModel.m in Sources */,
 				6E199CDD1D673F8D003E06F6 /* DownloadVideoModel.m in Sources */,
 				FC5138CF1D87CF46006FC8E3 /* GameListEntity.m in Sources */,
+				FC5139451D894E38006FC8E3 /* UserInfoCardEntity.m in Sources */,
 				FC5138DB1D87CF46006FC8E3 /* SelectionView.m in Sources */,
 				6E885B971D4AEBB200A3BA35 /* JCTagListView.m in Sources */,
 				6EB5529E1D548D64001099C1 /* RecommendLiveCollectionViewCell.m in Sources */,

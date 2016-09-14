@@ -8,8 +8,12 @@
 
 #import "UserInfoHeaderReusableView.h"
 #import "UIView+Frame.h"
+#import <UIImageView+WebCache.h>
 
-@implementation UserInfoHeaderReusableView
+@implementation UserInfoHeaderReusableView{
+    UIImageView* faceImageView;
+
+}
 
 +(CGFloat)height{
     return 270;
@@ -17,6 +21,18 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     if ([super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
+        
+        faceImageView = ({
+            UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(20, 70, 100, 100)];
+            [self addSubview:view];
+            view;
+        });
+        
+        //layout
+//        [faceImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.center.mas_equalTo(CGPointMake(70 , 120));
+//            make.size.mas_equalTo(CGSizeMake(96, 96));
+//        }];
     }
     return self;
 }
@@ -28,5 +44,14 @@
     [ColorWhite(255) setFill];
     [rectPath fill];
 }
+
+-(void)setEntity:(UserInfoCardEntity *)entity{
+    if (entity) {
+        _entity = entity;
+        [faceImageView sd_setImageWithURL:[NSURL URLWithString:entity.face]];
+    }
+
+}
+
 
 @end

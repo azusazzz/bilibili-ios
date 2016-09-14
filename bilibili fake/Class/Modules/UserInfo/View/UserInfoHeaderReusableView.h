@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfoCardEntity.h"
 
 @interface UserInfoHeaderReusableView : UICollectionReusableView
 
 +(CGFloat)height;
+
+@property(nonatomic,strong)UserInfoCardEntity* entity;
 
 @end

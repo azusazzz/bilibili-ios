@@ -67,7 +67,7 @@
            // [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:[((SeasonSummaryEntity*)model.searchResultArr[indexPath.row]).param integerValue]] animated:YES];
             break;
         case 2:
-            [self.navigationController pushViewController:[[UserInfoViewController alloc] initWithUid:[((UPUserSummaryEntity*)model.searchResultArr[indexPath.row]).param integerValue]] animated:YES];
+            [self.navigationController pushViewController:[[UserInfoViewController alloc] initWithMid:[((UPUserSummaryEntity*)model.searchResultArr[indexPath.row]).param integerValue]] animated:YES];
             break;
         case 3:
             break;

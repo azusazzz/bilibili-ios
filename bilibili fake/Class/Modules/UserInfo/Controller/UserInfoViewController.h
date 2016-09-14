@@ -10,6 +10,6 @@
 
 @interface UserInfoViewController : UIViewController
 
--(instancetype)initWithUid:(NSInteger)uid;
+-(instancetype)initWithMid:(NSInteger)Mid;
 
 @end
