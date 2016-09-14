@@ -246,6 +246,7 @@
 		FC51392C1D87DC34006FC8E3 /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC51392B1D87DC34006FC8E3 /* ActivityCell.m */; };
 		FC5139301D87DEE3006FC8E3 /* TopicCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC51392F1D87DEE3006FC8E3 /* TopicCenterModel.m */; };
 		FC5139341D87EBA4006FC8E3 /* ActivityCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139331D87EBA4006FC8E3 /* ActivityCenterModel.m */; };
+		FC51393D1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC51393C1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m */; };
 		FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */; };
 		FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C081D6197F500993327 /* UIStyleSelectionVC.m */; };
 		FC749C0E1D61B2B200993327 /* UIStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C0D1D61B2B200993327 /* UIStyleCell.m */; };
@@ -813,6 +814,8 @@
 		FC51392F1D87DEE3006FC8E3 /* TopicCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicCenterModel.m; path = TopicCenter/Model/TopicCenterModel.m; sourceTree = "<group>"; };
 		FC5139321D87EBA4006FC8E3 /* ActivityCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityCenterModel.h; path = ActivityCenter/Model/ActivityCenterModel.h; sourceTree = "<group>"; };
 		FC5139331D87EBA4006FC8E3 /* ActivityCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityCenterModel.m; path = ActivityCenter/Model/ActivityCenterModel.m; sourceTree = "<group>"; };
+		FC51393B1D8924D4006FC8E3 /* UserInfoHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoHeaderReusableView.h; path = UserInfo/View/UserInfoHeaderReusableView.h; sourceTree = "<group>"; };
+		FC51393C1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoHeaderReusableView.m; path = UserInfo/View/UserInfoHeaderReusableView.m; sourceTree = "<group>"; };
 		FC6A427F1D4925530058A1FA /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
 		FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadius.m"; sourceTree = "<group>"; };
 		FC749C071D6197F500993327 /* UIStyleSelectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIStyleSelectionVC.h; path = Style/Controller/UIStyleSelectionVC.h; sourceTree = "<group>"; };
@@ -2848,6 +2851,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		FC51393A1D89236E006FC8E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC51393B1D8924D4006FC8E3 /* UserInfoHeaderReusableView.h */,
+				FC51393C1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		FC749C031D61970B00993327 /* Style */ = {
 			isa = PBXGroup;
 			children = (
@@ -3061,6 +3073,7 @@
 		FCD8A3B01D8843D500B55086 /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				FC51393A1D89236E006FC8E3 /* View */,
 				FCD8A3B11D8843F200B55086 /* Controller */,
 			);
 			name = UserInfo;
@@ -3384,6 +3397,7 @@
 				6EC9A48B1D7EE49900B5F0BA /* URLRouterConfig.m in Sources */,
 				6E5FE9061D596D8400459BF4 /* BangumiLatestUpdateCollectionViewCell.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
+				FC51393D1D8924D4006FC8E3 /* UserInfoHeaderReusableView.m in Sources */,
 				6E4E039B1D71391400C669E6 /* NSObject+Runtime.m in Sources */,
 				6E7E46E31D587A1B0027AE8D /* BangumiListRequest.m in Sources */,
 				6E199CD71D673889003E06F6 /* DownloadVideoCollectionViewCell.m in Sources */,
