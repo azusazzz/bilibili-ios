@@ -36,6 +36,7 @@
     if (self = [super init]) {
         self.title = @"用户名字";
         model = [[UserInfoModel alloc] initWithMid:mid];
+        self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }
@@ -122,7 +123,10 @@
     userInfoCardView = [[UserInfoCardView alloc] init];
     [userInfoScrollView addSubview:userInfoCardView];
     
-    
+    UIImageView* scrollBgview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"userInfoBg.jpg"]];
+    scrollBgview.backgroundColor = ColorWhite(243);
+    [userInfoScrollView addSubview:scrollBgview];
+  
     //layout
     [backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.centerX.equalTo(self.view);
@@ -130,12 +134,6 @@
         make.height.equalTo(backgroundImageView.mas_width).multipliedBy(0.57);
     }];
     
-//    [userInfoScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.view).offset(0);
-//        make.bottom.equalTo(self.view.mas_bottom).offset(0);
-//        make.left.right.equalTo(self.view);
-//    }];
-//
   
     [userInfoCardView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(userInfoScrollView);
@@ -144,7 +142,20 @@
         make.width.equalTo(@(SSize.width));
     }];
     
+    [scrollBgview mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(userInfoCardView.mas_bottom);
+        make.left.right.equalTo(userInfoCardView);
+        make.height.equalTo(scrollBgview.mas_width).multipliedBy(1.7);
+    }];
+
     
+    [userInfoScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(0);
+        make.bottom.equalTo(self.view.mas_bottom).offset(0);
+        make.left.right.equalTo(self.view);
+        make.bottom.equalTo(scrollBgview.mas_bottom);
+    }];
+
 
 }
 

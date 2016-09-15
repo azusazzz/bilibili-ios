@@ -250,6 +250,7 @@
 		FC5139411D894D85006FC8E3 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139401D894D85006FC8E3 /* UserInfoModel.m */; };
 		FC5139451D894E38006FC8E3 /* UserInfoCardEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139441D894E38006FC8E3 /* UserInfoCardEntity.m */; };
 		FC5139491D8955EE006FC8E3 /* UserInfoCardRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139481D8955EE006FC8E3 /* UserInfoCardRequest.m */; };
+		FC6553521D8B3817001B626C /* userInfoBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC6553511D8B3817001B626C /* userInfoBg.jpg */; };
 		FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */; };
 		FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C081D6197F500993327 /* UIStyleSelectionVC.m */; };
 		FC749C0E1D61B2B200993327 /* UIStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C0D1D61B2B200993327 /* UIStyleCell.m */; };
@@ -303,7 +304,6 @@
 		FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFA05431D2FAFE0004A1742 /* RippleModel.m */; };
 		FCFA05481D2FAFE0004A1742 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FCFA05441D2FAFE0004A1742 /* Shader.fsh */; };
 		FCFA05491D2FAFE0004A1742 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FCFA05451D2FAFE0004A1742 /* Shader.vsh */; };
-		FCFA054B1D2FB01A004A1742 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCFA054A1D2FB01A004A1742 /* bg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -825,6 +825,7 @@
 		FC5139441D894E38006FC8E3 /* UserInfoCardEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCardEntity.m; path = UserInfo/Entity/UserInfoCardEntity.m; sourceTree = "<group>"; };
 		FC5139471D8955EE006FC8E3 /* UserInfoCardRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoCardRequest.h; path = UserInfo/Request/UserInfoCardRequest.h; sourceTree = "<group>"; };
 		FC5139481D8955EE006FC8E3 /* UserInfoCardRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCardRequest.m; path = UserInfo/Request/UserInfoCardRequest.m; sourceTree = "<group>"; };
+		FC6553511D8B3817001B626C /* userInfoBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userInfoBg.jpg; sourceTree = "<group>"; };
 		FC6A427F1D4925530058A1FA /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
 		FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadius.m"; sourceTree = "<group>"; };
 		FC749C071D6197F500993327 /* UIStyleSelectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIStyleSelectionVC.h; path = Style/Controller/UIStyleSelectionVC.h; sourceTree = "<group>"; };
@@ -888,7 +889,6 @@
 		FCFA05431D2FAFE0004A1742 /* RippleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleModel.m; sourceTree = "<group>"; };
 		FCFA05441D2FAFE0004A1742 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		FCFA05451D2FAFE0004A1742 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
-		FCFA054A1D2FB01A004A1742 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2185,8 +2185,8 @@
 				FCBD1FEC1D3FE91800A756F3 /* 发现 */,
 				FCBD1FEE1D3FE91800A756F3 /* 公用的 */,
 				FCBD201D1D3FE91800A756F3 /* 启动页 */,
-				FCFA054A1D2FB01A004A1742 /* bg.jpg */,
 				FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */,
+				FC6553511D8B3817001B626C /* userInfoBg.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -3287,7 +3287,6 @@
 				FCBD203A1D3FE91800A756F3 /* common_pay_loading_7@2x.png in Resources */,
 				FCBD20381D3FE91800A756F3 /* common_pay_loading_6@3x.png in Resources */,
 				FCBD20281D3FE91800A756F3 /* common_pay_loading_1@2x.png in Resources */,
-				FCFA054B1D2FB01A004A1742 /* bg.jpg in Resources */,
 				FCBD20351D3FE91800A756F3 /* common_pay_loading_5@3x.png in Resources */,
 				FCBD20341D3FE91800A756F3 /* common_pay_loading_5@2x.png in Resources */,
 				6EB691F71D12422C000FA482 /* Assets.xcassets in Resources */,
@@ -3299,6 +3298,7 @@
 				FCBD20441D3FE91800A756F3 /* common_loading_error_3.png in Resources */,
 				FCBD203D1D3FE91800A756F3 /* common_pay_loading_8@2x.png in Resources */,
 				FCBD20471D3FE91800A756F3 /* bilibili_splash_default@3x.png in Resources */,
+				FC6553521D8B3817001B626C /* userInfoBg.jpg in Resources */,
 				FCBD20331D3FE91800A756F3 /* common_pay_loading_5.png in Resources */,
 				FCBD203B1D3FE91800A756F3 /* common_pay_loading_7@3x.png in Resources */,
 				FCBD20461D3FE91800A756F3 /* bilibili_splash_default@2x.png in Resources */,

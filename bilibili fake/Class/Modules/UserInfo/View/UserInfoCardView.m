@@ -21,6 +21,10 @@
     UIButton* followCountBtn;
     UIButton* fansCountBtn;
     UILabel* signLabel;
+    
+    UIImageView* levelImageView;
+    UIView* currentExpView;
+    UILabel* currentExpLabel;
 }
 
 +(CGFloat)height{
@@ -77,7 +81,13 @@
         }];
         
         self.height = 220 + [self getSignLabelHeight];
-        
+        //等级
+        levelImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"misc_level_whiteLv%lu",entity.current_level]];
+        NSArray* arr = @[ColorRGB(177, 177, 177),ColorRGB(177, 177, 177),ColorRGB(133, 216, 163),ColorRGB(130, 199, 223),ColorRGB(253, 163, 105),ColorRGB(252, 85, 8),ColorRGB(251, 0, 7),ColorRGB(219, 0, 231),ColorRGB(111, 0, 247),ColorRGB(0, 0, 0)];
+        currentExpView.backgroundColor = arr[entity.current_level];
+        [currentExpView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo( entity.current_exp/entity.next_exp*100);
+        }];
     }
 
 }
@@ -236,6 +246,39 @@
         label;
     });
     
+    //等级
+    levelImageView = ({
+        UIImageView* view = [[UIImageView alloc] init];
+        [self addSubview:view];
+        view;
+    });
+    
+    UIView* currentExpBgView = ({
+        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 10)];
+        UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:view.bounds
+                                                   byRoundingCorners:UIRectCornerTopRight|UIRectCornerBottomRight
+                                                         cornerRadii:CGSizeMake(5, 5)];
+        CAShapeLayer *maskLayer = [CAShapeLayer layer];
+        maskLayer.path = path.CGPath;
+        view.layer.mask = maskLayer;
+        view.layer.masksToBounds =YES;
+        view.backgroundColor = ColorWhite(50);
+        [self addSubview:view];
+        view;
+    });
+    currentExpView = ({
+        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 10)];
+        view.backgroundColor = ColorWhite(50);
+        [currentExpBgView addSubview:view];
+        view;
+    });
+    
+    currentExpView = ({
+        UIView* view = [[UIView alloc] init];
+        [self addSubview:view];
+        view;
+    });
+    
     //layout
     [backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self);
@@ -277,6 +320,23 @@
         make.size.mas_equalTo(CGSizeMake(20, 20));
     }];
     
+    [levelImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(nameLabel);
+        make.left.equalTo(sexImageview.mas_right).offset(5);
+        make.size.mas_equalTo(CGSizeMake(30, 15));
+    }];
+    
+    [currentExpBgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(nameLabel).offset(2);
+        make.left.equalTo(levelImageView.mas_right).offset(-1);
+        make.size.mas_equalTo(CGSizeMake(100, 10));
+    }];
+    
+    [currentExpView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.bottom.equalTo(currentExpBgView);
+        make.width.equalTo(currentExpBgView).priorityLow();
+    }];
+    
     [followCountBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(20);
         make.top.equalTo(nameLabel.mas_bottom).offset(10);
@@ -294,6 +354,8 @@
         make.right.equalTo(self).offset(-20);
         make.top.equalTo(fansCountBtn.mas_bottom).offset(10);
     }];
+    
+
     
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(signLabel).offset(10);

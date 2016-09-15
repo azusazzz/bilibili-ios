@@ -36,8 +36,8 @@
 @property(nonatomic,strong)NSDictionary* level_info;
 @property(nonatomic,readonly)NSInteger current_level;//等级
 @property(nonatomic,readonly)NSInteger current_min;//最少经验
-@property(nonatomic,readonly)NSInteger current_exp;//当前经验
-@property(nonatomic,readonly)NSInteger next_exp;//下一级经验
+@property(nonatomic,readonly)CGFloat current_exp;//当前经验
+@property(nonatomic,readonly)CGFloat next_exp;//下一级经验
 
 @property(nonatomic)NSInteger fans;//粉丝
 @property(nonatomic,strong)NSString* face;//头像

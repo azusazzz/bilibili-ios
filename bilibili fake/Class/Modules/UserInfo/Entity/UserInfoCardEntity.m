@@ -10,6 +10,20 @@
 
 @implementation UserInfoCardEntity
 
+-(NSInteger)current_level{
+    NSInteger i = [[_level_info objectForKey:@"current_level"] integerValue];
+    if (i<0&&i>9)  return 0;
+    return i;
+}
 
+-(CGFloat)current_exp{
+    CGFloat i = [[_level_info objectForKey:@"current_exp"] floatValue];
+    if (i<0)  return 0;
+    return i;
+}
 
+-(CGFloat)next_exp{
+    CGFloat i = [[_level_info objectForKey:@"next_exp"] floatValue];
+    return i<self.current_exp?self.current_exp:i;
+}
 @end
