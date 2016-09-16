@@ -10,16 +10,20 @@
 #import "UIView+Frame.h"
 #import <UIImageView+WebCache.h>
 
-//没详细判断官方帐号之类的。懒得写了。
+
 @implementation UserInfoCardView{
     UIImageView* faceImageView;
     UIButton* privateLetterBtn;
     UIButton* followBtn;
     UILabel* nameLabel;
     UIImageView* sexImageview;
-    //
+    
     UIButton* followCountBtn;
     UIButton* fansCountBtn;
+    
+    UIImageView* approveImageView;
+    UILabel* officialDescLabel;
+    
     UILabel* signLabel;
     
     UIImageView* levelImageView;
@@ -54,7 +58,7 @@
         
         nameLabel.text = entity.name;
         [nameLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@([self getTitleWidth:nameLabel]));
+            make.width.equalTo(@([self getTitleWidth:nameLabel]>self.width-175?self.width-175:[self getTitleWidth:nameLabel]));
         }];
         
         if ([entity.sex isEqualToString:@"男"]) {
@@ -75,6 +79,15 @@
             make.width.equalTo(@([self getTitleWidth:fansCountBtn.titleLabel]+30));
         }];
         
+        if (entity.approve) {
+            approveImageView.image = [UIImage imageNamed:@"space_auth_icon"];
+            officialDescLabel.text = entity.officialDesc;
+            [approveImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.equalTo(@15);
+            }];
+        }
+        
+        
         signLabel.text = entity.sign;
         [signLabel mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@([self getSignLabelHeight]));
@@ -85,6 +98,7 @@
         levelImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"misc_level_whiteLv%lu",entity.current_level]];
         NSArray* arr = @[ColorRGB(177, 177, 177),ColorRGB(177, 177, 177),ColorRGB(133, 216, 163),ColorRGB(130, 199, 223),ColorRGB(253, 163, 105),ColorRGB(252, 85, 8),ColorRGB(251, 0, 7),ColorRGB(219, 0, 231),ColorRGB(111, 0, 247),ColorRGB(0, 0, 0)];
         currentExpView.backgroundColor = arr[entity.current_level];
+        currentExpLabel.text = [NSString stringWithFormat:@"%lu/%0.0f",entity.current_exp,entity.next_exp];
         [currentExpView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo( entity.current_exp/entity.next_exp*100);
         }];
@@ -235,6 +249,18 @@
         btn;
     });
     
+    approveImageView = ({
+        UIImageView* view = [[UIImageView alloc] init];
+        [self addSubview:view];
+        view;
+    });
+    officialDescLabel = ({
+        UILabel* label = [[UILabel alloc] init];
+        label.font = [UIFont systemFontOfSize:13];
+        label.textColor = ColorRGB(236, 197, 6);
+        [self addSubview:label];
+        label;
+    });
     
     signLabel = ({
         UILabel* label = [[UILabel alloc] init];
@@ -269,14 +295,23 @@
     currentExpView = ({
         UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 10)];
         view.backgroundColor = ColorWhite(50);
+        UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:view.bounds
+                                                   byRoundingCorners:UIRectCornerTopRight|UIRectCornerBottomRight
+                                                         cornerRadii:CGSizeMake(5, 5)];
+        CAShapeLayer *maskLayer = [CAShapeLayer layer];
+        maskLayer.path = path.CGPath;
+        view.layer.mask = maskLayer;
         [currentExpBgView addSubview:view];
         view;
     });
-    
-    currentExpView = ({
-        UIView* view = [[UIView alloc] init];
-        [self addSubview:view];
-        view;
+
+    currentExpLabel = ({
+        UILabel* label = [[UILabel alloc] init];
+        label.font = [UIFont systemFontOfSize:10];
+        label.textColor = ColorWhite(255);
+        label.textAlignment = NSTextAlignmentRight;
+        [currentExpBgView addSubview:label];
+        label;
     });
     
     //layout
@@ -337,6 +372,11 @@
         make.width.equalTo(currentExpBgView).priorityLow();
     }];
     
+    [currentExpLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.top.bottom.equalTo(currentExpBgView);
+        make.right.equalTo(currentExpBgView).offset(-5);
+    }];
+    
     [followCountBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(20);
         make.top.equalTo(nameLabel.mas_bottom).offset(10);
@@ -349,10 +389,21 @@
         make.height.equalTo(@20);
     }];
     
+    [approveImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+         make.left.equalTo(self).offset(20);
+         make.width.equalTo(@10);
+         make.top.equalTo(fansCountBtn.mas_bottom).offset(5);
+    }];
+    [officialDescLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(approveImageView.mas_right).offset(10);
+        make.right.equalTo(self).offset(-20);
+        make.top.bottom.equalTo(approveImageView);
+    }];
+    
     [signLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(20);
         make.right.equalTo(self).offset(-20);
-        make.top.equalTo(fansCountBtn.mas_bottom).offset(10);
+        make.top.equalTo(approveImageView.mas_bottom).offset(0);
     }];
     
 

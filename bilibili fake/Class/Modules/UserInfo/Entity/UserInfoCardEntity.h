@@ -36,7 +36,7 @@
 @property(nonatomic,strong)NSDictionary* level_info;
 @property(nonatomic,readonly)NSInteger current_level;//等级
 @property(nonatomic,readonly)NSInteger current_min;//最少经验
-@property(nonatomic,readonly)CGFloat current_exp;//当前经验
+@property(nonatomic,readonly)NSInteger current_exp;//当前经验
 @property(nonatomic,readonly)CGFloat next_exp;//下一级经验
 
 @property(nonatomic)NSInteger fans;//粉丝
@@ -117,7 +117,7 @@
         "approve" : true,
         "official_verify" : {
             "type" : 1,
-            "desc" : "腾讯动漫官方账号"
+            "a" : "腾讯动漫官方账号"
         },
         "mid" : "732364",
         "sex" : "女",

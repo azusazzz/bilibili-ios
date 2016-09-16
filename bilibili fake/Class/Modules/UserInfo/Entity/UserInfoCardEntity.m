@@ -16,8 +16,8 @@
     return i;
 }
 
--(CGFloat)current_exp{
-    CGFloat i = [[_level_info objectForKey:@"current_exp"] floatValue];
+-(NSInteger)current_exp{
+    NSInteger i = [[_level_info objectForKey:@"current_exp"] integerValue];
     if (i<0)  return 0;
     return i;
 }
@@ -25,5 +25,9 @@
 -(CGFloat)next_exp{
     CGFloat i = [[_level_info objectForKey:@"next_exp"] floatValue];
     return i<self.current_exp?self.current_exp:i;
+}
+
+-(NSString*)officialDesc{
+    return [_official_verify objectForKey:@"desc"];
 }
 @end
