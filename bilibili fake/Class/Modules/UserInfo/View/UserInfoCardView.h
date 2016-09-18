@@ -11,8 +11,6 @@
 
 @interface UserInfoCardView : UIView
 
-+(CGFloat)height;
-
 @property(nonatomic,strong)UserInfoCardEntity* entity;
 
 @end

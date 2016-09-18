@@ -8,6 +8,10 @@
 
 #import "UserInfoModel.h"
 #import "UserInfoCardRequest.h"
+#import "UserInfoLiveRequest.h"
+#import "UserInfoSubmitVideosRequest.h"
+
+
 
 @implementation UserInfoModel
 
@@ -31,5 +35,19 @@
         }
     }];
 }
+
+-(void)getLiveEntityWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
+    UserInfoLiveRequest* liveRequest = [UserInfoLiveRequest request];
+    liveRequest.mid = _mid;
+    [liveRequest startWithCompletionBlock:^(BaseRequest *request) {
+        if (request.responseCode == 0) {
+            _liveEntity = [UserInfoLiveEntity mj_objectWithKeyValues:request.responseData];
+            success();
+        }else{
+            failure(request.errorMsg);
+        }
+    }];
+}
+
 
 @end

@@ -31,9 +31,6 @@
     UILabel* currentExpLabel;
 }
 
-+(CGFloat)height{
-    return 270;
-}
 -(instancetype)init{
     if ([super init]) {
         self.backgroundColor = [UIColor clearColor];

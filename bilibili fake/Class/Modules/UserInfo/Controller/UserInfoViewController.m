@@ -15,8 +15,10 @@
 #import "UIView+Frame.h"
 
 
-#import "UserInfoCardView.h"
 #import "UserInfoModel.h"
+
+#import "UserInfoCardView.h"
+#import "UserInfoLiveView.h"
 
 @interface UserInfoViewController()<UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
@@ -27,7 +29,7 @@
     UIImageView* backgroundImageView;
     UIScrollView* userInfoScrollView;
     UserInfoCardView* userInfoCardView;
-    
+    UserInfoLiveView* userInfoLiveView;
     
     UserInfoModel * model;
 }
@@ -71,6 +73,14 @@
         }];
     } failure:^(NSString *errorMsg) {
         NSLog(@"%@",errorMsg);
+    }];
+    
+    [model getLiveEntityWithSuccess:^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            userInfoLiveView.entity = model.liveEntity;
+        }];
+    } failure:^(NSString *errorMsg) {
+        
     }];
 
 }
@@ -123,10 +133,18 @@
     userInfoCardView = [[UserInfoCardView alloc] init];
     [userInfoScrollView addSubview:userInfoCardView];
     
+    userInfoLiveView = [[UserInfoLiveView alloc] init];
+    [userInfoScrollView addSubview:userInfoLiveView];
+    
+    
     UIImageView* scrollBgview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"userInfoBg.jpg"]];
     scrollBgview.backgroundColor = ColorWhite(243);
     [userInfoScrollView addSubview:scrollBgview];
-  
+    [userInfoScrollView sendSubviewToBack:scrollBgview];
+    
+
+    
+    
     //layout
     [backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.centerX.equalTo(self.view);
@@ -138,9 +156,17 @@
     [userInfoCardView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(userInfoScrollView);
         make.left.equalTo(userInfoScrollView);
-        make.height.equalTo(@([UserInfoCardView height])).priorityLow();
+        make.height.equalTo(@(270)).priorityLow();
         make.width.equalTo(@(SSize.width));
     }];
+    
+    [userInfoLiveView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(userInfoCardView.mas_bottom).offset(20);
+        make.left.equalTo(userInfoScrollView).offset(10);
+        make.height.equalTo(@(50)).priorityLow();;
+        make.width.equalTo(@(SSize.width-20));
+    }];
+    
     
     [scrollBgview mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(userInfoCardView.mas_bottom);
