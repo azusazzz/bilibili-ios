@@ -131,6 +131,7 @@
         [elecTotalCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(imageView.mas_right);
             make.right.equalTo(pianQianBtn.mas_left);
+            make.height.equalTo(@0).priorityLow();
             make.bottom.equalTo(pianQianBtn);
         }];
         

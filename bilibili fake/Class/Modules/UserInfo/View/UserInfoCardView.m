@@ -127,7 +127,7 @@
     NSInteger count = ([signLabel.text  length] - [[signLabel.text  stringByReplacingOccurrencesOfString:@"\r\n" withString:@""] length])/[@"\r\n" length];
     CGFloat otherHeight = count*[@"" boundingRectWithSize:CGSizeMake(SSize.width - 40 ,MAXFLOAT ) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height;
     
-    return size.height+otherHeight;
+    return size.height+otherHeight+5;
 }
 
 #pragma loadSubViews
