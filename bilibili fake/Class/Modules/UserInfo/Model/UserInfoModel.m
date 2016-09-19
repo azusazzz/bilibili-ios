@@ -7,8 +7,10 @@
 //
 
 #import "UserInfoModel.h"
+
 #import "UserInfoCardRequest.h"
 #import "UserInfoLiveRequest.h"
+#import "UserInfoElecRequest.h"
 #import "UserInfoSubmitVideosRequest.h"
 
 
@@ -47,6 +49,35 @@
             failure(request.errorMsg);
         }
     }];
+}
+
+
+-(void)getElecEntityWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
+    UserInfoElecRequest* elecRequest = [UserInfoElecRequest request];
+    elecRequest.mid = _mid;
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[elecRequest URLString]]];
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (!error) {
+            NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSDictionary* dataDic =  [NSJSONSerialization JSONObjectWithData:[str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+            _elecEntity = [UserInfoElecEntity mj_objectWithKeyValues:[dataDic objectForKey:@"data"]];
+            success();
+        }
+        [session invalidateAndCancel];
+    }] resume];
+    
+    
+//    [elecRequest startWithCompletionBlock:^(BaseRequest *request) {
+//        NSLog(@"%@",request.responseObject);
+//        if (request.responseCode == 0) {
+//            _elecEntity = [UserInfoElecEntity mj_objectWithKeyValues:request.responseData];
+//            success();
+//        }else{
+//            failure(request.errorMsg);
+//        }
+//    }];
 }
 
 

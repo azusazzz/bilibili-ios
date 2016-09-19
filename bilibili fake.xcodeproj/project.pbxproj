@@ -250,6 +250,9 @@
 		FC5139411D894D85006FC8E3 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139401D894D85006FC8E3 /* UserInfoModel.m */; };
 		FC5139451D894E38006FC8E3 /* UserInfoCardEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139441D894E38006FC8E3 /* UserInfoCardEntity.m */; };
 		FC5139491D8955EE006FC8E3 /* UserInfoCardRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5139481D8955EE006FC8E3 /* UserInfoCardRequest.m */; };
+		FC5766D31D8FC77F000A5787 /* UserInfoElecView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766D21D8FC77F000A5787 /* UserInfoElecView.m */; };
+		FC5766D61D8FC7C1000A5787 /* UserInfoElecRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766D51D8FC7C1000A5787 /* UserInfoElecRequest.m */; };
+		FC5766D91D8FC80A000A5787 /* UserInfoElecEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766D81D8FC80A000A5787 /* UserInfoElecEntity.m */; };
 		FC6553521D8B3817001B626C /* userInfoBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC6553511D8B3817001B626C /* userInfoBg.jpg */; };
 		FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */; };
 		FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C081D6197F500993327 /* UIStyleSelectionVC.m */; };
@@ -829,6 +832,12 @@
 		FC5139441D894E38006FC8E3 /* UserInfoCardEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCardEntity.m; path = UserInfo/Entity/UserInfoCardEntity.m; sourceTree = "<group>"; };
 		FC5139471D8955EE006FC8E3 /* UserInfoCardRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoCardRequest.h; path = UserInfo/Request/UserInfoCardRequest.h; sourceTree = "<group>"; };
 		FC5139481D8955EE006FC8E3 /* UserInfoCardRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCardRequest.m; path = UserInfo/Request/UserInfoCardRequest.m; sourceTree = "<group>"; };
+		FC5766D11D8FC77F000A5787 /* UserInfoElecView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoElecView.h; path = UserInfo/View/UserInfoElecView.h; sourceTree = "<group>"; };
+		FC5766D21D8FC77F000A5787 /* UserInfoElecView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoElecView.m; path = UserInfo/View/UserInfoElecView.m; sourceTree = "<group>"; };
+		FC5766D41D8FC7C1000A5787 /* UserInfoElecRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoElecRequest.h; path = UserInfo/Request/UserInfoElecRequest.h; sourceTree = "<group>"; };
+		FC5766D51D8FC7C1000A5787 /* UserInfoElecRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoElecRequest.m; path = UserInfo/Request/UserInfoElecRequest.m; sourceTree = "<group>"; };
+		FC5766D71D8FC80A000A5787 /* UserInfoElecEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoElecEntity.h; path = UserInfo/Entity/UserInfoElecEntity.h; sourceTree = "<group>"; };
+		FC5766D81D8FC80A000A5787 /* UserInfoElecEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoElecEntity.m; path = UserInfo/Entity/UserInfoElecEntity.m; sourceTree = "<group>"; };
 		FC6553511D8B3817001B626C /* userInfoBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userInfoBg.jpg; sourceTree = "<group>"; };
 		FC6A427F1D4925530058A1FA /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
 		FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadius.m"; sourceTree = "<group>"; };
@@ -2879,6 +2888,8 @@
 				FC51393C1D8924D4006FC8E3 /* UserInfoCardView.m */,
 				FCB108B21D8E485700605FB4 /* UserInfoLiveView.h */,
 				FCB108B31D8E485700605FB4 /* UserInfoLiveView.m */,
+				FC5766D11D8FC77F000A5787 /* UserInfoElecView.h */,
+				FC5766D21D8FC77F000A5787 /* UserInfoElecView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2899,6 +2910,8 @@
 				FC5139441D894E38006FC8E3 /* UserInfoCardEntity.m */,
 				FCB108AF1D8E46C800605FB4 /* UserInfoLiveEntity.h */,
 				FCB108B01D8E46C800605FB4 /* UserInfoLiveEntity.m */,
+				FC5766D71D8FC80A000A5787 /* UserInfoElecEntity.h */,
+				FC5766D81D8FC80A000A5787 /* UserInfoElecEntity.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -2912,6 +2925,8 @@
 				FCB108AD1D8E439C00605FB4 /* UserInfoLiveRequest.m */,
 				FCB108B51D8E71E400605FB4 /* UserInfoSubmitVideosRequest.h */,
 				FCB108B61D8E71E400605FB4 /* UserInfoSubmitVideosRequest.m */,
+				FC5766D41D8FC7C1000A5787 /* UserInfoElecRequest.h */,
+				FC5766D51D8FC7C1000A5787 /* UserInfoElecRequest.m */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -3441,6 +3456,7 @@
 				FC5138DE1D87CF46006FC8E3 /* SeasonSummaryCell.m in Sources */,
 				6E199CDA1D673BB2003E06F6 /* DownloadVideoCollectionView.m in Sources */,
 				6EB552981D548D1A001099C1 /* RecommendCollectionViewCell.m in Sources */,
+				FC5766D61D8FC7C1000A5787 /* UserInfoElecRequest.m in Sources */,
 				6E58B2441D72B534002714FD /* RegionShowViewController.m in Sources */,
 				6E5976071D5B171500D520E0 /* VideoURLProtocol.m in Sources */,
 				FC5138CE1D87CF46006FC8E3 /* GameEntity.m in Sources */,
@@ -3550,6 +3566,7 @@
 				FC5139291D87DC05006FC8E3 /* TopicCell.m in Sources */,
 				6E199CEF1D678BF8003E06F6 /* DownloadVideoManagerViewController.m in Sources */,
 				6ED9D4CF1D6C22C1004E2557 /* VideoURL.m in Sources */,
+				FC5766D91D8FC80A000A5787 /* UserInfoElecEntity.m in Sources */,
 				6E5FB19F1D5590F400984DC6 /* LiveCollectionView.m in Sources */,
 				FC5138E11D87CF46006FC8E3 /* SearchResultViewController.m in Sources */,
 				FC5139491D8955EE006FC8E3 /* UserInfoCardRequest.m in Sources */,
@@ -3565,6 +3582,7 @@
 				6E5976011D5B171500D520E0 /* VideoCommentItemEntity.m in Sources */,
 				6E5976001D5B171500D520E0 /* VideoCommentEntity.m in Sources */,
 				6E5FB18C1D557AE800984DC6 /* LiveListModel.m in Sources */,
+				FC5766D31D8FC77F000A5787 /* UserInfoElecView.m in Sources */,
 				6E58B2381D72A8F3002714FD /* RegionListRequest.m in Sources */,
 				6E59762E1D5C6FBB00D520E0 /* DanmakuEntity.m in Sources */,
 				FCB108B71D8E71E400605FB4 /* UserInfoSubmitVideosRequest.m in Sources */,

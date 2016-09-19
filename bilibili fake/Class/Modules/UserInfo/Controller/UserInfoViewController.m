@@ -19,6 +19,7 @@
 
 #import "UserInfoCardView.h"
 #import "UserInfoLiveView.h"
+#import "UserInfoElecView.h"
 
 @interface UserInfoViewController()<UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
@@ -30,6 +31,7 @@
     UIScrollView* userInfoScrollView;
     UserInfoCardView* userInfoCardView;
     UserInfoLiveView* userInfoLiveView;
+    UserInfoElecView* userInfoElecView;
     
     UserInfoModel * model;
 }
@@ -80,7 +82,17 @@
             userInfoLiveView.entity = model.liveEntity;
         }];
     } failure:^(NSString *errorMsg) {
-        
+        NSLog(@"%@",errorMsg);
+    }];
+    
+    [model getElecEntityWithSuccess:^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            userInfoElecView.entity = model.elecEntity;
+        }];
+    } failure:^(NSString *errorMsg) {
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            userInfoElecView.entity = nil;
+        }];
     }];
 
 }
@@ -136,8 +148,11 @@
     userInfoLiveView = [[UserInfoLiveView alloc] init];
     [userInfoScrollView addSubview:userInfoLiveView];
     
+    userInfoElecView = [[UserInfoElecView alloc] init];
+    [userInfoScrollView addSubview:userInfoElecView];
     
-    UIImageView* scrollBgview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"userInfoBg.jpg"]];
+    
+    UIImageView* scrollBgview = [[UIImageView alloc] init];//]WithImage:[UIImage imageNamed:@"userInfoBg.jpg"]];
     scrollBgview.backgroundColor = ColorWhite(243);
     [userInfoScrollView addSubview:scrollBgview];
     [userInfoScrollView sendSubviewToBack:scrollBgview];
@@ -167,6 +182,12 @@
         make.width.equalTo(@(SSize.width-20));
     }];
     
+    [userInfoElecView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(userInfoLiveView.mas_bottom).offset(0);
+        make.left.equalTo(userInfoScrollView).offset(10);
+        make.height.equalTo(@(150)).priorityLow();;
+        make.width.equalTo(@(SSize.width-20));
+    }];
     
     [scrollBgview mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(userInfoCardView.mas_bottom);

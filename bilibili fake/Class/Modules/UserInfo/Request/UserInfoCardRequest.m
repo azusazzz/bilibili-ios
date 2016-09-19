@@ -9,6 +9,7 @@
 #import "UserInfoCardRequest.h"
 
 @implementation UserInfoCardRequest
+
 - (NSString *)URLString; {
     return [NSString stringWithFormat:@"https://account.bilibili.com/api/member/getCardByMid?mid=%lu",_mid];
 }

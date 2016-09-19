@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UserInfoCardEntity.h"
 #import "UserInfoLiveEntity.h"
+#import "UserInfoElecEntity.h"
 
 @interface UserInfoModel : NSObject
 
@@ -18,11 +19,15 @@
 
 @property(nonatomic,strong)UserInfoLiveEntity* liveEntity;//无不显示
 
+@property(nonatomic,strong)UserInfoElecEntity* elecEntity;
+
 -(instancetype)initWithMid:(NSInteger)mid;
 
 
 -(void)getLiveEntityWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 -(void)getCardEntityWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
+-(void)getElecEntityWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 @end

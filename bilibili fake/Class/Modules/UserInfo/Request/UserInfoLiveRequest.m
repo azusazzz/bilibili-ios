@@ -9,6 +9,7 @@
 #import "UserInfoLiveRequest.h"
 
 @implementation UserInfoLiveRequest
+
 - (NSString *)URLString; {
     return [NSString stringWithFormat:@"http://live.bilibili.com/AppRoom/getRoomInfo?mid=%lu",_mid];
 }
