@@ -1,15 +1,15 @@
 //
-//  HistoryCollectionViewCell.m
+//  HistoryTableViewCell.m
 //  bilibili fake
 //
-//  Created by 翟泉 on 2016/8/4.
+//  Created by 翟泉 on 2016/9/20.
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "HistoryCollectionViewCell.h"
+#import "HistoryTableViewCell.h"
 #import <UIImageView+WebCache.h>
 
-@interface HistoryCollectionViewCell ()
+@implementation HistoryTableViewCell
 {
     UIImageView *_picImageView;
     UILabel *_titleLabel;
@@ -17,9 +17,18 @@
     UILabel *_viewCountLabel;
     UILabel *_danmakuCountLabel;
 }
-@end
 
-@implementation HistoryCollectionViewCell
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
 
 - (void)setHistory:(HistoryEntity *)history {
     [_picImageView sd_setImageWithURL:[NSURL URLWithString:history.pic]];
@@ -36,40 +45,42 @@
 }
 
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor whiteColor];
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        NSMutableArray *rightButtons = [NSMutableArray arrayWithCapacity:4];
+        [rightButtons sw_addUtilityButtonWithColor:ColorRGB(253, 85, 98) title:@"删除"];
+        [self setRightUtilityButtons:rightButtons];
         
         _picImageView = [[UIImageView alloc] init];
         _picImageView.layer.cornerRadius = 6;
         _picImageView.layer.masksToBounds = YES;
         _picImageView.contentMode = UIViewContentModeScaleAspectFill;
-        [self addSubview:_picImageView];
+        [self.contentView addSubview:_picImageView];
         
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.font = Font(13);
         _titleLabel.numberOfLines = 2;
-        [self addSubview:_titleLabel];
+        [self.contentView addSubview:_titleLabel];
         
         _ownerLabel = [[UILabel alloc] init];
         _ownerLabel.font = Font(10);
         _ownerLabel.textColor = ColorWhite(146);
-        [self addSubview:_ownerLabel];
+        [self.contentView addSubview:_ownerLabel];
         
         _viewCountLabel = [[UILabel alloc] init];
         _viewCountLabel.font = Font(10);
         _viewCountLabel.textColor = ColorWhite(146);
-        [self addSubview:_viewCountLabel];
+        [self.contentView addSubview:_viewCountLabel];
         
         _danmakuCountLabel = [[UILabel alloc] init];
         _danmakuCountLabel.font = Font(10);
         _danmakuCountLabel.textColor = ColorWhite(146);
         _danmakuCountLabel.textAlignment = NSTextAlignmentRight;
-        [self addSubview:_danmakuCountLabel];
+        [self.contentView addSubview:_danmakuCountLabel];
         
         [_picImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.offset = 10;
-            make.top.offset = 0;
+            make.top.offset = 10;
             make.bottom.offset = -10;
             make.width.equalTo(_picImageView.mas_height).multipliedBy(120.0/80.0);
         }];
@@ -96,17 +107,6 @@
             make.right.offset = -10;
             make.width.offset = 80;
             make.height.offset = 11;
-        }];
-        
-        
-        _bottomLine = [[UIView alloc] init];
-        _bottomLine.backgroundColor = ColorWhite(200);
-        [self addSubview:_bottomLine];
-        [_bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.offset = 10;
-            make.right.offset = 0;
-            make.bottom.offset = 0;
-            make.height.offset = 0.5;
         }];
         
     }

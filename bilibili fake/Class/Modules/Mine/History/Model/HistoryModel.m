@@ -19,10 +19,48 @@
 
 #endif
 
-@implementation HistoryModel
+@interface HistoryModel ()
 
+{
+    sqlite3 *sqlite;
+}
+
+@end
+
+@implementation HistoryModel
+{
+//    sqlite3 *sqlite;
+}
+
++ (instancetype)sharedInstance {
+    static id sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
+
+- (instancetype)init {
+    if (self = [super init]) {
+        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"History.db"];
+        if (sqlite3_open([path UTF8String], &sqlite) != SQLITE_OK) {
+            printf("数据库打开失败\n");
+        }
+        
+    }
+    return self;
+}
+
+- (void)dealloc {
+    sqlite3_close(sqlite);
+}
 
 + (void)addHistory:(HistoryEntity *)history {
+    [[HistoryModel sharedInstance] addHistory:history];
+}
+
+- (void)addHistory:(HistoryEntity *)history {
     if ([NSThread isMainThread]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [self addHistory:history];
@@ -30,22 +68,7 @@
         return;
     }
     
-    
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"History.db"];
-    sqlite3 *sqlite;
-    if (sqlite3_open([path UTF8String], &sqlite) != SQLITE_OK) {
-        printf("数据库打开失败\n");
-        return;
-    }
-    
     char *error = NULL;
-    
-    Defer {
-        sqlite3_close(sqlite);
-        if (error) {
-            printf("SQLITE ERROR: %s\n", error);
-        }
-    };
     
     NSString *createTableSQL = @"CREATE TABLE History (aid INTEGER PRIMARY KEY, title STRING, pic STRING, ownerName STRING, viewCount INTEGER, danmakuCount INTEGER, date INTEGER);";
     sqlite3_exec(sqlite, [createTableSQL UTF8String], NULL, NULL, &error);
@@ -61,20 +84,9 @@
 
 - (void)deleteAllHistoryWithSuccess:(void (^)(void))success failure:(void (^)(NSString *))failure {
     
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"History.db"];
-    sqlite3 *sqlite;
-    if (sqlite3_open([path UTF8String], &sqlite) != SQLITE_OK) {
-        printf("数据库打开失败\n");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            failure(@"数据库打开失败");
-        });
-        return;
-    }
-    
     char *error = NULL;
     
     Defer {
-        sqlite3_close(sqlite);
         if (error) {
             printf("SQLITE ERROR: %s\n", error);
         }
@@ -88,7 +100,27 @@
     
     self.list = @[];
     success();
-    
+}
+
+
+- (void)deleteHistoryWithAid:(NSInteger)aid success:(void (^)(void))success failure:(void (^)(NSString *))failure {
+    char *error = NULL;
+    NSString *deleteSQL = [NSString stringWithFormat:@"DELETE FROM History WHERE aid=%ld", aid];
+    sqlite3_exec(sqlite, [deleteSQL UTF8String], NULL, NULL, &error);
+    if (error) {
+        failure([NSString stringWithUTF8String:error]);
+    }
+    else {
+        NSMutableArray *array = [NSMutableArray arrayWithArray:self.list];
+        [self.list enumerateObjectsUsingBlock:^(HistoryEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.aid == aid) {
+                [array removeObjectAtIndex:idx];
+                *stop = YES;
+            }
+        }];
+        self.list = [NSArray arrayWithArray:array];
+        success();
+    }
 }
 
 
@@ -96,17 +128,6 @@
     if ([NSThread isMainThread]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [self getHistoryListWithSuccess:success failure:failure];
-        });
-        return;
-    }
-    
-    
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"History.db"];
-    sqlite3 *sqlite;
-    if (sqlite3_open([path UTF8String], &sqlite) != SQLITE_OK) {
-        printf("数据库打开失败\n");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            failure(@"数据库打开失败");
         });
         return;
     }
@@ -153,9 +174,10 @@
         [list addObject:history];
     }
     
-    _list = [NSArray arrayWithArray:list];
+    
     
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.list = [NSArray arrayWithArray:list];
         success();
     });
     

@@ -40,4 +40,13 @@
 - (void)getHistoryListWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 
+/**
+ *  删除播放历史记录
+ *
+ *  @param aid     <#aid description#>
+ *  @param success <#success description#>
+ *  @param failure <#failure description#>
+ */
+- (void)deleteHistoryWithAid:(NSInteger)aid success:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
 @end

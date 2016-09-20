@@ -41,7 +41,6 @@
 		6E2377391D530DDF00102550 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2377381D530DDF00102550 /* libsqlite3.0.tbd */; };
 		6E2377401D530FAF00102550 /* HistoryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E23773F1D530FAF00102550 /* HistoryEntity.m */; };
 		6E2377431D53106400102550 /* HistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2377421D53106400102550 /* HistoryModel.m */; };
-		6E23777B1D53653A00102550 /* HistoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E23777A1D53653A00102550 /* HistoryCollectionViewCell.m */; };
 		6E23777E1D536BD400102550 /* UIViewController+HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E23777D1D536BD400102550 /* UIViewController+HeaderView.m */; };
 		6E2377821D543D0000102550 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2377811D543CFF00102550 /* UIAlertView+Block.m */; };
 		6E2377BD1D54736D00102550 /* BannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2377BC1D54736D00102550 /* BannerView.m */; };
@@ -146,6 +145,8 @@
 		6E7E46FE1D58B00A0027AE8D /* BangumiEntranceFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46FD1D58B00A0027AE8D /* BangumiEntranceFooterView.m */; };
 		6E7E47011D58B0230027AE8D /* BangumiEntranceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E47001D58B0230027AE8D /* BangumiEntranceCollectionViewCell.m */; };
 		6E7E47041D58B2BF0027AE8D /* BangumiEntranceEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E47031D58B2BF0027AE8D /* BangumiEntranceEntity.m */; };
+		6E83B1491D90E240003AE19F /* HistoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E83B1481D90E240003AE19F /* HistoryTableView.m */; };
+		6E83B14C1D90E25A003AE19F /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E83B14B1D90E25A003AE19F /* HistoryTableViewCell.m */; };
 		6E885B951D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E885B901D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.m */; };
 		6E885B961D4AEBB200A3BA35 /* JCTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E885B921D4AEBB200A3BA35 /* JCTagCell.m */; };
 		6E885B971D4AEBB200A3BA35 /* JCTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E885B941D4AEBB200A3BA35 /* JCTagListView.m */; };
@@ -416,8 +417,6 @@
 		6E23773F1D530FAF00102550 /* HistoryEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryEntity.m; sourceTree = "<group>"; };
 		6E2377411D53106400102550 /* HistoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryModel.h; sourceTree = "<group>"; };
 		6E2377421D53106400102550 /* HistoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryModel.m; sourceTree = "<group>"; };
-		6E2377791D53653A00102550 /* HistoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCollectionViewCell.h; sourceTree = "<group>"; };
-		6E23777A1D53653A00102550 /* HistoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCollectionViewCell.m; sourceTree = "<group>"; };
 		6E23777C1D536BD400102550 /* UIViewController+HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HeaderView.h"; sourceTree = "<group>"; };
 		6E23777D1D536BD400102550 /* UIViewController+HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HeaderView.m"; sourceTree = "<group>"; };
 		6E2377801D543CFF00102550 /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
@@ -626,6 +625,10 @@
 		6E7E47001D58B0230027AE8D /* BangumiEntranceCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiEntranceCollectionViewCell.m; sourceTree = "<group>"; };
 		6E7E47021D58B2BF0027AE8D /* BangumiEntranceEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiEntranceEntity.h; sourceTree = "<group>"; };
 		6E7E47031D58B2BF0027AE8D /* BangumiEntranceEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiEntranceEntity.m; sourceTree = "<group>"; };
+		6E83B1471D90E240003AE19F /* HistoryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableView.h; sourceTree = "<group>"; };
+		6E83B1481D90E240003AE19F /* HistoryTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableView.m; sourceTree = "<group>"; };
+		6E83B14A1D90E25A003AE19F /* HistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewCell.h; sourceTree = "<group>"; };
+		6E83B14B1D90E25A003AE19F /* HistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
 		6E885B8F1D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCollectionViewTagFlowLayout.h; sourceTree = "<group>"; };
 		6E885B901D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCollectionViewTagFlowLayout.m; sourceTree = "<group>"; };
 		6E885B911D4AEBB200A3BA35 /* JCTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagCell.h; sourceTree = "<group>"; };
@@ -1370,6 +1373,8 @@
 			isa = PBXGroup;
 			children = (
 				6E23773D1D530EFF00102550 /* Cell */,
+				6E83B1471D90E240003AE19F /* HistoryTableView.h */,
+				6E83B1481D90E240003AE19F /* HistoryTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1377,8 +1382,8 @@
 		6E23773D1D530EFF00102550 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				6E2377791D53653A00102550 /* HistoryCollectionViewCell.h */,
-				6E23777A1D53653A00102550 /* HistoryCollectionViewCell.m */,
+				6E83B14A1D90E25A003AE19F /* HistoryTableViewCell.h */,
+				6E83B14B1D90E25A003AE19F /* HistoryTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -3530,7 +3535,6 @@
 				6EC489A71D7857890078EC0A /* RegionShowChildCollectionViewCell.m in Sources */,
 				FC5138E51D87CF46006FC8E3 /* SpecialSummaryEntity.m in Sources */,
 				6E53E7671D77E2BA00D84581 /* RegionShowTabBar.m in Sources */,
-				6E23777B1D53653A00102550 /* HistoryCollectionViewCell.m in Sources */,
 				FCF131B81D5B366600790DC6 /* UIStyleMacro.m in Sources */,
 				6ED9D4CC1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.m in Sources */,
 				6E4836531D409617004AD1A4 /* CATransition+Closure.swift in Sources */,
@@ -3625,6 +3629,7 @@
 				6E9CA3171D6F2F0F004B2C86 /* WebViewCache.m in Sources */,
 				6E76344E1D3F563A002CFA63 /* UIViewController+GetViewController.m in Sources */,
 				6E5976311D5C6FC900D520E0 /* DanmakuModel.m in Sources */,
+				6E83B14C1D90E25A003AE19F /* HistoryTableViewCell.m in Sources */,
 				6E4836551D409617004AD1A4 /* UIImage+BlurEffect.swift in Sources */,
 				6E7E46F51D58868D0027AE8D /* BangumiRecommendEntity.m in Sources */,
 				6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */,
@@ -3694,6 +3699,7 @@
 				FC5138E91D87CF46006FC8E3 /* OtherSearchRegionModel.m in Sources */,
 				FC5139181D87D9AB006FC8E3 /* ActivityEntity.m in Sources */,
 				FC5138C81D87CF46006FC8E3 /* FindModel.m in Sources */,
+				6E83B1491D90E240003AE19F /* HistoryTableView.m in Sources */,
 				FC5138EA1D87CF46006FC8E3 /* OtherSearchRegionRequest.m in Sources */,
 				6EB552A11D548D79001099C1 /* RecommendBangumiCollectionViewCell.m in Sources */,
 				FC5138D91D87CF46006FC8E3 /* AllVideoRequest.m in Sources */,

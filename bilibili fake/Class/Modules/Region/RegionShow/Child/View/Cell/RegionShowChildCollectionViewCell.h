@@ -6,10 +6,11 @@
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "HistoryCollectionViewCell.h"
+#import <UIKit/UIKit.h>
+//#import "HistoryCollectionViewCell.h"
 #import "RegionShowVideoEntity.h"
 
-@interface RegionShowChildCollectionViewCell : HistoryCollectionViewCell
+@interface RegionShowChildCollectionViewCell : UICollectionViewCell
 
 - (void)setVideo:(RegionShowVideoEntity *)video;
 
