@@ -10,6 +10,7 @@
 #import "UserInfoCardEntity.h"
 #import "UserInfoLiveEntity.h"
 #import "UserInfoElecEntity.h"
+#import "UserInfoSubmitVideosEntity.h"
 
 @interface UserInfoModel : NSObject
 
@@ -21,6 +22,8 @@
 
 @property(nonatomic,strong)UserInfoElecEntity* elecEntity;
 
+@property(nonatomic,strong)UserInfoSubmitVideosEntity* submitVideosEntity;
+
 -(instancetype)initWithMid:(NSInteger)mid;
 
 
@@ -30,4 +33,5 @@
 
 -(void)getElecEntityWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
+-(void)getSubmitVideosEntityWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 @end

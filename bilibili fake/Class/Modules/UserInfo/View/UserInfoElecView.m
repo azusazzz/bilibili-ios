@@ -173,6 +173,8 @@
 }
 
 -(void)setEntity:(UserInfoElecEntity *)entity{
+    _entity = entity;
+    
     if (entity == nil) {
         for(UIView *view in [self subviews])[view removeFromSuperview];//移除以前的按钮
         [self mas_updateConstraints:^(MASConstraintMaker *make) {

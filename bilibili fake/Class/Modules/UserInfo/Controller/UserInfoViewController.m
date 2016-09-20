@@ -20,6 +20,7 @@
 #import "UserInfoCardView.h"
 #import "UserInfoLiveView.h"
 #import "UserInfoElecView.h"
+#import "UserInfoCollectionView.h"
 
 @interface UserInfoViewController()<UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
@@ -32,7 +33,7 @@
     UserInfoCardView* userInfoCardView;
     UserInfoLiveView* userInfoLiveView;
     UserInfoElecView* userInfoElecView;
-    
+    UserInfoCollectionView* userInfoCollectionView;
     UserInfoModel * model;
 }
 
@@ -94,6 +95,14 @@
             userInfoElecView.entity = nil;
         }];
     }];
+    
+    [model getSubmitVideosEntityWithSuccess:^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            userInfoCollectionView.entity = model.submitVideosEntity;
+        }];
+    } failure:^(NSString *errorMsg) {
+         NSLog(@"%@",errorMsg);
+    }];
 
 }
 #pragma mark - UIGestureRecognizerDelegate
@@ -151,13 +160,13 @@
     userInfoElecView = [[UserInfoElecView alloc] init];
     [userInfoScrollView addSubview:userInfoElecView];
     
+    userInfoCollectionView = [[UserInfoCollectionView alloc] init];
+    [userInfoScrollView addSubview:userInfoCollectionView];
     
     UIImageView* scrollBgview = [[UIImageView alloc] init];//]WithImage:[UIImage imageNamed:@"userInfoBg.jpg"]];
     scrollBgview.backgroundColor = ColorWhite(243);
     [userInfoScrollView addSubview:scrollBgview];
     [userInfoScrollView sendSubviewToBack:scrollBgview];
-    
-
     
     
     //layout
@@ -189,10 +198,19 @@
         make.width.equalTo(@(SSize.width-20));
     }];
     
+    [userInfoCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(userInfoElecView.mas_bottom).offset(10);
+        make.left.equalTo(userInfoScrollView).offset(10);
+        //make.height.equalTo(@(150)).priorityLow();;
+        make.width.equalTo(@(SSize.width-20));
+    }];
+    
+    
     [scrollBgview mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(userInfoCardView.mas_bottom);
         make.left.right.equalTo(userInfoCardView);
-        make.height.equalTo(scrollBgview.mas_width).multipliedBy(1.7);
+        //make.height.equalTo(scrollBgview.mas_width).multipliedBy(1.7);
+        make.bottom.equalTo(userInfoCollectionView.mas_bottom).offset(10);
     }];
 
     

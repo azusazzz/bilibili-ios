@@ -253,6 +253,10 @@
 		FC5766D31D8FC77F000A5787 /* UserInfoElecView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766D21D8FC77F000A5787 /* UserInfoElecView.m */; };
 		FC5766D61D8FC7C1000A5787 /* UserInfoElecRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766D51D8FC7C1000A5787 /* UserInfoElecRequest.m */; };
 		FC5766D91D8FC80A000A5787 /* UserInfoElecEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766D81D8FC80A000A5787 /* UserInfoElecEntity.m */; };
+		FC5766DC1D910D66000A5787 /* UserInfoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766DB1D910D66000A5787 /* UserInfoCollectionView.m */; };
+		FC5766E01D9119FF000A5787 /* SubmitVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766DF1D9119FF000A5787 /* SubmitVideoCell.m */; };
+		FC5766E31D911A9B000A5787 /* UserInfoSubmitVideosEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766E21D911A9B000A5787 /* UserInfoSubmitVideosEntity.m */; };
+		FC5766E61D91319E000A5787 /* UserInfoHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766E51D91319E000A5787 /* UserInfoHeaderReusableView.m */; };
 		FC6553521D8B3817001B626C /* userInfoBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC6553511D8B3817001B626C /* userInfoBg.jpg */; };
 		FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */; };
 		FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C081D6197F500993327 /* UIStyleSelectionVC.m */; };
@@ -838,6 +842,14 @@
 		FC5766D51D8FC7C1000A5787 /* UserInfoElecRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoElecRequest.m; path = UserInfo/Request/UserInfoElecRequest.m; sourceTree = "<group>"; };
 		FC5766D71D8FC80A000A5787 /* UserInfoElecEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoElecEntity.h; path = UserInfo/Entity/UserInfoElecEntity.h; sourceTree = "<group>"; };
 		FC5766D81D8FC80A000A5787 /* UserInfoElecEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoElecEntity.m; path = UserInfo/Entity/UserInfoElecEntity.m; sourceTree = "<group>"; };
+		FC5766DA1D910D66000A5787 /* UserInfoCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoCollectionView.h; path = UserInfo/View/UserInfoCollectionView.h; sourceTree = "<group>"; };
+		FC5766DB1D910D66000A5787 /* UserInfoCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCollectionView.m; path = UserInfo/View/UserInfoCollectionView.m; sourceTree = "<group>"; };
+		FC5766DE1D9119FF000A5787 /* SubmitVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubmitVideoCell.h; path = UserInfo/Cell/SubmitVideoCell.h; sourceTree = "<group>"; };
+		FC5766DF1D9119FF000A5787 /* SubmitVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubmitVideoCell.m; path = UserInfo/Cell/SubmitVideoCell.m; sourceTree = "<group>"; };
+		FC5766E11D911A9B000A5787 /* UserInfoSubmitVideosEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoSubmitVideosEntity.h; path = UserInfo/Entity/UserInfoSubmitVideosEntity.h; sourceTree = "<group>"; };
+		FC5766E21D911A9B000A5787 /* UserInfoSubmitVideosEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoSubmitVideosEntity.m; path = UserInfo/Entity/UserInfoSubmitVideosEntity.m; sourceTree = "<group>"; };
+		FC5766E41D91319E000A5787 /* UserInfoHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoHeaderReusableView.h; path = UserInfo/Cell/UserInfoHeaderReusableView.h; sourceTree = "<group>"; };
+		FC5766E51D91319E000A5787 /* UserInfoHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoHeaderReusableView.m; path = UserInfo/Cell/UserInfoHeaderReusableView.m; sourceTree = "<group>"; };
 		FC6553511D8B3817001B626C /* userInfoBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userInfoBg.jpg; sourceTree = "<group>"; };
 		FC6A427F1D4925530058A1FA /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
 		FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadius.m"; sourceTree = "<group>"; };
@@ -2890,6 +2902,8 @@
 				FCB108B31D8E485700605FB4 /* UserInfoLiveView.m */,
 				FC5766D11D8FC77F000A5787 /* UserInfoElecView.h */,
 				FC5766D21D8FC77F000A5787 /* UserInfoElecView.m */,
+				FC5766DA1D910D66000A5787 /* UserInfoCollectionView.h */,
+				FC5766DB1D910D66000A5787 /* UserInfoCollectionView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2912,6 +2926,8 @@
 				FCB108B01D8E46C800605FB4 /* UserInfoLiveEntity.m */,
 				FC5766D71D8FC80A000A5787 /* UserInfoElecEntity.h */,
 				FC5766D81D8FC80A000A5787 /* UserInfoElecEntity.m */,
+				FC5766E11D911A9B000A5787 /* UserInfoSubmitVideosEntity.h */,
+				FC5766E21D911A9B000A5787 /* UserInfoSubmitVideosEntity.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -2929,6 +2945,17 @@
 				FC5766D51D8FC7C1000A5787 /* UserInfoElecRequest.m */,
 			);
 			name = Request;
+			sourceTree = "<group>";
+		};
+		FC5766DD1D9119B4000A5787 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FC5766DE1D9119FF000A5787 /* SubmitVideoCell.h */,
+				FC5766DF1D9119FF000A5787 /* SubmitVideoCell.m */,
+				FC5766E41D91319E000A5787 /* UserInfoHeaderReusableView.h */,
+				FC5766E51D91319E000A5787 /* UserInfoHeaderReusableView.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		FC749C031D61970B00993327 /* Style */ = {
@@ -3144,6 +3171,7 @@
 		FCD8A3B01D8843D500B55086 /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				FC5766DD1D9119B4000A5787 /* Cell */,
 				FC5139461D89559B006FC8E3 /* Request */,
 				FC5139421D894DE7006FC8E3 /* Entity */,
 				FC51393E1D893B63006FC8E3 /* Model */,
@@ -3497,6 +3525,7 @@
 				6E4836751D410818004AD1A4 /* MediaPlayer.m in Sources */,
 				6E58B2321D72A267002714FD /* RegionCollectionViewCell.m in Sources */,
 				6E5976051D5B171500D520E0 /* VideoStatInfoEntity.m in Sources */,
+				FC5766E31D911A9B000A5787 /* UserInfoSubmitVideosEntity.m in Sources */,
 				FC5138CC1D87CF46006FC8E3 /* GameCell.m in Sources */,
 				6EC489A71D7857890078EC0A /* RegionShowChildCollectionViewCell.m in Sources */,
 				FC5138E51D87CF46006FC8E3 /* SpecialSummaryEntity.m in Sources */,
@@ -3529,6 +3558,7 @@
 				6E5FE91B1D59B6E200459BF4 /* BangumiRecommendCollectionViewCell.m in Sources */,
 				6E026FEB1D3E29460038C2A0 /* RequestHandler.m in Sources */,
 				6E5975F61D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.m in Sources */,
+				FC5766E01D9119FF000A5787 /* SubmitVideoCell.m in Sources */,
 				6E5FB1AB1D5591F400984DC6 /* LiveCollectionViewCell.m in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
 				6E5FB1B41D55CE3D00984DC6 /* ValueConversion.m in Sources */,
@@ -3536,6 +3566,7 @@
 				FC5138D31D87CF46006FC8E3 /* SearchPromptsViewController.m in Sources */,
 				FC5138D61D87CF46006FC8E3 /* SearchPromptsTableView.m in Sources */,
 				6E5975F51D5B171500D520E0 /* VideoIntroOwnerCollectionViewCell.m in Sources */,
+				FC5766DC1D910D66000A5787 /* UserInfoCollectionView.m in Sources */,
 				6EB552861D5487C3001099C1 /* RecommendListRequest.m in Sources */,
 				FC5138E81D87CF46006FC8E3 /* OtherSearchRegionViewController.m in Sources */,
 				FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */,
@@ -3672,6 +3703,7 @@
 				6E66C8B81D1ACBD9002DA3AB /* FollowViewController.m in Sources */,
 				6EB450291D51F26E00A4F626 /* DownloadManager.m in Sources */,
 				6E5FE9181D59B5EA00459BF4 /* BangumiRecommendHeaderView.m in Sources */,
+				FC5766E61D91319E000A5787 /* UserInfoHeaderReusableView.m in Sources */,
 				6E7E46F21D587EEB0027AE8D /* BangumiBannerEntity.m in Sources */,
 				6E215D061D4B61B00004CA5B /* MineCollectionView.m in Sources */,
 				6E48367A1D410DB0004AD1A4 /* Function.m in Sources */,

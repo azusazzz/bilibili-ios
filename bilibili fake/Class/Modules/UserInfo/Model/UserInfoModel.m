@@ -67,18 +67,20 @@
         }
         [session invalidateAndCancel];
     }] resume];
-    
-    
-//    [elecRequest startWithCompletionBlock:^(BaseRequest *request) {
-//        NSLog(@"%@",request.responseObject);
-//        if (request.responseCode == 0) {
-//            _elecEntity = [UserInfoElecEntity mj_objectWithKeyValues:request.responseData];
-//            success();
-//        }else{
-//            failure(request.errorMsg);
-//        }
-//    }];
+
 }
 
+-(void)getSubmitVideosEntityWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
+    UserInfoSubmitVideosRequest* submitVideosRequest = [UserInfoSubmitVideosRequest request];
+    submitVideosRequest.mid = _mid;
+    [submitVideosRequest startWithCompletionBlock:^(BaseRequest *request) {
+        if (request.responseCode == 0) {
+            _submitVideosEntity = [UserInfoSubmitVideosEntity mj_objectWithKeyValues:request.responseData];
+            success();
+        }else{
+            failure(request.errorMsg);
+        }
+    }];
+}
 
 @end
