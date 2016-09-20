@@ -13,8 +13,10 @@
 {
     UIImageView *_picImageView;
     UILabel *_titleLabel;
+    UILabel *_ownerLabel;
     UILabel *_viewCountLabel;
     UILabel *_danmakuCountLabel;
+    
     UIView *_bottomLine;
 }
 
