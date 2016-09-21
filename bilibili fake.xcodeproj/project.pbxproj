@@ -19,6 +19,9 @@
 		6E08FD5E1D7336C100544842 /* RegionShowRecommendEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E08FD5D1D7336C100544842 /* RegionShowRecommendEntity.m */; };
 		6E08FD611D7336CD00544842 /* RegionShowRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E08FD601D7336CD00544842 /* RegionShowRecommendModel.m */; };
 		6E08FD641D733C4500544842 /* RegionShowRecommendRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E08FD631D733C4500544842 /* RegionShowRecommendRequest.m */; };
+		6E0C31BE1D927788002AB227 /* BangumiInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C31BD1D927788002AB227 /* BangumiInfoViewController.m */; };
+		6E0C31C11D927799002AB227 /* BangumiInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C31C01D927799002AB227 /* BangumiInfoRequest.m */; };
+		6E0C31C41D9277AC002AB227 /* BangumiInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C31C31D9277AC002AB227 /* BangumiInfoModel.m */; };
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
 		6E18E19C1D3E388D003D35C1 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E19B1D3E388D003D35C1 /* BaseRequest.m */; };
 		6E199CDD1D673F8D003E06F6 /* DownloadVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E199CDC1D673F8D003E06F6 /* DownloadVideoModel.m */; };
@@ -376,6 +379,12 @@
 		6E08FD601D7336CD00544842 /* RegionShowRecommendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowRecommendModel.m; sourceTree = "<group>"; };
 		6E08FD621D733C4500544842 /* RegionShowRecommendRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionShowRecommendRequest.h; sourceTree = "<group>"; };
 		6E08FD631D733C4500544842 /* RegionShowRecommendRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionShowRecommendRequest.m; sourceTree = "<group>"; };
+		6E0C31BC1D927788002AB227 /* BangumiInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiInfoViewController.h; sourceTree = "<group>"; };
+		6E0C31BD1D927788002AB227 /* BangumiInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiInfoViewController.m; sourceTree = "<group>"; };
+		6E0C31BF1D927799002AB227 /* BangumiInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiInfoRequest.h; sourceTree = "<group>"; };
+		6E0C31C01D927799002AB227 /* BangumiInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiInfoRequest.m; sourceTree = "<group>"; };
+		6E0C31C21D9277AC002AB227 /* BangumiInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiInfoModel.h; sourceTree = "<group>"; };
+		6E0C31C31D9277AC002AB227 /* BangumiInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiInfoModel.m; sourceTree = "<group>"; };
 		6E1535E81D1A96A20053A846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		6E1535E91D1A96A20053A846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		6E18E19A1D3E388D003D35C1 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
@@ -1118,6 +1127,59 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6E0C31B61D927775002AB227 /* BangumiInfo */ = {
+			isa = PBXGroup;
+			children = (
+				6E0C31B71D927775002AB227 /* Controller */,
+				6E0C31B81D927775002AB227 /* Entity */,
+				6E0C31B91D927775002AB227 /* Model */,
+				6E0C31BA1D927775002AB227 /* Request */,
+				6E0C31BB1D927775002AB227 /* View */,
+			);
+			path = BangumiInfo;
+			sourceTree = "<group>";
+		};
+		6E0C31B71D927775002AB227 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E0C31BC1D927788002AB227 /* BangumiInfoViewController.h */,
+				6E0C31BD1D927788002AB227 /* BangumiInfoViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E0C31B81D927775002AB227 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		6E0C31B91D927775002AB227 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6E0C31C21D9277AC002AB227 /* BangumiInfoModel.h */,
+				6E0C31C31D9277AC002AB227 /* BangumiInfoModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E0C31BA1D927775002AB227 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				6E0C31BF1D927799002AB227 /* BangumiInfoRequest.h */,
+				6E0C31C01D927799002AB227 /* BangumiInfoRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		6E0C31BB1D927775002AB227 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6E1535DE1D1A87FA0053A846 /* Librarys */ = {
 			isa = PBXGroup;
 			children = (
@@ -1474,6 +1536,7 @@
 		6E575C791D40713F007BCD73 /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				6E0C31B61D927775002AB227 /* BangumiInfo */,
 				6E2A92EE1D659B3900A8F9BA /* LiveInfo */,
 				6E2A92EF1D659B3900A8F9BA /* LivePlayer */,
 				6E59760E1D5B172B00D520E0 /* Danmaku */,
@@ -3564,6 +3627,7 @@
 				6E5FB19B1D55881100984DC6 /* LiveListPartitionLiveEntity.m in Sources */,
 				6E5ED8861D74511000839B9E /* RegionShowBannerEntity.m in Sources */,
 				6E5976181D5B24E100D520E0 /* ResponseSerializer.m in Sources */,
+				6E0C31C11D927799002AB227 /* BangumiInfoRequest.m in Sources */,
 				6E026FE91D3E29460038C2A0 /* Request.m in Sources */,
 				6E199CE01D674368003E06F6 /* DownloadVideoEntity.m in Sources */,
 				6E08FD5E1D7336C100544842 /* RegionShowRecommendEntity.m in Sources */,
@@ -3621,6 +3685,7 @@
 				6E5FB1A81D5591A100984DC6 /* LivePartitionsFooterView.m in Sources */,
 				FC60CEA41D928B4100C1B5B5 /* UserInfoCoinVideosRequest.m in Sources */,
 				6E199CF21D67A592003E06F6 /* DownloadVideoPageCollectionViewCell.m in Sources */,
+				6E0C31BE1D927788002AB227 /* BangumiInfoViewController.m in Sources */,
 				FC5139411D894D85006FC8E3 /* UserInfoModel.m in Sources */,
 				FC5138C71D87CF46006FC8E3 /* HotWorkListEntity.m in Sources */,
 				FCF131BE1D5C1CA700790DC6 /* UIColor+String.m in Sources */,
@@ -3690,6 +3755,7 @@
 				6E5FB1891D557AB100984DC6 /* LiveListRequest.m in Sources */,
 				6E58B23B1D72AA53002714FD /* RegionChildEntity.m in Sources */,
 				FCB108B41D8E485700605FB4 /* UserInfoLiveView.m in Sources */,
+				6E0C31C41D9277AC002AB227 /* BangumiInfoModel.m in Sources */,
 				FC5139101D87D878006FC8E3 /* TopicViewController.m in Sources */,
 				6E08FD611D7336CD00544842 /* RegionShowRecommendModel.m in Sources */,
 				6EB450301D51FD0000A4F626 /* NSString+MD5.m in Sources */,

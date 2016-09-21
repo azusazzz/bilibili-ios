@@ -15,6 +15,8 @@
 
 #import "HomeViewController.h"
 
+#import "BangumiInfoViewController.h" // 番剧详情
+
 /**
  *  +load之后 main函数之前 被调用
  */
