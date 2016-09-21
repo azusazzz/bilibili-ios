@@ -14,7 +14,7 @@
 @property(nonatomic,strong)NSString* title;
 @property(nonatomic)NSInteger comment;//弹幕
 @property(nonatomic)NSInteger play;
-
+@property(nonatomic)NSInteger aid;
 @end
 
 @interface UserInfoSubmitVideosEntity : NSObject

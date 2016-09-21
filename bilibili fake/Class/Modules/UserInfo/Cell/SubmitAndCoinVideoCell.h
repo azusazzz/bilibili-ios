@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "UserInfoSubmitVideosEntity.h"
-@interface SubmitVideoCell : UICollectionViewCell
+#import "UserInfoCoinVideosEntity.h"
+
+@interface SubmitAndCoinVideoCell : UICollectionViewCell
 
 +(CGSize)size;
 
-@property(nonatomic,strong)SubmitVideoEntity* entity;
+@property(nonatomic,strong)SubmitVideoEntity* submitVideoEntity;
+
+@property(nonatomic,strong)CoinVideoEntity* coinVideoEntity;
 
 @end

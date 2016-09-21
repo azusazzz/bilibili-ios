@@ -11,6 +11,8 @@
 @implementation UserInfoHeaderReusableView{
     UILabel* titleLabel;
     UILabel* countLabe;
+    UILabel* seeMoreLabel;
+    UIImageView* seeMoreImageView;
 }
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
@@ -30,17 +32,17 @@
             label;
         });
         
-        UILabel* seeMoreLabel  = ({
+        seeMoreLabel  = ({
             UILabel* label = [[UILabel alloc] init];
             label.textColor = ColorWhite(150);
             label.textAlignment = NSTextAlignmentRight;
-            label.text = @"进来看看!";
+            label.text = @"没有公开的数据";//@"进来看看!";
             label.font = [UIFont systemFontOfSize:12];
             [self addSubview:label];
             label;
         });
         
-        UIImageView* seeMoreImageView = ({
+        seeMoreImageView = ({
             UIImageView* view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"common_rightArrowShadow"]];
             [self addSubview:view];
             view;        
@@ -63,7 +65,7 @@
         [seeMoreImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.top.equalTo(self);
             make.right.equalTo(self);
-            make.width.equalTo(@20);
+            //make.width.equalTo(@0);
         }];
         
         [seeMoreLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -78,5 +80,11 @@
 -(void)setTitle:(NSString*)title Count:(NSInteger)count{
     titleLabel.text = title;
     countLabe.text = [NSString stringWithFormat:@"%lu",count];
+    if (count) {
+        [seeMoreImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+           make.width.equalTo(@20);
+        }];
+        seeMoreLabel.text = @"进来看看!";
+    }
 }
 @end

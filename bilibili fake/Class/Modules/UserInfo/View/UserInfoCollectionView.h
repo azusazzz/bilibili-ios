@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "UserInfoSubmitVideosEntity.h"
+#import "UserInfoCoinVideosEntity.h"
 
 @interface UserInfoCollectionView : UICollectionView<UICollectionViewDataSource>
 
-@property(nonatomic,strong)UserInfoSubmitVideosEntity* entity;
+@property(nonatomic,strong)UserInfoSubmitVideosEntity* submitVideosEntity;
+
+@property(nonatomic,strong)UserInfoCoinVideosEntity* coinVideosEntity;
 
 @end

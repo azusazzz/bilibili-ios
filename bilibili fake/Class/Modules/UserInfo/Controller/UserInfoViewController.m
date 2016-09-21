@@ -98,12 +98,20 @@
     
     [model getSubmitVideosEntityWithSuccess:^{
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            userInfoCollectionView.entity = model.submitVideosEntity;
+            userInfoCollectionView.submitVideosEntity = model.submitVideosEntity;
         }];
     } failure:^(NSString *errorMsg) {
          NSLog(@"%@",errorMsg);
     }];
 
+    [model getCoinVideosEntitySuccess:^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            userInfoCollectionView.coinVideosEntity = model.coinVideosEntity;
+        }];
+    } failure:^(NSString *errorMsg) {
+        NSLog(@"%@",errorMsg);
+    }];
+    
 }
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {

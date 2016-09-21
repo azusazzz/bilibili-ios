@@ -255,9 +255,11 @@
 		FC5766D61D8FC7C1000A5787 /* UserInfoElecRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766D51D8FC7C1000A5787 /* UserInfoElecRequest.m */; };
 		FC5766D91D8FC80A000A5787 /* UserInfoElecEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766D81D8FC80A000A5787 /* UserInfoElecEntity.m */; };
 		FC5766DC1D910D66000A5787 /* UserInfoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766DB1D910D66000A5787 /* UserInfoCollectionView.m */; };
-		FC5766E01D9119FF000A5787 /* SubmitVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766DF1D9119FF000A5787 /* SubmitVideoCell.m */; };
+		FC5766E01D9119FF000A5787 /* SubmitAndCoinVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766DF1D9119FF000A5787 /* SubmitAndCoinVideoCell.m */; };
 		FC5766E31D911A9B000A5787 /* UserInfoSubmitVideosEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766E21D911A9B000A5787 /* UserInfoSubmitVideosEntity.m */; };
 		FC5766E61D91319E000A5787 /* UserInfoHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766E51D91319E000A5787 /* UserInfoHeaderReusableView.m */; };
+		FC60CEA41D928B4100C1B5B5 /* UserInfoCoinVideosRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC60CEA31D928B4100C1B5B5 /* UserInfoCoinVideosRequest.m */; };
+		FC60CEA71D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC60CEA61D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.m */; };
 		FC6553521D8B3817001B626C /* userInfoBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC6553511D8B3817001B626C /* userInfoBg.jpg */; };
 		FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */; };
 		FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C081D6197F500993327 /* UIStyleSelectionVC.m */; };
@@ -847,12 +849,16 @@
 		FC5766D81D8FC80A000A5787 /* UserInfoElecEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoElecEntity.m; path = UserInfo/Entity/UserInfoElecEntity.m; sourceTree = "<group>"; };
 		FC5766DA1D910D66000A5787 /* UserInfoCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoCollectionView.h; path = UserInfo/View/UserInfoCollectionView.h; sourceTree = "<group>"; };
 		FC5766DB1D910D66000A5787 /* UserInfoCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCollectionView.m; path = UserInfo/View/UserInfoCollectionView.m; sourceTree = "<group>"; };
-		FC5766DE1D9119FF000A5787 /* SubmitVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubmitVideoCell.h; path = UserInfo/Cell/SubmitVideoCell.h; sourceTree = "<group>"; };
-		FC5766DF1D9119FF000A5787 /* SubmitVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubmitVideoCell.m; path = UserInfo/Cell/SubmitVideoCell.m; sourceTree = "<group>"; };
+		FC5766DE1D9119FF000A5787 /* SubmitAndCoinVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubmitAndCoinVideoCell.h; path = UserInfo/Cell/SubmitAndCoinVideoCell.h; sourceTree = "<group>"; };
+		FC5766DF1D9119FF000A5787 /* SubmitAndCoinVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubmitAndCoinVideoCell.m; path = UserInfo/Cell/SubmitAndCoinVideoCell.m; sourceTree = "<group>"; };
 		FC5766E11D911A9B000A5787 /* UserInfoSubmitVideosEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoSubmitVideosEntity.h; path = UserInfo/Entity/UserInfoSubmitVideosEntity.h; sourceTree = "<group>"; };
 		FC5766E21D911A9B000A5787 /* UserInfoSubmitVideosEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoSubmitVideosEntity.m; path = UserInfo/Entity/UserInfoSubmitVideosEntity.m; sourceTree = "<group>"; };
 		FC5766E41D91319E000A5787 /* UserInfoHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoHeaderReusableView.h; path = UserInfo/Cell/UserInfoHeaderReusableView.h; sourceTree = "<group>"; };
 		FC5766E51D91319E000A5787 /* UserInfoHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoHeaderReusableView.m; path = UserInfo/Cell/UserInfoHeaderReusableView.m; sourceTree = "<group>"; };
+		FC60CEA21D928B4100C1B5B5 /* UserInfoCoinVideosRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoCoinVideosRequest.h; path = UserInfo/Request/UserInfoCoinVideosRequest.h; sourceTree = "<group>"; };
+		FC60CEA31D928B4100C1B5B5 /* UserInfoCoinVideosRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCoinVideosRequest.m; path = UserInfo/Request/UserInfoCoinVideosRequest.m; sourceTree = "<group>"; };
+		FC60CEA51D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoCoinVideosEntity.h; path = UserInfo/Entity/UserInfoCoinVideosEntity.h; sourceTree = "<group>"; };
+		FC60CEA61D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCoinVideosEntity.m; path = UserInfo/Entity/UserInfoCoinVideosEntity.m; sourceTree = "<group>"; };
 		FC6553511D8B3817001B626C /* userInfoBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userInfoBg.jpg; sourceTree = "<group>"; };
 		FC6A427F1D4925530058A1FA /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
 		FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadius.m"; sourceTree = "<group>"; };
@@ -2933,6 +2939,8 @@
 				FC5766D81D8FC80A000A5787 /* UserInfoElecEntity.m */,
 				FC5766E11D911A9B000A5787 /* UserInfoSubmitVideosEntity.h */,
 				FC5766E21D911A9B000A5787 /* UserInfoSubmitVideosEntity.m */,
+				FC60CEA51D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.h */,
+				FC60CEA61D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -2944,10 +2952,12 @@
 				FC5139481D8955EE006FC8E3 /* UserInfoCardRequest.m */,
 				FCB108AC1D8E439C00605FB4 /* UserInfoLiveRequest.h */,
 				FCB108AD1D8E439C00605FB4 /* UserInfoLiveRequest.m */,
-				FCB108B51D8E71E400605FB4 /* UserInfoSubmitVideosRequest.h */,
-				FCB108B61D8E71E400605FB4 /* UserInfoSubmitVideosRequest.m */,
 				FC5766D41D8FC7C1000A5787 /* UserInfoElecRequest.h */,
 				FC5766D51D8FC7C1000A5787 /* UserInfoElecRequest.m */,
+				FCB108B51D8E71E400605FB4 /* UserInfoSubmitVideosRequest.h */,
+				FCB108B61D8E71E400605FB4 /* UserInfoSubmitVideosRequest.m */,
+				FC60CEA21D928B4100C1B5B5 /* UserInfoCoinVideosRequest.h */,
+				FC60CEA31D928B4100C1B5B5 /* UserInfoCoinVideosRequest.m */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -2955,8 +2965,8 @@
 		FC5766DD1D9119B4000A5787 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				FC5766DE1D9119FF000A5787 /* SubmitVideoCell.h */,
-				FC5766DF1D9119FF000A5787 /* SubmitVideoCell.m */,
+				FC5766DE1D9119FF000A5787 /* SubmitAndCoinVideoCell.h */,
+				FC5766DF1D9119FF000A5787 /* SubmitAndCoinVideoCell.m */,
 				FC5766E41D91319E000A5787 /* UserInfoHeaderReusableView.h */,
 				FC5766E51D91319E000A5787 /* UserInfoHeaderReusableView.m */,
 			);
@@ -3561,7 +3571,7 @@
 				6E5FE91B1D59B6E200459BF4 /* BangumiRecommendCollectionViewCell.m in Sources */,
 				6E026FEB1D3E29460038C2A0 /* RequestHandler.m in Sources */,
 				6E5975F61D5B171500D520E0 /* VideoIntroPagesCollectionViewCell.m in Sources */,
-				FC5766E01D9119FF000A5787 /* SubmitVideoCell.m in Sources */,
+				FC5766E01D9119FF000A5787 /* SubmitAndCoinVideoCell.m in Sources */,
 				6E5FB1AB1D5591F400984DC6 /* LiveCollectionViewCell.m in Sources */,
 				6EB691EC1D12422C000FA482 /* main.m in Sources */,
 				6E5FB1B41D55CE3D00984DC6 /* ValueConversion.m in Sources */,
@@ -3586,6 +3596,7 @@
 				6E5FB1921D557C0400984DC6 /* LiveListEntity.m in Sources */,
 				6E58B2531D72B87E002714FD /* RegionShowCollectionView.m in Sources */,
 				6E7E46EF1D587E470027AE8D /* BangumiEntity.m in Sources */,
+				FC60CEA71D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.m in Sources */,
 				FC5138E31D87CF46006FC8E3 /* MovieSummaryEntity.m in Sources */,
 				6E53E7641D76D96D00D84581 /* RegionShowHeaderView.m in Sources */,
 				6E59763A1D5C6FF500D520E0 /* DanmakuControl.m in Sources */,
@@ -3608,6 +3619,7 @@
 				6E2377431D53106400102550 /* HistoryModel.m in Sources */,
 				6E58B2351D72A8D2002714FD /* RegionListModel.m in Sources */,
 				6E5FB1A81D5591A100984DC6 /* LivePartitionsFooterView.m in Sources */,
+				FC60CEA41D928B4100C1B5B5 /* UserInfoCoinVideosRequest.m in Sources */,
 				6E199CF21D67A592003E06F6 /* DownloadVideoPageCollectionViewCell.m in Sources */,
 				FC5139411D894D85006FC8E3 /* UserInfoModel.m in Sources */,
 				FC5138C71D87CF46006FC8E3 /* HotWorkListEntity.m in Sources */,

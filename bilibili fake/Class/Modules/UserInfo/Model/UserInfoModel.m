@@ -12,7 +12,7 @@
 #import "UserInfoLiveRequest.h"
 #import "UserInfoElecRequest.h"
 #import "UserInfoSubmitVideosRequest.h"
-
+#import "UserInfoCoinVideosRequest.h"
 
 
 @implementation UserInfoModel
@@ -37,6 +37,7 @@
         }
     }];
 }
+
 
 -(void)getLiveEntityWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
     UserInfoLiveRequest* liveRequest = [UserInfoLiveRequest request];
@@ -83,4 +84,16 @@
     }];
 }
 
+-(void)getCoinVideosEntitySuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
+    UserInfoCoinVideosRequest* coinVideosRequest = [UserInfoCoinVideosRequest request];
+    coinVideosRequest.mid = _mid;
+    [coinVideosRequest startWithCompletionBlock:^(BaseRequest *request) {
+        if (request.responseCode == 0) {
+            _coinVideosEntity = [UserInfoCoinVideosEntity mj_objectWithKeyValues:request.responseData];
+            success();
+        }else{
+            failure(request.errorMsg);
+        }
+    }];
+}
 @end

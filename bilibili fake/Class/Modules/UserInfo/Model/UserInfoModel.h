@@ -11,6 +11,7 @@
 #import "UserInfoLiveEntity.h"
 #import "UserInfoElecEntity.h"
 #import "UserInfoSubmitVideosEntity.h"
+#import "UserInfoCoinVideosEntity.h"
 
 @interface UserInfoModel : NSObject
 
@@ -24,6 +25,8 @@
 
 @property(nonatomic,strong)UserInfoSubmitVideosEntity* submitVideosEntity;
 
+@property(nonatomic,strong)UserInfoCoinVideosEntity* coinVideosEntity;
+
 -(instancetype)initWithMid:(NSInteger)mid;
 
 
@@ -34,4 +37,7 @@
 -(void)getElecEntityWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 -(void)getSubmitVideosEntityWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
+-(void)getCoinVideosEntitySuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
 @end

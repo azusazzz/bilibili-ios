@@ -6,10 +6,10 @@
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import "SubmitVideoCell.h"
+#import "SubmitAndCoinVideoCell.h"
 #import <UIImageView+WebCache.h>
 
-@implementation SubmitVideoCell{
+@implementation SubmitAndCoinVideoCell{
 
     UIImageView* picImageView;
     UILabel* titleLabel;
@@ -112,12 +112,22 @@
     return self;
 }
 
--(void)setEntity:(SubmitVideoEntity *)entity{
-    _entity = entity;
+-(void)setSubmitVideoEntity:(SubmitVideoEntity *)submitVideoEntity{
+    _submitVideoEntity = submitVideoEntity;
     
-    [picImageView sd_setImageWithURL:[NSURL URLWithString:entity.pic]];
-    titleLabel.text = entity.title;
-    playLabel.text = [NSString stringWithFormat:@"%lu",entity.play];
-    commentLabel.text = [NSString stringWithFormat:@"%lu",entity.comment];
+    [picImageView sd_setImageWithURL:[NSURL URLWithString:submitVideoEntity.pic]];
+    titleLabel.text = submitVideoEntity.title;
+    playLabel.text = [NSString stringWithFormat:@"%lu",submitVideoEntity.play];
+    commentLabel.text = [NSString stringWithFormat:@"%lu",submitVideoEntity.comment];
 }
+
+-(void)setCoinVideoEntity:(CoinVideoEntity *)coinVideoEntity{
+    _coinVideoEntity = coinVideoEntity;
+    
+    [picImageView sd_setImageWithURL:[NSURL URLWithString:coinVideoEntity.pic]];
+    titleLabel.text = coinVideoEntity.title;
+    playLabel.text = [NSString stringWithFormat:@"%lu",coinVideoEntity.play];
+    commentLabel.text = [NSString stringWithFormat:@"%lu",coinVideoEntity.danmaku];
+}
+
 @end
