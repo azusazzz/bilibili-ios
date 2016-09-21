@@ -47,7 +47,10 @@
         if (sqlite3_open([path UTF8String], &sqlite) != SQLITE_OK) {
             printf("数据库打开失败\n");
         }
+        char *error = NULL;
         
+        NSString *createTableSQL = @"CREATE TABLE History (aid INTEGER PRIMARY KEY, title STRING, pic STRING, ownerName STRING, viewCount INTEGER, danmakuCount INTEGER, date INTEGER);";
+        sqlite3_exec(sqlite, [createTableSQL UTF8String], NULL, NULL, &error);
     }
     return self;
 }
@@ -69,9 +72,6 @@
     }
     
     char *error = NULL;
-    
-    NSString *createTableSQL = @"CREATE TABLE History (aid INTEGER PRIMARY KEY, title STRING, pic STRING, ownerName STRING, viewCount INTEGER, danmakuCount INTEGER, date INTEGER);";
-    sqlite3_exec(sqlite, [createTableSQL UTF8String], NULL, NULL, &error);
     
     NSInteger date = [NSDate date].timeIntervalSince1970;
     NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO History (aid, title, pic, ownerName, viewCount, danmakuCount, date) VALUES (%ld, \'%@\', \'%@\', \'%@\', %ld, %ld, %ld);", history.aid, history.title, history.pic, history.ownerName, history.viewCount, history.danmakuCount, date];
@@ -135,7 +135,6 @@
     char *error = NULL;
     
     Defer {
-        sqlite3_close(sqlite);
         if (error) {
             printf("SQLITE ERROR: %s\n", error);
         }
