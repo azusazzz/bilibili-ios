@@ -8,7 +8,8 @@
 
 #import "DownloadVideoManagerViewController.h"
 
-#import "DownloadVideoCollectionView.h"
+//#import "DownloadVideoCollectionView.h"
+#import "DownloadVideoTableView.h"
 #import "DownloadVideoModel.h"
 
 #import "DownloadVideoInfoViewController.h"
@@ -19,10 +20,11 @@
 
 @interface DownloadVideoManagerViewController ()
 <UIGestureRecognizerDelegate>
-{
-    DownloadVideoCollectionView *_collectionView;
-    DownloadVideoModel *_model;
-}
+
+@property (strong, nonatomic) DownloadVideoTableView *tableView;
+
+@property (strong, nonatomic) DownloadVideoModel *model;
+
 @end
 
 @implementation DownloadVideoManagerViewController
@@ -44,15 +46,24 @@
     
     [self loadData];
     
+    
     __weak typeof(self) weakself = self;
-    [_collectionView setSelectedVideo:^(DownloadVideoEntity *video) {
+    [_tableView setSelectedVideo:^(DownloadVideoEntity *video) {
         [weakself.navigationController pushViewController:[[DownloadVideoInfoViewController alloc] initWithDownloadVideo:video] animated:YES];
     }];
+    [_tableView setDelHistory:^(DownloadVideoEntity *video) {
+        [weakself.model deleteVideoWithAid:video.aid success:^{
+            weakself.tableView.list = weakself.model.list;
+        } failure:^(NSString *errorMsg) {
+            //
+        }];
+    }];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [_collectionView reloadData];
+    [_tableView reloadData];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle; {
@@ -66,7 +77,7 @@
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
-    CGPoint translation = [gestureRecognizer translationInView:_collectionView];
+    CGPoint translation = [gestureRecognizer translationInView:_tableView];
     if (fabs(translation.x) <= fabs(translation.y)) {
         return NO;
     }
@@ -79,10 +90,9 @@
     }
     
     [_model getDownlaodVideosWithSuccess:^{
-        //
-        _collectionView.list = _model.list;
+        _tableView.list = _model.list;
     } failure:^(NSString *errorMsg) {
-        //
+        HUDFailureInView(errorMsg, self.view);
     }];
     
 }
@@ -97,9 +107,9 @@
     
     [self navigationBar];
     
-    _collectionView = [[DownloadVideoCollectionView alloc] init];
-    [self.view addSubview:_collectionView];
-    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _tableView = [[DownloadVideoTableView alloc] init];
+    [self.view addSubview:_tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset = 0;
         make.right.offset = 0;
         make.top.equalTo(self.navigationBar.mas_bottom);

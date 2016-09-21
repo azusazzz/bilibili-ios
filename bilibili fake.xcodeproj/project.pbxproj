@@ -21,8 +21,6 @@
 		6E08FD641D733C4500544842 /* RegionShowRecommendRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E08FD631D733C4500544842 /* RegionShowRecommendRequest.m */; };
 		6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1535E91D1A96A20053A846 /* HomeViewController.m */; };
 		6E18E19C1D3E388D003D35C1 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18E19B1D3E388D003D35C1 /* BaseRequest.m */; };
-		6E199CD71D673889003E06F6 /* DownloadVideoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E199CD61D673889003E06F6 /* DownloadVideoCollectionViewCell.m */; };
-		6E199CDA1D673BB2003E06F6 /* DownloadVideoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E199CD91D673BB2003E06F6 /* DownloadVideoCollectionView.m */; };
 		6E199CDD1D673F8D003E06F6 /* DownloadVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E199CDC1D673F8D003E06F6 /* DownloadVideoModel.m */; };
 		6E199CE01D674368003E06F6 /* DownloadVideoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E199CDF1D674368003E06F6 /* DownloadVideoEntity.m */; };
 		6E199CE61D674CBC003E06F6 /* DownloadVideoPageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E199CE51D674CBC003E06F6 /* DownloadVideoPageEntity.m */; };
@@ -133,6 +131,8 @@
 		6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E66C8C11D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m */; };
 		6E73B0D81D799B9700950BF3 /* UIViewController+Dealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E73B0D71D799B9700950BF3 /* UIViewController+Dealloc.m */; };
 		6E76344E1D3F563A002CFA63 /* UIViewController+GetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76344D1D3F563A002CFA63 /* UIViewController+GetViewController.m */; };
+		6E7B96541D922C01003BD600 /* DownloadVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7B96531D922C01003BD600 /* DownloadVideoTableViewCell.m */; };
+		6E7B96571D922CC4003BD600 /* DownloadVideoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7B96561D922CC4003BD600 /* DownloadVideoTableView.m */; };
 		6E7E46E31D587A1B0027AE8D /* BangumiListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46E21D587A1B0027AE8D /* BangumiListRequest.m */; };
 		6E7E46E61D587A300027AE8D /* BangumiRecommendRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46E51D587A300027AE8D /* BangumiRecommendRequest.m */; };
 		6E7E46E91D587AD20027AE8D /* BangumiListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E46E81D587AD20027AE8D /* BangumiListEntity.m */; };
@@ -378,10 +378,6 @@
 		6E1535E91D1A96A20053A846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		6E18E19A1D3E388D003D35C1 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
 		6E18E19B1D3E388D003D35C1 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
-		6E199CD51D673889003E06F6 /* DownloadVideoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVideoCollectionViewCell.h; sourceTree = "<group>"; };
-		6E199CD61D673889003E06F6 /* DownloadVideoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVideoCollectionViewCell.m; sourceTree = "<group>"; };
-		6E199CD81D673BB2003E06F6 /* DownloadVideoCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVideoCollectionView.h; sourceTree = "<group>"; };
-		6E199CD91D673BB2003E06F6 /* DownloadVideoCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVideoCollectionView.m; sourceTree = "<group>"; };
 		6E199CDB1D673F8D003E06F6 /* DownloadVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVideoModel.h; sourceTree = "<group>"; };
 		6E199CDC1D673F8D003E06F6 /* DownloadVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVideoModel.m; sourceTree = "<group>"; };
 		6E199CDE1D674368003E06F6 /* DownloadVideoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVideoEntity.h; sourceTree = "<group>"; };
@@ -601,6 +597,10 @@
 		6E76344C1D3F563A002CFA63 /* UIViewController+GetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GetViewController.h"; sourceTree = "<group>"; };
 		6E76344D1D3F563A002CFA63 /* UIViewController+GetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GetViewController.m"; sourceTree = "<group>"; };
 		6E76C17A1D2A768D00C259E8 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
+		6E7B96521D922C01003BD600 /* DownloadVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVideoTableViewCell.h; sourceTree = "<group>"; };
+		6E7B96531D922C01003BD600 /* DownloadVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVideoTableViewCell.m; sourceTree = "<group>"; };
+		6E7B96551D922CC4003BD600 /* DownloadVideoTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVideoTableView.h; sourceTree = "<group>"; };
+		6E7B96561D922CC4003BD600 /* DownloadVideoTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVideoTableView.m; sourceTree = "<group>"; };
 		6E7E46E11D587A1B0027AE8D /* BangumiListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiListRequest.h; sourceTree = "<group>"; };
 		6E7E46E21D587A1B0027AE8D /* BangumiListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiListRequest.m; sourceTree = "<group>"; };
 		6E7E46E41D587A300027AE8D /* BangumiRecommendRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiRecommendRequest.h; sourceTree = "<group>"; };
@@ -1195,8 +1195,8 @@
 		6E199CD41D67387D003E06F6 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				6E199CD51D673889003E06F6 /* DownloadVideoCollectionViewCell.h */,
-				6E199CD61D673889003E06F6 /* DownloadVideoCollectionViewCell.m */,
+				6E7B96521D922C01003BD600 /* DownloadVideoTableViewCell.h */,
+				6E7B96531D922C01003BD600 /* DownloadVideoTableViewCell.m */,
 				6E199CF01D67A592003E06F6 /* DownloadVideoPageCollectionViewCell.h */,
 				6E199CF11D67A592003E06F6 /* DownloadVideoPageCollectionViewCell.m */,
 				6ED9D4CA1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.h */,
@@ -1343,8 +1343,8 @@
 			isa = PBXGroup;
 			children = (
 				6E199CD41D67387D003E06F6 /* Cell */,
-				6E199CD81D673BB2003E06F6 /* DownloadVideoCollectionView.h */,
-				6E199CD91D673BB2003E06F6 /* DownloadVideoCollectionView.m */,
+				6E7B96551D922CC4003BD600 /* DownloadVideoTableView.h */,
+				6E7B96561D922CC4003BD600 /* DownloadVideoTableView.m */,
 				6E2A92F61D66A20700A8F9BA /* DownloadVideoSelectView.h */,
 				6E2A92F71D66A20700A8F9BA /* DownloadVideoSelectView.m */,
 			);
@@ -3487,7 +3487,6 @@
 				6EB552831D5487A4001099C1 /* RecommendEntity.m in Sources */,
 				6EC9A48A1D7EE49900B5F0BA /* URLRouter.m in Sources */,
 				FC5138DE1D87CF46006FC8E3 /* SeasonSummaryCell.m in Sources */,
-				6E199CDA1D673BB2003E06F6 /* DownloadVideoCollectionView.m in Sources */,
 				6EB552981D548D1A001099C1 /* RecommendCollectionViewCell.m in Sources */,
 				FC5766D61D8FC7C1000A5787 /* UserInfoElecRequest.m in Sources */,
 				6E58B2441D72B534002714FD /* RegionShowViewController.m in Sources */,
@@ -3508,7 +3507,6 @@
 				FC51393D1D8924D4006FC8E3 /* UserInfoCardView.m in Sources */,
 				6E4E039B1D71391400C669E6 /* NSObject+Runtime.m in Sources */,
 				6E7E46E31D587A1B0027AE8D /* BangumiListRequest.m in Sources */,
-				6E199CD71D673889003E06F6 /* DownloadVideoCollectionViewCell.m in Sources */,
 				FC5138D01D87CF46006FC8E3 /* GameCenterModel.m in Sources */,
 				6E08FD551D73367900544842 /* RegionShowChildRequest.m in Sources */,
 				6E026FEA1D3E29460038C2A0 /* RequestCache.m in Sources */,
@@ -3537,6 +3535,7 @@
 				6E53E7671D77E2BA00D84581 /* RegionShowTabBar.m in Sources */,
 				FCF131B81D5B366600790DC6 /* UIStyleMacro.m in Sources */,
 				6ED9D4CC1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.m in Sources */,
+				6E7B96571D922CC4003BD600 /* DownloadVideoTableView.m in Sources */,
 				6E4836531D409617004AD1A4 /* CATransition+Closure.swift in Sources */,
 				FC5138D11D87CF46006FC8E3 /* GameCenterRequest.m in Sources */,
 				6E885B961D4AEBB200A3BA35 /* JCTagCell.m in Sources */,
@@ -3646,6 +3645,7 @@
 				6E9CA2FE1D6EE76D004B2C86 /* LivePlayer.m in Sources */,
 				6E2377821D543D0000102550 /* UIAlertView+Block.m in Sources */,
 				6EB552921D548CD2001099C1 /* RecommendHeaderView.m in Sources */,
+				6E7B96541D922C01003BD600 /* DownloadVideoTableViewCell.m in Sources */,
 				FC5138E71D87CF46006FC8E3 /* SearchResultModel.m in Sources */,
 				6E53E75E1D76D4BA00D84581 /* RegionShowAvCollectionViewCell.m in Sources */,
 				FC5138CB1D87CF46006FC8E3 /* HotWorkView.m in Sources */,

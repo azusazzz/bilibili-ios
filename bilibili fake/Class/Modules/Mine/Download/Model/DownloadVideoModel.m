@@ -14,6 +14,10 @@
     NSMutableArray *_list;
     sqlite3 *sqlite;
 }
+
+
+@property (strong, nonatomic) NSArray<DownloadVideoEntity *> *list;
+
 @end
 
 @implementation DownloadVideoModel
@@ -155,13 +159,54 @@
 
 
 - (void)getDownlaodVideosWithSuccess:(void (^)(void))success failure:(void (^)(NSString *))failure {
-    
     success();
     
+}
+
+
+- (void)deleteVideoWithAid:(NSInteger)aid success:(void (^)(void))success failure:(void (^)(NSString *))failure {
+    __block DownloadVideoEntity *video = NULL;
+    for (DownloadVideoEntity *obj in self.list) {
+        if (obj.aid == aid) {
+            video = obj;
+            break;
+        }
+    }
+    
+    [_list enumerateObjectsUsingBlock:^(DownloadVideoEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.aid == aid) {
+            video = obj;
+            [_list removeObjectAtIndex:idx];
+            *stop = YES;
+        }
+    }];
+    
+    
+    if (!video) {
+        failure(@"");
+        return;
+    }
+    
+    for (DownloadVideoPageEntity *page in video.pages) {
+        [page.operation stop];
+        if (page.filePath) {
+            [[NSFileManager defaultManager] removeItemAtPath:page.filePath error:NULL];
+        }
+    }
+    
+    char *error = NULL;
+    NSString *deleteSQL = [NSString stringWithFormat:@"DELETE FROM DownloadVideo WHERE aid=%ld", aid];
+    sqlite3_exec(sqlite, [deleteSQL UTF8String], NULL, NULL, &error);
+    
+    success();
 }
 
 - (NSArray<DownloadVideoEntity *> *)list {
     return _list;
 }
+
+
+
+
 
 @end

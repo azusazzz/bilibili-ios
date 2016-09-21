@@ -94,7 +94,9 @@
     
     NSString *deleteSQL = @"DELETE FROM History";
     if (sqlite3_exec(sqlite, [deleteSQL UTF8String], NULL, NULL, &error) != SQLITE_OK) {
-        failure([NSString stringWithUTF8String:error]);
+        if (error) {
+            failure([NSString stringWithUTF8String:error]);
+        }
         return;
     }
     

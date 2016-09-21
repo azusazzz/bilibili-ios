@@ -28,4 +28,15 @@
 
 - (DownloadVideoPageEntity *)hasVideoPageWithAid:(NSInteger)aid cid:(NSInteger)cid;
 
+
+/**
+ *  删除视频
+ *
+ *  @param aid     <#aid description#>
+ *  @param success <#success description#>
+ *  @param failure <#failure description#>
+ */
+- (void)deleteVideoWithAid:(NSInteger)aid success:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
+
 @end
