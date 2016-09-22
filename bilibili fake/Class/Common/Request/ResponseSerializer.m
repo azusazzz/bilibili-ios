@@ -34,7 +34,18 @@
     if (data.length > 0 && !isSpace) {
         if ([response.MIMEType isEqualToString:@"application/json"] ||
             [response.MIMEType isEqualToString:@"text/json"]) {
+            
             responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializationError];
+            if (serializationError) {
+                NSMutableString *JSONString = [NSMutableString stringWithUTF8String:data.bytes];
+                if ([JSONString hasPrefix:@"seasonListCallback("]) {
+                    [JSONString deleteCharactersInRange:NSMakeRange(0, @"seasonListCallback(".length)];
+                    [JSONString deleteCharactersInRange:NSMakeRange(JSONString.length-2, @");".length)];
+                    data = [NSData dataWithBytes:JSONString.UTF8String length:[JSONString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]];
+                    serializationError = NULL;
+                    responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializationError];
+                }
+            }
         }
         else if ([response.MIMEType isEqualToString:@"text/xml"]) {
             responseObject = [NSDictionary dictionaryWithXMLData:data];
