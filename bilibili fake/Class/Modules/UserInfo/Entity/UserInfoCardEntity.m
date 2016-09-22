@@ -30,4 +30,5 @@
 -(NSString*)officialDesc{
     return [_official_verify objectForKey:@"desc"];
 }
+
 @end

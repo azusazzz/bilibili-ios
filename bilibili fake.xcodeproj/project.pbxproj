@@ -189,6 +189,11 @@
 		6ED9D4CF1D6C22C1004E2557 /* VideoURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9D4CE1D6C22C1004E2557 /* VideoURL.m */; };
 		6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4A61D2BCE4400D1BC9E /* TabBar.m */; };
 		6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AA1D2BD6D800D1BC9E /* UIView+Frame.m */; };
+		FC445EE51D93AD7000EF40FD /* UserInfoFavoritesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EE41D93AD7000EF40FD /* UserInfoFavoritesRequest.m */; };
+		FC445EE81D93AE1600EF40FD /* UserInfoFavoritesEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EE71D93AE1600EF40FD /* UserInfoFavoritesEntity.m */; };
+		FC445EEE1D93BB7A00EF40FD /* FavoritesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EED1D93BB7A00EF40FD /* FavoritesCell.m */; };
+		FC445EF11D93DC3E00EF40FD /* UserInfoBangumiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EF01D93DC3E00EF40FD /* UserInfoBangumiRequest.m */; };
+		FC445EF41D93DD0A00EF40FD /* UserInfoBangumiEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EF31D93DD0A00EF40FD /* UserInfoBangumiEntity.m */; };
 		FC4DB3C31D7D5A73003935E3 /* StartInfoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3B91D7D5A73003935E3 /* StartInfoEntity.m */; };
 		FC4DB3C41D7D5A73003935E3 /* StartPageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3BB1D7D5A73003935E3 /* StartPageEntity.m */; };
 		FC4DB3C51D7D5A73003935E3 /* StartInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3BE1D7D5A73003935E3 /* StartInfoModel.m */; };
@@ -720,6 +725,16 @@
 		6EFFD4B51D2BE5BE00D1BC9E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8A799A4DD17AEAA2C2D0960A /* Pods-bilibili fake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili fake.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili fake/Pods-bilibili fake.release.xcconfig"; sourceTree = "<group>"; };
 		FC3A18BA1D8286B6008121C9 /* TidDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TidDictionary.h; sourceTree = "<group>"; };
+		FC445EE31D93AD7000EF40FD /* UserInfoFavoritesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoFavoritesRequest.h; path = UserInfo/Request/UserInfoFavoritesRequest.h; sourceTree = "<group>"; };
+		FC445EE41D93AD7000EF40FD /* UserInfoFavoritesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoFavoritesRequest.m; path = UserInfo/Request/UserInfoFavoritesRequest.m; sourceTree = "<group>"; };
+		FC445EE61D93AE1600EF40FD /* UserInfoFavoritesEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoFavoritesEntity.h; path = UserInfo/Entity/UserInfoFavoritesEntity.h; sourceTree = "<group>"; };
+		FC445EE71D93AE1600EF40FD /* UserInfoFavoritesEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoFavoritesEntity.m; path = UserInfo/Entity/UserInfoFavoritesEntity.m; sourceTree = "<group>"; };
+		FC445EEC1D93BB7A00EF40FD /* FavoritesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesCell.h; path = UserInfo/Cell/FavoritesCell.h; sourceTree = "<group>"; };
+		FC445EED1D93BB7A00EF40FD /* FavoritesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesCell.m; path = UserInfo/Cell/FavoritesCell.m; sourceTree = "<group>"; };
+		FC445EEF1D93DC3E00EF40FD /* UserInfoBangumiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoBangumiRequest.h; path = UserInfo/Request/UserInfoBangumiRequest.h; sourceTree = "<group>"; };
+		FC445EF01D93DC3E00EF40FD /* UserInfoBangumiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoBangumiRequest.m; path = UserInfo/Request/UserInfoBangumiRequest.m; sourceTree = "<group>"; };
+		FC445EF21D93DD0A00EF40FD /* UserInfoBangumiEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoBangumiEntity.h; path = UserInfo/Entity/UserInfoBangumiEntity.h; sourceTree = "<group>"; };
+		FC445EF31D93DD0A00EF40FD /* UserInfoBangumiEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoBangumiEntity.m; path = UserInfo/Entity/UserInfoBangumiEntity.m; sourceTree = "<group>"; };
 		FC4DB3B81D7D5A73003935E3 /* StartInfoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartInfoEntity.h; sourceTree = "<group>"; };
 		FC4DB3B91D7D5A73003935E3 /* StartInfoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartInfoEntity.m; sourceTree = "<group>"; };
 		FC4DB3BA1D7D5A73003935E3 /* StartPageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartPageEntity.h; sourceTree = "<group>"; };
@@ -3004,6 +3019,10 @@
 				FC5766E21D911A9B000A5787 /* UserInfoSubmitVideosEntity.m */,
 				FC60CEA51D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.h */,
 				FC60CEA61D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.m */,
+				FC445EE61D93AE1600EF40FD /* UserInfoFavoritesEntity.h */,
+				FC445EE71D93AE1600EF40FD /* UserInfoFavoritesEntity.m */,
+				FC445EF21D93DD0A00EF40FD /* UserInfoBangumiEntity.h */,
+				FC445EF31D93DD0A00EF40FD /* UserInfoBangumiEntity.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -3021,6 +3040,10 @@
 				FCB108B61D8E71E400605FB4 /* UserInfoSubmitVideosRequest.m */,
 				FC60CEA21D928B4100C1B5B5 /* UserInfoCoinVideosRequest.h */,
 				FC60CEA31D928B4100C1B5B5 /* UserInfoCoinVideosRequest.m */,
+				FC445EE31D93AD7000EF40FD /* UserInfoFavoritesRequest.h */,
+				FC445EE41D93AD7000EF40FD /* UserInfoFavoritesRequest.m */,
+				FC445EEF1D93DC3E00EF40FD /* UserInfoBangumiRequest.h */,
+				FC445EF01D93DC3E00EF40FD /* UserInfoBangumiRequest.m */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -3028,6 +3051,8 @@
 		FC5766DD1D9119B4000A5787 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				FC445EEC1D93BB7A00EF40FD /* FavoritesCell.h */,
+				FC445EED1D93BB7A00EF40FD /* FavoritesCell.m */,
 				FC5766DE1D9119FF000A5787 /* SubmitAndCoinVideoCell.h */,
 				FC5766DF1D9119FF000A5787 /* SubmitAndCoinVideoCell.m */,
 				FC5766E41D91319E000A5787 /* UserInfoHeaderReusableView.h */,
@@ -3594,6 +3619,7 @@
 				6E08FD5B1D7336B100544842 /* RegionShowRecommendViewController.m in Sources */,
 				6E5975F91D5B171500D520E0 /* VideoIntroTagsCollectionViewCell.m in Sources */,
 				6E58B22D1D72A229002714FD /* RegionListViewController.m in Sources */,
+				FC445EF41D93DD0A00EF40FD /* UserInfoBangumiEntity.m in Sources */,
 				6E5975FE1D5B171500D520E0 /* VideoCommentTableViewCell.m in Sources */,
 				FC5139341D87EBA4006FC8E3 /* ActivityCenterModel.m in Sources */,
 				6E5976081D5B171500D520E0 /* VideoCommentRequest.m in Sources */,
@@ -3667,6 +3693,7 @@
 				FC5138C51D87CF46006FC8E3 /* FindViewController.m in Sources */,
 				FCFA05471D2FAFE0004A1742 /* RippleModel.m in Sources */,
 				FC5138EC1D87CF46006FC8E3 /* RankingVideoCell.m in Sources */,
+				FC445EE81D93AE1600EF40FD /* UserInfoFavoritesEntity.m in Sources */,
 				FC5138CD1D87CF46006FC8E3 /* GameCenterViewController.m in Sources */,
 				6E7E47011D58B0230027AE8D /* BangumiEntranceCollectionViewCell.m in Sources */,
 				6E5FB1B11D55926A00984DC6 /* LiveEntranceFooterView.m in Sources */,
@@ -3705,6 +3732,7 @@
 				6E9CA3171D6F2F0F004B2C86 /* WebViewCache.m in Sources */,
 				6E76344E1D3F563A002CFA63 /* UIViewController+GetViewController.m in Sources */,
 				6E5976311D5C6FC900D520E0 /* DanmakuModel.m in Sources */,
+				FC445EE51D93AD7000EF40FD /* UserInfoFavoritesRequest.m in Sources */,
 				6E83B14C1D90E25A003AE19F /* HistoryTableViewCell.m in Sources */,
 				6E4836551D409617004AD1A4 /* UIImage+BlurEffect.swift in Sources */,
 				6E7E46F51D58868D0027AE8D /* BangumiRecommendEntity.m in Sources */,
@@ -3720,6 +3748,7 @@
 				6E4E03A41D71882600C669E6 /* RecommendWebCollectionViewCell.m in Sources */,
 				6E7E46EC1D587CD60027AE8D /* BangumiListModel.m in Sources */,
 				6E9CA2FE1D6EE76D004B2C86 /* LivePlayer.m in Sources */,
+				FC445EEE1D93BB7A00EF40FD /* FavoritesCell.m in Sources */,
 				6E2377821D543D0000102550 /* UIAlertView+Block.m in Sources */,
 				6EB552921D548CD2001099C1 /* RecommendHeaderView.m in Sources */,
 				6E7B96541D922C01003BD600 /* DownloadVideoTableViewCell.m in Sources */,
@@ -3763,6 +3792,7 @@
 				FC5138EE1D87CF46006FC8E3 /* RankingVideoEntity.m in Sources */,
 				FCD8A3B41D88442F00B55086 /* UserInfoViewController.m in Sources */,
 				FC5139211D87DB49006FC8E3 /* TopicCenterRequest.m in Sources */,
+				FC445EF11D93DC3E00EF40FD /* UserInfoBangumiRequest.m in Sources */,
 				FC5138ED1D87CF46006FC8E3 /* VideoRankViewController.m in Sources */,
 				6E5976121D5B174D00D520E0 /* DanmakuRequest.m in Sources */,
 				6E5ED8891D74535200839B9E /* RegionShowVideoEntity.m in Sources */,

@@ -62,7 +62,7 @@
 }
 
 -(void)setEntity:(UserInfoLiveEntity *)entity{
-    if (entity.roomStatus ) {
+    if (entity.roomStatus) {
         if (entity.liveStatus) {
             NSString* str = [NSString stringWithFormat:@"正在直播“%@”",entity.title];
             NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:str];
@@ -73,9 +73,6 @@
         }
     }else{
         [mainBtn removeFromSuperview];
-        [self mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@0);
-        }];
     }
 }
 @end

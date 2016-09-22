@@ -73,18 +73,29 @@
     [model getCardEntityWithSuccess:^{
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             userInfoCardView.entity = model.cardEntity;
+            self.title = model.cardEntity.name;
         }];
     } failure:^(NSString *errorMsg) {
         NSLog(@"%@",errorMsg);
     }];
     
+    
+    
     [model getLiveEntityWithSuccess:^{
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            if (model.liveEntity.roomStatus == 0) {
+                [userInfoLiveView mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.height.equalTo(@0);
+                    make.top.equalTo(userInfoCardView.mas_bottom).offset(0);
+                }];
+            }
             userInfoLiveView.entity = model.liveEntity;
         }];
     } failure:^(NSString *errorMsg) {
         NSLog(@"%@",errorMsg);
     }];
+    
+    
     
     [model getElecEntityWithSuccess:^{
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -112,6 +123,21 @@
         NSLog(@"%@",errorMsg);
     }];
     
+    [model getFavoritesEntitySuccess:^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            userInfoCollectionView.favoritesEntityArr = model.favoritesEntityArr;
+        }];
+    } failure:^(NSString *errorMsg) {
+        NSLog(@"%@",errorMsg);
+    }];
+    
+    [model getBangumiEntitySuccess:^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            userInfoCollectionView.bangumiEntity = model.bangumiEntity;
+        }];
+    } failure:^(NSString *errorMsg) {
+         NSLog(@"%@",errorMsg);
+    }];
 }
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
@@ -208,9 +234,9 @@
     
     [userInfoCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(userInfoElecView.mas_bottom).offset(10);
-        make.left.equalTo(userInfoScrollView).offset(10);
+        make.left.equalTo(userInfoScrollView).offset(0);
         //make.height.equalTo(@(150)).priorityLow();;
-        make.width.equalTo(@(SSize.width-20));
+        make.width.equalTo(@(SSize.width-0));
     }];
     
     

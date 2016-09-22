@@ -13,7 +13,8 @@
 #import "UserInfoElecRequest.h"
 #import "UserInfoSubmitVideosRequest.h"
 #import "UserInfoCoinVideosRequest.h"
-
+#import "UserInfoFavoritesRequest.h"
+#import "UserInfoBangumiRequest.h"
 
 @implementation UserInfoModel
 
@@ -90,6 +91,35 @@
     [coinVideosRequest startWithCompletionBlock:^(BaseRequest *request) {
         if (request.responseCode == 0) {
             _coinVideosEntity = [UserInfoCoinVideosEntity mj_objectWithKeyValues:request.responseData];
+            success();
+        }else{
+            failure(request.errorMsg);
+        }
+    }];
+}
+
+-(void)getFavoritesEntitySuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
+    UserInfoFavoritesRequest* favoritesRequest = [UserInfoFavoritesRequest request];
+    favoritesRequest.mid = _mid;
+    [favoritesRequest startWithCompletionBlock:^(BaseRequest *request) {
+        if (request.responseCode == 0) {
+            _favoritesEntityArr = [[NSMutableArray alloc] init];
+            [((NSMutableArray*)request.responseData) enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [_favoritesEntityArr addObject:[UserInfoFavoritesEntity mj_objectWithKeyValues:obj]];
+            }];
+            success();
+        }else{
+            failure(request.errorMsg);
+        }
+    }];
+}
+
+-(void)getBangumiEntitySuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
+    UserInfoBangumiRequest* bangumiRequest = [UserInfoBangumiRequest request];
+    bangumiRequest.mid = _mid;
+    [bangumiRequest startWithCompletionBlock:^(BaseRequest *request) {
+        if (request.responseCode == 0) {
+            _bangumiEntity = [UserInfoBangumiEntity mj_objectWithKeyValues:request.responseData];
             success();
         }else{
             failure(request.errorMsg);

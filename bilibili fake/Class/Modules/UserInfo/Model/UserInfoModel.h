@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "UserInfoCardEntity.h"
 #import "UserInfoLiveEntity.h"
 #import "UserInfoElecEntity.h"
 #import "UserInfoSubmitVideosEntity.h"
 #import "UserInfoCoinVideosEntity.h"
+#import "UserInfoFavoritesEntity.h"
+#import "UserInfoBangumiEntity.h"
+
 
 @interface UserInfoModel : NSObject
 
@@ -27,6 +31,10 @@
 
 @property(nonatomic,strong)UserInfoCoinVideosEntity* coinVideosEntity;
 
+@property(nonatomic,strong)NSMutableArray<UserInfoFavoritesEntity*>* favoritesEntityArr;
+
+@property(nonatomic,strong)UserInfoBangumiEntity* bangumiEntity;
+
 -(instancetype)initWithMid:(NSInteger)mid;
 
 
@@ -39,5 +47,9 @@
 -(void)getSubmitVideosEntityWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 -(void)getCoinVideosEntitySuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
+-(void)getFavoritesEntitySuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
+-(void)getBangumiEntitySuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 @end

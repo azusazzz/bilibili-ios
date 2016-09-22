@@ -16,6 +16,8 @@
 }
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
+        //self.backgroundColor = ColorWhiteAlpha(0, 0.1);
+        
         titleLabel = ({
             UILabel* label = [[UILabel alloc] init];
             label.textColor = ColorWhite(50);
@@ -52,7 +54,7 @@
         //layout
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.top.equalTo(self);
-            make.left.equalTo(self);
+            make.left.equalTo(self).offset(10);
             make.width.equalTo(@60);
         }];
         
@@ -63,9 +65,9 @@
         }];
         
         [seeMoreImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.top.equalTo(self);
-            make.right.equalTo(self);
-            //make.width.equalTo(@0);
+            make.centerY.equalTo(self);
+            make.height.equalTo(@20);
+            make.right.equalTo(self).offset(-10);
         }];
         
         [seeMoreLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -79,12 +81,33 @@
 
 -(void)setTitle:(NSString*)title Count:(NSInteger)count{
     titleLabel.text = title;
+    [titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@([self getLabelWidth:titleLabel]));
+    }];
+    
     countLabe.text = [NSString stringWithFormat:@"%lu",count];
     if (count) {
         [seeMoreImageView mas_updateConstraints:^(MASConstraintMaker *make) {
            make.width.equalTo(@20);
         }];
         seeMoreLabel.text = @"进来看看!";
+    }else{
+        [seeMoreImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@0);
+        }];
+        seeMoreLabel.text = @"没有公开的数据";
     }
+}
+
+#pragma 计算titleLabel的宽度
+-(CGFloat)getLabelWidth:(UILabel*)label{
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    NSDictionary *attributes = @{NSFontAttributeName:label.font, NSParagraphStyleAttributeName:paragraphStyle.copy};
+    
+    CGSize size = [label.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+    return size.width+15;
+    
 }
 @end

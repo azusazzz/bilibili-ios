@@ -5,27 +5,30 @@
 //  Created by cxh on 16/9/20.
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
-
 #import "UserInfoCollectionView.h"
+
 #import "SubmitAndCoinVideoCell.h"
+#import "FavoritesCell.h"
 #import "UserInfoHeaderReusableView.h"
 
 @implementation UserInfoCollectionView
 -(instancetype)init{
     
     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = [SubmitAndCoinVideoCell size];
     layout.minimumLineSpacing = 10;
-    layout.headerReferenceSize = CGSizeMake(SSize.width-20, 20);
+    layout.headerReferenceSize = CGSizeMake(SSize.width-20, 30);
     layout.footerReferenceSize = CGSizeZero;
-    layout.sectionInset = UIEdgeInsetsMake(10, 0, 10, 0);
+    layout.sectionInset = UIEdgeInsetsMake(5, 10, 5, 10);
    
     if ( self = [super initWithFrame:CGRectZero collectionViewLayout:layout]) {
-        self.dataSource =self;
+        self.dataSource = self;
+        self.delegate = self;
         self.scrollEnabled = NO;
         self.backgroundColor = [UIColor clearColor];
         self.showsVerticalScrollIndicator = NO;
         [self registerClass:[SubmitAndCoinVideoCell class] forCellWithReuseIdentifier:NSStringFromClass([SubmitAndCoinVideoCell class])];
+        [self registerClass:[FavoritesCell class] forCellWithReuseIdentifier:NSStringFromClass([FavoritesCell class])];
+        [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
         [self registerClass:[UserInfoHeaderReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([UserInfoHeaderReusableView class])];
     }
     return self;
@@ -40,60 +43,83 @@
     _coinVideosEntity = coinVideosEntity;
     [self reloadData];
 }
+
+-(void)setFavoritesEntityArr:(NSMutableArray<UserInfoFavoritesEntity *> *)favoritesEntityArr{
+    _favoritesEntityArr = favoritesEntityArr;
+    [self reloadData];
+}
+
+-(void)setBangumiEntity:(UserInfoBangumiEntity *)bangumiEntity{
+    _bangumiEntity = bangumiEntity;
+    [self reloadData];
+}
+
 #pragma mark ---- UICollectionViewDataSource
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     
     [self mas_updateConstraints:^(MASConstraintMaker *make) {
-        CGFloat height = ceil(_submitVideosEntity.vlist.count/2.0)*([SubmitAndCoinVideoCell size].height+10)+30;
+        CGFloat height = 0;
+        height += ceil(_submitVideosEntity.vlist.count/2.0)*([SubmitAndCoinVideoCell size].height+10)+30;
         height += (_coinVideosEntity.list.count?1:0)*([SubmitAndCoinVideoCell size].height+10)+30;
+        height += _favoritesEntityArr.count?(SSize.width-50)/3.0+40:30;
+        height += _bangumiEntity.result.count?(SSize.width-50)/3.0*1.5+40:40;
         make.height.equalTo(@(height));
     }];
-    return 2;
+    return 4;
 }
 
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (section == 0) {
-
         return _submitVideosEntity.vlist.count;
     }else if(section == 1){
-        return _coinVideosEntity.list.count;
+        return _coinVideosEntity.list.count<3?_coinVideosEntity.count:2;
+    }else if(section == 2){
+        return _favoritesEntityArr.count<4?_favoritesEntityArr.count:3;
+    }else if(section == 3){
+        return _bangumiEntity.result.count<4?_bangumiEntity.result.count:3;
     }
     return 0;
 }
 
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         SubmitAndCoinVideoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SubmitAndCoinVideoCell class]) forIndexPath:indexPath];
-        //cell.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
         cell.submitVideoEntity = _submitVideosEntity.vlist[indexPath.row];
         return cell;
     }else if(indexPath.section == 1){
         SubmitAndCoinVideoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SubmitAndCoinVideoCell class]) forIndexPath:indexPath];
         cell.coinVideoEntity = _coinVideosEntity.list[indexPath.row];
         return cell;
+    }else if(indexPath.section == 2){
+        FavoritesCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FavoritesCell class]) forIndexPath:indexPath];
+        cell.entity = _favoritesEntityArr[indexPath.row];
+        return cell;
     }
-    return nil;
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
+    cell.backgroundColor = ColorRGB(arc4random()%255, arc4random()%255, arc4random()%255);
+    return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    
-    
     if([kind isEqualToString:UICollectionElementKindSectionHeader])
     {
         UserInfoHeaderReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"UserInfoHeaderReusableView" forIndexPath:indexPath];
-        //footerView.backgroundColor = ColorWhite(230);
         switch (indexPath.section) {
             case 0:
                 [headerView setTitle:@"全部投稿" Count:_submitVideosEntity.count];
                 break;
             case 1:
                 [headerView setTitle:@"最近投币" Count:_coinVideosEntity.count];
+                break;
+            case 2:
+                [headerView setTitle:@"TA的收藏夹" Count: _favoritesEntityArr.count];
+                break;
+            case 3:
+                [headerView setTitle:@"TA追的番" Count: _bangumiEntity.result.count];
+                break;
             default:
                 break;
         }
@@ -101,4 +127,19 @@
     }
     return nil;
 }
+
+//size
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0 || indexPath.section == 1) {
+        return   [SubmitAndCoinVideoCell size];;
+    }else if (indexPath.section == 2) {
+        CGFloat h = (SSize.width-50)/3.0;
+        return CGSizeMake(h, h);
+    }else if (indexPath.section ==3) {
+        CGFloat h = (SSize.width-50)/3.0;
+        return CGSizeMake(h, h*1.5);
+    }
+    return CGSizeZero;
+}
+
 @end

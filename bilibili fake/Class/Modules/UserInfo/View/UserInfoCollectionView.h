@@ -9,11 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "UserInfoSubmitVideosEntity.h"
 #import "UserInfoCoinVideosEntity.h"
+#import "UserInfoFavoritesEntity.h"
+#import "UserInfoBangumiEntity.h"
 
-@interface UserInfoCollectionView : UICollectionView<UICollectionViewDataSource>
+@interface UserInfoCollectionView : UICollectionView<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property(nonatomic,strong)UserInfoSubmitVideosEntity* submitVideosEntity;
 
 @property(nonatomic,strong)UserInfoCoinVideosEntity* coinVideosEntity;
+
+@property(nonatomic,strong)NSMutableArray<UserInfoFavoritesEntity*>* favoritesEntityArr;
+
+@property(nonatomic,strong)UserInfoBangumiEntity* bangumiEntity;
 
 @end
