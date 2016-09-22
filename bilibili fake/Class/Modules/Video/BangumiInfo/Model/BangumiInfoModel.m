@@ -29,8 +29,9 @@
 - (void)getBangumiInfoWithSuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure {
     
     [[BangumiInfoRequest requestWithID:_ID] startWithCompletionBlock:^(BaseRequest *request) {
-        if (request.responseData) {
-            NSLog(@"%@", request.responseObject);
+        if (request.responseCode == 0) {
+            self.bangumiInfo = [BangumiInfoEntity mj_objectWithKeyValues:request.responseObject[@"result"]];
+            success();
         }
         else {
             failure(request.errorMsg);

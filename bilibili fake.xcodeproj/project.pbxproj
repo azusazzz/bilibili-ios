@@ -185,8 +185,16 @@
 		6EC489A71D7857890078EC0A /* RegionShowChildCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC489A61D7857890078EC0A /* RegionShowChildCollectionViewCell.m */; };
 		6EC9A48A1D7EE49900B5F0BA /* URLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9A4881D7EE49900B5F0BA /* URLRouter.m */; };
 		6EC9A48B1D7EE49900B5F0BA /* URLRouterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9A4891D7EE49900B5F0BA /* URLRouterConfig.m */; };
+		6ED2806B1D94060200C4A74B /* BangumiEpisodesHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED2806A1D94060200C4A74B /* BangumiEpisodesHeaderView.m */; };
+		6ED2806E1D94084500C4A74B /* BangumiEpisodeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED2806D1D94084500C4A74B /* BangumiEpisodeCollectionViewCell.m */; };
+		6ED280711D940EC600C4A74B /* BangumiProfileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED280701D940EC600C4A74B /* BangumiProfileCollectionViewCell.m */; };
 		6ED9D4CC1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9D4CB1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.m */; };
 		6ED9D4CF1D6C22C1004E2557 /* VideoURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9D4CE1D6C22C1004E2557 /* VideoURL.m */; };
+		6EEBF27E1D9389C700B3B240 /* BangumiInfoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEBF27D1D9389C700B3B240 /* BangumiInfoEntity.m */; };
+		6EEBF2831D93B59B00B3B240 /* BangumiEpisodeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEBF2821D93B59B00B3B240 /* BangumiEpisodeEntity.m */; };
+		6EEBF2861D93C02C00B3B240 /* BangumiInfoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEBF2851D93C02C00B3B240 /* BangumiInfoCollectionView.m */; };
+		6EEBF28C1D93C50500B3B240 /* BangumiInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEBF28B1D93C50500B3B240 /* BangumiInfoHeaderView.m */; };
+		6EEBF2901D93CF6000B3B240 /* UINavigationBar+BackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEBF28F1D93CF6000B3B240 /* UINavigationBar+BackgroundColor.m */; };
 		6EFFD4A71D2BCE4400D1BC9E /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4A61D2BCE4400D1BC9E /* TabBar.m */; };
 		6EFFD4AB1D2BD6D800D1BC9E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFD4AA1D2BD6D800D1BC9E /* UIView+Frame.m */; };
 		FC445EE51D93AD7000EF40FD /* UserInfoFavoritesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EE41D93AD7000EF40FD /* UserInfoFavoritesRequest.m */; };
@@ -713,10 +721,26 @@
 		6EC9A4871D7EE49900B5F0BA /* URLRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLRouter.h; sourceTree = "<group>"; };
 		6EC9A4881D7EE49900B5F0BA /* URLRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLRouter.m; sourceTree = "<group>"; };
 		6EC9A4891D7EE49900B5F0BA /* URLRouterConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLRouterConfig.m; sourceTree = "<group>"; };
+		6ED280691D94060200C4A74B /* BangumiEpisodesHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiEpisodesHeaderView.h; sourceTree = "<group>"; };
+		6ED2806A1D94060200C4A74B /* BangumiEpisodesHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiEpisodesHeaderView.m; sourceTree = "<group>"; };
+		6ED2806C1D94084500C4A74B /* BangumiEpisodeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiEpisodeCollectionViewCell.h; sourceTree = "<group>"; };
+		6ED2806D1D94084500C4A74B /* BangumiEpisodeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiEpisodeCollectionViewCell.m; sourceTree = "<group>"; };
+		6ED2806F1D940EC600C4A74B /* BangumiProfileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiProfileCollectionViewCell.h; sourceTree = "<group>"; };
+		6ED280701D940EC600C4A74B /* BangumiProfileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiProfileCollectionViewCell.m; sourceTree = "<group>"; };
 		6ED9D4CA1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVideoInfoHeaderView.h; sourceTree = "<group>"; };
 		6ED9D4CB1D6BF67F004E2557 /* DownloadVideoInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVideoInfoHeaderView.m; sourceTree = "<group>"; };
 		6ED9D4CD1D6C22C1004E2557 /* VideoURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoURL.h; sourceTree = "<group>"; };
 		6ED9D4CE1D6C22C1004E2557 /* VideoURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoURL.m; sourceTree = "<group>"; };
+		6EEBF27C1D9389C700B3B240 /* BangumiInfoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiInfoEntity.h; sourceTree = "<group>"; };
+		6EEBF27D1D9389C700B3B240 /* BangumiInfoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiInfoEntity.m; sourceTree = "<group>"; };
+		6EEBF2811D93B59B00B3B240 /* BangumiEpisodeEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiEpisodeEntity.h; sourceTree = "<group>"; };
+		6EEBF2821D93B59B00B3B240 /* BangumiEpisodeEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiEpisodeEntity.m; sourceTree = "<group>"; };
+		6EEBF2841D93C02C00B3B240 /* BangumiInfoCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiInfoCollectionView.h; sourceTree = "<group>"; };
+		6EEBF2851D93C02C00B3B240 /* BangumiInfoCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiInfoCollectionView.m; sourceTree = "<group>"; };
+		6EEBF28A1D93C50500B3B240 /* BangumiInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiInfoHeaderView.h; sourceTree = "<group>"; };
+		6EEBF28B1D93C50500B3B240 /* BangumiInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiInfoHeaderView.m; sourceTree = "<group>"; };
+		6EEBF28E1D93CF6000B3B240 /* UINavigationBar+BackgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+BackgroundColor.h"; sourceTree = "<group>"; };
+		6EEBF28F1D93CF6000B3B240 /* UINavigationBar+BackgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+BackgroundColor.m"; sourceTree = "<group>"; };
 		6EFFD4A51D2BCE4400D1BC9E /* TabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBar.h; sourceTree = "<group>"; };
 		6EFFD4A61D2BCE4400D1BC9E /* TabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBar.m; sourceTree = "<group>"; };
 		6EFFD4A91D2BD6D800D1BC9E /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
@@ -1145,11 +1169,11 @@
 		6E0C31B61D927775002AB227 /* BangumiInfo */ = {
 			isa = PBXGroup;
 			children = (
-				6E0C31B71D927775002AB227 /* Controller */,
+				6E0C31BA1D927775002AB227 /* Request */,
 				6E0C31B81D927775002AB227 /* Entity */,
 				6E0C31B91D927775002AB227 /* Model */,
-				6E0C31BA1D927775002AB227 /* Request */,
 				6E0C31BB1D927775002AB227 /* View */,
+				6E0C31B71D927775002AB227 /* Controller */,
 			);
 			path = BangumiInfo;
 			sourceTree = "<group>";
@@ -1166,6 +1190,10 @@
 		6E0C31B81D927775002AB227 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				6EEBF27C1D9389C700B3B240 /* BangumiInfoEntity.h */,
+				6EEBF27D1D9389C700B3B240 /* BangumiInfoEntity.m */,
+				6EEBF2811D93B59B00B3B240 /* BangumiEpisodeEntity.h */,
+				6EEBF2821D93B59B00B3B240 /* BangumiEpisodeEntity.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1191,6 +1219,10 @@
 		6E0C31BB1D927775002AB227 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6EEBF2891D93C4E000B3B240 /* Header&Footer */,
+				6EEBF2871D93C4A700B3B240 /* Cell */,
+				6EEBF2841D93C02C00B3B240 /* BangumiInfoCollectionView.h */,
+				6EEBF2851D93C02C00B3B240 /* BangumiInfoCollectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1224,6 +1256,7 @@
 		6E1535E11D1A94A40053A846 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				6EEBF28D1D93CF5800B3B240 /* UINavigationBar */,
 				6E4E03981D71390200C669E6 /* NSObject */,
 				FCF131BA1D5C1C4500790DC6 /* UIColor */,
 				6E23777F1D543C9D00102550 /* UIAlertView */,
@@ -2339,6 +2372,37 @@
 				6EC9A4891D7EE49900B5F0BA /* URLRouterConfig.m */,
 			);
 			path = URLRouter;
+			sourceTree = "<group>";
+		};
+		6EEBF2871D93C4A700B3B240 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6ED2806C1D94084500C4A74B /* BangumiEpisodeCollectionViewCell.h */,
+				6ED2806D1D94084500C4A74B /* BangumiEpisodeCollectionViewCell.m */,
+				6ED2806F1D940EC600C4A74B /* BangumiProfileCollectionViewCell.h */,
+				6ED280701D940EC600C4A74B /* BangumiProfileCollectionViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6EEBF2891D93C4E000B3B240 /* Header&Footer */ = {
+			isa = PBXGroup;
+			children = (
+				6EEBF28A1D93C50500B3B240 /* BangumiInfoHeaderView.h */,
+				6EEBF28B1D93C50500B3B240 /* BangumiInfoHeaderView.m */,
+				6ED280691D94060200C4A74B /* BangumiEpisodesHeaderView.h */,
+				6ED2806A1D94060200C4A74B /* BangumiEpisodesHeaderView.m */,
+			);
+			path = "Header&Footer";
+			sourceTree = "<group>";
+		};
+		6EEBF28D1D93CF5800B3B240 /* UINavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				6EEBF28E1D93CF6000B3B240 /* UINavigationBar+BackgroundColor.h */,
+				6EEBF28F1D93CF6000B3B240 /* UINavigationBar+BackgroundColor.m */,
+			);
+			path = UINavigationBar;
 			sourceTree = "<group>";
 		};
 		6EFFD4A31D2BCDFB00D1BC9E /* Views */ = {
@@ -3558,6 +3622,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC5139151D87D98B006FC8E3 /* TopicEntity.m in Sources */,
+				6ED2806E1D94084500C4A74B /* BangumiEpisodeCollectionViewCell.m in Sources */,
 				6E4E03971D71374200C669E6 /* UIViewController+PopGesture.m in Sources */,
 				6E7E46E91D587AD20027AE8D /* BangumiListEntity.m in Sources */,
 				6E58B2281D729FC1002714FD /* RegionEntity.m in Sources */,
@@ -3599,6 +3664,7 @@
 				6E59760B1D5B171500D520E0 /* VideoHeaderView.m in Sources */,
 				FC51392C1D87DC34006FC8E3 /* ActivityCell.m in Sources */,
 				6E885B951D4AEBB200A3BA35 /* JCCollectionViewTagFlowLayout.m in Sources */,
+				6EEBF27E1D9389C700B3B240 /* BangumiInfoEntity.m in Sources */,
 				6EC9A48B1D7EE49900B5F0BA /* URLRouterConfig.m in Sources */,
 				6E5FE9061D596D8400459BF4 /* BangumiLatestUpdateCollectionViewCell.m in Sources */,
 				6E66C8BC1D1AE014002DA3AB /* ScrollTabBarController.m in Sources */,
@@ -3644,6 +3710,7 @@
 				6EB552951D548CE7001099C1 /* RecommendFooterView.m in Sources */,
 				6E5976031D5B171500D520E0 /* VideoOwnerInfoEntity.m in Sources */,
 				6E4836651D40E45A004AD1A4 /* NSString+Size.m in Sources */,
+				6EEBF28C1D93C50500B3B240 /* BangumiInfoHeaderView.m in Sources */,
 				6E53E7611D76D94C00D84581 /* RegionShowBannerCollectionViewCell.m in Sources */,
 				6E5975F81D5B171500D520E0 /* VideoIntroStatCollectionViewCell.m in Sources */,
 				6E59760D1D5B171500D520E0 /* VideoTabBar.m in Sources */,
@@ -3704,6 +3771,7 @@
 				6ED9D4CF1D6C22C1004E2557 /* VideoURL.m in Sources */,
 				FC5766D91D8FC80A000A5787 /* UserInfoElecEntity.m in Sources */,
 				6E5FB19F1D5590F400984DC6 /* LiveCollectionView.m in Sources */,
+				6EEBF2831D93B59B00B3B240 /* BangumiEpisodeEntity.m in Sources */,
 				FC5138E11D87CF46006FC8E3 /* SearchResultViewController.m in Sources */,
 				FC5139491D8955EE006FC8E3 /* UserInfoCardRequest.m in Sources */,
 				FC5139241D87DB65006FC8E3 /* ActivityCenterRequest.m in Sources */,
@@ -3759,7 +3827,9 @@
 				6E08FD581D73368F00544842 /* RegionShowChildViewController.m in Sources */,
 				6E7E46FE1D58B00A0027AE8D /* BangumiEntranceFooterView.m in Sources */,
 				6E59760A1D5B171500D520E0 /* VideoCommentView.m in Sources */,
+				6EEBF2901D93CF6000B3B240 /* UINavigationBar+BackgroundColor.m in Sources */,
 				6E215D011D4B61B00004CA5B /* MineHeaderCollectionReusableView.m in Sources */,
+				6EEBF2861D93C02C00B3B240 /* BangumiInfoCollectionView.m in Sources */,
 				FC4DB3C41D7D5A73003935E3 /* StartPageEntity.m in Sources */,
 				6E7E47041D58B2BF0027AE8D /* BangumiEntranceEntity.m in Sources */,
 				6E5FE9121D59A8F100459BF4 /* BangumiEndCollectionViewCell.m in Sources */,
@@ -3787,8 +3857,10 @@
 				6E0C31C41D9277AC002AB227 /* BangumiInfoModel.m in Sources */,
 				FC5139101D87D878006FC8E3 /* TopicViewController.m in Sources */,
 				6E08FD611D7336CD00544842 /* RegionShowRecommendModel.m in Sources */,
+				6ED280711D940EC600C4A74B /* BangumiProfileCollectionViewCell.m in Sources */,
 				6EB450301D51FD0000A4F626 /* NSString+MD5.m in Sources */,
 				6E4836771D410818004AD1A4 /* MediaPlayerProgressView.m in Sources */,
+				6ED2806B1D94060200C4A74B /* BangumiEpisodesHeaderView.m in Sources */,
 				FC5138EE1D87CF46006FC8E3 /* RankingVideoEntity.m in Sources */,
 				FCD8A3B41D88442F00B55086 /* UserInfoViewController.m in Sources */,
 				FC5139211D87DB49006FC8E3 /* TopicCenterRequest.m in Sources */,

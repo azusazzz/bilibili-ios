@@ -11,7 +11,7 @@
 #import "HistoryTableView.h"
 
 // 页面切换
-#import "VideoViewController.h" // 视频播放
+#import "VideoViewController.h" // 视频信息
 
 // Tool
 #import "UIViewController+PopGesture.h"
@@ -114,7 +114,7 @@
     if (location.x > 200) {
         return NO;
     }
-    if (fabs(translation.x) <= fabs(translation.y)) {
+    if (translation.x <= fabs(translation.y)) {
         return NO;
     }
     return YES;

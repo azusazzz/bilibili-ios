@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BangumiInfoEntity.h"
 
 @interface BangumiInfoModel : NSObject
 
 @property (assign, nonatomic, readonly) NSInteger ID;
+
+@property (strong, nonatomic) BangumiInfoEntity *bangumiInfo;
 
 
 - (instancetype)initWithID:(NSInteger)ID;

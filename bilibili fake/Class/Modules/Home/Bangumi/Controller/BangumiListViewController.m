@@ -14,6 +14,9 @@
 
 #import "WebViewController.h"
 
+
+#import "BangumiInfoViewController.h" // 番剧详情
+
 @interface BangumiListViewController ()
 <RefreshCollectionViewDelegate>
 
@@ -46,9 +49,10 @@
         [URLRouter openURL:banner.link];
     }];
     [_collectionView setHandleDidSelectedBangumi:^(BangumiEntity *bangumi) {
-        NSString *URL = [NSString stringWithFormat:@"http://bangumi.bilibili.com/mobile/anime/%ld", bangumi.season_id];
-        WebViewController *controller = [[WebViewController alloc] initWithURL:URL];
-        [weakself.navigationController pushViewController:controller animated:YES];
+//        NSString *URL = [NSString stringWithFormat:@"http://bangumi.bilibili.com/mobile/anime/%ld", bangumi.season_id];
+//        WebViewController *controller = [[WebViewController alloc] initWithURL:URL];
+//        [weakself.navigationController pushViewController:controller animated:YES];
+        [weakself.navigationController pushViewController:[[BangumiInfoViewController alloc] initWithID:bangumi.season_id] animated:YES];
     }];
     [_collectionView setHandleDidSelectedRecommend:^(BangumiRecommendEntity *recommend) {
         WebViewController *controller = [[WebViewController alloc] initWithURL:recommend.link];

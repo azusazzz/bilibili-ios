@@ -40,21 +40,22 @@ static void URLRouterConfig(void) {
     
     
     /**
-     *  番剧信息 【暂时先用网页
+     *  番剧信息
      */
     // http://bangumi.bilibili.com/mobile/anime/5469
-    // bilibili://bangumi/season/5047  暂时先用网页
+    // bilibili://bangumi/season/5047
+    // http://bangumi.bilibili.com/anime/5029
     [URLRouter registerKey:@"bangumi" canOpenURL:^BOOL(NSString * _Nonnull URL) {
         //
-        return [URL hasPrefix:@"bilibili://bangumi/season/"];
+        return [URL hasPrefix:@"bilibili://bangumi/season/"] ||
+        [URL hasPrefix:@"http://bangumi.bilibili.com/mobile/anime/"] ||
+        [URL hasPrefix:@"http://bangumi.bilibili.com/anime/"];
     } toHandler:^BOOL(URLRouterParameters * _Nonnull routerParameters) {
         NSInteger seasonId = [[routerParameters.URL lastPathComponent] integerValue];
         if (seasonId <= 0) {
             return NO;
         }
-        NSString *URL = [NSString stringWithFormat:@"http://bangumi.bilibili.com/mobile/anime/%ld", seasonId];
-        WebViewController *controller = [[WebViewController alloc] initWithURL:URL];
-        [[UIViewController currentNavigationViewController] pushViewController:controller animated:YES];
+        [[UIViewController currentNavigationViewController] pushViewController:[[BangumiInfoViewController alloc] initWithID:seasonId] animated:YES];
         return YES;
     }];
     
