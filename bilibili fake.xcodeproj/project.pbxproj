@@ -202,6 +202,10 @@
 		FC445EEE1D93BB7A00EF40FD /* FavoritesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EED1D93BB7A00EF40FD /* FavoritesCell.m */; };
 		FC445EF11D93DC3E00EF40FD /* UserInfoBangumiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EF01D93DC3E00EF40FD /* UserInfoBangumiRequest.m */; };
 		FC445EF41D93DD0A00EF40FD /* UserInfoBangumiEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EF31D93DD0A00EF40FD /* UserInfoBangumiEntity.m */; };
+		FC445EF71D94CF2300EF40FD /* UBangumiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EF61D94CF2300EF40FD /* UBangumiCell.m */; };
+		FC445EFA1D94FE3200EF40FD /* UserInfoGameRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EF91D94FE3200EF40FD /* UserInfoGameRequest.m */; };
+		FC445EFD1D94FE8C00EF40FD /* UserInfoGameEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EFC1D94FE8C00EF40FD /* UserInfoGameEntity.m */; };
+		FC445F001D950D6E00EF40FD /* UGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EFF1D950D6E00EF40FD /* UGameCell.m */; };
 		FC4DB3C31D7D5A73003935E3 /* StartInfoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3B91D7D5A73003935E3 /* StartInfoEntity.m */; };
 		FC4DB3C41D7D5A73003935E3 /* StartPageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3BB1D7D5A73003935E3 /* StartPageEntity.m */; };
 		FC4DB3C51D7D5A73003935E3 /* StartInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DB3BE1D7D5A73003935E3 /* StartInfoModel.m */; };
@@ -759,6 +763,14 @@
 		FC445EF01D93DC3E00EF40FD /* UserInfoBangumiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoBangumiRequest.m; path = UserInfo/Request/UserInfoBangumiRequest.m; sourceTree = "<group>"; };
 		FC445EF21D93DD0A00EF40FD /* UserInfoBangumiEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoBangumiEntity.h; path = UserInfo/Entity/UserInfoBangumiEntity.h; sourceTree = "<group>"; };
 		FC445EF31D93DD0A00EF40FD /* UserInfoBangumiEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoBangumiEntity.m; path = UserInfo/Entity/UserInfoBangumiEntity.m; sourceTree = "<group>"; };
+		FC445EF51D94CF2300EF40FD /* UBangumiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBangumiCell.h; path = UserInfo/Cell/UBangumiCell.h; sourceTree = "<group>"; };
+		FC445EF61D94CF2300EF40FD /* UBangumiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBangumiCell.m; path = UserInfo/Cell/UBangumiCell.m; sourceTree = "<group>"; };
+		FC445EF81D94FE3200EF40FD /* UserInfoGameRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoGameRequest.h; path = UserInfo/Request/UserInfoGameRequest.h; sourceTree = "<group>"; };
+		FC445EF91D94FE3200EF40FD /* UserInfoGameRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoGameRequest.m; path = UserInfo/Request/UserInfoGameRequest.m; sourceTree = "<group>"; };
+		FC445EFB1D94FE8C00EF40FD /* UserInfoGameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoGameEntity.h; path = UserInfo/Entity/UserInfoGameEntity.h; sourceTree = "<group>"; };
+		FC445EFC1D94FE8C00EF40FD /* UserInfoGameEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoGameEntity.m; path = UserInfo/Entity/UserInfoGameEntity.m; sourceTree = "<group>"; };
+		FC445EFE1D950D6E00EF40FD /* UGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UGameCell.h; sourceTree = "<group>"; };
+		FC445EFF1D950D6E00EF40FD /* UGameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UGameCell.m; sourceTree = "<group>"; };
 		FC4DB3B81D7D5A73003935E3 /* StartInfoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartInfoEntity.h; sourceTree = "<group>"; };
 		FC4DB3B91D7D5A73003935E3 /* StartInfoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartInfoEntity.m; sourceTree = "<group>"; };
 		FC4DB3BA1D7D5A73003935E3 /* StartPageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartPageEntity.h; sourceTree = "<group>"; };
@@ -3087,6 +3099,8 @@
 				FC445EE71D93AE1600EF40FD /* UserInfoFavoritesEntity.m */,
 				FC445EF21D93DD0A00EF40FD /* UserInfoBangumiEntity.h */,
 				FC445EF31D93DD0A00EF40FD /* UserInfoBangumiEntity.m */,
+				FC445EFB1D94FE8C00EF40FD /* UserInfoGameEntity.h */,
+				FC445EFC1D94FE8C00EF40FD /* UserInfoGameEntity.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -3108,6 +3122,8 @@
 				FC445EE41D93AD7000EF40FD /* UserInfoFavoritesRequest.m */,
 				FC445EEF1D93DC3E00EF40FD /* UserInfoBangumiRequest.h */,
 				FC445EF01D93DC3E00EF40FD /* UserInfoBangumiRequest.m */,
+				FC445EF81D94FE3200EF40FD /* UserInfoGameRequest.h */,
+				FC445EF91D94FE3200EF40FD /* UserInfoGameRequest.m */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -3121,6 +3137,10 @@
 				FC5766DF1D9119FF000A5787 /* SubmitAndCoinVideoCell.m */,
 				FC5766E41D91319E000A5787 /* UserInfoHeaderReusableView.h */,
 				FC5766E51D91319E000A5787 /* UserInfoHeaderReusableView.m */,
+				FC445EF51D94CF2300EF40FD /* UBangumiCell.h */,
+				FC445EF61D94CF2300EF40FD /* UBangumiCell.m */,
+				FC445EFE1D950D6E00EF40FD /* UGameCell.h */,
+				FC445EFF1D950D6E00EF40FD /* UGameCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -3766,6 +3786,7 @@
 				6E5FB1B11D55926A00984DC6 /* LiveEntranceFooterView.m in Sources */,
 				6E66C8C21D1AE150002DA3AB /* TabBarControllerAnimatedTransitioning.m in Sources */,
 				FC4DB3CD1D7D799B003935E3 /* StartView.m in Sources */,
+				FC445EF71D94CF2300EF40FD /* UBangumiCell.m in Sources */,
 				FC5139291D87DC05006FC8E3 /* TopicCell.m in Sources */,
 				6E199CEF1D678BF8003E06F6 /* DownloadVideoManagerViewController.m in Sources */,
 				6ED9D4CF1D6C22C1004E2557 /* VideoURL.m in Sources */,
@@ -3793,6 +3814,7 @@
 				6E59762E1D5C6FBB00D520E0 /* DanmakuEntity.m in Sources */,
 				FCB108B71D8E71E400605FB4 /* UserInfoSubmitVideosRequest.m in Sources */,
 				6E23777E1D536BD400102550 /* UIViewController+HeaderView.m in Sources */,
+				FC445EFA1D94FE3200EF40FD /* UserInfoGameRequest.m in Sources */,
 				FC5138E41D87CF46006FC8E3 /* SeasonSummaryEntity.m in Sources */,
 				6E2A92ED1D64657500A8F9BA /* TestRefreshCollectionView.m in Sources */,
 				FC5138D81D87CF46006FC8E3 /* AllVideoModel.m in Sources */,
@@ -3816,6 +3838,7 @@
 				6E4E03A41D71882600C669E6 /* RecommendWebCollectionViewCell.m in Sources */,
 				6E7E46EC1D587CD60027AE8D /* BangumiListModel.m in Sources */,
 				6E9CA2FE1D6EE76D004B2C86 /* LivePlayer.m in Sources */,
+				FC445F001D950D6E00EF40FD /* UGameCell.m in Sources */,
 				FC445EEE1D93BB7A00EF40FD /* FavoritesCell.m in Sources */,
 				6E2377821D543D0000102550 /* UIAlertView+Block.m in Sources */,
 				6EB552921D548CD2001099C1 /* RecommendHeaderView.m in Sources */,
@@ -3826,6 +3849,7 @@
 				FCB108B11D8E46C800605FB4 /* UserInfoLiveEntity.m in Sources */,
 				6E08FD581D73368F00544842 /* RegionShowChildViewController.m in Sources */,
 				6E7E46FE1D58B00A0027AE8D /* BangumiEntranceFooterView.m in Sources */,
+				FC445EFD1D94FE8C00EF40FD /* UserInfoGameEntity.m in Sources */,
 				6E59760A1D5B171500D520E0 /* VideoCommentView.m in Sources */,
 				6EEBF2901D93CF6000B3B240 /* UINavigationBar+BackgroundColor.m in Sources */,
 				6E215D011D4B61B00004CA5B /* MineHeaderCollectionReusableView.m in Sources */,

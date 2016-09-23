@@ -15,7 +15,7 @@
 #import "UserInfoCoinVideosEntity.h"
 #import "UserInfoFavoritesEntity.h"
 #import "UserInfoBangumiEntity.h"
-
+#import "UserInfoGameEntity.h"
 
 @interface UserInfoModel : NSObject
 
@@ -35,6 +35,9 @@
 
 @property(nonatomic,strong)UserInfoBangumiEntity* bangumiEntity;
 
+@property(nonatomic,strong)UserInfoGameEntity* gameEntity;
+
+
 -(instancetype)initWithMid:(NSInteger)mid;
 
 
@@ -51,5 +54,7 @@
 -(void)getFavoritesEntitySuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 -(void)getBangumiEntitySuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
+
+-(void)getGameEntitySuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure;
 
 @end

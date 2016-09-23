@@ -15,6 +15,7 @@
 #import "UserInfoCoinVideosRequest.h"
 #import "UserInfoFavoritesRequest.h"
 #import "UserInfoBangumiRequest.h"
+#import "UserInfoGameRequest.h"
 
 @implementation UserInfoModel
 
@@ -120,6 +121,19 @@
     [bangumiRequest startWithCompletionBlock:^(BaseRequest *request) {
         if (request.responseCode == 0) {
             _bangumiEntity = [UserInfoBangumiEntity mj_objectWithKeyValues:request.responseData];
+            success();
+        }else{
+            failure(request.errorMsg);
+        }
+    }];
+}
+
+-(void)getGameEntitySuccess:(void (^)(void))success failure:(void (^)(NSString *errorMsg))failure{
+    UserInfoGameRequest* gameRequest = [UserInfoGameRequest request];
+    gameRequest.mid = _mid;
+    [gameRequest startWithCompletionBlock:^(BaseRequest *request) {
+        if (request.responseCode == 0) {
+            _gameEntity = [UserInfoGameEntity mj_objectWithKeyValues:request.responseData];
             success();
         }else{
             failure(request.errorMsg);

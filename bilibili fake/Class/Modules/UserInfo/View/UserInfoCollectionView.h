@@ -11,6 +11,7 @@
 #import "UserInfoCoinVideosEntity.h"
 #import "UserInfoFavoritesEntity.h"
 #import "UserInfoBangumiEntity.h"
+#import "UserInfoGameEntity.h"
 
 @interface UserInfoCollectionView : UICollectionView<UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -21,5 +22,7 @@
 @property(nonatomic,strong)NSMutableArray<UserInfoFavoritesEntity*>* favoritesEntityArr;
 
 @property(nonatomic,strong)UserInfoBangumiEntity* bangumiEntity;
+
+@property(nonatomic,strong)UserInfoGameEntity* gameEntity;
 
 @end

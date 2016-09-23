@@ -24,6 +24,7 @@
         video3ImageView = ({
             UIImageView* view = [[UIImageView alloc] init];
             view.contentMode = UIViewContentModeScaleAspectFill;
+            view.clipsToBounds = YES;
             [self addSubview:view];
             view;
         });
@@ -31,6 +32,7 @@
         video2ImageView = ({
             UIImageView* view = [[UIImageView alloc] init];
             view.contentMode = UIViewContentModeScaleAspectFill;
+            view.clipsToBounds = YES;
             [self addSubview:view];
             view;
         });
@@ -38,6 +40,7 @@
         video1ImageView = ({
             UIImageView* view = [[UIImageView alloc] init];
             view.contentMode = UIViewContentModeScaleAspectFill;
+            view.clipsToBounds = NO;
             view.layer.masksToBounds = YES;
             [self addSubview:view];
             view;
@@ -73,15 +76,15 @@
         //layout
         [video1ImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.equalTo(self);
-            make.width.equalTo(self);
+            make.width.equalTo(self.mas_width);
         }];
         [video2ImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.left.equalTo(self);
-            make.height.equalTo(self).multipliedBy(0.5).offset(-1);
+            make.height.equalTo(self.mas_height).multipliedBy(0.5).offset(-1);
         }];
         [video3ImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.right.equalTo(self);
-            make.height.equalTo(self).multipliedBy(0.5).offset(-1);
+            make.height.equalTo(self.mas_height).multipliedBy(0.5).offset(-1);
         }];
         
         [blankView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -107,14 +110,18 @@
     if (entity.videos.count == 0) {
     }else if(entity.videos.count == 1){
         [video1ImageView sd_setImageWithURL:[NSURL URLWithString:entity.videos[0].pic]];
-        [video1ImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+        [video1ImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.equalTo(self);
+            make.width.equalTo(self.mas_width);
             make.height.equalTo(self);
         }];
     }else if(entity.videos.count == 2){
         [video1ImageView sd_setImageWithURL:[NSURL URLWithString:entity.videos[0].pic]];
         [video2ImageView sd_setImageWithURL:[NSURL URLWithString:entity.videos[1].pic]];
-        [video1ImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(self.mas_height).multipliedBy(0.5).offset(-1);
+        [video1ImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.equalTo(self);
+            make.width.equalTo(self.mas_width);
+            make.height.equalTo(self).multipliedBy(0.5).offset(-1);
         }];
         [video2ImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(self.mas_width);
@@ -123,8 +130,10 @@
         [video1ImageView sd_setImageWithURL:[NSURL URLWithString:entity.videos[0].pic]];
         [video2ImageView sd_setImageWithURL:[NSURL URLWithString:entity.videos[1].pic]];
         [video3ImageView sd_setImageWithURL:[NSURL URLWithString:entity.videos[2].pic]];
-        [video1ImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(self.mas_height).multipliedBy(0.5).offset(-1);
+        [video1ImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.equalTo(self);
+            make.width.equalTo(self.mas_width);
+            make.height.equalTo(self).multipliedBy(0.5).offset(-1);
         }];
         [video2ImageView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(self.mas_width).multipliedBy(0.5).offset(-1);

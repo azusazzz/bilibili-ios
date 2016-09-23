@@ -84,7 +84,7 @@
     [model getLiveEntityWithSuccess:^{
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             if (model.liveEntity.roomStatus == 0) {
-                [userInfoLiveView mas_makeConstraints:^(MASConstraintMaker *make) {
+                [userInfoLiveView mas_updateConstraints:^(MASConstraintMaker *make) {
                     make.height.equalTo(@0);
                     make.top.equalTo(userInfoCardView.mas_bottom).offset(0);
                 }];
@@ -137,6 +137,14 @@
         }];
     } failure:^(NSString *errorMsg) {
          NSLog(@"%@",errorMsg);
+    }];
+    
+    [model getGameEntitySuccess:^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            userInfoCollectionView.gameEntity = model.gameEntity;
+        }];
+    } failure:^(NSString *errorMsg) {
+        NSLog(@"%@",errorMsg);
     }];
 }
 #pragma mark - UIGestureRecognizerDelegate
