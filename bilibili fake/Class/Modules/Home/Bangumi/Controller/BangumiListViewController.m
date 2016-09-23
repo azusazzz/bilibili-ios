@@ -55,8 +55,9 @@
         [weakself.navigationController pushViewController:[[BangumiInfoViewController alloc] initWithID:bangumi.season_id] animated:YES];
     }];
     [_collectionView setHandleDidSelectedRecommend:^(BangumiRecommendEntity *recommend) {
-        WebViewController *controller = [[WebViewController alloc] initWithURL:recommend.link];
-        [weakself.navigationController pushViewController:controller animated:YES];
+        [URLRouter openURL:recommend.link];
+//        WebViewController *controller = [[WebViewController alloc] initWithURL:recommend.link];
+//        [weakself.navigationController pushViewController:controller animated:YES];
     }];
 }
 
