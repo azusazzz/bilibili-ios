@@ -63,7 +63,8 @@
             
             for (StartPageEntity* startPage in startInfoEntity.startPages) {
                 if (startPage.end_time>now_time) {
-                    [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:startPage.image] options:SDWebImageDownloaderLowPriority progress:NULL completed:NULL];
+                    [[UIImageView new] sd_setImageWithURL:[NSURL URLWithString:startPage.image]];
+                    //[[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:startPage.image] options:SDWebImageDownloaderIgnoreCachedResponse progress:NULL completed:NULL];
                 }
             }
         }
