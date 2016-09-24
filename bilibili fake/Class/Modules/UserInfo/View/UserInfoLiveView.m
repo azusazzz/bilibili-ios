@@ -14,10 +14,11 @@
 }
 
 -(instancetype)init{
+
     if (self = [super init]) {
         self.layer.cornerRadius = 5.0;
         self.backgroundColor = ColorWhite(255);
-        
+        //self.userInteractionEnabled = YES;
         mainBtn = ({
             NSString* str = @"TA现在并没有直播，去订阅他的直播";
             NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:str];
@@ -56,10 +57,17 @@
             make.top.equalTo(mainBtn).offset(10);
             make.size.mas_equalTo(CGSizeMake(30, 30));
         }];
-    
+        
+        //actions
+        [mainBtn addTarget:self action:@selector(onClickMainBtn) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
+-(void)onClickMainBtn{
+    _onClickPlay?_onClickPlay():NULL;
+}
+
+
 
 -(void)setEntity:(UserInfoLiveEntity *)entity{
     if (entity.roomStatus) {

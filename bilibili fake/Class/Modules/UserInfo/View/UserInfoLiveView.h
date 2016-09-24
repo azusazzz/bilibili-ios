@@ -11,7 +11,8 @@
 
 @interface UserInfoLiveView : UIView
 
-@property(nonatomic,strong)UserInfoLiveEntity* entity;
+@property(nonatomic,strong)void (^onClickPlay)(void);
 
+@property(nonatomic,strong)UserInfoLiveEntity* entity;
 
 @end

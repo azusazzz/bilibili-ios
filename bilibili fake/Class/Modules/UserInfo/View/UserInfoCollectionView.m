@@ -62,6 +62,11 @@
     _gameEntity = gameEntity;
     [self reloadData];
 }
+
+#pragma UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    _onClickCell?_onClickCell(indexPath):NULL;
+}
 #pragma mark ---- UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{

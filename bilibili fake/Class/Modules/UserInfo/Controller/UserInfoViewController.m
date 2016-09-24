@@ -22,6 +22,11 @@
 #import "UserInfoElecView.h"
 #import "UserInfoCollectionView.h"
 
+
+#import "LivePlayer.h"
+#import "VideoViewController.h"
+#import "BangumiInfoViewController.h"
+
 @interface UserInfoViewController()<UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
 
@@ -68,7 +73,33 @@
     panGestureRecognizer.delegate = self;
     [self.view addGestureRecognizer:panGestureRecognizer];
     [self replacingPopGestureRecognizer:panGestureRecognizer];
+    
+    __weak typeof(self) weakself = self;
+    __weak typeof(model) weakmodel = model;
+    [userInfoCardView setOnClickFollowCountBtn:^{
+        NSLog(@"123");
+    }];
+    [userInfoCardView setOnClickFansCountBtn:^{
+        NSLog(@"1234");
+    }];
+    
+    [userInfoLiveView setOnClickPlay:^{
+         [LivePlayer playLiveWithURL:[NSURL URLWithString:weakmodel.liveEntity.url] title:weakmodel.liveEntity.title inController:weakself];
+    }];
+    
+    [userInfoCollectionView setOnClickCell:^(NSIndexPath *indexPath) {
+        if (indexPath.section == 0) {
+            [weakself.navigationController pushViewController:[[VideoViewController alloc] initWithAid:weakmodel.submitVideosEntity.vlist[indexPath.row].aid] animated:YES];
+        }else if(indexPath.section == 1){
+            [weakself.navigationController pushViewController:[[VideoViewController alloc] initWithAid:weakmodel.coinVideosEntity.list[indexPath.row].aid] animated:YES];
+        }else if(indexPath.section == 3){
+            [weakself.navigationController pushViewController:[[BangumiInfoViewController alloc] initWithID:[weakmodel.bangumiEntity.result[indexPath.row].season_id integerValue]] animated:YES];
+        }
+    }];
 }
+
+
+
 -(void)loadData{
     [model getCardEntityWithSuccess:^{
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{

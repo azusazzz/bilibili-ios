@@ -15,6 +15,9 @@
 
 @interface UserInfoCollectionView : UICollectionView<UICollectionViewDataSource,UICollectionViewDelegate>
 
+@property(nonatomic,strong)void (^onClickCell)(NSIndexPath* indexPath);
+
+
 @property(nonatomic,strong)UserInfoSubmitVideosEntity* submitVideosEntity;
 
 @property(nonatomic,strong)UserInfoCoinVideosEntity* coinVideosEntity;

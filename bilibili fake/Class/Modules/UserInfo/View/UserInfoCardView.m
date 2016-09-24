@@ -35,6 +35,7 @@
     if ([super init]) {
         self.backgroundColor = [UIColor clearColor];
         [self loadSubViews];
+        [self loadActions];
     }
     return self;
 }
@@ -46,6 +47,18 @@
 //    [ColorWhite(255) setFill];
 //    [rectPath fill];
 }
+
+-(void)loadActions{
+    [followCountBtn addTarget:self action:@selector(onClickFollowCount) forControlEvents:UIControlEventTouchUpInside];
+    [fansCountBtn addTarget:self action:@selector(onClickFansCount) forControlEvents:UIControlEventTouchUpInside];
+}
+-(void)onClickFollowCount{
+    _onClickFollowCountBtn?_onClickFollowCountBtn():NULL;
+}
+-(void)onClickFansCount{
+    _onClickFansCountBtn?_onClickFansCountBtn():NULL;
+}
+
 
 -(void)setEntity:(UserInfoCardEntity *)entity{
     if (entity) {

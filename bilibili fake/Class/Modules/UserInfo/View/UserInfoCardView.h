@@ -11,6 +11,10 @@
 
 @interface UserInfoCardView : UIView
 
+@property(nonatomic,strong) void (^onClickFollowCountBtn)(void);
+
+@property(nonatomic,strong) void (^onClickFansCountBtn)(void);
+
 @property(nonatomic,strong)UserInfoCardEntity* entity;
 
 @end

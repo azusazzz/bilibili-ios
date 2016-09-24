@@ -19,6 +19,7 @@
 #import "FindMoreReusbleView.h"
 
 #import "VideoViewController.h"
+#import "BangumiInfoViewController.h"
 
 @interface AllVideoViewController()<UICollectionViewDelegate,UICollectionViewDataSource,SelectionDelegate>
 
@@ -68,7 +69,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-//        [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:model.seasonArr[indexPath.row]] animated:YES];
+         [self.navigationController pushViewController:[[BangumiInfoViewController alloc] initWithID:[model.seasonArr[indexPath.row].param integerValue]] animated:YES];
     }else if (indexPath.section == 1) {
         [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:[model.movieArr[indexPath.row].param integerValue]]animated:YES];
     }else if (indexPath.section == 2) {

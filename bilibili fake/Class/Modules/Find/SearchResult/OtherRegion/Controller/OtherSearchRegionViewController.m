@@ -15,6 +15,7 @@
 #import "MovieSummaryCell.h"
 #import "SpecialSummaryCell.h"
 #import "UserInfoViewController.h"
+#import "BangumiInfoViewController.h"
 
 @interface OtherSearchRegionViewController()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -64,12 +65,13 @@
 {
     switch (model.type) {
         case 1:
-           // [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:[((SeasonSummaryEntity*)model.searchResultArr[indexPath.row]).param integerValue]] animated:YES];
+            [self.navigationController pushViewController:[[BangumiInfoViewController alloc] initWithID:[((SeasonSummaryEntity*)model.searchResultArr[indexPath.row]).param integerValue]]animated:YES];
             break;
         case 2:
             [self.navigationController pushViewController:[[UserInfoViewController alloc] initWithMid:[((UPUserSummaryEntity*)model.searchResultArr[indexPath.row]).param integerValue]] animated:YES];
             break;
         case 3:
+            [self.navigationController pushViewController:[[VideoViewController alloc] initWithAid:[((MovieSummaryEntity*)model.searchResultArr[indexPath.row]).param integerValue]] animated:YES];
             break;
         case 4:
             break;
