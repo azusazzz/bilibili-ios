@@ -8,6 +8,7 @@
 
 #import "UBangumiCell.h"
 #import <UIImageView+WebCache.h>
+#import "GradientView.h"
 
 @implementation UBangumiCell{
     UIImageView* coverImageView;
@@ -25,13 +26,14 @@
             [self addSubview:view];
             view;
         });
-        //本来是个渐变的懒得画了
-        UIView* blankView = ({
-            UIView* view = [[UIView alloc] init];
-            view.backgroundColor = ColorWhiteAlpha(0, 0.2);
+        
+        GradientView* blankView = ({
+            
+            GradientView* view = [[GradientView alloc] initWithFrame:CGRectMake(0, self.height*0.5, self.width, self.height*0.5)];
             [self addSubview:view];
             view;
         });
+        [blankView setBackgroundColor:[UIColor clearColor]];
         
         titleLabel = ({
             UILabel* label = [UILabel new];
@@ -56,20 +58,16 @@
             make.edges.equalTo(self);
         }];
         
-        [blankView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.right.left.equalTo(self);
-            make.height.equalTo(@40);
-        }];
         
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self);
-            make.top.equalTo(blankView);
+            make.bottom.equalTo(newest_ep_indexLabel.mas_top);
             make.height.equalTo(@20);
         }];
         
         [newest_ep_indexLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self);
-            make.top.equalTo(titleLabel.mas_bottom).offset(0);
+            make.bottom.equalTo(self).offset(0);
             make.height.equalTo(@15);
         }];
     }

@@ -8,6 +8,8 @@
 
 #import "FavoritesCell.h"
 #import <UIImageView+WebCache.h>
+#import "GradientView.h"
+
 @implementation FavoritesCell{
     UIImageView* video1ImageView;
     UIImageView* video2ImageView;
@@ -46,12 +48,14 @@
             view;
         });
         
-        UIView* blankView = ({
-            UIView* view = [[UIView alloc] init];
-            view.backgroundColor = ColorWhiteAlpha(0, 0.1);
+        GradientView*  blankView= ({
+            GradientView* view = [[GradientView alloc] initWithFrame:CGRectMake(0, self.height*0.5, self.width, self.height*0.5)];
+            view.layer.masksToBounds = YES;
+            //view.backgroundColor = ColorWhiteAlpha(0, 0.1);
             [self addSubview:view];
             view;
         });
+        [blankView setBackgroundColor:[UIColor clearColor]];
         
         cur_countLabel = ({
             UILabel* label = [[UILabel alloc] init];
@@ -87,9 +91,9 @@
             make.height.equalTo(self.mas_height).multipliedBy(0.5).offset(-1);
         }];
         
-        [blankView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
-        }];
+//        [blankView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.equalTo(self);
+//        }];
         
         [cur_countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).offset(5);
@@ -149,6 +153,7 @@
     }];
     
     nameLabel.text = entity.name;
+    [self setNeedsLayout];
 }
 
 #pragma 计算titleLabel的宽度

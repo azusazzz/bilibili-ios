@@ -287,6 +287,7 @@
 		FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */ = {isa = PBXBuildFile; fileRef = FC80C7331D377C6400D30E23 /* UILabel+LeftTopAlign.m */; };
 		FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */; };
 		FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */; };
+		FCAAB8D91D96719300AD5202 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAAB8D81D96719300AD5202 /* GradientView.m */; };
 		FCB108AE1D8E439C00605FB4 /* UserInfoLiveRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB108AD1D8E439C00605FB4 /* UserInfoLiveRequest.m */; };
 		FCB108B11D8E46C800605FB4 /* UserInfoLiveEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB108B01D8E46C800605FB4 /* UserInfoLiveEntity.m */; };
 		FCB108B41D8E485700605FB4 /* UserInfoLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB108B31D8E485700605FB4 /* UserInfoLiveView.m */; };
@@ -931,6 +932,8 @@
 		FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "游戏中心假数据.json"; sourceTree = "<group>"; };
 		FCAA18EB1D2DEDD90046CBA4 /* RowBotton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowBotton.h; path = RowBotton/RowBotton.h; sourceTree = "<group>"; };
 		FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowBotton.m; path = RowBotton/RowBotton.m; sourceTree = "<group>"; };
+		FCAAB8D71D96719300AD5202 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradientView.h; path = GradientView/GradientView.h; sourceTree = "<group>"; };
+		FCAAB8D81D96719300AD5202 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradientView.m; path = GradientView/GradientView.m; sourceTree = "<group>"; };
 		FCB108AC1D8E439C00605FB4 /* UserInfoLiveRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoLiveRequest.h; path = UserInfo/Request/UserInfoLiveRequest.h; sourceTree = "<group>"; };
 		FCB108AD1D8E439C00605FB4 /* UserInfoLiveRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoLiveRequest.m; path = UserInfo/Request/UserInfoLiveRequest.m; sourceTree = "<group>"; };
 		FCB108AF1D8E46C800605FB4 /* UserInfoLiveEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoLiveEntity.h; path = UserInfo/Entity/UserInfoLiveEntity.h; sourceTree = "<group>"; };
@@ -2420,6 +2423,7 @@
 		6EFFD4A31D2BCDFB00D1BC9E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FCAAB8D61D96717900AD5202 /* GradientView */,
 				6E5A61241D5F06FB007A4740 /* RefreshCollectionView */,
 				6E2377BA1D54735100102550 /* BannerView */,
 				FCAA18EA1D2DED910046CBA4 /* rowBtn */,
@@ -3198,6 +3202,15 @@
 			name = rowBtn;
 			sourceTree = "<group>";
 		};
+		FCAAB8D61D96717900AD5202 /* GradientView */ = {
+			isa = PBXGroup;
+			children = (
+				FCAAB8D71D96719300AD5202 /* GradientView.h */,
+				FCAAB8D81D96719300AD5202 /* GradientView.m */,
+			);
+			name = GradientView;
+			sourceTree = "<group>";
+		};
 		FCBD1FEC1D3FE91800A756F3 /* 发现 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3891,6 +3904,7 @@
 				FC445EF11D93DC3E00EF40FD /* UserInfoBangumiRequest.m in Sources */,
 				FC5138ED1D87CF46006FC8E3 /* VideoRankViewController.m in Sources */,
 				6E5976121D5B174D00D520E0 /* DanmakuRequest.m in Sources */,
+				FCAAB8D91D96719300AD5202 /* GradientView.m in Sources */,
 				6E5ED8891D74535200839B9E /* RegionShowVideoEntity.m in Sources */,
 				6E5FB1981D557DAA00984DC6 /* LiveListPartitionEntity.m in Sources */,
 				FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */,
