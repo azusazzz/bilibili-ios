@@ -15,9 +15,12 @@ Xcode 7.3.1
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/2_%E5%88%86%E5%8C%BA.png" width=250 />
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/2_%e5%88%86%e5%8c%ba%e5%b1%95%e7%a4%ba" width=250 />
 
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_%E5%8F%91%E7%8E%B0.PNG" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_%E6%8E%92%E8%A1%8C%E6%A6%9C.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_%E6%90%9C%E7%B4%A2.png" width=250 />
+<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_发现.jpg" width=250 />
+<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_搜索.png" width=250 />
+<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_话题中心.jpg" width=250 />
+<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_活动中心.jpg" width=250 />
+<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_游戏中心.jpg" width=250 />
+<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_排行榜.jpg" width=250 />
 
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/5_%E6%88%91%E7%9A%84.png" width=250 />
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/5_%E4%B8%8B%E8%BD%BD.jpg" width=250 />
@@ -34,4 +37,6 @@ Xcode 7.3.1
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/7_%E6%99%AE%E9%80%9A%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE-%E5%BC%B9%E5%B9%95.jpg" width=250 />
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/7_%E7%9B%B4%E6%92%AD%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE.jpg" width=250 />
 
+<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/9_用户信息.jpg" width=250 />
+<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/9_用户信息2.jpg" width=250 />
 
