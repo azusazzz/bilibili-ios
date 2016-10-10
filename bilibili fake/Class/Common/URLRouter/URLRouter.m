@@ -112,7 +112,7 @@
 #pragma mark UnRegister 注销
 
 + (void)unregisterURLPattern:(NSString *)URLPattern {
-    [self unregisterURLPattern:URLPattern];
+    [self unregisterWithKey:URLPattern];
 }
 + (void)unregisterClass:(Class<URLRouterProtocol>)cls {
     [self unregisterWithKey:NSStringFromClass(cls)];
