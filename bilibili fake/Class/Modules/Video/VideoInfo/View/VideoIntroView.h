@@ -22,6 +22,8 @@
 
 @property (copy, nonatomic) void (^onClickPageItem)(NSInteger idx);
 
+@property (copy, nonatomic) void (^onClickOwner)(NSInteger mid);
+
 @property (strong, nonatomic) void (^onClickRelate)(NSInteger idx);
 
 @property (copy, nonatomic) void (^onClickTag)(NSString *tag);

@@ -12,7 +12,8 @@
 
 @implementation BangumiInfoHeaderView
 {
-    SABlurImageView *backgroundView;    // 背景 模糊
+//    SABlurImageView *backgroundView;    // 背景 模糊
+    UIImageView *backgroundView;    // 背景 模糊
     UIImageView     *coverImageView;    // 封面
     UILabel         *titleLabel;        // 标题
     UILabel         *statusLabel;       // 更新状态
@@ -34,11 +35,11 @@
     }
     _bangumiInfo = bangumiInfo;
     
-    [backgroundView clearMemory];
+//    [backgroundView clearMemory];
     [coverImageView sd_setImageWithURL:[NSURL URLWithString:bangumiInfo.cover] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         backgroundView.image = image;
-        [backgroundView configrationForBlurAnimation:100];
-        [backgroundView blur:0.9];
+//        [backgroundView configrationForBlurAnimation:100];
+//        [backgroundView blur:0.9];
     }];
     titleLabel.text = bangumiInfo.title;
     if (bangumiInfo.is_finish) {
@@ -63,6 +64,12 @@
         backgroundView.contentMode = UIViewContentModeScaleAspectFill;
         backgroundView.clipsToBounds = YES;
         [self addSubview:backgroundView];
+        
+        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+        effectview.frame = CGRectMake(0, 0, SSize.width, 300);
+        [backgroundView addSubview:effectview];
+        
         
         coverImageView = [[UIImageView alloc] init];
         coverImageView.layer.cornerRadius = 4;

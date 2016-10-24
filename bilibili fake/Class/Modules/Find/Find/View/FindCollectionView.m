@@ -14,7 +14,7 @@
     NSArray<NSArray *>* dataArr;
 }
 -(instancetype)init{
-    
+    self = [super init];
     
     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(SSize.width, SSize.width*0.5 + 50 + 10);

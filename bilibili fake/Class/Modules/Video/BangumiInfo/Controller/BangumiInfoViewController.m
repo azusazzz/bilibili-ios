@@ -46,7 +46,14 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.navigationBar.backgroundColor = ColorWhiteAlpha(255, 0);
+    [self.navigationBar mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset = 0;
+        make.right.offset = 0;
+        make.top.offset = 0;
+        make.height.offset = 64;
+    }];
+//    self.navigationBar.backgroundColor = ColorWhiteAlpha(255, 0);
+
     self.navigationBar.hiddenBottomLine = YES;
     
     _collectionView = [[BangumiInfoCollectionView alloc] init];

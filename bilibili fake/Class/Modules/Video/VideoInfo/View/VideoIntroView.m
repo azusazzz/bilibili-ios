@@ -175,6 +175,8 @@
         if (indexPath.row == 0) {
             _showAllDesc = !_showAllDesc;
             [self reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
+        }else if(indexPath.row == 3){
+            _onClickOwner ? _onClickOwner(_videoInfo.owner.mid):NULL;
         }
         return;
     }

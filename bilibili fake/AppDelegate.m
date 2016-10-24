@@ -38,7 +38,6 @@
     [StartView show];
     
     
-    
 //    DownloadOperation *operation = [[DownloadManager manager] operationWithAid:3743027 cid:6001707 page:1];
 //    [operation setProgressChanged:^(DownloadOperation * _Nonnull operation) {
 //        NSLog(@"%lf", operation.countOfBytesReceived / (CGFloat)operation.countOfBytesExpectedToReceive);

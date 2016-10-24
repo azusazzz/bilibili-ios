@@ -21,6 +21,7 @@
 #import "UIViewController+GetViewController.h"
 
 #import "SearchResultViewController.h" // 点击标签 搜索
+#import "UserInfoViewController.h"
 
 @interface VideoViewController ()
 <UIScrollViewDelegate, UIGestureRecognizerDelegate>
@@ -144,7 +145,13 @@
         SearchResultViewController *searchController = [[SearchResultViewController alloc] initWithKeyword:tag];
         [weakself.navigationController pushViewController:searchController animated:YES];
     }];
-    
+    /**
+     *  点击简介－up主
+     */
+    [_introView setOnClickOwner:^(NSInteger mid) {
+       UserInfoViewController* userInfoViewController = [[UserInfoViewController alloc] initWithMid:mid];
+       [weakself.navigationController pushViewController:userInfoViewController animated:YES];
+    }];
     /**
      *  点击简介-视频相关
      *
