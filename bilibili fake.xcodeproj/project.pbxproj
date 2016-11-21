@@ -285,6 +285,12 @@
 		FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C081D6197F500993327 /* UIStyleSelectionVC.m */; };
 		FC749C0E1D61B2B200993327 /* UIStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C0D1D61B2B200993327 /* UIStyleCell.m */; };
 		FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */ = {isa = PBXBuildFile; fileRef = FC80C7331D377C6400D30E23 /* UILabel+LeftTopAlign.m */; };
+		FC9E2D611DE35F00002BFCEC /* wax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9E2D601DE35F00002BFCEC /* wax.framework */; };
+		FC9E2D691DE35F0F002BFCEC /* Init.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC9E2D641DE35F0F002BFCEC /* Init.lua */; };
+		FC9E2D6A1DE35F0F002BFCEC /* StartInfoModel.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC9E2D651DE35F0F002BFCEC /* StartInfoModel.lua */; };
+		FC9E2D6B1DE35F0F002BFCEC /* StartInfoRequest.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC9E2D661DE35F0F002BFCEC /* StartInfoRequest.lua */; };
+		FC9E2D6C1DE35F0F002BFCEC /* StartPageEntity.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC9E2D671DE35F0F002BFCEC /* StartPageEntity.lua */; };
+		FC9E2D6D1DE35F0F002BFCEC /* StartView.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC9E2D681DE35F0F002BFCEC /* StartView.lua */; };
 		FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */; };
 		FCAA18ED1D2DEDD90046CBA4 /* RowBotton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */; };
 		FCAAB8D91D96719300AD5202 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAAB8D81D96719300AD5202 /* GradientView.m */; };
@@ -929,6 +935,12 @@
 		FC749C0D1D61B2B200993327 /* UIStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIStyleCell.m; path = Style/View/Cell/UIStyleCell.m; sourceTree = "<group>"; };
 		FC80C7321D377C6400D30E23 /* UILabel+LeftTopAlign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+LeftTopAlign.h"; path = "Label/UILabel+LeftTopAlign.h"; sourceTree = "<group>"; };
 		FC80C7331D377C6400D30E23 /* UILabel+LeftTopAlign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+LeftTopAlign.m"; path = "Label/UILabel+LeftTopAlign.m"; sourceTree = "<group>"; };
+		FC9E2D601DE35F00002BFCEC /* wax.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = wax.framework; sourceTree = "<group>"; };
+		FC9E2D641DE35F0F002BFCEC /* Init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Init.lua; sourceTree = "<group>"; };
+		FC9E2D651DE35F0F002BFCEC /* StartInfoModel.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartInfoModel.lua; sourceTree = "<group>"; };
+		FC9E2D661DE35F0F002BFCEC /* StartInfoRequest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartInfoRequest.lua; sourceTree = "<group>"; };
+		FC9E2D671DE35F0F002BFCEC /* StartPageEntity.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartPageEntity.lua; sourceTree = "<group>"; };
+		FC9E2D681DE35F0F002BFCEC /* StartView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartView.lua; sourceTree = "<group>"; };
 		FCA4C71D1D284DB70006CA0E /* 游戏中心假数据.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "游戏中心假数据.json"; sourceTree = "<group>"; };
 		FCAA18EB1D2DEDD90046CBA4 /* RowBotton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowBotton.h; path = RowBotton/RowBotton.h; sourceTree = "<group>"; };
 		FCAA18EC1D2DEDD90046CBA4 /* RowBotton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowBotton.m; path = RowBotton/RowBotton.m; sourceTree = "<group>"; };
@@ -1002,6 +1014,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E2377391D530DDF00102550 /* libsqlite3.0.tbd in Frameworks */,
+				FC9E2D611DE35F00002BFCEC /* wax.framework in Frameworks */,
 				4F8A1D54C95AA39D29D4CBD4 /* libPods-bilibili fake.a in Frameworks */,
 				6E89DA3D1D3D00950055C9F2 /* IJKMediaPlayer.framework in Frameworks */,
 			);
@@ -1245,6 +1258,7 @@
 		6E1535DE1D1A87FA0053A846 /* Librarys */ = {
 			isa = PBXGroup;
 			children = (
+				FC9E2D601DE35F00002BFCEC /* wax.framework */,
 				6E885B8E1D4AEBB200A3BA35 /* JCTagListView */,
 				6E48364F1D409617004AD1A4 /* SABlurImageView */,
 				6E89DA3B1D3D008A0055C9F2 /* IJKMediaPlayer.framework */,
@@ -2352,6 +2366,7 @@
 		6EB6921D1D12435E000FA482 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FC9E2D621DE35F0F002BFCEC /* lua */,
 				FCBD1FEC1D3FE91800A756F3 /* 发现 */,
 				FCBD1FEE1D3FE91800A756F3 /* 公用的 */,
 				FCBD201D1D3FE91800A756F3 /* 启动页 */,
@@ -3193,6 +3208,26 @@
 			name = Label;
 			sourceTree = "<group>";
 		};
+		FC9E2D621DE35F0F002BFCEC /* lua */ = {
+			isa = PBXGroup;
+			children = (
+				FC9E2D631DE35F0F002BFCEC /* StartView */,
+			);
+			path = lua;
+			sourceTree = "<group>";
+		};
+		FC9E2D631DE35F0F002BFCEC /* StartView */ = {
+			isa = PBXGroup;
+			children = (
+				FC9E2D641DE35F0F002BFCEC /* Init.lua */,
+				FC9E2D651DE35F0F002BFCEC /* StartInfoModel.lua */,
+				FC9E2D661DE35F0F002BFCEC /* StartInfoRequest.lua */,
+				FC9E2D671DE35F0F002BFCEC /* StartPageEntity.lua */,
+				FC9E2D681DE35F0F002BFCEC /* StartView.lua */,
+			);
+			path = StartView;
+			sourceTree = "<group>";
+		};
 		FCAA18EA1D2DED910046CBA4 /* rowBtn */ = {
 			isa = PBXGroup;
 			children = (
@@ -3523,14 +3558,17 @@
 			files = (
 				FCBD20491D3FE91800A756F3 /* bilibili_splash_iphone_bg@2x.png in Resources */,
 				FCBD20371D3FE91800A756F3 /* common_pay_loading_6@2x.png in Resources */,
+				FC9E2D6D1DE35F0F002BFCEC /* StartView.lua in Resources */,
 				FCA4C71E1D284DB70006CA0E /* 游戏中心假数据.json in Resources */,
 				FCBD20301D3FE91800A756F3 /* common_pay_loading_4.png in Resources */,
 				FCBD20451D3FE91800A756F3 /* common_loading_error_4.png in Resources */,
 				FCBD20421D3FE91800A756F3 /* common_loading_error_1.png in Resources */,
 				6EB691FA1D12422C000FA482 /* LaunchScreen.storyboard in Resources */,
+				FC9E2D6C1DE35F0F002BFCEC /* StartPageEntity.lua in Resources */,
 				FCBD20391D3FE91800A756F3 /* common_pay_loading_7.png in Resources */,
 				FCBD202F1D3FE91800A756F3 /* common_pay_loading_3@3x.png in Resources */,
 				FCFA05491D2FAFE0004A1742 /* Shader.vsh in Resources */,
+				FC9E2D691DE35F0F002BFCEC /* Init.lua in Resources */,
 				FCBD20481D3FE91800A756F3 /* bilibili_splash_iphone_bg.png in Resources */,
 				FCBD20261D3FE91800A756F3 /* common_back@3x.png in Resources */,
 				FCBD202D1D3FE91800A756F3 /* common_pay_loading_3.png in Resources */,
@@ -3543,12 +3581,14 @@
 				FCBD20251D3FE91800A756F3 /* common_back@2x.png in Resources */,
 				FCBD20411D3FE91800A756F3 /* common_loading_noData.png in Resources */,
 				FCBD202B1D3FE91800A756F3 /* common_pay_loading_2@2x.png in Resources */,
+				FC9E2D6B1DE35F0F002BFCEC /* StartInfoRequest.lua in Resources */,
 				FCBD203C1D3FE91800A756F3 /* common_pay_loading_8.png in Resources */,
 				FCBD202E1D3FE91800A756F3 /* common_pay_loading_3@2x.png in Resources */,
 				FCBD20431D3FE91800A756F3 /* common_loading_error_2.png in Resources */,
 				FCBD202C1D3FE91800A756F3 /* common_pay_loading_2@3x.png in Resources */,
 				FCBD203A1D3FE91800A756F3 /* common_pay_loading_7@2x.png in Resources */,
 				FCBD20381D3FE91800A756F3 /* common_pay_loading_6@3x.png in Resources */,
+				FC9E2D6A1DE35F0F002BFCEC /* StartInfoModel.lua in Resources */,
 				FCBD20281D3FE91800A756F3 /* common_pay_loading_1@2x.png in Resources */,
 				FCBD20351D3FE91800A756F3 /* common_pay_loading_5@3x.png in Resources */,
 				FCBD20341D3FE91800A756F3 /* common_pay_loading_5@2x.png in Resources */,
@@ -4075,6 +4115,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/bilibili fake/Librarys\"",
+					"$(PROJECT_DIR)/bilibili",
+					fake/Librarys,
 				);
 				GCC_PREFIX_HEADER = "bilibili fake/PrefixHeader.h";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
@@ -4097,6 +4139,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/bilibili fake/Librarys\"",
+					"$(PROJECT_DIR)/bilibili",
+					fake/Librarys,
 				);
 				GCC_PREFIX_HEADER = "bilibili fake/PrefixHeader.h";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
