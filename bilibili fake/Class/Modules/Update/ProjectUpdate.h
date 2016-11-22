@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "UpdateAddressEntity.h"
 @interface ProjectUpdate : NSObject
 
 +(instancetype)share;
 
 -(void)update;
+
+@property(nonatomic,strong,readonly)UpdateAddressEntity* entity;
 
 @end

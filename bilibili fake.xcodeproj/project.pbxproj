@@ -201,6 +201,7 @@
 		FC2A85751DE3E1DF0049C6C8 /* UGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2A85741DE3E1DF0049C6C8 /* UGameCell.m */; };
 		FC2A85771DE3E6A30049C6C8 /* updateAddress.json in Resources */ = {isa = PBXBuildFile; fileRef = FC2A85761DE3E6A30049C6C8 /* updateAddress.json */; };
 		FC2A85791DE3E9790049C6C8 /* UpdateTest.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC2A85781DE3E9790049C6C8 /* UpdateTest.lua */; };
+		FC2A857C1DE3EC3A0049C6C8 /* UpdateAddressEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2A857B1DE3EC3A0049C6C8 /* UpdateAddressEntity.m */; };
 		FC445EE51D93AD7000EF40FD /* UserInfoFavoritesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EE41D93AD7000EF40FD /* UserInfoFavoritesRequest.m */; };
 		FC445EE81D93AE1600EF40FD /* UserInfoFavoritesEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EE71D93AE1600EF40FD /* UserInfoFavoritesEntity.m */; };
 		FC445EEE1D93BB7A00EF40FD /* FavoritesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EED1D93BB7A00EF40FD /* FavoritesCell.m */; };
@@ -763,6 +764,8 @@
 		FC2A85741DE3E1DF0049C6C8 /* UGameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UGameCell.m; path = UserInfo/Cell/UGameCell.m; sourceTree = "<group>"; };
 		FC2A85761DE3E6A30049C6C8 /* updateAddress.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = updateAddress.json; sourceTree = "<group>"; };
 		FC2A85781DE3E9790049C6C8 /* UpdateTest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UpdateTest.lua; sourceTree = "<group>"; };
+		FC2A857A1DE3EC3A0049C6C8 /* UpdateAddressEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateAddressEntity.h; path = Entity/UpdateAddressEntity.h; sourceTree = "<group>"; };
+		FC2A857B1DE3EC3A0049C6C8 /* UpdateAddressEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateAddressEntity.m; path = Entity/UpdateAddressEntity.m; sourceTree = "<group>"; };
 		FC3A18BA1D8286B6008121C9 /* TidDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TidDictionary.h; sourceTree = "<group>"; };
 		FC445EE31D93AD7000EF40FD /* UserInfoFavoritesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoFavoritesRequest.h; path = UserInfo/Request/UserInfoFavoritesRequest.h; sourceTree = "<group>"; };
 		FC445EE41D93AD7000EF40FD /* UserInfoFavoritesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoFavoritesRequest.m; path = UserInfo/Request/UserInfoFavoritesRequest.m; sourceTree = "<group>"; };
@@ -2472,10 +2475,20 @@
 		FC2A856E1DE3E07D0049C6C8 /* Update */ = {
 			isa = PBXGroup;
 			children = (
+				FC2A857D1DE3EC3E0049C6C8 /* Entity */,
 				FC2A85701DE3E1B20049C6C8 /* ProjectUpdate.h */,
 				FC2A85711DE3E1B20049C6C8 /* ProjectUpdate.m */,
 			);
 			name = Update;
+			sourceTree = "<group>";
+		};
+		FC2A857D1DE3EC3E0049C6C8 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FC2A857A1DE3EC3A0049C6C8 /* UpdateAddressEntity.h */,
+				FC2A857B1DE3EC3A0049C6C8 /* UpdateAddressEntity.m */,
+			);
+			name = Entity;
 			sourceTree = "<group>";
 		};
 		FC5137FB1D87CF46006FC8E3 /* Find */ = {
@@ -3843,6 +3856,7 @@
 				6E4836761D410818004AD1A4 /* MediaPlayerControl.m in Sources */,
 				6EB5528C1D548809001099C1 /* RecommendBannerEntity.m in Sources */,
 				FCB108AE1D8E439C00605FB4 /* UserInfoLiveRequest.m in Sources */,
+				FC2A857C1DE3EC3A0049C6C8 /* UpdateAddressEntity.m in Sources */,
 				6E5976021D5B171500D520E0 /* VideoInfoEntity.m in Sources */,
 				6E1535EA1D1A96A20053A846 /* HomeViewController.m in Sources */,
 				6E4E03A41D71882600C669E6 /* RecommendWebCollectionViewCell.m in Sources */,

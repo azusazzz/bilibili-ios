@@ -10,9 +10,11 @@
 #import <SDImageCache.h>
 
 //#import "StartView.h"
+#import "ProjectUpdate.h"
 #import <wax/wax.h>
 #import <wax/wax_http.h>
 #import <wax/wax_json.h>
+
 
 #import "ScrollTabBarController.h"
 #import "DanmakuRequest.h"
@@ -40,6 +42,7 @@
     self.window.rootViewController = [[ScrollTabBarController alloc] init];
    
     [self.window makeKeyAndVisible];
+    [[ProjectUpdate share] update];
      wax_start("Init.lua",luaopen_wax_http,luaopen_wax_json,nil);
 //    [StartView show];
     

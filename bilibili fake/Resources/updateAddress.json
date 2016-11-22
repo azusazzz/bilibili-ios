@@ -1,3 +1,5 @@
 {
-    "version":"1.0.1"
+    "version":"1.0.1",
+    "path":"https://raw.githubusercontent.com/caixuehao/AnimationEffects/master/AnimationEffects/Resources/",
+    "files":["lua/UpateTest.lua"]
 }
