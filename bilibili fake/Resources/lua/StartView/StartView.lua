@@ -1,10 +1,10 @@
 waxClass{"StartView",UIView}
 
 require "StartInfoModel"
+--loadfile("/Users/CXH/Library/Developer/CoreSimulator/Devices/8709471F-8B51-4A93-8E1C-88DC4E993E7A/data/Containers/Data/Application/0FA3A87F-C846-4F31-A368-5B35E6CB0243/Library/Caches/Resources/lua")
 require "UpdateTest"
 
 function init(self)
-	
 	print(TestString());
 
 	self.super:init();

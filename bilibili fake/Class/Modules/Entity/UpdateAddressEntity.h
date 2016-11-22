@@ -14,6 +14,6 @@
 
 @property(nonatomic,strong)NSString* path;
 
-@property(nonatomic,strong)NSArray* files;
+@property(nonatomic,strong)NSArray<NSString*>* files;
 
 @end

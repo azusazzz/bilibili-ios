@@ -37,8 +37,10 @@ static ProjectUpdate* shareProjecUpdate;
             newEntity = [UpdateAddressEntity mj_objectWithKeyValues:dataDic];
             NSLog(@"newEntity:%@,Entity:%@",newEntity.version,_entity.version);
             if ([newEntity.version compare:_entity.version options:NSNumericSearch]== NSOrderedDescending) {
-                NSLog(@"更新：%@",@"");
-                    
+                NSLog(@"更新：%@",newEntity.path);
+                newEntity.path = @"https://raw.githubusercontent.com/Learning-Software-Development/bilibili-fake/master/bilibili%20fake/Resources/";
+                newEntity.files = @[@"lua/UpdateTest.lua"];
+                [self download];
             }
         }
     }] resume];
@@ -47,5 +49,22 @@ static ProjectUpdate* shareProjecUpdate;
 
     
     
+}
+
+-(void)download{
+    for (int i = 0; i < newEntity.files.count; ++i) {
+        NSURL *url = [NSURL URLWithString:[newEntity.path stringByAppendingString:newEntity.files[i]]];
+        NSString* savepath =  NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+        savepath = [savepath stringByAppendingPathComponent:@"Resources"];
+        NSLog(@"%@",savepath);
+        [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if (!error) {
+                NSString* path = [savepath stringByAppendingPathComponent:newEntity.files[i]];
+                [[NSFileManager defaultManager] createDirectoryAtPath:[path stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+                [data writeToFile:path atomically:YES];
+            }
+        }] resume];
+    }
+
 }
 @end
