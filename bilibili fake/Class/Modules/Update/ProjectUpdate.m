@@ -7,7 +7,7 @@
 //
 
 #import "ProjectUpdate.h"
-#define UpdateAddressURL @"https://raw.githubusercontent.com/caixuehao/AnimationEffects/master/AnimationEffects/Resources/updateAddress.json"
+#define UpdateAddressURL @"https://raw.githubusercontent.com/Learning-Software-Development/bilibili-fake/master/bilibili%20fake/Resources/updateAddress.json"
 
 static ProjectUpdate* shareProjecUpdate;
 
@@ -30,17 +30,18 @@ static ProjectUpdate* shareProjecUpdate;
 
     
     // NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    [[NSURLSession sharedSession] dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:UpdateAddressURL]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:UpdateAddressURL] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (!error) {
             NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSDictionary* dataDic =  [NSJSONSerialization JSONObjectWithData:[str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
-            newEntity = [UpdateAddressEntity mj_objectWithKeyValues:[dataDic objectForKey:@"data"]];
+            newEntity = [UpdateAddressEntity mj_objectWithKeyValues:dataDic];
             NSLog(@"newEntity:%@,Entity:%@",newEntity.version,_entity.version);
             if ([newEntity.version compare:_entity.version options:NSNumericSearch]== NSOrderedDescending) {
                 NSLog(@"更新：%@",@"");
+                    
             }
         }
-    }];
+    }] resume];
     
  
 
