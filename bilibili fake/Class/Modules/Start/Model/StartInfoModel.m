@@ -42,9 +42,10 @@
             //_currentStartPage = [startInfoEntity.startPages lastObject];
             //_currentStartPage.param = @"http://www.bilibili.com/video/av2344701/";
         }
+         [self update];
     }
     
-    [self update];
+   
     return self;
 }
 

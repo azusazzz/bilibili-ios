@@ -118,7 +118,7 @@
         imageView;
     });
     
-    
+    [UIScreen mainScreen].bounds.size.height;
     // Layout
     [bgimageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);

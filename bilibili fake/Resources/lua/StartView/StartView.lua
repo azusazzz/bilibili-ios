@@ -1,8 +1,12 @@
 waxClass{"StartView",UIView}
 
 require "StartInfoModel"
+require "UpdateTest"
 
 function init(self)
+	
+	print(TestString());
+
 	self.super:init();
 	self.skipTime = 3;
 
