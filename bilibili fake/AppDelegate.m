@@ -48,7 +48,7 @@
 //     wax_runLuaFile([[[ProjectUpdate share] update] UTF8String]);
     ;
     NSString* path = [[ProjectUpdate share] update];
-    NSLog(@"%@",path);
+    //NSLog(@"%@",path);
      wax_runLuaFile([path UTF8String]);
 //    [StartView show];
     

@@ -32,7 +32,7 @@ static ProjectUpdate* shareProjecUpdate;
     NSString*  updateAddressPath= [[NSBundle mainBundle] pathForResource:@"updateAddress" ofType:@"json"];;
     NSDictionary* updateAddressDic = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:updateAddressPath] options:NSJSONReadingMutableLeaves error:nil];
     _entity = [UpdateAddressEntity mj_objectWithKeyValues:updateAddressDic];
-    NSLog(@"%@",cachesupdateAddressPath);
+    //NSLog(@"%@",cachesupdateAddressPath);
     if([[NSFileManager defaultManager] fileExistsAtPath:cachesupdateAddressPath] == YES){
     
         updateAddressDic = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:cachesupdateAddressPath] options:NSJSONReadingMutableLeaves error:nil];
@@ -97,9 +97,6 @@ static ProjectUpdate* shareProjecUpdate;
          NSString* path = [savepath stringByAppendingPathComponent:@"updateAddress.json"];
         [newUpdateAddressData writeToFile:path atomically:YES];
     }
-
-    
-
 }
 
 @end

@@ -89,7 +89,7 @@ function loadDefaultSubviews(self)
 	self:addSubview(backgroundImageView);
 
 	bilibili2233ImageView = UIImageView:init();
-	bilibili2233ImageView:setImage(UIImage:imageNamed("bilibili_splash_default.png"));
+	bilibili2233ImageView:setImage(UIImage:imageNamed("common_loading_error_1.png"));
 	self:addSubview(bilibili2233ImageView);
 
 	backgroundImageView:masUNDERxLINEmakeConstraints(toblock(function ( make )
