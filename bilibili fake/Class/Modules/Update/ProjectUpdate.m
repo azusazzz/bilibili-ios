@@ -71,8 +71,8 @@ static ProjectUpdate* shareProjecUpdate;
     
     
    
-    NSString* initPath = [savepath stringByAppendingPathComponent:@"Resources/lua/Init.lua"];
-    if([[NSFileManager defaultManager] fileExistsAtPath:savepath] == YES){
+    NSString* initPath = [savepath stringByAppendingPathComponent:@"lua/Init.lua"];
+    if([[NSFileManager defaultManager] fileExistsAtPath:initPath] == YES){
         return initPath;
     }
     return [[NSBundle mainBundle] pathForResource:@"Init" ofType:@"lua"];
