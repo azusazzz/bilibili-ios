@@ -1,5 +1,5 @@
 {
     "version":"1.0.1",
     "path":"https://raw.githubusercontent.com/Learning-Software-Development/bilibili-fake/master/bilibili%20fake/Resources/",
-    "files":["lua/StartView.lua"]
+    "files":["lua/StartView/StartView.lua"]
 }
