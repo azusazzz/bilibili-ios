@@ -12,7 +12,7 @@
 
 +(instancetype)share;
 
--(void)update;
+-(NSString*)update;
 
 @property(nonatomic,strong,readonly)UpdateAddressEntity* entity;
 

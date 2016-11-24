@@ -1,3 +1,3 @@
 function TestString(  )
-	return "123";
+	return "123456";
 end

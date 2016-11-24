@@ -14,7 +14,7 @@
 #import <wax/wax.h>
 #import <wax/wax_http.h>
 #import <wax/wax_json.h>
-
+#import <wax/wax_filesystem.h>
 
 #import "ScrollTabBarController.h"
 #import "DanmakuRequest.h"
@@ -42,8 +42,14 @@
     self.window.rootViewController = [[ScrollTabBarController alloc] init];
    
     [self.window makeKeyAndVisible];
-    [[ProjectUpdate share] update];
-     wax_start("Init.lua",luaopen_wax_http,luaopen_wax_json,nil);
+    ;
+    
+     wax_start(nil,luaopen_wax_http,luaopen_wax_json,luaopen_wax_filesystem,nil);
+//     wax_runLuaFile([[[ProjectUpdate share] update] UTF8String]);
+    ;
+    NSString* path = [[ProjectUpdate share] update];
+    NSLog(@"%@",path);
+     wax_runLuaFile([path UTF8String]);
 //    [StartView show];
     
     

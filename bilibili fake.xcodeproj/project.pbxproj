@@ -200,7 +200,6 @@
 		FC2A85721DE3E1B20049C6C8 /* ProjectUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2A85711DE3E1B20049C6C8 /* ProjectUpdate.m */; };
 		FC2A85751DE3E1DF0049C6C8 /* UGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2A85741DE3E1DF0049C6C8 /* UGameCell.m */; };
 		FC2A85771DE3E6A30049C6C8 /* updateAddress.json in Resources */ = {isa = PBXBuildFile; fileRef = FC2A85761DE3E6A30049C6C8 /* updateAddress.json */; };
-		FC2A85791DE3E9790049C6C8 /* UpdateTest.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC2A85781DE3E9790049C6C8 /* UpdateTest.lua */; };
 		FC2A857C1DE3EC3A0049C6C8 /* UpdateAddressEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2A857B1DE3EC3A0049C6C8 /* UpdateAddressEntity.m */; };
 		FC445EE51D93AD7000EF40FD /* UserInfoFavoritesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EE41D93AD7000EF40FD /* UserInfoFavoritesRequest.m */; };
 		FC445EE81D93AE1600EF40FD /* UserInfoFavoritesEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC445EE71D93AE1600EF40FD /* UserInfoFavoritesEntity.m */; };
@@ -279,13 +278,14 @@
 		FC5766E61D91319E000A5787 /* UserInfoHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5766E51D91319E000A5787 /* UserInfoHeaderReusableView.m */; };
 		FC60CEA41D928B4100C1B5B5 /* UserInfoCoinVideosRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC60CEA31D928B4100C1B5B5 /* UserInfoCoinVideosRequest.m */; };
 		FC60CEA71D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC60CEA61D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.m */; };
+		FC6317091DE53B74006200BB /* UpdateTest.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC6317081DE53B74006200BB /* UpdateTest.lua */; };
+		FC63170E1DE542C9006200BB /* Init.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC63170D1DE542C9006200BB /* Init.lua */; };
 		FC6553521D8B3817001B626C /* userInfoBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC6553511D8B3817001B626C /* userInfoBg.jpg */; };
 		FC6A42811D4925530058A1FA /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */; };
 		FC749C091D6197F500993327 /* UIStyleSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C081D6197F500993327 /* UIStyleSelectionVC.m */; };
 		FC749C0E1D61B2B200993327 /* UIStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C0D1D61B2B200993327 /* UIStyleCell.m */; };
 		FC80C7341D377C6400D30E23 /* UILabel+LeftTopAlign.m in Sources */ = {isa = PBXBuildFile; fileRef = FC80C7331D377C6400D30E23 /* UILabel+LeftTopAlign.m */; };
 		FC9E2D611DE35F00002BFCEC /* wax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9E2D601DE35F00002BFCEC /* wax.framework */; };
-		FC9E2D691DE35F0F002BFCEC /* Init.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC9E2D641DE35F0F002BFCEC /* Init.lua */; };
 		FC9E2D6A1DE35F0F002BFCEC /* StartInfoModel.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC9E2D651DE35F0F002BFCEC /* StartInfoModel.lua */; };
 		FC9E2D6B1DE35F0F002BFCEC /* StartInfoRequest.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC9E2D661DE35F0F002BFCEC /* StartInfoRequest.lua */; };
 		FC9E2D6C1DE35F0F002BFCEC /* StartPageEntity.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC9E2D671DE35F0F002BFCEC /* StartPageEntity.lua */; };
@@ -763,7 +763,6 @@
 		FC2A85731DE3E1DF0049C6C8 /* UGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UGameCell.h; path = UserInfo/Cell/UGameCell.h; sourceTree = "<group>"; };
 		FC2A85741DE3E1DF0049C6C8 /* UGameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UGameCell.m; path = UserInfo/Cell/UGameCell.m; sourceTree = "<group>"; };
 		FC2A85761DE3E6A30049C6C8 /* updateAddress.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = updateAddress.json; sourceTree = "<group>"; };
-		FC2A85781DE3E9790049C6C8 /* UpdateTest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UpdateTest.lua; sourceTree = "<group>"; };
 		FC2A857A1DE3EC3A0049C6C8 /* UpdateAddressEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateAddressEntity.h; path = Entity/UpdateAddressEntity.h; sourceTree = "<group>"; };
 		FC2A857B1DE3EC3A0049C6C8 /* UpdateAddressEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateAddressEntity.m; path = Entity/UpdateAddressEntity.m; sourceTree = "<group>"; };
 		FC3A18BA1D8286B6008121C9 /* TidDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TidDictionary.h; sourceTree = "<group>"; };
@@ -921,6 +920,8 @@
 		FC60CEA31D928B4100C1B5B5 /* UserInfoCoinVideosRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCoinVideosRequest.m; path = UserInfo/Request/UserInfoCoinVideosRequest.m; sourceTree = "<group>"; };
 		FC60CEA51D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoCoinVideosEntity.h; path = UserInfo/Entity/UserInfoCoinVideosEntity.h; sourceTree = "<group>"; };
 		FC60CEA61D928BBC00C1B5B5 /* UserInfoCoinVideosEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoCoinVideosEntity.m; path = UserInfo/Entity/UserInfoCoinVideosEntity.m; sourceTree = "<group>"; };
+		FC6317081DE53B74006200BB /* UpdateTest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UpdateTest.lua; sourceTree = "<group>"; };
+		FC63170D1DE542C9006200BB /* Init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Init.lua; sourceTree = "<group>"; };
 		FC6553511D8B3817001B626C /* userInfoBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userInfoBg.jpg; sourceTree = "<group>"; };
 		FC6A427F1D4925530058A1FA /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
 		FC6A42801D4925530058A1FA /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadius.m"; sourceTree = "<group>"; };
@@ -931,7 +932,6 @@
 		FC80C7321D377C6400D30E23 /* UILabel+LeftTopAlign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+LeftTopAlign.h"; path = "Label/UILabel+LeftTopAlign.h"; sourceTree = "<group>"; };
 		FC80C7331D377C6400D30E23 /* UILabel+LeftTopAlign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+LeftTopAlign.m"; path = "Label/UILabel+LeftTopAlign.m"; sourceTree = "<group>"; };
 		FC9E2D601DE35F00002BFCEC /* wax.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = wax.framework; sourceTree = "<group>"; };
-		FC9E2D641DE35F0F002BFCEC /* Init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Init.lua; sourceTree = "<group>"; };
 		FC9E2D651DE35F0F002BFCEC /* StartInfoModel.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartInfoModel.lua; sourceTree = "<group>"; };
 		FC9E2D661DE35F0F002BFCEC /* StartInfoRequest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartInfoRequest.lua; sourceTree = "<group>"; };
 		FC9E2D671DE35F0F002BFCEC /* StartPageEntity.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartPageEntity.lua; sourceTree = "<group>"; };
@@ -3177,7 +3177,8 @@
 		FC9E2D621DE35F0F002BFCEC /* lua */ = {
 			isa = PBXGroup;
 			children = (
-				FC2A85781DE3E9790049C6C8 /* UpdateTest.lua */,
+				FC63170D1DE542C9006200BB /* Init.lua */,
+				FC6317081DE53B74006200BB /* UpdateTest.lua */,
 				FC9E2D631DE35F0F002BFCEC /* StartView */,
 			);
 			path = lua;
@@ -3186,7 +3187,6 @@
 		FC9E2D631DE35F0F002BFCEC /* StartView */ = {
 			isa = PBXGroup;
 			children = (
-				FC9E2D641DE35F0F002BFCEC /* Init.lua */,
 				FC9E2D651DE35F0F002BFCEC /* StartInfoModel.lua */,
 				FC9E2D661DE35F0F002BFCEC /* StartInfoRequest.lua */,
 				FC9E2D671DE35F0F002BFCEC /* StartPageEntity.lua */,
@@ -3535,7 +3535,6 @@
 				FCBD20391D3FE91800A756F3 /* common_pay_loading_7.png in Resources */,
 				FCBD202F1D3FE91800A756F3 /* common_pay_loading_3@3x.png in Resources */,
 				FCFA05491D2FAFE0004A1742 /* Shader.vsh in Resources */,
-				FC9E2D691DE35F0F002BFCEC /* Init.lua in Resources */,
 				FCBD20481D3FE91800A756F3 /* bilibili_splash_iphone_bg.png in Resources */,
 				FCBD20261D3FE91800A756F3 /* common_back@3x.png in Resources */,
 				FCBD202D1D3FE91800A756F3 /* common_pay_loading_3.png in Resources */,
@@ -3556,6 +3555,7 @@
 				FCBD202C1D3FE91800A756F3 /* common_pay_loading_2@3x.png in Resources */,
 				FCBD203A1D3FE91800A756F3 /* common_pay_loading_7@2x.png in Resources */,
 				FCBD20381D3FE91800A756F3 /* common_pay_loading_6@3x.png in Resources */,
+				FC63170E1DE542C9006200BB /* Init.lua in Resources */,
 				FC9E2D6A1DE35F0F002BFCEC /* StartInfoModel.lua in Resources */,
 				FCBD20281D3FE91800A756F3 /* common_pay_loading_1@2x.png in Resources */,
 				FCBD20351D3FE91800A756F3 /* common_pay_loading_5@3x.png in Resources */,
@@ -3572,7 +3572,7 @@
 				FC6553521D8B3817001B626C /* userInfoBg.jpg in Resources */,
 				FCBD20331D3FE91800A756F3 /* common_pay_loading_5.png in Resources */,
 				FCBD203B1D3FE91800A756F3 /* common_pay_loading_7@3x.png in Resources */,
-				FC2A85791DE3E9790049C6C8 /* UpdateTest.lua in Resources */,
+				FC6317091DE53B74006200BB /* UpdateTest.lua in Resources */,
 				FCBD20461D3FE91800A756F3 /* bilibili_splash_default@2x.png in Resources */,
 				FCBD203F1D3FE91800A756F3 /* common_loading_loading_1.png in Resources */,
 				FCFA05481D2FAFE0004A1742 /* Shader.fsh in Resources */,
