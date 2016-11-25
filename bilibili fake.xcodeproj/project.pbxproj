@@ -4087,8 +4087,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/bilibili fake/Librarys\"",
-					"$(PROJECT_DIR)/bilibili",
-					fake/Librarys,
 				);
 				GCC_PREFIX_HEADER = "bilibili fake/PrefixHeader.h";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
@@ -4112,8 +4110,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/bilibili fake/Librarys\"",
-					"$(PROJECT_DIR)/bilibili",
-					fake/Librarys,
 				);
 				GCC_PREFIX_HEADER = "bilibili fake/PrefixHeader.h";
 				INFOPLIST_FILE = "bilibili fake/Info.plist";
