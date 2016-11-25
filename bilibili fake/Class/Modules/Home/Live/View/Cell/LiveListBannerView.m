@@ -9,7 +9,7 @@
 #import "LiveListBannerView.h"
 #import <UIImageView+WebCache.h>
 #import "BannerView.h"
-#import <ReactiveCocoa.h>
+#import <ReactiveObjC.h>
 
 @interface LiveListBannerView ()
 {

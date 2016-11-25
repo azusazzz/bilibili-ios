@@ -7,7 +7,7 @@
 //
 
 #import "VideoIntroView.h"
-#import <ReactiveCocoa.h>
+#import <ReactiveObjC.h>
 
 
 

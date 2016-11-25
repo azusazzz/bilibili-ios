@@ -14,7 +14,7 @@ target 'bilibili fake' do
     
     pod 'MJExtension'
 
-    pod 'ReactiveCocoa', '~> 2.5'
+    pod 'ReactiveObjC'
 
 #    pod  'SwipeBack'
     

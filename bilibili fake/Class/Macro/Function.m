@@ -15,14 +15,13 @@ MBProgressHUD * HUDSuccess(NSString *message) {
 
 MBProgressHUD * HUDSuccessInView(NSString *message, UIView *inView) {
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:inView];
-    HUD.labelText = message;
+    HUD.label.text = message;
     HUD.removeFromSuperViewOnHide = YES;
     HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"HUDSuccess"]];
     HUD.mode = MBProgressHUDModeCustomView;
     [inView addSubview:HUD];
-    [HUD show:YES];
-    [HUD hide:YES afterDelay:1];
-    
+    [HUD showAnimated:YES];
+    [HUD hideAnimated:YES afterDelay:1];
     return HUD;
 }
 
@@ -33,12 +32,12 @@ MBProgressHUD * HUDFailure(NSString *message) {
 
 MBProgressHUD * HUDFailureInView(NSString *message, UIView *inView) {
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:inView];
-    HUD.detailsLabelText = message;
+    HUD.detailsLabel.text = message;
     HUD.removeFromSuperViewOnHide = YES;
     HUD.mode = MBProgressHUDModeText;
     [inView addSubview:HUD];
-    [HUD show:YES];
-    [HUD hide:YES afterDelay:1];
+    [HUD showAnimated:YES];
+    [HUD hideAnimated:YES afterDelay:1];
     return HUD;
 }
 
@@ -49,11 +48,11 @@ MBProgressHUD * HUDLoading(NSString *message) {
 
 MBProgressHUD * HUDLoadingInView(NSString *message, UIView *inView) {
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:inView];
-    HUD.labelText = message;
+    HUD.label.text = message;
     HUD.removeFromSuperViewOnHide = YES;
     HUD.tag = 15787452;
     [inView addSubview:HUD];
-    [HUD show:YES];
+    [HUD showAnimated:YES];
     return HUD;
 }
 
@@ -63,5 +62,5 @@ void HUDLoadingHidden(void) {
 
 void HUDLoadingHiddenInView(UIView *inView) {
     MBProgressHUD *HUD = [inView viewWithTag:15787452];
-    [HUD hide:YES];
+    [HUD hideAnimated:YES];
 }

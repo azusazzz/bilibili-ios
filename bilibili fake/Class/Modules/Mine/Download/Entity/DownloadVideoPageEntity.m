@@ -8,7 +8,7 @@
 
 #import "DownloadVideoPageEntity.h"
 #import <sqlite3.h>
-#import <ReactiveCocoa.h>
+#import <ReactiveObjC.h>
 
 @interface DownloadVideoPageEntity ()
 {

@@ -9,7 +9,7 @@
 #import "RegionShowRecommendViewController.h"
 #import "RegionShowRecommendCollectionView.h"
 #import "RegionShowRecommendModel.h"
-#import <ReactiveCocoa.h>
+#import <ReactiveObjC.h>
 
 #import "VideoViewController.h" // 视频信息
 
