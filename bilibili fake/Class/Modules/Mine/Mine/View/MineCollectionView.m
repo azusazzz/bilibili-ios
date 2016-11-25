@@ -9,7 +9,7 @@
 #import "MineCollectionView.h"
 #import "MineCollectionViewCell.h"
 #import "MineHeaderCollectionReusableView.h"
-#import <ReactiveObjC.h>
+#import <ReactiveCocoa.h>
 
 @interface MineCollectionView ()
 <UICollectionViewDelegate, UICollectionViewDataSource>

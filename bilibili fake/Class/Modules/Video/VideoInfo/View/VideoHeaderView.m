@@ -8,7 +8,7 @@
 
 #import "VideoHeaderView.h"
 #import <UIImageView+WebCache.h>
-#import <ReactiveObjC.h>
+#import <ReactiveCocoa.h>
 
 @interface VideoHeaderView ()
 {
