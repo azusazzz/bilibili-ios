@@ -67,3 +67,5 @@ Podfile.lock
 bilibili fake.xcworkspace/contents.xcworkspacedata
 
 .DS_Store
+
+bilibili/Shell/
