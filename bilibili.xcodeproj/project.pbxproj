@@ -296,7 +296,6 @@
 		6EA80D931DEC3EDF005A121F /* CATransition+Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C321DEC3EDE005A121F /* CATransition+Closure.swift */; };
 		6EA80D941DEC3EDF005A121F /* SABlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C331DEC3EDE005A121F /* SABlurImageView.swift */; };
 		6EA80D951DEC3EDF005A121F /* UIImage+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C341DEC3EDE005A121F /* UIImage+BlurEffect.swift */; };
-		6EA80D961DEC3EDF005A121F /* wax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA80C351DEC3EDE005A121F /* wax.framework */; };
 		6EA80D971DEC3EDF005A121F /* Init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 6EA80C381DEC3EDE005A121F /* Init.lua */; };
 		6EA80D981DEC3EDF005A121F /* StartInfoModel.lua in Resources */ = {isa = PBXBuildFile; fileRef = 6EA80C3A1DEC3EDE005A121F /* StartInfoModel.lua */; };
 		6EA80D991DEC3EDF005A121F /* StartInfoRequest.lua in Resources */ = {isa = PBXBuildFile; fileRef = 6EA80C3B1DEC3EDE005A121F /* StartInfoRequest.lua */; };
@@ -345,19 +344,20 @@
 		6EA80DC51DEC3EDF005A121F /* bilibili_splash_iphone_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA80C761DEC3EDF005A121F /* bilibili_splash_iphone_bg@2x.png */; };
 		6EA80DC61DEC3EDF005A121F /* bilibili_splash_iphone_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA80C771DEC3EDF005A121F /* bilibili_splash_iphone_bg@3x.png */; };
 		6EA80DC71DEC3EDF005A121F /* 游戏中心假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EA80C781DEC3EDF005A121F /* 游戏中心假数据.json */; };
-		6EA80DC81DEC3EE9005A121F /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA80C221DEC3EDE005A121F /* IJKMediaFramework.framework */; };
-		6EA80DC91DEC3EE9005A121F /* IJKMediaFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA80C221DEC3EDE005A121F /* IJKMediaFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EA80DCD1DEC3FAF005A121F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA80DCC1DEC3FAF005A121F /* libsqlite3.0.tbd */; };
+		6ED03D651DED2E81001C682F /* wax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED03D631DED2E81001C682F /* wax.framework */; };
+		6ED03D661DED2E85001C682F /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED03D621DED2E81001C682F /* IJKMediaFramework.framework */; };
+		6ED03D671DED2E85001C682F /* IJKMediaFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED03D621DED2E81001C682F /* IJKMediaFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6EA80DCA1DEC3EE9005A121F /* Embed Frameworks */ = {
+		6ED03D681DED2E85001C682F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6EA80DC91DEC3EE9005A121F /* IJKMediaFramework.framework in Embed Frameworks */,
+				6ED03D671DED2E85001C682F /* IJKMediaFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -921,7 +921,6 @@
 		6EA80C1E1DEC3EDE005A121F /* VideoIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoIntroView.m; sourceTree = "<group>"; };
 		6EA80C1F1DEC3EDE005A121F /* VideoTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTabBar.h; sourceTree = "<group>"; };
 		6EA80C201DEC3EDE005A121F /* VideoTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTabBar.m; sourceTree = "<group>"; };
-		6EA80C221DEC3EDE005A121F /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		6EA80C241DEC3EDE005A121F /* JCCollectionViewTagFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCollectionViewTagFlowLayout.h; sourceTree = "<group>"; };
 		6EA80C251DEC3EDE005A121F /* JCCollectionViewTagFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCollectionViewTagFlowLayout.m; sourceTree = "<group>"; };
 		6EA80C261DEC3EDE005A121F /* JCTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagCell.h; sourceTree = "<group>"; };
@@ -937,7 +936,6 @@
 		6EA80C321DEC3EDE005A121F /* CATransition+Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransition+Closure.swift"; sourceTree = "<group>"; };
 		6EA80C331DEC3EDE005A121F /* SABlurImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SABlurImageView.swift; sourceTree = "<group>"; };
 		6EA80C341DEC3EDE005A121F /* UIImage+BlurEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+BlurEffect.swift"; sourceTree = "<group>"; };
-		6EA80C351DEC3EDE005A121F /* wax.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = wax.framework; sourceTree = "<group>"; };
 		6EA80C381DEC3EDE005A121F /* Init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Init.lua; sourceTree = "<group>"; };
 		6EA80C3A1DEC3EDE005A121F /* StartInfoModel.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartInfoModel.lua; sourceTree = "<group>"; };
 		6EA80C3B1DEC3EDE005A121F /* StartInfoRequest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartInfoRequest.lua; sourceTree = "<group>"; };
@@ -988,6 +986,8 @@
 		6EA80C781DEC3EDF005A121F /* 游戏中心假数据.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "游戏中心假数据.json"; sourceTree = "<group>"; };
 		6EA80DCB1DEC3F2C005A121F /* PrefixHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
 		6EA80DCC1DEC3FAF005A121F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		6ED03D621DED2E81001C682F /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		6ED03D631DED2E81001C682F /* wax.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = wax.framework; sourceTree = "<group>"; };
 		75484AC164B510908C307671 /* Pods-bilibili.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili/Pods-bilibili.release.xcconfig"; sourceTree = "<group>"; };
 		A179FBF9357E947A83725520 /* Pods-bilibili.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili/Pods-bilibili.debug.xcconfig"; sourceTree = "<group>"; };
 		C045F2B7B1E5615D147D62A0 /* libPods-bilibili.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bilibili.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -998,10 +998,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ED03D651DED2E81001C682F /* wax.framework in Frameworks */,
 				6EA80DCD1DEC3FAF005A121F /* libsqlite3.0.tbd in Frameworks */,
-				6EA80DC81DEC3EE9005A121F /* IJKMediaFramework.framework in Frameworks */,
 				27FED8C46246A2CF6B00DC88 /* libPods-bilibili.a in Frameworks */,
-				6EA80D961DEC3EDF005A121F /* wax.framework in Frameworks */,
+				6ED03D661DED2E85001C682F /* IJKMediaFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,12 +1047,13 @@
 		6EA809231DEC3D6F005A121F /* bilibili */ = {
 			isa = PBXGroup;
 			children = (
-				6EA80DCB1DEC3F2C005A121F /* PrefixHeader.h */,
 				6EA8093B1DEC3EDE005A121F /* Class */,
 				6EA80C211DEC3EDE005A121F /* Librarys */,
 				6EA80C361DEC3EDE005A121F /* Resources */,
+				6ED03D611DED2E3F001C682F /* Shell */,
 				6EA809271DEC3D6F005A121F /* AppDelegate.h */,
 				6EA809281DEC3D6F005A121F /* AppDelegate.m */,
+				6EA80DCB1DEC3F2C005A121F /* PrefixHeader.h */,
 				6EA809301DEC3D6F005A121F /* Assets.xcassets */,
 				6EA809321DEC3D6F005A121F /* LaunchScreen.storyboard */,
 				6EA809351DEC3D6F005A121F /* Info.plist */,
@@ -3164,11 +3165,9 @@
 		6EA80C211DEC3EDE005A121F /* Librarys */ = {
 			isa = PBXGroup;
 			children = (
-				6EA80C221DEC3EDE005A121F /* IJKMediaFramework.framework */,
 				6EA80C231DEC3EDE005A121F /* JCTagListView */,
 				6EA80C2A1DEC3EDE005A121F /* RippleTableViewController */,
 				6EA80C311DEC3EDE005A121F /* SABlurImageView */,
-				6EA80C351DEC3EDE005A121F /* wax.framework */,
 			);
 			path = Librarys;
 			sourceTree = "<group>";
@@ -3400,6 +3399,15 @@
 			path = "启动页";
 			sourceTree = "<group>";
 		};
+		6ED03D611DED2E3F001C682F /* Shell */ = {
+			isa = PBXGroup;
+			children = (
+				6ED03D621DED2E81001C682F /* IJKMediaFramework.framework */,
+				6ED03D631DED2E81001C682F /* wax.framework */,
+			);
+			path = Shell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3413,7 +3421,7 @@
 				6EA8091F1DEC3D6F005A121F /* Resources */,
 				38FCFF280C4BF38179770BB3 /* [CP] Embed Pods Frameworks */,
 				65710B133D351E585DB101B3 /* [CP] Copy Pods Resources */,
-				6EA80DCA1DEC3EE9005A121F /* Embed Frameworks */,
+				6ED03D681DED2E85001C682F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3972,6 +3980,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/bilibili/Librarys",
+					"$(PROJECT_DIR)/bilibili/Shell",
 				);
 				GCC_PREFIX_HEADER = bilibili/PrefixHeader.h;
 				INFOPLIST_FILE = bilibili/Info.plist;
@@ -3991,6 +4000,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/bilibili/Librarys",
+					"$(PROJECT_DIR)/bilibili/Shell",
 				);
 				GCC_PREFIX_HEADER = bilibili/PrefixHeader.h;
 				INFOPLIST_FILE = bilibili/Info.plist;
