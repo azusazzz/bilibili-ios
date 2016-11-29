@@ -1,6 +1,6 @@
 # 仿Bilibili iOS客户端  练习
 
-Xcode 7.3.1
+Xcode 8.1
 
 ###### 截图
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/0_%E5%90%AF%E5%8A%A8%E9%A1%B5.jpg" width=250 />
