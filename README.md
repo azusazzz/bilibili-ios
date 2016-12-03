@@ -19,7 +19,7 @@ $ ./init.sh
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/8_%E7%BD%91%E9%A1%B5_%E7%95%AA%E5%89%A7.jpg" width=250 />
 
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/2_%E5%88%86%E5%8C%BA.png" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/2_%e5%88%86%e5%8c%ba%e5%b1%95%e7%a4%ba" width=250 />
+<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/2_分区展示.jpg" width=250 />
 
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_发现.jpg" width=250 />
 <img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_搜索.png" width=250 />
