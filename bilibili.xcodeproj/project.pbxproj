@@ -1880,8 +1880,8 @@
 		6EA80A381DEC3EDE005A121F /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				6EA80A391DEC3EDE005A121F /* Bangumi */,
 				6EA80A681DEC3EDE005A121F /* Controller */,
+				6EA80A391DEC3EDE005A121F /* Bangumi */,
 				6EA80A6B1DEC3EDE005A121F /* Live */,
 				6EA80A901DEC3EDE005A121F /* Recommend */,
 				6EA80AB31DEC3EDE005A121F /* View */,
@@ -3438,11 +3438,12 @@
 		6EA809191DEC3D6F005A121F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "翟泉";
 				TargetAttributes = {
 					6EA809201DEC3D6F005A121F = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 959Q9RL588;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -3968,6 +3969,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -3977,6 +3979,7 @@
 			baseConfigurationReference = A179FBF9357E947A83725520 /* Pods-bilibili.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 959Q9RL588;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/bilibili/Librarys",
@@ -3997,6 +4000,7 @@
 			baseConfigurationReference = 75484AC164B510908C307671 /* Pods-bilibili.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 959Q9RL588;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/bilibili/Librarys",

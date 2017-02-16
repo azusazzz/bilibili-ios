@@ -8,8 +8,11 @@
 
 #import "BaseRequest.h"
 #import "StartPageEntity.h"
+
 @interface StartInfoModel : NSObject
 
-@property(nonatomic,strong)StartPageEntity* currentStartPage;
+@property (nonatomic, strong) StartPageEntity *currentStartPage;
 
 @end
+
+

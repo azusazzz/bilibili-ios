@@ -10,6 +10,7 @@
 
 
 @implementation StartInfoRequest
+
 - (NSString *)URLString; {
     CGFloat width = [[UIScreen mainScreen] bounds].size.width;
     CGFloat height = [[UIScreen mainScreen] bounds].size.height;

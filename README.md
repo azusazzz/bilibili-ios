@@ -1,6 +1,6 @@
 # 仿Bilibili iOS客户端
 
-Xcode 8.1
+Xcode 8.2
 
 ```
 $ pod install

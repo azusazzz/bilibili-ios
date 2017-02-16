@@ -8,24 +8,14 @@
 
 #import "HomeViewController.h"
 
-
-
 // SubModules
-
 #import "HomeHeaderView.h"
-
-
 #import "LiveListViewController.h"
 #import "RecommendListViewController.h"
 #import "BangumiListViewController.h"
 
-
-
 #import "ScrollTabBarController.h"
-
-
 #import "VideoViewController.h"  // 视频信息
-
 #import "UIViewController+GetViewController.h"
 
 

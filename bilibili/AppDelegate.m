@@ -16,7 +16,7 @@
 #import <wax/wax_filesystem.h>
 
 #import "ScrollTabBarController.h"
-
+#import "StartViewController.h"
 
 @interface AppDelegate ()
 
@@ -32,6 +32,10 @@
     self.window.rootViewController = [[ScrollTabBarController alloc] init];
     [self.window makeKeyAndVisible];
     
+    
+    
+//    [StartViewController show];
+    
 //    wax_start(nil,luaopen_wax_http,luaopen_wax_json,luaopen_wax_filesystem,nil);
 //    NSString* path = [[ProjectUpdate share] update];
 //    wax_runLuaFile([path UTF8String]);
@@ -42,6 +46,7 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
