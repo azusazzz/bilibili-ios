@@ -7,7 +7,6 @@
 //
 
 #import "BangumiLatestUpdateCollectionViewCell.h"
-#import <UIImageView+WebCache.h>
 
 @interface BangumiLatestUpdateCollectionViewCell ()
 {

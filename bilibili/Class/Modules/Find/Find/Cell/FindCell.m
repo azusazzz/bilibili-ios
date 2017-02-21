@@ -7,7 +7,6 @@
 //
 
 #import "FindCell.h"
-#import <Masonry.h>
 #import "Macro.h"
 
 @implementation FindCell{

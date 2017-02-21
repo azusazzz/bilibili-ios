@@ -8,7 +8,6 @@
 
 #import "FindMoreReusbleView.h"
 #import "Macro.h"
-#import <Masonry.h>
 
 @implementation FindMoreReusbleView
 -(instancetype)initWithFrame:(CGRect)frame{

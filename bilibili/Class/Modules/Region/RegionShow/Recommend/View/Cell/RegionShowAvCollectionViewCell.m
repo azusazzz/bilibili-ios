@@ -7,7 +7,6 @@
 //
 
 #import "RegionShowAvCollectionViewCell.h"
-#import <UIImageView+WebCache.h>
 
 @implementation RegionShowAvCollectionViewCell
 

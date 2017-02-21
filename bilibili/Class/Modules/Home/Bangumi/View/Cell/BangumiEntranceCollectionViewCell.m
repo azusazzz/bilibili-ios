@@ -7,7 +7,7 @@
 //
 
 #import "BangumiEntranceCollectionViewCell.h"
-#import <UIImageView+WebCache.h>
+
 
 @interface BangumiEntranceCollectionViewCell ()
 {

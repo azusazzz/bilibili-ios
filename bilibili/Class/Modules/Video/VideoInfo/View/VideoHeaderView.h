@@ -11,11 +11,11 @@
 //#import "MediaPlayer.h"
 //#import <FXBlurView.h>
 
+#import <SABlurImageView/SABlurImageView-Swift.h>
+
 @interface VideoHeaderView : UIView
 
 @property (strong, nonatomic) SABlurImageView *backgroundView;
-
-//@property (strong, nonatomic) MediaPlayer *player;
 
 @property (strong, nonatomic) void (^onClickPlay)(void);
 

@@ -7,7 +7,7 @@
 //
 
 #import "DownloadVideoPageCollectionViewCell.h"
-#import <ReactiveCocoa.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface DownloadVideoPageCollectionViewCell ()
 {

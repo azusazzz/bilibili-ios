@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27FED8C46246A2CF6B00DC88 /* libPods-bilibili.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C045F2B7B1E5615D147D62A0 /* libPods-bilibili.a */; };
+		0F22765A88610BAE83EA55EF /* Pods_bilibili.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC26546051270CFEEB0EC859 /* Pods_bilibili.framework */; };
 		6EA809261DEC3D6F005A121F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA809251DEC3D6F005A121F /* main.m */; };
 		6EA809291DEC3D6F005A121F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA809281DEC3D6F005A121F /* AppDelegate.m */; };
 		6EA809311DEC3D6F005A121F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EA809301DEC3D6F005A121F /* Assets.xcassets */; };
@@ -286,16 +286,10 @@
 		6EA80D881DEC3EDF005A121F /* VideoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C1C1DEC3EDE005A121F /* VideoHeaderView.m */; };
 		6EA80D891DEC3EDF005A121F /* VideoIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C1E1DEC3EDE005A121F /* VideoIntroView.m */; };
 		6EA80D8A1DEC3EDF005A121F /* VideoTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C201DEC3EDE005A121F /* VideoTabBar.m */; };
-		6EA80D8C1DEC3EDF005A121F /* JCCollectionViewTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C251DEC3EDE005A121F /* JCCollectionViewTagFlowLayout.m */; };
-		6EA80D8D1DEC3EDF005A121F /* JCTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C271DEC3EDE005A121F /* JCTagCell.m */; };
-		6EA80D8E1DEC3EDF005A121F /* JCTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C291DEC3EDE005A121F /* JCTagListView.m */; };
 		6EA80D8F1DEC3EDF005A121F /* GLIRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C2C1DEC3EDE005A121F /* GLIRViewController.m */; };
 		6EA80D901DEC3EDF005A121F /* RippleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C2E1DEC3EDE005A121F /* RippleModel.m */; };
 		6EA80D911DEC3EDF005A121F /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6EA80C2F1DEC3EDE005A121F /* Shader.fsh */; };
 		6EA80D921DEC3EDF005A121F /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6EA80C301DEC3EDE005A121F /* Shader.vsh */; };
-		6EA80D931DEC3EDF005A121F /* CATransition+Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C321DEC3EDE005A121F /* CATransition+Closure.swift */; };
-		6EA80D941DEC3EDF005A121F /* SABlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C331DEC3EDE005A121F /* SABlurImageView.swift */; };
-		6EA80D951DEC3EDF005A121F /* UIImage+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA80C341DEC3EDE005A121F /* UIImage+BlurEffect.swift */; };
 		6EA80D971DEC3EDF005A121F /* Init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 6EA80C381DEC3EDE005A121F /* Init.lua */; };
 		6EA80D981DEC3EDF005A121F /* StartInfoModel.lua in Resources */ = {isa = PBXBuildFile; fileRef = 6EA80C3A1DEC3EDE005A121F /* StartInfoModel.lua */; };
 		6EA80D991DEC3EDF005A121F /* StartInfoRequest.lua in Resources */ = {isa = PBXBuildFile; fileRef = 6EA80C3B1DEC3EDE005A121F /* StartInfoRequest.lua */; };
@@ -921,21 +915,12 @@
 		6EA80C1E1DEC3EDE005A121F /* VideoIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoIntroView.m; sourceTree = "<group>"; };
 		6EA80C1F1DEC3EDE005A121F /* VideoTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTabBar.h; sourceTree = "<group>"; };
 		6EA80C201DEC3EDE005A121F /* VideoTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTabBar.m; sourceTree = "<group>"; };
-		6EA80C241DEC3EDE005A121F /* JCCollectionViewTagFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCollectionViewTagFlowLayout.h; sourceTree = "<group>"; };
-		6EA80C251DEC3EDE005A121F /* JCCollectionViewTagFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCollectionViewTagFlowLayout.m; sourceTree = "<group>"; };
-		6EA80C261DEC3EDE005A121F /* JCTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagCell.h; sourceTree = "<group>"; };
-		6EA80C271DEC3EDE005A121F /* JCTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagCell.m; sourceTree = "<group>"; };
-		6EA80C281DEC3EDE005A121F /* JCTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagListView.h; sourceTree = "<group>"; };
-		6EA80C291DEC3EDE005A121F /* JCTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagListView.m; sourceTree = "<group>"; };
 		6EA80C2B1DEC3EDE005A121F /* GLIRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLIRViewController.h; sourceTree = "<group>"; };
 		6EA80C2C1DEC3EDE005A121F /* GLIRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLIRViewController.m; sourceTree = "<group>"; };
 		6EA80C2D1DEC3EDE005A121F /* RippleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleModel.h; sourceTree = "<group>"; };
 		6EA80C2E1DEC3EDE005A121F /* RippleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleModel.m; sourceTree = "<group>"; };
 		6EA80C2F1DEC3EDE005A121F /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		6EA80C301DEC3EDE005A121F /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
-		6EA80C321DEC3EDE005A121F /* CATransition+Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransition+Closure.swift"; sourceTree = "<group>"; };
-		6EA80C331DEC3EDE005A121F /* SABlurImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SABlurImageView.swift; sourceTree = "<group>"; };
-		6EA80C341DEC3EDE005A121F /* UIImage+BlurEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+BlurEffect.swift"; sourceTree = "<group>"; };
 		6EA80C381DEC3EDE005A121F /* Init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Init.lua; sourceTree = "<group>"; };
 		6EA80C3A1DEC3EDE005A121F /* StartInfoModel.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartInfoModel.lua; sourceTree = "<group>"; };
 		6EA80C3B1DEC3EDE005A121F /* StartInfoRequest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartInfoRequest.lua; sourceTree = "<group>"; };
@@ -990,7 +975,7 @@
 		6ED03D631DED2E81001C682F /* wax.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = wax.framework; sourceTree = "<group>"; };
 		75484AC164B510908C307671 /* Pods-bilibili.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili.release.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili/Pods-bilibili.release.xcconfig"; sourceTree = "<group>"; };
 		A179FBF9357E947A83725520 /* Pods-bilibili.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bilibili.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bilibili/Pods-bilibili.debug.xcconfig"; sourceTree = "<group>"; };
-		C045F2B7B1E5615D147D62A0 /* libPods-bilibili.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bilibili.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC26546051270CFEEB0EC859 /* Pods_bilibili.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bilibili.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1000,8 +985,8 @@
 			files = (
 				6ED03D651DED2E81001C682F /* wax.framework in Frameworks */,
 				6EA80DCD1DEC3FAF005A121F /* libsqlite3.0.tbd in Frameworks */,
-				27FED8C46246A2CF6B00DC88 /* libPods-bilibili.a in Frameworks */,
 				6ED03D661DED2E85001C682F /* IJKMediaFramework.framework in Frameworks */,
+				0F22765A88610BAE83EA55EF /* Pods_bilibili.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1012,7 +997,7 @@
 			isa = PBXGroup;
 			children = (
 				6EA80DCC1DEC3FAF005A121F /* libsqlite3.0.tbd */,
-				C045F2B7B1E5615D147D62A0 /* libPods-bilibili.a */,
+				EC26546051270CFEEB0EC859 /* Pods_bilibili.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3165,24 +3150,9 @@
 		6EA80C211DEC3EDE005A121F /* Librarys */ = {
 			isa = PBXGroup;
 			children = (
-				6EA80C231DEC3EDE005A121F /* JCTagListView */,
 				6EA80C2A1DEC3EDE005A121F /* RippleTableViewController */,
-				6EA80C311DEC3EDE005A121F /* SABlurImageView */,
 			);
 			path = Librarys;
-			sourceTree = "<group>";
-		};
-		6EA80C231DEC3EDE005A121F /* JCTagListView */ = {
-			isa = PBXGroup;
-			children = (
-				6EA80C241DEC3EDE005A121F /* JCCollectionViewTagFlowLayout.h */,
-				6EA80C251DEC3EDE005A121F /* JCCollectionViewTagFlowLayout.m */,
-				6EA80C261DEC3EDE005A121F /* JCTagCell.h */,
-				6EA80C271DEC3EDE005A121F /* JCTagCell.m */,
-				6EA80C281DEC3EDE005A121F /* JCTagListView.h */,
-				6EA80C291DEC3EDE005A121F /* JCTagListView.m */,
-			);
-			path = JCTagListView;
 			sourceTree = "<group>";
 		};
 		6EA80C2A1DEC3EDE005A121F /* RippleTableViewController */ = {
@@ -3196,16 +3166,6 @@
 				6EA80C301DEC3EDE005A121F /* Shader.vsh */,
 			);
 			path = RippleTableViewController;
-			sourceTree = "<group>";
-		};
-		6EA80C311DEC3EDE005A121F /* SABlurImageView */ = {
-			isa = PBXGroup;
-			children = (
-				6EA80C321DEC3EDE005A121F /* CATransition+Closure.swift */,
-				6EA80C331DEC3EDE005A121F /* SABlurImageView.swift */,
-				6EA80C341DEC3EDE005A121F /* UIImage+BlurEffect.swift */,
-			);
-			path = SABlurImageView;
 			sourceTree = "<group>";
 		};
 		6EA80C361DEC3EDE005A121F /* Resources */ = {
@@ -3590,7 +3550,6 @@
 				6EA80CD71DEC3EDF005A121F /* BangumiListRequest.m in Sources */,
 				6EA80D211DEC3EDF005A121F /* RegionChildEntity.m in Sources */,
 				6EA80D471DEC3EDF005A121F /* UGameCell.m in Sources */,
-				6EA80D8D1DEC3EDF005A121F /* JCTagCell.m in Sources */,
 				6EA80D761DEC3EDF005A121F /* VideoIntroRelateCollectionViewCell.m in Sources */,
 				6EA80C831DEC3EDF005A121F /* UIViewController+PopGesture.m in Sources */,
 				6EA80D2F1DEC3EDF005A121F /* RegionShowBannerEntity.m in Sources */,
@@ -3716,7 +3675,6 @@
 				6EA80C811DEC3EDF005A121F /* UIViewController+GetViewController.m in Sources */,
 				6EA80D4D1DEC3EDF005A121F /* UserInfoElecEntity.m in Sources */,
 				6EA80D6D1DEC3EDF005A121F /* DanmakuRequest.m in Sources */,
-				6EA80D941DEC3EDF005A121F /* SABlurImageView.swift in Sources */,
 				6EA80CA01DEC3EDF005A121F /* FindModel.m in Sources */,
 				6EA80D141DEC3EDF005A121F /* HistoryModel.m in Sources */,
 				6EA80CB41DEC3EDF005A121F /* ArchiveSummaryCell.m in Sources */,
@@ -3744,7 +3702,6 @@
 				6EA80D5F1DEC3EDF005A121F /* BangumiInfoViewController.m in Sources */,
 				6EA80C851DEC3EDF005A121F /* UIView+Frame.m in Sources */,
 				6EA80C941DEC3EDF005A121F /* Function.m in Sources */,
-				6EA80D951DEC3EDF005A121F /* UIImage+BlurEffect.swift in Sources */,
 				6EA80CA41DEC3EDF005A121F /* GameCell.m in Sources */,
 				6EA80D341DEC3EDF005A121F /* RegionShowAvCollectionViewCell.m in Sources */,
 				6EA80D561DEC3EDF005A121F /* UserInfoElecRequest.m in Sources */,
@@ -3792,7 +3749,6 @@
 				6EA809261DEC3D6F005A121F /* main.m in Sources */,
 				6EA80D351DEC3EDF005A121F /* RegionShowBannerCollectionViewCell.m in Sources */,
 				6EA80CBA1DEC3EDF005A121F /* ArchiveSummaryEntity.m in Sources */,
-				6EA80D8C1DEC3EDF005A121F /* JCCollectionViewTagFlowLayout.m in Sources */,
 				6EA80D801DEC3EDF005A121F /* VideoPageInfoEntity.m in Sources */,
 				6EA80CA71DEC3EDF005A121F /* GameListEntity.m in Sources */,
 				6EA80CBE1DEC3EDF005A121F /* UPUserSummaryEntity.m in Sources */,
@@ -3811,7 +3767,6 @@
 				6EA80D111DEC3EDF005A121F /* DownloadVideoTableView.m in Sources */,
 				6EA80C9C1DEC3EDF005A121F /* FindCell.m in Sources */,
 				6EA80D3E1DEC3EDF005A121F /* StartInfoRequest.m in Sources */,
-				6EA80D8E1DEC3EDF005A121F /* JCTagListView.m in Sources */,
 				6EA80D0B1DEC3EDF005A121F /* DownloadOperation.m in Sources */,
 				6EA80CCC1DEC3EDF005A121F /* VideoRankModel.m in Sources */,
 				6EA80D1C1DEC3EDF005A121F /* MineCollectionView.m in Sources */,
@@ -3837,7 +3792,6 @@
 				6EA80CA61DEC3EDF005A121F /* GameEntity.m in Sources */,
 				6EA80D851DEC3EDF005A121F /* VideoCommentRequest.m in Sources */,
 				6EA80D531DEC3EDF005A121F /* UserInfoBangumiRequest.m in Sources */,
-				6EA80D931DEC3EDF005A121F /* CATransition+Closure.swift in Sources */,
 				6EA80D871DEC3EDF005A121F /* VideoCommentView.m in Sources */,
 				6EA80D001DEC3EDF005A121F /* RecommendWebCollectionViewCell.m in Sources */,
 				6EA80CDD1DEC3EDF005A121F /* BangumiEntranceCollectionViewCell.m in Sources */,

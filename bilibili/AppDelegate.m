@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <SDImageCache.h>
+#import <SDWebImage/SDImageCache.h>
 
 #import "ProjectUpdate.h"
 #import <wax/wax.h>

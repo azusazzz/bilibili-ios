@@ -9,8 +9,12 @@
 #ifndef PrefixHeader_h
 #define PrefixHeader_h
 
-#import <MJExtension.h>
-#import <Masonry.h>
+//#import <MJExtension.h>
+//#import <Masonry.h>
+
+#import <MJExtension/MJExtension.h>
+#import <Masonry/Masonry.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 #import "Macro.h"
@@ -19,7 +23,7 @@
 
 #import "UIView+Frame.h"
 
-#import "bilibili-Swift.h"
+//#import "bilibili-Swift.h"
 
 #import "Function.h"
 

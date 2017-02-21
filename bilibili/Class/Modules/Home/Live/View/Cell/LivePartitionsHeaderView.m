@@ -7,7 +7,6 @@
 //
 
 #import "LivePartitionsHeaderView.h"
-#import <UIImageView+WebCache.h>
 #import "ValueConversion.h"
 
 

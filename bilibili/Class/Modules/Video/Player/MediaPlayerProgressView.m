@@ -23,17 +23,6 @@
         UIImage *thumb = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        
-//        UIImage *image = [UIImage imageNamed:@"hd_icmpv_thumb_light"];
-//        NSLog(@"%lf", image.scale);
-//        
-//        UIGraphicsBeginImageContext(CGSizeMake(10, 10));
-//        [image drawInRect:CGRectMake(0, 0, 10, 10)];
-//        image = UIGraphicsGetImageFromCurrentImageContext();
-//        UIGraphicsEndImageContext();
-//        
-//        NSLog(@"%lf", image.scale);
-        
         [self setThumbImage:thumb forState:UIControlStateNormal];
     }
     return self;

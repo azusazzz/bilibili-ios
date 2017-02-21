@@ -19,7 +19,7 @@
 #import "UIAlertView+Block.h"
 
 
-#import <ReactiveCocoa.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 
 @interface HistoryViewController ()

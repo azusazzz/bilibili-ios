@@ -13,7 +13,7 @@
 #import "UIViewController+HeaderView.h"
 #import "UINavigationBar+BackgroundColor.h"
 #import "UIViewController+PopGesture.h"
-#import <ReactiveCocoa.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 
 #import "VideoViewController.h" // 视频信息

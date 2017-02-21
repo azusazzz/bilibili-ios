@@ -8,7 +8,7 @@
 
 #import "UPUserSummaryCell.h"
 #import "Macro.h"
-#import <UIImageView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation UPUserSummaryCell{
     UIImageView* coverImageView;

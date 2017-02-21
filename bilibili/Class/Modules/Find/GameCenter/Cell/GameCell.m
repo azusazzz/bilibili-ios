@@ -7,7 +7,6 @@
 //
 
 #import "GameCell.h"
-#import <UIImageView+WebCache.h>
 #import "Macro.h"
 
 @implementation GameCell{

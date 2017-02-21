@@ -7,7 +7,6 @@
 //
 
 #import "RecommendLiveCollectionViewCell.h"
-#import <UIImageView+WebCache.h>
 
 @interface RecommendLiveCollectionViewCell ()
 {

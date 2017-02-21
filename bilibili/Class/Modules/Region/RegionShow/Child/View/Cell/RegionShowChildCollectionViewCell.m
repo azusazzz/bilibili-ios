@@ -7,7 +7,7 @@
 //
 
 #import "RegionShowChildCollectionViewCell.h"
-#import <UIImageView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation RegionShowChildCollectionViewCell
 {

@@ -8,7 +8,6 @@
 
 #import "MovieSummaryCell.h"
 #import "Macro.h"
-#import <UIImageView+WebCache.h>
 
 @implementation MovieSummaryCell{
     UIImageView* coverImageView;//封面

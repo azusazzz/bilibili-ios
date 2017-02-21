@@ -7,7 +7,6 @@
 //
 
 #import "VideoIntroOwnerCollectionViewCell.h"
-#import <UIImageView+WebCache.h>
 
 @interface VideoIntroOwnerCollectionViewCell ()
 {

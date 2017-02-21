@@ -9,8 +9,7 @@
 #import "ActivityCell.h"
 
 #import "Macro.h"
-#import <Masonry.h>
-#import <UIImageView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation ActivityCell{
     UIImageView* coverImageView;

@@ -7,7 +7,6 @@
 //
 
 #import "RecommendFooterView.h"
-#import <UIImageView+WebCache.h>
 #import "BannerView.h"
 
 @interface RecommendFooterView ()

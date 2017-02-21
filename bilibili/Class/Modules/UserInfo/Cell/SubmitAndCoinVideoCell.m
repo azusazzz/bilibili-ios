@@ -7,7 +7,6 @@
 //
 
 #import "SubmitAndCoinVideoCell.h"
-#import <UIImageView+WebCache.h>
 
 @implementation SubmitAndCoinVideoCell{
 

@@ -7,7 +7,6 @@
 //
 
 #import "DownloadVideoTableViewCell.h"
-#import <UIImageView+WebCache.h>
 
 @implementation DownloadVideoTableViewCell
 {

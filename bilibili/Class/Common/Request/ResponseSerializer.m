@@ -7,7 +7,7 @@
 //
 
 #import "ResponseSerializer.h"
-#import <XMLDictionary.h>
+#import <XMLDictionary/XMLDictionary.h>
 
 @implementation ResponseSerializer
 

@@ -8,7 +8,6 @@
 
 #import "RankingVideoCell.h"
 #import "Macro.h"
-#import <UIImageView+WebCache.h>
 #import "UIView+CornerRadius.h"
 
 @implementation RankingVideoCell{

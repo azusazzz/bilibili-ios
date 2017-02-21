@@ -6,7 +6,7 @@
 //  Copyright © 2016年 云之彼端. All rights reserved.
 //
 
-#import <SWTableViewCell.h>
+#import <SWTableViewCell/SWTableViewCell.h>
 #import "HistoryEntity.h"
 
 @interface HistoryTableViewCell : SWTableViewCell

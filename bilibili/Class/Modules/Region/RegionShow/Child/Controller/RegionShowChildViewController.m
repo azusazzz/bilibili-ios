@@ -9,7 +9,7 @@
 #import "RegionShowChildViewController.h"
 #import "RegionShowChildModel.h"
 #import "RegionShowChildCollectionView.h"
-#import <ReactiveCocoa.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 #import "VideoViewController.h" // 视频信息
 

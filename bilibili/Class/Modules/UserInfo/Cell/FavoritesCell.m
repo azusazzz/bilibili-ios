@@ -7,7 +7,7 @@
 //
 
 #import "FavoritesCell.h"
-#import <UIImageView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "GradientView.h"
 
 @implementation FavoritesCell{

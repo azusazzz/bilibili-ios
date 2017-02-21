@@ -11,7 +11,7 @@
 #import "VideoRequest.h"
 #import "VideoCommentRequest.h"
 
-#import <AFNetworking.h>
+//#import <AFNetworking.h>
 //#import "VideoURLProtocol.h"
 #import "VideoURL.h"
 

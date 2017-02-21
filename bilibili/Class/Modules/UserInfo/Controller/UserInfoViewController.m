@@ -9,7 +9,6 @@
 #import "UserInfoViewController.h"
 
 #import "Macro.h"
-#import <Masonry.h>
 #import "UIViewController+PopGesture.h"
 #import "UIViewController+HeaderView.h"
 #import "UIView+Frame.h"

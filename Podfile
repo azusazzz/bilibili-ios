@@ -1,6 +1,6 @@
 inhibit_all_warnings!
 platform :ios, '8.0'
-
+use_frameworks!
 
 target 'bilibili' do
 
@@ -8,17 +8,18 @@ target 'bilibili' do
     
     pod 'SDWebImage'
     
-    pod 'MBProgressHUD'
-    
     pod 'AFNetworking'
     
-    pod 'MJExtension'
-
     pod 'ReactiveCocoa', '~> 2.5'
     
     pod 'XMLDictionary'
+    pod 'MJExtension'
     
+    
+    pod 'MBProgressHUD'
     pod 'SWTableViewCell'
+    pod 'SABlurImageView'
+    pod 'JCTagListView'
 
 end
 

@@ -8,7 +8,7 @@
 
 #import "UserInfoCardView.h"
 #import "UIView+Frame.h"
-#import <UIImageView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @implementation UserInfoCardView{

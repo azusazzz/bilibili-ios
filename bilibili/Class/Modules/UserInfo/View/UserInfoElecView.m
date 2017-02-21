@@ -7,7 +7,6 @@
 //
 
 #import "UserInfoElecView.h"
-#import <UIImageView+WebCache.h>
 
 @implementation UserInfoElecView{
     

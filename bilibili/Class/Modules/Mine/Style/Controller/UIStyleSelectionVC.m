@@ -9,7 +9,6 @@
 #import "UIStyleSelectionVC.h"
 #import "UIStyleCell.h"
 
-#import <Masonry.h>
 @interface UIStyleSelectionVC()<UITableViewDelegate,UITableViewDataSource>
 @end
 

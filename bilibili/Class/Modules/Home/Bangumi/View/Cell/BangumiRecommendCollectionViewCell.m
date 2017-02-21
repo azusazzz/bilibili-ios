@@ -7,7 +7,6 @@
 //
 
 #import "BangumiRecommendCollectionViewCell.h"
-#import <UIImageView+WebCache.h>
 
 @interface BangumiRecommendCollectionViewCell ()
 {

@@ -7,8 +7,8 @@
 //
 
 #import "BangumiInfoHeaderView.h"
-#import <UIImageView+WebCache.h>
 #import "ValueConversion.h"
+#import <SABlurImageView/SABlurImageView-Swift.h>
 
 @implementation BangumiInfoHeaderView
 {
@@ -59,6 +59,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = ColorWhite(247);
+        
+        
         
         backgroundView = [[SABlurImageView alloc] init];
         backgroundView.contentMode = UIViewContentModeScaleAspectFill;

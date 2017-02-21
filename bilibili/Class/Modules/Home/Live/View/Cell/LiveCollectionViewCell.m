@@ -7,7 +7,6 @@
 //
 
 #import "LiveCollectionViewCell.h"
-#import <UIImageView+WebCache.h>
 
 @interface LiveCollectionViewCell ()
 {

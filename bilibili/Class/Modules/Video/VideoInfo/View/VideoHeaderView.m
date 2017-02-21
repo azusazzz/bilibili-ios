@@ -7,8 +7,8 @@
 //
 
 #import "VideoHeaderView.h"
-#import <UIImageView+WebCache.h>
-#import <ReactiveCocoa.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <SABlurImageView/SABlurImageView-umbrella.h>
 
 @interface VideoHeaderView ()
 {
@@ -26,10 +26,6 @@
     if (self = [super init]) {
         self.backgroundColor = [UIColor whiteColor];
         
-        
-        
-        
-        
         _playButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_playButton setImage:[UIImage imageNamed:@"player_play"] forState:UIControlStateNormal];
         [self addSubview:_playButton];
@@ -40,19 +36,13 @@
             make.height.offset = 50;
         }];
         
-//        __weak typeof(self) weakself = self;
-//        [RACObserve(self, transform) subscribeNext:^(id x) {
-////            CGFloat targetX = weakself.width / 2 - 55;
-////            CGFloat targetOffsetX = targetX - _playButton.x;
-//            
-////            _playButton.transform = CGAffineTransformMakeTranslation(<#CGFloat tx#>, <#CGFloat ty#>)
-//        }];
-        
-        
     }
     return self;
 }
 
+- (void)dealloc {
+    
+}
 
 
 - (void)playWithURL:(NSURL *)url {
@@ -80,12 +70,6 @@
     __weak typeof(self) weakself = self;
     [_backgroundView sd_setImageWithURL:[NSURL URLWithString:videoInfo.pic] placeholderImage:NULL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [weakself.backgroundView configrationForBlurAnimation:100];
-        
-//        [UIView animateWithDuration:1 animations:^{
-//            [weakself.backgroundView blur:0.6];
-//        }];
-        
-//        [weakself.backgroundView performSelector:@selector(blur:) withObject:@(0.6) afterDelay:1];
     }];
 }
 

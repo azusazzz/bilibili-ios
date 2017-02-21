@@ -8,7 +8,6 @@
 
 #import "SeasonSummaryCell.h"
 #import "Macro.h"
-#import <UIImageView+WebCache.h>
 
 @implementation SeasonSummaryCell{
     UIImageView* coverImageView;//封面

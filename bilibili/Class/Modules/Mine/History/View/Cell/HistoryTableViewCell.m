@@ -7,7 +7,6 @@
 //
 
 #import "HistoryTableViewCell.h"
-#import <UIImageView+WebCache.h>
 
 @implementation HistoryTableViewCell
 {

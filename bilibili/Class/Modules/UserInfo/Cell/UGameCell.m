@@ -7,7 +7,7 @@
 //
 
 #import "UGameCell.h"
-#import <UIImageView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation UGameCell{
     UIImageView* imageView;

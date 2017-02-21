@@ -8,7 +8,6 @@
 
 #import "SpecialSummaryCell.h"
 #import "Macro.h"
-#import <UIImageView+WebCache.h>
 
 @implementation SpecialSummaryCell{
     UIImageView* coverImageView;

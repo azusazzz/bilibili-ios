@@ -8,7 +8,6 @@
 
 #import "ArchiveSummaryCell.h"
 #import "Macro.h"
-#import <UIImageView+WebCache.h>
 
 @implementation ArchiveSummaryCell{
     UIImageView* coverImageView;//封面

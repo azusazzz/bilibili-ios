@@ -7,7 +7,6 @@
 //
 
 #import "UBangumiCell.h"
-#import <UIImageView+WebCache.h>
 #import "GradientView.h"
 
 @implementation UBangumiCell{

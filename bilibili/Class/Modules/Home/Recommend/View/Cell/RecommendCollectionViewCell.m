@@ -7,7 +7,7 @@
 //
 
 #import "RecommendCollectionViewCell.h"
-#import <UIImageView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ___HomeRecommendGradientView : UIView
 

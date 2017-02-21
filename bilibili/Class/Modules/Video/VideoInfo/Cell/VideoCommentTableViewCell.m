@@ -7,7 +7,7 @@
 //
 
 #import "VideoCommentTableViewCell.h"
-#import <UIImageView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @interface VideoCommentReplyView : UIView

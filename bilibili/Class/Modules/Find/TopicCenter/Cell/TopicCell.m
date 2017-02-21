@@ -8,8 +8,6 @@
 
 #import "TopicCell.h"
 #import "Macro.h"
-#import <Masonry.h>
-#import <UIImageView+WebCache.h>
 
 @implementation TopicCell{
     UIImageView* coverImageView;
