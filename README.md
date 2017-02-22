@@ -8,41 +8,57 @@ $ ./init.sh
 ```
 
 
-###### 截图
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/0_%E5%90%AF%E5%8A%A8%E9%A1%B5.jpg" width=250 />
+#### 截图
+<img src="http://i1.piimg.com/567571/c59f52d6c34ee446.jpg" width=250 />
 
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/1_%E9%A6%96%E9%A1%B5-%E6%8E%A8%E8%8D%90.png" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/1_%E9%A6%96%E9%A1%B5_%E6%8E%A8%E8%8D%901.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/1_%E9%A6%96%E9%A1%B5-%E7%95%AA%E5%89%A7.png" width=250 />
+*首页*
 
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/8_%E7%BD%91%E9%A1%B5.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/8_%E7%BD%91%E9%A1%B5_%E7%95%AA%E5%89%A7.jpg" width=250 />
+<img src="http://p1.bpimg.com/567571/b9ec480effa85c76.jpg" width=250 />
+<img src="http://i1.piimg.com/567571/9003e051e183898b.jpg" width=250 />
+<img src="http://i1.piimg.com/567571/13f38e6d1557940d.jpg" width=250 />
+<img src="http://i1.piimg.com/567571/9c64589051453bfa.jpg" width=250 />
+<img src="http://p1.bqimg.com/567571/918d80562cf268f3.jpg" width=250 />
 
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/2_%E5%88%86%E5%8C%BA.png" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/2_分区展示.jpg" width=250 />
+*分区*
 
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_发现.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_搜索.png" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_话题中心.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_活动中心.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_游戏中心.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/4_排行榜.jpg" width=250 />
+<img src="http://p1.bqimg.com/567571/8d5a6194bbd780a5.png" width=250 />
+<img src="http://p1.bqimg.com/567571/b9cbc40ab05edf6e.jpg" width=250 />
 
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/5_%E6%88%91%E7%9A%84.png" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/5_%E4%B8%8B%E8%BD%BD.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/5_%E4%B8%8B%E8%BD%BD%E4%BF%A1%E6%81%AF1.PNG" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/5_%E4%B8%8B%E8%BD%BD%E4%BF%A1%E6%81%AF2.PNG" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/5_%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95.png" width=250 />
+*发现*
 
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/6_%E8%A7%86%E9%A2%91%E4%BF%A1%E6%81%AF1.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/6_%E8%A7%86%E9%A2%91%E4%BF%A1%E6%81%AF3.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/6_%E8%A7%86%E9%A2%91%E4%BF%A1%E6%81%AF_%E4%B8%8B%E8%BD%BD.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/6_%E8%A7%86%E9%A2%91%E4%BF%A1%E6%81%AF-%E8%AF%84%E8%AE%BA.png" width=250 />
+<img src="http://p1.bqimg.com/567571/0a50bdc0e420585b.jpg" width=250 />
+<img src="http://p1.bqimg.com/567571/5ee2ff64e4a0274d.jpg" width=250 />
+<img src="http://i1.piimg.com/567571/c9acf0693930f1a4.png" width=250 />
+<img src="http://p1.bqimg.com/567571/4bb789902221d490.jpg" width=250 />
 
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/7_%E6%99%AE%E9%80%9A%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE.png" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/7_%E6%99%AE%E9%80%9A%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE-%E5%BC%B9%E5%B9%95.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/7_%E7%9B%B4%E6%92%AD%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE.jpg" width=250 />
+*我的*
 
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/9_用户信息.jpg" width=250 />
-<img src="https://github.com/Learning-Software-Development/bilibili-fake/blob/master/images/9_用户信息2.jpg" width=250 />
+<img src="http://p1.bqimg.com/567571/b69bc18e4b8fe91f.png" width=250 />
+<img src="http://p1.bpimg.com/567571/eb08428ffbbb2be6.jpg" width=250 />
+<img src="http://p1.bpimg.com/567571/6f05efa25f377f97.png" width=250 />
+<img src="http://p1.bqimg.com/567571/9b8836d56ea7179a.png" width=250 />
+<img src="http://p1.bqimg.com/567571/0e6e3c2d29469a19.jpg" width=250 />
+
+*视频信息*
+
+<img src="http://i1.piimg.com/567571/25d4126556e5cbd9.jpg" width=250 />
+<img src="http://p1.bqimg.com/567571/2239bde38e89d03e.jpg" width=250 />
+<img src="http://p1.bqimg.com/567571/05fe53c4e3e1033d.jpg" width=250 />
+<img src="http://p1.bqimg.com/567571/0bad92c54312b9e2.jpg" width=250 />
+<img src="http://p1.bpimg.com/567571/c15845faaa498549.jpg" width=250 />
+
+*视频播放*
+
+<img src="http://p1.bqimg.com/567571/4e6ee707413767f4.jpg" width=500 />
+<img src="http://i1.piimg.com/567571/272c1960dcee3c97.jpg" width=500 />
+<img src="http://p1.bpimg.com/567571/5b4f573d6bf2bf22.jpg" width=500 />
+
+*用户信息*
+
+<img src="http://i1.piimg.com/567571/f93c61d0d6ba3656.jpg" width=250 />
+<img src="http://p1.bqimg.com/567571/b58e03161294648f.jpg" width=250 />
+
+*番剧详情*
+
+<img src="http://i1.piimg.com/567571/ddecb2da82f76413.jpg" width=250 />
 
