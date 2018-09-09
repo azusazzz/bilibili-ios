@@ -8,57 +8,21 @@ $ ./init.sh
 ```
 
 
-#### 截图
-<img src="http://i1.piimg.com/567571/c59f52d6c34ee446.jpg" width=250 />
+##### 截图
 
-*首页*
+![启动页.png](http://upload-images.jianshu.io/upload_images/1424129-46eb301023881f5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | ![首页-直播.PNG](http://upload-images.jianshu.io/upload_images/1424129-3c29d9915e018188.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | ![首页-推荐.png](http://upload-images.jianshu.io/upload_images/1424129-c344581d47422ed4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/250)
+-:|-:|:-:
+![首页-番剧.png](http://upload-images.jianshu.io/upload_images/1424129-71198dfd2505e8e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | ![网页.PNG](http://upload-images.jianshu.io/upload_images/1424129-f9dfb2c5ff1e60d5.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | ![网页-番剧.PNG](http://upload-images.jianshu.io/upload_images/1424129-a162a572512c63c6.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/250)
+![分区.png](http://upload-images.jianshu.io/upload_images/1424129-6589aff44235eefe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | ![发现.PNG](http://upload-images.jianshu.io/upload_images/1424129-f0d23db7a72044f9.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | ![排行榜.PNG](http://upload-images.jianshu.io/upload_images/1424129-ddf8291fcaf4b954.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/250)
+![搜索.png](http://upload-images.jianshu.io/upload_images/1424129-3d1d2b84880fe3a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | ![我的.png](http://upload-images.jianshu.io/upload_images/1424129-68d6b1fce9a51c80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | ![我的-下载列表.PNG](http://upload-images.jianshu.io/upload_images/1424129-a57caa397d795e1e.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/250)
+![我的-下载列表-详情1.PNG](http://upload-images.jianshu.io/upload_images/1424129-f563533913771e6f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | ![我的-下载列表-详情2.PNG](http://upload-images.jianshu.io/upload_images/1424129-77c8e1b6baa89aef.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | ![历史记录.png](http://upload-images.jianshu.io/upload_images/1424129-a0e721868fceddc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/250)
+![视频信息1.PNG](http://upload-images.jianshu.io/upload_images/1424129-07d42582d0a69849.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | ![视频信息3.PNG](http://upload-images.jianshu.io/upload_images/1424129-1efb311cc5db53a2.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | ![视频信息-评论.png](http://upload-images.jianshu.io/upload_images/1424129-cca6d1a61abfc639.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/250)
+![视频信息-下载.PNG](http://upload-images.jianshu.io/upload_images/1424129-79d849128573f402.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/250) | |
 
-<img src="http://p1.bpimg.com/567571/b9ec480effa85c76.jpg" width=250 />
-<img src="http://i1.piimg.com/567571/9003e051e183898b.jpg" width=250 />
-<img src="http://i1.piimg.com/567571/13f38e6d1557940d.jpg" width=250 />
-<img src="http://i1.piimg.com/567571/9c64589051453bfa.jpg" width=250 />
-<img src="http://p1.bqimg.com/567571/918d80562cf268f3.jpg" width=250 />
 
-*分区*
 
-<img src="http://p1.bqimg.com/567571/8d5a6194bbd780a5.png" width=250 />
-<img src="http://p1.bqimg.com/567571/b9cbc40ab05edf6e.jpg" width=250 />
+![普通视频播放.png](http://upload-images.jianshu.io/upload_images/1424129-b84768ffbdd81f25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500) 
 
-*发现*
+![普通视频播放-弹幕.jpg](http://upload-images.jianshu.io/upload_images/1424129-a20d1a5b3919113b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/500)
 
-<img src="http://p1.bqimg.com/567571/0a50bdc0e420585b.jpg" width=250 />
-<img src="http://p1.bqimg.com/567571/5ee2ff64e4a0274d.jpg" width=250 />
-<img src="http://i1.piimg.com/567571/c9acf0693930f1a4.png" width=250 />
-<img src="http://p1.bqimg.com/567571/4bb789902221d490.jpg" width=250 />
-
-*我的*
-
-<img src="http://p1.bqimg.com/567571/b69bc18e4b8fe91f.png" width=250 />
-<img src="http://p1.bpimg.com/567571/eb08428ffbbb2be6.jpg" width=250 />
-<img src="http://p1.bpimg.com/567571/6f05efa25f377f97.png" width=250 />
-<img src="http://p1.bqimg.com/567571/9b8836d56ea7179a.png" width=250 />
-<img src="http://p1.bqimg.com/567571/0e6e3c2d29469a19.jpg" width=250 />
-
-*视频信息*
-
-<img src="http://i1.piimg.com/567571/25d4126556e5cbd9.jpg" width=250 />
-<img src="http://p1.bqimg.com/567571/2239bde38e89d03e.jpg" width=250 />
-<img src="http://p1.bqimg.com/567571/05fe53c4e3e1033d.jpg" width=250 />
-<img src="http://p1.bqimg.com/567571/0bad92c54312b9e2.jpg" width=250 />
-<img src="http://p1.bpimg.com/567571/c15845faaa498549.jpg" width=250 />
-
-*视频播放*
-
-<img src="http://p1.bqimg.com/567571/4e6ee707413767f4.jpg" width=500 />
-<img src="http://i1.piimg.com/567571/272c1960dcee3c97.jpg" width=500 />
-<img src="http://p1.bpimg.com/567571/5b4f573d6bf2bf22.jpg" width=500 />
-
-*用户信息*
-
-<img src="http://i1.piimg.com/567571/f93c61d0d6ba3656.jpg" width=250 />
-<img src="http://p1.bqimg.com/567571/b58e03161294648f.jpg" width=250 />
-
-*番剧详情*
-
-<img src="http://i1.piimg.com/567571/ddecb2da82f76413.jpg" width=250 />
-
+![直播视频播放.png](http://upload-images.jianshu.io/upload_images/1424129-6bd25067d966e49d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500)
